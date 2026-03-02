@@ -93,6 +93,7 @@ class ActionGroupResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Action rule with action group configuration
+
         :param _builtins.str action_group_id: Action group to trigger if action rule matches
         :param _builtins.str created_at: Creation time of action rule. Date-Time in ISO-8601 format.
         :param _builtins.str created_by: Created by user name.
@@ -234,6 +235,7 @@ class ActionGroupsInformationResponse(dict):
                  custom_webhook_payload: Optional[_builtins.str] = None):
         """
         The Action Groups information, used by the alert rule.
+
         :param Sequence[_builtins.str] group_ids: The Action Group resource IDs.
         :param _builtins.str custom_email_subject: An optional custom email subject to use in email notifications.
         :param _builtins.str custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
@@ -298,6 +300,7 @@ class AddActionGroupsResponse(dict):
                  action_type: _builtins.str):
         """
         Add action groups to alert processing rule.
+
         :param Sequence[_builtins.str] action_group_ids: List of action group Ids to add to alert processing rule.
         :param _builtins.str action_type: Action that should be applied.
                Expected value is 'AddActionGroups'.
@@ -337,6 +340,7 @@ class AlertProcessingRulePropertiesResponse(dict):
                  schedule: Optional['outputs.ScheduleResponse'] = None):
         """
         Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+
         :param Sequence[Union['AddActionGroupsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied.
         :param Sequence[_builtins.str] scopes: Scopes on which alert processing rule will apply.
         :param Sequence['ConditionResponse'] conditions: Conditions on which alerts will be filtered.
@@ -417,6 +421,7 @@ class ConditionResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Condition to trigger an alert processing rule.
+
         :param _builtins.str field: Field for a given condition.
         :param _builtins.str operator: Operator for a given condition.
         :param Sequence[_builtins.str] values: List of values to match for a given condition.
@@ -496,6 +501,7 @@ class ConditionsResponse(dict):
                  target_resource_type: Optional['outputs.ConditionResponse'] = None):
         """
         Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+
         :param 'ConditionResponse' alert_context: filter alerts by alert context (payload)
         :param 'ConditionResponse' alert_rule_id: filter alerts by alert rule id
         :param 'ConditionResponse' alert_rule_name: filter alerts by alert rule name
@@ -619,6 +625,7 @@ class DailyRecurrenceResponse(dict):
                  start_time: _builtins.str):
         """
         Daily recurrence object.
+
         :param _builtins.str end_time: End time for recurrence.
         :param _builtins.str recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Daily'.
@@ -686,6 +693,7 @@ class DetectorParameterDefinitionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The detector parameter definition.
+
         :param _builtins.str description: The detector parameter description.
         :param _builtins.str display_name: The detector parameter display name.
         :param _builtins.bool is_mandatory: A value indicating whether this detector parameter is mandatory.
@@ -783,6 +791,7 @@ class DetectorResponse(dict):
                  parameters: Optional[Mapping[str, Any]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
+
         :param _builtins.str description: The Smart Detector description.
         :param _builtins.str id: The detector id.
         :param Sequence[_builtins.str] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
@@ -907,6 +916,7 @@ class DiagnosticsResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Action rule with diagnostics configuration
+
         :param _builtins.str created_at: Creation time of action rule. Date-Time in ISO-8601 format.
         :param _builtins.str created_by: Created by user name.
         :param _builtins.str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
@@ -1035,6 +1045,7 @@ class InvestigationExecutionResponse(dict):
                  run_state: _builtins.str):
         """
         Details about the execution of the investigation
+
         :param _builtins.str completed_at: The time at which the investigation execution completed (in UTC)
         :param _builtins.str run_state: The state of the investigation execution
         """
@@ -1089,6 +1100,7 @@ class InvestigationMetadataResponse(dict):
                  run_parameters: 'outputs.RunParametersResponse'):
         """
         Properties of the current investigation
+
         :param _builtins.str created_at: The creation time of the investigation (in UTC)
         :param 'InvestigationExecutionResponse' execution: The execution details of the investigation
         :param _builtins.str id: The unique identifier of the investigation
@@ -1143,6 +1155,7 @@ class InvestigationScopeResponse(dict):
                  relevance: Optional[_builtins.str] = None):
         """
         A single scope of the investigation
+
         :param _builtins.str id: The ID of the scope of the investigation - either an Azure alert ID or an Azure resource ID
         :param 'OriginResponse' origin: The origin of the scope
         :param _builtins.str relevance: The relevance of the scope
@@ -1213,6 +1226,7 @@ class IssuePropertiesResponse(dict):
                  title: _builtins.str):
         """
         The issue properties
+
         :param _builtins.str impact_time: The issue impact time (in UTC)
         :param Sequence['InvestigationMetadataResponse'] investigations: The list of investigations in the issue
         :param _builtins.int investigations_count: The number of investigations in the issue
@@ -1321,6 +1335,7 @@ class MonthlyRecurrenceResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Monthly recurrence object.
+
         :param Sequence[_builtins.int] days_of_month: Specifies the values for monthly recurrence pattern.
         :param _builtins.str recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Monthly'.
@@ -1397,6 +1412,7 @@ class OriginResponse(dict):
                  added_by_type: _builtins.str):
         """
         Details about the origin of the entity - the source that added it to the issue
+
         :param _builtins.str added_by: The ID of the origin - for example, in case of 'Manual', the object ID of the identity, and in case of 'Automatic', the name of the automatic system
         :param _builtins.str added_by_type: The source of the origin - Manual or Automatic
         """
@@ -1449,6 +1465,7 @@ class PrometheusRuleGroupActionResponse(dict):
                  action_properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         An alert action. Only relevant for alerts.
+
         :param _builtins.str action_group_id: The resource id of the action group to use.
         :param Mapping[str, _builtins.str] action_properties: The properties of an action group object.
         """
@@ -1503,6 +1520,7 @@ class PrometheusRuleResolveConfigurationResponse(dict):
                  time_to_resolve: Optional[_builtins.str] = None):
         """
         Specifies the Prometheus alert rule configuration.
+
         :param _builtins.bool auto_resolved: Enable alert auto-resolution.
         :param _builtins.str time_to_resolve: Alert auto-resolution timeout.
         """
@@ -1565,6 +1583,7 @@ class PrometheusRuleResponse(dict):
                  severity: Optional[_builtins.int] = None):
         """
         An Azure Prometheus alerting or recording rule.
+
         :param _builtins.str expression: The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
         :param Sequence['PrometheusRuleGroupActionResponse'] actions: Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param _builtins.str alert: Alert rule name.
@@ -1690,6 +1709,7 @@ class RelatedAlertResponse(dict):
                  relevance: _builtins.str):
         """
         Properties of an alert which is related to the issue
+
         :param _builtins.str added_at: The time this relation was added to the issue (in UTC)
         :param _builtins.str id: The alert ID
         :param _builtins.str last_modified_at: The last update time of this relation (in UTC)
@@ -1756,6 +1776,7 @@ class RelatedResourceResponse(dict):
                  relevance: _builtins.str):
         """
         Properties of a resource which is related to the issue
+
         :param _builtins.str added_at: The time this relation was added to the issue (in UTC)
         :param _builtins.str id: The resource ID
         :param _builtins.str last_modified_at: The last update time of this relation (in UTC)
@@ -1835,6 +1856,7 @@ class RemoveAllActionGroupsResponse(dict):
                  action_type: _builtins.str):
         """
         Indicates if all action groups should be removed.
+
         :param _builtins.str action_type: Action that should be applied.
                Expected value is 'RemoveAllActionGroups'.
         """
@@ -1878,6 +1900,7 @@ class RunParametersResponse(dict):
                  resources: Sequence['outputs.InvestigationScopeResponse']):
         """
         The parameters used to run the investigation
+
         :param Sequence['InvestigationScopeResponse'] alerts: The alerts used to run the investigation
         :param _builtins.str impact_time: The impact time to investigate (in UTC)
         :param Sequence['InvestigationScopeResponse'] resources: The resources used to run the investigation
@@ -1944,6 +1967,7 @@ class ScheduleResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         Scheduling configuration for a given alert processing rule.
+
         :param _builtins.str effective_from: Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
         :param _builtins.str effective_until: Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
         :param Sequence[Union['DailyRecurrenceResponse', 'MonthlyRecurrenceResponse', 'WeeklyRecurrenceResponse']] recurrences: List of recurrences.
@@ -2018,6 +2042,7 @@ class ScopeResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+
         :param _builtins.str scope_type: type of target scope
         :param Sequence[_builtins.str] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
@@ -2070,6 +2095,7 @@ class SuppressionConfigResponse(dict):
                  schedule: Optional['outputs.SuppressionScheduleResponse'] = None):
         """
         Suppression logic for a given action rule
+
         :param _builtins.str recurrence_type: Specifies when the suppression should be applied
         :param 'SuppressionScheduleResponse' schedule: suppression schedule configuration
         """
@@ -2137,6 +2163,7 @@ class SuppressionResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Action rule with suppression configuration
+
         :param _builtins.str created_at: Creation time of action rule. Date-Time in ISO-8601 format.
         :param _builtins.str created_by: Created by user name.
         :param _builtins.str last_modified_at: Last updated time of action rule. Date-Time in ISO-8601 format.
@@ -2284,6 +2311,7 @@ class SuppressionScheduleResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Schedule for a given suppression configuration.
+
         :param _builtins.str end_date: End date for suppression
         :param _builtins.str end_time: End date for suppression
         :param Sequence[_builtins.int] recurrence_values: Specifies the values for recurrence pattern
@@ -2383,6 +2411,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2461,6 +2490,7 @@ class ThrottlingInformationResponse(dict):
                  duration: Optional[_builtins.str] = None):
         """
         Optional throttling information for the alert rule.
+
         :param _builtins.str duration: The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
         if duration is not None:
@@ -2510,6 +2540,7 @@ class WeeklyRecurrenceResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Weekly recurrence object.
+
         :param Sequence[_builtins.str] days_of_week: Specifies the values for weekly recurrence pattern.
         :param _builtins.str recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Weekly'.

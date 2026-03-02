@@ -13,6 +13,71 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update runbook and publish it
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const runbook = new azure_native.automation.Runbook("runbook", {
+ *     automationAccountName: "ContoseAutomationAccount",
+ *     description: "Description of the Runbook",
+ *     location: "East US 2",
+ *     logActivityTrace: 1,
+ *     logProgress: true,
+ *     logVerbose: false,
+ *     name: "Get-AzureVMTutorial",
+ *     publishContentLink: {
+ *         contentHash: {
+ *             algorithm: "SHA256",
+ *             value: "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+ *         },
+ *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+ *     },
+ *     resourceGroupName: "rg",
+ *     runbookName: "Get-AzureVMTutorial",
+ *     runbookType: azure_native.automation.RunbookTypeEnum.PowerShellWorkflow,
+ *     tags: {
+ *         tag01: "value01",
+ *         tag02: "value02",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create runbook as draft
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const runbook = new azure_native.automation.Runbook("runbook", {
+ *     automationAccountName: "ContoseAutomationAccount",
+ *     description: "Description of the Runbook",
+ *     draft: {},
+ *     location: "East US 2",
+ *     logProgress: false,
+ *     logVerbose: false,
+ *     name: "Get-AzureVMTutorial",
+ *     resourceGroupName: "rg",
+ *     runbookName: "Get-AzureVMTutorial",
+ *     runbookType: azure_native.automation.RunbookTypeEnum.PowerShellWorkflow,
+ *     tags: {
+ *         tag01: "value01",
+ *         tag02: "value02",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:Runbook Get-AzureVMTutorial /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runbooks/{runbookName} 
+ * ```
  */
 export class Runbook extends pulumi.CustomResource {
     /**

@@ -15,6 +15,69 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateWorkspacePolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspacePolicy = new AzureNative.ApiManagement.WorkspacePolicy("workspacePolicy", new()
+    ///     {
+    ///         Format = AzureNative.ApiManagement.PolicyContentFormat.Xml,
+    ///         PolicyId = "policy",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "&lt;policies&gt; &lt;inbound /&gt; &lt;backend&gt;    &lt;forward-request /&gt;  &lt;/backend&gt;  &lt;outbound /&gt;&lt;/policies&gt;",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateWorkspacePolicyNonXmlEncoded
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspacePolicy = new AzureNative.ApiManagement.WorkspacePolicy("workspacePolicy", new()
+    ///     {
+    ///         Format = AzureNative.ApiManagement.PolicyContentFormat.Rawxml,
+    ///         PolicyId = "policy",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = @"&lt;policies&gt;
+    ///      &lt;inbound&gt;
+    ///      &lt;base /&gt;
+    ///   &lt;set-header name=""newvalue"" exists-action=""override""&gt;
+    ///    &lt;value&gt;""@(context.Request.Headers.FirstOrDefault(h =&gt; h.Ke==""Via""))"" &lt;/value&gt;
+    ///     &lt;/set-header&gt;
+    ///   &lt;/inbound&gt;
+    ///       &lt;/policies&gt;",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:WorkspacePolicy policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspacePolicy")]
     public partial class WorkspacePolicy : global::Pulumi.CustomResource

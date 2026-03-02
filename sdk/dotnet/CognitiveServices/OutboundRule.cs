@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate OutboundRule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var outboundRule = new AzureNative.CognitiveServices.OutboundRule("outboundRule", new()
+    ///     {
+    ///         AccountName = "cognitive-account-name",
+    ///         ManagedNetworkName = "default",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.FqdnOutboundRuleArgs
+    ///         {
+    ///             Category = AzureNative.CognitiveServices.RuleCategory.UserDefined,
+    ///             Destination = "destination_endpoint",
+    ///             Status = AzureNative.CognitiveServices.RuleStatus.Active,
+    ///             Type = "FQDN",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         RuleName = "rule_name_1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:OutboundRule")]
     public partial class OutboundRule : global::Pulumi.CustomResource

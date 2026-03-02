@@ -15,6 +15,62 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAuthorizationServer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorizationServer = new AzureNative.ApiManagement.AuthorizationServer("authorizationServer", new()
+    ///     {
+    ///         AuthorizationEndpoint = "https://www.contoso.com/oauth2/auth",
+    ///         AuthorizationMethods = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.AuthorizationMethod.GET,
+    ///         },
+    ///         Authsid = "newauthServer",
+    ///         BearerTokenSendingMethods = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.BearerTokenSendingMethod.AuthorizationHeader,
+    ///         },
+    ///         ClientId = "1",
+    ///         ClientRegistrationEndpoint = "https://www.contoso.com/apps",
+    ///         ClientSecret = "2",
+    ///         DefaultScope = "read write",
+    ///         Description = "test server",
+    ///         DisplayName = "test2",
+    ///         GrantTypes = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.GrantType.AuthorizationCode,
+    ///             AzureNative.ApiManagement.GrantType.@Implicit,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceOwnerPassword = "pwd",
+    ///         ResourceOwnerUsername = "un",
+    ///         ServiceName = "apimService1",
+    ///         SupportState = true,
+    ///         TokenEndpoint = "https://www.contoso.com/oauth2/token",
+    ///         UseInApiDocumentation = true,
+    ///         UseInTestConsole = false,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:AuthorizationServer newauthServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:AuthorizationServer")]
     public partial class AuthorizationServer : global::Pulumi.CustomResource

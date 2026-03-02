@@ -13,6 +13,40 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a source control
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sourceControl = new azure_native.automation.SourceControl("sourceControl", {
+ *     autoSync: true,
+ *     automationAccountName: "sampleAccount9",
+ *     branch: "master",
+ *     description: "my description",
+ *     folderPath: "/folderOne/folderTwo",
+ *     publishRunbook: true,
+ *     repoUrl: "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+ *     resourceGroupName: "rg",
+ *     securityToken: {
+ *         accessToken: "******",
+ *         tokenType: azure_native.automation.TokenType.PersonalAccessToken,
+ *     },
+ *     sourceControlName: "sampleSourceControl",
+ *     sourceType: azure_native.automation.SourceType.VsoGit,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:SourceControl sampleSourceControl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/sourceControls/{sourceControlName} 
+ * ```
  */
 export class SourceControl extends pulumi.CustomResource {
     /**

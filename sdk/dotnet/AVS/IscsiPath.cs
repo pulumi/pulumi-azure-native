@@ -15,6 +15,36 @@ namespace Pulumi.AzureNative.AVS
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### IscsiPaths_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iscsiPath = new AzureNative.AVS.IscsiPath("iscsiPath", new()
+    ///     {
+    ///         NetworkBlock = "192.168.0.0/24",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:IscsiPath default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/iscsiPaths/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:IscsiPath")]
     public partial class IscsiPath : global::Pulumi.CustomResource

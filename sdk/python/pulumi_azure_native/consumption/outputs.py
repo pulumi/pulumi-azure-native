@@ -38,6 +38,7 @@ class BudgetComparisonExpressionResponse(dict):
                  values: Sequence[_builtins.str]):
         """
         The comparison expression to be used in the budgets.
+
         :param _builtins.str name: The name of the column to use in comparison.
         :param _builtins.str operator: The operator to use for comparison.
         :param Sequence[_builtins.str] values: Array of values to use for comparison
@@ -81,6 +82,7 @@ class BudgetFilterPropertiesResponse(dict):
                  tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
         """
         The Dimensions or Tags to filter a budget by.
+
         :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
@@ -134,6 +136,7 @@ class BudgetFilterResponse(dict):
                  tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None):
         """
         May be used to filter budgets by resource group, resource, or meter.
+
         :param Sequence['BudgetFilterPropertiesResponse'] and_: The logical "AND" expression. Must have at least 2 items.
         :param 'BudgetComparisonExpressionResponse' dimensions: Has comparison expression for a dimension
         :param 'BudgetComparisonExpressionResponse' tags: Has comparison expression for a tag
@@ -199,6 +202,7 @@ class BudgetTimePeriodResponse(dict):
                  end_date: Optional[_builtins.str] = None):
         """
         The start and end date for a budget.
+
         :param _builtins.str start_date: The start date for the budget.
         :param _builtins.str end_date: The end date for the budget. If not provided, we default this to 10 years from the start date.
         """
@@ -233,6 +237,7 @@ class CurrentSpendResponse(dict):
                  unit: _builtins.str):
         """
         The current amount of cost which is being tracked for a budget.
+
         :param _builtins.float amount: The total amount of cost which is being tracked by the budget.
         :param _builtins.str unit: The unit of measure for the budget amount.
         """
@@ -266,6 +271,7 @@ class ForecastSpendResponse(dict):
                  unit: _builtins.str):
         """
         The forecasted cost which is being tracked for a budget.
+
         :param _builtins.float amount: The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
         :param _builtins.str unit: The unit of measure for the budget amount.
         """
@@ -328,6 +334,7 @@ class NotificationResponse(dict):
                  threshold_type: Optional[_builtins.str] = None):
         """
         The notification associated with a budget.
+
         :param Sequence[_builtins.str] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
         :param _builtins.bool enabled: The notification is enabled or not.
         :param _builtins.str operator: The comparison operator.
@@ -458,6 +465,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

@@ -15,6 +15,63 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateWorkspaceSchema
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceGlobalSchema = new AzureNative.ApiManagement.WorkspaceGlobalSchema("workspaceGlobalSchema", new()
+    ///     {
+    ///         Description = "sample schema description",
+    ///         ResourceGroupName = "rg1",
+    ///         SchemaId = "schema1",
+    ///         SchemaType = AzureNative.ApiManagement.SchemaType.Xml,
+    ///         ServiceName = "apimService1",
+    ///         Value = @"&lt;xsd:schema xmlns:xsd=""http://www.w3.org/2001/XMLSchema""
+    ///            xmlns:tns=""http://tempuri.org/PurchaseOrderSchema.xsd""
+    ///            targetNamespace=""http://tempuri.org/PurchaseOrderSchema.xsd""
+    ///            elementFormDefault=""qualified""&gt;
+    ///  &lt;xsd:element name=""PurchaseOrder"" type=""tns:PurchaseOrderType""/&gt;
+    ///  &lt;xsd:complexType name=""PurchaseOrderType""&gt;
+    ///   &lt;xsd:sequence&gt;
+    ///    &lt;xsd:element name=""ShipTo"" type=""tns:USAddress"" maxOccurs=""2""/&gt;
+    ///    &lt;xsd:element name=""BillTo"" type=""tns:USAddress""/&gt;
+    ///   &lt;/xsd:sequence&gt;
+    ///   &lt;xsd:attribute name=""OrderDate"" type=""xsd:date""/&gt;
+    ///  &lt;/xsd:complexType&gt;
+    /// 
+    ///  &lt;xsd:complexType name=""USAddress""&gt;
+    ///   &lt;xsd:sequence&gt;
+    ///    &lt;xsd:element name=""name""   type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""street"" type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""city""   type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""state""  type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""zip""    type=""xsd:integer""/&gt;
+    ///   &lt;/xsd:sequence&gt;
+    ///   &lt;xsd:attribute name=""country"" type=""xsd:NMTOKEN"" fixed=""US""/&gt;
+    ///  &lt;/xsd:complexType&gt;
+    /// &lt;/xsd:schema&gt;",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:WorkspaceGlobalSchema schema1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceGlobalSchema")]
     public partial class WorkspaceGlobalSchema : global::Pulumi.CustomResource

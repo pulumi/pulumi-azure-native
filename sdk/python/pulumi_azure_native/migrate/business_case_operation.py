@@ -28,6 +28,7 @@ class BusinessCaseOperationArgs:
                  settings: Optional[pulumi.Input['SettingsArgs']] = None):
         """
         The set of arguments for constructing a BusinessCaseOperation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] business_case_name: Business case ARM name
@@ -107,6 +108,129 @@ class BusinessCaseOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### BusinessCaseOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        business_case_operation = azure_native.migrate.BusinessCaseOperation("businessCaseOperation",
+            business_case_name="sample-business-case",
+            project_name="multipleto8617project",
+            resource_group_name="rgopenapi",
+            settings={
+                "azure_arc_settings": {
+                    "azure_arc_state": azure_native.migrate.AzureArcState.ENABLED,
+                    "labor_cost_percentage": 70,
+                    "management_settings": {
+                        "monitoring_settings": {
+                            "alert_rules_count": 10,
+                            "logs_volume_in_gb": 0.5,
+                        },
+                    },
+                },
+                "azure_settings": {
+                    "avs_labor_cost_percentage": 0,
+                    "business_case_type": azure_native.migrate.MigrationStrategy.OPTIMIZE_FOR_COST,
+                    "comfort_factor": 29,
+                    "currency": azure_native.migrate.BusinessCaseCurrency.USD,
+                    "discount_percentage": 83,
+                    "iaas_labor_cost_percentage": 94,
+                    "infrastructure_growth_rate": 83,
+                    "network_cost_percentage": 40,
+                    "paas_labor_cost_percentage": 47,
+                    "per_year_migration_completion_percentage": {
+                        "Year0": 20,
+                        "Year1": 30,
+                        "Year2": 60,
+                        "Year3": 90,
+                    },
+                    "performance_data_end_time": "2023-11-08T07:10:07.764Z",
+                    "performance_data_start_time": "2023-11-08T07:10:07.764Z",
+                    "performance_utilization_percentile": 4,
+                    "savings_option": azure_native.migrate.SavingsOption.RI3_YEAR,
+                    "target_location": "WestUs2",
+                    "wacc": 79,
+                    "workload_discovery_source": azure_native.migrate.DiscoverySource.APPLIANCE,
+                },
+                "on_premise_settings": {
+                    "compute_settings": {
+                        "hyperthread_core_to_memory_ratio": 12,
+                        "price": 16,
+                        "rhel_linux_server_licensing": {
+                            "license_cost": 9,
+                        },
+                        "sql_server_licensing": [{
+                            "license_cost": 27,
+                            "software_assurance_cost": 16,
+                            "version": azure_native.migrate.SqlServerLicenseType.ENTERPRISE,
+                        }],
+                        "suse_linux_server_licensing": {
+                            "license_cost": 9,
+                        },
+                        "virtualization_software_settings": {
+                            "v_mware_cloud_foundation_license_cost": 7,
+                        },
+                        "windows_server_licensing": {
+                            "license_cost": 9,
+                            "licenses_per_core": 11,
+                            "software_assurance_cost": 1,
+                        },
+                    },
+                    "facility_settings": {
+                        "facilities_cost_per_kwh": 28,
+                    },
+                    "labor_settings": {
+                        "hourly_admin_cost": 25,
+                        "physical_servers_per_admin": 6,
+                        "virtual_machines_per_admin": 24,
+                    },
+                    "management_settings": {
+                        "hyperv_virtualization_management_settings": {
+                            "license_and_support_list": [{
+                                "license_cost": 4,
+                                "license_type": azure_native.migrate.HyperVLicenseType.STANDARD,
+                            }],
+                            "number_of_physical_cores_per_license": 2,
+                            "software_assurance_cost": 11,
+                        },
+                        "other_management_costs_settings": {
+                            "data_protection_cost_per_server_per_year": 18,
+                            "monitoring_cost_per_server_per_year": 10,
+                            "patching_cost_per_server_per_year": 18,
+                        },
+                        "third_party_management_settings": {
+                            "license_cost": 23,
+                            "support_cost": 9,
+                        },
+                    },
+                    "network_settings": {
+                        "hardware_software_cost_percentage": 50,
+                        "maintenance_cost_percentage": 48,
+                    },
+                    "security_settings": {
+                        "server_security_cost_per_server_per_year": 14,
+                        "sql_server_security_cost_per_server_per_year": 7,
+                    },
+                    "storage_settings": {
+                        "cost_per_gb_per_month": 22,
+                        "maintainance_cost_percentage_to_acquisition_cost": 1,
+                    },
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:BusinessCaseOperation sample-business-case /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] business_case_name: Business case ARM name
@@ -126,6 +250,129 @@ class BusinessCaseOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### BusinessCaseOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        business_case_operation = azure_native.migrate.BusinessCaseOperation("businessCaseOperation",
+            business_case_name="sample-business-case",
+            project_name="multipleto8617project",
+            resource_group_name="rgopenapi",
+            settings={
+                "azure_arc_settings": {
+                    "azure_arc_state": azure_native.migrate.AzureArcState.ENABLED,
+                    "labor_cost_percentage": 70,
+                    "management_settings": {
+                        "monitoring_settings": {
+                            "alert_rules_count": 10,
+                            "logs_volume_in_gb": 0.5,
+                        },
+                    },
+                },
+                "azure_settings": {
+                    "avs_labor_cost_percentage": 0,
+                    "business_case_type": azure_native.migrate.MigrationStrategy.OPTIMIZE_FOR_COST,
+                    "comfort_factor": 29,
+                    "currency": azure_native.migrate.BusinessCaseCurrency.USD,
+                    "discount_percentage": 83,
+                    "iaas_labor_cost_percentage": 94,
+                    "infrastructure_growth_rate": 83,
+                    "network_cost_percentage": 40,
+                    "paas_labor_cost_percentage": 47,
+                    "per_year_migration_completion_percentage": {
+                        "Year0": 20,
+                        "Year1": 30,
+                        "Year2": 60,
+                        "Year3": 90,
+                    },
+                    "performance_data_end_time": "2023-11-08T07:10:07.764Z",
+                    "performance_data_start_time": "2023-11-08T07:10:07.764Z",
+                    "performance_utilization_percentile": 4,
+                    "savings_option": azure_native.migrate.SavingsOption.RI3_YEAR,
+                    "target_location": "WestUs2",
+                    "wacc": 79,
+                    "workload_discovery_source": azure_native.migrate.DiscoverySource.APPLIANCE,
+                },
+                "on_premise_settings": {
+                    "compute_settings": {
+                        "hyperthread_core_to_memory_ratio": 12,
+                        "price": 16,
+                        "rhel_linux_server_licensing": {
+                            "license_cost": 9,
+                        },
+                        "sql_server_licensing": [{
+                            "license_cost": 27,
+                            "software_assurance_cost": 16,
+                            "version": azure_native.migrate.SqlServerLicenseType.ENTERPRISE,
+                        }],
+                        "suse_linux_server_licensing": {
+                            "license_cost": 9,
+                        },
+                        "virtualization_software_settings": {
+                            "v_mware_cloud_foundation_license_cost": 7,
+                        },
+                        "windows_server_licensing": {
+                            "license_cost": 9,
+                            "licenses_per_core": 11,
+                            "software_assurance_cost": 1,
+                        },
+                    },
+                    "facility_settings": {
+                        "facilities_cost_per_kwh": 28,
+                    },
+                    "labor_settings": {
+                        "hourly_admin_cost": 25,
+                        "physical_servers_per_admin": 6,
+                        "virtual_machines_per_admin": 24,
+                    },
+                    "management_settings": {
+                        "hyperv_virtualization_management_settings": {
+                            "license_and_support_list": [{
+                                "license_cost": 4,
+                                "license_type": azure_native.migrate.HyperVLicenseType.STANDARD,
+                            }],
+                            "number_of_physical_cores_per_license": 2,
+                            "software_assurance_cost": 11,
+                        },
+                        "other_management_costs_settings": {
+                            "data_protection_cost_per_server_per_year": 18,
+                            "monitoring_cost_per_server_per_year": 10,
+                            "patching_cost_per_server_per_year": 18,
+                        },
+                        "third_party_management_settings": {
+                            "license_cost": 23,
+                            "support_cost": 9,
+                        },
+                    },
+                    "network_settings": {
+                        "hardware_software_cost_percentage": 50,
+                        "maintenance_cost_percentage": 48,
+                    },
+                    "security_settings": {
+                        "server_security_cost_per_server_per_year": 14,
+                        "sql_server_security_cost_per_server_per_year": 7,
+                    },
+                    "storage_settings": {
+                        "cost_per_gb_per_month": 22,
+                        "maintainance_cost_percentage_to_acquisition_cost": 1,
+                    },
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:BusinessCaseOperation sample-business-case /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/businessCases/{businessCaseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BusinessCaseOperationArgs args: The arguments to use to populate this resource's properties.

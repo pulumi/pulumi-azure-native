@@ -33,6 +33,7 @@ class RoutePolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoutePolicy resource.
+
         :param pulumi.Input[_builtins.str] network_fabric_id: Arm Resource ID of Network Fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]] statements: Route Policy statements.
@@ -195,6 +196,72 @@ class RoutePolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### RoutePolicies_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_policy = azure_native.managednetworkfabric.RoutePolicy("routePolicy",
+            address_family_type=azure_native.managednetworkfabric.AddressFamilyType.I_PV4,
+            annotation="annotation",
+            default_action=azure_native.managednetworkfabric.CommunityActionTypes.DENY,
+            location="eastus",
+            network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
+            resource_group_name="example-rg",
+            route_policy_name="example-routePolicy",
+            statements=[{
+                "action": {
+                    "action_type": azure_native.managednetworkfabric.RoutePolicyActionType.PERMIT,
+                    "ip_community_properties": {
+                        "add": {
+                            "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                        },
+                        "delete": {
+                            "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                        },
+                        "set": {
+                            "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                        },
+                    },
+                    "ip_extended_community_properties": {
+                        "add": {
+                            "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                        },
+                        "delete": {
+                            "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                        },
+                        "set": {
+                            "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                        },
+                    },
+                    "local_preference": 20,
+                },
+                "annotation": "annotation",
+                "condition": {
+                    "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                    "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                    "ip_prefix_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/example-ipPrefix",
+                    "type": azure_native.managednetworkfabric.RoutePolicyConditionType.OR_,
+                },
+                "sequence_number": 7,
+            }],
+            tags={
+                "keyID": "keyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:RoutePolicy example-routePolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AddressFamilyType']] address_family_type: AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
@@ -219,6 +286,72 @@ class RoutePolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### RoutePolicies_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_policy = azure_native.managednetworkfabric.RoutePolicy("routePolicy",
+            address_family_type=azure_native.managednetworkfabric.AddressFamilyType.I_PV4,
+            annotation="annotation",
+            default_action=azure_native.managednetworkfabric.CommunityActionTypes.DENY,
+            location="eastus",
+            network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
+            resource_group_name="example-rg",
+            route_policy_name="example-routePolicy",
+            statements=[{
+                "action": {
+                    "action_type": azure_native.managednetworkfabric.RoutePolicyActionType.PERMIT,
+                    "ip_community_properties": {
+                        "add": {
+                            "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                        },
+                        "delete": {
+                            "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                        },
+                        "set": {
+                            "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                        },
+                    },
+                    "ip_extended_community_properties": {
+                        "add": {
+                            "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                        },
+                        "delete": {
+                            "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                        },
+                        "set": {
+                            "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                        },
+                    },
+                    "local_preference": 20,
+                },
+                "annotation": "annotation",
+                "condition": {
+                    "ip_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipCommunities/example-ipCommunity"],
+                    "ip_extended_community_ids": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/example-ipExtendedCommunity"],
+                    "ip_prefix_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/example-ipPrefix",
+                    "type": azure_native.managednetworkfabric.RoutePolicyConditionType.OR_,
+                },
+                "sequence_number": 7,
+            }],
+            tags={
+                "keyID": "keyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:RoutePolicy example-routePolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/routePolicies/{routePolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RoutePolicyArgs args: The arguments to use to populate this resource's properties.

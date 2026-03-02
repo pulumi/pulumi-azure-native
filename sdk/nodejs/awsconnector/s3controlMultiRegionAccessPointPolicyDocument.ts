@@ -11,6 +11,51 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### S3ControlMultiRegionAccessPointPolicyDocuments_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const s3ControlMultiRegionAccessPointPolicyDocument = new azure_native.awsconnector.S3ControlMultiRegionAccessPointPolicyDocument("s3ControlMultiRegionAccessPointPolicyDocument", {
+ *     location: "mfqwu",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "ugqgpzuzhxnknuancpvpckccl",
+ *         awsAccountId: "wotmizsy",
+ *         awsProperties: {
+ *             established: {
+ *                 policy: "amcyzzkmwbyuxnbqop",
+ *             },
+ *             proposed: {
+ *                 policy: "lbmaqmlw",
+ *             },
+ *         },
+ *         awsRegion: "pshllexnortomzvgcjnsxeoo",
+ *         awsSourceSchema: "qntzhuq",
+ *         awsTags: {
+ *             key788: "kirikwibjuyrwctwbefmn",
+ *         },
+ *         publicCloudConnectorsResourceId: "yyfwlodyfhgbzyfgsl",
+ *         publicCloudResourceName: "ks",
+ *     },
+ *     resourceGroupName: "rgs3ControlMultiRegionAccessPointPolicyDocument",
+ *     tags: {
+ *         key9846: "qdjukprfk",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:S3ControlMultiRegionAccessPointPolicyDocument kmf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3ControlMultiRegionAccessPointPolicyDocuments/{name} 
+ * ```
  */
 export class S3ControlMultiRegionAccessPointPolicyDocument extends pulumi.CustomResource {
     /**

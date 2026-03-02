@@ -15,6 +15,45 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
     /// 
     /// Other available API versions: 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Security User Rule Collection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityUserRuleCollection = new AzureNative.Network.SecurityUserRuleCollection("securityUserRuleCollection", new()
+    ///     {
+    ///         AppliesToGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SecurityUserGroupItemArgs
+    ///             {
+    ///                 NetworkGroupId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+    ///             },
+    ///         },
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "A sample policy",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:SecurityUserRuleCollection myTestSecurityConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityUserRuleCollection")]
     public partial class SecurityUserRuleCollection : global::Pulumi.CustomResource

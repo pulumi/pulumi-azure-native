@@ -13,6 +13,51 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
  *
  * Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CustomerEventCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customerEvent = new azure_native.testbase.CustomerEvent("customerEvent", {
+ *     customerEventName: "WeeklySummary",
+ *     eventName: "WeeklySummary",
+ *     receivers: [
+ *         {
+ *             receiverType: "UserObjects",
+ *             receiverValue: {
+ *                 userObjectReceiverValue: {
+ *                     userObjectIds: [
+ *                         "245245245245325",
+ *                         "365365365363565",
+ *                     ],
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             receiverType: "DistributionGroup",
+ *             receiverValue: {
+ *                 distributionGroupListReceiverValue: {
+ *                     distributionGroups: ["test@microsoft.com"],
+ *                 },
+ *             },
+ *         },
+ *     ],
+ *     resourceGroupName: "contoso-rg1",
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:CustomerEvent WeeklySummary /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customerEvents/{customerEventName} 
+ * ```
  */
 export class CustomerEvent extends pulumi.CustomResource {
     /**

@@ -15,6 +15,240 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### UpdateVirtualNetworkGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkGateway = new AzureNative.Network.VirtualNetworkGateway("virtualNetworkGateway", new()
+    ///     {
+    ///         ActiveActive = false,
+    ///         AllowRemoteVnetTraffic = false,
+    ///         AllowVirtualWanTraffic = false,
+    ///         BgpSettings = new AzureNative.Network.Inputs.BgpSettingsArgs
+    ///         {
+    ///             Asn = 65515,
+    ///             BgpPeeringAddress = "10.0.1.30",
+    ///             PeerWeight = 0,
+    ///         },
+    ///         CustomRoutes = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "101.168.0.6/32",
+    ///             },
+    ///         },
+    ///         DisableIPSecReplayProtection = false,
+    ///         EnableBgp = false,
+    ///         EnableBgpRouteTranslationForNat = false,
+    ///         EnableDnsForwarding = true,
+    ///         GatewayType = AzureNative.Network.VirtualNetworkGatewayType.Vpn,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VirtualNetworkGatewayIPConfigurationArgs
+    ///             {
+    ///                 Name = "gwipconfig1",
+    ///                 PrivateIPAllocationMethod = AzureNative.Network.IPAllocationMethod.Dynamic,
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "centralus",
+    ///         NatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VirtualNetworkGatewayNatRuleArgs
+    ///             {
+    ///                 ExternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "50.0.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1",
+    ///                 InternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "10.10.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 IpConfigurationId = "",
+    ///                 Mode = AzureNative.Network.VpnNatRuleMode.EgressSnat,
+    ///                 Name = "natRule1",
+    ///                 Type = AzureNative.Network.VpnNatRuleType.Static,
+    ///             },
+    ///             new AzureNative.Network.Inputs.VirtualNetworkGatewayNatRuleArgs
+    ///             {
+    ///                 ExternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "30.0.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2",
+    ///                 InternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "20.10.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 IpConfigurationId = "",
+    ///                 Mode = AzureNative.Network.VpnNatRuleMode.IngressSnat,
+    ///                 Name = "natRule2",
+    ///                 Type = AzureNative.Network.VpnNatRuleType.Static,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.VirtualNetworkGatewaySkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.VirtualNetworkGatewaySkuName.VpnGw1,
+    ///             Tier = AzureNative.Network.VirtualNetworkGatewaySkuTier.VpnGw1,
+    ///         },
+    ///         VirtualNetworkGatewayName = "vpngw",
+    ///         VpnClientConfiguration = new AzureNative.Network.Inputs.VpnClientConfigurationArgs
+    ///         {
+    ///             RadiusServers = new[]
+    ///             {
+    ///                 new AzureNative.Network.Inputs.RadiusServerArgs
+    ///                 {
+    ///                     RadiusServerAddress = "10.2.0.0",
+    ///                     RadiusServerScore = 20,
+    ///                     RadiusServerSecret = "radiusServerSecret",
+    ///                 },
+    ///             },
+    ///             VpnClientProtocols = new[]
+    ///             {
+    ///                 AzureNative.Network.VpnClientProtocol.OpenVPN,
+    ///             },
+    ///             VpnClientRevokedCertificates = new() { },
+    ///             VpnClientRootCertificates = new() { },
+    ///         },
+    ///         VpnType = AzureNative.Network.VpnType.RouteBased,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### UpdateVirtualNetworkScalableGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkGateway = new AzureNative.Network.VirtualNetworkGateway("virtualNetworkGateway", new()
+    ///     {
+    ///         ActiveActive = false,
+    ///         AllowRemoteVnetTraffic = false,
+    ///         AllowVirtualWanTraffic = false,
+    ///         DisableIPSecReplayProtection = false,
+    ///         EnableBgp = false,
+    ///         EnableBgpRouteTranslationForNat = false,
+    ///         GatewayType = AzureNative.Network.VirtualNetworkGatewayType.ExpressRoute,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VirtualNetworkGatewayIPConfigurationArgs
+    ///             {
+    ///                 Name = "gwipconfig1",
+    ///                 PrivateIPAllocationMethod = AzureNative.Network.IPAllocationMethod.Static,
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "centralus",
+    ///         NatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VirtualNetworkGatewayNatRuleArgs
+    ///             {
+    ///                 ExternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "50.0.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/ergw/natRules/natRule1",
+    ///                 InternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "10.10.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 IpConfigurationId = "",
+    ///                 Mode = AzureNative.Network.VpnNatRuleMode.EgressSnat,
+    ///                 Name = "natRule1",
+    ///                 Type = AzureNative.Network.VpnNatRuleType.Static,
+    ///             },
+    ///             new AzureNative.Network.Inputs.VirtualNetworkGatewayNatRuleArgs
+    ///             {
+    ///                 ExternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "30.0.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/ergw/natRules/natRule2",
+    ///                 InternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "20.10.0.0/24",
+    ///                     },
+    ///                 },
+    ///                 IpConfigurationId = "",
+    ///                 Mode = AzureNative.Network.VpnNatRuleMode.IngressSnat,
+    ///                 Name = "natRule2",
+    ///                 Type = AzureNative.Network.VpnNatRuleType.Static,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.VirtualNetworkGatewaySkuArgs
+    ///         {
+    ///             Name = AzureNative.Network.VirtualNetworkGatewaySkuName.ErGwScale,
+    ///             Tier = AzureNative.Network.VirtualNetworkGatewaySkuTier.ErGwScale,
+    ///         },
+    ///         VirtualNetworkGatewayName = "ergw",
+    ///         VpnType = AzureNative.Network.VpnType.PolicyBased,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualNetworkGateway ergw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource

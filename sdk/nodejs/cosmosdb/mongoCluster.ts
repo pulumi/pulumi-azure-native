@@ -13,6 +13,57 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-02-15-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a new mongo cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.cosmosdb.MongoCluster("mongoCluster", {
+ *     administratorLogin: "mongoAdmin",
+ *     administratorLoginPassword: "password",
+ *     location: "westus2",
+ *     mongoClusterName: "myMongoCluster",
+ *     nodeGroupSpecs: [{
+ *         diskSizeGB: 128,
+ *         enableHa: true,
+ *         kind: azure_native.cosmosdb.NodeKind.Shard,
+ *         nodeCount: 3,
+ *         sku: "M30",
+ *     }],
+ *     resourceGroupName: "TestResourceGroup",
+ *     serverVersion: "5.0",
+ * });
+ *
+ * ```
+ * ### Create a new mongo cluster with point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.cosmosdb.MongoCluster("mongoCluster", {
+ *     createMode: azure_native.cosmosdb.MongoClusterCreateMode.PointInTimeRestore,
+ *     location: "westus2",
+ *     mongoClusterName: "myMongoCluster",
+ *     resourceGroupName: "TestResourceGroup",
+ *     restoreParameters: {
+ *         pointInTimeUTC: "2023-01-13T20:07:35Z",
+ *         sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cosmosdb:MongoCluster myMongoCluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName} 
+ * ```
  */
 export class MongoCluster extends pulumi.CustomResource {
     /**

@@ -15,6 +15,203 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-10-15.
     /// 
     /// Other available API versions: 2019-08-01, 2019-12-12, 2020-03-01, 2020-04-01, 2020-06-01-preview, 2020-09-01, 2021-01-15, 2021-03-01-preview, 2021-03-15, 2021-04-01-preview, 2021-04-15, 2021-05-15, 2021-06-15, 2021-07-01-preview, 2021-10-15, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlContainerCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlContainer = new AzureNative.CosmosDB.SqlResourceSqlContainer("sqlResourceSqlContainer", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.CosmosDB.Inputs.SqlContainerResourceArgs
+    ///         {
+    ///             ClientEncryptionPolicy = new AzureNative.CosmosDB.Inputs.ClientEncryptionPolicyArgs
+    ///             {
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.ClientEncryptionIncludedPathArgs
+    ///                     {
+    ///                         ClientEncryptionKeyId = "keyId",
+    ///                         EncryptionAlgorithm = "AEAD_AES_256_CBC_HMAC_SHA256",
+    ///                         EncryptionType = "Deterministic",
+    ///                         Path = "/path",
+    ///                     },
+    ///                 },
+    ///                 PolicyFormatVersion = 2,
+    ///             },
+    ///             ComputedProperties = new[]
+    ///             {
+    ///                 new AzureNative.CosmosDB.Inputs.ComputedPropertyArgs
+    ///                 {
+    ///                     Name = "cp_lowerName",
+    ///                     Query = "SELECT VALUE LOWER(c.name) FROM c",
+    ///                 },
+    ///             },
+    ///             ConflictResolutionPolicy = new AzureNative.CosmosDB.Inputs.ConflictResolutionPolicyArgs
+    ///             {
+    ///                 ConflictResolutionPath = "/path",
+    ///                 Mode = AzureNative.CosmosDB.ConflictResolutionMode.LastWriterWins,
+    ///             },
+    ///             DefaultTtl = 100,
+    ///             FullTextPolicy = new AzureNative.CosmosDB.Inputs.FullTextPolicyArgs
+    ///             {
+    ///                 DefaultLanguage = "1033",
+    ///                 FullTextPaths = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.FullTextPathArgs
+    ///                     {
+    ///                         Language = "en-US",
+    ///                         Path = "/ftPath1",
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.FullTextPathArgs
+    ///                     {
+    ///                         Language = "fr-FR",
+    ///                         Path = "/ftPath2",
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.FullTextPathArgs
+    ///                     {
+    ///                         Language = "de-DE",
+    ///                         Path = "/ftPath3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Id = "containerName",
+    ///             IndexingPolicy = new AzureNative.CosmosDB.Inputs.IndexingPolicyArgs
+    ///             {
+    ///                 Automatic = true,
+    ///                 ExcludedPaths = new() { },
+    ///                 FullTextIndexes = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.FullTextIndexPathArgs
+    ///                     {
+    ///                         Path = "/ftPath1",
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.FullTextIndexPathArgs
+    ///                     {
+    ///                         Path = "/ftPath2",
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.FullTextIndexPathArgs
+    ///                     {
+    ///                         Path = "/ftPath3",
+    ///                     },
+    ///                 },
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.IncludedPathArgs
+    ///                     {
+    ///                         Indexes = new[]
+    ///                         {
+    ///                             new AzureNative.CosmosDB.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = AzureNative.CosmosDB.DataType.String,
+    ///                                 Kind = AzureNative.CosmosDB.IndexKind.Range,
+    ///                                 Precision = -1,
+    ///                             },
+    ///                             new AzureNative.CosmosDB.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = AzureNative.CosmosDB.DataType.Number,
+    ///                                 Kind = AzureNative.CosmosDB.IndexKind.Range,
+    ///                                 Precision = -1,
+    ///                             },
+    ///                         },
+    ///                         Path = "/*",
+    ///                     },
+    ///                 },
+    ///                 IndexingMode = AzureNative.CosmosDB.IndexingMode.Consistent,
+    ///                 VectorIndexes = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.VectorIndexArgs
+    ///                     {
+    ///                         Path = "/vectorPath1",
+    ///                         Type = AzureNative.CosmosDB.VectorIndexType.Flat,
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.VectorIndexArgs
+    ///                     {
+    ///                         Path = "/vectorPath2",
+    ///                         Type = AzureNative.CosmosDB.VectorIndexType.QuantizedFlat,
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.VectorIndexArgs
+    ///                     {
+    ///                         Path = "/vectorPath3",
+    ///                         Type = AzureNative.CosmosDB.VectorIndexType.DiskANN,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PartitionKey = new AzureNative.CosmosDB.Inputs.ContainerPartitionKeyArgs
+    ///             {
+    ///                 Kind = AzureNative.CosmosDB.PartitionKind.Hash,
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/AccountNumber",
+    ///                 },
+    ///             },
+    ///             UniqueKeyPolicy = new AzureNative.CosmosDB.Inputs.UniqueKeyPolicyArgs
+    ///             {
+    ///                 UniqueKeys = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.UniqueKeyArgs
+    ///                     {
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/testPath",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VectorEmbeddingPolicy = new AzureNative.CosmosDB.Inputs.VectorEmbeddingPolicyArgs
+    ///             {
+    ///                 VectorEmbeddings = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.VectorEmbeddingArgs
+    ///                     {
+    ///                         DataType = AzureNative.CosmosDB.VectorDataType.Float32,
+    ///                         Dimensions = 400,
+    ///                         DistanceFunction = AzureNative.CosmosDB.DistanceFunction.Euclidean,
+    ///                         Path = "/vectorPath1",
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.VectorEmbeddingArgs
+    ///                     {
+    ///                         DataType = AzureNative.CosmosDB.VectorDataType.Uint8,
+    ///                         Dimensions = 512,
+    ///                         DistanceFunction = AzureNative.CosmosDB.DistanceFunction.Cosine,
+    ///                         Path = "/vectorPath2",
+    ///                     },
+    ///                     new AzureNative.CosmosDB.Inputs.VectorEmbeddingArgs
+    ///                     {
+    ///                         DataType = AzureNative.CosmosDB.VectorDataType.Int8,
+    ///                         Dimensions = 512,
+    ///                         DistanceFunction = AzureNative.CosmosDB.DistanceFunction.Dotproduct,
+    ///                         Path = "/vectorPath3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:SqlResourceSqlContainer containerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlDatabases/{databaseName}/containers/{containerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : global::Pulumi.CustomResource

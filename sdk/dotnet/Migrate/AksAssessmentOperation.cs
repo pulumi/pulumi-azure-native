@@ -15,6 +15,61 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
     /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### AksAssessmentOperations_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var aksAssessmentOperation = new AzureNative.Migrate.AksAssessmentOperation("aksAssessmentOperation", new()
+    ///     {
+    ///         AssessmentName = "testaksassessment",
+    ///         ProjectName = "testproject",
+    ///         ResourceGroupName = "rgaksswagger",
+    ///         Scope = new AzureNative.Migrate.Inputs.AssessmentScopeParametersArgs
+    ///         {
+    ///             ServerGroupId = "/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
+    ///         },
+    ///         Settings = new AzureNative.Migrate.Inputs.AKSAssessmentSettingsArgs
+    ///         {
+    ///             AzureLocation = "Unknown",
+    ///             Category = AzureNative.Migrate.AzureVmCategory.All,
+    ///             Consolidation = AzureNative.Migrate.ConsolidationType.Full,
+    ///             Currency = AzureNative.Migrate.AzureCurrency.Unknown,
+    ///             DiscountPercentage = 15,
+    ///             EnvironmentType = AzureNative.Migrate.AzureEnvironmentType.Unknown,
+    ///             LicensingProgram = "Default",
+    ///             PerformanceData = new AzureNative.Migrate.Inputs.PerfDataSettingsArgs
+    ///             {
+    ///                 Percentile = AzureNative.Migrate.Percentile.Percentile50,
+    ///                 PerfDataEndTime = "2023-11-07T06:51:24.320Z",
+    ///                 PerfDataStartTime = "2023-11-07T06:51:24.320Z",
+    ///                 TimeRange = AzureNative.Migrate.TimeRange.Day,
+    ///             },
+    ///             PricingTier = AzureNative.Migrate.PricingTier.Standard,
+    ///             SavingsOptions = AzureNative.Migrate.SavingsOptions.None,
+    ///             ScalingFactor = 3,
+    ///             SizingCriteria = AzureNative.Migrate.AssessmentSizingCriterion.PerformanceBased,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:AksAssessmentOperation testaksassessment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AksAssessmentOperation")]
     public partial class AksAssessmentOperation : global::Pulumi.CustomResource

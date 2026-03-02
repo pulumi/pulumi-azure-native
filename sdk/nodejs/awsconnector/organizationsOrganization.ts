@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### OrganizationsOrganizations_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const organizationsOrganization = new azure_native.awsconnector.OrganizationsOrganization("organizationsOrganization", {
+ *     location: "fnzfxrkfm",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "zitrzzdipihyovymdibklklp",
+ *         awsAccountId: "jusgdaxywgsswam",
+ *         awsProperties: {
+ *             arn: "fzkwsgtciqziilbltckzwq",
+ *             featureSet: azure_native.awsconnector.FeatureSet.ALL,
+ *             id: "tqnrsqnzkqywpecutoxisdogfsu",
+ *             managementAccountArn: "aobzot",
+ *             managementAccountEmail: "vvcketnvinjxxhqabioa",
+ *             managementAccountId: "bvkksaokvmucejmtqhlwqoiuluet",
+ *             rootId: "jtmupzgyvqhoiag",
+ *         },
+ *         awsRegion: "gogfumxcpzmqfcpynwlbjhjax",
+ *         awsSourceSchema: "pdqllbj",
+ *         awsTags: {
+ *             key8866: "zzxfaowxlvuuzuc",
+ *         },
+ *         publicCloudConnectorsResourceId: "xdnn",
+ *         publicCloudResourceName: "vvwkbodgowhbhletjswxg",
+ *     },
+ *     resourceGroupName: "rgorganizationsOrganization",
+ *     tags: {
+ *         key6745: "seperqgwgodhrcsengozvpmpqcp",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:OrganizationsOrganization ydamgdjqobm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/organizationsOrganizations/{name} 
+ * ```
  */
 export class OrganizationsOrganization extends pulumi.CustomResource {
     /**

@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// DataConnector Model.
     /// 
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### DataConnectors_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataConnector = new AzureNative.AgFoodPlatform.DataConnector("dataConnector", new()
+    ///     {
+    ///         DataConnectorName = "WeatherIBM",
+    ///         DataManagerForAgricultureResourceName = "examples-dataManagerForAgricultureResourceName",
+    ///         Properties = new AzureNative.AgFoodPlatform.Inputs.DataConnectorPropertiesArgs
+    ///         {
+    ///             Credentials = new AzureNative.AgFoodPlatform.Inputs.ApiKeyAuthCredentialsArgs
+    ///             {
+    ///                 ApiKey = new AzureNative.AgFoodPlatform.Inputs.KeyVaultPropertiesArgs
+    ///                 {
+    ///                     KeyName = "abcApiKey",
+    ///                     KeyVaultUri = "https://testKeyVault.vault.azure.net/",
+    ///                     KeyVersion = "239c0475c7d44f20b0fc27d3fe90a41d",
+    ///                 },
+    ///                 Kind = "ApiKeyAuthCredentials",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:agfoodplatform:DataConnector SatelliteSentinelHub /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/dataConnectors/{dataConnectorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:DataConnector")]
     public partial class DataConnector : global::Pulumi.CustomResource

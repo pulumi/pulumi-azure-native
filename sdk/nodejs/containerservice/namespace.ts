@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * Namespace managed by ARM.
  *
  * Uses Azure REST API version 2025-02-02-preview.
+ *
+ * ## Example Usage
+ * ### Create/Update Namespace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.containerservice.Namespace("namespace", {
+ *     namespaceName: "namespace1",
+ *     properties: {
+ *         adoptionPolicy: azure_native.containerservice.AdoptionPolicy.IfIdentical,
+ *         annotations: {
+ *             annatationKey: "annatationValue",
+ *         },
+ *         defaultNetworkPolicy: {
+ *             egress: azure_native.containerservice.PolicyRule.AllowAll,
+ *             ingress: azure_native.containerservice.PolicyRule.AllowSameNamespace,
+ *         },
+ *         defaultResourceQuota: {
+ *             cpuLimit: "3m",
+ *             cpuRequest: "3m",
+ *             memoryLimit: "5Gi",
+ *             memoryRequest: "5Gi",
+ *         },
+ *         deletePolicy: azure_native.containerservice.DeletePolicy.Keep,
+ *         labels: {
+ *             "kubernetes.io/metadata.name": "true",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     tags: {
+ *         tagKey1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:Namespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/namespaces/{namespaceName} 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

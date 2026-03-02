@@ -11,6 +11,87 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### EksNodegroups_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eksNodegroup = new azure_native.awsconnector.EksNodegroup("eksNodegroup", {
+ *     location: "qfzxiflpnxiua",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "ckgekeh",
+ *         awsAccountId: "vfdqtwvbpgxbhqwrbowcnz",
+ *         awsProperties: {
+ *             amiType: "cupzyobvolczhkenpdfcfcqb",
+ *             arn: "shesuqduavivrddwgrqtaukjv",
+ *             capacityType: "pkzjnsykbn",
+ *             clusterName: "qcbbidlhrczzbp",
+ *             diskSize: 14,
+ *             forceUpdateEnabled: true,
+ *             id: "y",
+ *             instanceTypes: ["gfy"],
+ *             labels: {
+ *                 key8269: "ymdbjmylynhangafbya",
+ *             },
+ *             launchTemplate: {
+ *                 id: "si",
+ *                 name: "gdqcgfql",
+ *                 version: "lonea",
+ *             },
+ *             nodeRole: "rzscoljnrtiueunqg",
+ *             nodegroupName: "wipo",
+ *             releaseVersion: "wbgbpvjsrkscfxkcbuatuirn",
+ *             remoteAccess: {
+ *                 ec2SshKey: "trwz",
+ *                 sourceSecurityGroups: ["jv"],
+ *             },
+ *             scalingConfig: {
+ *                 desiredSize: 2,
+ *                 maxSize: 22,
+ *                 minSize: 18,
+ *             },
+ *             subnets: ["jtzrxn"],
+ *             tags: {
+ *                 key1070: "ptrhctidulykbaakuqqqqpwbjf",
+ *             },
+ *             taints: [{
+ *                 effect: "cqyaskimdnuadazzlnzdgwjbg",
+ *                 key: "msxlxqepxrvkybvjeshfybwsx",
+ *                 value: "hfdagmnrdomthxavrf",
+ *             }],
+ *             updateConfig: {
+ *                 maxUnavailable: 24,
+ *                 maxUnavailablePercentage: 18,
+ *             },
+ *             version: "pzblimbasgkqgyknilzxktqx",
+ *         },
+ *         awsRegion: "glvfswwditueizhrpfvhiwm",
+ *         awsSourceSchema: "cizsekmbzwzgaklajexx",
+ *         awsTags: {
+ *             key7151: "fcroma",
+ *         },
+ *         publicCloudConnectorsResourceId: "val",
+ *         publicCloudResourceName: "aybzphomshbbtslocleyyvgcfu",
+ *     },
+ *     resourceGroupName: "rgeksNodegroup",
+ *     tags: {
+ *         key3889: "eznqfotstpbcylyajq",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:EksNodegroup ogznfdrmxkqrvhiqbjzd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/eksNodegroups/{name} 
+ * ```
  */
 export class EksNodegroup extends pulumi.CustomResource {
     /**

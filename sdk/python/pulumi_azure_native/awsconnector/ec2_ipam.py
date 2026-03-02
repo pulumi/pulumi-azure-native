@@ -29,6 +29,7 @@ class Ec2IpamArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2Ipam resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2Ipam
@@ -123,6 +124,70 @@ class Ec2Ipam(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2Ipams_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_ipam = azure_native.awsconnector.Ec2Ipam("ec2Ipam",
+            location="lhjepajysvu",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gcjcnzkmoauyi",
+                "aws_account_id": "fyceaucatzscmtkaw",
+                "aws_properties": {
+                    "default_resource_discovery_association_id": "upvbhujajpxidvdneaxudp",
+                    "default_resource_discovery_id": "vmatfdwggwysxz",
+                    "description": "suxncf",
+                    "ipam_arn": "ounjgxqwlmalbxgwqepaivhpqm",
+                    "ipam_id": "baiefjd",
+                    "ipam_region": "dfdcpbefpcajoep",
+                    "operating_regions": [{
+                        "region_name": "racqmjs",
+                    }],
+                    "owner_id": "sbcvakmustluzumdv",
+                    "private_default_scope_id": "sgytzjkrmsnzccmbos",
+                    "public_default_scope_id": "uqxvzoqzwfiaerfqkufw",
+                    "resource_discovery_association_count": 28,
+                    "scope_count": 8,
+                    "state": {
+                        "value": azure_native.awsconnector.IpamState.CREATE_COMPLETE,
+                    },
+                    "state_message": "wehaarwg",
+                    "tags": [{
+                        "key": "lldedstrwaskhlskwkk",
+                        "value": "jnzubqdwmuxxyakaosx",
+                    }],
+                    "tier": {
+                        "value": azure_native.awsconnector.IpamTier.ADVANCED,
+                    },
+                },
+                "aws_region": "rvtevmqvjnnignaaojkgqgzrsi",
+                "aws_source_schema": "ivdglskrjwzg",
+                "aws_tags": {
+                    "key4146": "ujvngmugdyjjv",
+                },
+                "public_cloud_connectors_resource_id": "irfihvsxrgyhmubmuieufe",
+                "public_cloud_resource_name": "y",
+            },
+            resource_group_name="rgec2Ipam",
+            tags={
+                "key6845": "fmqqsfwgeauorxhhizhrca",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Ipam qaeolhlu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Ipams/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +206,70 @@ class Ec2Ipam(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2Ipams_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_ipam = azure_native.awsconnector.Ec2Ipam("ec2Ipam",
+            location="lhjepajysvu",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gcjcnzkmoauyi",
+                "aws_account_id": "fyceaucatzscmtkaw",
+                "aws_properties": {
+                    "default_resource_discovery_association_id": "upvbhujajpxidvdneaxudp",
+                    "default_resource_discovery_id": "vmatfdwggwysxz",
+                    "description": "suxncf",
+                    "ipam_arn": "ounjgxqwlmalbxgwqepaivhpqm",
+                    "ipam_id": "baiefjd",
+                    "ipam_region": "dfdcpbefpcajoep",
+                    "operating_regions": [{
+                        "region_name": "racqmjs",
+                    }],
+                    "owner_id": "sbcvakmustluzumdv",
+                    "private_default_scope_id": "sgytzjkrmsnzccmbos",
+                    "public_default_scope_id": "uqxvzoqzwfiaerfqkufw",
+                    "resource_discovery_association_count": 28,
+                    "scope_count": 8,
+                    "state": {
+                        "value": azure_native.awsconnector.IpamState.CREATE_COMPLETE,
+                    },
+                    "state_message": "wehaarwg",
+                    "tags": [{
+                        "key": "lldedstrwaskhlskwkk",
+                        "value": "jnzubqdwmuxxyakaosx",
+                    }],
+                    "tier": {
+                        "value": azure_native.awsconnector.IpamTier.ADVANCED,
+                    },
+                },
+                "aws_region": "rvtevmqvjnnignaaojkgqgzrsi",
+                "aws_source_schema": "ivdglskrjwzg",
+                "aws_tags": {
+                    "key4146": "ujvngmugdyjjv",
+                },
+                "public_cloud_connectors_resource_id": "irfihvsxrgyhmubmuieufe",
+                "public_cloud_resource_name": "y",
+            },
+            resource_group_name="rgec2Ipam",
+            tags={
+                "key6845": "fmqqsfwgeauorxhhizhrca",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Ipam qaeolhlu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Ipams/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2IpamArgs args: The arguments to use to populate this resource's properties.

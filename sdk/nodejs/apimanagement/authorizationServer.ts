@@ -13,6 +13,48 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateAuthorizationServer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const authorizationServer = new azure_native.apimanagement.AuthorizationServer("authorizationServer", {
+ *     authorizationEndpoint: "https://www.contoso.com/oauth2/auth",
+ *     authorizationMethods: [azure_native.apimanagement.AuthorizationMethod.GET],
+ *     authsid: "newauthServer",
+ *     bearerTokenSendingMethods: [azure_native.apimanagement.BearerTokenSendingMethod.AuthorizationHeader],
+ *     clientId: "1",
+ *     clientRegistrationEndpoint: "https://www.contoso.com/apps",
+ *     clientSecret: "2",
+ *     defaultScope: "read write",
+ *     description: "test server",
+ *     displayName: "test2",
+ *     grantTypes: [
+ *         azure_native.apimanagement.GrantType.AuthorizationCode,
+ *         azure_native.apimanagement.GrantType.Implicit,
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     resourceOwnerPassword: "pwd",
+ *     resourceOwnerUsername: "un",
+ *     serviceName: "apimService1",
+ *     supportState: true,
+ *     tokenEndpoint: "https://www.contoso.com/oauth2/token",
+ *     useInApiDocumentation: true,
+ *     useInTestConsole: false,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:AuthorizationServer newauthServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid} 
+ * ```
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**

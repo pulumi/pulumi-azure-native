@@ -13,6 +13,113 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Contributor_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const macc = new azure_native.billingbenefits.Macc("macc", {
+ *     endAt: "2024-07-01T00:00:00Z",
+ *     entityType: azure_native.billingbenefits.MaccEntityType.Contributor,
+ *     location: "global",
+ *     maccName: "macc_contributor_20230614",
+ *     primaryResourceId: "/subscriptions/10000000-0000-0000-0000-000000000000/resourceGroups/resource_group_name_02/providers/Microsoft.BillingBenefits/maccs/macc_20230614",
+ *     productCode: "0001d726-0000-0160-330f-a0b98cdbbdc4",
+ *     resourceGroupName: "resource_group_name_01",
+ *     startAt: "2023-07-01T00:00:00Z",
+ *     systemId: "13810867107109237",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### MaccWithMilestones_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const macc = new azure_native.billingbenefits.Macc("macc", {
+ *     allowContributors: true,
+ *     commitment: {
+ *         amount: 20000,
+ *         currencyCode: "USD",
+ *         grain: azure_native.billingbenefits.CommitmentGrain.FullTerm,
+ *     },
+ *     displayName: "macc 20230614",
+ *     endAt: "2028-05-01T23:59:59Z",
+ *     entityType: azure_native.billingbenefits.MaccEntityType.Primary,
+ *     location: "global",
+ *     maccName: "macc_20230614",
+ *     milestones: [
+ *         {
+ *             commitment: {
+ *                 amount: 10000,
+ *                 currencyCode: "USD",
+ *             },
+ *             endAt: "2026-05-31T23:59:59Z",
+ *         },
+ *         {
+ *             commitment: {
+ *                 amount: 15000,
+ *                 currencyCode: "USD",
+ *             },
+ *             endAt: "2027-05-31T23:59:59Z",
+ *         },
+ *     ],
+ *     productCode: "0001d726-0000-0160-330f-a0b98cdbbdc4",
+ *     resourceGroupName: "resource_group_name_01",
+ *     startAt: "2025-05-01T00:00:00Z",
+ *     systemId: "13810867107109237",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### Macc_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const macc = new azure_native.billingbenefits.Macc("macc", {
+ *     allowContributors: true,
+ *     commitment: {
+ *         amount: 20000,
+ *         currencyCode: "USD",
+ *         grain: azure_native.billingbenefits.CommitmentGrain.FullTerm,
+ *     },
+ *     displayName: "macc 20230614",
+ *     endAt: "2024-07-01T00:00:00Z",
+ *     entityType: azure_native.billingbenefits.MaccEntityType.Primary,
+ *     location: "global",
+ *     maccName: "macc_20230614",
+ *     productCode: "0001d726-0000-0160-330f-a0b98cdbbdc4",
+ *     resourceGroupName: "resource_group_name_01",
+ *     startAt: "2023-07-01T00:00:00Z",
+ *     systemId: "13810867107109237",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:billingbenefits:Macc macc_20230614 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName} 
+ * ```
  */
 export class Macc extends pulumi.CustomResource {
     /**

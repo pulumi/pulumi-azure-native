@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Solution REST Resource.
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+ *
+ * ## Example Usage
+ * ### Solutions_Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const solution = new azure_native.migrate.Solution("solution", {
+ *     migrateProjectName: "project01",
+ *     properties: {
+ *         goal: "Databases",
+ *         purpose: "Assessment",
+ *         tool: "DataMigrationAssistant",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     solutionName: "dbsolution",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:Solution dbsolution /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/solutions/{solutionName} 
+ * ```
  */
 export class Solution extends pulumi.CustomResource {
     /**

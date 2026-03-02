@@ -13,6 +13,28 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-04-02-preview.
  *
  * Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Creates a DeploymentSafeguards resource with a long running operation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentSafeguard = new azure_native.containerservice.DeploymentSafeguard("deploymentSafeguard", {
+ *     level: azure_native.containerservice.DeploymentSafeguardsLevel.Warn,
+ *     resourceUri: "subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:DeploymentSafeguard default /{resourceUri}/providers/Microsoft.ContainerService/deploymentSafeguards/default 
+ * ```
  */
 export class DeploymentSafeguard extends pulumi.CustomResource {
     /**

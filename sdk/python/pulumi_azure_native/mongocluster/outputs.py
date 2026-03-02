@@ -64,6 +64,7 @@ class AdministratorPropertiesResponse(dict):
                  user_name: Optional[_builtins.str] = None):
         """
         The local administrator login properties.
+
         :param _builtins.str user_name: The administrator user name.
         """
         if user_name is not None:
@@ -104,6 +105,7 @@ class BackupPropertiesResponse(dict):
                  earliest_restore_time: _builtins.str):
         """
         The backup properties of the cluster. This includes the earliest restore time and retention settings.
+
         :param _builtins.str earliest_restore_time: Earliest restore timestamp in UTC ISO8601 format.
         """
         pulumi.set(__self__, "earliest_restore_time", earliest_restore_time)
@@ -126,6 +128,7 @@ class ComputePropertiesResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The compute properties of the cluster. This includes the virtual-cores/memory and scaling options applied to servers in the cluster.
+
         :param _builtins.str tier: The compute tier to assign to the cluster, where each tier maps to a virtual-core and memory size. Example values: 'M30', 'M40'.
         """
         if tier is not None:
@@ -151,6 +154,7 @@ class ConnectionStringResponse(dict):
                  name: _builtins.str):
         """
         Connection string for the mongo cluster
+
         :param _builtins.str connection_string: Value of the connection string
         :param _builtins.str description: Description of the connection string
         :param _builtins.str name: Name of the connection string.
@@ -194,6 +198,7 @@ class DatabaseRoleResponse(dict):
                  role: _builtins.str):
         """
         Database role definition that is assigned to a user.
+
         :param _builtins.str db: Database scope that the role is assigned to.
         :param _builtins.str role: The role that is assigned to the user on the database scope.
         """
@@ -243,6 +248,7 @@ class EntraIdentityProviderPropertiesResponse(dict):
                  principal_type: _builtins.str):
         """
         Microsoft Entra ID provider properties.
+
         :param _builtins.str principal_type: The principal type of the user.
         """
         pulumi.set(__self__, "principal_type", principal_type)
@@ -266,6 +272,7 @@ class EntraIdentityProviderResponse(dict):
                  type: _builtins.str):
         """
         Defines a Microsoft Entra ID Mongo user.
+
         :param 'EntraIdentityProviderPropertiesResponse' properties: The Entra identity properties for the user.
         :param _builtins.str type: Identity provider types that a a user identity can belong to.
                Expected value is 'MicrosoftEntraID'.
@@ -323,6 +330,7 @@ class FirewallRulePropertiesResponse(dict):
                  start_ip_address: _builtins.str):
         """
         The properties of a mongo cluster firewall rule.
+
         :param _builtins.str end_ip_address: The end IP address of the mongo cluster firewall rule. Must be IPv4 format.
         :param _builtins.str provisioning_state: The provisioning state of the firewall rule.
         :param _builtins.str start_ip_address: The start IP address of the mongo cluster firewall rule. Must be IPv4 format.
@@ -382,6 +390,7 @@ class HighAvailabilityPropertiesResponse(dict):
                  target_mode: Optional[_builtins.str] = None):
         """
         The high availability properties of the cluster.
+
         :param _builtins.str target_mode: The target high availability mode requested for the cluster.
         """
         if target_mode is not None:
@@ -452,6 +461,7 @@ class MongoClusterPropertiesResponse(dict):
                  storage: Optional['outputs.StoragePropertiesResponse'] = None):
         """
         The properties of a mongo cluster.
+
         :param _builtins.str cluster_status: The status of the mongo cluster.
         :param _builtins.str connection_string: The default mongo connection string for the cluster.
         :param _builtins.str infrastructure_version: The infrastructure version the cluster is provisioned on.
@@ -649,6 +659,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the private endpoint connection.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
@@ -734,6 +745,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -827,6 +839,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -868,6 +881,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -934,6 +948,7 @@ class ReplicationPropertiesResponse(dict):
                  source_resource_id: _builtins.str):
         """
         Replica properties of the mongo cluster.
+
         :param _builtins.str replication_state: The replication link state of the replica cluster.
         :param _builtins.str role: The replication role of the cluster
         :param _builtins.str source_resource_id: The resource id the source cluster for the replica cluster.
@@ -993,6 +1008,7 @@ class ShardingPropertiesResponse(dict):
                  shard_count: Optional[_builtins.int] = None):
         """
         The sharding properties of the cluster. This includes the shard count and scaling options for the cluster.
+
         :param _builtins.int shard_count: Number of shards to provision on the cluster.
         """
         if shard_count is not None:
@@ -1033,6 +1049,7 @@ class StoragePropertiesResponse(dict):
                  size_gb: Optional[_builtins.float] = None):
         """
         The storage properties of the cluster. This includes the data storage size and scaling applied to servers in the cluster.
+
         :param _builtins.float size_gb: The size of the data disk assigned to each server.
         """
         if size_gb is not None:
@@ -1088,6 +1105,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1187,6 +1205,7 @@ class UserPropertiesResponse(dict):
                  roles: Optional[Sequence['outputs.DatabaseRoleResponse']] = None):
         """
         Definition of Mongo user resource on a cluster.
+
         :param _builtins.str provisioning_state: The provisioning state of the user.
         :param 'EntraIdentityProviderResponse' identity_provider: The user's identity provider definition.
         :param Sequence['DatabaseRoleResponse'] roles: Database roles that are assigned to the user.

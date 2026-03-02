@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### IamAccessKeyLastUseds_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iamAccessKeyLastUsed = new AzureNative.AwsConnector.IamAccessKeyLastUsed("iamAccessKeyLastUsed", new()
+    ///     {
+    ///         Location = "rdt",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.IamAccessKeyLastUsedPropertiesArgs
+    ///         {
+    ///             Arn = "xfaoulngosrepqegvmfzqcmenfiwv",
+    ///             AwsAccountId = "lturmpd",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsIamAccessKeyLastUsedPropertiesArgs
+    ///             {
+    ///                 LastUsedDate = "2024-10-08T03:48:57.755Z",
+    ///                 Region = "av",
+    ///                 ServiceName = "vhyurov",
+    ///             },
+    ///             AwsRegion = "epaxtviqtrqqnghkgfkqhuqee",
+    ///             AwsSourceSchema = "enepzx",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key9162", "xrhekznmreqitxxw" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "rwbbz",
+    ///             PublicCloudResourceName = "cttx",
+    ///         },
+    ///         ResourceGroupName = "rgiamAccessKeyLastUsed",
+    ///         Tags = 
+    ///         {
+    ///             { "key2981", "xwkwghlklv" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:IamAccessKeyLastUsed wtidcpjujjyhczp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyLastUseds/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:IamAccessKeyLastUsed")]
     public partial class IamAccessKeyLastUsed : global::Pulumi.CustomResource

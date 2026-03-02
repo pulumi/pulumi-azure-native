@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.OffAzure
     /// Site REST Resource.
     /// 
     /// Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
+    /// 
+    /// ## Example Usage
+    /// ### Create Hyper-V site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hyperVSite = new AzureNative.OffAzure.HyperVSite("hyperVSite", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.OffAzure.Inputs.SitePropertiesArgs
+    ///         {
+    ///             ServicePrincipalIdentityDetails = new AzureNative.OffAzure.Inputs.SiteSpnPropertiesArgs
+    ///             {
+    ///                 AadAuthority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                 ApplicationId = "e9f013df-2a2a-4871-b766-e79867f30348",
+    ///                 Audience = "https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+    ///                 ObjectId = "2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "pajindTest",
+    ///         SiteName = "appliance1e39site",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazure:HyperVSite appliance1e39site /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/HyperVSites/{siteName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HyperVSite")]
     public partial class HyperVSite : global::Pulumi.CustomResource

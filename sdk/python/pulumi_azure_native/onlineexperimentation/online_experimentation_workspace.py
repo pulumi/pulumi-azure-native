@@ -31,6 +31,7 @@ class OnlineExperimentationWorkspaceArgs:
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OnlineExperimentationWorkspace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -158,6 +159,14 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-31-preview.
 
         Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:onlineexperimentation:OnlineExperimentationWorkspace expworkspace7 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,6 +190,14 @@ class OnlineExperimentationWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-31-preview.
 
         Other available API versions: 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native onlineexperimentation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:onlineexperimentation:OnlineExperimentationWorkspace expworkspace7 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OnlineExperimentationWorkspaceArgs args: The arguments to use to populate this resource's properties.

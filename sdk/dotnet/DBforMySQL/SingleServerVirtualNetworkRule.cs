@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// A virtual network rule.
     /// 
     /// Uses Azure REST API version 2017-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a virtual network rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var singleServerVirtualNetworkRule = new AzureNative.DBforMySQL.SingleServerVirtualNetworkRule("singleServerVirtualNetworkRule", new()
+    ///     {
+    ///         IgnoreMissingVnetServiceEndpoint = false,
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "vnet-test-svr",
+    ///         VirtualNetworkRuleName = "vnet-firewall-rule",
+    ///         VirtualNetworkSubnetId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql:SingleServerVirtualNetworkRule vnet-firewall-rule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:SingleServerVirtualNetworkRule")]
     public partial class SingleServerVirtualNetworkRule : global::Pulumi.CustomResource

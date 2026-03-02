@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.Subscription
     /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
     /// 
     /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### putTargetDirectory
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscriptionTarDirectory = new AzureNative.Subscription.SubscriptionTarDirectory("subscriptionTarDirectory", new()
+    ///     {
+    ///         Properties = new AzureNative.Subscription.Inputs.TargetDirectoryRequestPropertiesArgs
+    ///         {
+    ///             DestinationOwnerId = "abhaypratap@live.com",
+    ///             DestinationTenantId = "111a82eb-4c7b-48bb-962b-49363c510130",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:subscription:SubscriptionTarDirectory default /subscriptions/{subscriptionId}/providers/Microsoft.Subscription/changeTenantRequest/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription:SubscriptionTarDirectory")]
     public partial class SubscriptionTarDirectory : global::Pulumi.CustomResource

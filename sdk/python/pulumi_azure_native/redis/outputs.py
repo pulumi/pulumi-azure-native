@@ -64,6 +64,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -149,6 +150,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -242,6 +244,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -283,6 +286,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -348,6 +352,7 @@ class RedisAccessKeysResponse(dict):
                  secondary_key: _builtins.str):
         """
         Redis cache access keys.
+
         :param _builtins.str primary_key: The current primary key that clients can use to authenticate with Redis cache.
         :param _builtins.str secondary_key: The current secondary key that clients can use to authenticate with Redis cache.
         """
@@ -447,6 +452,7 @@ class RedisCommonPropertiesRedisConfigurationResponse(dict):
                  storage_subscription_id: Optional[_builtins.str] = None):
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
+
         :param _builtins.str maxclients: The max clients config
         :param _builtins.str preferred_data_archive_auth_method: Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
         :param _builtins.str zonal_configuration: Zonal Configuration
@@ -695,6 +701,7 @@ class RedisInstanceDetailsResponse(dict):
                  zone: _builtins.str):
         """
         Details of single instance of redis.
+
         :param _builtins.bool is_master: Specifies whether the instance is a primary node.
         :param _builtins.bool is_primary: Specifies whether the instance is a primary node.
         :param _builtins.int non_ssl_port: If enableNonSslPort is true, provides Redis instance Non-SSL port.
@@ -767,6 +774,7 @@ class RedisLinkedServerResponse(dict):
                  id: _builtins.str):
         """
         Linked server Id
+
         :param _builtins.str id: Linked server Id.
         """
         pulumi.set(__self__, "id", id)
@@ -812,6 +820,7 @@ class ScheduleEntryResponse(dict):
                  maintenance_window: Optional[_builtins.str] = None):
         """
         Patch schedule entry for a Premium Redis Cache.
+
         :param _builtins.str day_of_week: Day of the week when a cache can be patched.
         :param _builtins.int start_hour_utc: Start hour after which cache patching can start.
         :param _builtins.str maintenance_window: ISO8601 timespan specifying how much time cache patching can take.
@@ -857,6 +866,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         SKU parameters supplied to the create Redis operation.
+
         :param _builtins.int capacity: The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4).
         :param _builtins.str family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param _builtins.str name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
@@ -931,6 +941,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1029,6 +1040,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

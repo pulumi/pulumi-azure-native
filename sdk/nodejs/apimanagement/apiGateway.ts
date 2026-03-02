@@ -13,6 +13,69 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
  *
  * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateStandardGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiGateway = new azure_native.apimanagement.ApiGateway("apiGateway", {
+ *     backend: {
+ *         subnet: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+ *         },
+ *     },
+ *     gatewayName: "apimGateway1",
+ *     location: "South Central US",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.ApiGatewaySkuType.Standard,
+ *     },
+ *     tags: {
+ *         Name: "Contoso",
+ *         Test: "User",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateWorkspacePremiumGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiGateway = new azure_native.apimanagement.ApiGateway("apiGateway", {
+ *     backend: {
+ *         subnet: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vn1/subnets/sn1",
+ *         },
+ *     },
+ *     gatewayName: "apimGateway1",
+ *     location: "South Central US",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.ApiGatewaySkuType.WorkspaceGatewayPremium,
+ *     },
+ *     tags: {
+ *         Name: "Contoso",
+ *         Test: "User",
+ *     },
+ *     virtualNetworkType: azure_native.apimanagement.VirtualNetworkType.External,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ApiGateway apimGateway1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName} 
+ * ```
  */
 export class ApiGateway extends pulumi.CustomResource {
     /**

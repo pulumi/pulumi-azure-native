@@ -134,6 +134,7 @@ class ServerPrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.ServerPrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+
         :param _builtins.str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'ServerPrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
@@ -179,6 +180,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
                  properties: 'outputs.ServerPrivateEndpointConnectionPropertiesResponse'):
         """
         A private endpoint connection under a server
+
         :param _builtins.str id: Resource Id of the private endpoint connection.
         :param 'ServerPrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
@@ -272,6 +274,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Billing information related properties of a server.
+
         :param _builtins.str name: The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
         :param _builtins.int capacity: The scale up/out capacity, representing server's compute units.
         :param _builtins.str family: The family of hardware.
@@ -364,6 +367,7 @@ class StorageProfileResponse(dict):
                  storage_mb: Optional[_builtins.int] = None):
         """
         Storage Profile properties of a server
+
         :param _builtins.int backup_retention_days: Backup retention days for the server.
         :param _builtins.str geo_redundant_backup: Enable Geo-redundant or not for server backup.
         :param _builtins.str storage_autogrow: Enable Storage Auto Grow.

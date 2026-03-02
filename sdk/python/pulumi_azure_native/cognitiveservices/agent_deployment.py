@@ -30,6 +30,7 @@ class AgentDeploymentArgs:
                  deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentDeployment resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] app_name: The name of the application associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
@@ -136,6 +137,45 @@ class AgentDeployment(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+        ## Example Usage
+        ### Create or Update Agent Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_deployment = azure_native.cognitiveservices.AgentDeployment("agentDeployment",
+            account_name="my-cognitive-services-account",
+            app_name="agent-app-1",
+            deployment_name="deployment-1",
+            project_name="my-project",
+            properties={
+                "agents": [{
+                    "agent_id": "agent-123",
+                    "agent_name": "support-agent",
+                    "agent_version": "1.0.0",
+                }],
+                "deployment_type": "Managed",
+                "display_name": "Production Deployment",
+                "protocols": [{
+                    "protocol": azure_native.cognitiveservices.AgentProtocol.AGENT,
+                    "version": "1.0",
+                }],
+                "state": azure_native.cognitiveservices.AgentDeploymentState.STARTING,
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AgentDeployment deployment-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{appName}/agentDeployments/{deploymentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -155,6 +195,45 @@ class AgentDeployment(pulumi.CustomResource):
         Agent Deployment resource
 
         Uses Azure REST API version 2025-10-01-preview.
+
+        ## Example Usage
+        ### Create or Update Agent Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_deployment = azure_native.cognitiveservices.AgentDeployment("agentDeployment",
+            account_name="my-cognitive-services-account",
+            app_name="agent-app-1",
+            deployment_name="deployment-1",
+            project_name="my-project",
+            properties={
+                "agents": [{
+                    "agent_id": "agent-123",
+                    "agent_name": "support-agent",
+                    "agent_version": "1.0.0",
+                }],
+                "deployment_type": "Managed",
+                "display_name": "Production Deployment",
+                "protocols": [{
+                    "protocol": azure_native.cognitiveservices.AgentProtocol.AGENT,
+                    "version": "1.0",
+                }],
+                "state": azure_native.cognitiveservices.AgentDeploymentState.STARTING,
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AgentDeployment deployment-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{appName}/agentDeployments/{deploymentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentDeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -40,6 +40,7 @@ class DomainArgs:
                  target_dns_type: Optional[pulumi.Input['DnsType']] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input['DomainPurchaseConsentArgs'] consent: Legal agreement consent.
         :param pulumi.Input['ContactArgs'] contact_admin: Administrative contact.
         :param pulumi.Input['ContactArgs'] contact_billing: Billing contact.
@@ -305,6 +306,107 @@ class Domain(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create App Service Domain
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.domainregistration.Domain("domain",
+            auth_code="exampleAuthCode",
+            auto_renew=True,
+            consent={
+                "agreed_at": "2021-09-10T19:30:53Z",
+                "agreed_by": "192.0.2.1",
+                "agreement_keys": ["agreementKey1"],
+            },
+            contact_admin={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "admin@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Admin",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            contact_billing={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "billing@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Billing",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            contact_registrant={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "registrant@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Registrant",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            contact_tech={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "tech@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Tech",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            dns_type=azure_native.domainregistration.DnsType.DEFAULT_DOMAIN_REGISTRAR_DNS,
+            domain_name="example.com",
+            location="global",
+            privacy=False,
+            resource_group_name="testrg123",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:domainregistration:Domain example.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_renew: <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
@@ -335,6 +437,107 @@ class Domain(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create App Service Domain
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.domainregistration.Domain("domain",
+            auth_code="exampleAuthCode",
+            auto_renew=True,
+            consent={
+                "agreed_at": "2021-09-10T19:30:53Z",
+                "agreed_by": "192.0.2.1",
+                "agreement_keys": ["agreementKey1"],
+            },
+            contact_admin={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "admin@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Admin",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            contact_billing={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "billing@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Billing",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            contact_registrant={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "registrant@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Registrant",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            contact_tech={
+                "address_mailing": {
+                    "address1": "3400 State St",
+                    "city": "Chicago",
+                    "country": "United States",
+                    "postal_code": "67098",
+                    "state": "IL",
+                },
+                "email": "tech@email.com",
+                "fax": "1-245-534-2242",
+                "job_title": "Tech",
+                "name_first": "John",
+                "name_last": "Doe",
+                "name_middle": "",
+                "organization": "Microsoft Inc.",
+                "phone": "1-245-534-2242",
+            },
+            dns_type=azure_native.domainregistration.DnsType.DEFAULT_DOMAIN_REGISTRAR_DNS,
+            domain_name="example.com",
+            location="global",
+            privacy=False,
+            resource_group_name="testrg123",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:domainregistration:Domain example.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

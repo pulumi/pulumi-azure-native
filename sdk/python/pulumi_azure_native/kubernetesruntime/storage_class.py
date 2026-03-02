@@ -37,6 +37,7 @@ class StorageClassArgs:
                  volume_binding_mode: Optional[pulumi.Input[Union[_builtins.str, 'VolumeBindingMode']]] = None):
         """
         The set of arguments for constructing a StorageClass resource.
+
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union['BlobStorageClassTypePropertiesArgs', 'NativeStorageClassTypePropertiesArgs', 'NfsStorageClassTypePropertiesArgs', 'RwxStorageClassTypePropertiesArgs', 'SmbStorageClassTypePropertiesArgs']] type_properties: Properties of the StorageClass
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessMode']]]] access_modes: The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]
@@ -258,6 +259,32 @@ class StorageClass(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
+        ## Example Usage
+        ### StorageClass_CreateOrUpdate_0
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_class = azure_native.kubernetesruntime.StorageClass("storageClass",
+            resource_uri="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
+            storage_class_name="testrwx",
+            type_properties={
+                "backing_storage_class_name": "default",
+                "type": "RWX",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesruntime:StorageClass testrwx /{resourceUri}/providers/Microsoft.KubernetesRuntime/storageClasses/{storageClassName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessMode']]]] access_modes: The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]
@@ -284,6 +311,32 @@ class StorageClass(pulumi.CustomResource):
         A StorageClass resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
+
+        ## Example Usage
+        ### StorageClass_CreateOrUpdate_0
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_class = azure_native.kubernetesruntime.StorageClass("storageClass",
+            resource_uri="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
+            storage_class_name="testrwx",
+            type_properties={
+                "backing_storage_class_name": "default",
+                "type": "RWX",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesruntime:StorageClass testrwx /{resourceUri}/providers/Microsoft.KubernetesRuntime/storageClasses/{storageClassName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageClassArgs args: The arguments to use to populate this resource's properties.

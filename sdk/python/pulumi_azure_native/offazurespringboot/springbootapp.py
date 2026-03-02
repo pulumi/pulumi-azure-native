@@ -27,6 +27,7 @@ class SpringbootappArgs:
                  springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootapp resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: The springbootsites name.
         :param pulumi.Input['SpringbootappsPropertiesArgs'] properties: The springbootapps resource definition.
@@ -104,6 +105,76 @@ class Springbootapp(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01-preview.
 
+        ## Example Usage
+        ### springbootapps_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootapp = azure_native.offazurespringboot.Springbootapp("springbootapp",
+            properties={
+                "app_name": "wrauwfegjfccym",
+                "app_port": 12,
+                "app_type": "axzunlh",
+                "application_configurations": [{
+                    "key": "wrbnwhqxjextxgdfbonuynvs",
+                    "value": "jnmaf",
+                }],
+                "artifact_name": "wrauwfegjfccym",
+                "binding_ports": [11],
+                "build_jdk_version": "ipzruwqqulkpvhzymqegntz",
+                "certificates": ["xpiqqob"],
+                "checksum": "gpzumvbzfnhhmuehveanctiamr",
+                "dependencies": ["zrtted"],
+                "environments": ["afhprevtcx"],
+                "instance_count": 5,
+                "instances": [{
+                    "instance_count": 5,
+                    "jvm_memory_in_mb": 128,
+                    "machine_arm_id": "lsstlommxuskyhnwyxh",
+                }],
+                "jar_file_location": "wfptqclncaqycyfbfih",
+                "jvm_memory_in_mb": 1,
+                "jvm_options": ["nytejjoytevmvlgnfwb"],
+                "last_modified_time": "2022-12-02T09:28:24.094Z",
+                "machine_arm_ids": ["lsstlommxuskyhnwyxh"],
+                "miscs": [{
+                    "key": "fobsfetkynfmkziei",
+                    "value": "k",
+                }],
+                "runtime_jdk_version": "eblzujbsulpeilykqyjso",
+                "servers": ["gvfhsohasdx"],
+                "spring_boot_version": "euggigfiii",
+                "static_content_locations": ["wvvajfkbtmjftir"],
+            },
+            resource_group_name="rgspringbootapps",
+            site_name="pdfosfhtemfsaglvwjdyqlyeipucrd",
+            springbootapps_name="ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf")
+
+        ```
+        ### springbootapps_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootapp = azure_native.offazurespringboot.Springbootapp("springbootapp",
+            resource_group_name="rgspringbootapps",
+            site_name="pdfosfhtemfsaglvwjdyqlyeipucrd",
+            springbootapps_name="ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazurespringboot:Springbootapp enyeyrgonjdauhscqy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootapps/{springbootappsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']] properties: The springbootapps resource definition.
@@ -121,6 +192,76 @@ class Springbootapp(pulumi.CustomResource):
         The springbootapps envelope resource definition.
 
         Uses Azure REST API version 2024-04-01-preview.
+
+        ## Example Usage
+        ### springbootapps_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootapp = azure_native.offazurespringboot.Springbootapp("springbootapp",
+            properties={
+                "app_name": "wrauwfegjfccym",
+                "app_port": 12,
+                "app_type": "axzunlh",
+                "application_configurations": [{
+                    "key": "wrbnwhqxjextxgdfbonuynvs",
+                    "value": "jnmaf",
+                }],
+                "artifact_name": "wrauwfegjfccym",
+                "binding_ports": [11],
+                "build_jdk_version": "ipzruwqqulkpvhzymqegntz",
+                "certificates": ["xpiqqob"],
+                "checksum": "gpzumvbzfnhhmuehveanctiamr",
+                "dependencies": ["zrtted"],
+                "environments": ["afhprevtcx"],
+                "instance_count": 5,
+                "instances": [{
+                    "instance_count": 5,
+                    "jvm_memory_in_mb": 128,
+                    "machine_arm_id": "lsstlommxuskyhnwyxh",
+                }],
+                "jar_file_location": "wfptqclncaqycyfbfih",
+                "jvm_memory_in_mb": 1,
+                "jvm_options": ["nytejjoytevmvlgnfwb"],
+                "last_modified_time": "2022-12-02T09:28:24.094Z",
+                "machine_arm_ids": ["lsstlommxuskyhnwyxh"],
+                "miscs": [{
+                    "key": "fobsfetkynfmkziei",
+                    "value": "k",
+                }],
+                "runtime_jdk_version": "eblzujbsulpeilykqyjso",
+                "servers": ["gvfhsohasdx"],
+                "spring_boot_version": "euggigfiii",
+                "static_content_locations": ["wvvajfkbtmjftir"],
+            },
+            resource_group_name="rgspringbootapps",
+            site_name="pdfosfhtemfsaglvwjdyqlyeipucrd",
+            springbootapps_name="ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf")
+
+        ```
+        ### springbootapps_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        springbootapp = azure_native.offazurespringboot.Springbootapp("springbootapp",
+            resource_group_name="rgspringbootapps",
+            site_name="pdfosfhtemfsaglvwjdyqlyeipucrd",
+            springbootapps_name="ofjeesoahqtnovlbuvflyknpbhcpeqqhekntvqxyemuwbcqnuxjgfhsf")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazurespringboot:Springbootapp enyeyrgonjdauhscqy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootapps/{springbootappsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SpringbootappArgs args: The arguments to use to populate this resource's properties.

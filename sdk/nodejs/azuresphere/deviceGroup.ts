@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * An device group resource belonging to a product resource.
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ *
+ * ## Example Usage
+ * ### DeviceGroups_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deviceGroup = new azure_native.azuresphere.DeviceGroup("deviceGroup", {
+ *     catalogName: "MyCatalog1",
+ *     description: "Description for MyDeviceGroup1",
+ *     deviceGroupName: "MyDeviceGroup1",
+ *     osFeedType: azure_native.azuresphere.OSFeedType.Retail,
+ *     productName: "MyProduct1",
+ *     resourceGroupName: "MyResourceGroup1",
+ *     updatePolicy: azure_native.azuresphere.UpdatePolicy.UpdateAll,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azuresphere:DeviceGroup MyDeviceId1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName} 
+ * ```
  */
 export class DeviceGroup extends pulumi.CustomResource {
     /**

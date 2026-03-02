@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  * Edge device job for Azure Stack HCI solution.
  *
  * Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
+ *
+ * ## Example Usage
+ * ### EdgeDeviceJobs_CreateOrUpdate_CollectLog
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hciEdgeDeviceJob = new azure_native.azurestackhci.HciEdgeDeviceJob("hciEdgeDeviceJob", {
+ *     edgeDeviceName: "default",
+ *     jobsName: "collectLog",
+ *     kind: "HCI",
+ *     properties: {
+ *         fromDate: "2024-01-29T10:43:27.9471574Z",
+ *         jobType: "CollectLog",
+ *         toDate: "2024-01-29T10:43:27.9471574Z",
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+ * });
+ *
+ * ```
+ * ### EdgeDeviceJobs_CreateOrUpdate_RemoteSupport
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hciEdgeDeviceJob = new azure_native.azurestackhci.HciEdgeDeviceJob("hciEdgeDeviceJob", {
+ *     edgeDeviceName: "default",
+ *     jobsName: "collectLog",
+ *     kind: "HCI",
+ *     properties: {
+ *         accessLevel: azure_native.azurestackhci.RemoteSupportAccessLevel.Diagnostics,
+ *         expirationTimestamp: "2024-01-29T10:43:27.9471574Z",
+ *         jobType: "RemoteSupport",
+ *         type: azure_native.azurestackhci.RemoteSupportType.Enable,
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:HciEdgeDeviceJob collectLog /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName}/jobs/{jobsName} 
+ * ```
  */
 export class HciEdgeDeviceJob extends pulumi.CustomResource {
     /**

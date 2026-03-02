@@ -15,6 +15,58 @@ namespace Pulumi.AzureNative.GuestConfiguration
     /// Uses Azure REST API version 2024-04-05. In version 2.x of the Azure Native provider, it used API version 2022-01-25.
     /// 
     /// Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update guest configuration assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestConfigurationConnectedVMwarevSphereAssignment = new AzureNative.GuestConfiguration.GuestConfigurationConnectedVMwarevSphereAssignment("guestConfigurationConnectedVMwarevSphereAssignment", new()
+    ///     {
+    ///         GuestConfigurationAssignmentName = "NotInstalledApplicationForWindows",
+    ///         Location = "westcentralus",
+    ///         Name = "NotInstalledApplicationForWindows",
+    ///         Properties = new AzureNative.GuestConfiguration.Inputs.GuestConfigurationAssignmentPropertiesArgs
+    ///         {
+    ///             Context = "Azure policy",
+    ///             GuestConfiguration = new AzureNative.GuestConfiguration.Inputs.GuestConfigurationNavigationArgs
+    ///             {
+    ///                 AssignmentType = AzureNative.GuestConfiguration.AssignmentType.ApplyAndAutoCorrect,
+    ///                 ConfigurationParameter = new[]
+    ///                 {
+    ///                     new AzureNative.GuestConfiguration.Inputs.ConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "[InstalledApplication]NotInstalledApplicationResource1;Name",
+    ///                         Value = "NotePad,sql",
+    ///                     },
+    ///                 },
+    ///                 ContentHash = "123contenthash",
+    ///                 ContentUri = "https://thisisfake/pacakge",
+    ///                 Name = "NotInstalledApplicationForWindows",
+    ///                 Version = "1.0.0.0",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         VmName = "myVMName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment NotInstalledApplicationForWindows /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment")]
     public partial class GuestConfigurationConnectedVMwarevSphereAssignment : global::Pulumi.CustomResource

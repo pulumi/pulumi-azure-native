@@ -11,6 +11,79 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### SsmInstanceInformations_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ssmInstanceInformation = new azure_native.awsconnector.SsmInstanceInformation("ssmInstanceInformation", {
+ *     location: "ermywoyxbvekjsddbgxzdiqctiy",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "oxfqehraraycsdhslhhkjdu",
+ *         awsAccountId: "pjfy",
+ *         awsProperties: {
+ *             activationId: "wqzon",
+ *             agentVersion: "bnfjsoeipnlc",
+ *             associationOverview: {
+ *                 detailedStatus: "cbudhnfwcqmapsmzmdvjbnobfp",
+ *                 instanceAssociationStatusAggregatedCount: {
+ *                     key8401: 17,
+ *                 },
+ *             },
+ *             associationStatus: "elhplvmlvhpwuyovunmrlynmhejdw",
+ *             computerName: "wweceaymirkelywqbxapvxzr",
+ *             iamRole: "izwdzmlugehvtmnssak",
+ *             instanceId: "iubqpfcejhxieuegbecgpkzanri",
+ *             ipAddress: "httjvosg",
+ *             isLatestVersion: true,
+ *             lastAssociationExecutionDate: "2024-10-08T03:53:10.068Z",
+ *             lastPingDateTime: "2024-10-08T03:53:10.068Z",
+ *             lastSuccessfulAssociationExecutionDate: "2024-10-08T03:53:10.068Z",
+ *             name: "iubm",
+ *             pingStatus: {
+ *                 value: azure_native.awsconnector.PingStatus.ConnectionLost,
+ *             },
+ *             platformName: "cbiheizlbfmmcdrsntrldk",
+ *             platformType: {
+ *                 value: azure_native.awsconnector.PlatformType.Linux,
+ *             },
+ *             platformVersion: "eiopeklxdbhzvyxg",
+ *             registrationDate: "2024-10-08T03:53:10.069Z",
+ *             resourceType: {
+ *                 value: azure_native.awsconnector.ResourceType.EC2Instance,
+ *             },
+ *             sourceId: "mfupyczzkgmebrayfgrmxcdouve",
+ *             sourceType: {
+ *                 value: azure_native.awsconnector.SourceType.AWSEC2Instance,
+ *             },
+ *         },
+ *         awsRegion: "mzethaciakqyywjomklr",
+ *         awsSourceSchema: "wetpdek",
+ *         awsTags: {
+ *             key8309: "mwxaauusamykdmepqrzjjlpozpflmk",
+ *         },
+ *         publicCloudConnectorsResourceId: "hsdju",
+ *         publicCloudResourceName: "nmnanlhecnocoemxsevyl",
+ *     },
+ *     resourceGroupName: "rgssmInstanceInformation",
+ *     tags: {
+ *         key678: "gnrhg",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:SsmInstanceInformation xuo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ssmInstanceInformations/{name} 
+ * ```
  */
 export class SsmInstanceInformation extends pulumi.CustomResource {
     /**

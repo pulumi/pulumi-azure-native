@@ -13,6 +13,67 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigServiceConfigurationRecorderStatuses_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configServiceConfigurationRecorderStatus = new AzureNative.AwsConnector.ConfigServiceConfigurationRecorderStatus("configServiceConfigurationRecorderStatus", new()
+    ///     {
+    ///         Location = "aanagogcqgqikndwcsiwpf",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.ConfigServiceConfigurationRecorderStatusPropertiesArgs
+    ///         {
+    ///             Arn = "iwxslgken",
+    ///             AwsAccountId = "dnnbcuuhaxys",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsConfigServiceConfigurationRecorderStatusPropertiesArgs
+    ///             {
+    ///                 LastErrorCode = "zvduytuuzcdxiwmlqur",
+    ///                 LastErrorMessage = "qcopqdjuuwuwdvdjmupwgrnxux",
+    ///                 LastStartTime = "2024-10-08T03:54:51.026Z",
+    ///                 LastStatus = new AzureNative.AwsConnector.Inputs.RecorderStatusEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.RecorderStatus.Failure,
+    ///                 },
+    ///                 LastStatusChangeTime = "2024-10-08T03:54:51.038Z",
+    ///                 LastStopTime = "2024-10-08T03:54:51.038Z",
+    ///                 Name = "mvnralcjhhrhhczxctukeumhnhhsvs",
+    ///                 Recording = true,
+    ///             },
+    ///             AwsRegion = "pffplccggyknjkyebtjepdzwbim",
+    ///             AwsSourceSchema = "qprhkzdetwvsaznwugwruaned",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key2618", "igrrsqtvduurjhwftennerlrcmamr" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "fzembqicafznmnrvzudikggimnls",
+    ///             PublicCloudResourceName = "stvqbbbupeyrxdfrdlslkxbi",
+    ///         },
+    ///         ResourceGroupName = "rgconfigServiceConfigurationRecorderStatus",
+    ///         Tags = 
+    ///         {
+    ///             { "key333", "yypbuvwbxpiokolnuiiq" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorderStatus eeydwxjrofsusc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorderStatuses/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ConfigServiceConfigurationRecorderStatus")]
     public partial class ConfigServiceConfigurationRecorderStatus : global::Pulumi.CustomResource

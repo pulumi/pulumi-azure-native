@@ -48,6 +48,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oidcRequestToken"] = args?.oidcRequestToken;
             resourceInputs["oidcRequestUrl"] = args?.oidcRequestUrl;
             resourceInputs["oidcToken"] = args?.oidcToken;
+            resourceInputs["oidcTokenFilePath"] = args?.oidcTokenFilePath;
             resourceInputs["partnerId"] = args?.partnerId;
             resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["tenantId"] = args?.tenantId;
@@ -120,6 +121,10 @@ export interface ProviderArgs {
      * The OIDC token to exchange for an Azure token.
      */
     oidcToken?: pulumi.Input<string>;
+    /**
+     * The path to a file containing an OIDC token to exchange for an Azure token.
+     */
+    oidcTokenFilePath?: pulumi.Input<string>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */

@@ -13,6 +13,101 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-06-01.
  *
  * Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update data collection rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataCollectionRule = new azure_native.monitor.DataCollectionRule("dataCollectionRule", {
+ *     dataCollectionRuleName: "myCollectionRule",
+ *     dataFlows: [{
+ *         destinations: ["centralWorkspace"],
+ *         streams: [
+ *             azure_native.monitor.KnownDataFlowStreams.Microsoft_Perf,
+ *             azure_native.monitor.KnownDataFlowStreams.Microsoft_Syslog,
+ *             azure_native.monitor.KnownDataFlowStreams.Microsoft_WindowsEvent,
+ *         ],
+ *     }],
+ *     dataSources: {
+ *         performanceCounters: [
+ *             {
+ *                 counterSpecifiers: [
+ *                     "\\Processor(_Total)\\% Processor Time",
+ *                     "\\Memory\\Committed Bytes",
+ *                     "\\LogicalDisk(_Total)\\Free Megabytes",
+ *                     "\\PhysicalDisk(_Total)\\Avg. Disk Queue Length",
+ *                 ],
+ *                 name: "cloudTeamCoreCounters",
+ *                 samplingFrequencyInSeconds: 15,
+ *                 streams: [azure_native.monitor.KnownPerfCounterDataSourceStreams.Microsoft_Perf],
+ *             },
+ *             {
+ *                 counterSpecifiers: ["\\Process(_Total)\\Thread Count"],
+ *                 name: "appTeamExtraCounters",
+ *                 samplingFrequencyInSeconds: 30,
+ *                 streams: [azure_native.monitor.KnownPerfCounterDataSourceStreams.Microsoft_Perf],
+ *             },
+ *         ],
+ *         syslog: [
+ *             {
+ *                 facilityNames: [azure_native.monitor.KnownSyslogDataSourceFacilityNames.Cron],
+ *                 logLevels: [
+ *                     azure_native.monitor.KnownSyslogDataSourceLogLevels.Debug,
+ *                     azure_native.monitor.KnownSyslogDataSourceLogLevels.Critical,
+ *                     azure_native.monitor.KnownSyslogDataSourceLogLevels.Emergency,
+ *                 ],
+ *                 name: "cronSyslog",
+ *                 streams: [azure_native.monitor.KnownSyslogDataSourceStreams.Microsoft_Syslog],
+ *             },
+ *             {
+ *                 facilityNames: [azure_native.monitor.KnownSyslogDataSourceFacilityNames.Syslog],
+ *                 logLevels: [
+ *                     azure_native.monitor.KnownSyslogDataSourceLogLevels.Alert,
+ *                     azure_native.monitor.KnownSyslogDataSourceLogLevels.Critical,
+ *                     azure_native.monitor.KnownSyslogDataSourceLogLevels.Emergency,
+ *                 ],
+ *                 name: "syslogBase",
+ *                 streams: [azure_native.monitor.KnownSyslogDataSourceStreams.Microsoft_Syslog],
+ *             },
+ *         ],
+ *         windowsEventLogs: [
+ *             {
+ *                 name: "cloudSecurityTeamEvents",
+ *                 streams: [azure_native.monitor.KnownWindowsEventLogDataSourceStreams.Microsoft_WindowsEvent],
+ *                 xPathQueries: ["Security!"],
+ *             },
+ *             {
+ *                 name: "appTeam1AppEvents",
+ *                 streams: [azure_native.monitor.KnownWindowsEventLogDataSourceStreams.Microsoft_WindowsEvent],
+ *                 xPathQueries: [
+ *                     "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+ *                     "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ *     destinations: {
+ *         logAnalytics: [{
+ *             name: "centralWorkspace",
+ *             workspaceResourceId: "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+ *         }],
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:DataCollectionRule myCollectionRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName} 
+ * ```
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**

@@ -56,6 +56,7 @@ class VirtualMachineArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
         :param pulumi.Input['ApplicationProfileArgs'] application_profile: Specifies the gallery applications that should be made available to the VM/VMSS.
@@ -584,6 +585,2489 @@ class VirtualMachine(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a Linux vm with a patch setting assessmentMode of ImageDefault.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Linux vm with a patch setting patchMode of AutomaticByPlatform and AutomaticByPlatformSettings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "automatic_by_platform_settings": {
+                            "bypass_platform_safety_checks_on_user_schedule": True,
+                            "reboot_setting": azure_native.compute.LinuxVMGuestPatchAutomaticByPlatformRebootSetting.NEVER,
+                        },
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Linux vm with a patch setting patchMode of ImageDefault.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Linux vm with a patch settings patchMode and assessmentMode set to AutomaticByPlatform.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM from a community gallery image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "community_gallery_image_id": "/CommunityGalleries/galleryPublicName/Images/communityGalleryImageName/Versions/communityGalleryImageVersionName",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM from a shared gallery image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "shared_gallery_image_id": "/SharedGalleries/sharedGalleryName/Images/sharedGalleryImageName/Versions/sharedGalleryImageVersionName",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with Disk Controller Type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D4_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            scheduled_events_policy={
+                "scheduled_events_additional_publishing_targets": {
+                    "event_grid_and_resource_graph": {
+                        "enable": True,
+                    },
+                },
+                "user_initiated_reboot": {
+                    "automatically_approve": True,
+                },
+                "user_initiated_redeploy": {
+                    "automatically_approve": True,
+                },
+            },
+            storage_profile={
+                "disk_controller_type": azure_native.compute.DiskControllerTypes.NV_ME,
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            user_data="U29tZSBDdXN0b20gRGF0YQ==",
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with HibernationEnabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            additional_capabilities={
+                "hibernation_enabled": True,
+            },
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="eastus2euap",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "{vm-name}",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2019-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmOSdisk",
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a VM with ProxyAgent Settings of enabled and mode.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "proxy_agent_settings": {
+                    "enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2019-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with Uefi Settings of secureBoot and vTPM.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.TRUSTED_LAUNCH,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "windowsserver-gen2preview-preview",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "windows10-tvm",
+                    "version": "18363.592.2001092016",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with UserData
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "{vm-name}",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmOSdisk",
+                },
+            },
+            user_data="RXhhbXBsZSBVc2VyRGF0YQ==",
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a VM with VM Size Properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D4_V3,
+                "vm_size_properties": {
+                    "v_cpus_available": 1,
+                    "v_cpus_per_core": 1,
+                },
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            user_data="U29tZSBDdXN0b20gRGF0YQ==",
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with automatic zone placement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            placement={
+                "include_zones": [
+                    "1",
+                    "3",
+                ],
+                "zone_placement_policy": azure_native.compute.ZonePlacementPolicyType.ANY,
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with network interface configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_api_version": azure_native.compute.NetworkApiVersion.NETWORK_API_VERSION_2020_11_01,
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "ip_configurations": [{
+                        "name": "{ip-config-name}",
+                        "primary": True,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DETACH,
+                            "name": "{publicIP-config-name}",
+                            "public_ip_allocation_method": azure_native.compute.PublicIPAllocationMethod.STATIC,
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.GLOBAL_,
+                            },
+                        },
+                    }],
+                    "name": "{nic-config-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with network interface configuration with public ip address dns settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_api_version": azure_native.compute.NetworkApiVersion.NETWORK_API_VERSION_2020_11_01,
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "ip_configurations": [{
+                        "name": "{ip-config-name}",
+                        "primary": True,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DETACH,
+                            "dns_settings": {
+                                "domain_name_label": "aaaaa",
+                                "domain_name_label_scope": azure_native.compute.DomainNameLabelScopeTypes.TENANT_REUSE,
+                            },
+                            "name": "{publicIP-config-name}",
+                            "public_ip_allocation_method": azure_native.compute.PublicIPAllocationMethod.STATIC,
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.GLOBAL_,
+                            },
+                        },
+                    }],
+                    "name": "{nic-config-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with securityType ConfidentialVM with Customer Managed Keys
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": "Standard_DC2as_v5",
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.CONFIDENTIAL_VM,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "2019-datacenter-cvm",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "windows-cvm",
+                    "version": "17763.2183.2109130127",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "security_profile": {
+                            "disk_encryption_set": {
+                                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                            },
+                            "security_encryption_type": azure_native.compute.SecurityEncryptionTypes.DISK_WITH_VM_GUEST_STATE,
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with securityType ConfidentialVM with NonPersistedTPM securityEncryptionType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": "Standard_DC2es_v5",
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.CONFIDENTIAL_VM,
+                "uefi_settings": {
+                    "secure_boot_enabled": False,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "2022-datacenter-cvm",
+                    "publisher": "UbuntuServer",
+                    "sku": "linux-cvm",
+                    "version": "17763.2183.2109130127",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "security_profile": {
+                            "security_encryption_type": azure_native.compute.SecurityEncryptionTypes.NON_PERSISTED_TPM,
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with securityType ConfidentialVM with Platform Managed Keys
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": "Standard_DC2as_v5",
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.CONFIDENTIAL_VM,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "2019-datacenter-cvm",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "windows-cvm",
+                    "version": "17763.2183.2109130127",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "security_profile": {
+                            "security_encryption_type": azure_native.compute.SecurityEncryptionTypes.DISK_WITH_VM_GUEST_STATE,
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting assessmentMode of ImageDefault.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of AutomaticByOS.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/nsgExistingNic",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_OS,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and AutomaticByPlatformSettings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "automatic_by_platform_settings": {
+                            "bypass_platform_safety_checks_on_user_schedule": False,
+                            "reboot_setting": azure_native.compute.WindowsVMGuestPatchAutomaticByPlatformRebootSetting.NEVER,
+                        },
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and enableHotpatching set to true.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "enable_hotpatching": True,
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of Manual.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.MANUAL,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with patch settings patchMode and assessmentMode set to AutomaticByPlatform.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a custom-image vm from an unmanaged generalized os image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "image": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+                    },
+                    "name": "myVMosdisk",
+                    "os_type": azure_native.compute.OperatingSystemTypes.WINDOWS,
+                    "vhd": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                    },
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a platform-image vm with unmanaged os and data disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                        "vhd": {
+                            "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk0.vhd",
+                        },
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                        "vhd": {
+                            "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk1.vhd",
+                        },
+                    },
+                ],
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "name": "myVMosdisk",
+                    "vhd": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                    },
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a vm from a custom image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm from a generalized shared image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/mySharedGallery/images/mySharedImage",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm from a specialized shared image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/mySharedGallery/images/mySharedImage",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm in a Virtual Machine Scale Set with customer assigned platformFaultDomain.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            platform_fault_domain=1,
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            virtual_machine_scale_set={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{existing-flex-vmss-name-with-platformFaultDomainCount-greater-than-1}",
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm in an availability set.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            availability_set={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with Application Profile.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            application_profile={
+                "gallery_applications": [
+                    {
+                        "configuration_reference": "https://mystorageaccount.blob.core.windows.net/configurations/settings.config",
+                        "enable_automatic_upgrade": False,
+                        "order": 1,
+                        "package_reference_id": "/subscriptions/32c17a9e-aa7b-4ba5-a45b-e324116b6fdb/resourceGroups/myresourceGroupName2/providers/Microsoft.Compute/galleries/myGallery1/applications/MyApplication1/versions/1.0",
+                        "tags": "myTag1",
+                        "treat_failure_as_deployment_failure": False,
+                    },
+                    {
+                        "package_reference_id": "/subscriptions/32c17a9e-aa7b-4ba5-a45b-e324116b6fdg/resourceGroups/myresourceGroupName3/providers/Microsoft.Compute/galleries/myGallery2/applications/MyApplication2/versions/1.1",
+                    },
+                ],
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "{image_offer}",
+                    "publisher": "{image_publisher}",
+                    "sku": "{image_sku}",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                        "managed_disk": {
+                            "disk_encryption_set": {
+                                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                            },
+                            "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                        },
+                    },
+                    {
+                        "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.ATTACH,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                        "managed_disk": {
+                            "disk_encryption_set": {
+                                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                            },
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-managed-disk-name}",
+                            "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                        },
+                    },
+                ],
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "disk_encryption_set": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with Host Encryption using encryptionAtHost property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "encryption_at_host": True,
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with Scheduled Events Profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            scheduled_events_policy={
+                "scheduled_events_additional_publishing_targets": {
+                    "event_grid_and_resource_graph": {
+                        "enable": True,
+                    },
+                },
+                "user_initiated_reboot": {
+                    "automatically_approve": True,
+                },
+                "user_initiated_redeploy": {
+                    "automatically_approve": True,
+                },
+            },
+            scheduled_events_profile={
+                "os_image_notification_profile": {
+                    "enable": True,
+                    "not_before_timeout": "PT15M",
+                },
+                "terminate_notification_profile": {
+                    "enable": True,
+                    "not_before_timeout": "PT10M",
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with a marketplace image plan.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with an extensions time budget.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            extensions_time_budget="PT30M",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with boot diagnostics.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with data disks using 'Copy' and 'Restore' options.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.COPY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                        "source_resource": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/{existing-snapshot-name}",
+                        },
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.COPY,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                        "source_resource": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-disk-name}",
+                        },
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.RESTORE,
+                        "disk_size_gb": 1023,
+                        "lun": 2,
+                        "source_resource": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/{existing-rpc-name}/restorePoints/{existing-rp-name}/diskRestorePoints/{existing-disk-restore-point-name}",
+                        },
+                    },
+                ],
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with empty data disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                    },
+                ],
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.CACHE_DISK,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk provisioning in Nvme disk using placement property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.NVME_DISK,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.RESOURCE_DISK,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with managed boot diagnostics.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with password authentication.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with premium storage.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ssh authentication.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "disable_password_authentication": True,
+                    "ssh": {
+                        "public_keys": [{
+                            "key_data": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+                            "path": "/home/{your-username}/.ssh/authorized_keys",
+                        }],
+                    },
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "{image_offer}",
+                    "publisher": "{image_publisher}",
+                    "sku": "{image_sku}",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create or update a VM with capacity reservation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            capacity_reservation={
+                "capacity_reservation_group": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/{crgName}",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:VirtualMachine myVM /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
@@ -631,6 +3115,2489 @@ class VirtualMachine(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a Linux vm with a patch setting assessmentMode of ImageDefault.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Linux vm with a patch setting patchMode of AutomaticByPlatform and AutomaticByPlatformSettings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "automatic_by_platform_settings": {
+                            "bypass_platform_safety_checks_on_user_schedule": True,
+                            "reboot_setting": azure_native.compute.LinuxVMGuestPatchAutomaticByPlatformRebootSetting.NEVER,
+                        },
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Linux vm with a patch setting patchMode of ImageDefault.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Linux vm with a patch settings patchMode and assessmentMode set to AutomaticByPlatform.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "UbuntuServer",
+                    "publisher": "Canonical",
+                    "sku": "16.04-LTS",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM from a community gallery image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "community_gallery_image_id": "/CommunityGalleries/galleryPublicName/Images/communityGalleryImageName/Versions/communityGalleryImageVersionName",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM from a shared gallery image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "shared_gallery_image_id": "/SharedGalleries/sharedGalleryName/Images/sharedGalleryImageName/Versions/sharedGalleryImageVersionName",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with Disk Controller Type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D4_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            scheduled_events_policy={
+                "scheduled_events_additional_publishing_targets": {
+                    "event_grid_and_resource_graph": {
+                        "enable": True,
+                    },
+                },
+                "user_initiated_reboot": {
+                    "automatically_approve": True,
+                },
+                "user_initiated_redeploy": {
+                    "automatically_approve": True,
+                },
+            },
+            storage_profile={
+                "disk_controller_type": azure_native.compute.DiskControllerTypes.NV_ME,
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            user_data="U29tZSBDdXN0b20gRGF0YQ==",
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with HibernationEnabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            additional_capabilities={
+                "hibernation_enabled": True,
+            },
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="eastus2euap",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "{vm-name}",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2019-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmOSdisk",
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a VM with ProxyAgent Settings of enabled and mode.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "proxy_agent_settings": {
+                    "enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2019-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with Uefi Settings of secureBoot and vTPM.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2S_V3,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.TRUSTED_LAUNCH,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "windowsserver-gen2preview-preview",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "windows10-tvm",
+                    "version": "18363.592.2001092016",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with UserData
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "{vm-name}",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmOSdisk",
+                },
+            },
+            user_data="RXhhbXBsZSBVc2VyRGF0YQ==",
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a VM with VM Size Properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D4_V3,
+                "vm_size_properties": {
+                    "v_cpus_available": 1,
+                    "v_cpus_per_core": 1,
+                },
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            user_data="U29tZSBDdXN0b20gRGF0YQ==",
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with automatic zone placement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus2",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            placement={
+                "include_zones": [
+                    "1",
+                    "3",
+                ],
+                "zone_placement_policy": azure_native.compute.ZonePlacementPolicyType.ANY,
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with network interface configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_api_version": azure_native.compute.NetworkApiVersion.NETWORK_API_VERSION_2020_11_01,
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "ip_configurations": [{
+                        "name": "{ip-config-name}",
+                        "primary": True,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DETACH,
+                            "name": "{publicIP-config-name}",
+                            "public_ip_allocation_method": azure_native.compute.PublicIPAllocationMethod.STATIC,
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.GLOBAL_,
+                            },
+                        },
+                    }],
+                    "name": "{nic-config-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with network interface configuration with public ip address dns settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_api_version": azure_native.compute.NetworkApiVersion.NETWORK_API_VERSION_2020_11_01,
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "ip_configurations": [{
+                        "name": "{ip-config-name}",
+                        "primary": True,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DETACH,
+                            "dns_settings": {
+                                "domain_name_label": "aaaaa",
+                                "domain_name_label_scope": azure_native.compute.DomainNameLabelScopeTypes.TENANT_REUSE,
+                            },
+                            "name": "{publicIP-config-name}",
+                            "public_ip_allocation_method": azure_native.compute.PublicIPAllocationMethod.STATIC,
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.GLOBAL_,
+                            },
+                        },
+                    }],
+                    "name": "{nic-config-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with securityType ConfidentialVM with Customer Managed Keys
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": "Standard_DC2as_v5",
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.CONFIDENTIAL_VM,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "2019-datacenter-cvm",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "windows-cvm",
+                    "version": "17763.2183.2109130127",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "security_profile": {
+                            "disk_encryption_set": {
+                                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                            },
+                            "security_encryption_type": azure_native.compute.SecurityEncryptionTypes.DISK_WITH_VM_GUEST_STATE,
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with securityType ConfidentialVM with NonPersistedTPM securityEncryptionType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": "Standard_DC2es_v5",
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.CONFIDENTIAL_VM,
+                "uefi_settings": {
+                    "secure_boot_enabled": False,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "2022-datacenter-cvm",
+                    "publisher": "UbuntuServer",
+                    "sku": "linux-cvm",
+                    "version": "17763.2183.2109130127",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "security_profile": {
+                            "security_encryption_type": azure_native.compute.SecurityEncryptionTypes.NON_PERSISTED_TPM,
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a VM with securityType ConfidentialVM with Platform Managed Keys
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": "Standard_DC2as_v5",
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "security_type": azure_native.compute.SecurityTypes.CONFIDENTIAL_VM,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "2019-datacenter-cvm",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "windows-cvm",
+                    "version": "17763.2183.2109130127",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "security_profile": {
+                            "security_encryption_type": azure_native.compute.SecurityEncryptionTypes.DISK_WITH_VM_GUEST_STATE,
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_SS_D_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting assessmentMode of ImageDefault.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of AutomaticByOS.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/nsgExistingNic",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_OS,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and AutomaticByPlatformSettings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "automatic_by_platform_settings": {
+                            "bypass_platform_safety_checks_on_user_schedule": False,
+                            "reboot_setting": azure_native.compute.WindowsVMGuestPatchAutomaticByPlatformRebootSetting.NEVER,
+                        },
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and enableHotpatching set to true.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "enable_hotpatching": True,
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with a patch setting patchMode of Manual.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.MANUAL,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a Windows vm with patch settings patchMode and assessmentMode set to AutomaticByPlatform.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "windows_configuration": {
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.AUTOMATIC_BY_PLATFORM,
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.AUTOMATIC_BY_PLATFORM,
+                    },
+                    "provision_vm_agent": True,
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a custom-image vm from an unmanaged generalized os image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "image": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+                    },
+                    "name": "myVMosdisk",
+                    "os_type": azure_native.compute.OperatingSystemTypes.WINDOWS,
+                    "vhd": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                    },
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a platform-image vm with unmanaged os and data disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                        "vhd": {
+                            "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk0.vhd",
+                        },
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                        "vhd": {
+                            "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk1.vhd",
+                        },
+                    },
+                ],
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "name": "myVMosdisk",
+                    "vhd": {
+                        "uri": "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                    },
+                },
+            },
+            vm_name="{vm-name}")
+
+        ```
+        ### Create a vm from a custom image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm from a generalized shared image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/mySharedGallery/images/mySharedImage",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm from a specialized shared image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/mySharedGallery/images/mySharedImage",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm in a Virtual Machine Scale Set with customer assigned platformFaultDomain.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            platform_fault_domain=1,
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            virtual_machine_scale_set={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{existing-flex-vmss-name-with-platformFaultDomainCount-greater-than-1}",
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm in an availability set.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            availability_set={
+                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with Application Profile.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            application_profile={
+                "gallery_applications": [
+                    {
+                        "configuration_reference": "https://mystorageaccount.blob.core.windows.net/configurations/settings.config",
+                        "enable_automatic_upgrade": False,
+                        "order": 1,
+                        "package_reference_id": "/subscriptions/32c17a9e-aa7b-4ba5-a45b-e324116b6fdb/resourceGroups/myresourceGroupName2/providers/Microsoft.Compute/galleries/myGallery1/applications/MyApplication1/versions/1.0",
+                        "tags": "myTag1",
+                        "treat_failure_as_deployment_failure": False,
+                    },
+                    {
+                        "package_reference_id": "/subscriptions/32c17a9e-aa7b-4ba5-a45b-e324116b6fdg/resourceGroups/myresourceGroupName3/providers/Microsoft.Compute/galleries/myGallery2/applications/MyApplication2/versions/1.1",
+                    },
+                ],
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "{image_offer}",
+                    "publisher": "{image_publisher}",
+                    "sku": "{image_sku}",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                        "managed_disk": {
+                            "disk_encryption_set": {
+                                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                            },
+                            "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                        },
+                    },
+                    {
+                        "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.ATTACH,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                        "managed_disk": {
+                            "disk_encryption_set": {
+                                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                            },
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-managed-disk-name}",
+                            "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                        },
+                    },
+                ],
+                "image_reference": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "disk_encryption_set": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                        },
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with Host Encryption using encryptionAtHost property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            security_profile={
+                "encryption_at_host": True,
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with Scheduled Events Profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            scheduled_events_policy={
+                "scheduled_events_additional_publishing_targets": {
+                    "event_grid_and_resource_graph": {
+                        "enable": True,
+                    },
+                },
+                "user_initiated_reboot": {
+                    "automatically_approve": True,
+                },
+                "user_initiated_redeploy": {
+                    "automatically_approve": True,
+                },
+            },
+            scheduled_events_profile={
+                "os_image_notification_profile": {
+                    "enable": True,
+                    "not_before_timeout": "PT15M",
+                },
+                "terminate_notification_profile": {
+                    "enable": True,
+                    "not_before_timeout": "PT10M",
+                },
+            },
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with a marketplace image plan.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with an extensions time budget.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            extensions_time_budget="PT30M",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with boot diagnostics.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "http://{existing-storage-account-name}.blob.core.windows.net",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with data disks using 'Copy' and 'Restore' options.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.COPY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                        "source_resource": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/{existing-snapshot-name}",
+                        },
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.COPY,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                        "source_resource": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-disk-name}",
+                        },
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.RESTORE,
+                        "disk_size_gb": 1023,
+                        "lun": 2,
+                        "source_resource": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/{existing-rpc-name}/restorePoints/{existing-rp-name}/diskRestorePoints/{existing-disk-restore-point-name}",
+                        },
+                    },
+                ],
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with empty data disks.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D2_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "data_disks": [
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 0,
+                    },
+                    {
+                        "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                        "disk_size_gb": 1023,
+                        "lun": 1,
+                    },
+                ],
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.CACHE_DISK,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk provisioning in Nvme disk using placement property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.NVME_DISK,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.RESOURCE_DISK,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ephemeral os disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                    },
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with managed boot diagnostics.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with password authentication.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with premium storage.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "sku": "2016-Datacenter",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.PREMIUM_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create a vm with ssh authentication.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_D1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+                "linux_configuration": {
+                    "disable_password_authentication": True,
+                    "ssh": {
+                        "public_keys": [{
+                            "key_data": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+                            "path": "/home/{your-username}/.ssh/authorized_keys",
+                        }],
+                    },
+                },
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "{image_offer}",
+                    "publisher": "{image_publisher}",
+                    "sku": "{image_sku}",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_WRITE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+        ### Create or update a VM with capacity reservation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+            capacity_reservation={
+                "capacity_reservation_group": {
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/{crgName}",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.STANDARD_DS1_V2,
+            },
+            location="westus",
+            network_profile={
+                "network_interfaces": [{
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "{your-password}",
+                "admin_username": "{your-username}",
+                "computer_name": "myVM",
+            },
+            plan={
+                "name": "windows2016",
+                "product": "windows-data-science-vm",
+                "publisher": "microsoft-ads",
+            },
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "image_reference": {
+                    "offer": "windows-data-science-vm",
+                    "publisher": "microsoft-ads",
+                    "sku": "windows2016",
+                    "version": "latest",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "managed_disk": {
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "myVMosdisk",
+                },
+            },
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:VirtualMachine myVM /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

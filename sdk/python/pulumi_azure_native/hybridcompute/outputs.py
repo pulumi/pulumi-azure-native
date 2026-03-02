@@ -106,6 +106,7 @@ class AgentConfigurationResponse(dict):
                  proxy_url: _builtins.str):
         """
         Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+
         :param _builtins.str config_mode: Name of configuration mode to use. Modes are pre-defined configurations of security controls, extension allowlists and guest configuration, maintained by Microsoft.
         :param Sequence['ConfigurationExtensionResponse'] extensions_allow_list: Array of extensions that are allowed to be installed or updated.
         :param Sequence['ConfigurationExtensionResponse'] extensions_block_list: Array of extensions that are blocked (cannot be installed or updated)
@@ -233,6 +234,7 @@ class AgentUpgradeResponse(dict):
                  enable_automatic_upgrade: Optional[_builtins.bool] = None):
         """
         The info w.r.t Agent Upgrade.
+
         :param _builtins.str last_attempt_desired_version: Specifies the version of the last attempt
         :param _builtins.str last_attempt_message: Failure message of last upgrade attempt if any.
         :param _builtins.str last_attempt_status: Specifies the status of Agent Upgrade.
@@ -318,6 +320,7 @@ class CloudMetadataResponse(dict):
                  provider: _builtins.str):
         """
         The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+
         :param _builtins.str provider: Specifies the cloud provider (Azure/AWS/GCP...).
         """
         pulumi.set(__self__, "provider", provider)
@@ -341,6 +344,7 @@ class ConfigurationExtensionResponse(dict):
                  type: _builtins.str):
         """
         Describes properties that can identify extensions.
+
         :param _builtins.str publisher: Publisher of the extension.
         :param _builtins.str type: Type of the extension.
         """
@@ -374,6 +378,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -427,6 +432,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -507,6 +513,7 @@ class EsuKeyResponse(dict):
                  sku: Optional[_builtins.str] = None):
         """
         ESU key
+
         :param _builtins.int license_status: The current status of the license profile key. Represented by the same integer value that is presented on the machine itself when querying the license key status.
         :param _builtins.str sku: SKU number.
         """
@@ -562,6 +569,7 @@ class ExtensionsResourceStatusResponse(dict):
                  time: Optional[_builtins.str] = None):
         """
         Instance view status.
+
         :param _builtins.str code: The status code.
         :param _builtins.str display_status: The short localizable label for the status.
         :param _builtins.str level: The level code.
@@ -655,6 +663,7 @@ class HybridComputePrivateLinkScopePropertiesResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         Properties that define a Azure Arc PrivateLinkScope resource.
+
         :param Sequence['PrivateEndpointConnectionDataModelResponse'] private_endpoint_connections: The collection of associated Private Endpoint Connections.
         :param _builtins.str private_link_scope_id: The Guid id of the private link scope.
         :param _builtins.str provisioning_state: Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
@@ -729,6 +738,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -791,6 +801,7 @@ class IpAddressResponse(dict):
                  ip_address_version: Optional[_builtins.str] = None):
         """
         Describes properties of the IP address.
+
         :param 'SubnetResponse' subnet: The subnet to which this IP address belongs.
         :param _builtins.str address: Represents the IP Address.
         :param _builtins.str ip_address_version: Represents the Ip Address Version.
@@ -863,6 +874,7 @@ class LicenseDetailsResponse(dict):
                  volume_license_details: Optional[Sequence['outputs.VolumeLicenseDetailsResponse']] = None):
         """
         Describes the properties of a License.
+
         :param _builtins.int assigned_licenses: Describes the number of assigned licenses.
         :param _builtins.str immutable_id: Describes the immutable id.
         :param _builtins.str edition: Describes the edition of the license. The values are either Standard or Datacenter.
@@ -996,6 +1008,7 @@ class LicenseProfileMachineInstanceViewEsuPropertiesResponse(dict):
                  license_assignment_state: Optional[_builtins.str] = None):
         """
         Properties for the Machine ESU profile.
+
         :param _builtins.str assigned_license_immutable_id: The guid id of the license.
         :param _builtins.str esu_eligibility: Indicates the eligibility state of Esu.
         :param _builtins.str esu_key_state: Indicates whether there is an ESU Key currently active for the machine.
@@ -1128,6 +1141,7 @@ class LicenseProfileMachineInstanceViewResponse(dict):
                  subscription_status: Optional[_builtins.str] = None):
         """
         License Profile Instance View in Machine Properties.
+
         :param _builtins.str billing_end_date: The timestamp in UTC when the billing ends.
         :param _builtins.str billing_start_date: The timestamp in UTC when the billing starts.
         :param _builtins.str disenrollment_date: The timestamp in UTC when the user disenrolled the feature.
@@ -1299,6 +1313,7 @@ class LicenseResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Describes a license in a hybrid machine.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
@@ -1435,6 +1450,7 @@ class LocationDataResponse(dict):
                  district: Optional[_builtins.str] = None):
         """
         Metadata pertaining to the geographic location of the resource.
+
         :param _builtins.str name: A canonical name for the geographic or physical location.
         :param _builtins.str city: The city or locality where the resource is located.
         :param _builtins.str country_or_region: The country or region where the resource is located
@@ -1510,6 +1526,7 @@ class MachineExtensionInstanceViewResponse(dict):
                  type_handler_version: Optional[_builtins.str] = None):
         """
         Describes the Machine Extension Instance View.
+
         :param _builtins.str name: The machine extension name.
         :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
         :param _builtins.str type: Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -1587,6 +1604,7 @@ class MachineExtensionInstanceViewResponseStatus(dict):
                  time: Optional[_builtins.str] = None):
         """
         Instance view status.
+
         :param _builtins.str code: The status code.
         :param _builtins.str display_status: The short localizable label for the status.
         :param _builtins.str level: The level code.
@@ -1692,6 +1710,7 @@ class MachineExtensionPropertiesResponse(dict):
                  type_handler_version: Optional[_builtins.str] = None):
         """
         Describes the properties of a Machine Extension.
+
         :param _builtins.str provisioning_state: The provisioning state, which only appears in the response.
         :param _builtins.bool auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param _builtins.bool enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
@@ -1836,6 +1855,7 @@ class MachineExtensionResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Describes a Machine Extension.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str location: The geo-location where the resource lives
         :param _builtins.str name: The name of the resource
@@ -1952,6 +1972,7 @@ class MachineRunCommandInstanceViewResponse(dict):
                  statuses: Optional[Sequence['outputs.ExtensionsResourceStatusResponse']] = None):
         """
         The instance view of a machine run command.
+
         :param _builtins.str end_time: Script end time.
         :param _builtins.str error: Script error stream.
         :param _builtins.str execution_message: Communicate script configuration errors or execution messages.
@@ -2076,6 +2097,7 @@ class MachineRunCommandScriptSourceResponse(dict):
                  script_uri_managed_identity: Optional['outputs.RunCommandManagedIdentityResponse'] = None):
         """
         Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+
         :param _builtins.str command_id: Specifies the commandId of predefined built-in script.
         :param _builtins.str script: Specifies the script content to be executed on the machine.
         :param _builtins.str script_uri: Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
@@ -2149,6 +2171,7 @@ class NetworkInterfaceResponse(dict):
                  ip_addresses: Optional[Sequence['outputs.IpAddressResponse']] = None):
         """
         Describes a network interface.
+
         :param Sequence['IpAddressResponse'] ip_addresses: The list of IP addresses in this interface.
         """
         if ip_addresses is not None:
@@ -2189,6 +2212,7 @@ class NetworkProfileResponse(dict):
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None):
         """
         Describes the network information on this machine.
+
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: The list of network interfaces.
         """
         if network_interfaces is not None:
@@ -2235,6 +2259,7 @@ class OSProfileResponse(dict):
                  windows_configuration: Optional['outputs.OSProfileResponseWindowsConfiguration'] = None):
         """
         Specifies the operating system settings for the hybrid machine.
+
         :param _builtins.str computer_name: Specifies the host OS name of the hybrid machine.
         :param 'OSProfileResponseLinuxConfiguration' linux_configuration: Specifies the linux configuration for update management.
         :param 'OSProfileResponseWindowsConfiguration' windows_configuration: Specifies the windows configuration for update management.
@@ -2303,6 +2328,7 @@ class OSProfileResponseLinuxConfiguration(dict):
                  patch_mode: Optional[_builtins.str] = None):
         """
         Specifies the linux configuration for update management.
+
         :param 'PatchSettingsResponseStatus' status: Status of the hotpatch capability enrollment or disenrollment.
         :param _builtins.str assessment_mode: Specifies the assessment mode.
         :param _builtins.bool enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
@@ -2382,6 +2408,7 @@ class OSProfileResponseWindowsConfiguration(dict):
                  patch_mode: Optional[_builtins.str] = None):
         """
         Specifies the windows configuration for update management.
+
         :param 'PatchSettingsResponseStatus' status: Status of the hotpatch capability enrollment or disenrollment.
         :param _builtins.str assessment_mode: Specifies the assessment mode.
         :param _builtins.bool enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
@@ -2455,6 +2482,7 @@ class PatchSettingsResponseStatus(dict):
                  hotpatch_enablement_status: Optional[_builtins.str] = None):
         """
         Status of the hotpatch capability enrollment or disenrollment.
+
         :param 'ErrorDetailResponse' error: The errors that were encountered during the hotpatch capability enrollment or disenrollment.
         :param _builtins.str hotpatch_enablement_status: Indicates the current status of the hotpatch being enabled or disabled.
         """
@@ -2491,6 +2519,7 @@ class PrivateEndpointConnectionDataModelResponse(dict):
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
         The Data Model for a Private Endpoint Connection associated with a Private Link Scope
+
         :param _builtins.str id: The ARM Resource Id of the Private Endpoint.
         :param _builtins.str name: The Name of the Private Endpoint.
         :param _builtins.str type: Azure resource type
@@ -2570,6 +2599,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+
         :param Sequence[_builtins.str] group_ids: List of group IDs.
         :param _builtins.str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
@@ -2624,6 +2654,7 @@ class PrivateEndpointPropertyResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Private endpoint which the connection belongs to.
+
         :param _builtins.str id: Resource id of the private endpoint.
         """
         if id is not None:
@@ -2666,6 +2697,7 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
                  status: _builtins.str):
         """
         State of the private endpoint connection.
+
         :param _builtins.str actions_required: The actions required for private link service connection.
         :param _builtins.str description: The private link service connection description.
         :param _builtins.str status: The private link service connection status.
@@ -2739,6 +2771,7 @@ class ProductFeatureResponse(dict):
                  subscription_status: Optional[_builtins.str] = None):
         """
         Product Feature
+
         :param _builtins.str billing_end_date: The timestamp in UTC when the billing ends.
         :param _builtins.str billing_start_date: The timestamp in UTC when the billing starts.
         :param _builtins.str disenrollment_date: The timestamp in UTC when the user disenrolled the feature.
@@ -2824,6 +2857,7 @@ class RunCommandInputParameterResponse(dict):
                  value: _builtins.str):
         """
         Describes the properties of a run command parameter.
+
         :param _builtins.str name: The run command parameter name.
         :param _builtins.str value: The run command parameter value.
         """
@@ -2876,6 +2910,7 @@ class RunCommandManagedIdentityResponse(dict):
                  object_id: Optional[_builtins.str] = None):
         """
          Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+
         :param _builtins.str client_id: Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
         :param _builtins.str object_id: Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
         """
@@ -2928,6 +2963,7 @@ class ServiceStatusResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Describes the status and behavior of a service.
+
         :param _builtins.str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param _builtins.str status: The current status of the service.
         """
@@ -2982,6 +3018,7 @@ class ServiceStatusesResponse(dict):
                  guest_configuration_service: Optional['outputs.ServiceStatusResponse'] = None):
         """
         Reports the state and behavior of dependent services.
+
         :param 'ServiceStatusResponse' extension_service: The state of the extension service on the Arc-enabled machine.
         :param 'ServiceStatusResponse' guest_configuration_service: The state of the guest configuration service on the Arc-enabled machine.
         """
@@ -3033,6 +3070,7 @@ class SubnetResponse(dict):
                  address_prefix: Optional[_builtins.str] = None):
         """
         Describes the subnet.
+
         :param _builtins.str address_prefix: Represents address prefix.
         """
         if address_prefix is not None:
@@ -3088,6 +3126,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

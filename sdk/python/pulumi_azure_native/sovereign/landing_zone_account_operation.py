@@ -30,6 +30,7 @@ class LandingZoneAccountOperationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LandingZoneAccountOperation resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
@@ -139,6 +140,14 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
         The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sovereign:LandingZoneAccountOperation lza-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,6 +168,14 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
         The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sovereign:LandingZoneAccountOperation lza-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LandingZoneAccountOperationArgs args: The arguments to use to populate this resource's properties.

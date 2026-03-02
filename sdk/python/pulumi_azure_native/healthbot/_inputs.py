@@ -26,19 +26,14 @@ __all__ = [
     'SkuArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class HealthBotPropertiesArgsDict(TypedDict):
-        """
-        The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        KeyVault properties for the resource encryption.
-        """
-elif False:
-    HealthBotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class HealthBotPropertiesArgsDict(TypedDict):
+    """
+    The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    KeyVault properties for the resource encryption.
+    """
 
 @pulumi.input_type
 class HealthBotPropertiesArgs:
@@ -46,6 +41,7 @@ class HealthBotPropertiesArgs:
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
         """
         The properties of a Azure Health Bot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: KeyVault properties for the resource encryption.
         """
         if key_vault_properties is not None:
@@ -64,22 +60,19 @@ class HealthBotPropertiesArgs:
         pulumi.set(self, "key_vault_properties", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
+    '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -88,6 +81,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input['ResourceIdentityType'] type: The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -123,29 +117,26 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of the key vault.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        The name of the key vault key.
-        """
-        key_vault_uri: pulumi.Input[_builtins.str]
-        """
-        The Uri of the key vault.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the key vault key.
-        """
-        user_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user assigned identity (ARM resource id) that has access to the key.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of the key vault.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    The name of the key vault key.
+    """
+    key_vault_uri: pulumi.Input[_builtins.str]
+    """
+    The Uri of the key vault.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the key vault key.
+    """
+    user_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user assigned identity (ARM resource id) that has access to the key.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -156,6 +147,7 @@ class KeyVaultPropertiesArgs:
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of the key vault.
+
         :param pulumi.Input[_builtins.str] key_name: The name of the key vault key.
         :param pulumi.Input[_builtins.str] key_vault_uri: The Uri of the key vault.
         :param pulumi.Input[_builtins.str] key_version: The version of the key vault key.
@@ -217,17 +209,14 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "user_identity", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The resource model definition representing SKU
-        """
-        name: pulumi.Input['SkuName']
-        """
-        The name of the Azure Health Bot SKU
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The resource model definition representing SKU
+    """
+    name: pulumi.Input['SkuName']
+    """
+    The name of the Azure Health Bot SKU
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -235,6 +224,7 @@ class SkuArgs:
                  name: pulumi.Input['SkuName']):
         """
         The resource model definition representing SKU
+
         :param pulumi.Input['SkuName'] name: The name of the Azure Health Bot SKU
         """
         pulumi.set(__self__, "name", name)

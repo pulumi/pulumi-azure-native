@@ -38,6 +38,7 @@ class NamespaceArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Namespace resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] alternate_name: Alternate name for namespace
         :param pulumi.Input[_builtins.bool] disable_local_auth: This property disables SAS authentication for the Service Bus namespace.
@@ -282,6 +283,39 @@ class Namespace(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NameSpaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.servicebus.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace2924",
+            premium_messaging_partitions=2,
+            resource_group_name="ArunMonocle",
+            sku={
+                "capacity": 4,
+                "name": azure_native.servicebus.SkuName.PREMIUM,
+                "tier": azure_native.servicebus.SkuTier.PREMIUM,
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Namespace sdk-Namespace-2924 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alternate_name: Alternate name for namespace
@@ -312,6 +346,39 @@ class Namespace(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NameSpaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.servicebus.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace2924",
+            premium_messaging_partitions=2,
+            resource_group_name="ArunMonocle",
+            sku={
+                "capacity": 4,
+                "name": azure_native.servicebus.SkuName.PREMIUM,
+                "tier": azure_native.servicebus.SkuTier.PREMIUM,
+            },
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Namespace sdk-Namespace-2924 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

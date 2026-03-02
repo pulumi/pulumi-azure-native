@@ -13,6 +13,164 @@ namespace Pulumi.AzureNative.Blueprint
     /// Blueprint artifact that applies a Policy assignment.
     /// 
     /// Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### MG-ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MG-PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         DisplayName = "force costCenter tag on all resources",
+    ///         Kind = "policyAssignment",
+    ///         Parameters = 
+    ///         {
+    ///             { "tagName", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "costCenter",
+    ///             } },
+    ///             { "tagValue", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "[parameter('costCenter')]",
+    ///             } },
+    ///         },
+    ///         PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MG-RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Sub-ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Sub-PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         DisplayName = "force costCenter tag on all resources",
+    ///         Kind = "policyAssignment",
+    ///         Parameters = 
+    ///         {
+    ///             { "tagName", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "costCenter",
+    ///             } },
+    ///             { "tagValue", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "[parameter('costCenter')]",
+    ///             } },
+    ///         },
+    ///         PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Sub-RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint:PolicyAssignmentArtifact ownerAssignment /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/artifacts/{artifactName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:PolicyAssignmentArtifact")]
     public partial class PolicyAssignmentArtifact : global::Pulumi.CustomResource

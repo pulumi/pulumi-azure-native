@@ -46,6 +46,7 @@ class LimitNameResponse(dict):
                  value: _builtins.str):
         """
         Properties of the limit name.
+
         :param _builtins.str localized_value: The localized limit name.
         :param _builtins.str value: The limit name.
         """
@@ -110,6 +111,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

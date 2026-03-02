@@ -37,6 +37,7 @@ class BindingPropertiesResponse(dict):
                  role: _builtins.str):
         """
         Defines a component binding for a provider.
+
         :param Any config: Configuration values for the binding.
         :param _builtins.str provider: Name of the provider.
         :param _builtins.str role: Role that the provider binds to with the component.
@@ -82,6 +83,7 @@ class ComponentPropertiesResponse(dict):
                  properties: Optional[Any] = None):
         """
         Defines a desired runtime component.
+
         :param _builtins.str name: Name of the component.
         :param _builtins.str type: Component type.
         :param Sequence[_builtins.str] dependencies: Component dependencies.
@@ -137,6 +139,7 @@ class ExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -170,6 +173,7 @@ class ReconciliationPolicyResponse(dict):
                  interval: Optional[_builtins.str] = None):
         """
         Reconciliation Policy.
+
         :param _builtins.str type: Policy type
         :param _builtins.str interval: Policy interval.
         """
@@ -235,6 +239,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -313,6 +318,7 @@ class TargetSelectorPropertiesResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Properties of the reference target.
+
         :param _builtins.str name: Name of the target.
         """
         if name is not None:
@@ -336,6 +342,7 @@ class TopologiesPropertiesResponse(dict):
                  bindings: Optional[Sequence['outputs.BindingPropertiesResponse']] = None):
         """
         Defines a desired runtime component.
+
         :param Sequence['BindingPropertiesResponse'] bindings: bindings description.
         """
         if bindings is not None:

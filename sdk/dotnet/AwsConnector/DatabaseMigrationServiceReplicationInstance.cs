@@ -13,6 +13,126 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### DatabaseMigrationServiceReplicationInstances_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseMigrationServiceReplicationInstance = new AzureNative.AwsConnector.DatabaseMigrationServiceReplicationInstance("databaseMigrationServiceReplicationInstance", new()
+    ///     {
+    ///         Location = "pkvlgucpnkkigflvahztr",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.DatabaseMigrationServiceReplicationInstancePropertiesArgs
+    ///         {
+    ///             Arn = "hgieneplknqcgzbvoj",
+    ///             AwsAccountId = "zkpbtrjskcsejrxvaulidr",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsDatabaseMigrationServiceReplicationInstancePropertiesArgs
+    ///             {
+    ///                 AllocatedStorage = 15,
+    ///                 AutoMinorVersionUpgrade = true,
+    ///                 AvailabilityZone = "ufwkddqfhigljgpouncfjtwjhcm",
+    ///                 DnsNameServers = "gjlforgdkkjubyetzafznct",
+    ///                 EngineVersion = "ugfhxgag",
+    ///                 FreeUntil = "2024-10-08T03:53:04.775Z",
+    ///                 InstanceCreateTime = "2024-10-08T03:53:04.776Z",
+    ///                 KmsKeyId = "kxrelekeobexuugdjmttnolzsntu",
+    ///                 MultiAZ = true,
+    ///                 NetworkType = "ognalkhwgr",
+    ///                 PendingModifiedValues = new AzureNative.AwsConnector.Inputs.ReplicationPendingModifiedValuesArgs
+    ///                 {
+    ///                     AllocatedStorage = 24,
+    ///                     EngineVersion = "ljjlnnkamqo",
+    ///                     MultiAZ = true,
+    ///                     NetworkType = "xgynwurnwuqfirccmedvhphptwx",
+    ///                     ReplicationInstanceClass = "nah",
+    ///                 },
+    ///                 PreferredMaintenanceWindow = "cjhj",
+    ///                 PubliclyAccessible = true,
+    ///                 ReplicationInstanceArn = "kkuagugx",
+    ///                 ReplicationInstanceClass = "nrejgjvmp",
+    ///                 ReplicationInstanceIdentifier = "kmkhuvkgshmfnqrkh",
+    ///                 ReplicationInstanceIpv6Addresses = new[]
+    ///                 {
+    ///                     "chankbhtkfgmmql",
+    ///                 },
+    ///                 ReplicationInstancePrivateIpAddress = "kzpeupvtv",
+    ///                 ReplicationInstancePrivateIpAddresses = new[]
+    ///                 {
+    ///                     "wpvurjepdvyqsut",
+    ///                 },
+    ///                 ReplicationInstancePublicIpAddress = "cgolgdimqmrtbs",
+    ///                 ReplicationInstancePublicIpAddresses = new[]
+    ///                 {
+    ///                     "laguuyhnutmqr",
+    ///                 },
+    ///                 ReplicationInstanceStatus = "prkwehbwglimljckrujss",
+    ///                 ReplicationSubnetGroup = new AzureNative.AwsConnector.Inputs.ReplicationSubnetGroupArgs
+    ///                 {
+    ///                     ReplicationSubnetGroupDescription = "octprj",
+    ///                     ReplicationSubnetGroupIdentifier = "lp",
+    ///                     SubnetGroupStatus = "u",
+    ///                     Subnets = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.SubnetArgs
+    ///                         {
+    ///                             SubnetAvailabilityZone = new AzureNative.AwsConnector.Inputs.AvailabilityZoneArgs
+    ///                             {
+    ///                                 Name = "zkqyndrxrxjgvbcwycfd",
+    ///                             },
+    ///                             SubnetIdentifier = "bbjyuchlt",
+    ///                             SubnetStatus = "pzsp",
+    ///                         },
+    ///                     },
+    ///                     SupportedNetworkTypes = new[]
+    ///                     {
+    ///                         "flrojgbtzlv",
+    ///                     },
+    ///                     VpcId = "zsg",
+    ///                 },
+    ///                 SecondaryAvailabilityZone = "gfricycigffhmqcwzxxzwevrwf",
+    ///                 VpcSecurityGroups = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.VpcSecurityGroupMembershipArgs
+    ///                     {
+    ///                         Status = "tioerjd",
+    ///                         VpcSecurityGroupId = "szupfofnwyrfpcpwi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "xflnvjqertqoawntyvmyorzemmx",
+    ///             AwsSourceSchema = "aj",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key1826", "hcitjgulaiuhknjncqdri" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "oafkmlxerdytgq",
+    ///             PublicCloudResourceName = "ajrdejnsykvcfzomaktse",
+    ///         },
+    ///         ResourceGroupName = "rgdatabaseMigrationServiceReplicationInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "key2694", "vgcrgktfjprhiqwtucfsqt" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:DatabaseMigrationServiceReplicationInstance jiexnixxixjsyxn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/databaseMigrationServiceReplicationInstances/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:DatabaseMigrationServiceReplicationInstance")]
     public partial class DatabaseMigrationServiceReplicationInstance : global::Pulumi.CustomResource

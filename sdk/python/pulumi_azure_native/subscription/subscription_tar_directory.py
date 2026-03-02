@@ -25,6 +25,7 @@ class SubscriptionTarDirectoryArgs:
                  subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionTarDirectory resource.
+
         :param pulumi.Input['TargetDirectoryRequestPropertiesArgs'] properties: Target Directory request properties.
         :param pulumi.Input[_builtins.str] subscription_id: Subscription Id.
         """
@@ -74,6 +75,29 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
 
         Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### putTargetDirectory
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_tar_directory = azure_native.subscription.SubscriptionTarDirectory("subscriptionTarDirectory", properties={
+            "destination_owner_id": "abhaypratap@live.com",
+            "destination_tenant_id": "111a82eb-4c7b-48bb-962b-49363c510130",
+        })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:subscription:SubscriptionTarDirectory default /subscriptions/{subscriptionId}/providers/Microsoft.Subscription/changeTenantRequest/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TargetDirectoryRequestPropertiesArgs', 'TargetDirectoryRequestPropertiesArgsDict']] properties: Target Directory request properties.
@@ -91,6 +115,29 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
         Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### putTargetDirectory
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_tar_directory = azure_native.subscription.SubscriptionTarDirectory("subscriptionTarDirectory", properties={
+            "destination_owner_id": "abhaypratap@live.com",
+            "destination_tenant_id": "111a82eb-4c7b-48bb-962b-49363c510130",
+        })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:subscription:SubscriptionTarDirectory default /subscriptions/{subscriptionId}/providers/Microsoft.Subscription/changeTenantRequest/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SubscriptionTarDirectoryArgs args: The arguments to use to populate this resource's properties.

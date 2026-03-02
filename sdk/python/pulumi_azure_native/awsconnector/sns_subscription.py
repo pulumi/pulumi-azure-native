@@ -28,6 +28,7 @@ class SnsSubscriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SnsSubscription resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of SnsSubscription
@@ -122,6 +123,50 @@ class SnsSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### SnsSubscriptions_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sns_subscription = azure_native.awsconnector.SnsSubscription("snsSubscription",
+            location="rteaofwy",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gnkqmddvoxalgskfwispx",
+                "aws_account_id": "jehvmisbfwgnpihgfrkslaee",
+                "aws_properties": {
+                    "endpoint": "ydbnfs",
+                    "owner": "vhrbkplsbvszhibsvziz",
+                    "protocol": "lcsebez",
+                    "subscription_arn": "bis",
+                    "topic_arn": "pdwndjemgtmwwnyvtjmveblsyq",
+                },
+                "aws_region": "bkkaopxcwtfmxemxuilfhllcsixga",
+                "aws_source_schema": "ikrkjsw",
+                "aws_tags": {
+                    "key588": "kxpglwugby",
+                },
+                "public_cloud_connectors_resource_id": "zokwlgincdzvjml",
+                "public_cloud_resource_name": "si",
+            },
+            resource_group_name="rgsnsSubscription",
+            tags={
+                "key2041": "mkbmrvjtiukeqzysrvoebyiqojttw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SnsSubscription pltgggiqpp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsSubscriptions/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +185,50 @@ class SnsSubscription(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### SnsSubscriptions_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sns_subscription = azure_native.awsconnector.SnsSubscription("snsSubscription",
+            location="rteaofwy",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "gnkqmddvoxalgskfwispx",
+                "aws_account_id": "jehvmisbfwgnpihgfrkslaee",
+                "aws_properties": {
+                    "endpoint": "ydbnfs",
+                    "owner": "vhrbkplsbvszhibsvziz",
+                    "protocol": "lcsebez",
+                    "subscription_arn": "bis",
+                    "topic_arn": "pdwndjemgtmwwnyvtjmveblsyq",
+                },
+                "aws_region": "bkkaopxcwtfmxemxuilfhllcsixga",
+                "aws_source_schema": "ikrkjsw",
+                "aws_tags": {
+                    "key588": "kxpglwugby",
+                },
+                "public_cloud_connectors_resource_id": "zokwlgincdzvjml",
+                "public_cloud_resource_name": "si",
+            },
+            resource_group_name="rgsnsSubscription",
+            tags={
+                "key2041": "mkbmrvjtiukeqzysrvoebyiqojttw",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SnsSubscription pltgggiqpp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsSubscriptions/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SnsSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -38,6 +38,7 @@ class DnsRecordResponse(dict):
                  value: _builtins.str):
         """
         A class that represents a VerificationStatus record.
+
         :param _builtins.str name: Name of the DNS record.
         :param _builtins.int ttl: Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
         :param _builtins.str type: Type of the DNS record. Example: TXT
@@ -117,6 +118,7 @@ class DomainPropertiesResponseVerificationRecords(dict):
                  s_pf: Optional['outputs.DnsRecordResponse'] = None):
         """
         List of DnsRecord
+
         :param 'DnsRecordResponse' d_kim: A class that represents a VerificationStatus record.
         :param 'DnsRecordResponse' d_kim2: A class that represents a VerificationStatus record.
         :param 'DnsRecordResponse' d_marc: A class that represents a VerificationStatus record.
@@ -211,6 +213,7 @@ class DomainPropertiesResponseVerificationStates(dict):
                  s_pf: Optional['outputs.VerificationStatusRecordResponse'] = None):
         """
         List of VerificationStatusRecord
+
         :param 'VerificationStatusRecordResponse' d_kim: A class that represents a VerificationStatus record.
         :param 'VerificationStatusRecordResponse' d_kim2: A class that represents a VerificationStatus record.
         :param 'VerificationStatusRecordResponse' d_marc: A class that represents a VerificationStatus record.
@@ -302,6 +305,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -387,6 +391,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -485,6 +490,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -535,6 +541,7 @@ class VerificationStatusRecordResponse(dict):
                  status: _builtins.str):
         """
         A class that represents a VerificationStatus record.
+
         :param _builtins.str error_code: Error code. This property will only be present if the status is UnableToVerify.
         :param _builtins.str status: Status of the verification operation.
         """

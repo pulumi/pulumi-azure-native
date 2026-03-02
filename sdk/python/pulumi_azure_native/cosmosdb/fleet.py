@@ -26,6 +26,7 @@ class FleetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -106,6 +107,33 @@ class Fleet(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CosmosDB Fleet Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet = azure_native.cosmosdb.Fleet("fleet",
+            fleet_name="fleet1",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "Dept": "Finance",
+                "Environment": "Production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:Fleet fleet1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
@@ -125,6 +153,33 @@ class Fleet(pulumi.CustomResource):
         Uses Azure REST API version 2025-10-15.
 
         Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CosmosDB Fleet Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet = azure_native.cosmosdb.Fleet("fleet",
+            fleet_name="fleet1",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "Dept": "Finance",
+                "Environment": "Production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:Fleet fleet1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Security
     /// Security operator under a given subscription and pricing
     /// 
     /// Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create a security operator on the given scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityOperator = new AzureNative.Security.SecurityOperator("securityOperator", new()
+    ///     {
+    ///         PricingName = "CloudPosture",
+    ///         SecurityOperatorName = "DefenderCSPMSecurityOperator",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:SecurityOperator DefenderCSPMSecurityOperator /subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/{pricingName}/securityOperators/{securityOperatorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityOperator")]
     public partial class SecurityOperator : global::Pulumi.CustomResource

@@ -29,6 +29,7 @@ class ContentTypeArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContentType resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] content_type_id: Content type identifier.
@@ -172,6 +173,77 @@ class ContentType(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_type = azure_native.apimanagement.ContentType("contentType",
+            content_type_id="page",
+            description="A regular page",
+            name="Page",
+            resource_group_name="rg1",
+            schema={
+                "additionalProperties": False,
+                "properties": {
+                    "en_us": {
+                        "additionalProperties": False,
+                        "properties": {
+                            "description": {
+                                "description": "Page description. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Description",
+                                "type": "string",
+                            },
+                            "documentId": {
+                                "description": "Reference to page content document.",
+                                "title": "Document ID",
+                                "type": "string",
+                            },
+                            "keywords": {
+                                "description": "Page keywords. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Keywords",
+                                "type": "string",
+                            },
+                            "permalink": {
+                                "description": "Page permalink, e.g. '/about'.",
+                                "indexed": True,
+                                "title": "Permalink",
+                                "type": "string",
+                            },
+                            "title": {
+                                "description": "Page title. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Title",
+                                "type": "string",
+                            },
+                        },
+                        "required": [
+                            "title",
+                            "permalink",
+                            "documentId",
+                        ],
+                        "type": "object",
+                    },
+                },
+            },
+            service_name="apimService1",
+            version="1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:ContentType page /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content_type_id: Content type identifier.
@@ -195,6 +267,77 @@ class ContentType(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_type = azure_native.apimanagement.ContentType("contentType",
+            content_type_id="page",
+            description="A regular page",
+            name="Page",
+            resource_group_name="rg1",
+            schema={
+                "additionalProperties": False,
+                "properties": {
+                    "en_us": {
+                        "additionalProperties": False,
+                        "properties": {
+                            "description": {
+                                "description": "Page description. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Description",
+                                "type": "string",
+                            },
+                            "documentId": {
+                                "description": "Reference to page content document.",
+                                "title": "Document ID",
+                                "type": "string",
+                            },
+                            "keywords": {
+                                "description": "Page keywords. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Keywords",
+                                "type": "string",
+                            },
+                            "permalink": {
+                                "description": "Page permalink, e.g. '/about'.",
+                                "indexed": True,
+                                "title": "Permalink",
+                                "type": "string",
+                            },
+                            "title": {
+                                "description": "Page title. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Title",
+                                "type": "string",
+                            },
+                        },
+                        "required": [
+                            "title",
+                            "permalink",
+                            "documentId",
+                        ],
+                        "type": "object",
+                    },
+                },
+            },
+            service_name="apimService1",
+            version="1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:ContentType page /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ContentTypeArgs args: The arguments to use to populate this resource's properties.

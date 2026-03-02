@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.Relay
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### RelayNameSpaceAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceAuthorizationRule = new AzureNative.Relay.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "example-RelayAuthRules-01",
+    ///         NamespaceName = "example-RelayNamespace-01",
+    ///         ResourceGroupName = "resourcegroup",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.Relay.AccessRights.Listen,
+    ///             AzureNative.Relay.AccessRights.Send,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay:NamespaceAuthorizationRule example-RelayAuthRules-01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/authorizationRules/{authorizationRuleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource

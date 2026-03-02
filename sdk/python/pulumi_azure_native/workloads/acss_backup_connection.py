@@ -30,6 +30,7 @@ class ACSSBackupConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ACSSBackupConnection resource.
+
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['HanaBackupDataArgs', 'SqlBackupDataArgs', 'VMBackupDataArgs']] backup_data: Information about the recovery services vault and backup policy used for backup.
@@ -139,6 +140,550 @@ class ACSSBackupConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
+        ## Example Usage
+        ### Create a HANA backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultHanaPolicy",
+                    "protected_items_count": 0,
+                    "settings": {
+                        "is_compression": False,
+                        "issqlcompression": False,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.FULL,
+                            "retention_policy": {
+                                "monthly_schedule": {
+                                    "retention_duration": {
+                                        "count": 60,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "retention_policy_type": "LongTermRetentionPolicy",
+                                "weekly_schedule": {
+                                    "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                    "retention_duration": {
+                                        "count": 104,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.WEEKS,
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "yearly_schedule": {
+                                    "months_of_year": [azure_native.workloads.MonthOfYear.JANUARY],
+                                    "retention_duration": {
+                                        "count": 10,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.YEARS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-11-29T19:30:00.000Z"],
+                            },
+                            "tiering_policy": {
+                                "ArchivedRP": {
+                                    "tiering_mode": azure_native.workloads.TieringMode.DO_NOT_TIER,
+                                },
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.DIFFERENTIAL,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 30,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.MONDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-09-29T02:00:00Z"],
+                                "schedule_weekly_frequency": 0,
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.LOG,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 20,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_frequency_in_mins": 120,
+                                "schedule_policy_type": "LogSchedulePolicy",
+                            },
+                        },
+                    ],
+                    "work_load_type": azure_native.workloads.WorkloadType.SAP_HANA_DATABASE,
+                },
+                "backup_type": "HANA",
+                "db_instance_snapshot_backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultDbInstanceSnapshotPolicy",
+                    "settings": {
+                        "is_compression": False,
+                        "issqlcompression": False,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [{
+                        "policy_type": azure_native.workloads.PolicyType.SNAPSHOT_FULL,
+                        "schedule_policy": {
+                            "schedule_policy_type": "SimpleSchedulePolicy",
+                            "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                            "schedule_run_times": ["2023-09-18T06:30:00.000Z"],
+                        },
+                        "snapshot_backup_additional_details": {
+                            "instant_rp_details": "test-rg",
+                            "instant_rp_retention_range_in_days": 1,
+                            "user_assigned_managed_identity_details": {
+                                "identity_arm_id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testMsi",
+                                "identity_name": "testMsi",
+                                "user_assigned_identity_properties": {
+                                    "client_id": "c3a877cf-51f8-4031-8f17-ab562d1e7737",
+                                    "principal_id": "2f5834bd-4b86-4d85-a8df-6dd829a6418c",
+                                },
+                            },
+                        },
+                    }],
+                    "work_load_type": azure_native.workloads.WorkloadType.SAP_HANA_DB_INSTANCE,
+                },
+                "hdbuserstore_key_name": "abcd",
+                "instance_number": "00",
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+                "ssl_configuration": {
+                    "ssl_crypto_provider": azure_native.workloads.SslCryptoProvider.COMMONCRYPTO,
+                    "ssl_host_name_in_certificate": "hostname",
+                    "ssl_key_store": "sapsrv.pse",
+                    "ssl_trust_store": "sapsrv.pse",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a SQL backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultSqlPolicy",
+                    "protected_items_count": 0,
+                    "settings": {
+                        "is_compression": True,
+                        "issqlcompression": True,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.FULL,
+                            "retention_policy": {
+                                "monthly_schedule": {
+                                    "retention_duration": {
+                                        "count": 60,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "retention_policy_type": "LongTermRetentionPolicy",
+                                "weekly_schedule": {
+                                    "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                    "retention_duration": {
+                                        "count": 104,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.WEEKS,
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "yearly_schedule": {
+                                    "months_of_year": [azure_native.workloads.MonthOfYear.JANUARY],
+                                    "retention_duration": {
+                                        "count": 10,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.YEARS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-11-29T19:30:00.000Z"],
+                            },
+                            "tiering_policy": {
+                                "ArchivedRP": {
+                                    "duration": 45,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                    "tiering_mode": azure_native.workloads.TieringMode.TIER_AFTER,
+                                },
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.DIFFERENTIAL,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 30,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.MONDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-09-29T02:00:00Z"],
+                                "schedule_weekly_frequency": 0,
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.LOG,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 20,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_frequency_in_mins": 120,
+                                "schedule_policy_type": "LogSchedulePolicy",
+                            },
+                        },
+                    ],
+                    "work_load_type": azure_native.workloads.WorkloadType.SQL_DATA_BASE,
+                },
+                "backup_type": "SQL",
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a VM backup connection with a new backup policy with tieringPolicy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureIaasVM",
+                    "instant_rp_details": {
+                        "azure_backup_rg_name_prefix": "dasas",
+                        "azure_backup_rg_name_suffix": "a",
+                    },
+                    "instant_rp_retention_range_in_days": 2,
+                    "name": "defaultVmPolicy",
+                    "policy_type": azure_native.workloads.IAASVMPolicyType.V1,
+                    "protected_items_count": 0,
+                    "retention_policy": {
+                        "daily_schedule": {
+                            "retention_duration": {
+                                "count": 30,
+                                "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                        "monthly_schedule": {
+                            "retention_duration": {
+                                "count": 60,
+                                "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                            },
+                            "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                            "retention_schedule_weekly": {
+                                "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                        "retention_policy_type": "LongTermRetentionPolicy",
+                        "weekly_schedule": {
+                            "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                            "retention_duration": {
+                                "count": 12,
+                                "duration_type": azure_native.workloads.RetentionDurationType.WEEKS,
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                        "yearly_schedule": {
+                            "months_of_year": [azure_native.workloads.MonthOfYear.JANUARY],
+                            "retention_duration": {
+                                "count": 10,
+                                "duration_type": azure_native.workloads.RetentionDurationType.YEARS,
+                            },
+                            "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                            "retention_schedule_weekly": {
+                                "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                    },
+                    "schedule_policy": {
+                        "schedule_policy_type": "SimpleSchedulePolicy",
+                        "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                        "schedule_run_times": ["2022-11-29T19:30:00.000Z"],
+                    },
+                    "tiering_policy": {
+                        "ArchivedRP": {
+                            "duration": 3,
+                            "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                            "tiering_mode": azure_native.workloads.TieringMode.TIER_AFTER,
+                        },
+                    },
+                    "time_zone": "UTC",
+                },
+                "backup_type": "VM",
+                "disk_exclusion_properties": {
+                    "disk_lun_list": [],
+                    "is_inclusion_list": True,
+                },
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+            },
+            backup_name="vmBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a db backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultDbPolicy",
+                    "protected_items_count": 0,
+                    "settings": {
+                        "is_compression": False,
+                        "issqlcompression": False,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.FULL,
+                            "retention_policy": {
+                                "daily_schedule": {
+                                    "retention_duration": {
+                                        "count": 30,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                    },
+                                    "retention_times": ["2018-01-10T18:30:00Z"],
+                                },
+                                "retention_policy_type": "LongTermRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                                "schedule_run_times": ["2018-01-10T18:30:00Z"],
+                                "schedule_weekly_frequency": 0,
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.LOG,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 30,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_frequency_in_mins": 60,
+                                "schedule_policy_type": "LogSchedulePolicy",
+                            },
+                        },
+                    ],
+                    "work_load_type": azure_native.workloads.WorkloadType.SQL_DATA_BASE,
+                },
+                "backup_type": "SQL",
+                "recovery_services_vault": {
+                    "id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                    "vault_type": "Existing",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a db backup connection with an existing backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "name": "defaultDbPolicy",
+                },
+                "backup_type": "SQL",
+                "recovery_services_vault": {
+                    "id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                    "vault_type": "Existing",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a vm backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureIaasVM",
+                    "instant_rp_details": {},
+                    "instant_rp_retention_range_in_days": 2,
+                    "name": "defaultVmPolicy",
+                    "protected_items_count": 0,
+                    "retention_policy": {
+                        "daily_schedule": {
+                            "retention_duration": {
+                                "count": 30,
+                                "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                            },
+                            "retention_times": ["2018-01-10T18:30:00Z"],
+                        },
+                        "retention_policy_type": "LongTermRetentionPolicy",
+                    },
+                    "schedule_policy": {
+                        "schedule_policy_type": "SimpleSchedulePolicy",
+                        "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                        "schedule_run_times": ["2018-01-10T18:30:00Z"],
+                        "schedule_weekly_frequency": 0,
+                    },
+                },
+                "backup_type": "VM",
+                "disk_exclusion_properties": {
+                    "disk_lun_list": [],
+                    "is_inclusion_list": True,
+                },
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+            },
+            backup_name="vmBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a vm backup connection with an existing backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "name": "defaultVmPolicy",
+                },
+                "backup_type": "VM",
+                "disk_exclusion_properties": {
+                    "disk_lun_list": [],
+                    "is_inclusion_list": True,
+                },
+                "recovery_services_vault": {
+                    "id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                    "vault_type": "Existing",
+                },
+            },
+            backup_name="vmBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:ACSSBackupConnection db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/connectors/{connectorName}/acssBackups/{backupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[Union['HanaBackupDataArgs', 'HanaBackupDataArgsDict'], Union['SqlBackupDataArgs', 'SqlBackupDataArgsDict'], Union['VMBackupDataArgs', 'VMBackupDataArgsDict']]] backup_data: Information about the recovery services vault and backup policy used for backup.
@@ -158,6 +703,550 @@ class ACSSBackupConnection(pulumi.CustomResource):
         Define the backup connection resource of virtual instance for SAP..
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+
+        ## Example Usage
+        ### Create a HANA backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultHanaPolicy",
+                    "protected_items_count": 0,
+                    "settings": {
+                        "is_compression": False,
+                        "issqlcompression": False,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.FULL,
+                            "retention_policy": {
+                                "monthly_schedule": {
+                                    "retention_duration": {
+                                        "count": 60,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "retention_policy_type": "LongTermRetentionPolicy",
+                                "weekly_schedule": {
+                                    "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                    "retention_duration": {
+                                        "count": 104,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.WEEKS,
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "yearly_schedule": {
+                                    "months_of_year": [azure_native.workloads.MonthOfYear.JANUARY],
+                                    "retention_duration": {
+                                        "count": 10,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.YEARS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-11-29T19:30:00.000Z"],
+                            },
+                            "tiering_policy": {
+                                "ArchivedRP": {
+                                    "tiering_mode": azure_native.workloads.TieringMode.DO_NOT_TIER,
+                                },
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.DIFFERENTIAL,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 30,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.MONDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-09-29T02:00:00Z"],
+                                "schedule_weekly_frequency": 0,
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.LOG,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 20,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_frequency_in_mins": 120,
+                                "schedule_policy_type": "LogSchedulePolicy",
+                            },
+                        },
+                    ],
+                    "work_load_type": azure_native.workloads.WorkloadType.SAP_HANA_DATABASE,
+                },
+                "backup_type": "HANA",
+                "db_instance_snapshot_backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultDbInstanceSnapshotPolicy",
+                    "settings": {
+                        "is_compression": False,
+                        "issqlcompression": False,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [{
+                        "policy_type": azure_native.workloads.PolicyType.SNAPSHOT_FULL,
+                        "schedule_policy": {
+                            "schedule_policy_type": "SimpleSchedulePolicy",
+                            "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                            "schedule_run_times": ["2023-09-18T06:30:00.000Z"],
+                        },
+                        "snapshot_backup_additional_details": {
+                            "instant_rp_details": "test-rg",
+                            "instant_rp_retention_range_in_days": 1,
+                            "user_assigned_managed_identity_details": {
+                                "identity_arm_id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testMsi",
+                                "identity_name": "testMsi",
+                                "user_assigned_identity_properties": {
+                                    "client_id": "c3a877cf-51f8-4031-8f17-ab562d1e7737",
+                                    "principal_id": "2f5834bd-4b86-4d85-a8df-6dd829a6418c",
+                                },
+                            },
+                        },
+                    }],
+                    "work_load_type": azure_native.workloads.WorkloadType.SAP_HANA_DB_INSTANCE,
+                },
+                "hdbuserstore_key_name": "abcd",
+                "instance_number": "00",
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+                "ssl_configuration": {
+                    "ssl_crypto_provider": azure_native.workloads.SslCryptoProvider.COMMONCRYPTO,
+                    "ssl_host_name_in_certificate": "hostname",
+                    "ssl_key_store": "sapsrv.pse",
+                    "ssl_trust_store": "sapsrv.pse",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a SQL backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultSqlPolicy",
+                    "protected_items_count": 0,
+                    "settings": {
+                        "is_compression": True,
+                        "issqlcompression": True,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.FULL,
+                            "retention_policy": {
+                                "monthly_schedule": {
+                                    "retention_duration": {
+                                        "count": 60,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "retention_policy_type": "LongTermRetentionPolicy",
+                                "weekly_schedule": {
+                                    "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                    "retention_duration": {
+                                        "count": 104,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.WEEKS,
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                                "yearly_schedule": {
+                                    "months_of_year": [azure_native.workloads.MonthOfYear.JANUARY],
+                                    "retention_duration": {
+                                        "count": 10,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.YEARS,
+                                    },
+                                    "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                                    "retention_schedule_weekly": {
+                                        "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                        "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                                    },
+                                    "retention_times": ["2022-11-29T19:30:00.000Z"],
+                                },
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-11-29T19:30:00.000Z"],
+                            },
+                            "tiering_policy": {
+                                "ArchivedRP": {
+                                    "duration": 45,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                    "tiering_mode": azure_native.workloads.TieringMode.TIER_AFTER,
+                                },
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.DIFFERENTIAL,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 30,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_days": [azure_native.workloads.DayOfWeek.MONDAY],
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.WEEKLY,
+                                "schedule_run_times": ["2022-09-29T02:00:00Z"],
+                                "schedule_weekly_frequency": 0,
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.LOG,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 20,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_frequency_in_mins": 120,
+                                "schedule_policy_type": "LogSchedulePolicy",
+                            },
+                        },
+                    ],
+                    "work_load_type": azure_native.workloads.WorkloadType.SQL_DATA_BASE,
+                },
+                "backup_type": "SQL",
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a VM backup connection with a new backup policy with tieringPolicy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureIaasVM",
+                    "instant_rp_details": {
+                        "azure_backup_rg_name_prefix": "dasas",
+                        "azure_backup_rg_name_suffix": "a",
+                    },
+                    "instant_rp_retention_range_in_days": 2,
+                    "name": "defaultVmPolicy",
+                    "policy_type": azure_native.workloads.IAASVMPolicyType.V1,
+                    "protected_items_count": 0,
+                    "retention_policy": {
+                        "daily_schedule": {
+                            "retention_duration": {
+                                "count": 30,
+                                "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                        "monthly_schedule": {
+                            "retention_duration": {
+                                "count": 60,
+                                "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                            },
+                            "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                            "retention_schedule_weekly": {
+                                "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                        "retention_policy_type": "LongTermRetentionPolicy",
+                        "weekly_schedule": {
+                            "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                            "retention_duration": {
+                                "count": 12,
+                                "duration_type": azure_native.workloads.RetentionDurationType.WEEKS,
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                        "yearly_schedule": {
+                            "months_of_year": [azure_native.workloads.MonthOfYear.JANUARY],
+                            "retention_duration": {
+                                "count": 10,
+                                "duration_type": azure_native.workloads.RetentionDurationType.YEARS,
+                            },
+                            "retention_schedule_format_type": azure_native.workloads.RetentionScheduleFormat.WEEKLY,
+                            "retention_schedule_weekly": {
+                                "days_of_the_week": [azure_native.workloads.DayOfWeek.SUNDAY],
+                                "weeks_of_the_month": [azure_native.workloads.WeekOfMonth.FIRST],
+                            },
+                            "retention_times": ["2022-11-29T19:30:00.000Z"],
+                        },
+                    },
+                    "schedule_policy": {
+                        "schedule_policy_type": "SimpleSchedulePolicy",
+                        "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                        "schedule_run_times": ["2022-11-29T19:30:00.000Z"],
+                    },
+                    "tiering_policy": {
+                        "ArchivedRP": {
+                            "duration": 3,
+                            "duration_type": azure_native.workloads.RetentionDurationType.MONTHS,
+                            "tiering_mode": azure_native.workloads.TieringMode.TIER_AFTER,
+                        },
+                    },
+                    "time_zone": "UTC",
+                },
+                "backup_type": "VM",
+                "disk_exclusion_properties": {
+                    "disk_lun_list": [],
+                    "is_inclusion_list": True,
+                },
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+            },
+            backup_name="vmBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a db backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureWorkload",
+                    "name": "defaultDbPolicy",
+                    "protected_items_count": 0,
+                    "settings": {
+                        "is_compression": False,
+                        "issqlcompression": False,
+                        "time_zone": "UTC",
+                    },
+                    "sub_protection_policy": [
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.FULL,
+                            "retention_policy": {
+                                "daily_schedule": {
+                                    "retention_duration": {
+                                        "count": 30,
+                                        "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                    },
+                                    "retention_times": ["2018-01-10T18:30:00Z"],
+                                },
+                                "retention_policy_type": "LongTermRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_policy_type": "SimpleSchedulePolicy",
+                                "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                                "schedule_run_times": ["2018-01-10T18:30:00Z"],
+                                "schedule_weekly_frequency": 0,
+                            },
+                        },
+                        {
+                            "policy_type": azure_native.workloads.PolicyType.LOG,
+                            "retention_policy": {
+                                "retention_duration": {
+                                    "count": 30,
+                                    "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                                },
+                                "retention_policy_type": "SimpleRetentionPolicy",
+                            },
+                            "schedule_policy": {
+                                "schedule_frequency_in_mins": 60,
+                                "schedule_policy_type": "LogSchedulePolicy",
+                            },
+                        },
+                    ],
+                    "work_load_type": azure_native.workloads.WorkloadType.SQL_DATA_BASE,
+                },
+                "backup_type": "SQL",
+                "recovery_services_vault": {
+                    "id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                    "vault_type": "Existing",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a db backup connection with an existing backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "name": "defaultDbPolicy",
+                },
+                "backup_type": "SQL",
+                "recovery_services_vault": {
+                    "id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                    "vault_type": "Existing",
+                },
+            },
+            backup_name="dbBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a vm backup connection with a new backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "backup_management_type": "AzureIaasVM",
+                    "instant_rp_details": {},
+                    "instant_rp_retention_range_in_days": 2,
+                    "name": "defaultVmPolicy",
+                    "protected_items_count": 0,
+                    "retention_policy": {
+                        "daily_schedule": {
+                            "retention_duration": {
+                                "count": 30,
+                                "duration_type": azure_native.workloads.RetentionDurationType.DAYS,
+                            },
+                            "retention_times": ["2018-01-10T18:30:00Z"],
+                        },
+                        "retention_policy_type": "LongTermRetentionPolicy",
+                    },
+                    "schedule_policy": {
+                        "schedule_policy_type": "SimpleSchedulePolicy",
+                        "schedule_run_frequency": azure_native.workloads.ScheduleRunType.DAILY,
+                        "schedule_run_times": ["2018-01-10T18:30:00Z"],
+                        "schedule_weekly_frequency": 0,
+                    },
+                },
+                "backup_type": "VM",
+                "disk_exclusion_properties": {
+                    "disk_lun_list": [],
+                    "is_inclusion_list": True,
+                },
+                "recovery_services_vault": {
+                    "name": "test-vault",
+                    "resource_group": "test-rg",
+                    "vault_type": "New",
+                },
+            },
+            backup_name="vmBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+        ### Create a vm backup connection with an existing backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+            backup_data={
+                "backup_policy": {
+                    "name": "defaultVmPolicy",
+                },
+                "backup_type": "VM",
+                "disk_exclusion_properties": {
+                    "disk_lun_list": [],
+                    "is_inclusion_list": True,
+                },
+                "recovery_services_vault": {
+                    "id": "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                    "vault_type": "Existing",
+                },
+            },
+            backup_name="vmBackup",
+            connector_name="C1",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:ACSSBackupConnection db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/connectors/{connectorName}/acssBackups/{backupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ACSSBackupConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * A type of trigger based on schedule
  *
  * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+ *
+ * ## Example Usage
+ * ### Triggers_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledTrigger = new azure_native.datashare.ScheduledTrigger("scheduledTrigger", {
+ *     accountName: "Account1",
+ *     kind: "ScheduleBased",
+ *     recurrenceInterval: azure_native.datashare.RecurrenceInterval.Day,
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     synchronizationMode: azure_native.datashare.SynchronizationMode.Incremental,
+ *     synchronizationTime: "2018-11-14T04:47:52.9614956Z",
+ *     triggerName: "Trigger1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare:ScheduledTrigger Trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/triggers/{triggerName} 
+ * ```
  */
 export class ScheduledTrigger extends pulumi.CustomResource {
     /**

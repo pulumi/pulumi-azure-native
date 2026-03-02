@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.TestBase
     /// The test base image definition resource.
     /// 
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ImageDefinitionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var imageDefinition = new AzureNative.TestBase.ImageDefinition("imageDefinition", new()
+    ///     {
+    ///         Architecture = AzureNative.TestBase.ImageArchitecture.X64,
+    ///         ImageDefinitionName = "contoso-image-def",
+    ///         OsState = AzureNative.TestBase.ImageOSState.Generalized,
+    ///         ResourceGroupName = "contoso-rg1",
+    ///         SecurityType = AzureNative.TestBase.ImageSecurityType.Standard,
+    ///         TestBaseAccountName = "contoso-testBaseAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase:ImageDefinition contoso-image-def /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/imageDefinitions/{imageDefinitionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:ImageDefinition")]
     public partial class ImageDefinition : global::Pulumi.CustomResource

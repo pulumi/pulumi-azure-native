@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Custom Assessment Automation
  *
  * Uses Azure REST API version 2021-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-07-01-preview.
+ *
+ * ## Example Usage
+ * ### Create a Custom Assessment Automation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customAssessmentAutomation = new azure_native.security.CustomAssessmentAutomation("customAssessmentAutomation", {
+ *     compressedQuery: "DQAKAEkAYQBtAF8ARwByAG8AdQBwAA0ACgB8ACAAZQB4AHQAZQBuAGQAIABIAGUAYQBsAHQAaABTAHQAYQB0AHUAcwAgAD0AIABpAGYAZgAoAHQAbwBzAHQAcgBpAG4AZwAoAFIAZQBjAG8AcgBkAC4AVQBzAGUAcgBOAGEAbQBlACkAIABjAG8AbgB0AGEAaQBuAHMAIAAnAHUAcwBlAHIAJwAsACAAJwBVAE4ASABFAEEATABUAEgAWQAnACwAIAAnAEgARQBBAEwAVABIAFkAJwApAA0ACgA=",
+ *     customAssessmentAutomationName: "MyCustomAssessmentAutomation",
+ *     description: "Data should be encrypted",
+ *     displayName: "Password Policy",
+ *     remediationDescription: "Encrypt store by...",
+ *     resourceGroupName: "TestResourceGroup",
+ *     severity: azure_native.security.SeverityEnum.Medium,
+ *     supportedCloud: azure_native.security.SupportedCloudEnum.AWS,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:CustomAssessmentAutomation 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/customAssessmentAutomations/{customAssessmentAutomationName} 
+ * ```
  */
 export class CustomAssessmentAutomation extends pulumi.CustomResource {
     /**

@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * Represents a disaster recovery configuration.
  *
  * Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
+ *
+ * ## Example Usage
+ * ### Update a disaster recovery configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disasterRecoveryConfiguration = new azure_native.sql.DisasterRecoveryConfiguration("disasterRecoveryConfiguration", {
+ *     disasterRecoveryConfigurationName: "Default",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-5961",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:DisasterRecoveryConfiguration Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/disasterRecoveryConfiguration/{disasterRecoveryConfigurationName} 
+ * ```
  */
 export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**

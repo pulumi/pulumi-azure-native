@@ -11,6 +11,67 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### EcrImageDetails_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ecrImageDetail = new azure_native.awsconnector.EcrImageDetail("ecrImageDetail", {
+ *     location: "mpxszpyclsniahaoqerqewrzxyzcdt",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "dhvgwgtedzuiqdvgc",
+ *         awsAccountId: "yqyxjsfibyscdhyofmyu",
+ *         awsProperties: {
+ *             artifactMediaType: "ciuahpzw",
+ *             imageDigest: "mfgr",
+ *             imageManifestMediaType: "arzsyssziqvvryqc",
+ *             imagePushedAt: "2024-10-08T03:51:24.487Z",
+ *             imageScanFindingsSummary: {
+ *                 findingSeverityCounts: {
+ *                     key9764: 10,
+ *                 },
+ *                 imageScanCompletedAt: "2024-10-08T03:51:24.488Z",
+ *                 vulnerabilitySourceUpdatedAt: "2024-10-08T03:51:24.488Z",
+ *             },
+ *             imageScanStatus: {
+ *                 description: "kvsqwhxzrnciqybnl",
+ *                 status: {
+ *                     value: azure_native.awsconnector.ScanStatus.ACTIVE,
+ *                 },
+ *             },
+ *             imageSizeInBytes: 18,
+ *             imageTags: ["bwikpoljnmaoewepiunoltcxlyxd"],
+ *             lastRecordedPullTime: "2024-10-08T03:51:24.488Z",
+ *             registryId: "xpxtbbeejeosvtcvq",
+ *             repositoryName: "abftxvvazyfekkcpo",
+ *         },
+ *         awsRegion: "atlamkemuqwaezwdsuavhaqo",
+ *         awsSourceSchema: "ibsdsdpuiqcwsdxqfn",
+ *         awsTags: {
+ *             key4659: "sgfdrvhgloyrvwyfqxyvzmhu",
+ *         },
+ *         publicCloudConnectorsResourceId: "glrdicxdaktwlkvgvxurgww",
+ *         publicCloudResourceName: "gijthpfhduauuus",
+ *     },
+ *     resourceGroupName: "rgecrImageDetail",
+ *     tags: {
+ *         key9132: "faznbwmprsja",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:EcrImageDetail txgcvtvpadhbmhr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecrImageDetails/{name} 
+ * ```
  */
 export class EcrImageDetail extends pulumi.CustomResource {
     /**

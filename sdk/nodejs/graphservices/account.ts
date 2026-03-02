@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Account details
  *
  * Uses Azure REST API version 2023-04-13. In version 2.x of the Azure Native provider, it used API version 2023-04-13.
+ *
+ * ## Example Usage
+ * ### Create Account resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.graphservices.Account("account", {
+ *     properties: {
+ *         appId: "11111111-aaaa-1111-bbbb-111111111111",
+ *     },
+ *     resourceGroupName: "testResourceGroupGRAM",
+ *     resourceName: "11111111-aaaa-1111-bbbb-1111111111111",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:graphservices:Account 11111111-aaaa-1111-bbbb-111111111111 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.GraphServices/accounts/{resourceName} 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -20,23 +20,18 @@ __all__ = [
     'AmountArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AmountArgsDict(TypedDict):
-        """
-        The amount.
-        """
-        currency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of currency being used for the value.
-        """
-        value: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Amount value.
-        """
-elif False:
-    AmountArgsDict: TypeAlias = Mapping[str, Any]
+class AmountArgsDict(TypedDict):
+    """
+    The amount.
+    """
+    currency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of currency being used for the value.
+    """
+    value: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Amount value.
+    """
 
 @pulumi.input_type
 class AmountArgs:
@@ -45,6 +40,7 @@ class AmountArgs:
                  value: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The amount.
+
         :param pulumi.Input[_builtins.str] currency: The type of currency being used for the value.
         :param pulumi.Input[_builtins.float] value: Amount value.
         """

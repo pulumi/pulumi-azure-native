@@ -29,6 +29,7 @@ class SqlServerRegistrationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerRegistration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] property_bag: Optional Properties as JSON string
@@ -155,6 +156,32 @@ class SqlServerRegistration(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
 
+        ## Example Usage
+        ### Creates or updates a SQL Server registration.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_registration = azure_native.azuredata.SqlServerRegistration("sqlServerRegistration",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_server_registration_name="testsqlregistration",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredata:SqlServerRegistration testsqlregistration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureData/sqlServerRegistrations/{sqlServerRegistrationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -175,6 +202,32 @@ class SqlServerRegistration(pulumi.CustomResource):
         A SQL server registration.
 
         Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
+
+        ## Example Usage
+        ### Creates or updates a SQL Server registration.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_registration = azure_native.azuredata.SqlServerRegistration("sqlServerRegistration",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_server_registration_name="testsqlregistration",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredata:SqlServerRegistration testsqlregistration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureData/sqlServerRegistrations/{sqlServerRegistrationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlServerRegistrationArgs args: The arguments to use to populate this resource's properties.

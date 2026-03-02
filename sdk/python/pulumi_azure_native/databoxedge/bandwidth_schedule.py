@@ -30,6 +30,7 @@ class BandwidthScheduleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BandwidthSchedule resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.int] rate_in_mbps: The bandwidth rate in Mbps.
@@ -153,6 +154,36 @@ class BandwidthSchedule(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### BandwidthSchedulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bandwidth_schedule = azure_native.databoxedge.BandwidthSchedule("bandwidthSchedule",
+            days=[
+                azure_native.databoxedge.DayOfWeek.SUNDAY,
+                azure_native.databoxedge.DayOfWeek.MONDAY,
+            ],
+            device_name="testedgedevice",
+            name="bandwidth-1",
+            rate_in_mbps=100,
+            resource_group_name="GroupForEdgeAutomation",
+            start="0:0:0",
+            stop="13:59:0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:BandwidthSchedule bandwidth-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/bandwidthSchedules/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
@@ -175,6 +206,36 @@ class BandwidthSchedule(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### BandwidthSchedulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bandwidth_schedule = azure_native.databoxedge.BandwidthSchedule("bandwidthSchedule",
+            days=[
+                azure_native.databoxedge.DayOfWeek.SUNDAY,
+                azure_native.databoxedge.DayOfWeek.MONDAY,
+            ],
+            device_name="testedgedevice",
+            name="bandwidth-1",
+            rate_in_mbps=100,
+            resource_group_name="GroupForEdgeAutomation",
+            start="0:0:0",
+            stop="13:59:0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:BandwidthSchedule bandwidth-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/bandwidthSchedules/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BandwidthScheduleArgs args: The arguments to use to populate this resource's properties.

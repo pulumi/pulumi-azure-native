@@ -13,6 +13,29 @@ import * as utilities from "../utilities";
  * By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
  *
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
+ *
+ * ## Example Usage
+ * ### RolePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudEdgeManagementRole = new azure_native.databoxedge.CloudEdgeManagementRole("cloudEdgeManagementRole", {
+ *     deviceName: "testedgedevice",
+ *     name: "IoTRole1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:CloudEdgeManagementRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
+ * ```
  */
 export class CloudEdgeManagementRole extends pulumi.CustomResource {
     /**

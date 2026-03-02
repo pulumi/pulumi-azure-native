@@ -13,6 +13,157 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### LambdaFunctions_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var lambdaFunction = new AzureNative.AwsConnector.LambdaFunction("lambdaFunction", new()
+    ///     {
+    ///         Location = "pipiphijlvjolohsfpmym",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.LambdaFunctionPropertiesArgs
+    ///         {
+    ///             Arn = "wksjbkhocigdctupfiheutlmloir",
+    ///             AwsAccountId = "jhircduhthqiztp",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsLambdaFunctionPropertiesArgs
+    ///             {
+    ///                 Architectures = new[]
+    ///                 {
+    ///                     AzureNative.AwsConnector.Architectures.Arm64,
+    ///                 },
+    ///                 Arn = "stgpeog",
+    ///                 Code = new AzureNative.AwsConnector.Inputs.CodeArgs
+    ///                 {
+    ///                     ImageUri = "mumnivivaclgokdozsqygicoz",
+    ///                     S3Bucket = "iqxcjanbelhti",
+    ///                     S3Key = "c",
+    ///                     S3ObjectVersion = "ixwkaazvqllwohxjwjtivxy",
+    ///                     ZipFile = "cashtgbjnebsmmyijmbuerim",
+    ///                 },
+    ///                 CodeSigningConfigArn = "qutlevvo",
+    ///                 DeadLetterConfig = new AzureNative.AwsConnector.Inputs.DeadLetterConfigArgs
+    ///                 {
+    ///                     TargetArn = "yfmmazkodblnhgalpsnx",
+    ///                 },
+    ///                 Description = "yvdoxaozwjzszqnt",
+    ///                 Environment = new AzureNative.AwsConnector.Inputs.EnvironmentArgs
+    ///                 {
+    ///                     Variables = 
+    ///                     {
+    ///                         { "key999", "knzbtalbwzajrfxietghzjqrewh" },
+    ///                     },
+    ///                 },
+    ///                 EphemeralStorage = new AzureNative.AwsConnector.Inputs.EphemeralStorageArgs
+    ///                 {
+    ///                     Size = 21,
+    ///                 },
+    ///                 FileSystemConfigs = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.FileSystemConfigArgs
+    ///                     {
+    ///                         Arn = "lgaajhamrjhiw",
+    ///                         LocalMountPath = "ctjvtoy",
+    ///                     },
+    ///                 },
+    ///                 FunctionName = "fkv",
+    ///                 Handler = "penuepcuxqvyjozfpxcxkujpeiib",
+    ///                 ImageConfig = new AzureNative.AwsConnector.Inputs.ImageConfigArgs
+    ///                 {
+    ///                     Command = new[]
+    ///                     {
+    ///                         "ypqwmituqujgxriqqe",
+    ///                     },
+    ///                     EntryPoint = new[]
+    ///                     {
+    ///                         "vfnpuvvmmxttsaolsfocwhrhvaycbd",
+    ///                     },
+    ///                     WorkingDirectory = "gnpkvohajxgtqcweloswwofgev",
+    ///                 },
+    ///                 KmsKeyArn = "nheruevkdkuk",
+    ///                 Layers = new[]
+    ///                 {
+    ///                     "bwczxgdagr",
+    ///                 },
+    ///                 LoggingConfig = null,
+    ///                 MemorySize = 21,
+    ///                 PackageType = AzureNative.AwsConnector.PackageType.Image,
+    ///                 ReservedConcurrentExecutions = 28,
+    ///                 Role = "tuoem",
+    ///                 Runtime = "srxhlxqifkewuflrxzjauzdqqkoatl",
+    ///                 RuntimeManagementConfig = new AzureNative.AwsConnector.Inputs.RuntimeManagementConfigArgs
+    ///                 {
+    ///                     RuntimeVersionArn = "lqpuhdoaicnpryovplogsolsacxbk",
+    ///                     UpdateRuntimeOn = AzureNative.AwsConnector.RuntimeManagementConfigUpdateRuntimeOn.Auto,
+    ///                 },
+    ///                 SnapStart = new AzureNative.AwsConnector.Inputs.SnapStartArgs
+    ///                 {
+    ///                     ApplyOn = AzureNative.AwsConnector.SnapStartApplyOn.None,
+    ///                 },
+    ///                 SnapStartResponse = new AzureNative.AwsConnector.Inputs.SnapStartResponseArgs
+    ///                 {
+    ///                     ApplyOn = "None",
+    ///                 },
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "hweqw",
+    ///                         Value = "qctpnmjttccpi",
+    ///                     },
+    ///                 },
+    ///                 Timeout = 28,
+    ///                 TracingConfig = new AzureNative.AwsConnector.Inputs.TracingConfigArgs
+    ///                 {
+    ///                     Mode = AzureNative.AwsConnector.TracingConfigMode.Active,
+    ///                 },
+    ///                 VpcConfig = new AzureNative.AwsConnector.Inputs.VpcConfigArgs
+    ///                 {
+    ///                     Ipv6AllowedForDualStack = true,
+    ///                     SecurityGroupIds = new[]
+    ///                     {
+    ///                         "ovxbygrfhfhno",
+    ///                     },
+    ///                     SubnetIds = new[]
+    ///                     {
+    ///                         "inqatpkusunkgccviubzkijhrgslec",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "nat",
+    ///             AwsSourceSchema = "joyfyjrulh",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key4553", "qdudhyzvebfiewg" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "izvoucedmqtsihfjz",
+    ///             PublicCloudResourceName = "odptbducplnqaqoeleidffnyqfcipg",
+    ///         },
+    ///         ResourceGroupName = "rglambdaFunction",
+    ///         Tags = 
+    ///         {
+    ///             { "key9520", "pnmk" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:LambdaFunction qdak /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lambdaFunctions/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:LambdaFunction")]
     public partial class LambdaFunction : global::Pulumi.CustomResource

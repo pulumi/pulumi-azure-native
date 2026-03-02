@@ -15,6 +15,61 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Enables migration.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationMigrationItem = new AzureNative.RecoveryServices.ReplicationMigrationItem("replicationMigrationItem", new()
+    ///     {
+    ///         FabricName = "vmwarefabric1",
+    ///         MigrationItemName = "virtualmachine1",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.EnableMigrationInputPropertiesArgs
+    ///         {
+    ///             PolicyId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationPolicies/vmwarepolicy1",
+    ///             ProviderSpecificDetails = new AzureNative.RecoveryServices.Inputs.VMwareCbtEnableMigrationInputArgs
+    ///             {
+    ///                 DataMoverRunAsAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1",
+    ///                 DisksToInclude = new[]
+    ///                 {
+    ///                     new AzureNative.RecoveryServices.Inputs.VMwareCbtDiskInputArgs
+    ///                     {
+    ///                         DiskId = "disk1",
+    ///                         IsOSDisk = "true",
+    ///                         LogStorageAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Storage/storageAccounts/logStorageAccount1",
+    ///                         LogStorageAccountSasSecretName = "logStorageSas",
+    ///                     },
+    ///                 },
+    ///                 InstanceType = "VMwareCbt",
+    ///                 SnapshotRunAsAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/snapshotRunAsAccount1",
+    ///                 TargetNetworkId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Network/virtualNetworks/virtualNetwork1",
+    ///                 TargetResourceGroupId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1",
+    ///                 VmwareMachineId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/machines/virtualmachine1",
+    ///             },
+    ///         },
+    ///         ProtectionContainerName = "vmwareContainer1",
+    ///         ResourceGroupName = "resourcegroup1",
+    ///         ResourceName = "migrationvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:ReplicationMigrationItem virtualmachine1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationMigrationItems/{migrationItemName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : global::Pulumi.CustomResource

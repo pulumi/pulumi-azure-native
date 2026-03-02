@@ -27,6 +27,7 @@ class CostAllocationRuleArgs:
                  rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CostAllocationRule resource.
+
         :param pulumi.Input[_builtins.str] billing_account_id: BillingAccount ID
         :param pulumi.Input['CostAllocationRulePropertiesArgs'] properties: Cost allocation rule properties
         :param pulumi.Input[_builtins.str] rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
@@ -91,6 +92,98 @@ class CostAllocationRule(pulumi.CustomResource):
 
         Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CostAllocationRulesCreateResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAllocationRule",
+            billing_account_id="100",
+            properties={
+                "description": "This is a testRule",
+                "details": {
+                    "source_resources": [{
+                        "name": "ResourceGroupName",
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.DIMENSION,
+                        "values": [
+                            "sampleRG",
+                            "secondRG",
+                        ],
+                    }],
+                    "target_resources": [{
+                        "name": "ResourceGroupName",
+                        "policy_type": azure_native.costmanagement.CostAllocationPolicyType.FIXED_PROPORTION,
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.DIMENSION,
+                        "values": [
+                            {
+                                "name": "destinationRG",
+                                "percentage": 45,
+                            },
+                            {
+                                "name": "destinationRG2",
+                                "percentage": 54,
+                            },
+                        ],
+                    }],
+                },
+                "status": azure_native.costmanagement.RuleStatus.ACTIVE,
+            },
+            rule_name="testRule")
+
+        ```
+        ### CostAllocationRulesCreateTag
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAllocationRule",
+            billing_account_id="100",
+            properties={
+                "description": "This is a testRule",
+                "details": {
+                    "source_resources": [{
+                        "name": "category",
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.TAG,
+                        "values": ["devops"],
+                    }],
+                    "target_resources": [{
+                        "name": "ResourceGroupName",
+                        "policy_type": azure_native.costmanagement.CostAllocationPolicyType.FIXED_PROPORTION,
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.DIMENSION,
+                        "values": [
+                            {
+                                "name": "destinationRG",
+                                "percentage": 33.33,
+                            },
+                            {
+                                "name": "destinationRG2",
+                                "percentage": 33.33,
+                            },
+                            {
+                                "name": "destinationRG3",
+                                "percentage": 33.34,
+                            },
+                        ],
+                    }],
+                },
+                "status": azure_native.costmanagement.RuleStatus.ACTIVE,
+            },
+            rule_name="testRule")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:CostAllocationRule testRule /providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/costAllocationRules/{ruleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] billing_account_id: BillingAccount ID
@@ -109,6 +202,98 @@ class CostAllocationRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01-preview.
 
         Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CostAllocationRulesCreateResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAllocationRule",
+            billing_account_id="100",
+            properties={
+                "description": "This is a testRule",
+                "details": {
+                    "source_resources": [{
+                        "name": "ResourceGroupName",
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.DIMENSION,
+                        "values": [
+                            "sampleRG",
+                            "secondRG",
+                        ],
+                    }],
+                    "target_resources": [{
+                        "name": "ResourceGroupName",
+                        "policy_type": azure_native.costmanagement.CostAllocationPolicyType.FIXED_PROPORTION,
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.DIMENSION,
+                        "values": [
+                            {
+                                "name": "destinationRG",
+                                "percentage": 45,
+                            },
+                            {
+                                "name": "destinationRG2",
+                                "percentage": 54,
+                            },
+                        ],
+                    }],
+                },
+                "status": azure_native.costmanagement.RuleStatus.ACTIVE,
+            },
+            rule_name="testRule")
+
+        ```
+        ### CostAllocationRulesCreateTag
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAllocationRule",
+            billing_account_id="100",
+            properties={
+                "description": "This is a testRule",
+                "details": {
+                    "source_resources": [{
+                        "name": "category",
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.TAG,
+                        "values": ["devops"],
+                    }],
+                    "target_resources": [{
+                        "name": "ResourceGroupName",
+                        "policy_type": azure_native.costmanagement.CostAllocationPolicyType.FIXED_PROPORTION,
+                        "resource_type": azure_native.costmanagement.CostAllocationResourceType.DIMENSION,
+                        "values": [
+                            {
+                                "name": "destinationRG",
+                                "percentage": 33.33,
+                            },
+                            {
+                                "name": "destinationRG2",
+                                "percentage": 33.33,
+                            },
+                            {
+                                "name": "destinationRG3",
+                                "percentage": 33.34,
+                            },
+                        ],
+                    }],
+                },
+                "status": azure_native.costmanagement.RuleStatus.ACTIVE,
+            },
+            rule_name="testRule")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement:CostAllocationRule testRule /providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/costAllocationRules/{ruleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CostAllocationRuleArgs args: The arguments to use to populate this resource's properties.

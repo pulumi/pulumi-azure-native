@@ -110,6 +110,7 @@ class AutoPausePropertiesResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Auto-pausing properties of a Big Data pool powered by Apache Spark
+
         :param _builtins.int delay_in_minutes: Number of minutes of idle time before the Big Data pool is automatically paused.
         :param _builtins.bool enabled: Whether auto-pausing is enabled for the Big Data pool.
         """
@@ -165,6 +166,7 @@ class AutoScalePropertiesResponse(dict):
                  min_node_count: Optional[_builtins.int] = None):
         """
         Auto-scaling properties of a Big Data pool powered by Apache Spark
+
         :param _builtins.bool enabled: Whether automatic scaling is enabled for the Big Data pool.
         :param _builtins.int max_node_count: The maximum number of nodes the Big Data pool can support.
         :param _builtins.int min_node_count: The minimum number of nodes the Big Data pool can support.
@@ -212,6 +214,7 @@ class AzureSkuResponse(dict):
                  capacity: Optional[_builtins.int] = None):
         """
         Azure SKU definition.
+
         :param _builtins.str name: SKU name.
         :param _builtins.str size: SKU size.
         :param _builtins.int capacity: The number of instances of the cluster.
@@ -277,6 +280,7 @@ class CmdkeySetupResponse(dict):
                  user_name: Any):
         """
         The custom setup of running cmdkey commands.
+
         :param 'SecureStringResponse' password: The password of data source access.
         :param Any target_name: The server name of data source access.
         :param _builtins.str type: The type of custom setup.
@@ -352,6 +356,7 @@ class ComponentSetupResponse(dict):
                  license_key: Optional['outputs.SecureStringResponse'] = None):
         """
         The custom setup of installing 3rd party components.
+
         :param _builtins.str component_name: The name of the 3rd party component.
         :param _builtins.str type: The type of custom setup.
                Expected value is 'ComponentSetup'.
@@ -414,6 +419,7 @@ class CspWorkspaceAdminPropertiesResponse(dict):
                  initial_workspace_admin_object_id: Optional[_builtins.str] = None):
         """
         Initial workspace AAD admin properties for a CSP subscription
+
         :param _builtins.str initial_workspace_admin_object_id: AAD object ID of initial workspace admin
         """
         if initial_workspace_admin_object_id is not None:
@@ -456,6 +462,7 @@ class CustomerManagedKeyDetailsResponse(dict):
                  key: Optional['outputs.WorkspaceKeyDetailsResponse'] = None):
         """
         Details of the customer managed key associated with the workspace
+
         :param _builtins.str status: The customer managed key status on the workspace
         :param 'KekIdentityPropertiesResponse' kek_identity: Key encryption key
         :param 'WorkspaceKeyDetailsResponse' key: The key object of the workspace
@@ -524,6 +531,7 @@ class DataLakeStorageAccountDetailsResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Details of the data lake storage account associated with the workspace
+
         :param _builtins.str account_url: Account URL
         :param _builtins.bool create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param _builtins.str filesystem: Filesystem name
@@ -580,6 +588,7 @@ class DatabaseStatisticsResponse(dict):
                  size: Optional[_builtins.float] = None):
         """
         A class that contains database statistics information.
+
         :param _builtins.float size: The database size - the total size of compressed data and index in bytes.
         """
         if size is not None:
@@ -624,6 +633,7 @@ class DynamicExecutorAllocationResponse(dict):
                  min_executors: Optional[_builtins.int] = None):
         """
         Dynamic Executor Allocation Properties
+
         :param _builtins.bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
         :param _builtins.int max_executors: The maximum number of executors alloted
         :param _builtins.int min_executors: The minimum number of executors alloted
@@ -687,6 +697,7 @@ class EncryptionDetailsResponse(dict):
                  cmk: Optional['outputs.CustomerManagedKeyDetailsResponse'] = None):
         """
         Details of the encryption associated with the workspace
+
         :param _builtins.bool double_encryption_enabled: Double Encryption enabled
         :param 'CustomerManagedKeyDetailsResponse' cmk: Customer Managed Key Details
         """
@@ -738,6 +749,7 @@ class EntityReferenceResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The entity reference.
+
         :param _builtins.str reference_name: The name of this referenced entity.
         :param _builtins.str type: The type of this referenced entity.
         """
@@ -793,6 +805,7 @@ class EnvironmentVariableSetupResponse(dict):
                  variable_value: _builtins.str):
         """
         The custom setup of setting environment variable.
+
         :param _builtins.str type: The type of custom setup.
                Expected value is 'EnvironmentVariableSetup'.
         :param _builtins.str variable_name: The name of the environment variable.
@@ -839,6 +852,7 @@ class FollowerDatabaseDefinitionResponse(dict):
                  kusto_pool_resource_id: _builtins.str):
         """
         A class representing follower database request.
+
         :param _builtins.str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
         :param _builtins.str database_name: The database name owned by this cluster that was followed. * in case following all databases.
         :param _builtins.str kusto_pool_resource_id: Resource id of the cluster that follows a database owned by this cluster.
@@ -911,6 +925,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
+
         :param 'IntegrationRuntimeDataFlowPropertiesResponse' data_flow_properties: Data flow properties for managed integration runtime.
         :param _builtins.str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         :param _builtins.int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
@@ -1009,6 +1024,7 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
                  sas_token: Optional['outputs.SecureStringResponse'] = None):
         """
         Custom setup script properties for a managed dedicated integration runtime.
+
         :param _builtins.str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
         :param 'SecureStringResponse' sas_token: The SAS token of the Azure blob container.
         """
@@ -1060,6 +1076,7 @@ class IntegrationRuntimeCustomerVirtualNetworkResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+
         :param _builtins.str subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
         """
         if subnet_id is not None:
@@ -1106,6 +1123,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
                  time_to_live: Optional[_builtins.int] = None):
         """
         Data flow properties for managed integration runtime.
+
         :param _builtins.str compute_type: Compute type of the cluster which will execute data flow job.
         :param _builtins.int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         :param _builtins.int time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
@@ -1172,6 +1190,7 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
                  staging_linked_service: Optional['outputs.EntityReferenceResponse'] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
+
         :param 'EntityReferenceResponse' connect_via: The self-hosted integration runtime reference.
         :param _builtins.str path: The path to contain the staged data in the Blob storage.
         :param 'EntityReferenceResponse' staging_linked_service: The staging linked service reference.
@@ -1243,6 +1262,7 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  catalog_server_endpoint: Optional[_builtins.str] = None):
         """
         Catalog information for managed dedicated integration runtime.
+
         :param 'SecureStringResponse' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param _builtins.str catalog_admin_user_name: The administrator user name of catalog database.
         :param _builtins.str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
@@ -1329,6 +1349,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  license_type: Optional[_builtins.str] = None):
         """
         SSIS properties for managed integration runtime.
+
         :param 'IntegrationRuntimeSsisCatalogInfoResponse' catalog_info: Catalog information for managed dedicated integration runtime.
         :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponse' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param 'IntegrationRuntimeDataProxyPropertiesResponse' data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
@@ -1431,6 +1452,7 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
                  v_net_id: Optional[_builtins.str] = None):
         """
         VNet properties for managed integration runtime.
+
         :param Sequence[_builtins.str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param _builtins.str subnet: The name of the subnet this integration runtime will join.
         :param _builtins.str subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
@@ -1507,6 +1529,7 @@ class KekIdentityPropertiesResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Key encryption key properties
+
         :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
         :param _builtins.str user_assigned_identity: User assigned identity resource Id
         """
@@ -1558,6 +1581,7 @@ class LanguageExtensionResponse(dict):
                  language_extension_name: Optional[_builtins.str] = None):
         """
         The language extension object.
+
         :param _builtins.str language_extension_name: The language extension name.
         """
         if language_extension_name is not None:
@@ -1581,6 +1605,7 @@ class LanguageExtensionsListResponse(dict):
                  value: Optional[Sequence['outputs.LanguageExtensionResponse']] = None):
         """
         The list of language extension objects.
+
         :param Sequence['LanguageExtensionResponse'] value: The list of language extensions.
         """
         if value is not None:
@@ -1633,6 +1658,7 @@ class LibraryInfoResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Library/package information of a Big Data pool powered by Apache Spark
+
         :param _builtins.str creator_id: Creator Id of the library/package.
         :param _builtins.str provisioning_status: Provisioning status of the library/package.
         :param _builtins.str uploaded_timestamp: The last update time of the library.
@@ -1721,6 +1747,7 @@ class LibraryRequirementsResponse(dict):
                  filename: Optional[_builtins.str] = None):
         """
         Library requirements for a Big Data pool powered by Apache Spark
+
         :param _builtins.str time: The last update time of the library requirements file.
         :param _builtins.str content: The library requirements.
         :param _builtins.str filename: The filename of the library requirements file.
@@ -1783,6 +1810,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
                  key: 'outputs.SecureStringResponse'):
         """
         The key authorization type integration runtime.
+
         :param _builtins.str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'Key'.
         :param 'SecureStringResponse' key: The key used for authorization.
@@ -1837,6 +1865,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
                  resource_id: _builtins.str):
         """
         The role based access control (RBAC) authorization type integration runtime.
+
         :param _builtins.str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'RBAC'.
         :param _builtins.str resource_id: The resource identifier of the integration runtime to be shared.
@@ -1875,6 +1904,7 @@ class LinkedIntegrationRuntimeResponse(dict):
                  subscription_id: _builtins.str):
         """
         The linked integration runtime information.
+
         :param _builtins.str create_time: The creating time of the linked integration runtime.
         :param _builtins.str data_factory_location: The location of the workspace for which the linked integration runtime belong to.
         :param _builtins.str data_factory_name: The name of the workspace for which the linked integration runtime belong to.
@@ -1961,6 +1991,7 @@ class ManagedIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
         The workspace managed identity
+
         :param _builtins.str principal_id: The principal ID of the workspace managed identity
         :param _builtins.str tenant_id: The tenant ID of the workspace managed identity
         :param _builtins.str type: The type of managed identity for the workspace
@@ -2018,6 +2049,7 @@ class ManagedIntegrationRuntimeErrorResponse(dict):
                  time: _builtins.str):
         """
         Error definition for managed integration runtime.
+
         :param _builtins.str code: Error code.
         :param _builtins.str message: Error message.
         :param Sequence[_builtins.str] parameters: Managed integration runtime error parameters.
@@ -2072,6 +2104,7 @@ class ManagedIntegrationRuntimeNodeResponse(dict):
                  errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']] = None):
         """
         Properties of integration runtime node.
+
         :param _builtins.str node_id: The managed integration runtime node id.
         :param _builtins.str status: The managed integration runtime node status.
         :param Sequence['ManagedIntegrationRuntimeErrorResponse'] errors: The errors that occurred on this integration runtime node.
@@ -2120,6 +2153,7 @@ class ManagedIntegrationRuntimeOperationResultResponse(dict):
                  type: _builtins.str):
         """
         Properties of managed integration runtime operation result.
+
         :param _builtins.str activity_id: The activity id for the operation request.
         :param _builtins.str error_code: The error code.
         :param Sequence[_builtins.str] parameters: Managed integration runtime error parameters.
@@ -2224,6 +2258,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+
         :param _builtins.str provisioning_state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param _builtins.str type: The type of integration runtime.
                Expected value is 'Managed'.
@@ -2330,6 +2365,7 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
                  type: _builtins.str):
         """
         Managed integration runtime status.
+
         :param _builtins.str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param _builtins.str data_factory_name: The workspace name which the integration runtime belong to.
         :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
@@ -2437,6 +2473,7 @@ class ManagedVirtualNetworkSettingsResponse(dict):
                  prevent_data_exfiltration: Optional[_builtins.bool] = None):
         """
         Managed Virtual Network Settings
+
         :param Sequence[_builtins.str] allowed_aad_tenant_ids_for_linking: Allowed Aad Tenant Ids For Linking
         :param _builtins.bool linked_access_check_on_target_resource: Linked Access Check On Target Resource
         :param _builtins.bool prevent_data_exfiltration: Prevent Data Exfiltration
@@ -2502,6 +2539,7 @@ class OptimizedAutoscaleResponse(dict):
                  version: _builtins.int):
         """
         A class that contains the optimized auto scale definition.
+
         :param _builtins.bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
         :param _builtins.int maximum: Maximum allowed instances count.
         :param _builtins.int minimum: Minimum allowed instances count.
@@ -2578,6 +2616,7 @@ class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         Private Endpoint Connection For Private Link Hub - Basic
+
         :param _builtins.str id: identifier
         :param _builtins.str provisioning_state: Provisioning state of the private endpoint connection.
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint which the connection belongs to.
@@ -2658,6 +2697,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
         A private endpoint connection
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param _builtins.str provisioning_state: Provisioning state of the private endpoint connection.
@@ -2732,6 +2772,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         Private endpoint details
+
         :param _builtins.str id: Resource id of the private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -2773,6 +2814,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Connection state details of the private endpoint
+
         :param _builtins.str actions_required: The actions required for private link service connection.
         :param _builtins.str description: The private link service connection description.
         :param _builtins.str status: The private link service connection status.
@@ -2834,6 +2876,7 @@ class PurviewConfigurationResponse(dict):
                  purview_resource_id: Optional[_builtins.str] = None):
         """
         Purview Configuration
+
         :param _builtins.str purview_resource_id: Purview Resource ID
         """
         if purview_resource_id is not None:
@@ -2858,6 +2901,7 @@ class SecureStringResponse(dict):
                  value: _builtins.str):
         """
         Azure Synapse secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+
         :param _builtins.str type: Type of the secret.
                Expected value is 'SecureString'.
         :param _builtins.str value: Value of secure string.
@@ -2909,6 +2953,7 @@ class SelfHostedIntegrationRuntimeNodeResponse(dict):
                  version_status: _builtins.str):
         """
         Properties of Self-hosted integration runtime node.
+
         :param Mapping[str, _builtins.str] capabilities: The integration runtime capabilities dictionary
         :param _builtins.int concurrent_jobs_limit: Maximum concurrent jobs on the integration runtime node.
         :param _builtins.str expiry_time: The time at which the integration runtime will expire in ISO8601 format.
@@ -3120,6 +3165,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
                  linked_info: Optional[Any] = None):
         """
         Self-hosted integration runtime.
+
         :param _builtins.str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param _builtins.str description: Integration runtime description.
@@ -3185,6 +3231,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
                  nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None):
         """
         Self-hosted integration runtime status.
+
         :param _builtins.str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
         :param _builtins.str auto_update_eta: The estimated time when the self-hosted integration runtime will be updated.
         :param Mapping[str, _builtins.str] capabilities: Object with additional information about integration runtime capabilities.
@@ -3403,6 +3450,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SQL pool SKU
+
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str name: The SKU name
         :param _builtins.str tier: The service tier
@@ -3468,6 +3516,7 @@ class SparkConfigPropertiesResponse(dict):
                  filename: Optional[_builtins.str] = None):
         """
         SparkConfig Properties for a Big Data pool powered by Apache Spark
+
         :param _builtins.str time: The last update time of the spark config properties file.
         :param _builtins.str configuration_type: The type of the spark config properties file.
         :param _builtins.str content: The spark config properties.
@@ -3523,6 +3572,7 @@ class SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse(dict):
                  result: Sequence[_builtins.str]):
         """
         Properties for an Sql pool vulnerability assessment rule baseline's result.
+
         :param Sequence[_builtins.str] result: The rule baseline result
         """
         pulumi.set(__self__, "result", result)
@@ -3548,6 +3598,7 @@ class SsisEnvironmentReferenceResponse(dict):
                  reference_type: Optional[_builtins.str] = None):
         """
         Ssis environment reference.
+
         :param _builtins.str environment_folder_name: Environment folder name.
         :param _builtins.str environment_name: Environment name.
         :param _builtins.float id: Environment reference id.
@@ -3609,6 +3660,7 @@ class SsisEnvironmentResponse(dict):
                  variables: Optional[Sequence['outputs.SsisVariableResponse']] = None):
         """
         Ssis environment.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Environment'.
         :param _builtins.str description: Metadata description.
@@ -3691,6 +3743,7 @@ class SsisFolderResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Ssis folder.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Folder'.
         :param _builtins.str description: Metadata description.
@@ -3755,6 +3808,7 @@ class SsisPackageResponse(dict):
                  project_version: Optional[_builtins.float] = None):
         """
         Ssis Package.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Package'.
         :param _builtins.str description: Metadata description.
@@ -3867,6 +3921,7 @@ class SsisParameterResponse(dict):
                  variable: Optional[_builtins.str] = None):
         """
         Ssis parameter.
+
         :param _builtins.str data_type: Parameter type.
         :param _builtins.str default_value: Default value of parameter.
         :param _builtins.str description: Parameter description.
@@ -4018,6 +4073,7 @@ class SsisProjectResponse(dict):
                  version: Optional[_builtins.float] = None):
         """
         Ssis project.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Project'.
         :param _builtins.str description: Metadata description.
@@ -4125,6 +4181,7 @@ class SsisVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Ssis variable.
+
         :param _builtins.str data_type: Variable type.
         :param _builtins.str description: Variable description.
         :param _builtins.float id: Variable id.
@@ -4246,6 +4303,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -4356,6 +4414,7 @@ class TableLevelSharingPropertiesResponse(dict):
                  tables_to_include: Optional[Sequence[_builtins.str]] = None):
         """
         Tables that will be included and excluded in the follower database
+
         :param Sequence[_builtins.str] external_tables_to_exclude: List of external tables exclude from the follower database
         :param Sequence[_builtins.str] external_tables_to_include: List of external tables to include in the follower database
         :param Sequence[_builtins.str] materialized_views_to_exclude: List of materialized views exclude from the follower database
@@ -4454,6 +4513,7 @@ class UserAssignedManagedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User Assigned Managed Identity
+
         :param _builtins.str client_id: The client ID.
         :param _builtins.str principal_id: The principal ID.
         """
@@ -4503,6 +4563,7 @@ class VirtualNetworkProfileResponse(dict):
                  compute_subnet_id: Optional[_builtins.str] = None):
         """
         Virtual Network Profile
+
         :param _builtins.str compute_subnet_id: Subnet ID used for computes in workspace
         """
         if compute_subnet_id is not None:
@@ -4547,6 +4608,7 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
                  is_enabled: Optional[_builtins.bool] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
+
         :param _builtins.bool email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
         :param Sequence[_builtins.str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param _builtins.bool is_enabled: Recurring scans state.
@@ -4612,6 +4674,7 @@ class WorkspaceKeyDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Details of the customer managed key associated with the workspace
+
         :param _builtins.str key_vault_url: Workspace Key sub-resource key vault url
         :param _builtins.str name: Workspace Key sub-resource name
         """
@@ -4685,6 +4748,7 @@ class WorkspaceRepositoryConfigurationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Git integration settings
+
         :param _builtins.str account_name: Account name
         :param _builtins.str collaboration_branch: Collaboration branch
         :param _builtins.str host_name: GitHub Enterprise host name. For example: `https://github.mydomain.com`

@@ -38,6 +38,7 @@ class FreeServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FreeService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
         :param pulumi.Input[_builtins.str] free_service_name: Name of the free service
@@ -276,6 +277,35 @@ class FreeService(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-12-01-preview.
 
+        ## Example Usage
+        ### FreeServicesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        free_service = azure_native.billingbenefits.FreeService("freeService",
+            end_at="2026-10-01T00:00:00Z",
+            free_service_name="freeservice_20251001",
+            location="global",
+            product_code="0001d726-0000-0160-330f-a0b98cdbbdc4",
+            resource_group_name="resource_group_name_01",
+            start_at="2025-10-01T00:00:00Z",
+            tags={
+                "environment": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billingbenefits:FreeService freeservice_20251001 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/freeServices/{freeServiceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] end_at: Expiration date and time of the free services
@@ -303,6 +333,35 @@ class FreeService(pulumi.CustomResource):
         The Free Services API includes operations for creating and managing free services.
 
         Uses Azure REST API version 2025-12-01-preview.
+
+        ## Example Usage
+        ### FreeServicesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        free_service = azure_native.billingbenefits.FreeService("freeService",
+            end_at="2026-10-01T00:00:00Z",
+            free_service_name="freeservice_20251001",
+            location="global",
+            product_code="0001d726-0000-0160-330f-a0b98cdbbdc4",
+            resource_group_name="resource_group_name_01",
+            start_at="2025-10-01T00:00:00Z",
+            tags={
+                "environment": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billingbenefits:FreeService freeservice_20251001 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/freeServices/{freeServiceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FreeServiceArgs args: The arguments to use to populate this resource's properties.

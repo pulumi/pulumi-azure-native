@@ -33,6 +33,7 @@ class ArmTemplateParameterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Parameter to pass to ARM template
+
         :param _builtins.str name: name of the parameter.
         :param _builtins.str value: value for the parameter. In Jtoken 
         """
@@ -84,6 +85,7 @@ class ManagementAssociationPropertiesResponse(dict):
                  application_id: _builtins.str):
         """
         ManagementAssociation properties supported by the OperationsManagement resource provider.
+
         :param _builtins.str application_id: The applicationId of the appliance for this association.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -131,6 +133,7 @@ class ManagementConfigurationPropertiesResponse(dict):
                  application_id: Optional[_builtins.str] = None):
         """
         ManagementConfiguration properties supported by the OperationsManagement resource provider.
+
         :param Sequence['ArmTemplateParameterResponse'] parameters: Parameters to run the ARM template
         :param _builtins.str parent_resource_type: The type of the parent resource.
         :param _builtins.str provisioning_state: The provisioning state for the ManagementConfiguration.
@@ -214,6 +217,7 @@ class SolutionPlanResponse(dict):
                  publisher: Optional[_builtins.str] = None):
         """
         Plan for solution object supported by the OperationsManagement resource provider.
+
         :param _builtins.str name: name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
         :param _builtins.str product: name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
         :param _builtins.str promotion_code: promotionCode, Not really used now, can you left as empty
@@ -296,6 +300,7 @@ class SolutionPropertiesResponse(dict):
                  referenced_resources: Optional[Sequence[_builtins.str]] = None):
         """
         Solution properties supported by the OperationsManagement resource provider.
+
         :param _builtins.str provisioning_state: The provisioning state for the solution.
         :param _builtins.str workspace_resource_id: The azure resourceId for the workspace where the solution will be deployed/enabled.
         :param Sequence[_builtins.str] contained_resources: The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.

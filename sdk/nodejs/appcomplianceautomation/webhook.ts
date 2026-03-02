@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * A class represent an AppComplianceAutomation webhook resource.
  *
  * Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
+ *
+ * ## Example Usage
+ * ### Webhook_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webhook = new azure_native.appcomplianceautomation.Webhook("webhook", {
+ *     contentType: azure_native.appcomplianceautomation.ContentType.ApplicationJson,
+ *     enableSslVerification: azure_native.appcomplianceautomation.EnableSslVerification.True,
+ *     events: [azure_native.appcomplianceautomation.NotificationEvent.Generate_snapshot_failed],
+ *     payloadUrl: "https://example.com",
+ *     reportName: "testReportName",
+ *     sendAllEvents: azure_native.appcomplianceautomation.SendAllEvents.False,
+ *     status: azure_native.appcomplianceautomation.WebhookStatus.Enabled,
+ *     updateWebhookKey: azure_native.appcomplianceautomation.UpdateWebhookKey.True,
+ *     webhookKey: "00000000-0000-0000-0000-000000000000",
+ *     webhookName: "testWebhookName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appcomplianceautomation:Webhook testWebhookName /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/webhooks/{webhookName} 
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

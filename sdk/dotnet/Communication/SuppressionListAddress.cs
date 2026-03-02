@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Communication
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate SuppressionListAddress resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var suppressionListAddress = new AzureNative.Communication.SuppressionListAddress("suppressionListAddress", new()
+    ///     {
+    ///         AddressId = "11112222-3333-4444-5555-aaaabbbbcccc",
+    ///         DomainName = "contoso.com",
+    ///         Email = "newuser1@fabrikam.com",
+    ///         EmailServiceName = "contosoEmailService",
+    ///         FirstName = "updatedFirstName",
+    ///         ResourceGroupName = "contosoResourceGroup",
+    ///         SuppressionListName = "aaaa1111-bbbb-2222-3333-aaaa11112222",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:communication:SuppressionListAddress 11112222-3333-4444-5555-aaaabbbbcccc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/suppressionLists/{suppressionListName}/suppressionListAddresses/{addressId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionListAddress")]
     public partial class SuppressionListAddress : global::Pulumi.CustomResource

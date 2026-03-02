@@ -15,6 +15,59 @@ namespace Pulumi.AzureNative.Cdn
     /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### AFDCustomDomains_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdCustomDomain = new AzureNative.Cdn.AFDCustomDomain("afdCustomDomain", new()
+    ///     {
+    ///         AzureDnsZone = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "",
+    ///         },
+    ///         CustomDomainName = "domain1",
+    ///         HostName = "www.someDomain.net",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         TlsSettings = new AzureNative.Cdn.Inputs.AFDDomainHttpsParametersArgs
+    ///         {
+    ///             CertificateType = AzureNative.Cdn.AfdCertificateType.ManagedCertificate,
+    ///             CipherSuiteSetType = AzureNative.Cdn.AfdCipherSuiteSetType.Customized,
+    ///             CustomizedCipherSuiteSet = new AzureNative.Cdn.Inputs.AFDDomainHttpsCustomizedCipherSuiteSetArgs
+    ///             {
+    ///                 CipherSuiteSetForTls12 = new[]
+    ///                 {
+    ///                     AzureNative.Cdn.AfdCustomizedCipherSuiteForTls12.ECDHE_RSA_AES128_GCM_SHA256,
+    ///                 },
+    ///                 CipherSuiteSetForTls13 = new[]
+    ///                 {
+    ///                     AzureNative.Cdn.AfdCustomizedCipherSuiteForTls13.TLS_AES_128_GCM_SHA256,
+    ///                     AzureNative.Cdn.AfdCustomizedCipherSuiteForTls13.TLS_AES_256_GCM_SHA384,
+    ///                 },
+    ///             },
+    ///             MinimumTlsVersion = AzureNative.Cdn.AfdMinimumTlsVersion.TLS12,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:AFDCustomDomain domain1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/customDomains/{customDomainName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDCustomDomain")]
     public partial class AFDCustomDomain : global::Pulumi.CustomResource

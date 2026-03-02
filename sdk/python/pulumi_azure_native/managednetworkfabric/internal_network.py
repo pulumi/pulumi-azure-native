@@ -42,6 +42,7 @@ class InternalNetworkArgs:
                  static_route_configuration: Optional[pulumi.Input['InternalNetworkPropertiesStaticRouteConfigurationArgs']] = None):
         """
         The set of arguments for constructing a InternalNetwork resource.
+
         :param pulumi.Input[_builtins.str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] vlan_id: Vlan identifier. Example: 1001.
@@ -350,6 +351,88 @@ class InternalNetwork(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### InternalNetworks_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        internal_network = azure_native.managednetworkfabric.InternalNetwork("internalNetwork",
+            annotation="annotation",
+            bgp_configuration={
+                "allow_as": 10,
+                "allow_as_override": azure_native.managednetworkfabric.AllowASOverride.ENABLE,
+                "annotation": "annotation",
+                "bfd_configuration": {
+                    "interval_in_milli_seconds": 300,
+                    "multiplier": 5,
+                },
+                "default_route_originate": azure_native.managednetworkfabric.BooleanEnumProperty.TRUE,
+                "ipv4_listen_range_prefixes": ["10.1.0.0/25"],
+                "ipv4_neighbor_address": [{
+                    "address": "10.1.0.0",
+                }],
+                "ipv6_listen_range_prefixes": ["2fff::/66"],
+                "ipv6_neighbor_address": [{
+                    "address": "2fff::",
+                }],
+                "peer_asn": 61234,
+            },
+            connected_i_pv4_subnets=[{
+                "annotation": "annotation",
+                "prefix": "10.0.0.0/24",
+            }],
+            connected_i_pv6_subnets=[{
+                "annotation": "annotation",
+                "prefix": "3FFE:FFFF:0:CD30::a0/29",
+            }],
+            egress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+            export_route_policy={
+                "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+                "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            },
+            export_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            extension=azure_native.managednetworkfabric.Extension.NO_EXTENSION,
+            import_route_policy={
+                "import_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+                "import_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            },
+            import_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            ingress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+            internal_network_name="example-internalnetwork",
+            is_monitoring_enabled=azure_native.managednetworkfabric.IsMonitoringEnabled.TRUE,
+            l3_isolation_domain_name="example-l3domain",
+            mtu=1500,
+            resource_group_name="example-rg",
+            static_route_configuration={
+                "bfd_configuration": {
+                    "interval_in_milli_seconds": 300,
+                    "multiplier": 15,
+                },
+                "extension": azure_native.managednetworkfabric.Extension.NO_EXTENSION,
+                "ipv4_routes": [{
+                    "next_hop": ["10.0.0.1"],
+                    "prefix": "jffgck",
+                }],
+                "ipv6_routes": [{
+                    "next_hop": ["3ffe::1"],
+                    "prefix": "2fff::/64",
+                }],
+            },
+            vlan_id=755)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:InternalNetwork example-internalnetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName}/internalNetworks/{internalNetworkName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -383,6 +466,88 @@ class InternalNetwork(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### InternalNetworks_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        internal_network = azure_native.managednetworkfabric.InternalNetwork("internalNetwork",
+            annotation="annotation",
+            bgp_configuration={
+                "allow_as": 10,
+                "allow_as_override": azure_native.managednetworkfabric.AllowASOverride.ENABLE,
+                "annotation": "annotation",
+                "bfd_configuration": {
+                    "interval_in_milli_seconds": 300,
+                    "multiplier": 5,
+                },
+                "default_route_originate": azure_native.managednetworkfabric.BooleanEnumProperty.TRUE,
+                "ipv4_listen_range_prefixes": ["10.1.0.0/25"],
+                "ipv4_neighbor_address": [{
+                    "address": "10.1.0.0",
+                }],
+                "ipv6_listen_range_prefixes": ["2fff::/66"],
+                "ipv6_neighbor_address": [{
+                    "address": "2fff::",
+                }],
+                "peer_asn": 61234,
+            },
+            connected_i_pv4_subnets=[{
+                "annotation": "annotation",
+                "prefix": "10.0.0.0/24",
+            }],
+            connected_i_pv6_subnets=[{
+                "annotation": "annotation",
+                "prefix": "3FFE:FFFF:0:CD30::a0/29",
+            }],
+            egress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+            export_route_policy={
+                "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+                "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            },
+            export_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            extension=azure_native.managednetworkfabric.Extension.NO_EXTENSION,
+            import_route_policy={
+                "import_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+                "import_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            },
+            import_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            ingress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
+            internal_network_name="example-internalnetwork",
+            is_monitoring_enabled=azure_native.managednetworkfabric.IsMonitoringEnabled.TRUE,
+            l3_isolation_domain_name="example-l3domain",
+            mtu=1500,
+            resource_group_name="example-rg",
+            static_route_configuration={
+                "bfd_configuration": {
+                    "interval_in_milli_seconds": 300,
+                    "multiplier": 15,
+                },
+                "extension": azure_native.managednetworkfabric.Extension.NO_EXTENSION,
+                "ipv4_routes": [{
+                    "next_hop": ["10.0.0.1"],
+                    "prefix": "jffgck",
+                }],
+                "ipv6_routes": [{
+                    "next_hop": ["3ffe::1"],
+                    "prefix": "2fff::/64",
+                }],
+            },
+            vlan_id=755)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:InternalNetwork example-internalnetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName}/internalNetworks/{internalNetworkName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param InternalNetworkArgs args: The arguments to use to populate this resource's properties.

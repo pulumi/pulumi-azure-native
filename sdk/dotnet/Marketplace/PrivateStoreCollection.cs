@@ -15,6 +15,43 @@ namespace Pulumi.AzureNative.Marketplace
     /// Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// 
     /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreatePrivateStoreCollection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateStoreCollection = new AzureNative.Marketplace.PrivateStoreCollection("privateStoreCollection", new()
+    ///     {
+    ///         AllSubscriptions = false,
+    ///         Claim = "",
+    ///         CollectionId = "d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1",
+    ///         CollectionName = "Test Collection",
+    ///         PrivateStoreId = "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+    ///         SubscriptionsList = new[]
+    ///         {
+    ///             "b340914e-353d-453a-85fb-8f9b65b51f91",
+    ///             "f2baa04d-5bfc-461b-b6d8-61b403c9ec48",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:marketplace:PrivateStoreCollection d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1 /providers/Microsoft.Marketplace/privateStores/{privateStoreId}/collections/{collectionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollection")]
     public partial class PrivateStoreCollection : global::Pulumi.CustomResource

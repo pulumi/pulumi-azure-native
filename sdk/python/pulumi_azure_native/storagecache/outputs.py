@@ -87,6 +87,7 @@ class AmlFilesystemArchiveResponse(dict):
                  status: 'outputs.AmlFilesystemArchiveResponseStatus'):
         """
         Information about the AML file system archive
+
         :param _builtins.str filesystem_path: Lustre file system path to archive relative to the file system root.  Specify '/' to archive all modified data.
         :param 'AmlFilesystemArchiveResponseStatus' status: The status of the archive
         """
@@ -149,6 +150,7 @@ class AmlFilesystemArchiveResponseStatus(dict):
                  state: _builtins.str):
         """
         The status of the archive
+
         :param _builtins.str error_code: Server-defined error code for the archive operation
         :param _builtins.str error_message: Server-defined error message for the archive operation
         :param _builtins.str last_completion_time: The time of the last completed archive operation
@@ -247,6 +249,7 @@ class AmlFilesystemClientInfoResponse(dict):
                  mount_command: _builtins.str):
         """
         AML file system client information
+
         :param 'AmlFilesystemContainerStorageInterfaceResponse' container_storage_interface: Container Storage Interface information for the AML file system.
         :param _builtins.str lustre_version: The version of Lustre running in the AML file system
         :param _builtins.str mgs_address: The IPv4 address used by clients to mount the AML file system's Lustre Management Service (MGS).
@@ -322,6 +325,7 @@ class AmlFilesystemContainerStorageInterfaceResponse(dict):
                  storage_class: _builtins.str):
         """
         AML file system container storage interface information
+
         :param _builtins.str persistent_volume: Recommended AKS Persistent Volume for the CSI driver, in Base64 encoded YAML
         :param _builtins.str persistent_volume_claim: Recommended AKS Persistent Volume Claim for the CSI driver, in Base64 encoded YAML
         :param _builtins.str storage_class: Recommended AKS Storage Class for the CSI driver, in Base64 encoded YAML
@@ -381,6 +385,7 @@ class AmlFilesystemEncryptionSettingsResponse(dict):
                  key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
         """
         AML file system encryption settings.
+
         :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the encryption key in Key Vault.
         """
         if key_encryption_key is not None:
@@ -425,6 +430,7 @@ class AmlFilesystemHealthResponse(dict):
                  status_description: Optional[_builtins.str] = None):
         """
         An indication of AML file system health. Gives more information about health than just that related to provisioning.
+
         :param _builtins.str state: List of AML file system health states.
         :param _builtins.str status_code: Server-defined error code for the AML file system health
         :param _builtins.str status_description: Describes the health state.
@@ -494,6 +500,7 @@ class AmlFilesystemHsmSettingsResponse(dict):
                  import_prefixes_initial: Optional[Sequence[_builtins.str]] = None):
         """
         AML file system HSM settings.
+
         :param _builtins.str container: Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
         :param _builtins.str logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
         :param _builtins.str import_prefix: Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
@@ -574,6 +581,7 @@ class AmlFilesystemIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
         """
         Managed Identity properties.
+
         :param _builtins.str principal_id: The principal ID for the user-assigned identity of the resource.
         :param _builtins.str tenant_id: The tenant ID associated with the resource.
         :param _builtins.str type: The type of identity used for the resource.
@@ -646,6 +654,7 @@ class AmlFilesystemResponseHsm(dict):
                  settings: Optional['outputs.AmlFilesystemHsmSettingsResponse'] = None):
         """
         Hydration and archive settings and status
+
         :param Sequence['AmlFilesystemArchiveResponse'] archive_status: Archive status
         :param 'AmlFilesystemHsmSettingsResponse' settings: Specifies HSM settings of the AML file system.
         """
@@ -699,6 +708,7 @@ class AmlFilesystemResponseMaintenanceWindow(dict):
                  time_of_day_utc: Optional[_builtins.str] = None):
         """
         Start time of a 30-minute weekly maintenance window.
+
         :param _builtins.str day_of_week: Day of the week on which the maintenance window will occur.
         :param _builtins.str time_of_day_utc: The time of day (in UTC) to start the maintenance window.
         """
@@ -758,6 +768,7 @@ class AmlFilesystemRootSquashSettingsResponse(dict):
                  squash_uid: Optional[_builtins.float] = None):
         """
         AML file system squash settings.
+
         :param _builtins.str status: AML file system squash status.
         :param _builtins.str mode: Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
         :param _builtins.str no_squash_nid_lists: Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
@@ -875,6 +886,7 @@ class AutoImportJobResponseBlobSyncEvents(dict):
                  total_errors: _builtins.float):
         """
         The storage account blob change feed status of the auto import job.
+
         :param _builtins.float deletions: Number of deletions during auto import.
         :param _builtins.float imported_directories: Number of directories imported during auto import.
         :param _builtins.float imported_files: Number of files imported during auto import.
@@ -1041,6 +1053,7 @@ class BlobNfsTargetResponse(dict):
                  write_back_timer: Optional[_builtins.int] = None):
         """
         Properties pertaining to the BlobNfsTarget.
+
         :param _builtins.str target: Resource ID of the storage container.
         :param _builtins.str usage_model: Identifies the StorageCache usage model to be used for this storage target.
         :param _builtins.int verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
@@ -1130,6 +1143,7 @@ class CacheActiveDirectorySettingsResponse(dict):
                  secondary_dns_ip_address: Optional[_builtins.str] = None):
         """
         Active Directory settings used to join a cache to a domain.
+
         :param _builtins.str cache_net_bios_name: The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
         :param _builtins.str domain_joined: True if the HPC Cache is joined to the Active Directory domain.
         :param _builtins.str domain_name: The fully qualified domain name of the Active Directory domain controller.
@@ -1215,6 +1229,7 @@ class CacheActiveDirectorySettingsResponseCredentials(dict):
                  password: Optional[_builtins.str] = None):
         """
         Active Directory admin credentials used to join the HPC Cache to a domain.
+
         :param _builtins.str username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param _builtins.str password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
@@ -1268,6 +1283,7 @@ class CacheDirectorySettingsResponse(dict):
                  username_download: Optional['outputs.CacheUsernameDownloadSettingsResponse'] = None):
         """
         Cache Directory Services settings.
+
         :param 'CacheActiveDirectorySettingsResponse' active_directory: Specifies settings for joining the HPC Cache to an Active Directory domain.
         :param 'CacheUsernameDownloadSettingsResponse' username_download: Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
         """
@@ -1322,6 +1338,7 @@ class CacheEncryptionSettingsResponse(dict):
                  rotation_to_latest_key_version_enabled: Optional[_builtins.bool] = None):
         """
         Cache encryption settings.
+
         :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in key vault.
         :param _builtins.bool rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
@@ -1375,6 +1392,7 @@ class CacheHealthResponse(dict):
                  status_description: Optional[_builtins.str] = None):
         """
         An indication of cache health. Gives more information about health than just that related to provisioning.
+
         :param Sequence['ConditionResponse'] conditions: Outstanding conditions that need to be investigated and resolved.
         :param _builtins.str state: List of cache health states. Down is when the cluster is not responding.  Degraded is when its functioning but has some alerts. Transitioning when it is creating or deleting. Unknown will be returned in old api versions when a new value is added in future versions. WaitingForKey is when the create is waiting for the system assigned identity to be given access to the encryption key in the encryption settings.
         :param _builtins.str status_description: Describes explanation of state.
@@ -1443,6 +1461,7 @@ class CacheIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.CacheIdentityResponseUserAssignedIdentities']] = None):
         """
         Cache identity properties.
+
         :param _builtins.str principal_id: The principal ID for the system-assigned identity of the cache.
         :param _builtins.str tenant_id: The tenant ID associated with the cache.
         :param _builtins.str type: The type of identity used for the cache
@@ -1572,6 +1591,7 @@ class CacheNetworkSettingsResponse(dict):
                  ntp_server: Optional[_builtins.str] = None):
         """
         Cache network settings.
+
         :param Sequence[_builtins.str] utility_addresses: Array of additional IP addresses used by this cache.
         :param _builtins.str dns_search_domain: DNS search domain
         :param Sequence[_builtins.str] dns_servers: DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
@@ -1642,6 +1662,7 @@ class CacheResponseSku(dict):
                  name: Optional[_builtins.str] = None):
         """
         SKU for the cache.
+
         :param _builtins.str name: SKU name for this cache.
         """
         if name is not None:
@@ -1682,6 +1703,7 @@ class CacheSecuritySettingsResponse(dict):
                  access_policies: Optional[Sequence['outputs.NfsAccessPolicyResponse']] = None):
         """
         Cache security settings.
+
         :param Sequence['NfsAccessPolicyResponse'] access_policies: NFS access policies defined for this cache.
         """
         if access_policies is not None:
@@ -1725,6 +1747,7 @@ class CacheUpgradeSettingsResponse(dict):
                  upgrade_schedule_enabled: Optional[_builtins.bool] = None):
         """
         Cache Upgrade Settings.
+
         :param _builtins.str scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
         :param _builtins.bool upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         """
@@ -1788,6 +1811,7 @@ class CacheUpgradeStatusResponse(dict):
                  pending_firmware_version: _builtins.str):
         """
         Properties describing the software upgrade state of the cache.
+
         :param _builtins.str current_firmware_version: Version string of the firmware currently installed on this cache.
         :param _builtins.str firmware_update_deadline: Time at which the pending firmware update will automatically be installed on the cache.
         :param _builtins.str firmware_update_status: True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
@@ -1898,6 +1922,7 @@ class CacheUsernameDownloadSettingsResponse(dict):
                  username_source: Optional[_builtins.str] = None):
         """
         Settings for Extended Groups username and group download.
+
         :param _builtins.str username_downloaded: Indicates whether or not the HPC Cache has performed the username download successfully.
         :param _builtins.bool auto_download_certificate: Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
         :param _builtins.str ca_certificate_uri: The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
@@ -2069,6 +2094,7 @@ class CacheUsernameDownloadSettingsResponseCredentials(dict):
                  bind_password: Optional[_builtins.str] = None):
         """
         When present, these are the credentials for the secure LDAP connection.
+
         :param _builtins.str bind_dn: The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         :param _builtins.str bind_password: The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
         """
@@ -2103,6 +2129,7 @@ class ClfsTargetResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         Properties pertaining to the ClfsTarget
+
         :param _builtins.str target: Resource ID of storage container.
         """
         if target is not None:
@@ -2127,6 +2154,7 @@ class ConditionResponse(dict):
                  timestamp: _builtins.str):
         """
         Outstanding conditions that will need to be resolved.
+
         :param _builtins.str message: The issue requiring attention.
         :param _builtins.str timestamp: The time when the condition was raised.
         """
@@ -2179,6 +2207,7 @@ class KeyVaultKeyReferenceResponse(dict):
                  source_vault: 'outputs.KeyVaultKeyReferenceResponseSourceVault'):
         """
         Describes a reference to key vault key.
+
         :param _builtins.str key_url: The URL referencing a key encryption key in key vault.
         :param 'KeyVaultKeyReferenceResponseSourceVault' source_vault: Describes a resource Id to source key vault.
         """
@@ -2211,6 +2240,7 @@ class KeyVaultKeyReferenceResponseSourceVault(dict):
                  id: Optional[_builtins.str] = None):
         """
         Describes a resource Id to source key vault.
+
         :param _builtins.str id: Resource Id.
         """
         if id is not None:
@@ -2260,6 +2290,7 @@ class NamespaceJunctionResponse(dict):
                  target_path: Optional[_builtins.str] = None):
         """
         A namespace junction.
+
         :param _builtins.str namespace_path: Namespace path on a cache for a Storage Target.
         :param _builtins.str nfs_access_policy: Name of the access policy applied to this junction.
         :param _builtins.str nfs_export: NFS export where targetPath exists.
@@ -2342,6 +2373,7 @@ class Nfs3TargetResponse(dict):
                  write_back_timer: Optional[_builtins.int] = None):
         """
         Properties pertaining to the Nfs3Target
+
         :param _builtins.str target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
         :param _builtins.str usage_model: Identifies the StorageCache usage model to be used for this storage target.
         :param _builtins.int verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
@@ -2416,6 +2448,7 @@ class NfsAccessPolicyResponse(dict):
                  name: _builtins.str):
         """
         A set of rules describing access policies applied to NFSv3 clients of the cache.
+
         :param Sequence['NfsAccessRuleResponse'] access_rules: The set of rules describing client accesses allowed under this policy.
         :param _builtins.str name: Name identifying this policy. Access Policy names are not case sensitive.
         """
@@ -2478,6 +2511,7 @@ class NfsAccessRuleResponse(dict):
                  suid: Optional[_builtins.bool] = None):
         """
         Rule to place restrictions on portions of the cache namespace being presented to clients.
+
         :param _builtins.str access: Access allowed by this rule.
         :param _builtins.str scope: Scope for this rule. The scope and filter determine which clients match the rule.
         :param _builtins.str anonymous_gid: GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
@@ -2608,6 +2642,7 @@ class PrimingJobResponse(dict):
                  priming_job_status: _builtins.str):
         """
         A priming job instance.
+
         :param _builtins.str priming_job_details: The job details or error information if any.
         :param _builtins.str priming_job_id: The unique identifier of the priming job.
         :param _builtins.str priming_job_name: The priming job name.
@@ -2680,6 +2715,7 @@ class SkuNameResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         SKU for the resource.
+
         :param _builtins.str name: SKU name for this resource.
         """
         if name is not None:
@@ -2721,6 +2757,7 @@ class StorageTargetSpaceAllocationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Storage Target space allocation properties.
+
         :param _builtins.int allocation_percentage: The percentage of cache space allocated for this storage target
         :param _builtins.str name: Name of the storage target.
         """
@@ -2787,6 +2824,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2865,6 +2903,7 @@ class UnknownTargetResponse(dict):
                  attributes: Optional[Mapping[str, _builtins.str]] = None):
         """
         Properties pertaining to the UnknownTarget
+
         :param Mapping[str, _builtins.str] attributes: Dictionary of string->string pairs containing information about the Storage Target.
         """
         if attributes is not None:

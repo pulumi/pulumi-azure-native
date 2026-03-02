@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * Linked service resource type.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+ *
+ * ## Example Usage
+ * ### LinkedServices_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.datafactory.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     properties: {
+ *         connectionString: {
+ *             type: "SecureString",
+ *             value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+ *         },
+ *         type: "AzureStorage",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### LinkedServices_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.datafactory.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     properties: {
+ *         connectionString: {
+ *             type: "SecureString",
+ *             value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+ *         },
+ *         description: "Example description",
+ *         type: "AzureStorage",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName} 
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

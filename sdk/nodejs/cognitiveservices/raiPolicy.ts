@@ -10,9 +10,118 @@ import * as utilities from "../utilities";
 /**
  * Cognitive Services RaiPolicy.
  *
- * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+ * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PutRaiPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const raiPolicy = new azure_native.cognitiveservices.RaiPolicy("raiPolicy", {
+ *     accountName: "accountName",
+ *     properties: {
+ *         basePolicyName: "Microsoft.Default",
+ *         contentFilters: [
+ *             {
+ *                 blocking: false,
+ *                 enabled: false,
+ *                 name: "Hate",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.High,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Prompt,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Hate",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.Medium,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Completion,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Sexual",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.High,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Prompt,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Sexual",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.Medium,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Completion,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Selfharm",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.High,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Prompt,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Selfharm",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.Medium,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Completion,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Violence",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.Medium,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Prompt,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Violence",
+ *                 severityThreshold: azure_native.cognitiveservices.ContentLevel.Medium,
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Completion,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Jailbreak",
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Prompt,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Protected Material Text",
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Completion,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Protected Material Code",
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Completion,
+ *             },
+ *             {
+ *                 blocking: true,
+ *                 enabled: true,
+ *                 name: "Profanity",
+ *                 source: azure_native.cognitiveservices.RaiPolicyContentSource.Prompt,
+ *             },
+ *         ],
+ *         mode: azure_native.cognitiveservices.RaiPolicyMode.Asynchronous_filter,
+ *     },
+ *     raiPolicyName: "raiPolicyName",
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:RaiPolicy raiPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName} 
+ * ```
  */
 export class RaiPolicy extends pulumi.CustomResource {
     /**

@@ -13,6 +13,37 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### RegisterAzure Storage ProtectionContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionContainer = new azure_native.recoveryservices.ProtectionContainer("protectionContainer", {
+ *     containerName: "StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+ *     fabricName: "Azure",
+ *     properties: {
+ *         acquireStorageAccountLock: azure_native.recoveryservices.AcquireStorageAccountLock.Acquire,
+ *         backupManagementType: azure_native.recoveryservices.BackupManagementType.AzureStorage,
+ *         containerType: "StorageContainer",
+ *         friendlyName: "swaggertestsa",
+ *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "swaggertestvault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ProtectionContainer StorageContainer;Storage;SwaggerTestRg;swaggertestsa /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName} 
+ * ```
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**

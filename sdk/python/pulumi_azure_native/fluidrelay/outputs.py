@@ -57,6 +57,7 @@ class CustomerManagedKeyEncryptionPropertiesResponse(dict):
                  key_encryption_key_url: Optional[_builtins.str] = None):
         """
         All Customer-managed key encryption properties for the resource.
+
         :param 'CustomerManagedKeyEncryptionPropertiesResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param _builtins.str key_encryption_key_url: key encryption key Url, with or without a version. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek. Key auto rotation is enabled by providing a key uri without version. Otherwise, customer is responsible for rotating the key. The keyEncryptionKeyIdentity(either SystemAssigned or UserAssigned) should have permission to access this key url.
         """
@@ -111,6 +112,7 @@ class CustomerManagedKeyEncryptionPropertiesResponseKeyEncryptionKeyIdentity(dic
                  user_assigned_identity_resource_id: Optional[_builtins.str] = None):
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+
         :param _builtins.str identity_type: Values can be SystemAssigned or UserAssigned
         :param _builtins.str user_assigned_identity_resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId. Mutually exclusive with identityType systemAssignedIdentity.
         """
@@ -162,6 +164,7 @@ class EncryptionPropertiesResponse(dict):
                  customer_managed_key_encryption: Optional['outputs.CustomerManagedKeyEncryptionPropertiesResponse'] = None):
         """
         All encryption configuration for a resource.
+
         :param 'CustomerManagedKeyEncryptionPropertiesResponse' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource.
         """
         if customer_managed_key_encryption is not None:
@@ -208,6 +211,7 @@ class FluidRelayEndpointsResponse(dict):
                  storage_endpoints: Sequence[_builtins.str]):
         """
         The Fluid Relay endpoints for this server
+
         :param Sequence[_builtins.str] orderer_endpoints: The Fluid Relay Orderer endpoints.
         :param Sequence[_builtins.str] service_endpoints: The Fluid Relay service endpoints.
         :param Sequence[_builtins.str] storage_endpoints: The Fluid Relay storage endpoints.
@@ -274,6 +278,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -376,6 +381,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -417,6 +423,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -494,6 +501,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

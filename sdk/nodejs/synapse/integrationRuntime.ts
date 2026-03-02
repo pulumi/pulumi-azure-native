@@ -13,6 +13,33 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create integration runtime
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationRuntime = new azure_native.synapse.IntegrationRuntime("integrationRuntime", {
+ *     integrationRuntimeName: "exampleIntegrationRuntime",
+ *     properties: {
+ *         description: "A selfhosted integration runtime",
+ *         type: "SelfHosted",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ *     workspaceName: "exampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:IntegrationRuntime exampleIntegrationRuntime /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/integrationRuntimes/{integrationRuntimeName} 
+ * ```
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**

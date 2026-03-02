@@ -29,6 +29,7 @@ class GarnetClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GarnetCluster resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] cluster_name: Garnet cache cluster name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -123,6 +124,36 @@ class GarnetCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
+        ## Example Usage
+        ### CosmosDBGarnetClusterCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        garnet_cluster = azure_native.cosmosdb.GarnetCluster("garnetCluster",
+            cluster_name="garnet-prod",
+            location="West US",
+            properties={
+                "node_count": 4,
+                "node_sku": "Standard_DS13_v2",
+                "replication_factor": 2,
+                "subnet_id": "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+            },
+            resource_group_name="garnet-prod-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:GarnetCluster garnet-prod /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/garnetClusters/{clusterName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Garnet cache cluster name.
@@ -141,6 +172,36 @@ class GarnetCluster(pulumi.CustomResource):
         Representation of a Garnet cache cluster.
 
         Uses Azure REST API version 2025-11-01-preview.
+
+        ## Example Usage
+        ### CosmosDBGarnetClusterCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        garnet_cluster = azure_native.cosmosdb.GarnetCluster("garnetCluster",
+            cluster_name="garnet-prod",
+            location="West US",
+            properties={
+                "node_count": 4,
+                "node_sku": "Standard_DS13_v2",
+                "replication_factor": 2,
+                "subnet_id": "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+            },
+            resource_group_name="garnet-prod-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:GarnetCluster garnet-prod /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/garnetClusters/{clusterName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GarnetClusterArgs args: The arguments to use to populate this resource's properties.

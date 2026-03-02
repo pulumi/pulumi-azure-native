@@ -62,6 +62,7 @@ class CertSyncRecordResponse(dict):
                  offer_guid: Optional[_builtins.str] = None):
         """
         A class represent the certification record synchronized from app compliance.
+
         :param _builtins.str certification_status: Indicates the status of certification process.
         :param Sequence['ControlSyncRecordResponse'] controls: The control records list to be synchronized.
         :param _builtins.str ingestion_status: Indicates the status of compliance process.
@@ -138,6 +139,7 @@ class ControlSyncRecordResponse(dict):
                  control_status: Optional[_builtins.str] = None):
         """
         A class represent the control record synchronized from app compliance.
+
         :param _builtins.str control_id: The Id of the control. e.g. "Operational_Security_10"
         :param _builtins.str control_status: Control status synchronized from app compliance.
         """
@@ -201,6 +203,7 @@ class OverviewStatusResponse(dict):
                  pending_count: _builtins.int):
         """
         The overview of the compliance result for one report.
+
         :param _builtins.int failed_count: The count of all failed control.
         :param _builtins.int manual_count: The count of all manual control.
         :param _builtins.int not_applicable_count: The count of all not applicable control.
@@ -263,6 +266,7 @@ class ReportComplianceStatusResponse(dict):
                  m365: 'outputs.OverviewStatusResponse'):
         """
         A list which includes all the compliance result for one report.
+
         :param 'OverviewStatusResponse' m365: The Microsoft 365 certification name.
         """
         pulumi.set(__self__, "m365", m365)
@@ -314,6 +318,7 @@ class ResourceMetadataResponse(dict):
                  resource_type: Optional[_builtins.str] = None):
         """
         Single resource Id's metadata.
+
         :param _builtins.str resource_id: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
         :param _builtins.str account_id: Account Id. For example - the AWS account id.
         :param _builtins.str resource_kind: Resource kind.
@@ -398,6 +403,7 @@ class ScopingAnswerResponse(dict):
                  question_id: _builtins.str):
         """
         Scoping answer.
+
         :param Sequence[_builtins.str] answers: Question answer value list.
         :param _builtins.str question_id: Question id.
         """
@@ -435,6 +441,7 @@ class ScopingQuestionResponse(dict):
                  superior_question_id: _builtins.str):
         """
         The definition of a scoping question.
+
         :param _builtins.str input_type: Input type of the question answer.
         :param Sequence[_builtins.str] option_ids: Option id list.
         :param _builtins.str question_id: Question id.
@@ -508,6 +515,7 @@ class StatusItemResponse(dict):
                  status_value: Optional[_builtins.str] = None):
         """
         Single status.
+
         :param _builtins.str status_name: Status name - e.g. "Active", "Failed".
         :param _builtins.str status_value: Status value. e.g. "100", or "100%".
         """
@@ -566,6 +574,7 @@ class StorageInfoResponse(dict):
                  subscription_id: Optional[_builtins.str] = None):
         """
         The information of 'bring your own storage' account binding to the report
+
         :param _builtins.str account_name: 'bring your own storage' account name
         :param _builtins.str location: The region of 'bring your own storage' account
         :param _builtins.str resource_group: The resourceGroup which 'bring your own storage' account belongs to
@@ -654,6 +663,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

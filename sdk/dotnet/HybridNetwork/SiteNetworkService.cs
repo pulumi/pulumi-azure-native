@@ -15,6 +15,102 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create first party site network service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var siteNetworkService = new AzureNative.HybridNetwork.SiteNetworkService("siteNetworkService", new()
+    ///     {
+    ///         Location = "westUs2",
+    ///         Properties = new AzureNative.HybridNetwork.Inputs.SiteNetworkServicePropertiesFormatArgs
+    ///         {
+    ///             DesiredStateConfigurationGroupValueReferences = 
+    ///             {
+    ///                 { "MyVM_Configuration", new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+    ///                 } },
+    ///             },
+    ///             NetworkServiceDesignVersionResourceReference = new AzureNative.HybridNetwork.Inputs.SecretDeploymentResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+    ///                 IdType = "Secret",
+    ///             },
+    ///             SiteReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SiteNetworkServiceName = "testSiteNetworkServiceName",
+    ///         Sku = new AzureNative.HybridNetwork.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.HybridNetwork.SkuName.Standard,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create site network service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var siteNetworkService = new AzureNative.HybridNetwork.SiteNetworkService("siteNetworkService", new()
+    ///     {
+    ///         Location = "westUs2",
+    ///         Properties = new AzureNative.HybridNetwork.Inputs.SiteNetworkServicePropertiesFormatArgs
+    ///         {
+    ///             DesiredStateConfigurationGroupValueReferences = 
+    ///             {
+    ///                 { "MyVM_Configuration", new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+    ///                 } },
+    ///             },
+    ///             NetworkServiceDesignVersionResourceReference = new AzureNative.HybridNetwork.Inputs.OpenDeploymentResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+    ///                 IdType = "Open",
+    ///             },
+    ///             SiteReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SiteNetworkServiceName = "testSiteNetworkServiceName",
+    ///         Sku = new AzureNative.HybridNetwork.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.HybridNetwork.SkuName.Standard,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:SiteNetworkService testSiteNetworkServiceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/siteNetworkServices/{siteNetworkServiceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:SiteNetworkService")]
     public partial class SiteNetworkService : global::Pulumi.CustomResource

@@ -27,6 +27,7 @@ class CompoundAssessmentOperationArgs:
                  properties: Optional[pulumi.Input['CompoundAssessmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a CompoundAssessmentOperation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] compound_assessment_name: Compound Assessment ARM name
@@ -104,6 +105,37 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
+        ## Example Usage
+        ### CompoundAssessmentOperations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compound_assessment_operation = azure_native.migrate.CompoundAssessmentOperation("compoundAssessmentOperation",
+            compound_assessment_name="assessmentName",
+            project_name="contosoProject",
+            properties={
+                "fallback_machine_assessment_arm_id": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/assessments/nameOfAssessment",
+                "target_assessment_arm_ids": {
+                    "aks": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/aksAssessments/nameOfAssessment",
+                    "azure_app_service": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
+                    "azure_app_service_container": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
+                },
+            },
+            resource_group_name="rgwebAppCompoundAssessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:CompoundAssessmentOperation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCompoundAssessments/{compoundAssessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] compound_assessment_name: Compound Assessment ARM name
@@ -121,6 +153,37 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
         Compound assessment resource.
 
         Uses Azure REST API version 2024-03-03-preview.
+
+        ## Example Usage
+        ### CompoundAssessmentOperations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compound_assessment_operation = azure_native.migrate.CompoundAssessmentOperation("compoundAssessmentOperation",
+            compound_assessment_name="assessmentName",
+            project_name="contosoProject",
+            properties={
+                "fallback_machine_assessment_arm_id": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/assessments/nameOfAssessment",
+                "target_assessment_arm_ids": {
+                    "aks": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/aksAssessments/nameOfAssessment",
+                    "azure_app_service": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
+                    "azure_app_service_container": "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
+                },
+            },
+            resource_group_name="rgwebAppCompoundAssessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:CompoundAssessmentOperation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCompoundAssessments/{compoundAssessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CompoundAssessmentOperationArgs args: The arguments to use to populate this resource's properties.

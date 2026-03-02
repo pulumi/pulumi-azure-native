@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2025-04-01-preview.
     /// 
     /// Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate OutboundRule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var outboundRule = new AzureNative.MachineLearningServices.OutboundRule("outboundRule", new()
+    ///     {
+    ///         ManagedNetworkName = "default",
+    ///         Properties = new AzureNative.MachineLearningServices.Inputs.FqdnOutboundRuleArgs
+    ///         {
+    ///             Category = AzureNative.MachineLearningServices.RuleCategory.UserDefined,
+    ///             Destination = "destination_endpoint",
+    ///             Status = AzureNative.MachineLearningServices.RuleStatus.Active,
+    ///             Type = "FQDN",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         RuleName = "rule_name_1",
+    ///         WorkspaceName = "aml-workspace-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:OutboundRule")]
     public partial class OutboundRule : global::Pulumi.CustomResource

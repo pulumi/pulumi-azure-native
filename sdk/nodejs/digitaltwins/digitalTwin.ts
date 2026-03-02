@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * The description of the DigitalTwins service.
  *
  * Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
+ *
+ * ## Example Usage
+ * ### Put a DigitalTwinsInstance resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwin = new azure_native.digitaltwins.DigitalTwin("digitalTwin", {
+ *     location: "WestUS2",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ * ### Put a DigitalTwinsInstance resource with publicNetworkAccess property
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwin = new azure_native.digitaltwins.DigitalTwin("digitalTwin", {
+ *     location: "WestUS2",
+ *     publicNetworkAccess: azure_native.digitaltwins.PublicNetworkAccess.Enabled,
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins:DigitalTwin myDigitalTwinsService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName} 
+ * ```
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**

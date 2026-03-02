@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.ChangeAnalysis
     /// A profile object that contains change analysis configuration, such as notification settings, for this subscription
     /// 
     /// Uses Azure REST API version 2020-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationProfile_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfile = new AzureNative.ChangeAnalysis.ConfigurationProfile("configurationProfile", new()
+    ///     {
+    ///         ProfileName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConfigurationProfile_CreateWithIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfile = new AzureNative.ChangeAnalysis.ConfigurationProfile("configurationProfile", new()
+    ///     {
+    ///         ProfileName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:changeanalysis:ConfigurationProfile default /subscriptions/{subscriptionId}/providers/Microsoft.ChangeAnalysis/profile/{profileName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:changeanalysis:ConfigurationProfile")]
     public partial class ConfigurationProfile : global::Pulumi.CustomResource

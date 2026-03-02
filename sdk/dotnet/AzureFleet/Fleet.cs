@@ -15,6 +15,146 @@ namespace Pulumi.AzureNative.AzureFleet
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
     /// 
     /// Other available API versions: 2024-05-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurefleet [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Fleets_CreateOrUpdate_MinimumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fleet = new AzureNative.AzureFleet.Fleet("fleet", new()
+    ///     {
+    ///         ComputeProfile = new AzureNative.AzureFleet.Inputs.ComputeProfileArgs
+    ///         {
+    ///             BaseVirtualMachineProfile = new AzureNative.AzureFleet.Inputs.BaseVirtualMachineProfileArgs
+    ///             {
+    ///                 NetworkProfile = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+    ///                 {
+    ///                     NetworkApiVersion = "2022-07-01",
+    ///                     NetworkInterfaceConfigurations = new[]
+    ///                     {
+    ///                         new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+    ///                         {
+    ///                             Name = "vmNameTest",
+    ///                             Properties = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetNetworkConfigurationPropertiesArgs
+    ///                             {
+    ///                                 EnableAcceleratedNetworking = false,
+    ///                                 EnableIPForwarding = true,
+    ///                                 IpConfigurations = new[]
+    ///                                 {
+    ///                                     new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetIPConfigurationArgs
+    ///                                     {
+    ///                                         Name = "vmNameTest",
+    ///                                         Properties = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetIPConfigurationPropertiesArgs
+    ///                                         {
+    ///                                             LoadBalancerBackendAddressPools = new[]
+    ///                                             {
+    ///                                                 new AzureNative.AzureFleet.Inputs.SubResourceArgs
+    ///                                                 {
+    ///                                                     Id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}",
+    ///                                                 },
+    ///                                             },
+    ///                                             Primary = true,
+    ///                                             Subnet = new AzureNative.AzureFleet.Inputs.ApiEntityReferenceArgs
+    ///                                             {
+    ///                                                 Id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Primary = true,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 OsProfile = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetOSProfileArgs
+    ///                 {
+    ///                     AdminPassword = "TestPassword$0",
+    ///                     AdminUsername = "azureuser",
+    ///                     ComputerNamePrefix = "prefix",
+    ///                     LinuxConfiguration = new AzureNative.AzureFleet.Inputs.LinuxConfigurationArgs
+    ///                     {
+    ///                         DisablePasswordAuthentication = false,
+    ///                     },
+    ///                 },
+    ///                 StorageProfile = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetStorageProfileArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.AzureFleet.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "0001-com-ubuntu-server-focal",
+    ///                         Publisher = "canonical",
+    ///                         Sku = "20_04-lts-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsDisk = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetOSDiskArgs
+    ///                     {
+    ///                         Caching = AzureNative.AzureFleet.CachingTypes.ReadWrite,
+    ///                         CreateOption = AzureNative.AzureFleet.DiskCreateOptionTypes.FromImage,
+    ///                         ManagedDisk = new AzureNative.AzureFleet.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+    ///                         {
+    ///                             StorageAccountType = AzureNative.AzureFleet.StorageAccountTypes.Standard_LRS,
+    ///                         },
+    ///                         OsType = AzureNative.AzureFleet.OperatingSystemTypes.Linux,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ComputeApiVersion = "2023-09-01",
+    ///             PlatformFaultDomainCount = 1,
+    ///         },
+    ///         FleetName = "testFleet",
+    ///         Location = "eastus2euap",
+    ///         RegularPriorityProfile = new AzureNative.AzureFleet.Inputs.RegularPriorityProfileArgs
+    ///         {
+    ///             AllocationStrategy = AzureNative.AzureFleet.RegularPriorityAllocationStrategy.LowestPrice,
+    ///             Capacity = 2,
+    ///             MinCapacity = 1,
+    ///         },
+    ///         ResourceGroupName = "rgazurefleet",
+    ///         SpotPriorityProfile = new AzureNative.AzureFleet.Inputs.SpotPriorityProfileArgs
+    ///         {
+    ///             AllocationStrategy = AzureNative.AzureFleet.SpotAllocationStrategy.PriceCapacityOptimized,
+    ///             Capacity = 2,
+    ///             EvictionPolicy = AzureNative.AzureFleet.EvictionPolicy.Delete,
+    ///             Maintain = true,
+    ///             MinCapacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "fleets-test" },
+    ///         },
+    ///         VmSizesProfile = new[]
+    ///         {
+    ///             new AzureNative.AzureFleet.Inputs.VmSizeProfileArgs
+    ///             {
+    ///                 Name = "Standard_D2s_v3",
+    ///             },
+    ///             new AzureNative.AzureFleet.Inputs.VmSizeProfileArgs
+    ///             {
+    ///                 Name = "Standard_D4s_v3",
+    ///             },
+    ///             new AzureNative.AzureFleet.Inputs.VmSizeProfileArgs
+    ///             {
+    ///                 Name = "Standard_E2s_v3",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurefleet:Fleet testFleet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurefleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

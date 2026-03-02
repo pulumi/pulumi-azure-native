@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * An account data transfer object.
  *
  * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+ *
+ * ## Example Usage
+ * ### Accounts_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.datashare.Account("account", {
+ *     accountName: "Account1",
+ *     identity: {
+ *         type: azure_native.datashare.Type.SystemAssigned,
+ *     },
+ *     location: "West US 2",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     tags: {
+ *         tag1: "Red",
+ *         tag2: "White",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare:Account Account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName} 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

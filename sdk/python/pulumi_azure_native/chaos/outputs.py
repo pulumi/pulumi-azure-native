@@ -59,6 +59,7 @@ class ActionStatusResponse(dict):
                  targets: Sequence['outputs.ExperimentExecutionActionTargetDetailsPropertiesResponse']):
         """
         Model that represents the an action and its status.
+
         :param _builtins.str action_id: The id of the action status.
         :param _builtins.str action_name: The name of the action status.
         :param _builtins.str end_time: String that represents the end time of the action.
@@ -132,6 +133,7 @@ class BranchResponse(dict):
                  name: _builtins.str):
         """
         Model that represents a branch in the step. 9 total per experiment.
+
         :param Sequence[Union['ContinuousActionResponse', 'DelayActionResponse', 'DiscreteActionResponse']] actions: List of actions.
         :param _builtins.str name: String of the branch name.
         """
@@ -167,6 +169,7 @@ class BranchStatusResponse(dict):
                  status: _builtins.str):
         """
         Model that represents the a list of actions and action statuses.
+
         :param Sequence['ActionStatusResponse'] actions: The array of actions.
         :param _builtins.str branch_id: The id of the branch status.
         :param _builtins.str branch_name: The name of the branch status.
@@ -242,6 +245,7 @@ class CapabilityPropertiesResponse(dict):
                  urn: _builtins.str):
         """
         Model that represents the Capability properties model.
+
         :param _builtins.str description: Localized string of the description.
         :param _builtins.str parameters_schema: URL to retrieve JSON schema of the Capability parameters.
         :param _builtins.str publisher: String of the Publisher that this Capability extends.
@@ -325,6 +329,7 @@ class ContinuousActionResponse(dict):
                  type: _builtins.str):
         """
         Model that represents a continuous action.
+
         :param _builtins.str duration: ISO8601 formatted string that represents a duration.
         :param _builtins.str name: String that represents a Capability URN.
         :param Sequence['KeyValuePairResponse'] parameters: List of key value pairs.
@@ -409,6 +414,7 @@ class CustomerDataStoragePropertiesResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         Model that represents the Customer Managed Storage for an Experiment.
+
         :param _builtins.str blob_container_name: Name of the Azure Blob Storage container to use or create.
         :param _builtins.str storage_account_resource_id: ARM Resource ID of the Storage account to use for Customer Data storage.
         """
@@ -445,6 +451,7 @@ class DelayActionResponse(dict):
                  type: _builtins.str):
         """
         Model that represents a delay action.
+
         :param _builtins.str duration: ISO8601 formatted string that represents a duration.
         :param _builtins.str name: String that represents a Capability URN.
         :param _builtins.str type: Enum that discriminates between action models.
@@ -509,6 +516,7 @@ class DiscreteActionResponse(dict):
                  type: _builtins.str):
         """
         Model that represents a discrete action.
+
         :param _builtins.str name: String that represents a Capability URN.
         :param Sequence['KeyValuePairResponse'] parameters: List of key value pairs.
         :param _builtins.str selector_id: String that represents a selector.
@@ -564,6 +572,7 @@ class ExperimentExecutionActionTargetDetailsErrorResponse(dict):
                  message: _builtins.str):
         """
         Model that represents the Experiment action target details error model.
+
         :param _builtins.str code: The error code.
         :param _builtins.str message: The error message
         """
@@ -600,6 +609,7 @@ class ExperimentExecutionActionTargetDetailsPropertiesResponse(dict):
                  target_failed_time: _builtins.str):
         """
         Model that represents the Experiment action target details properties model.
+
         :param 'ExperimentExecutionActionTargetDetailsErrorResponse' error: The error of the action.
         :param _builtins.str status: The status of the execution.
         :param _builtins.str target: The target for the action.
@@ -662,6 +672,7 @@ class ExperimentExecutionDetailsPropertiesResponseRunInformation(dict):
                  steps: Sequence['outputs.StepStatusResponse']):
         """
         The information of the experiment run.
+
         :param Sequence['StepStatusResponse'] steps: The steps of the experiment run.
         """
         pulumi.set(__self__, "steps", steps)
@@ -708,6 +719,7 @@ class ExperimentIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         The identity of the experiment resource.
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -783,6 +795,7 @@ class ExperimentPropertiesResponse(dict):
                  customer_data_storage: Optional['outputs.CustomerDataStoragePropertiesResponse'] = None):
         """
         Model that represents the Experiment properties model.
+
         :param _builtins.str provisioning_state: Most recent provisioning state for the given experiment resource.
         :param Sequence[Union['ListSelectorResponse', 'QuerySelectorResponse']] selectors: List of selectors.
         :param Sequence['StepResponse'] steps: List of steps.
@@ -837,6 +850,7 @@ class KeyValuePairResponse(dict):
                  value: _builtins.str):
         """
         A map to describe the settings of an action.
+
         :param _builtins.str key: The name of the setting for the action.
         :param _builtins.str value: The value of the setting for the action.
         """
@@ -872,6 +886,7 @@ class ListSelectorResponse(dict):
                  filter: Optional['outputs.SimpleFilterResponse'] = None):
         """
         Model that represents a list selector.
+
         :param _builtins.str id: String of the selector ID.
         :param Sequence['TargetReferenceResponse'] targets: List of Target references.
         :param _builtins.str type: Enum of the selector type.
@@ -959,6 +974,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -1052,6 +1068,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -1093,6 +1110,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1161,6 +1179,7 @@ class QuerySelectorResponse(dict):
                  filter: Optional['outputs.SimpleFilterResponse'] = None):
         """
         Model that represents a query selector.
+
         :param _builtins.str id: String of the selector ID.
         :param _builtins.str query_string: Azure Resource Graph (ARG) Query Language query for target resources.
         :param Sequence[_builtins.str] subscription_ids: Subscription id list to scope resource query.
@@ -1226,6 +1245,7 @@ class SimpleFilterParametersResponse(dict):
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
         Model that represents the Simple filter parameters.
+
         :param Sequence[_builtins.str] zones: List of Azure availability zones to filter targets by.
         """
         if zones is not None:
@@ -1250,6 +1270,7 @@ class SimpleFilterResponse(dict):
                  parameters: Optional['outputs.SimpleFilterParametersResponse'] = None):
         """
         Model that represents a simple target filter.
+
         :param _builtins.str type: Enum that discriminates between filter types. Currently only `Simple` type is supported.
                Expected value is 'Simple'.
         :param 'SimpleFilterParametersResponse' parameters: Model that represents the Simple filter parameters.
@@ -1286,6 +1307,7 @@ class StepResponse(dict):
                  name: _builtins.str):
         """
         Model that represents a step in the Experiment resource.
+
         :param Sequence['BranchResponse'] branches: List of branches.
         :param _builtins.str name: String of the step name.
         """
@@ -1321,6 +1343,7 @@ class StepStatusResponse(dict):
                  step_name: _builtins.str):
         """
         Model that represents the a list of branches and branch statuses.
+
         :param Sequence['BranchStatusResponse'] branches: The array of branches.
         :param _builtins.str status: The value of the status of the step.
         :param _builtins.str step_id: The id of the step.
@@ -1405,6 +1428,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1484,6 +1508,7 @@ class TargetReferenceResponse(dict):
                  type: _builtins.str):
         """
         Model that represents a reference to a Target in the selector.
+
         :param _builtins.str id: String of the resource ID of a Target resource.
         :param _builtins.str type: Enum of the Target reference type.
         """
@@ -1536,6 +1561,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

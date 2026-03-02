@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.KubernetesRuntime
     /// A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
     /// 
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
+    /// 
+    /// ## Example Usage
+    /// ### BgpPeers_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bgpPeer = new AzureNative.KubernetesRuntime.BgpPeer("bgpPeer", new()
+    ///     {
+    ///         BgpPeerName = "testpeer",
+    ///         MyAsn = 64500,
+    ///         PeerAddress = "10.0.0.1",
+    ///         PeerAsn = 64501,
+    ///         ResourceUri = "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kubernetesruntime:BgpPeer testpeer /{resourceUri}/providers/Microsoft.KubernetesRuntime/bgpPeers/{bgpPeerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesruntime:BgpPeer")]
     public partial class BgpPeer : global::Pulumi.CustomResource

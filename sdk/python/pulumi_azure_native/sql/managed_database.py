@@ -44,6 +44,7 @@ class ManagedDatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedDatabase resource.
+
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.bool] auto_complete_restore: Whether to auto complete restore of this managed database.
@@ -411,6 +412,163 @@ class ManagedDatabase(pulumi.CustomResource):
 
         Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates a new managed database by restoring from an external backup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            auto_complete_restore=True,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RESTORE_EXTERNAL_BACKUP,
+            database_name="managedDatabase",
+            last_backup_name="last_backup_name",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_sas_token="sv=2015-12-11&sr=c&sp=rl&sig=1234",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database by restoring from an external backup using managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            auto_complete_restore=True,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RESTORE_EXTERNAL_BACKUP,
+            database_name="managedDatabase",
+            last_backup_name="last_backup_name",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_identity="ManagedIdentity",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database from restoring a geo-replicated backup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RECOVERY,
+            database_name="testdb_recovered",
+            location="southeastasia",
+            managed_instance_name="server1",
+            recoverable_database_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+        ### Creates a new managed database from restoring a long term retention backup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RESTORE_EXTERNAL_BACKUP,
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_sas_token="sv=2015-12-11&sr=c&sp=rl&sig=1234",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database using cross subscription point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.POINT_IN_TIME_RESTORE,
+            cross_subscription_source_database_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr2/databases/testdb",
+            cross_subscription_target_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z")
+
+        ```
+        ### Creates a new managed database using point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.POINT_IN_TIME_RESTORE,
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb")
+
+        ```
+        ### Creates a new managed database with ledger on.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            is_ledger_on=True,
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+        ### Creates a new managed database with maximal properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            tags={
+                "tagKey1": "TagValue1",
+            })
+
+        ```
+        ### Creates a new managed database with minimal properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedDatabase testdb1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_complete_restore: Whether to auto complete restore of this managed database.
@@ -448,6 +606,163 @@ class ManagedDatabase(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-03-01-preview, 2018-06-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates a new managed database by restoring from an external backup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            auto_complete_restore=True,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RESTORE_EXTERNAL_BACKUP,
+            database_name="managedDatabase",
+            last_backup_name="last_backup_name",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_sas_token="sv=2015-12-11&sr=c&sp=rl&sig=1234",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database by restoring from an external backup using managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            auto_complete_restore=True,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RESTORE_EXTERNAL_BACKUP,
+            database_name="managedDatabase",
+            last_backup_name="last_backup_name",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_identity="ManagedIdentity",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database from restoring a geo-replicated backup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RECOVERY,
+            database_name="testdb_recovered",
+            location="southeastasia",
+            managed_instance_name="server1",
+            recoverable_database_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+        ### Creates a new managed database from restoring a long term retention backup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.RESTORE_EXTERNAL_BACKUP,
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            storage_container_sas_token="sv=2015-12-11&sr=c&sp=rl&sig=1234",
+            storage_container_uri="https://myaccountname.blob.core.windows.net/backups")
+
+        ```
+        ### Creates a new managed database using cross subscription point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.POINT_IN_TIME_RESTORE,
+            cross_subscription_source_database_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr2/databases/testdb",
+            cross_subscription_target_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z")
+
+        ```
+        ### Creates a new managed database using point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            create_mode=azure_native.sql.ManagedDatabaseCreateMode.POINT_IN_TIME_RESTORE,
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2017-07-14T05:35:31.503Z",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb")
+
+        ```
+        ### Creates a new managed database with ledger on.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            is_ledger_on=True,
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+        ### Creates a new managed database with maximal properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            tags={
+                "tagKey1": "TagValue1",
+            })
+
+        ```
+        ### Creates a new managed database with minimal properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+            database_name="managedDatabase",
+            location="southeastasia",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedDatabase testdb1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedDatabaseArgs args: The arguments to use to populate this resource's properties.

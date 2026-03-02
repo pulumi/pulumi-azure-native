@@ -13,6 +13,84 @@ namespace Pulumi.AzureNative.Migrate
     /// Workload deployment model.
     /// 
     /// Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadDeployment_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadDeployment = new AzureNative.Migrate.WorkloadDeployment("workloadDeployment", new()
+    ///     {
+    ///         ModernizeProjectName = "l6r8",
+    ///         Properties = new AzureNative.Migrate.Inputs.WorkloadDeploymentModelPropertiesArgs
+    ///         {
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "instanceType", "IISAKSWorkloadDeployment" },
+    ///             },
+    ///             DisplayName = "wqe",
+    ///             TargetPlatform = AzureNative.Migrate.WorkloadDeploymentTarget.AzureKubernetesService,
+    ///             WorkloadInstanceProperties = new AzureNative.Migrate.Inputs.WorkloadInstanceModelPropertiesArgs
+    ///             {
+    ///                 CustomProperties = 
+    ///                 {
+    ///                     { "instanceType", "IISWorkload" },
+    ///                     { "webAppArmId", "xseseqsrzdiga" },
+    ///                     { "webAppSiteName", "mirgzmy" },
+    ///                 },
+    ///                 DisplayName = "juoorbubchvk",
+    ///                 MasterSiteName = "ubks",
+    ///                 MigrateAgentId = "aqgzsxqbk",
+    ///                 Name = "wonkuhgsafzviuwqerzdmme",
+    ///                 SourceName = "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+    ///                 SourcePlatform = "eh",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///         Tags = 
+    ///         {
+    ///             { "key8241", "gcyxztzr" },
+    ///         },
+    ///         WorkloadDeploymentName = "l4t",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### WorkloadDeployment_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadDeployment = new AzureNative.Migrate.WorkloadDeployment("workloadDeployment", new()
+    ///     {
+    ///         ModernizeProjectName = "tc",
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///         WorkloadDeploymentName = "wo2rs4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:WorkloadDeployment obqwiueoajtezyusejl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadDeployments/{workloadDeploymentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:WorkloadDeployment")]
     public partial class WorkloadDeployment : global::Pulumi.CustomResource

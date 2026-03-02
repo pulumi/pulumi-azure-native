@@ -28,23 +28,18 @@ __all__ = [
     'ScheduledActionsScheduleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ExecutionParametersArgsDict(TypedDict):
-        """
-        Extra details needed to run the user's request
-        """
-        optimization_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'OptimizationPreference']]]
-        """
-        Details that could optimize the user's request
-        """
-        retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
-        """
-        Retry policy the user can pass
-        """
-elif False:
-    ExecutionParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ExecutionParametersArgsDict(TypedDict):
+    """
+    Extra details needed to run the user's request
+    """
+    optimization_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'OptimizationPreference']]]
+    """
+    Details that could optimize the user's request
+    """
+    retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
+    """
+    Retry policy the user can pass
+    """
 
 @pulumi.input_type
 class ExecutionParametersArgs:
@@ -53,6 +48,7 @@ class ExecutionParametersArgs:
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
         """
         Extra details needed to run the user's request
+
         :param pulumi.Input[Union[_builtins.str, 'OptimizationPreference']] optimization_preference: Details that could optimize the user's request
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: Retry policy the user can pass
         """
@@ -86,29 +82,26 @@ class ExecutionParametersArgs:
         pulumi.set(self, "retry_policy", value)
 
 
-if not MYPY:
-    class NotificationPropertiesArgsDict(TypedDict):
-        """
-        The information about notifications to be send to about upcoming operations.
-        """
-        destination: pulumi.Input[_builtins.str]
-        """
-        Where the notification should be sent. For email, it should follow email format.
-        """
-        language: pulumi.Input[Union[_builtins.str, 'Language']]
-        """
-        The language the notification should be sent on.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'NotificationType']]
-        """
-        Type of notification to be sent.
-        """
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Tells if the notification is enabled or not.
-        """
-elif False:
-    NotificationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationPropertiesArgsDict(TypedDict):
+    """
+    The information about notifications to be send to about upcoming operations.
+    """
+    destination: pulumi.Input[_builtins.str]
+    """
+    Where the notification should be sent. For email, it should follow email format.
+    """
+    language: pulumi.Input[Union[_builtins.str, 'Language']]
+    """
+    The language the notification should be sent on.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'NotificationType']]
+    """
+    Type of notification to be sent.
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Tells if the notification is enabled or not.
+    """
 
 @pulumi.input_type
 class NotificationPropertiesArgs:
@@ -119,6 +112,7 @@ class NotificationPropertiesArgs:
                  disabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The information about notifications to be send to about upcoming operations.
+
         :param pulumi.Input[_builtins.str] destination: Where the notification should be sent. For email, it should follow email format.
         :param pulumi.Input[Union[_builtins.str, 'Language']] language: The language the notification should be sent on.
         :param pulumi.Input[Union[_builtins.str, 'NotificationType']] type: Type of notification to be sent.
@@ -181,21 +175,18 @@ class NotificationPropertiesArgs:
         pulumi.set(self, "disabled", value)
 
 
-if not MYPY:
-    class RetryPolicyArgsDict(TypedDict):
-        """
-        The retry policy for the user request
-        """
-        retry_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Retry count for user request
-        """
-        retry_window_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Retry window in minutes for user request
-        """
-elif False:
-    RetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RetryPolicyArgsDict(TypedDict):
+    """
+    The retry policy for the user request
+    """
+    retry_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Retry count for user request
+    """
+    retry_window_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Retry window in minutes for user request
+    """
 
 @pulumi.input_type
 class RetryPolicyArgs:
@@ -204,6 +195,7 @@ class RetryPolicyArgs:
                  retry_window_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The retry policy for the user request
+
         :param pulumi.Input[_builtins.int] retry_count: Retry count for user request
         :param pulumi.Input[_builtins.int] retry_window_in_minutes: Retry window in minutes for user request
         """
@@ -237,41 +229,38 @@ class RetryPolicyArgs:
         pulumi.set(self, "retry_window_in_minutes", value)
 
 
-if not MYPY:
-    class ScheduledActionPropertiesArgsDict(TypedDict):
-        """
-        Scheduled action properties
-        """
-        action_type: pulumi.Input[Union[_builtins.str, 'ActionType']]
-        """
-        The action the scheduled action should perform in the resources
-        """
-        notification_settings: pulumi.Input[Sequence[pulumi.Input['NotificationPropertiesArgsDict']]]
-        """
-        The notification settings for the scheduled action
-        """
-        resource_type: pulumi.Input[Union[_builtins.str, 'ResourceType']]
-        """
-        The type of resource the scheduled action is targeting
-        """
-        schedule: pulumi.Input['ScheduledActionsScheduleArgsDict']
-        """
-        The schedule the scheduled action is supposed to follow
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        The time which the scheduled action is supposed to start running
-        """
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Tell if the scheduled action is disabled or not
-        """
-        end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the scheduled action is supposed to stop scheduling
-        """
-elif False:
-    ScheduledActionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledActionPropertiesArgsDict(TypedDict):
+    """
+    Scheduled action properties
+    """
+    action_type: pulumi.Input[Union[_builtins.str, 'ActionType']]
+    """
+    The action the scheduled action should perform in the resources
+    """
+    notification_settings: pulumi.Input[Sequence[pulumi.Input['NotificationPropertiesArgsDict']]]
+    """
+    The notification settings for the scheduled action
+    """
+    resource_type: pulumi.Input[Union[_builtins.str, 'ResourceType']]
+    """
+    The type of resource the scheduled action is targeting
+    """
+    schedule: pulumi.Input['ScheduledActionsScheduleArgsDict']
+    """
+    The schedule the scheduled action is supposed to follow
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    The time which the scheduled action is supposed to start running
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Tell if the scheduled action is disabled or not
+    """
+    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the scheduled action is supposed to stop scheduling
+    """
 
 @pulumi.input_type
 class ScheduledActionPropertiesArgs:
@@ -285,6 +274,7 @@ class ScheduledActionPropertiesArgs:
                  end_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Scheduled action properties
+
         :param pulumi.Input[Union[_builtins.str, 'ActionType']] action_type: The action the scheduled action should perform in the resources
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPropertiesArgs']]] notification_settings: The notification settings for the scheduled action
         :param pulumi.Input[Union[_builtins.str, 'ResourceType']] resource_type: The type of resource the scheduled action is targeting
@@ -390,41 +380,38 @@ class ScheduledActionPropertiesArgs:
         pulumi.set(self, "end_time", value)
 
 
-if not MYPY:
-    class ScheduledActionsScheduleArgsDict(TypedDict):
-        """
-        Specify the schedule in which the scheduled action is supposed to follow
-        """
-        requested_days_of_the_month: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
-        """
-        The days of the month the scheduled action is supposed to run on. If empty, it means it will run on every day of the month.
-        """
-        requested_months: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Month']]]]
-        """
-        The months the scheduled action is supposed to run on
-        """
-        requested_week_days: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeekDay']]]]
-        """
-        The week days the scheduled action is supposed to run on
-        """
-        scheduled_time: pulumi.Input[_builtins.str]
-        """
-        The time the scheduled action is supposed to run on
-        """
-        time_zone: pulumi.Input[_builtins.str]
-        """
-        The timezone the scheduled time is specified on
-        """
-        deadline_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DeadlineType']]]
-        """
-        The type of deadline the scheduled action is supposed to follow for the schedule. If no value is passed, it will default to InitiateAt.
-        """
-        execution_parameters: NotRequired[pulumi.Input['ExecutionParametersArgsDict']]
-        """
-        The execution parameters the scheduled action is supposed to follow
-        """
-elif False:
-    ScheduledActionsScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledActionsScheduleArgsDict(TypedDict):
+    """
+    Specify the schedule in which the scheduled action is supposed to follow
+    """
+    requested_days_of_the_month: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
+    """
+    The days of the month the scheduled action is supposed to run on. If empty, it means it will run on every day of the month.
+    """
+    requested_months: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Month']]]]
+    """
+    The months the scheduled action is supposed to run on
+    """
+    requested_week_days: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeekDay']]]]
+    """
+    The week days the scheduled action is supposed to run on
+    """
+    scheduled_time: pulumi.Input[_builtins.str]
+    """
+    The time the scheduled action is supposed to run on
+    """
+    time_zone: pulumi.Input[_builtins.str]
+    """
+    The timezone the scheduled time is specified on
+    """
+    deadline_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DeadlineType']]]
+    """
+    The type of deadline the scheduled action is supposed to follow for the schedule. If no value is passed, it will default to InitiateAt.
+    """
+    execution_parameters: NotRequired[pulumi.Input['ExecutionParametersArgsDict']]
+    """
+    The execution parameters the scheduled action is supposed to follow
+    """
 
 @pulumi.input_type
 class ScheduledActionsScheduleArgs:
@@ -438,6 +425,7 @@ class ScheduledActionsScheduleArgs:
                  execution_parameters: Optional[pulumi.Input['ExecutionParametersArgs']] = None):
         """
         Specify the schedule in which the scheduled action is supposed to follow
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] requested_days_of_the_month: The days of the month the scheduled action is supposed to run on. If empty, it means it will run on every day of the month.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Month']]]] requested_months: The months the scheduled action is supposed to run on
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeekDay']]]] requested_week_days: The week days the scheduled action is supposed to run on

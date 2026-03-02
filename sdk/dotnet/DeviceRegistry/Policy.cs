@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// A Credential Policy
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrReplace_Policies
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new AzureNative.DeviceRegistry.Policy("policy", new()
+    ///     {
+    ///         Certificate = new AzureNative.DeviceRegistry.Inputs.CertificateConfigurationArgs
+    ///         {
+    ///             CertificateAuthorityConfiguration = new AzureNative.DeviceRegistry.Inputs.CertificateAuthorityConfigurationArgs
+    ///             {
+    ///                 KeyType = AzureNative.DeviceRegistry.SupportedKeyType.ECC,
+    ///             },
+    ///             LeafCertificateConfiguration = new AzureNative.DeviceRegistry.Inputs.LeafCertificateConfigurationArgs
+    ///             {
+    ///                 ValidityPeriodInDays = 10,
+    ///             },
+    ///         },
+    ///         Location = "zjqtuvprnxvimzkkxaobgkm",
+    ///         NamespaceName = "mynamespace",
+    ///         PolicyName = "mypolicy",
+    ///         ResourceGroupName = "rgdeviceregistry",
+    ///         Tags = 
+    ///         {
+    ///             { "key1088", "xzrpbqsac" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceregistry:Policy mypolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

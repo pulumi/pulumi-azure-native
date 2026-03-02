@@ -29,6 +29,7 @@ class ImageInitArgs:
                  regional_data_boundary: Optional[pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']]] = None):
         """
         The set of arguments for constructing a Image resource.
+
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] image: Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
@@ -138,6 +139,30 @@ class Image(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
+        ## Example Usage
+        ### Image_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.azuresphere.Image("image",
+            catalog_name="MyCatalog1",
+            image="bXliYXNlNjRzdHJpbmc=",
+            image_name="00000000-0000-0000-0000-000000000000",
+            resource_group_name="MyResourceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuresphere:Image MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/images/{imageName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
@@ -157,6 +182,30 @@ class Image(pulumi.CustomResource):
         An image resource belonging to a catalog resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+
+        ## Example Usage
+        ### Image_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        image = azure_native.azuresphere.Image("image",
+            catalog_name="MyCatalog1",
+            image="bXliYXNlNjRzdHJpbmc=",
+            image_name="00000000-0000-0000-0000-000000000000",
+            resource_group_name="MyResourceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuresphere:Image MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/images/{imageName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ImageInitArgs args: The arguments to use to populate this resource's properties.

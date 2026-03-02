@@ -13,6 +13,76 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### EcrRepositories_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ecrRepository = new AzureNative.AwsConnector.EcrRepository("ecrRepository", new()
+    ///     {
+    ///         Location = "uxqfbijfanljas",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.EcrRepositoryPropertiesArgs
+    ///         {
+    ///             Arn = "djb",
+    ///             AwsAccountId = "iuomdzpobqirucabbxz",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEcrRepositoryPropertiesArgs
+    ///             {
+    ///                 Arn = "su",
+    ///                 EmptyOnDelete = true,
+    ///                 EncryptionConfiguration = null,
+    ///                 ImageScanningConfiguration = new AzureNative.AwsConnector.Inputs.ImageScanningConfigurationArgs
+    ///                 {
+    ///                     ScanOnPush = true,
+    ///                 },
+    ///                 ImageTagMutability = AzureNative.AwsConnector.ImageTagMutability.IMMUTABLE,
+    ///                 LifecyclePolicy = null,
+    ///                 RepositoryName = "iuhxuyfxygvumphlcwhnsscudjez",
+    ///                 RepositoryPolicyText = null,
+    ///                 RepositoryUri = "vmljyfyskxbyjczax",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "moogqsaqjqbgghbindkarxdgqqna",
+    ///                         Value = "qu",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "wliyvzjqcxbpwtgjae",
+    ///             AwsSourceSchema = "olwqyujnmxxhxwyp",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key7950", "aybyysonysxvutpeysuxoeinx" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "ohtcynikymmfceroreix",
+    ///             PublicCloudResourceName = "bymfiroqkcgssnop",
+    ///         },
+    ///         ResourceGroupName = "rgecrRepository",
+    ///         Tags = 
+    ///         {
+    ///             { "key2390", "rgv" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:EcrRepository hroacoybjuvv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecrRepositories/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:EcrRepository")]
     public partial class EcrRepository : global::Pulumi.CustomResource

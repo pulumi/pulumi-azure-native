@@ -222,32 +222,27 @@ __all__ = [
     'WeeklyMaintenanceScheduleConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AcceleratorBasicAuthSettingArgsDict(TypedDict):
-        """
-        Auth setting for basic auth.
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The type of the auth setting.
-        Expected value is 'BasicAuth'.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        Username of git repository basic auth.
-        """
-        ca_cert_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id of CA certificate for https URL of Git repository.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password of git repository basic auth.
-        """
-elif False:
-    AcceleratorBasicAuthSettingArgsDict: TypeAlias = Mapping[str, Any]
+class AcceleratorBasicAuthSettingArgsDict(TypedDict):
+    """
+    Auth setting for basic auth.
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The type of the auth setting.
+    Expected value is 'BasicAuth'.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    Username of git repository basic auth.
+    """
+    ca_cert_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id of CA certificate for https URL of Git repository.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password of git repository basic auth.
+    """
 
 @pulumi.input_type
 class AcceleratorBasicAuthSettingArgs:
@@ -258,6 +253,7 @@ class AcceleratorBasicAuthSettingArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Auth setting for basic auth.
+
         :param pulumi.Input[_builtins.str] auth_type: The type of the auth setting.
                Expected value is 'BasicAuth'.
         :param pulumi.Input[_builtins.str] username: Username of git repository basic auth.
@@ -321,38 +317,35 @@ class AcceleratorBasicAuthSettingArgs:
         pulumi.set(self, "password", value)
 
 
-if not MYPY:
-    class AcceleratorGitRepositoryArgsDict(TypedDict):
-        auth_setting: pulumi.Input[Union['AcceleratorBasicAuthSettingArgsDict', 'AcceleratorPublicSettingArgsDict', 'AcceleratorSshSettingArgsDict']]
-        """
-        Properties of the auth setting payload.
-        """
-        url: pulumi.Input[_builtins.str]
-        """
-        Git repository URL for the accelerator.
-        """
-        branch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Git repository branch to be used.
-        """
-        commit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Git repository commit to be used.
-        """
-        git_tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Git repository tag to be used.
-        """
-        interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval for checking for updates to Git or image repository.
-        """
-        sub_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Folder path inside the git repository to consider as the root of the accelerator or fragment.
-        """
-elif False:
-    AcceleratorGitRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class AcceleratorGitRepositoryArgsDict(TypedDict):
+    auth_setting: pulumi.Input[Union['AcceleratorBasicAuthSettingArgsDict', 'AcceleratorPublicSettingArgsDict', 'AcceleratorSshSettingArgsDict']]
+    """
+    Properties of the auth setting payload.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    Git repository URL for the accelerator.
+    """
+    branch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Git repository branch to be used.
+    """
+    commit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Git repository commit to be used.
+    """
+    git_tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Git repository tag to be used.
+    """
+    interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval for checking for updates to Git or image repository.
+    """
+    sub_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Folder path inside the git repository to consider as the root of the accelerator or fragment.
+    """
 
 @pulumi.input_type
 class AcceleratorGitRepositoryArgs:
@@ -471,22 +464,19 @@ class AcceleratorGitRepositoryArgs:
         pulumi.set(self, "sub_path", value)
 
 
-if not MYPY:
-    class AcceleratorPublicSettingArgsDict(TypedDict):
-        """
-        Auth setting for public url.
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The type of the auth setting.
-        Expected value is 'Public'.
-        """
-        ca_cert_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id of CA certificate for https URL of Git repository.
-        """
-elif False:
-    AcceleratorPublicSettingArgsDict: TypeAlias = Mapping[str, Any]
+class AcceleratorPublicSettingArgsDict(TypedDict):
+    """
+    Auth setting for public url.
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The type of the auth setting.
+    Expected value is 'Public'.
+    """
+    ca_cert_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id of CA certificate for https URL of Git repository.
+    """
 
 @pulumi.input_type
 class AcceleratorPublicSettingArgs:
@@ -495,6 +485,7 @@ class AcceleratorPublicSettingArgs:
                  ca_cert_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Auth setting for public url.
+
         :param pulumi.Input[_builtins.str] auth_type: The type of the auth setting.
                Expected value is 'Public'.
         :param pulumi.Input[_builtins.str] ca_cert_resource_id: Resource Id of CA certificate for https URL of Git repository.
@@ -529,30 +520,27 @@ class AcceleratorPublicSettingArgs:
         pulumi.set(self, "ca_cert_resource_id", value)
 
 
-if not MYPY:
-    class AcceleratorSshSettingArgsDict(TypedDict):
-        """
-        Auth setting for SSH auth.
-        """
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The type of the auth setting.
-        Expected value is 'SSH'.
-        """
-        host_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Public SSH Key of git repository.
-        """
-        host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SSH Key algorithm of git repository.
-        """
-        private_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private SSH Key algorithm of git repository.
-        """
-elif False:
-    AcceleratorSshSettingArgsDict: TypeAlias = Mapping[str, Any]
+class AcceleratorSshSettingArgsDict(TypedDict):
+    """
+    Auth setting for SSH auth.
+    """
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The type of the auth setting.
+    Expected value is 'SSH'.
+    """
+    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Public SSH Key of git repository.
+    """
+    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SSH Key algorithm of git repository.
+    """
+    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private SSH Key algorithm of git repository.
+    """
 
 @pulumi.input_type
 class AcceleratorSshSettingArgs:
@@ -563,6 +551,7 @@ class AcceleratorSshSettingArgs:
                  private_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Auth setting for SSH auth.
+
         :param pulumi.Input[_builtins.str] auth_type: The type of the auth setting.
                Expected value is 'SSH'.
         :param pulumi.Input[_builtins.str] host_key: Public SSH Key of git repository.
@@ -627,17 +616,14 @@ class AcceleratorSshSettingArgs:
         pulumi.set(self, "private_key", value)
 
 
-if not MYPY:
-    class ApiPortalCustomDomainPropertiesArgsDict(TypedDict):
-        """
-        The properties of custom domain for API portal
-        """
-        thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thumbprint of bound certificate.
-        """
-elif False:
-    ApiPortalCustomDomainPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiPortalCustomDomainPropertiesArgsDict(TypedDict):
+    """
+    The properties of custom domain for API portal
+    """
+    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thumbprint of bound certificate.
+    """
 
 @pulumi.input_type
 class ApiPortalCustomDomainPropertiesArgs:
@@ -645,6 +631,7 @@ class ApiPortalCustomDomainPropertiesArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of custom domain for API portal
+
         :param pulumi.Input[_builtins.str] thumbprint: The thumbprint of bound certificate.
         """
         if thumbprint is not None:
@@ -663,37 +650,34 @@ class ApiPortalCustomDomainPropertiesArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class ApiPortalPropertiesArgsDict(TypedDict):
-        """
-        API portal properties payload
-        """
-        api_try_out_enabled_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiPortalApiTryOutEnabledState']]]
-        """
-        Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
-        """
-        gateway_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The array of resource Ids of gateway to integrate with API portal.
-        """
-        https_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicate if only https is allowed.
-        """
-        public: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the API portal exposes endpoint.
-        """
-        source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Collection of OpenAPI source URL locations.
-        """
-        sso_properties: NotRequired[pulumi.Input['SsoPropertiesArgsDict']]
-        """
-        Single sign-on related configuration
-        """
-elif False:
-    ApiPortalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApiPortalPropertiesArgsDict(TypedDict):
+    """
+    API portal properties payload
+    """
+    api_try_out_enabled_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ApiPortalApiTryOutEnabledState']]]
+    """
+    Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
+    """
+    gateway_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The array of resource Ids of gateway to integrate with API portal.
+    """
+    https_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicate if only https is allowed.
+    """
+    public: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the API portal exposes endpoint.
+    """
+    source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Collection of OpenAPI source URL locations.
+    """
+    sso_properties: NotRequired[pulumi.Input['SsoPropertiesArgsDict']]
+    """
+    Single sign-on related configuration
+    """
 
 @pulumi.input_type
 class ApiPortalPropertiesArgs:
@@ -706,6 +690,7 @@ class ApiPortalPropertiesArgs:
                  sso_properties: Optional[pulumi.Input['SsoPropertiesArgs']] = None):
         """
         API portal properties payload
+
         :param pulumi.Input[Union[_builtins.str, 'ApiPortalApiTryOutEnabledState']] api_try_out_enabled_state: Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] gateway_ids: The array of resource Ids of gateway to integrate with API portal.
         :param pulumi.Input[_builtins.bool] https_only: Indicate if only https is allowed.
@@ -805,25 +790,22 @@ class ApiPortalPropertiesArgs:
         pulumi.set(self, "sso_properties", value)
 
 
-if not MYPY:
-    class ApmPropertiesArgsDict(TypedDict):
-        """
-        Properties of an APM
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        APM Type
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Non-sensitive properties for the APM
-        """
-        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Sensitive properties for the APM
-        """
-elif False:
-    ApmPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApmPropertiesArgsDict(TypedDict):
+    """
+    Properties of an APM
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    APM Type
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Non-sensitive properties for the APM
+    """
+    secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Sensitive properties for the APM
+    """
 
 @pulumi.input_type
 class ApmPropertiesArgs:
@@ -833,6 +815,7 @@ class ApmPropertiesArgs:
                  secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Properties of an APM
+
         :param pulumi.Input[_builtins.str] type: APM Type
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Non-sensitive properties for the APM
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secrets: Sensitive properties for the APM
@@ -880,17 +863,14 @@ class ApmPropertiesArgs:
         pulumi.set(self, "secrets", value)
 
 
-if not MYPY:
-    class ApmReferenceArgsDict(TypedDict):
-        """
-        A reference to the APM
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of the APM
-        """
-elif False:
-    ApmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ApmReferenceArgsDict(TypedDict):
+    """
+    A reference to the APM
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of the APM
+    """
 
 @pulumi.input_type
 class ApmReferenceArgs:
@@ -898,6 +878,7 @@ class ApmReferenceArgs:
                  resource_id: pulumi.Input[_builtins.str]):
         """
         A reference to the APM
+
         :param pulumi.Input[_builtins.str] resource_id: Resource Id of the APM
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -915,65 +896,62 @@ class ApmReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class AppResourcePropertiesArgsDict(TypedDict):
-        """
-        App resource properties payload
-        """
-        addon_configs: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        Collection of addons
-        """
-        custom_persistent_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgsDict']]]]
-        """
-        List of custom persistent disks
-        """
-        enable_end_to_end_tls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicate if end to end TLS is enabled.
-        """
-        https_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicate if only https is allowed.
-        """
-        ingress_settings: NotRequired[pulumi.Input['IngressSettingsArgsDict']]
-        """
-        App ingress settings payload.
-        """
-        loaded_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadedCertificateArgsDict']]]]
-        """
-        Collection of loaded certificates
-        """
-        persistent_disk: NotRequired[pulumi.Input['PersistentDiskArgsDict']]
-        """
-        Persistent disk settings
-        """
-        public: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the App exposes public endpoint
-        """
-        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecretArgsDict']]]]
-        """
-        Collection of auth secrets
-        """
-        temporary_disk: NotRequired[pulumi.Input['TemporaryDiskArgsDict']]
-        """
-        Temporary disk settings
-        """
-        test_endpoint_auth_state: NotRequired[pulumi.Input[Union[_builtins.str, 'TestEndpointAuthState']]]
-        """
-        State of test endpoint auth.
-        """
-        vnet_addons: NotRequired[pulumi.Input['AppVNetAddonsArgsDict']]
-        """
-        Additional App settings in vnet injection instance
-        """
-        workload_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The workload profile used for this app. Supported for Consumption + Dedicated plan.
-        """
-elif False:
-    AppResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AppResourcePropertiesArgsDict(TypedDict):
+    """
+    App resource properties payload
+    """
+    addon_configs: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Collection of addons
+    """
+    custom_persistent_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgsDict']]]]
+    """
+    List of custom persistent disks
+    """
+    enable_end_to_end_tls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicate if end to end TLS is enabled.
+    """
+    https_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicate if only https is allowed.
+    """
+    ingress_settings: NotRequired[pulumi.Input['IngressSettingsArgsDict']]
+    """
+    App ingress settings payload.
+    """
+    loaded_certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadedCertificateArgsDict']]]]
+    """
+    Collection of loaded certificates
+    """
+    persistent_disk: NotRequired[pulumi.Input['PersistentDiskArgsDict']]
+    """
+    Persistent disk settings
+    """
+    public: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the App exposes public endpoint
+    """
+    secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['SecretArgsDict']]]]
+    """
+    Collection of auth secrets
+    """
+    temporary_disk: NotRequired[pulumi.Input['TemporaryDiskArgsDict']]
+    """
+    Temporary disk settings
+    """
+    test_endpoint_auth_state: NotRequired[pulumi.Input[Union[_builtins.str, 'TestEndpointAuthState']]]
+    """
+    State of test endpoint auth.
+    """
+    vnet_addons: NotRequired[pulumi.Input['AppVNetAddonsArgsDict']]
+    """
+    Additional App settings in vnet injection instance
+    """
+    workload_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The workload profile used for this app. Supported for Consumption + Dedicated plan.
+    """
 
 @pulumi.input_type
 class AppResourcePropertiesArgs:
@@ -993,6 +971,7 @@ class AppResourcePropertiesArgs:
                  workload_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         App resource properties payload
+
         :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons
         :param pulumi.Input[Sequence[pulumi.Input['CustomPersistentDiskResourceArgs']]] custom_persistent_disks: List of custom persistent disks
         :param pulumi.Input[_builtins.bool] enable_end_to_end_tls: Indicate if end to end TLS is enabled.
@@ -1197,17 +1176,14 @@ class AppResourcePropertiesArgs:
         pulumi.set(self, "workload_profile_name", value)
 
 
-if not MYPY:
-    class AppVNetAddonsArgsDict(TypedDict):
-        """
-        Additional App settings in vnet injection instance
-        """
-        public_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
-        """
-elif False:
-    AppVNetAddonsArgsDict: TypeAlias = Mapping[str, Any]
+class AppVNetAddonsArgsDict(TypedDict):
+    """
+    Additional App settings in vnet injection instance
+    """
+    public_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
+    """
 
 @pulumi.input_type
 class AppVNetAddonsArgs:
@@ -1215,6 +1191,7 @@ class AppVNetAddonsArgs:
                  public_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Additional App settings in vnet injection instance
+
         :param pulumi.Input[_builtins.bool] public_endpoint: Indicates whether the App in vnet injection instance exposes endpoint which could be accessed from internet.
         """
         if public_endpoint is None:
@@ -1235,38 +1212,35 @@ class AppVNetAddonsArgs:
         pulumi.set(self, "public_endpoint", value)
 
 
-if not MYPY:
-    class AzureFileVolumeArgsDict(TypedDict):
-        """
-        The properties of the Azure File volume. Azure File shares are mounted as volumes.
-        """
-        mount_path: pulumi.Input[_builtins.str]
-        """
-        The mount path of the persistent disk.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the underlying resource to mount as a persistent disk.
-        Expected value is 'AzureFileVolume'.
-        """
-        enable_sub_path: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, it will create and mount a dedicated directory for every individual app instance.
-        """
-        mount_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        These are the mount options for a persistent disk.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the persistent disk is a readOnly one.
-        """
-        share_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The share name of the Azure File share.
-        """
-elif False:
-    AzureFileVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class AzureFileVolumeArgsDict(TypedDict):
+    """
+    The properties of the Azure File volume. Azure File shares are mounted as volumes.
+    """
+    mount_path: pulumi.Input[_builtins.str]
+    """
+    The mount path of the persistent disk.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the underlying resource to mount as a persistent disk.
+    Expected value is 'AzureFileVolume'.
+    """
+    enable_sub_path: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, it will create and mount a dedicated directory for every individual app instance.
+    """
+    mount_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    These are the mount options for a persistent disk.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the persistent disk is a readOnly one.
+    """
+    share_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The share name of the Azure File share.
+    """
 
 @pulumi.input_type
 class AzureFileVolumeArgs:
@@ -1279,6 +1253,7 @@ class AzureFileVolumeArgs:
                  share_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of the Azure File volume. Azure File shares are mounted as volumes.
+
         :param pulumi.Input[_builtins.str] mount_path: The mount path of the persistent disk.
         :param pulumi.Input[_builtins.str] type: The type of the underlying resource to mount as a persistent disk.
                Expected value is 'AzureFileVolume'.
@@ -1374,25 +1349,22 @@ class AzureFileVolumeArgs:
         pulumi.set(self, "share_name", value)
 
 
-if not MYPY:
-    class BindingResourcePropertiesArgsDict(TypedDict):
-        """
-        Binding resource properties payload
-        """
-        binding_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Binding parameters of the Binding resource
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key of the bound resource
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure resource id of the bound resource
-        """
-elif False:
-    BindingResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BindingResourcePropertiesArgsDict(TypedDict):
+    """
+    Binding resource properties payload
+    """
+    binding_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Binding parameters of the Binding resource
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key of the bound resource
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure resource id of the bound resource
+    """
 
 @pulumi.input_type
 class BindingResourcePropertiesArgs:
@@ -1402,6 +1374,7 @@ class BindingResourcePropertiesArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Binding resource properties payload
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] binding_parameters: Binding parameters of the Binding resource
         :param pulumi.Input[_builtins.str] key: The key of the bound resource
         :param pulumi.Input[_builtins.str] resource_id: The Azure resource id of the bound resource
@@ -1450,41 +1423,38 @@ class BindingResourcePropertiesArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class BuildPropertiesArgsDict(TypedDict):
-        """
-        Build resource properties payload
-        """
-        agent_pool: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of agent pool
-        """
-        apms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgsDict']]]]
-        """
-        The APMs for this build
-        """
-        builder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource id of builder to build the source code
-        """
-        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgsDict']]]]
-        """
-        The CA Certificates for this build
-        """
-        env: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The environment variables for this build
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relative path of source code
-        """
-        resource_requests: NotRequired[pulumi.Input['BuildResourceRequestsArgsDict']]
-        """
-        The customized build resource for this build
-        """
-elif False:
-    BuildPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildPropertiesArgsDict(TypedDict):
+    """
+    Build resource properties payload
+    """
+    agent_pool: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of agent pool
+    """
+    apms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgsDict']]]]
+    """
+    The APMs for this build
+    """
+    builder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource id of builder to build the source code
+    """
+    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgsDict']]]]
+    """
+    The CA Certificates for this build
+    """
+    env: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The environment variables for this build
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relative path of source code
+    """
+    resource_requests: NotRequired[pulumi.Input['BuildResourceRequestsArgsDict']]
+    """
+    The customized build resource for this build
+    """
 
 @pulumi.input_type
 class BuildPropertiesArgs:
@@ -1498,6 +1468,7 @@ class BuildPropertiesArgs:
                  resource_requests: Optional[pulumi.Input['BuildResourceRequestsArgs']] = None):
         """
         Build resource properties payload
+
         :param pulumi.Input[_builtins.str] agent_pool: The resource id of agent pool
         :param pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgs']]] apms: The APMs for this build
         :param pulumi.Input[_builtins.str] builder: The resource id of builder to build the source code
@@ -1606,23 +1577,20 @@ class BuildPropertiesArgs:
         pulumi.set(self, "resource_requests", value)
 
 
-if not MYPY:
-    class BuildResourceRequestsArgsDict(TypedDict):
-        """
-        Resource request payload of Build Resource.
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
-        The default value is 1, this should not exceed build service agent pool cpu size.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
-        The default value is 2Gi, this should not exceed build service agent pool memory size.
-        """
-elif False:
-    BuildResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+class BuildResourceRequestsArgsDict(TypedDict):
+    """
+    Resource request payload of Build Resource.
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
+    The default value is 1, this should not exceed build service agent pool cpu size.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
+    The default value is 2Gi, this should not exceed build service agent pool memory size.
+    """
 
 @pulumi.input_type
 class BuildResourceRequestsArgs:
@@ -1631,6 +1599,7 @@ class BuildResourceRequestsArgs:
                  memory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource request payload of Build Resource.
+
         :param pulumi.Input[_builtins.str] cpu: Optional Cpu allocated to the build resource. 1 core can be represented by 1 or 1000m. 
                The default value is 1, this should not exceed build service agent pool cpu size.
         :param pulumi.Input[_builtins.str] memory: Optional Memory allocated to the build resource. 1 GB can be represented by 1Gi or 1024Mi. 
@@ -1672,26 +1641,23 @@ class BuildResourceRequestsArgs:
         pulumi.set(self, "memory", value)
 
 
-if not MYPY:
-    class BuildResultUserSourceInfoArgsDict(TypedDict):
-        """
-        Reference to a build result
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'BuildResult'.
-        """
-        build_result_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource id of an existing succeeded build result under the same Spring instance.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    BuildResultUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class BuildResultUserSourceInfoArgsDict(TypedDict):
+    """
+    Reference to a build result
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'BuildResult'.
+    """
+    build_result_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource id of an existing succeeded build result under the same Spring instance.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class BuildResultUserSourceInfoArgs:
@@ -1701,6 +1667,7 @@ class BuildResultUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Reference to a build result
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'BuildResult'.
         :param pulumi.Input[_builtins.str] build_result_id: Resource id of an existing succeeded build result under the same Spring instance.
@@ -1750,17 +1717,14 @@ class BuildResultUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class BuildServiceAgentPoolPropertiesArgsDict(TypedDict):
-        """
-        Build service agent pool properties
-        """
-        pool_size: NotRequired[pulumi.Input['BuildServiceAgentPoolSizePropertiesArgsDict']]
-        """
-        build service agent pool size properties
-        """
-elif False:
-    BuildServiceAgentPoolPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildServiceAgentPoolPropertiesArgsDict(TypedDict):
+    """
+    Build service agent pool properties
+    """
+    pool_size: NotRequired[pulumi.Input['BuildServiceAgentPoolSizePropertiesArgsDict']]
+    """
+    build service agent pool size properties
+    """
 
 @pulumi.input_type
 class BuildServiceAgentPoolPropertiesArgs:
@@ -1768,6 +1732,7 @@ class BuildServiceAgentPoolPropertiesArgs:
                  pool_size: Optional[pulumi.Input['BuildServiceAgentPoolSizePropertiesArgs']] = None):
         """
         Build service agent pool properties
+
         :param pulumi.Input['BuildServiceAgentPoolSizePropertiesArgs'] pool_size: build service agent pool size properties
         """
         if pool_size is not None:
@@ -1786,17 +1751,14 @@ class BuildServiceAgentPoolPropertiesArgs:
         pulumi.set(self, "pool_size", value)
 
 
-if not MYPY:
-    class BuildServiceAgentPoolSizePropertiesArgsDict(TypedDict):
-        """
-        Build service agent pool size properties
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of build service agent pool size
-        """
-elif False:
-    BuildServiceAgentPoolSizePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildServiceAgentPoolSizePropertiesArgsDict(TypedDict):
+    """
+    Build service agent pool size properties
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of build service agent pool size
+    """
 
 @pulumi.input_type
 class BuildServiceAgentPoolSizePropertiesArgs:
@@ -1804,6 +1766,7 @@ class BuildServiceAgentPoolSizePropertiesArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Build service agent pool size properties
+
         :param pulumi.Input[_builtins.str] name: The name of build service agent pool size
         """
         if name is not None:
@@ -1822,21 +1785,18 @@ class BuildServiceAgentPoolSizePropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class BuilderPropertiesArgsDict(TypedDict):
-        """
-        KPack Builder properties payload
-        """
-        buildpack_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildpacksGroupPropertiesArgsDict']]]]
-        """
-        Builder buildpack groups.
-        """
-        stack: NotRequired[pulumi.Input['StackPropertiesArgsDict']]
-        """
-        Builder cluster stack property.
-        """
-elif False:
-    BuilderPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuilderPropertiesArgsDict(TypedDict):
+    """
+    KPack Builder properties payload
+    """
+    buildpack_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildpacksGroupPropertiesArgsDict']]]]
+    """
+    Builder buildpack groups.
+    """
+    stack: NotRequired[pulumi.Input['StackPropertiesArgsDict']]
+    """
+    Builder cluster stack property.
+    """
 
 @pulumi.input_type
 class BuilderPropertiesArgs:
@@ -1845,6 +1805,7 @@ class BuilderPropertiesArgs:
                  stack: Optional[pulumi.Input['StackPropertiesArgs']] = None):
         """
         KPack Builder properties payload
+
         :param pulumi.Input[Sequence[pulumi.Input['BuildpacksGroupPropertiesArgs']]] buildpack_groups: Builder buildpack groups.
         :param pulumi.Input['StackPropertiesArgs'] stack: Builder cluster stack property.
         """
@@ -1878,21 +1839,18 @@ class BuilderPropertiesArgs:
         pulumi.set(self, "stack", value)
 
 
-if not MYPY:
-    class BuildpackBindingLaunchPropertiesArgsDict(TypedDict):
-        """
-        Buildpack Binding Launch Properties
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Non-sensitive properties for launchProperties
-        """
-        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Sensitive properties for launchProperties
-        """
-elif False:
-    BuildpackBindingLaunchPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildpackBindingLaunchPropertiesArgsDict(TypedDict):
+    """
+    Buildpack Binding Launch Properties
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Non-sensitive properties for launchProperties
+    """
+    secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Sensitive properties for launchProperties
+    """
 
 @pulumi.input_type
 class BuildpackBindingLaunchPropertiesArgs:
@@ -1901,6 +1859,7 @@ class BuildpackBindingLaunchPropertiesArgs:
                  secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Buildpack Binding Launch Properties
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Non-sensitive properties for launchProperties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secrets: Sensitive properties for launchProperties
         """
@@ -1934,21 +1893,18 @@ class BuildpackBindingLaunchPropertiesArgs:
         pulumi.set(self, "secrets", value)
 
 
-if not MYPY:
-    class BuildpackBindingPropertiesArgsDict(TypedDict):
-        """
-        Properties of a buildpack binding
-        """
-        binding_type: NotRequired[pulumi.Input[Union[_builtins.str, 'BindingType']]]
-        """
-        Buildpack Binding Type
-        """
-        launch_properties: NotRequired[pulumi.Input['BuildpackBindingLaunchPropertiesArgsDict']]
-        """
-        The object describes the buildpack binding launch properties
-        """
-elif False:
-    BuildpackBindingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildpackBindingPropertiesArgsDict(TypedDict):
+    """
+    Properties of a buildpack binding
+    """
+    binding_type: NotRequired[pulumi.Input[Union[_builtins.str, 'BindingType']]]
+    """
+    Buildpack Binding Type
+    """
+    launch_properties: NotRequired[pulumi.Input['BuildpackBindingLaunchPropertiesArgsDict']]
+    """
+    The object describes the buildpack binding launch properties
+    """
 
 @pulumi.input_type
 class BuildpackBindingPropertiesArgs:
@@ -1957,6 +1913,7 @@ class BuildpackBindingPropertiesArgs:
                  launch_properties: Optional[pulumi.Input['BuildpackBindingLaunchPropertiesArgs']] = None):
         """
         Properties of a buildpack binding
+
         :param pulumi.Input[Union[_builtins.str, 'BindingType']] binding_type: Buildpack Binding Type
         :param pulumi.Input['BuildpackBindingLaunchPropertiesArgs'] launch_properties: The object describes the buildpack binding launch properties
         """
@@ -1990,17 +1947,14 @@ class BuildpackBindingPropertiesArgs:
         pulumi.set(self, "launch_properties", value)
 
 
-if not MYPY:
-    class BuildpackPropertiesArgsDict(TypedDict):
-        """
-        Buildpack properties payload
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the buildpack
-        """
-elif False:
-    BuildpackPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildpackPropertiesArgsDict(TypedDict):
+    """
+    Buildpack properties payload
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the buildpack
+    """
 
 @pulumi.input_type
 class BuildpackPropertiesArgs:
@@ -2008,6 +1962,7 @@ class BuildpackPropertiesArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Buildpack properties payload
+
         :param pulumi.Input[_builtins.str] id: Id of the buildpack
         """
         if id is not None:
@@ -2026,21 +1981,18 @@ class BuildpackPropertiesArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class BuildpacksGroupPropertiesArgsDict(TypedDict):
-        """
-        Buildpack group properties of the Builder
-        """
-        buildpacks: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildpackPropertiesArgsDict']]]]
-        """
-        Buildpacks in the buildpack group
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Buildpack group name
-        """
-elif False:
-    BuildpacksGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BuildpacksGroupPropertiesArgsDict(TypedDict):
+    """
+    Buildpack group properties of the Builder
+    """
+    buildpacks: NotRequired[pulumi.Input[Sequence[pulumi.Input['BuildpackPropertiesArgsDict']]]]
+    """
+    Buildpacks in the buildpack group
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Buildpack group name
+    """
 
 @pulumi.input_type
 class BuildpacksGroupPropertiesArgs:
@@ -2049,6 +2001,7 @@ class BuildpacksGroupPropertiesArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Buildpack group properties of the Builder
+
         :param pulumi.Input[Sequence[pulumi.Input['BuildpackPropertiesArgs']]] buildpacks: Buildpacks in the buildpack group
         :param pulumi.Input[_builtins.str] name: Buildpack group name
         """
@@ -2082,17 +2035,14 @@ class BuildpacksGroupPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CertificateReferenceArgsDict(TypedDict):
-        """
-        A reference to the certificate
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of the certificate
-        """
-elif False:
-    CertificateReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateReferenceArgsDict(TypedDict):
+    """
+    A reference to the certificate
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of the certificate
+    """
 
 @pulumi.input_type
 class CertificateReferenceArgs:
@@ -2100,6 +2050,7 @@ class CertificateReferenceArgs:
                  resource_id: pulumi.Input[_builtins.str]):
         """
         A reference to the certificate
+
         :param pulumi.Input[_builtins.str] resource_id: Resource Id of the certificate
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -2117,38 +2068,35 @@ class CertificateReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class ClusterResourcePropertiesArgsDict(TypedDict):
-        """
-        Service properties payload
-        """
-        infra_resource_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the resource group that contains the infrastructure resources
-        """
-        maintenance_schedule_configuration: NotRequired[pulumi.Input['WeeklyMaintenanceScheduleConfigurationArgsDict']]
-        """
-        Additional Service settings for planned maintenance
-        """
-        managed_environment_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the Managed Environment that the Spring Apps instance builds on
-        """
-        marketplace_resource: NotRequired[pulumi.Input['MarketplaceResourceArgsDict']]
-        """
-        Purchasing 3rd party product of the Service resource.
-        """
-        network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
-        """
-        Network profile of the Service
-        """
-        vnet_addons: NotRequired[pulumi.Input['ServiceVNetAddonsArgsDict']]
-        """
-        Additional Service settings in vnet injection instance
-        """
-        zone_redundant: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ClusterResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterResourcePropertiesArgsDict(TypedDict):
+    """
+    Service properties payload
+    """
+    infra_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the resource group that contains the infrastructure resources
+    """
+    maintenance_schedule_configuration: NotRequired[pulumi.Input['WeeklyMaintenanceScheduleConfigurationArgsDict']]
+    """
+    Additional Service settings for planned maintenance
+    """
+    managed_environment_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the Managed Environment that the Spring Apps instance builds on
+    """
+    marketplace_resource: NotRequired[pulumi.Input['MarketplaceResourceArgsDict']]
+    """
+    Purchasing 3rd party product of the Service resource.
+    """
+    network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
+    """
+    Network profile of the Service
+    """
+    vnet_addons: NotRequired[pulumi.Input['ServiceVNetAddonsArgsDict']]
+    """
+    Additional Service settings in vnet injection instance
+    """
+    zone_redundant: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ClusterResourcePropertiesArgs:
@@ -2162,6 +2110,7 @@ class ClusterResourcePropertiesArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Service properties payload
+
         :param pulumi.Input[_builtins.str] infra_resource_group: The name of the resource group that contains the infrastructure resources
         :param pulumi.Input['WeeklyMaintenanceScheduleConfigurationArgs'] maintenance_schedule_configuration: Additional Service settings for planned maintenance
         :param pulumi.Input[_builtins.str] managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on
@@ -2268,53 +2217,50 @@ class ClusterResourcePropertiesArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
-if not MYPY:
-    class ConfigServerGitPropertyArgsDict(TypedDict):
-        """
-        Property of git.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        URI of the repository
-        """
-        host_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Public sshKey of git repository.
-        """
-        host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SshKey algorithm of git repository.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label of the repository
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password of git repository basic auth.
-        """
-        private_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private sshKey algorithm of git repository.
-        """
-        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['GitPatternRepositoryArgsDict']]]]
-        """
-        Repositories of git.
-        """
-        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Searching path of the repository
-        """
-        strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Strict host key checking or not.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username of git repository basic auth.
-        """
-elif False:
-    ConfigServerGitPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigServerGitPropertyArgsDict(TypedDict):
+    """
+    Property of git.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    URI of the repository
+    """
+    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Public sshKey of git repository.
+    """
+    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SshKey algorithm of git repository.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Label of the repository
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password of git repository basic auth.
+    """
+    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private sshKey algorithm of git repository.
+    """
+    repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['GitPatternRepositoryArgsDict']]]]
+    """
+    Repositories of git.
+    """
+    search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Searching path of the repository
+    """
+    strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Strict host key checking or not.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username of git repository basic auth.
+    """
 
 @pulumi.input_type
 class ConfigServerGitPropertyArgs:
@@ -2331,6 +2277,7 @@ class ConfigServerGitPropertyArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Property of git.
+
         :param pulumi.Input[_builtins.str] uri: URI of the repository
         :param pulumi.Input[_builtins.str] host_key: Public sshKey of git repository.
         :param pulumi.Input[_builtins.str] host_key_algorithm: SshKey algorithm of git repository.
@@ -2483,25 +2430,22 @@ class ConfigServerGitPropertyArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConfigServerPropertiesArgsDict(TypedDict):
-        """
-        Config server git properties payload
-        """
-        config_server: NotRequired[pulumi.Input['ConfigServerSettingsArgsDict']]
-        """
-        Settings of config server.
-        """
-        enabled_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigServerEnabledState']]]
-        """
-        Enabled state of the config server. This is only used in Consumption tier.
-        """
-        error: NotRequired[pulumi.Input['ErrorArgsDict']]
-        """
-        Error when apply config server settings.
-        """
-elif False:
-    ConfigServerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigServerPropertiesArgsDict(TypedDict):
+    """
+    Config server git properties payload
+    """
+    config_server: NotRequired[pulumi.Input['ConfigServerSettingsArgsDict']]
+    """
+    Settings of config server.
+    """
+    enabled_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigServerEnabledState']]]
+    """
+    Enabled state of the config server. This is only used in Consumption tier.
+    """
+    error: NotRequired[pulumi.Input['ErrorArgsDict']]
+    """
+    Error when apply config server settings.
+    """
 
 @pulumi.input_type
 class ConfigServerPropertiesArgs:
@@ -2511,6 +2455,7 @@ class ConfigServerPropertiesArgs:
                  error: Optional[pulumi.Input['ErrorArgs']] = None):
         """
         Config server git properties payload
+
         :param pulumi.Input['ConfigServerSettingsArgs'] config_server: Settings of config server.
         :param pulumi.Input[Union[_builtins.str, 'ConfigServerEnabledState']] enabled_state: Enabled state of the config server. This is only used in Consumption tier.
         :param pulumi.Input['ErrorArgs'] error: Error when apply config server settings.
@@ -2559,17 +2504,14 @@ class ConfigServerPropertiesArgs:
         pulumi.set(self, "error", value)
 
 
-if not MYPY:
-    class ConfigServerSettingsArgsDict(TypedDict):
-        """
-        The settings of config server.
-        """
-        git_property: NotRequired[pulumi.Input['ConfigServerGitPropertyArgsDict']]
-        """
-        Property of git environment.
-        """
-elif False:
-    ConfigServerSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigServerSettingsArgsDict(TypedDict):
+    """
+    The settings of config server.
+    """
+    git_property: NotRequired[pulumi.Input['ConfigServerGitPropertyArgsDict']]
+    """
+    Property of git environment.
+    """
 
 @pulumi.input_type
 class ConfigServerSettingsArgs:
@@ -2577,6 +2519,7 @@ class ConfigServerSettingsArgs:
                  git_property: Optional[pulumi.Input['ConfigServerGitPropertyArgs']] = None):
         """
         The settings of config server.
+
         :param pulumi.Input['ConfigServerGitPropertyArgs'] git_property: Property of git environment.
         """
         if git_property is not None:
@@ -2595,17 +2538,14 @@ class ConfigServerSettingsArgs:
         pulumi.set(self, "git_property", value)
 
 
-if not MYPY:
-    class ConfigurationServiceGitPropertyArgsDict(TypedDict):
-        """
-        Property of git environment.
-        """
-        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationServiceGitRepositoryArgsDict']]]]
-        """
-        Repositories of Application Configuration Service git property.
-        """
-elif False:
-    ConfigurationServiceGitPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationServiceGitPropertyArgsDict(TypedDict):
+    """
+    Property of git environment.
+    """
+    repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationServiceGitRepositoryArgsDict']]]]
+    """
+    Repositories of Application Configuration Service git property.
+    """
 
 @pulumi.input_type
 class ConfigurationServiceGitPropertyArgs:
@@ -2613,6 +2553,7 @@ class ConfigurationServiceGitPropertyArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationServiceGitRepositoryArgs']]]] = None):
         """
         Property of git environment.
+
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationServiceGitRepositoryArgs']]] repositories: Repositories of Application Configuration Service git property.
         """
         if repositories is not None:
@@ -2631,65 +2572,62 @@ class ConfigurationServiceGitPropertyArgs:
         pulumi.set(self, "repositories", value)
 
 
-if not MYPY:
-    class ConfigurationServiceGitRepositoryArgsDict(TypedDict):
-        """
-        Git repository property payload for Application Configuration Service
-        """
-        label: pulumi.Input[_builtins.str]
-        """
-        Label of the repository
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the repository
-        """
-        patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Collection of patterns of the repository
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        URI of the repository
-        """
-        ca_cert_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id of CA certificate for https URL of Git repository.
-        """
-        git_implementation: NotRequired[pulumi.Input[Union[_builtins.str, 'GitImplementation']]]
-        """
-        Git libraries used to support various repository providers
-        """
-        host_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Public sshKey of git repository.
-        """
-        host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SshKey algorithm of git repository.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password of git repository basic auth.
-        """
-        private_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private sshKey algorithm of git repository.
-        """
-        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Searching path of the repository
-        """
-        strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Strict host key checking or not.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username of git repository basic auth.
-        """
-elif False:
-    ConfigurationServiceGitRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationServiceGitRepositoryArgsDict(TypedDict):
+    """
+    Git repository property payload for Application Configuration Service
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    Label of the repository
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the repository
+    """
+    patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Collection of patterns of the repository
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    URI of the repository
+    """
+    ca_cert_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id of CA certificate for https URL of Git repository.
+    """
+    git_implementation: NotRequired[pulumi.Input[Union[_builtins.str, 'GitImplementation']]]
+    """
+    Git libraries used to support various repository providers
+    """
+    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Public sshKey of git repository.
+    """
+    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SshKey algorithm of git repository.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password of git repository basic auth.
+    """
+    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private sshKey algorithm of git repository.
+    """
+    search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Searching path of the repository
+    """
+    strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Strict host key checking or not.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username of git repository basic auth.
+    """
 
 @pulumi.input_type
 class ConfigurationServiceGitRepositoryArgs:
@@ -2709,6 +2647,7 @@ class ConfigurationServiceGitRepositoryArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Git repository property payload for Application Configuration Service
+
         :param pulumi.Input[_builtins.str] label: Label of the repository
         :param pulumi.Input[_builtins.str] name: Name of the repository
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] patterns: Collection of patterns of the repository
@@ -2903,21 +2842,18 @@ class ConfigurationServiceGitRepositoryArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConfigurationServicePropertiesArgsDict(TypedDict):
-        """
-        Application Configuration Service properties payload
-        """
-        generation: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigurationServiceGeneration']]]
-        """
-        The generation of the Application Configuration Service.
-        """
-        settings: NotRequired[pulumi.Input['ConfigurationServiceSettingsArgsDict']]
-        """
-        The settings of Application Configuration Service.
-        """
-elif False:
-    ConfigurationServicePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationServicePropertiesArgsDict(TypedDict):
+    """
+    Application Configuration Service properties payload
+    """
+    generation: NotRequired[pulumi.Input[Union[_builtins.str, 'ConfigurationServiceGeneration']]]
+    """
+    The generation of the Application Configuration Service.
+    """
+    settings: NotRequired[pulumi.Input['ConfigurationServiceSettingsArgsDict']]
+    """
+    The settings of Application Configuration Service.
+    """
 
 @pulumi.input_type
 class ConfigurationServicePropertiesArgs:
@@ -2926,6 +2862,7 @@ class ConfigurationServicePropertiesArgs:
                  settings: Optional[pulumi.Input['ConfigurationServiceSettingsArgs']] = None):
         """
         Application Configuration Service properties payload
+
         :param pulumi.Input[Union[_builtins.str, 'ConfigurationServiceGeneration']] generation: The generation of the Application Configuration Service.
         :param pulumi.Input['ConfigurationServiceSettingsArgs'] settings: The settings of Application Configuration Service.
         """
@@ -2961,21 +2898,18 @@ class ConfigurationServicePropertiesArgs:
         pulumi.set(self, "settings", value)
 
 
-if not MYPY:
-    class ConfigurationServiceSettingsArgsDict(TypedDict):
-        """
-        The settings of Application Configuration Service.
-        """
-        git_property: NotRequired[pulumi.Input['ConfigurationServiceGitPropertyArgsDict']]
-        """
-        Property of git environment.
-        """
-        refresh_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often (in seconds) to check repository updates. Minimum value is 0.
-        """
-elif False:
-    ConfigurationServiceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationServiceSettingsArgsDict(TypedDict):
+    """
+    The settings of Application Configuration Service.
+    """
+    git_property: NotRequired[pulumi.Input['ConfigurationServiceGitPropertyArgsDict']]
+    """
+    Property of git environment.
+    """
+    refresh_interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often (in seconds) to check repository updates. Minimum value is 0.
+    """
 
 @pulumi.input_type
 class ConfigurationServiceSettingsArgs:
@@ -2984,6 +2918,7 @@ class ConfigurationServiceSettingsArgs:
                  refresh_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The settings of Application Configuration Service.
+
         :param pulumi.Input['ConfigurationServiceGitPropertyArgs'] git_property: Property of git environment.
         :param pulumi.Input[_builtins.int] refresh_interval_in_seconds: How often (in seconds) to check repository updates. Minimum value is 0.
         """
@@ -3017,17 +2952,14 @@ class ConfigurationServiceSettingsArgs:
         pulumi.set(self, "refresh_interval_in_seconds", value)
 
 
-if not MYPY:
-    class ContainerProbeSettingsArgsDict(TypedDict):
-        """
-        Container liveness and readiness probe settings
-        """
-        disable_probe: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether disable the liveness and readiness probe
-        """
-elif False:
-    ContainerProbeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerProbeSettingsArgsDict(TypedDict):
+    """
+    Container liveness and readiness probe settings
+    """
+    disable_probe: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether disable the liveness and readiness probe
+    """
 
 @pulumi.input_type
 class ContainerProbeSettingsArgs:
@@ -3035,6 +2967,7 @@ class ContainerProbeSettingsArgs:
                  disable_probe: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Container liveness and readiness probe settings
+
         :param pulumi.Input[_builtins.bool] disable_probe: Indicates whether disable the liveness and readiness probe
         """
         if disable_probe is not None:
@@ -3053,30 +2986,27 @@ class ContainerProbeSettingsArgs:
         pulumi.set(self, "disable_probe", value)
 
 
-if not MYPY:
-    class ContainerRegistryBasicCredentialsArgsDict(TypedDict):
-        """
-        The basic authentication properties for the container registry resource.
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        The password of the Container Registry.
-        """
-        server: pulumi.Input[_builtins.str]
-        """
-        The login server of the Container Registry.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The credential type of the container registry credentials.
-        Expected value is 'BasicAuth'.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The username of the Container Registry.
-        """
-elif False:
-    ContainerRegistryBasicCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRegistryBasicCredentialsArgsDict(TypedDict):
+    """
+    The basic authentication properties for the container registry resource.
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    The password of the Container Registry.
+    """
+    server: pulumi.Input[_builtins.str]
+    """
+    The login server of the Container Registry.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The credential type of the container registry credentials.
+    Expected value is 'BasicAuth'.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The username of the Container Registry.
+    """
 
 @pulumi.input_type
 class ContainerRegistryBasicCredentialsArgs:
@@ -3087,6 +3017,7 @@ class ContainerRegistryBasicCredentialsArgs:
                  username: pulumi.Input[_builtins.str]):
         """
         The basic authentication properties for the container registry resource.
+
         :param pulumi.Input[_builtins.str] password: The password of the Container Registry.
         :param pulumi.Input[_builtins.str] server: The login server of the Container Registry.
         :param pulumi.Input[_builtins.str] type: The credential type of the container registry credentials.
@@ -3148,17 +3079,14 @@ class ContainerRegistryBasicCredentialsArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ContainerRegistryPropertiesArgsDict(TypedDict):
-        """
-        Container registry resource payload.
-        """
-        credentials: pulumi.Input['ContainerRegistryBasicCredentialsArgsDict']
-        """
-        The credentials of the container registry resource.
-        """
-elif False:
-    ContainerRegistryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRegistryPropertiesArgsDict(TypedDict):
+    """
+    Container registry resource payload.
+    """
+    credentials: pulumi.Input['ContainerRegistryBasicCredentialsArgsDict']
+    """
+    The credentials of the container registry resource.
+    """
 
 @pulumi.input_type
 class ContainerRegistryPropertiesArgs:
@@ -3166,6 +3094,7 @@ class ContainerRegistryPropertiesArgs:
                  credentials: pulumi.Input['ContainerRegistryBasicCredentialsArgs']):
         """
         Container registry resource payload.
+
         :param pulumi.Input['ContainerRegistryBasicCredentialsArgs'] credentials: The credentials of the container registry resource.
         """
         pulumi.set(__self__, "credentials", credentials)
@@ -3183,22 +3112,19 @@ class ContainerRegistryPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
 
-if not MYPY:
-    class ContentCertificatePropertiesArgsDict(TypedDict):
-        """
-        Properties of certificate imported from key vault.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the certificate source.
-        Expected value is 'ContentCertificate'.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The content of uploaded certificate.
-        """
-elif False:
-    ContentCertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ContentCertificatePropertiesArgsDict(TypedDict):
+    """
+    Properties of certificate imported from key vault.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the certificate source.
+    Expected value is 'ContentCertificate'.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The content of uploaded certificate.
+    """
 
 @pulumi.input_type
 class ContentCertificatePropertiesArgs:
@@ -3207,6 +3133,7 @@ class ContentCertificatePropertiesArgs:
                  content: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of certificate imported from key vault.
+
         :param pulumi.Input[_builtins.str] type: The type of the certificate source.
                Expected value is 'ContentCertificate'.
         :param pulumi.Input[_builtins.str] content: The content of uploaded certificate.
@@ -3241,26 +3168,23 @@ class ContentCertificatePropertiesArgs:
         pulumi.set(self, "content", value)
 
 
-if not MYPY:
-    class CustomContainerUserSourceInfoArgsDict(TypedDict):
-        """
-        Custom container user source info
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'Container'.
-        """
-        custom_container: NotRequired[pulumi.Input['CustomContainerArgsDict']]
-        """
-        Custom container payload
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    CustomContainerUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class CustomContainerUserSourceInfoArgsDict(TypedDict):
+    """
+    Custom container user source info
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'Container'.
+    """
+    custom_container: NotRequired[pulumi.Input['CustomContainerArgsDict']]
+    """
+    Custom container payload
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class CustomContainerUserSourceInfoArgs:
@@ -3270,6 +3194,7 @@ class CustomContainerUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Custom container user source info
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'Container'.
         :param pulumi.Input['CustomContainerArgs'] custom_container: Custom container payload
@@ -3319,37 +3244,34 @@ class CustomContainerUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class CustomContainerArgsDict(TypedDict):
-        """
-        Custom container payload
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Arguments to the entrypoint. The docker image's CMD is used if this is not provided.
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
-        """
-        container_image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
-        """
-        image_registry_credential: NotRequired[pulumi.Input['ImageRegistryCredentialArgsDict']]
-        """
-        Credential of the image registry
-        """
-        language_framework: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Language framework of the container image uploaded. Supported values: "springboot", "", null.
-        """
-        server: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the registry that contains the container image
-        """
-elif False:
-    CustomContainerArgsDict: TypeAlias = Mapping[str, Any]
+class CustomContainerArgsDict(TypedDict):
+    """
+    Custom container payload
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Arguments to the entrypoint. The docker image's CMD is used if this is not provided.
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
+    """
+    container_image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
+    """
+    image_registry_credential: NotRequired[pulumi.Input['ImageRegistryCredentialArgsDict']]
+    """
+    Credential of the image registry
+    """
+    language_framework: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Language framework of the container image uploaded. Supported values: "springboot", "", null.
+    """
+    server: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the registry that contains the container image
+    """
 
 @pulumi.input_type
 class CustomContainerArgs:
@@ -3362,6 +3284,7 @@ class CustomContainerArgs:
                  server: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Custom container payload
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: Arguments to the entrypoint. The docker image's CMD is used if this is not provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
         :param pulumi.Input[_builtins.str] container_image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
@@ -3455,21 +3378,18 @@ class CustomContainerArgs:
         pulumi.set(self, "server", value)
 
 
-if not MYPY:
-    class CustomDomainPropertiesArgsDict(TypedDict):
-        """
-        Custom domain of app resource payload.
-        """
-        cert_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bound certificate name of domain.
-        """
-        thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thumbprint of bound certificate.
-        """
-elif False:
-    CustomDomainPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomDomainPropertiesArgsDict(TypedDict):
+    """
+    Custom domain of app resource payload.
+    """
+    cert_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bound certificate name of domain.
+    """
+    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thumbprint of bound certificate.
+    """
 
 @pulumi.input_type
 class CustomDomainPropertiesArgs:
@@ -3478,6 +3398,7 @@ class CustomDomainPropertiesArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Custom domain of app resource payload.
+
         :param pulumi.Input[_builtins.str] cert_name: The bound certificate name of domain.
         :param pulumi.Input[_builtins.str] thumbprint: The thumbprint of bound certificate.
         """
@@ -3511,21 +3432,18 @@ class CustomDomainPropertiesArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class CustomPersistentDiskResourceArgsDict(TypedDict):
-        """
-        Custom persistent disk resource payload.
-        """
-        storage_id: pulumi.Input[_builtins.str]
-        """
-        The resource id of Azure Spring Apps Storage resource.
-        """
-        custom_persistent_disk_properties: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
-        """
-        Properties of the custom persistent disk resource payload.
-        """
-elif False:
-    CustomPersistentDiskResourceArgsDict: TypeAlias = Mapping[str, Any]
+class CustomPersistentDiskResourceArgsDict(TypedDict):
+    """
+    Custom persistent disk resource payload.
+    """
+    storage_id: pulumi.Input[_builtins.str]
+    """
+    The resource id of Azure Spring Apps Storage resource.
+    """
+    custom_persistent_disk_properties: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
+    """
+    Properties of the custom persistent disk resource payload.
+    """
 
 @pulumi.input_type
 class CustomPersistentDiskResourceArgs:
@@ -3534,6 +3452,7 @@ class CustomPersistentDiskResourceArgs:
                  custom_persistent_disk_properties: Optional[pulumi.Input['AzureFileVolumeArgs']] = None):
         """
         Custom persistent disk resource payload.
+
         :param pulumi.Input[_builtins.str] storage_id: The resource id of Azure Spring Apps Storage resource.
         :param pulumi.Input['AzureFileVolumeArgs'] custom_persistent_disk_properties: Properties of the custom persistent disk resource payload.
         """
@@ -3566,26 +3485,23 @@ class CustomPersistentDiskResourceArgs:
         pulumi.set(self, "custom_persistent_disk_properties", value)
 
 
-if not MYPY:
-    class CustomScaleRuleArgsDict(TypedDict):
-        """
-        Azure Spring Apps App Instance Custom scaling rule.
-        """
-        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
-        """
-        Authentication secrets for the custom scale rule.
-        """
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Metadata properties to describe custom scale rule.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the custom scale rule
-        eg: azure-servicebus, redis etc.
-        """
-elif False:
-    CustomScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CustomScaleRuleArgsDict(TypedDict):
+    """
+    Azure Spring Apps App Instance Custom scaling rule.
+    """
+    auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+    """
+    Authentication secrets for the custom scale rule.
+    """
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Metadata properties to describe custom scale rule.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the custom scale rule
+    eg: azure-servicebus, redis etc.
+    """
 
 @pulumi.input_type
 class CustomScaleRuleArgs:
@@ -3595,6 +3511,7 @@ class CustomScaleRuleArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure Spring Apps App Instance Custom scaling rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe custom scale rule.
         :param pulumi.Input[_builtins.str] type: Type of the custom scale rule
@@ -3645,22 +3562,19 @@ class CustomScaleRuleArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class CustomizedAcceleratorPropertiesArgsDict(TypedDict):
-        """
-        Customized accelerator properties payload
-        """
-        git_repository: pulumi.Input['AcceleratorGitRepositoryArgsDict']
-        accelerator_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        accelerator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomizedAcceleratorType']]]
-        """
-        Type of the customized accelerator.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        icon_url: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CustomizedAcceleratorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomizedAcceleratorPropertiesArgsDict(TypedDict):
+    """
+    Customized accelerator properties payload
+    """
+    git_repository: pulumi.Input['AcceleratorGitRepositoryArgsDict']
+    accelerator_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    accelerator_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CustomizedAcceleratorType']]]
+    """
+    Type of the customized accelerator.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    icon_url: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CustomizedAcceleratorPropertiesArgs:
@@ -3673,6 +3587,7 @@ class CustomizedAcceleratorPropertiesArgs:
                  icon_url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Customized accelerator properties payload
+
         :param pulumi.Input[Union[_builtins.str, 'CustomizedAcceleratorType']] accelerator_type: Type of the customized accelerator.
         """
         pulumi.set(__self__, "git_repository", git_repository)
@@ -3745,25 +3660,22 @@ class CustomizedAcceleratorPropertiesArgs:
         pulumi.set(self, "icon_url", value)
 
 
-if not MYPY:
-    class DeploymentResourcePropertiesArgsDict(TypedDict):
-        """
-        Deployment resource properties payload
-        """
-        active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the Deployment is active
-        """
-        deployment_settings: NotRequired[pulumi.Input['DeploymentSettingsArgsDict']]
-        """
-        Deployment settings of the Deployment
-        """
-        source: NotRequired[pulumi.Input[Union['BuildResultUserSourceInfoArgsDict', 'CustomContainerUserSourceInfoArgsDict', 'JarUploadedUserSourceInfoArgsDict', 'NetCoreZipUploadedUserSourceInfoArgsDict', 'SourceUploadedUserSourceInfoArgsDict', 'UploadedUserSourceInfoArgsDict', 'WarUploadedUserSourceInfoArgsDict']]]
-        """
-        Uploaded source information of the deployment.
-        """
-elif False:
-    DeploymentResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentResourcePropertiesArgsDict(TypedDict):
+    """
+    Deployment resource properties payload
+    """
+    active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the Deployment is active
+    """
+    deployment_settings: NotRequired[pulumi.Input['DeploymentSettingsArgsDict']]
+    """
+    Deployment settings of the Deployment
+    """
+    source: NotRequired[pulumi.Input[Union['BuildResultUserSourceInfoArgsDict', 'CustomContainerUserSourceInfoArgsDict', 'JarUploadedUserSourceInfoArgsDict', 'NetCoreZipUploadedUserSourceInfoArgsDict', 'SourceUploadedUserSourceInfoArgsDict', 'UploadedUserSourceInfoArgsDict', 'WarUploadedUserSourceInfoArgsDict']]]
+    """
+    Uploaded source information of the deployment.
+    """
 
 @pulumi.input_type
 class DeploymentResourcePropertiesArgs:
@@ -3773,6 +3685,7 @@ class DeploymentResourcePropertiesArgs:
                  source: Optional[pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs', 'WarUploadedUserSourceInfoArgs']]] = None):
         """
         Deployment resource properties payload
+
         :param pulumi.Input[_builtins.bool] active: Indicates whether the Deployment is active
         :param pulumi.Input['DeploymentSettingsArgs'] deployment_settings: Deployment settings of the Deployment
         :param pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs', 'WarUploadedUserSourceInfoArgs']] source: Uploaded source information of the deployment.
@@ -3821,53 +3734,50 @@ class DeploymentResourcePropertiesArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class DeploymentSettingsArgsDict(TypedDict):
-        """
-        Deployment settings payload
-        """
-        addon_configs: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        Collection of addons
-        """
-        apms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgsDict']]]]
-        """
-        Collection of ApmReferences
-        """
-        container_probe_settings: NotRequired[pulumi.Input['ContainerProbeSettingsArgsDict']]
-        """
-        Container liveness and readiness probe settings
-        """
-        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Collection of environment variables
-        """
-        liveness_probe: NotRequired[pulumi.Input['ProbeArgsDict']]
-        """
-        Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-        """
-        readiness_probe: NotRequired[pulumi.Input['ProbeArgsDict']]
-        """
-        Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-        """
-        resource_requests: NotRequired[pulumi.Input['ResourceRequestsArgsDict']]
-        """
-        The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
-        """
-        scale: NotRequired[pulumi.Input['ScaleArgsDict']]
-        """
-        Scaling properties for the Azure Spring Apps App Instance.
-        """
-        startup_probe: NotRequired[pulumi.Input['ProbeArgsDict']]
-        """
-        StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-        """
-        termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
-        """
-elif False:
-    DeploymentSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentSettingsArgsDict(TypedDict):
+    """
+    Deployment settings payload
+    """
+    addon_configs: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Collection of addons
+    """
+    apms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgsDict']]]]
+    """
+    Collection of ApmReferences
+    """
+    container_probe_settings: NotRequired[pulumi.Input['ContainerProbeSettingsArgsDict']]
+    """
+    Container liveness and readiness probe settings
+    """
+    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Collection of environment variables
+    """
+    liveness_probe: NotRequired[pulumi.Input['ProbeArgsDict']]
+    """
+    Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+    """
+    readiness_probe: NotRequired[pulumi.Input['ProbeArgsDict']]
+    """
+    Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+    """
+    resource_requests: NotRequired[pulumi.Input['ResourceRequestsArgsDict']]
+    """
+    The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.
+    """
+    scale: NotRequired[pulumi.Input['ScaleArgsDict']]
+    """
+    Scaling properties for the Azure Spring Apps App Instance.
+    """
+    startup_probe: NotRequired[pulumi.Input['ProbeArgsDict']]
+    """
+    StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+    """
+    termination_grace_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.
+    """
 
 @pulumi.input_type
 class DeploymentSettingsArgs:
@@ -3884,6 +3794,7 @@ class DeploymentSettingsArgs:
                  termination_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Deployment settings payload
+
         :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons
         :param pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgs']]] apms: Collection of ApmReferences
         :param pulumi.Input['ContainerProbeSettingsArgs'] container_probe_settings: Container liveness and readiness probe settings
@@ -4039,17 +3950,14 @@ class DeploymentSettingsArgs:
         pulumi.set(self, "termination_grace_period_seconds", value)
 
 
-if not MYPY:
-    class DevToolPortalFeatureDetailArgsDict(TypedDict):
-        """
-        Detail settings for Dev Tool Portal feature
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'DevToolPortalFeatureState']]]
-        """
-        State of the plugin
-        """
-elif False:
-    DevToolPortalFeatureDetailArgsDict: TypeAlias = Mapping[str, Any]
+class DevToolPortalFeatureDetailArgsDict(TypedDict):
+    """
+    Detail settings for Dev Tool Portal feature
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'DevToolPortalFeatureState']]]
+    """
+    State of the plugin
+    """
 
 @pulumi.input_type
 class DevToolPortalFeatureDetailArgs:
@@ -4057,6 +3965,7 @@ class DevToolPortalFeatureDetailArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'DevToolPortalFeatureState']]] = None):
         """
         Detail settings for Dev Tool Portal feature
+
         :param pulumi.Input[Union[_builtins.str, 'DevToolPortalFeatureState']] state: State of the plugin
         """
         if state is None:
@@ -4077,21 +3986,18 @@ class DevToolPortalFeatureDetailArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class DevToolPortalFeatureSettingsArgsDict(TypedDict):
-        """
-        Settings for Dev Tool Portal
-        """
-        application_accelerator: NotRequired[pulumi.Input['DevToolPortalFeatureDetailArgsDict']]
-        """
-        Detail of Accelerator plugin
-        """
-        application_live_view: NotRequired[pulumi.Input['DevToolPortalFeatureDetailArgsDict']]
-        """
-        Detail of App Live View plugin
-        """
-elif False:
-    DevToolPortalFeatureSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DevToolPortalFeatureSettingsArgsDict(TypedDict):
+    """
+    Settings for Dev Tool Portal
+    """
+    application_accelerator: NotRequired[pulumi.Input['DevToolPortalFeatureDetailArgsDict']]
+    """
+    Detail of Accelerator plugin
+    """
+    application_live_view: NotRequired[pulumi.Input['DevToolPortalFeatureDetailArgsDict']]
+    """
+    Detail of App Live View plugin
+    """
 
 @pulumi.input_type
 class DevToolPortalFeatureSettingsArgs:
@@ -4100,6 +4006,7 @@ class DevToolPortalFeatureSettingsArgs:
                  application_live_view: Optional[pulumi.Input['DevToolPortalFeatureDetailArgs']] = None):
         """
         Settings for Dev Tool Portal
+
         :param pulumi.Input['DevToolPortalFeatureDetailArgs'] application_accelerator: Detail of Accelerator plugin
         :param pulumi.Input['DevToolPortalFeatureDetailArgs'] application_live_view: Detail of App Live View plugin
         """
@@ -4133,25 +4040,22 @@ class DevToolPortalFeatureSettingsArgs:
         pulumi.set(self, "application_live_view", value)
 
 
-if not MYPY:
-    class DevToolPortalPropertiesArgsDict(TypedDict):
-        """
-        Dev Tool Portal properties payload
-        """
-        features: NotRequired[pulumi.Input['DevToolPortalFeatureSettingsArgsDict']]
-        """
-        Settings for Dev Tool Portal
-        """
-        public: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the resource exposes public endpoint
-        """
-        sso_properties: NotRequired[pulumi.Input['DevToolPortalSsoPropertiesArgsDict']]
-        """
-        Single sign-on related configuration
-        """
-elif False:
-    DevToolPortalPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DevToolPortalPropertiesArgsDict(TypedDict):
+    """
+    Dev Tool Portal properties payload
+    """
+    features: NotRequired[pulumi.Input['DevToolPortalFeatureSettingsArgsDict']]
+    """
+    Settings for Dev Tool Portal
+    """
+    public: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the resource exposes public endpoint
+    """
+    sso_properties: NotRequired[pulumi.Input['DevToolPortalSsoPropertiesArgsDict']]
+    """
+    Single sign-on related configuration
+    """
 
 @pulumi.input_type
 class DevToolPortalPropertiesArgs:
@@ -4161,6 +4065,7 @@ class DevToolPortalPropertiesArgs:
                  sso_properties: Optional[pulumi.Input['DevToolPortalSsoPropertiesArgs']] = None):
         """
         Dev Tool Portal properties payload
+
         :param pulumi.Input['DevToolPortalFeatureSettingsArgs'] features: Settings for Dev Tool Portal
         :param pulumi.Input[_builtins.bool] public: Indicates whether the resource exposes public endpoint
         :param pulumi.Input['DevToolPortalSsoPropertiesArgs'] sso_properties: Single sign-on related configuration
@@ -4211,29 +4116,26 @@ class DevToolPortalPropertiesArgs:
         pulumi.set(self, "sso_properties", value)
 
 
-if not MYPY:
-    class DevToolPortalSsoPropertiesArgsDict(TypedDict):
-        """
-        Single sign-on related configuration
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public identifier for the application
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret known only to the application and the authorization server
-        """
-        metadata_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of a JSON file with generic OIDC provider configuration.
-        """
-        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        It defines the specific actions applications can be allowed to do on a user's behalf
-        """
-elif False:
-    DevToolPortalSsoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DevToolPortalSsoPropertiesArgsDict(TypedDict):
+    """
+    Single sign-on related configuration
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public identifier for the application
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret known only to the application and the authorization server
+    """
+    metadata_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of a JSON file with generic OIDC provider configuration.
+    """
+    scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    It defines the specific actions applications can be allowed to do on a user's behalf
+    """
 
 @pulumi.input_type
 class DevToolPortalSsoPropertiesArgs:
@@ -4244,6 +4146,7 @@ class DevToolPortalSsoPropertiesArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Single sign-on related configuration
+
         :param pulumi.Input[_builtins.str] client_id: The public identifier for the application
         :param pulumi.Input[_builtins.str] client_secret: The secret known only to the application and the authorization server
         :param pulumi.Input[_builtins.str] metadata_url: The URI of a JSON file with generic OIDC provider configuration.
@@ -4307,25 +4210,22 @@ class DevToolPortalSsoPropertiesArgs:
         pulumi.set(self, "scopes", value)
 
 
-if not MYPY:
-    class EnvVarArgsDict(TypedDict):
-        """
-        Azure Spring Apps components' environment variable.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Environment variable name.
-        """
-        secret_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        secret environment variable value.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Non-secret environment variable value.
-        """
-elif False:
-    EnvVarArgsDict: TypeAlias = Mapping[str, Any]
+class EnvVarArgsDict(TypedDict):
+    """
+    Azure Spring Apps components' environment variable.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Environment variable name.
+    """
+    secret_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    secret environment variable value.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Non-secret environment variable value.
+    """
 
 @pulumi.input_type
 class EnvVarArgs:
@@ -4335,6 +4235,7 @@ class EnvVarArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure Spring Apps components' environment variable.
+
         :param pulumi.Input[_builtins.str] name: Environment variable name.
         :param pulumi.Input[_builtins.str] secret_value: secret environment variable value.
         :param pulumi.Input[_builtins.str] value: Non-secret environment variable value.
@@ -4383,21 +4284,18 @@ class EnvVarArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ErrorArgsDict(TypedDict):
-        """
-        The error code compose of code and message.
-        """
-        code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code of error.
-        """
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message of error.
-        """
-elif False:
-    ErrorArgsDict: TypeAlias = Mapping[str, Any]
+class ErrorArgsDict(TypedDict):
+    """
+    The error code compose of code and message.
+    """
+    code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code of error.
+    """
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message of error.
+    """
 
 @pulumi.input_type
 class ErrorArgs:
@@ -4406,6 +4304,7 @@ class ErrorArgs:
                  message: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The error code compose of code and message.
+
         :param pulumi.Input[_builtins.str] code: The code of error.
         :param pulumi.Input[_builtins.str] message: The message of error.
         """
@@ -4439,22 +4338,19 @@ class ErrorArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class ExecActionArgsDict(TypedDict):
-        """
-        ExecAction describes a "run in container" action.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the action to take to perform the health check.
-        Expected value is 'ExecAction'.
-        """
-        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
-        """
-elif False:
-    ExecActionArgsDict: TypeAlias = Mapping[str, Any]
+class ExecActionArgsDict(TypedDict):
+    """
+    ExecAction describes a "run in container" action.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the action to take to perform the health check.
+    Expected value is 'ExecAction'.
+    """
+    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
+    """
 
 @pulumi.input_type
 class ExecActionArgs:
@@ -4463,6 +4359,7 @@ class ExecActionArgs:
                  command: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         ExecAction describes a "run in container" action.
+
         :param pulumi.Input[_builtins.str] type: The type of the action to take to perform the health check.
                Expected value is 'ExecAction'.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
@@ -4497,33 +4394,30 @@ class ExecActionArgs:
         pulumi.set(self, "command", value)
 
 
-if not MYPY:
-    class GatewayApiMetadataPropertiesArgsDict(TypedDict):
-        """
-        API metadata property for Spring Cloud Gateway
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
-        """
-        documentation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of additional documentation for the APIs available on the Gateway instance
-        """
-        server_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base URL that API consumers will use to access APIs on the Gateway instance.
-        """
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of APIs available on this Gateway instance (default: `unspecified`).
-        """
-elif False:
-    GatewayApiMetadataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayApiMetadataPropertiesArgsDict(TypedDict):
+    """
+    API metadata property for Spring Cloud Gateway
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
+    """
+    documentation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of additional documentation for the APIs available on the Gateway instance
+    """
+    server_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base URL that API consumers will use to access APIs on the Gateway instance.
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Title describing the context of the APIs available on the Gateway instance (default: `Spring Cloud Gateway for K8S`)
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of APIs available on this Gateway instance (default: `unspecified`).
+    """
 
 @pulumi.input_type
 class GatewayApiMetadataPropertiesArgs:
@@ -4535,6 +4429,7 @@ class GatewayApiMetadataPropertiesArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         API metadata property for Spring Cloud Gateway
+
         :param pulumi.Input[_builtins.str] description: Detailed description of the APIs available on the Gateway instance (default: `Generated OpenAPI 3 document that describes the API routes configured.`)
         :param pulumi.Input[_builtins.str] documentation: Location of additional documentation for the APIs available on the Gateway instance
         :param pulumi.Input[_builtins.str] server_url: Base URL that API consumers will use to access APIs on the Gateway instance.
@@ -4613,49 +4508,46 @@ class GatewayApiMetadataPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class GatewayApiRouteArgsDict(TypedDict):
-        """
-        API route config of the Spring Cloud Gateway
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description, will be applied to methods in the generated OpenAPI documentation.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        To modify the request before sending it to the target endpoint, or the received response.
-        """
-        order: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Route processing order.
-        """
-        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        """
-        sso_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable sso validation.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Classification tags, will be applied to methods in the generated OpenAPI documentation.
-        """
-        title: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A title, will be applied to methods in the generated OpenAPI documentation.
-        """
-        token_relay: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Pass currently-authenticated user's identity token to application service, default is 'false'
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Full uri, will override `appName`.
-        """
-elif False:
-    GatewayApiRouteArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayApiRouteArgsDict(TypedDict):
+    """
+    API route config of the Spring Cloud Gateway
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description, will be applied to methods in the generated OpenAPI documentation.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    To modify the request before sending it to the target endpoint, or the received response.
+    """
+    order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Route processing order.
+    """
+    predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A number of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+    """
+    sso_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable sso validation.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Classification tags, will be applied to methods in the generated OpenAPI documentation.
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A title, will be applied to methods in the generated OpenAPI documentation.
+    """
+    token_relay: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Pass currently-authenticated user's identity token to application service, default is 'false'
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Full uri, will override `appName`.
+    """
 
 @pulumi.input_type
 class GatewayApiRouteArgs:
@@ -4671,6 +4563,7 @@ class GatewayApiRouteArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         API route config of the Spring Cloud Gateway
+
         :param pulumi.Input[_builtins.str] description: A description, will be applied to methods in the generated OpenAPI documentation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filters: To modify the request before sending it to the target endpoint, or the received response.
         :param pulumi.Input[_builtins.int] order: Route processing order.
@@ -4809,41 +4702,38 @@ class GatewayApiRouteArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class GatewayCorsPropertiesArgsDict(TypedDict):
-        """
-        Cross-Origin Resource Sharing property
-        """
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
-        """
-        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
-        """
-        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
-        """
-        allowed_origin_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed origin patterns to make cross-site requests.
-        """
-        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed origins to make cross-site requests. The special value `*` allows all domains.
-        """
-        exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        HTTP response headers to expose for cross-site requests.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How long, in seconds, the response from a pre-flight request can be cached by clients.
-        """
-elif False:
-    GatewayCorsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayCorsPropertiesArgsDict(TypedDict):
+    """
+    Cross-Origin Resource Sharing property
+    """
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
+    """
+    allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+    """
+    allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
+    """
+    allowed_origin_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed origin patterns to make cross-site requests.
+    """
+    allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed origins to make cross-site requests. The special value `*` allows all domains.
+    """
+    exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    HTTP response headers to expose for cross-site requests.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How long, in seconds, the response from a pre-flight request can be cached by clients.
+    """
 
 @pulumi.input_type
 class GatewayCorsPropertiesArgs:
@@ -4857,6 +4747,7 @@ class GatewayCorsPropertiesArgs:
                  max_age: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Cross-Origin Resource Sharing property
+
         :param pulumi.Input[_builtins.bool] allow_credentials: Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
@@ -4965,17 +4856,14 @@ class GatewayCorsPropertiesArgs:
         pulumi.set(self, "max_age", value)
 
 
-if not MYPY:
-    class GatewayCustomDomainPropertiesArgsDict(TypedDict):
-        """
-        The properties of custom domain for Spring Cloud Gateway
-        """
-        thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The thumbprint of bound certificate.
-        """
-elif False:
-    GatewayCustomDomainPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayCustomDomainPropertiesArgsDict(TypedDict):
+    """
+    The properties of custom domain for Spring Cloud Gateway
+    """
+    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The thumbprint of bound certificate.
+    """
 
 @pulumi.input_type
 class GatewayCustomDomainPropertiesArgs:
@@ -4983,6 +4871,7 @@ class GatewayCustomDomainPropertiesArgs:
                  thumbprint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The properties of custom domain for Spring Cloud Gateway
+
         :param pulumi.Input[_builtins.str] thumbprint: The thumbprint of bound certificate.
         """
         if thumbprint is not None:
@@ -5001,26 +4890,23 @@ class GatewayCustomDomainPropertiesArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class GatewayLocalResponseCachePerInstancePropertiesArgsDict(TypedDict):
-        """
-        Spring Cloud Gateway local response cache per instance properties.
-        """
-        response_cache_type: pulumi.Input[_builtins.str]
-        """
-        The type of the response cache.
-        Expected value is 'LocalCachePerInstance'.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries
-        """
-        time_to_live: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time before a cached entry is expired (300s, 5m, 1h...)
-        """
-elif False:
-    GatewayLocalResponseCachePerInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayLocalResponseCachePerInstancePropertiesArgsDict(TypedDict):
+    """
+    Spring Cloud Gateway local response cache per instance properties.
+    """
+    response_cache_type: pulumi.Input[_builtins.str]
+    """
+    The type of the response cache.
+    Expected value is 'LocalCachePerInstance'.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries
+    """
+    time_to_live: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time before a cached entry is expired (300s, 5m, 1h...)
+    """
 
 @pulumi.input_type
 class GatewayLocalResponseCachePerInstancePropertiesArgs:
@@ -5030,6 +4916,7 @@ class GatewayLocalResponseCachePerInstancePropertiesArgs:
                  time_to_live: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Spring Cloud Gateway local response cache per instance properties.
+
         :param pulumi.Input[_builtins.str] response_cache_type: The type of the response cache.
                Expected value is 'LocalCachePerInstance'.
         :param pulumi.Input[_builtins.str] size: Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries
@@ -5079,26 +4966,23 @@ class GatewayLocalResponseCachePerInstancePropertiesArgs:
         pulumi.set(self, "time_to_live", value)
 
 
-if not MYPY:
-    class GatewayLocalResponseCachePerRoutePropertiesArgsDict(TypedDict):
-        """
-        Spring Cloud Gateway local response cache per route properties.
-        """
-        response_cache_type: pulumi.Input[_builtins.str]
-        """
-        The type of the response cache.
-        Expected value is 'LocalCachePerRoute'.
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
-        """
-        time_to_live: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time before a cached entry is expired (300s, 5m, 1h...)
-        """
-elif False:
-    GatewayLocalResponseCachePerRoutePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayLocalResponseCachePerRoutePropertiesArgsDict(TypedDict):
+    """
+    Spring Cloud Gateway local response cache per route properties.
+    """
+    response_cache_type: pulumi.Input[_builtins.str]
+    """
+    The type of the response cache.
+    Expected value is 'LocalCachePerRoute'.
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+    """
+    time_to_live: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time before a cached entry is expired (300s, 5m, 1h...)
+    """
 
 @pulumi.input_type
 class GatewayLocalResponseCachePerRoutePropertiesArgs:
@@ -5108,6 +4992,7 @@ class GatewayLocalResponseCachePerRoutePropertiesArgs:
                  time_to_live: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Spring Cloud Gateway local response cache per route properties.
+
         :param pulumi.Input[_builtins.str] response_cache_type: The type of the response cache.
                Expected value is 'LocalCachePerRoute'.
         :param pulumi.Input[_builtins.str] size: Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
@@ -5157,21 +5042,18 @@ class GatewayLocalResponseCachePerRoutePropertiesArgs:
         pulumi.set(self, "time_to_live", value)
 
 
-if not MYPY:
-    class GatewayPropertiesClientAuthArgsDict(TypedDict):
-        """
-        Client-Certification Authentication.
-        """
-        certificate_verification: NotRequired[pulumi.Input[Union[_builtins.str, 'GatewayCertificateVerification']]]
-        """
-        Whether to enable certificate verification or not
-        """
-        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Collection of certificate resource Ids in Azure Spring Apps.
-        """
-elif False:
-    GatewayPropertiesClientAuthArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayPropertiesClientAuthArgsDict(TypedDict):
+    """
+    Client-Certification Authentication.
+    """
+    certificate_verification: NotRequired[pulumi.Input[Union[_builtins.str, 'GatewayCertificateVerification']]]
+    """
+    Whether to enable certificate verification or not
+    """
+    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Collection of certificate resource Ids in Azure Spring Apps.
+    """
 
 @pulumi.input_type
 class GatewayPropertiesClientAuthArgs:
@@ -5180,6 +5062,7 @@ class GatewayPropertiesClientAuthArgs:
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Client-Certification Authentication.
+
         :param pulumi.Input[Union[_builtins.str, 'GatewayCertificateVerification']] certificate_verification: Whether to enable certificate verification or not
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificates: Collection of certificate resource Ids in Azure Spring Apps.
         """
@@ -5215,21 +5098,18 @@ class GatewayPropertiesClientAuthArgs:
         pulumi.set(self, "certificates", value)
 
 
-if not MYPY:
-    class GatewayPropertiesEnvironmentVariablesArgsDict(TypedDict):
-        """
-        Environment variables of Spring Cloud Gateway
-        """
-        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Non-sensitive properties
-        """
-        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Sensitive properties
-        """
-elif False:
-    GatewayPropertiesEnvironmentVariablesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayPropertiesEnvironmentVariablesArgsDict(TypedDict):
+    """
+    Environment variables of Spring Cloud Gateway
+    """
+    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Non-sensitive properties
+    """
+    secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Sensitive properties
+    """
 
 @pulumi.input_type
 class GatewayPropertiesEnvironmentVariablesArgs:
@@ -5238,6 +5118,7 @@ class GatewayPropertiesEnvironmentVariablesArgs:
                  secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Environment variables of Spring Cloud Gateway
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Non-sensitive properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] secrets: Sensitive properties
         """
@@ -5271,61 +5152,58 @@ class GatewayPropertiesEnvironmentVariablesArgs:
         pulumi.set(self, "secrets", value)
 
 
-if not MYPY:
-    class GatewayPropertiesArgsDict(TypedDict):
-        """
-        Spring Cloud Gateway properties payload
-        """
-        addon_configs: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        Collection of addons for Spring Cloud Gateway
-        """
-        api_metadata_properties: NotRequired[pulumi.Input['GatewayApiMetadataPropertiesArgsDict']]
-        """
-        API metadata property for Spring Cloud Gateway
-        """
-        apm_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ApmType']]]]]
-        """
-        Collection of APM type used in Spring Cloud Gateway
-        """
-        apms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgsDict']]]]
-        """
-        Collection of ApmReferences in service level
-        """
-        client_auth: NotRequired[pulumi.Input['GatewayPropertiesClientAuthArgsDict']]
-        """
-        Client-Certification Authentication.
-        """
-        cors_properties: NotRequired[pulumi.Input['GatewayCorsPropertiesArgsDict']]
-        """
-        Cross-Origin Resource Sharing property
-        """
-        environment_variables: NotRequired[pulumi.Input['GatewayPropertiesEnvironmentVariablesArgsDict']]
-        """
-        Environment variables of Spring Cloud Gateway
-        """
-        https_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicate if only https is allowed.
-        """
-        public: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the Spring Cloud Gateway exposes endpoint.
-        """
-        resource_requests: NotRequired[pulumi.Input['GatewayResourceRequestsArgsDict']]
-        """
-        The requested resource quantity for required CPU and Memory.
-        """
-        response_cache_properties: NotRequired[pulumi.Input[Union['GatewayLocalResponseCachePerInstancePropertiesArgsDict', 'GatewayLocalResponseCachePerRoutePropertiesArgsDict']]]
-        """
-        The properties to configure different types of response cache for Spring Cloud Gateway.
-        """
-        sso_properties: NotRequired[pulumi.Input['SsoPropertiesArgsDict']]
-        """
-        Single sign-on related configuration
-        """
-elif False:
-    GatewayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayPropertiesArgsDict(TypedDict):
+    """
+    Spring Cloud Gateway properties payload
+    """
+    addon_configs: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Collection of addons for Spring Cloud Gateway
+    """
+    api_metadata_properties: NotRequired[pulumi.Input['GatewayApiMetadataPropertiesArgsDict']]
+    """
+    API metadata property for Spring Cloud Gateway
+    """
+    apm_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ApmType']]]]]
+    """
+    Collection of APM type used in Spring Cloud Gateway
+    """
+    apms: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApmReferenceArgsDict']]]]
+    """
+    Collection of ApmReferences in service level
+    """
+    client_auth: NotRequired[pulumi.Input['GatewayPropertiesClientAuthArgsDict']]
+    """
+    Client-Certification Authentication.
+    """
+    cors_properties: NotRequired[pulumi.Input['GatewayCorsPropertiesArgsDict']]
+    """
+    Cross-Origin Resource Sharing property
+    """
+    environment_variables: NotRequired[pulumi.Input['GatewayPropertiesEnvironmentVariablesArgsDict']]
+    """
+    Environment variables of Spring Cloud Gateway
+    """
+    https_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicate if only https is allowed.
+    """
+    public: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the Spring Cloud Gateway exposes endpoint.
+    """
+    resource_requests: NotRequired[pulumi.Input['GatewayResourceRequestsArgsDict']]
+    """
+    The requested resource quantity for required CPU and Memory.
+    """
+    response_cache_properties: NotRequired[pulumi.Input[Union['GatewayLocalResponseCachePerInstancePropertiesArgsDict', 'GatewayLocalResponseCachePerRoutePropertiesArgsDict']]]
+    """
+    The properties to configure different types of response cache for Spring Cloud Gateway.
+    """
+    sso_properties: NotRequired[pulumi.Input['SsoPropertiesArgsDict']]
+    """
+    Single sign-on related configuration
+    """
 
 @pulumi.input_type
 class GatewayPropertiesArgs:
@@ -5344,6 +5222,7 @@ class GatewayPropertiesArgs:
                  sso_properties: Optional[pulumi.Input['SsoPropertiesArgs']] = None):
         """
         Spring Cloud Gateway properties payload
+
         :param pulumi.Input[Mapping[str, Any]] addon_configs: Collection of addons for Spring Cloud Gateway
         :param pulumi.Input['GatewayApiMetadataPropertiesArgs'] api_metadata_properties: API metadata property for Spring Cloud Gateway
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ApmType']]]] apm_types: Collection of APM type used in Spring Cloud Gateway
@@ -5531,21 +5410,18 @@ class GatewayPropertiesArgs:
         pulumi.set(self, "sso_properties", value)
 
 
-if not MYPY:
-    class GatewayResourceRequestsArgsDict(TypedDict):
-        """
-        Resource request payload of Spring Cloud Gateway.
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cpu allocated to each Spring Cloud Gateway instance.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Memory allocated to each Spring Cloud Gateway instance.
-        """
-elif False:
-    GatewayResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayResourceRequestsArgsDict(TypedDict):
+    """
+    Resource request payload of Spring Cloud Gateway.
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cpu allocated to each Spring Cloud Gateway instance.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Memory allocated to each Spring Cloud Gateway instance.
+    """
 
 @pulumi.input_type
 class GatewayResourceRequestsArgs:
@@ -5554,6 +5430,7 @@ class GatewayResourceRequestsArgs:
                  memory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource request payload of Spring Cloud Gateway.
+
         :param pulumi.Input[_builtins.str] cpu: Cpu allocated to each Spring Cloud Gateway instance.
         :param pulumi.Input[_builtins.str] memory: Memory allocated to each Spring Cloud Gateway instance.
         """
@@ -5591,17 +5468,14 @@ class GatewayResourceRequestsArgs:
         pulumi.set(self, "memory", value)
 
 
-if not MYPY:
-    class GatewayRouteConfigOpenApiPropertiesArgsDict(TypedDict):
-        """
-        OpenAPI properties of Spring Cloud Gateway route config.
-        """
-        uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of OpenAPI specification.
-        """
-elif False:
-    GatewayRouteConfigOpenApiPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteConfigOpenApiPropertiesArgsDict(TypedDict):
+    """
+    OpenAPI properties of Spring Cloud Gateway route config.
+    """
+    uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of OpenAPI specification.
+    """
 
 @pulumi.input_type
 class GatewayRouteConfigOpenApiPropertiesArgs:
@@ -5609,6 +5483,7 @@ class GatewayRouteConfigOpenApiPropertiesArgs:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         OpenAPI properties of Spring Cloud Gateway route config.
+
         :param pulumi.Input[_builtins.str] uri: The URI of OpenAPI specification.
         """
         if uri is not None:
@@ -5627,41 +5502,38 @@ class GatewayRouteConfigOpenApiPropertiesArgs:
         pulumi.set(self, "uri", value)
 
 
-if not MYPY:
-    class GatewayRouteConfigPropertiesArgsDict(TypedDict):
-        """
-        API route config of the Spring Cloud Gateway
-        """
-        app_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
-        """
-        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        To modify the request before sending it to the target endpoint, or the received response in app level.
-        """
-        open_api: NotRequired[pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgsDict']]
-        """
-        OpenAPI properties of Spring Cloud Gateway route config.
-        """
-        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
-        """
-        protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'GatewayRouteConfigProtocol']]]
-        """
-        Protocol of routed Azure Spring Apps applications.
-        """
-        routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayApiRouteArgsDict']]]]
-        """
-        Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
-        """
-        sso_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable Single Sign-On in app level.
-        """
-elif False:
-    GatewayRouteConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteConfigPropertiesArgsDict(TypedDict):
+    """
+    API route config of the Spring Cloud Gateway
+    """
+    app_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
+    """
+    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    To modify the request before sending it to the target endpoint, or the received response in app level.
+    """
+    open_api: NotRequired[pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgsDict']]
+    """
+    OpenAPI properties of Spring Cloud Gateway route config.
+    """
+    predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+    """
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'GatewayRouteConfigProtocol']]]
+    """
+    Protocol of routed Azure Spring Apps applications.
+    """
+    routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayApiRouteArgsDict']]]]
+    """
+    Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.
+    """
+    sso_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable Single Sign-On in app level.
+    """
 
 @pulumi.input_type
 class GatewayRouteConfigPropertiesArgs:
@@ -5675,6 +5547,7 @@ class GatewayRouteConfigPropertiesArgs:
                  sso_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         API route config of the Spring Cloud Gateway
+
         :param pulumi.Input[_builtins.str] app_resource_id: The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] filters: To modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input['GatewayRouteConfigOpenApiPropertiesArgs'] open_api: OpenAPI properties of Spring Cloud Gateway route config.
@@ -5785,57 +5658,54 @@ class GatewayRouteConfigPropertiesArgs:
         pulumi.set(self, "sso_enabled", value)
 
 
-if not MYPY:
-    class GitPatternRepositoryArgsDict(TypedDict):
-        """
-        Git repository property payload for config server
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the repository
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        URI of the repository
-        """
-        host_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Public sshKey of git repository.
-        """
-        host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SshKey algorithm of git repository.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label of the repository
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password of git repository basic auth.
-        """
-        pattern: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Collection of pattern of the repository
-        """
-        private_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Private sshKey algorithm of git repository.
-        """
-        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Searching path of the repository
-        """
-        strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Strict host key checking or not.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username of git repository basic auth.
-        """
-elif False:
-    GitPatternRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class GitPatternRepositoryArgsDict(TypedDict):
+    """
+    Git repository property payload for config server
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the repository
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    URI of the repository
+    """
+    host_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Public sshKey of git repository.
+    """
+    host_key_algorithm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SshKey algorithm of git repository.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Label of the repository
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password of git repository basic auth.
+    """
+    pattern: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Collection of pattern of the repository
+    """
+    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Private sshKey algorithm of git repository.
+    """
+    search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Searching path of the repository
+    """
+    strict_host_key_checking: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Strict host key checking or not.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username of git repository basic auth.
+    """
 
 @pulumi.input_type
 class GitPatternRepositoryArgs:
@@ -5853,6 +5723,7 @@ class GitPatternRepositoryArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Git repository property payload for config server
+
         :param pulumi.Input[_builtins.str] name: Name of the repository
         :param pulumi.Input[_builtins.str] uri: URI of the repository
         :param pulumi.Input[_builtins.str] host_key: Public sshKey of git repository.
@@ -6019,30 +5890,27 @@ class GitPatternRepositoryArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class HTTPGetActionArgsDict(TypedDict):
-        """
-        HTTPGetAction describes an action based on HTTP Get requests.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the action to take to perform the health check.
-        Expected value is 'HTTPGetAction'.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path to access on the HTTP server.
-        """
-        scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'HTTPSchemeType']]]
-        """
-        Scheme to use for connecting to the host. Defaults to HTTP.
+class HTTPGetActionArgsDict(TypedDict):
+    """
+    HTTPGetAction describes an action based on HTTP Get requests.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the action to take to perform the health check.
+    Expected value is 'HTTPGetAction'.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path to access on the HTTP server.
+    """
+    scheme: NotRequired[pulumi.Input[Union[_builtins.str, 'HTTPSchemeType']]]
+    """
+    Scheme to use for connecting to the host. Defaults to HTTP.
 
-        Possible enum values:
-         - `"HTTP"` means that the scheme used will be http://
-         - `"HTTPS"` means that the scheme used will be https://
-        """
-elif False:
-    HTTPGetActionArgsDict: TypeAlias = Mapping[str, Any]
+    Possible enum values:
+     - `"HTTP"` means that the scheme used will be http://
+     - `"HTTPS"` means that the scheme used will be https://
+    """
 
 @pulumi.input_type
 class HTTPGetActionArgs:
@@ -6052,6 +5920,7 @@ class HTTPGetActionArgs:
                  scheme: Optional[pulumi.Input[Union[_builtins.str, 'HTTPSchemeType']]] = None):
         """
         HTTPGetAction describes an action based on HTTP Get requests.
+
         :param pulumi.Input[_builtins.str] type: The type of the action to take to perform the health check.
                Expected value is 'HTTPGetAction'.
         :param pulumi.Input[_builtins.str] path: Path to access on the HTTP server.
@@ -6109,21 +5978,18 @@ class HTTPGetActionArgs:
         pulumi.set(self, "scheme", value)
 
 
-if not MYPY:
-    class HttpScaleRuleArgsDict(TypedDict):
-        """
-        Azure Spring Apps App Instance Http scaling rule.
-        """
-        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
-        """
-        Authentication secrets for the custom scale rule.
-        """
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Metadata properties to describe http scale rule.
-        """
-elif False:
-    HttpScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class HttpScaleRuleArgsDict(TypedDict):
+    """
+    Azure Spring Apps App Instance Http scaling rule.
+    """
+    auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+    """
+    Authentication secrets for the custom scale rule.
+    """
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Metadata properties to describe http scale rule.
+    """
 
 @pulumi.input_type
 class HttpScaleRuleArgs:
@@ -6132,6 +5998,7 @@ class HttpScaleRuleArgs:
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Spring Apps App Instance Http scaling rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the custom scale rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe http scale rule.
         """
@@ -6165,21 +6032,18 @@ class HttpScaleRuleArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class ImageRegistryCredentialArgsDict(TypedDict):
-        """
-        Credential of the image registry
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password of the image registry credential
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username of the image registry credential
-        """
-elif False:
-    ImageRegistryCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRegistryCredentialArgsDict(TypedDict):
+    """
+    Credential of the image registry
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password of the image registry credential
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username of the image registry credential
+    """
 
 @pulumi.input_type
 class ImageRegistryCredentialArgs:
@@ -6188,6 +6052,7 @@ class ImageRegistryCredentialArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Credential of the image registry
+
         :param pulumi.Input[_builtins.str] password: The password of the image registry credential
         :param pulumi.Input[_builtins.str] username: The username of the image registry credential
         """
@@ -6221,17 +6086,14 @@ class ImageRegistryCredentialArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class IngressConfigArgsDict(TypedDict):
-        """
-        Ingress configuration payload for Azure Spring Apps resource.
-        """
-        read_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Ingress read time out in seconds.
-        """
-elif False:
-    IngressConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IngressConfigArgsDict(TypedDict):
+    """
+    Ingress configuration payload for Azure Spring Apps resource.
+    """
+    read_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Ingress read time out in seconds.
+    """
 
 @pulumi.input_type
 class IngressConfigArgs:
@@ -6239,6 +6101,7 @@ class IngressConfigArgs:
                  read_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Ingress configuration payload for Azure Spring Apps resource.
+
         :param pulumi.Input[_builtins.int] read_timeout_in_seconds: Ingress read time out in seconds.
         """
         if read_timeout_in_seconds is not None:
@@ -6257,17 +6120,14 @@ class IngressConfigArgs:
         pulumi.set(self, "read_timeout_in_seconds", value)
 
 
-if not MYPY:
-    class IngressSettingsClientAuthArgsDict(TypedDict):
-        """
-        Client-Certification Authentication.
-        """
-        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Collection of certificate resource id.
-        """
-elif False:
-    IngressSettingsClientAuthArgsDict: TypeAlias = Mapping[str, Any]
+class IngressSettingsClientAuthArgsDict(TypedDict):
+    """
+    Client-Certification Authentication.
+    """
+    certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Collection of certificate resource id.
+    """
 
 @pulumi.input_type
 class IngressSettingsClientAuthArgs:
@@ -6275,6 +6135,7 @@ class IngressSettingsClientAuthArgs:
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Client-Certification Authentication.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificates: Collection of certificate resource id.
         """
         if certificates is not None:
@@ -6293,37 +6154,34 @@ class IngressSettingsClientAuthArgs:
         pulumi.set(self, "certificates", value)
 
 
-if not MYPY:
-    class IngressSettingsArgsDict(TypedDict):
-        """
-        App ingress settings payload.
-        """
-        backend_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]]
-        """
-        How ingress should communicate with this app backend service.
-        """
-        client_auth: NotRequired[pulumi.Input['IngressSettingsClientAuthArgsDict']]
-        """
-        Client-Certification Authentication.
-        """
-        read_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Ingress read time out in seconds.
-        """
-        send_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Ingress send time out in seconds.
-        """
-        session_affinity: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionAffinity']]]
-        """
-        Type of the affinity, set this to Cookie to enable session affinity.
-        """
-        session_cookie_max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds until the cookie expires.
-        """
-elif False:
-    IngressSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class IngressSettingsArgsDict(TypedDict):
+    """
+    App ingress settings payload.
+    """
+    backend_protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]]
+    """
+    How ingress should communicate with this app backend service.
+    """
+    client_auth: NotRequired[pulumi.Input['IngressSettingsClientAuthArgsDict']]
+    """
+    Client-Certification Authentication.
+    """
+    read_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Ingress read time out in seconds.
+    """
+    send_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Ingress send time out in seconds.
+    """
+    session_affinity: NotRequired[pulumi.Input[Union[_builtins.str, 'SessionAffinity']]]
+    """
+    Type of the affinity, set this to Cookie to enable session affinity.
+    """
+    session_cookie_max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds until the cookie expires.
+    """
 
 @pulumi.input_type
 class IngressSettingsArgs:
@@ -6336,6 +6194,7 @@ class IngressSettingsArgs:
                  session_cookie_max_age: Optional[pulumi.Input[_builtins.int]] = None):
         """
         App ingress settings payload.
+
         :param pulumi.Input[Union[_builtins.str, 'BackendProtocol']] backend_protocol: How ingress should communicate with this app backend service.
         :param pulumi.Input['IngressSettingsClientAuthArgs'] client_auth: Client-Certification Authentication.
         :param pulumi.Input[_builtins.int] read_timeout_in_seconds: Ingress read time out in seconds.
@@ -6429,34 +6288,31 @@ class IngressSettingsArgs:
         pulumi.set(self, "session_cookie_max_age", value)
 
 
-if not MYPY:
-    class JarUploadedUserSourceInfoArgsDict(TypedDict):
-        """
-        Uploaded Jar binary for a deployment
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'Jar'.
-        """
-        jvm_options: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JVM parameter
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relative path of the storage which stores the source
-        """
-        runtime_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Runtime version of the Jar file
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    JarUploadedUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class JarUploadedUserSourceInfoArgsDict(TypedDict):
+    """
+    Uploaded Jar binary for a deployment
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'Jar'.
+    """
+    jvm_options: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    JVM parameter
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relative path of the storage which stores the source
+    """
+    runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Runtime version of the Jar file
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class JarUploadedUserSourceInfoArgs:
@@ -6468,6 +6324,7 @@ class JarUploadedUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Uploaded Jar binary for a deployment
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'Jar'.
         :param pulumi.Input[_builtins.str] jvm_options: JVM parameter
@@ -6547,25 +6404,22 @@ class JarUploadedUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class JobExecutionTemplateArgsDict(TypedDict):
-        """
-        Job's execution template, containing configuration for an execution
-        """
-        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Arguments for the Job execution.
-        """
-        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvVarArgsDict']]]]
-        """
-        Environment variables of Job execution
-        """
-        resource_requests: NotRequired[pulumi.Input['JobResourceRequestsArgsDict']]
-        """
-        The requested resource quantity for required CPU and Memory.
-        """
-elif False:
-    JobExecutionTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class JobExecutionTemplateArgsDict(TypedDict):
+    """
+    Job's execution template, containing configuration for an execution
+    """
+    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Arguments for the Job execution.
+    """
+    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvVarArgsDict']]]]
+    """
+    Environment variables of Job execution
+    """
+    resource_requests: NotRequired[pulumi.Input['JobResourceRequestsArgsDict']]
+    """
+    The requested resource quantity for required CPU and Memory.
+    """
 
 @pulumi.input_type
 class JobExecutionTemplateArgs:
@@ -6575,6 +6429,7 @@ class JobExecutionTemplateArgs:
                  resource_requests: Optional[pulumi.Input['JobResourceRequestsArgs']] = None):
         """
         Job's execution template, containing configuration for an execution
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: Arguments for the Job execution.
         :param pulumi.Input[Sequence[pulumi.Input['EnvVarArgs']]] environment_variables: Environment variables of Job execution
         :param pulumi.Input['JobResourceRequestsArgs'] resource_requests: The requested resource quantity for required CPU and Memory.
@@ -6623,29 +6478,26 @@ class JobExecutionTemplateArgs:
         pulumi.set(self, "resource_requests", value)
 
 
-if not MYPY:
-    class JobResourcePropertiesArgsDict(TypedDict):
-        """
-        Job resource properties payload
-        """
-        managed_component_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedComponentReferenceArgsDict']]]]
-        """
-        Referenced managed components collection
-        """
-        source: NotRequired[pulumi.Input[Union['BuildResultUserSourceInfoArgsDict', 'CustomContainerUserSourceInfoArgsDict', 'JarUploadedUserSourceInfoArgsDict', 'NetCoreZipUploadedUserSourceInfoArgsDict', 'SourceUploadedUserSourceInfoArgsDict', 'UploadedUserSourceInfoArgsDict', 'WarUploadedUserSourceInfoArgsDict']]]
-        """
-        Uploaded source information of the Job.
-        """
-        template: NotRequired[pulumi.Input['JobExecutionTemplateArgsDict']]
-        """
-        The template which is applied for all executions of the Job.
-        """
-        trigger_config: NotRequired[pulumi.Input['ManualJobTriggerConfigArgsDict']]
-        """
-        The Job trigger related configuration.
-        """
-elif False:
-    JobResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class JobResourcePropertiesArgsDict(TypedDict):
+    """
+    Job resource properties payload
+    """
+    managed_component_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedComponentReferenceArgsDict']]]]
+    """
+    Referenced managed components collection
+    """
+    source: NotRequired[pulumi.Input[Union['BuildResultUserSourceInfoArgsDict', 'CustomContainerUserSourceInfoArgsDict', 'JarUploadedUserSourceInfoArgsDict', 'NetCoreZipUploadedUserSourceInfoArgsDict', 'SourceUploadedUserSourceInfoArgsDict', 'UploadedUserSourceInfoArgsDict', 'WarUploadedUserSourceInfoArgsDict']]]
+    """
+    Uploaded source information of the Job.
+    """
+    template: NotRequired[pulumi.Input['JobExecutionTemplateArgsDict']]
+    """
+    The template which is applied for all executions of the Job.
+    """
+    trigger_config: NotRequired[pulumi.Input['ManualJobTriggerConfigArgsDict']]
+    """
+    The Job trigger related configuration.
+    """
 
 @pulumi.input_type
 class JobResourcePropertiesArgs:
@@ -6656,6 +6508,7 @@ class JobResourcePropertiesArgs:
                  trigger_config: Optional[pulumi.Input['ManualJobTriggerConfigArgs']] = None):
         """
         Job resource properties payload
+
         :param pulumi.Input[Sequence[pulumi.Input['ManagedComponentReferenceArgs']]] managed_component_references: Referenced managed components collection
         :param pulumi.Input[Union['BuildResultUserSourceInfoArgs', 'CustomContainerUserSourceInfoArgs', 'JarUploadedUserSourceInfoArgs', 'NetCoreZipUploadedUserSourceInfoArgs', 'SourceUploadedUserSourceInfoArgs', 'UploadedUserSourceInfoArgs', 'WarUploadedUserSourceInfoArgs']] source: Uploaded source information of the Job.
         :param pulumi.Input['JobExecutionTemplateArgs'] template: The template which is applied for all executions of the Job.
@@ -6719,21 +6572,18 @@ class JobResourcePropertiesArgs:
         pulumi.set(self, "trigger_config", value)
 
 
-if not MYPY:
-    class JobResourceRequestsArgsDict(TypedDict):
-        """
-        Job resource request payload
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        CPU allocated to each job execution instance.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Memory allocated to each job execution instance.
-        """
-elif False:
-    JobResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+class JobResourceRequestsArgsDict(TypedDict):
+    """
+    Job resource request payload
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    CPU allocated to each job execution instance.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Memory allocated to each job execution instance.
+    """
 
 @pulumi.input_type
 class JobResourceRequestsArgs:
@@ -6742,6 +6592,7 @@ class JobResourceRequestsArgs:
                  memory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Job resource request payload
+
         :param pulumi.Input[_builtins.str] cpu: CPU allocated to each job execution instance.
         :param pulumi.Input[_builtins.str] memory: Memory allocated to each job execution instance.
         """
@@ -6779,38 +6630,35 @@ class JobResourceRequestsArgs:
         pulumi.set(self, "memory", value)
 
 
-if not MYPY:
-    class KeyVaultCertificatePropertiesArgsDict(TypedDict):
-        """
-        Properties of certificate imported from key vault.
-        """
-        key_vault_cert_name: pulumi.Input[_builtins.str]
-        """
-        The certificate name of key vault.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the certificate source.
-        Expected value is 'KeyVaultCertificate'.
-        """
-        vault_uri: pulumi.Input[_builtins.str]
-        """
-        The vault uri of user key vault.
-        """
-        auto_sync: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyVaultCertificateAutoSync']]]
-        """
-        Indicates whether to automatically synchronize certificate from key vault or not.
-        """
-        cert_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The certificate version of key vault.
-        """
-        exclude_private_key: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Optional. If set to true, it will not import private key from key vault.
-        """
-elif False:
-    KeyVaultCertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultCertificatePropertiesArgsDict(TypedDict):
+    """
+    Properties of certificate imported from key vault.
+    """
+    key_vault_cert_name: pulumi.Input[_builtins.str]
+    """
+    The certificate name of key vault.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the certificate source.
+    Expected value is 'KeyVaultCertificate'.
+    """
+    vault_uri: pulumi.Input[_builtins.str]
+    """
+    The vault uri of user key vault.
+    """
+    auto_sync: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyVaultCertificateAutoSync']]]
+    """
+    Indicates whether to automatically synchronize certificate from key vault or not.
+    """
+    cert_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The certificate version of key vault.
+    """
+    exclude_private_key: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Optional. If set to true, it will not import private key from key vault.
+    """
 
 @pulumi.input_type
 class KeyVaultCertificatePropertiesArgs:
@@ -6823,6 +6671,7 @@ class KeyVaultCertificatePropertiesArgs:
                  exclude_private_key: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Properties of certificate imported from key vault.
+
         :param pulumi.Input[_builtins.str] key_vault_cert_name: The certificate name of key vault.
         :param pulumi.Input[_builtins.str] type: The type of the certificate source.
                Expected value is 'KeyVaultCertificate'.
@@ -6919,21 +6768,18 @@ class KeyVaultCertificatePropertiesArgs:
         pulumi.set(self, "exclude_private_key", value)
 
 
-if not MYPY:
-    class LoadedCertificateArgsDict(TypedDict):
-        """
-        Loaded certificate payload
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of loaded certificate
-        """
-        load_trust_store: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
-        """
-elif False:
-    LoadedCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class LoadedCertificateArgsDict(TypedDict):
+    """
+    Loaded certificate payload
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of loaded certificate
+    """
+    load_trust_store: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
+    """
 
 @pulumi.input_type
 class LoadedCertificateArgs:
@@ -6942,6 +6788,7 @@ class LoadedCertificateArgs:
                  load_trust_store: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Loaded certificate payload
+
         :param pulumi.Input[_builtins.str] resource_id: Resource Id of loaded certificate
         :param pulumi.Input[_builtins.bool] load_trust_store: Indicate whether the certificate will be loaded into default trust store, only work for Java runtime.
         """
@@ -6976,17 +6823,14 @@ class LoadedCertificateArgs:
         pulumi.set(self, "load_trust_store", value)
 
 
-if not MYPY:
-    class ManagedComponentReferenceArgsDict(TypedDict):
-        """
-        A reference to the managed component like Config Server.
-        """
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource Id of the managed component
-        """
-elif False:
-    ManagedComponentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedComponentReferenceArgsDict(TypedDict):
+    """
+    A reference to the managed component like Config Server.
+    """
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource Id of the managed component
+    """
 
 @pulumi.input_type
 class ManagedComponentReferenceArgs:
@@ -6994,6 +6838,7 @@ class ManagedComponentReferenceArgs:
                  resource_id: pulumi.Input[_builtins.str]):
         """
         A reference to the managed component like Config Server.
+
         :param pulumi.Input[_builtins.str] resource_id: Resource Id of the managed component
         """
         pulumi.set(__self__, "resource_id", resource_id)
@@ -7011,29 +6856,26 @@ class ManagedComponentReferenceArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class ManagedIdentityPropertiesArgsDict(TypedDict):
-        """
-        Managed identity properties retrieved from ARM request headers.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Principal Id of system-assigned managed identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant Id of system-assigned managed identity.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
-        """
-        Type of the managed identity
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Properties of user-assigned managed identities
-        """
-elif False:
-    ManagedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedIdentityPropertiesArgsDict(TypedDict):
+    """
+    Managed identity properties retrieved from ARM request headers.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Principal Id of system-assigned managed identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant Id of system-assigned managed identity.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']]]
+    """
+    Type of the managed identity
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Properties of user-assigned managed identities
+    """
 
 @pulumi.input_type
 class ManagedIdentityPropertiesArgs:
@@ -7044,6 +6886,7 @@ class ManagedIdentityPropertiesArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed identity properties retrieved from ARM request headers.
+
         :param pulumi.Input[_builtins.str] principal_id: Principal Id of system-assigned managed identity.
         :param pulumi.Input[_builtins.str] tenant_id: Tenant Id of system-assigned managed identity.
         :param pulumi.Input[Union[_builtins.str, 'ManagedIdentityType']] type: Type of the managed identity
@@ -7107,30 +6950,27 @@ class ManagedIdentityPropertiesArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ManualJobTriggerConfigArgsDict(TypedDict):
-        """
-        Configuration for manual triggered job
-        """
-        trigger_type: pulumi.Input[_builtins.str]
-        """
-        Type of job trigger
-        Expected value is 'Manual'.
-        """
-        parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of parallel replicas of a job execution can run.
-        """
-        retry_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of retries before failing the job.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of seconds an execution is allowed to run.
-        """
-elif False:
-    ManualJobTriggerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ManualJobTriggerConfigArgsDict(TypedDict):
+    """
+    Configuration for manual triggered job
+    """
+    trigger_type: pulumi.Input[_builtins.str]
+    """
+    Type of job trigger
+    Expected value is 'Manual'.
+    """
+    parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of parallel replicas of a job execution can run.
+    """
+    retry_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of retries before failing the job.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of seconds an execution is allowed to run.
+    """
 
 @pulumi.input_type
 class ManualJobTriggerConfigArgs:
@@ -7141,6 +6981,7 @@ class ManualJobTriggerConfigArgs:
                  timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration for manual triggered job
+
         :param pulumi.Input[_builtins.str] trigger_type: Type of job trigger
                Expected value is 'Manual'.
         :param pulumi.Input[_builtins.int] parallelism: Number of parallel replicas of a job execution can run.
@@ -7207,25 +7048,22 @@ class ManualJobTriggerConfigArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-if not MYPY:
-    class MarketplaceResourceArgsDict(TypedDict):
-        """
-        Purchasing 3rd Party product for one Azure Spring Apps instance
-        """
-        plan: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plan id of the 3rd Party Artifact that is being procured.
-        """
-        product: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The 3rd Party artifact that is being procured.
-        """
-        publisher: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The publisher id of the 3rd Party Artifact that is being bought.
-        """
-elif False:
-    MarketplaceResourceArgsDict: TypeAlias = Mapping[str, Any]
+class MarketplaceResourceArgsDict(TypedDict):
+    """
+    Purchasing 3rd Party product for one Azure Spring Apps instance
+    """
+    plan: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plan id of the 3rd Party Artifact that is being procured.
+    """
+    product: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The 3rd Party artifact that is being procured.
+    """
+    publisher: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The publisher id of the 3rd Party Artifact that is being bought.
+    """
 
 @pulumi.input_type
 class MarketplaceResourceArgs:
@@ -7235,6 +7073,7 @@ class MarketplaceResourceArgs:
                  publisher: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Purchasing 3rd Party product for one Azure Spring Apps instance
+
         :param pulumi.Input[_builtins.str] plan: The plan id of the 3rd Party Artifact that is being procured.
         :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured.
         :param pulumi.Input[_builtins.str] publisher: The publisher id of the 3rd Party Artifact that is being bought.
@@ -7283,29 +7122,26 @@ class MarketplaceResourceArgs:
         pulumi.set(self, "publisher", value)
 
 
-if not MYPY:
-    class MonitoringSettingPropertiesArgsDict(TypedDict):
-        """
-        Monitoring Setting properties payload
-        """
-        app_insights_instrumentation_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
-        """
-        app_insights_sampling_rate: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
-        """
-        error: NotRequired[pulumi.Input['ErrorArgsDict']]
-        """
-        Error when apply Monitoring Setting changes.
-        """
-        trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
-        """
-elif False:
-    MonitoringSettingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class MonitoringSettingPropertiesArgsDict(TypedDict):
+    """
+    Monitoring Setting properties payload
+    """
+    app_insights_instrumentation_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
+    """
+    app_insights_sampling_rate: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
+    """
+    error: NotRequired[pulumi.Input['ErrorArgsDict']]
+    """
+    Error when apply Monitoring Setting changes.
+    """
+    trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
+    """
 
 @pulumi.input_type
 class MonitoringSettingPropertiesArgs:
@@ -7316,6 +7152,7 @@ class MonitoringSettingPropertiesArgs:
                  trace_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Monitoring Setting properties payload
+
         :param pulumi.Input[_builtins.str] app_insights_instrumentation_key: Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
         :param pulumi.Input[_builtins.float] app_insights_sampling_rate: Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
         :param pulumi.Input['ErrorArgs'] error: Error when apply Monitoring Setting changes.
@@ -7379,34 +7216,31 @@ class MonitoringSettingPropertiesArgs:
         pulumi.set(self, "trace_enabled", value)
 
 
-if not MYPY:
-    class NetCoreZipUploadedUserSourceInfoArgsDict(TypedDict):
-        """
-        Uploaded Jar binary for a deployment
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'NetCoreZip'.
-        """
-        net_core_main_entry_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the .NET executable relative to zip root
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relative path of the storage which stores the source
-        """
-        runtime_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Runtime version of the .Net file
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    NetCoreZipUploadedUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class NetCoreZipUploadedUserSourceInfoArgsDict(TypedDict):
+    """
+    Uploaded Jar binary for a deployment
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'NetCoreZip'.
+    """
+    net_core_main_entry_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the .NET executable relative to zip root
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relative path of the storage which stores the source
+    """
+    runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Runtime version of the .Net file
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class NetCoreZipUploadedUserSourceInfoArgs:
@@ -7418,6 +7252,7 @@ class NetCoreZipUploadedUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Uploaded Jar binary for a deployment
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'NetCoreZip'.
         :param pulumi.Input[_builtins.str] net_core_main_entry_path: The path to the .NET executable relative to zip root
@@ -7497,41 +7332,38 @@ class NetCoreZipUploadedUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        Service network profile payload
-        """
-        app_network_resource_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the resource group containing network resources for customer apps in Azure Spring Apps
-        """
-        app_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
-        """
-        ingress_config: NotRequired[pulumi.Input['IngressConfigArgsDict']]
-        """
-        Ingress configuration payload for Azure Spring Apps resource.
-        """
-        outbound_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The egress traffic type of Azure Spring Apps VNet instances.
-        """
-        service_cidr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Spring Apps service reserved CIDR
-        """
-        service_runtime_network_resource_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the resource group containing network resources of Azure Spring Apps Service Runtime
-        """
-        service_runtime_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkProfileArgsDict(TypedDict):
+    """
+    Service network profile payload
+    """
+    app_network_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource group containing network resources for customer apps in Azure Spring Apps
+    """
+    app_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
+    """
+    ingress_config: NotRequired[pulumi.Input['IngressConfigArgsDict']]
+    """
+    Ingress configuration payload for Azure Spring Apps resource.
+    """
+    outbound_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The egress traffic type of Azure Spring Apps VNet instances.
+    """
+    service_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Spring Apps service reserved CIDR
+    """
+    service_runtime_network_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource group containing network resources of Azure Spring Apps Service Runtime
+    """
+    service_runtime_subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
+    """
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -7545,6 +7377,7 @@ class NetworkProfileArgs:
                  service_runtime_subnet_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Service network profile payload
+
         :param pulumi.Input[_builtins.str] app_network_resource_group: Name of the resource group containing network resources for customer apps in Azure Spring Apps
         :param pulumi.Input[_builtins.str] app_subnet_id: Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
         :param pulumi.Input['IngressConfigArgs'] ingress_config: Ingress configuration payload for Azure Spring Apps resource.
@@ -7653,21 +7486,18 @@ class NetworkProfileArgs:
         pulumi.set(self, "service_runtime_subnet_id", value)
 
 
-if not MYPY:
-    class PersistentDiskArgsDict(TypedDict):
-        """
-        Persistent disk payload
-        """
-        mount_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mount path of the persistent disk
-        """
-        size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the persistent disk in GB
-        """
-elif False:
-    PersistentDiskArgsDict: TypeAlias = Mapping[str, Any]
+class PersistentDiskArgsDict(TypedDict):
+    """
+    Persistent disk payload
+    """
+    mount_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mount path of the persistent disk
+    """
+    size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the persistent disk in GB
+    """
 
 @pulumi.input_type
 class PersistentDiskArgs:
@@ -7676,6 +7506,7 @@ class PersistentDiskArgs:
                  size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Persistent disk payload
+
         :param pulumi.Input[_builtins.str] mount_path: Mount path of the persistent disk
         :param pulumi.Input[_builtins.int] size_in_gb: Size of the persistent disk in GB
         """
@@ -7709,41 +7540,38 @@ class PersistentDiskArgs:
         pulumi.set(self, "size_in_gb", value)
 
 
-if not MYPY:
-    class ProbeArgsDict(TypedDict):
-        """
-        Probe describes a health check to be performed against an App Instance to determine whether it is alive or ready to receive traffic.
-        """
-        disable_probe: pulumi.Input[_builtins.bool]
-        """
-        Indicate whether the probe is disabled.
-        """
-        failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum consecutive failures for the probe to be considered failed after having succeeded. Minimum value is 1.
-        """
-        initial_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of seconds after the App Instance has started before probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
-        """
-        period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        How often (in seconds) to perform the probe. Minimum value is 1.
-        """
-        probe_action: NotRequired[pulumi.Input[Union['ExecActionArgsDict', 'HTTPGetActionArgsDict', 'TCPSocketActionArgsDict']]]
-        """
-        The action of the probe.
-        """
-        success_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum consecutive successes for the probe to be considered successful after having failed. Must be 1 for liveness and startup. Minimum value is 1.
-        """
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of seconds after which the probe times out. Minimum value is 1.
-        """
-elif False:
-    ProbeArgsDict: TypeAlias = Mapping[str, Any]
+class ProbeArgsDict(TypedDict):
+    """
+    Probe describes a health check to be performed against an App Instance to determine whether it is alive or ready to receive traffic.
+    """
+    disable_probe: pulumi.Input[_builtins.bool]
+    """
+    Indicate whether the probe is disabled.
+    """
+    failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum consecutive failures for the probe to be considered failed after having succeeded. Minimum value is 1.
+    """
+    initial_delay_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of seconds after the App Instance has started before probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+    """
+    period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    How often (in seconds) to perform the probe. Minimum value is 1.
+    """
+    probe_action: NotRequired[pulumi.Input[Union['ExecActionArgsDict', 'HTTPGetActionArgsDict', 'TCPSocketActionArgsDict']]]
+    """
+    The action of the probe.
+    """
+    success_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum consecutive successes for the probe to be considered successful after having failed. Must be 1 for liveness and startup. Minimum value is 1.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of seconds after which the probe times out. Minimum value is 1.
+    """
 
 @pulumi.input_type
 class ProbeArgs:
@@ -7757,6 +7585,7 @@ class ProbeArgs:
                  timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Probe describes a health check to be performed against an App Instance to determine whether it is alive or ready to receive traffic.
+
         :param pulumi.Input[_builtins.bool] disable_probe: Indicate whether the probe is disabled.
         :param pulumi.Input[_builtins.int] failure_threshold: Minimum consecutive failures for the probe to be considered failed after having succeeded. Minimum value is 1.
         :param pulumi.Input[_builtins.int] initial_delay_seconds: Number of seconds after the App Instance has started before probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
@@ -7866,25 +7695,22 @@ class ProbeArgs:
         pulumi.set(self, "timeout_seconds", value)
 
 
-if not MYPY:
-    class QueueScaleRuleArgsDict(TypedDict):
-        """
-        Azure Spring Apps App Instance Azure Queue based scaling rule.
-        """
-        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
-        """
-        Authentication secrets for the queue scale rule.
-        """
-        queue_length: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Queue length.
-        """
-        queue_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Queue name.
-        """
-elif False:
-    QueueScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class QueueScaleRuleArgsDict(TypedDict):
+    """
+    Azure Spring Apps App Instance Azure Queue based scaling rule.
+    """
+    auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+    """
+    Authentication secrets for the queue scale rule.
+    """
+    queue_length: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Queue length.
+    """
+    queue_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Queue name.
+    """
 
 @pulumi.input_type
 class QueueScaleRuleArgs:
@@ -7894,6 +7720,7 @@ class QueueScaleRuleArgs:
                  queue_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Azure Spring Apps App Instance Azure Queue based scaling rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the queue scale rule.
         :param pulumi.Input[_builtins.int] queue_length: Queue length.
         :param pulumi.Input[_builtins.str] queue_name: Queue name.
@@ -7942,21 +7769,18 @@ class QueueScaleRuleArgs:
         pulumi.set(self, "queue_name", value)
 
 
-if not MYPY:
-    class ResourceRequestsArgsDict(TypedDict):
-        """
-        Deployment resource request payload
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
-        """
-        memory: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
-        """
-elif False:
-    ResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceRequestsArgsDict(TypedDict):
+    """
+    Deployment resource request payload
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
+    """
+    memory: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
+    """
 
 @pulumi.input_type
 class ResourceRequestsArgs:
@@ -7965,6 +7789,7 @@ class ResourceRequestsArgs:
                  memory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Deployment resource request payload
+
         :param pulumi.Input[_builtins.str] cpu: Required CPU. 1 core can be represented by 1 or 1000m. This should be 500m or 1 for Basic tier, and {500m, 1, 2, 3, 4} for Standard tier.
         :param pulumi.Input[_builtins.str] memory: Required memory. 1 GB can be represented by 1Gi or 1024Mi. This should be {512Mi, 1Gi, 2Gi} for Basic tier, and {512Mi, 1Gi, 2Gi, ..., 8Gi} for Standard tier.
         """
@@ -7998,21 +7823,18 @@ class ResourceRequestsArgs:
         pulumi.set(self, "memory", value)
 
 
-if not MYPY:
-    class ScaleRuleAuthArgsDict(TypedDict):
-        """
-        Auth Secrets for Azure Spring Apps App Instance Scale Rule
-        """
-        secret_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Azure Spring Apps App Instance secret from which to pull the auth params.
-        """
-        trigger_parameter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Trigger Parameter that uses the secret
-        """
-elif False:
-    ScaleRuleAuthArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleRuleAuthArgsDict(TypedDict):
+    """
+    Auth Secrets for Azure Spring Apps App Instance Scale Rule
+    """
+    secret_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Azure Spring Apps App Instance secret from which to pull the auth params.
+    """
+    trigger_parameter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Trigger Parameter that uses the secret
+    """
 
 @pulumi.input_type
 class ScaleRuleAuthArgs:
@@ -8021,6 +7843,7 @@ class ScaleRuleAuthArgs:
                  trigger_parameter: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Auth Secrets for Azure Spring Apps App Instance Scale Rule
+
         :param pulumi.Input[_builtins.str] secret_ref: Name of the Azure Spring Apps App Instance secret from which to pull the auth params.
         :param pulumi.Input[_builtins.str] trigger_parameter: Trigger Parameter that uses the secret
         """
@@ -8054,33 +7877,30 @@ class ScaleRuleAuthArgs:
         pulumi.set(self, "trigger_parameter", value)
 
 
-if not MYPY:
-    class ScaleRuleArgsDict(TypedDict):
-        """
-        Azure Spring Apps App Instance scaling rule.
-        """
-        azure_queue: NotRequired[pulumi.Input['QueueScaleRuleArgsDict']]
-        """
-        Azure Queue based scaling.
-        """
-        custom: NotRequired[pulumi.Input['CustomScaleRuleArgsDict']]
-        """
-        Custom scale rule.
-        """
-        http: NotRequired[pulumi.Input['HttpScaleRuleArgsDict']]
-        """
-        HTTP requests based scaling.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scale Rule Name
-        """
-        tcp: NotRequired[pulumi.Input['TcpScaleRuleArgsDict']]
-        """
-        Tcp requests based scaling.
-        """
-elif False:
-    ScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleRuleArgsDict(TypedDict):
+    """
+    Azure Spring Apps App Instance scaling rule.
+    """
+    azure_queue: NotRequired[pulumi.Input['QueueScaleRuleArgsDict']]
+    """
+    Azure Queue based scaling.
+    """
+    custom: NotRequired[pulumi.Input['CustomScaleRuleArgsDict']]
+    """
+    Custom scale rule.
+    """
+    http: NotRequired[pulumi.Input['HttpScaleRuleArgsDict']]
+    """
+    HTTP requests based scaling.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scale Rule Name
+    """
+    tcp: NotRequired[pulumi.Input['TcpScaleRuleArgsDict']]
+    """
+    Tcp requests based scaling.
+    """
 
 @pulumi.input_type
 class ScaleRuleArgs:
@@ -8092,6 +7912,7 @@ class ScaleRuleArgs:
                  tcp: Optional[pulumi.Input['TcpScaleRuleArgs']] = None):
         """
         Azure Spring Apps App Instance scaling rule.
+
         :param pulumi.Input['QueueScaleRuleArgs'] azure_queue: Azure Queue based scaling.
         :param pulumi.Input['CustomScaleRuleArgs'] custom: Custom scale rule.
         :param pulumi.Input['HttpScaleRuleArgs'] http: HTTP requests based scaling.
@@ -8170,25 +7991,22 @@ class ScaleRuleArgs:
         pulumi.set(self, "tcp", value)
 
 
-if not MYPY:
-    class ScaleArgsDict(TypedDict):
-        """
-        Azure Spring Apps scaling configurations.
-        """
-        max_replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Optional. Maximum number of container replicas. Defaults to 10 if not set.
-        """
-        min_replicas: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Optional. Minimum number of container replicas.
-        """
-        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]]
-        """
-        Scaling rules.
-        """
-elif False:
-    ScaleArgsDict: TypeAlias = Mapping[str, Any]
+class ScaleArgsDict(TypedDict):
+    """
+    Azure Spring Apps scaling configurations.
+    """
+    max_replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Optional. Maximum number of container replicas. Defaults to 10 if not set.
+    """
+    min_replicas: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Optional. Minimum number of container replicas.
+    """
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgsDict']]]]
+    """
+    Scaling rules.
+    """
 
 @pulumi.input_type
 class ScaleArgs:
@@ -8198,6 +8016,7 @@ class ScaleArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]] = None):
         """
         Azure Spring Apps scaling configurations.
+
         :param pulumi.Input[_builtins.int] max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
         :param pulumi.Input[_builtins.int] min_replicas: Optional. Minimum number of container replicas.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]] rules: Scaling rules.
@@ -8248,21 +8067,18 @@ class ScaleArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class SecretArgsDict(TypedDict):
-        """
-        Secret definition.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret Name.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secret Value.
-        """
-elif False:
-    SecretArgsDict: TypeAlias = Mapping[str, Any]
+class SecretArgsDict(TypedDict):
+    """
+    Secret definition.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret Name.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secret Value.
+    """
 
 @pulumi.input_type
 class SecretArgs:
@@ -8271,6 +8087,7 @@ class SecretArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Secret definition.
+
         :param pulumi.Input[_builtins.str] name: Secret Name.
         :param pulumi.Input[_builtins.str] value: Secret Value.
         """
@@ -8304,21 +8121,18 @@ class SecretArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ServiceVNetAddonsArgsDict(TypedDict):
-        """
-        Additional Service settings in vnet injection instance
-        """
-        data_plane_public_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
-        """
-        log_stream_public_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the log stream in vnet injection instance could be accessed from internet.
-        """
-elif False:
-    ServiceVNetAddonsArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceVNetAddonsArgsDict(TypedDict):
+    """
+    Additional Service settings in vnet injection instance
+    """
+    data_plane_public_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
+    """
+    log_stream_public_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the log stream in vnet injection instance could be accessed from internet.
+    """
 
 @pulumi.input_type
 class ServiceVNetAddonsArgs:
@@ -8327,6 +8141,7 @@ class ServiceVNetAddonsArgs:
                  log_stream_public_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Additional Service settings in vnet injection instance
+
         :param pulumi.Input[_builtins.bool] data_plane_public_endpoint: Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.
         :param pulumi.Input[_builtins.bool] log_stream_public_endpoint: Indicates whether the log stream in vnet injection instance could be accessed from internet.
         """
@@ -8364,25 +8179,22 @@ class ServiceVNetAddonsArgs:
         pulumi.set(self, "log_stream_public_endpoint", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        Sku of Azure Spring Apps
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Current capacity of the target resource
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Sku
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tier of the Sku
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    Sku of Azure Spring Apps
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Current capacity of the target resource
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Sku
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tier of the Sku
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -8392,6 +8204,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Sku of Azure Spring Apps
+
         :param pulumi.Input[_builtins.int] capacity: Current capacity of the target resource
         :param pulumi.Input[_builtins.str] name: Name of the Sku
         :param pulumi.Input[_builtins.str] tier: Tier of the Sku
@@ -8444,35 +8257,32 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class SourceUploadedUserSourceInfoArgsDict(TypedDict):
-        """
-        Uploaded Java source code binary for a deployment
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'Source'.
-        """
-        artifact_selector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Selector for the artifact to be used for the deployment for multi-module projects. This should be
-        the relative path to the target module/project.
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relative path of the storage which stores the source
-        """
-        runtime_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Runtime version of the source file
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    SourceUploadedUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class SourceUploadedUserSourceInfoArgsDict(TypedDict):
+    """
+    Uploaded Java source code binary for a deployment
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'Source'.
+    """
+    artifact_selector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Selector for the artifact to be used for the deployment for multi-module projects. This should be
+    the relative path to the target module/project.
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relative path of the storage which stores the source
+    """
+    runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Runtime version of the source file
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class SourceUploadedUserSourceInfoArgs:
@@ -8484,6 +8294,7 @@ class SourceUploadedUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Uploaded Java source code binary for a deployment
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'Source'.
         :param pulumi.Input[_builtins.str] artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
@@ -8565,29 +8376,26 @@ class SourceUploadedUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SsoPropertiesArgsDict(TypedDict):
-        """
-        Single sign-on related configuration
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public identifier for the application
-        """
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret known only to the application and the authorization server
-        """
-        issuer_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URI of Issuer Identifier
-        """
-        scope: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        It defines the specific actions applications can be allowed to do on a user's behalf
-        """
-elif False:
-    SsoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SsoPropertiesArgsDict(TypedDict):
+    """
+    Single sign-on related configuration
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public identifier for the application
+    """
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret known only to the application and the authorization server
+    """
+    issuer_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URI of Issuer Identifier
+    """
+    scope: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    It defines the specific actions applications can be allowed to do on a user's behalf
+    """
 
 @pulumi.input_type
 class SsoPropertiesArgs:
@@ -8598,6 +8406,7 @@ class SsoPropertiesArgs:
                  scope: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Single sign-on related configuration
+
         :param pulumi.Input[_builtins.str] client_id: The public identifier for the application
         :param pulumi.Input[_builtins.str] client_secret: The secret known only to the application and the authorization server
         :param pulumi.Input[_builtins.str] issuer_uri: The URI of Issuer Identifier
@@ -8661,21 +8470,18 @@ class SsoPropertiesArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class StackPropertiesArgsDict(TypedDict):
-        """
-        KPack ClusterStack properties payload
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id of the ClusterStack.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the ClusterStack
-        """
-elif False:
-    StackPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StackPropertiesArgsDict(TypedDict):
+    """
+    KPack ClusterStack properties payload
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id of the ClusterStack.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the ClusterStack
+    """
 
 @pulumi.input_type
 class StackPropertiesArgs:
@@ -8684,6 +8490,7 @@ class StackPropertiesArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         KPack ClusterStack properties payload
+
         :param pulumi.Input[_builtins.str] id: Id of the ClusterStack.
         :param pulumi.Input[_builtins.str] version: Version of the ClusterStack
         """
@@ -8717,26 +8524,23 @@ class StackPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class StorageAccountArgsDict(TypedDict):
-        """
-        storage resource of type Azure Storage Account.
-        """
-        account_key: pulumi.Input[_builtins.str]
-        """
-        The account key of the Azure Storage Account.
-        """
-        account_name: pulumi.Input[_builtins.str]
-        """
-        The account name of the Azure Storage Account.
-        """
-        storage_type: pulumi.Input[_builtins.str]
-        """
-        The type of the storage.
-        Expected value is 'StorageAccount'.
-        """
-elif False:
-    StorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class StorageAccountArgsDict(TypedDict):
+    """
+    storage resource of type Azure Storage Account.
+    """
+    account_key: pulumi.Input[_builtins.str]
+    """
+    The account key of the Azure Storage Account.
+    """
+    account_name: pulumi.Input[_builtins.str]
+    """
+    The account name of the Azure Storage Account.
+    """
+    storage_type: pulumi.Input[_builtins.str]
+    """
+    The type of the storage.
+    Expected value is 'StorageAccount'.
+    """
 
 @pulumi.input_type
 class StorageAccountArgs:
@@ -8746,6 +8550,7 @@ class StorageAccountArgs:
                  storage_type: pulumi.Input[_builtins.str]):
         """
         storage resource of type Azure Storage Account.
+
         :param pulumi.Input[_builtins.str] account_key: The account key of the Azure Storage Account.
         :param pulumi.Input[_builtins.str] account_name: The account name of the Azure Storage Account.
         :param pulumi.Input[_builtins.str] storage_type: The type of the storage.
@@ -8793,18 +8598,15 @@ class StorageAccountArgs:
         pulumi.set(self, "storage_type", value)
 
 
-if not MYPY:
-    class TCPSocketActionArgsDict(TypedDict):
-        """
-        TCPSocketAction describes an action based on opening a socket
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the action to take to perform the health check.
-        Expected value is 'TCPSocketAction'.
-        """
-elif False:
-    TCPSocketActionArgsDict: TypeAlias = Mapping[str, Any]
+class TCPSocketActionArgsDict(TypedDict):
+    """
+    TCPSocketAction describes an action based on opening a socket
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the action to take to perform the health check.
+    Expected value is 'TCPSocketAction'.
+    """
 
 @pulumi.input_type
 class TCPSocketActionArgs:
@@ -8812,6 +8614,7 @@ class TCPSocketActionArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         TCPSocketAction describes an action based on opening a socket
+
         :param pulumi.Input[_builtins.str] type: The type of the action to take to perform the health check.
                Expected value is 'TCPSocketAction'.
         """
@@ -8831,21 +8634,18 @@ class TCPSocketActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TcpScaleRuleArgsDict(TypedDict):
-        """
-        Azure Spring Apps App Instance Tcp scaling rule.
-        """
-        auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
-        """
-        Authentication secrets for the tcp scale rule.
-        """
-        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Metadata properties to describe tcp scale rule.
-        """
-elif False:
-    TcpScaleRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TcpScaleRuleArgsDict(TypedDict):
+    """
+    Azure Spring Apps App Instance Tcp scaling rule.
+    """
+    auth: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgsDict']]]]
+    """
+    Authentication secrets for the tcp scale rule.
+    """
+    metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Metadata properties to describe tcp scale rule.
+    """
 
 @pulumi.input_type
 class TcpScaleRuleArgs:
@@ -8854,6 +8654,7 @@ class TcpScaleRuleArgs:
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Azure Spring Apps App Instance Tcp scaling rule.
+
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]] auth: Authentication secrets for the tcp scale rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe tcp scale rule.
         """
@@ -8887,21 +8688,18 @@ class TcpScaleRuleArgs:
         pulumi.set(self, "metadata", value)
 
 
-if not MYPY:
-    class TemporaryDiskArgsDict(TypedDict):
-        """
-        Temporary disk payload
-        """
-        mount_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Mount path of the temporary disk
-        """
-        size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the temporary disk in GB
-        """
-elif False:
-    TemporaryDiskArgsDict: TypeAlias = Mapping[str, Any]
+class TemporaryDiskArgsDict(TypedDict):
+    """
+    Temporary disk payload
+    """
+    mount_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Mount path of the temporary disk
+    """
+    size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the temporary disk in GB
+    """
 
 @pulumi.input_type
 class TemporaryDiskArgs:
@@ -8910,6 +8708,7 @@ class TemporaryDiskArgs:
                  size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Temporary disk payload
+
         :param pulumi.Input[_builtins.str] mount_path: Mount path of the temporary disk
         :param pulumi.Input[_builtins.int] size_in_gb: Size of the temporary disk in GB
         """
@@ -8945,26 +8744,23 @@ class TemporaryDiskArgs:
         pulumi.set(self, "size_in_gb", value)
 
 
-if not MYPY:
-    class UploadedUserSourceInfoArgsDict(TypedDict):
-        """
-        Source with uploaded location
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'UploadedUserSourceInfo'.
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relative path of the storage which stores the source
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    UploadedUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class UploadedUserSourceInfoArgsDict(TypedDict):
+    """
+    Source with uploaded location
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'UploadedUserSourceInfo'.
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relative path of the storage which stores the source
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class UploadedUserSourceInfoArgs:
@@ -8974,6 +8770,7 @@ class UploadedUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Source with uploaded location
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'UploadedUserSourceInfo'.
         :param pulumi.Input[_builtins.str] relative_path: Relative path of the storage which stores the source
@@ -9023,38 +8820,35 @@ class UploadedUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class WarUploadedUserSourceInfoArgsDict(TypedDict):
-        """
-        Uploaded War binary for a deployment
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of the source uploaded
-        Expected value is 'War'.
-        """
-        jvm_options: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JVM parameter
-        """
-        relative_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Relative path of the storage which stores the source
-        """
-        runtime_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Runtime version of the war file
-        """
-        server_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Server version, currently only Apache Tomcat is supported
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the source
-        """
-elif False:
-    WarUploadedUserSourceInfoArgsDict: TypeAlias = Mapping[str, Any]
+class WarUploadedUserSourceInfoArgsDict(TypedDict):
+    """
+    Uploaded War binary for a deployment
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the source uploaded
+    Expected value is 'War'.
+    """
+    jvm_options: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    JVM parameter
+    """
+    relative_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Relative path of the storage which stores the source
+    """
+    runtime_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Runtime version of the war file
+    """
+    server_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Server version, currently only Apache Tomcat is supported
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the source
+    """
 
 @pulumi.input_type
 class WarUploadedUserSourceInfoArgs:
@@ -9067,6 +8861,7 @@ class WarUploadedUserSourceInfoArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Uploaded War binary for a deployment
+
         :param pulumi.Input[_builtins.str] type: Type of the source uploaded
                Expected value is 'War'.
         :param pulumi.Input[_builtins.str] jvm_options: JVM parameter
@@ -9161,26 +8956,23 @@ class WarUploadedUserSourceInfoArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class WeeklyMaintenanceScheduleConfigurationArgsDict(TypedDict):
-        """
-        Weekly planned maintenance
-        """
-        day: pulumi.Input[Union[_builtins.str, 'WeekDay']]
-        """
-        The day to run the maintenance job
-        """
-        frequency: pulumi.Input[_builtins.str]
-        """
-        The frequency to run the maintenance job
-        Expected value is 'Weekly'.
-        """
-        hour: pulumi.Input[_builtins.int]
-        """
-        The hour to run the maintenance job
-        """
-elif False:
-    WeeklyMaintenanceScheduleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WeeklyMaintenanceScheduleConfigurationArgsDict(TypedDict):
+    """
+    Weekly planned maintenance
+    """
+    day: pulumi.Input[Union[_builtins.str, 'WeekDay']]
+    """
+    The day to run the maintenance job
+    """
+    frequency: pulumi.Input[_builtins.str]
+    """
+    The frequency to run the maintenance job
+    Expected value is 'Weekly'.
+    """
+    hour: pulumi.Input[_builtins.int]
+    """
+    The hour to run the maintenance job
+    """
 
 @pulumi.input_type
 class WeeklyMaintenanceScheduleConfigurationArgs:
@@ -9190,6 +8982,7 @@ class WeeklyMaintenanceScheduleConfigurationArgs:
                  hour: pulumi.Input[_builtins.int]):
         """
         Weekly planned maintenance
+
         :param pulumi.Input[Union[_builtins.str, 'WeekDay']] day: The day to run the maintenance job
         :param pulumi.Input[_builtins.str] frequency: The frequency to run the maintenance job
                Expected value is 'Weekly'.

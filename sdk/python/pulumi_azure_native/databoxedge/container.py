@@ -28,6 +28,7 @@ class ContainerArgs:
                  container_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Container resource.
+
         :param pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']] data_format: DataFormat for Container
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -121,6 +122,31 @@ class Container(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ContainerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container = azure_native.databoxedge.Container("container",
+            container_name="blobcontainer1",
+            data_format=azure_native.databoxedge.AzureContainerDataFormat.BLOCK_BLOB,
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            storage_account_name="storageaccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Container blobcontainer-5e155efe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccounts/{storageAccountName}/containers/{containerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_name: The container name.
@@ -141,6 +167,31 @@ class Container(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ContainerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container = azure_native.databoxedge.Container("container",
+            container_name="blobcontainer1",
+            data_format=azure_native.databoxedge.AzureContainerDataFormat.BLOCK_BLOB,
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            storage_account_name="storageaccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Container blobcontainer-5e155efe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccounts/{storageAccountName}/containers/{containerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.

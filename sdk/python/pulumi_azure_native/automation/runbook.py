@@ -37,6 +37,7 @@ class RunbookArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Runbook resource.
+
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
@@ -259,6 +260,70 @@ class Runbook(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update runbook and publish it
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        runbook = azure_native.automation.Runbook("runbook",
+            automation_account_name="ContoseAutomationAccount",
+            description="Description of the Runbook",
+            location="East US 2",
+            log_activity_trace=1,
+            log_progress=True,
+            log_verbose=False,
+            name="Get-AzureVMTutorial",
+            publish_content_link={
+                "content_hash": {
+                    "algorithm": "SHA256",
+                    "value": "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+                },
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            },
+            resource_group_name="rg",
+            runbook_name="Get-AzureVMTutorial",
+            runbook_type=azure_native.automation.RunbookTypeEnum.POWER_SHELL_WORKFLOW,
+            tags={
+                "tag01": "value01",
+                "tag02": "value02",
+            })
+
+        ```
+        ### Create runbook as draft
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        runbook = azure_native.automation.Runbook("runbook",
+            automation_account_name="ContoseAutomationAccount",
+            description="Description of the Runbook",
+            draft={},
+            location="East US 2",
+            log_progress=False,
+            log_verbose=False,
+            name="Get-AzureVMTutorial",
+            resource_group_name="rg",
+            runbook_name="Get-AzureVMTutorial",
+            runbook_type=azure_native.automation.RunbookTypeEnum.POWER_SHELL_WORKFLOW,
+            tags={
+                "tag01": "value01",
+                "tag02": "value02",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Runbook Get-AzureVMTutorial /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runbooks/{runbookName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
@@ -287,6 +352,70 @@ class Runbook(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update runbook and publish it
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        runbook = azure_native.automation.Runbook("runbook",
+            automation_account_name="ContoseAutomationAccount",
+            description="Description of the Runbook",
+            location="East US 2",
+            log_activity_trace=1,
+            log_progress=True,
+            log_verbose=False,
+            name="Get-AzureVMTutorial",
+            publish_content_link={
+                "content_hash": {
+                    "algorithm": "SHA256",
+                    "value": "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+                },
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            },
+            resource_group_name="rg",
+            runbook_name="Get-AzureVMTutorial",
+            runbook_type=azure_native.automation.RunbookTypeEnum.POWER_SHELL_WORKFLOW,
+            tags={
+                "tag01": "value01",
+                "tag02": "value02",
+            })
+
+        ```
+        ### Create runbook as draft
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        runbook = azure_native.automation.Runbook("runbook",
+            automation_account_name="ContoseAutomationAccount",
+            description="Description of the Runbook",
+            draft={},
+            location="East US 2",
+            log_progress=False,
+            log_verbose=False,
+            name="Get-AzureVMTutorial",
+            resource_group_name="rg",
+            runbook_name="Get-AzureVMTutorial",
+            runbook_type=azure_native.automation.RunbookTypeEnum.POWER_SHELL_WORKFLOW,
+            tags={
+                "tag01": "value01",
+                "tag02": "value02",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Runbook Get-AzureVMTutorial /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runbooks/{runbookName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RunbookArgs args: The arguments to use to populate this resource's properties.

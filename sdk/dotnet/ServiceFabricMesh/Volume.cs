@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// This type describes a volume resource.
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateVolume
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ServiceFabricMesh.Volume("volume", new()
+    ///     {
+    ///         AzureFileParameters = new AzureNative.ServiceFabricMesh.Inputs.VolumeProviderParametersAzureFileArgs
+    ///         {
+    ///             AccountKey = "provide-account-key-here",
+    ///             AccountName = "sbzdemoaccount",
+    ///             ShareName = "sharel",
+    ///         },
+    ///         Description = "Service Fabric Mesh sample volume.",
+    ///         Location = "EastUS",
+    ///         Provider = AzureNative.ServiceFabricMesh.VolumeProvider.SFAzureFile,
+    ///         ResourceGroupName = "sbz_demo",
+    ///         Tags = null,
+    ///         VolumeResourceName = "sampleVolume",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh:Volume sampleVolume /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/volumes/{volumeResourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

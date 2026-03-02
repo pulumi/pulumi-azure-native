@@ -15,6 +15,73 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
     /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### WebAppAssessmentV2Operations_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppAssessmentV2Operation = new AzureNative.Migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation", new()
+    ///     {
+    ///         AppSvcContainerSettings = new AzureNative.Migrate.Inputs.AppSvcContainerSettingsArgs
+    ///         {
+    ///             IsolationRequired = true,
+    ///         },
+    ///         AppSvcNativeSettings = new AzureNative.Migrate.Inputs.AppSvcNativeSettingsArgs
+    ///         {
+    ///             IsolationRequired = true,
+    ///         },
+    ///         AssessmentName = "anraghun-selfhost-v2",
+    ///         AssessmentType = AzureNative.Migrate.AssessmentType.WebAppAssessment,
+    ///         AzureLocation = "UkWest",
+    ///         AzureOfferCode = AzureNative.Migrate.AzureOfferCode.Msazr0003P,
+    ///         AzureSecurityOfferingType = AzureNative.Migrate.AzureSecurityOfferingType.NO,
+    ///         ConfidenceRatingInPercentage = 13,
+    ///         Currency = AzureNative.Migrate.AzureCurrency.USD,
+    ///         DiscountPercentage = 13,
+    ///         DiscoveredEntityLightSummary = new AzureNative.Migrate.Inputs.DiscoveredEntityLightSummaryArgs
+    ///         {
+    ///             NumberOfMachines = 27,
+    ///             NumberOfServers = 5,
+    ///             NumberOfWebApps = 23,
+    ///         },
+    ///         EaSubscriptionId = "",
+    ///         EntityUptime = new AzureNative.Migrate.Inputs.EntityUptimeArgs
+    ///         {
+    ///             DaysPerMonth = 18,
+    ///             HoursPerDay = 13,
+    ///         },
+    ///         EnvironmentType = AzureNative.Migrate.EnvironmentType.Production,
+    ///         GroupName = "anraghun-selfhost-v2",
+    ///         GroupType = AzureNative.Migrate.GroupType.Default,
+    ///         Percentile = AzureNative.Migrate.Percentile.Percentile50,
+    ///         PerfDataEndTime = "2023-11-03T05:42:45.496Z",
+    ///         PerfDataStartTime = "2023-11-03T05:42:45.496Z",
+    ///         ProjectName = "sumukk-ccy-bcs4557project",
+    ///         ReservedInstance = AzureNative.Migrate.AzureReservedInstance.None,
+    ///         ResourceGroupName = "rgopenapi",
+    ///         ScalingFactor = 17,
+    ///         SizingCriterion = AzureNative.Migrate.AssessmentSizingCriterion.PerformanceBased,
+    ///         TimeRange = AzureNative.Migrate.TimeRange.Day,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:WebAppAssessmentV2Operation anraghun-v2-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/webAppAssessments/{assessmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:WebAppAssessmentV2Operation")]
     public partial class WebAppAssessmentV2Operation : global::Pulumi.CustomResource

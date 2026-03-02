@@ -27,6 +27,7 @@ class PrivateEndpointArgs:
                  private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpoint resource.
+
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
@@ -104,6 +105,33 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
 
+        ## Example Usage
+        ### Create a private endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.streamanalytics.PrivateEndpoint("privateEndpoint",
+            cluster_name="testcluster",
+            manual_private_link_service_connections=[{
+                "group_ids": ["groupIdFromResource"],
+                "private_link_service_id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+            }],
+            private_endpoint_name="testpe",
+            resource_group_name="sjrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics:PrivateEndpoint An Example Private Endpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName}/privateEndpoints/{privateEndpointName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
@@ -121,6 +149,33 @@ class PrivateEndpoint(pulumi.CustomResource):
         Complete information about the private endpoint.
 
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
+
+        ## Example Usage
+        ### Create a private endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.streamanalytics.PrivateEndpoint("privateEndpoint",
+            cluster_name="testcluster",
+            manual_private_link_service_connections=[{
+                "group_ids": ["groupIdFromResource"],
+                "private_link_service_id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+            }],
+            private_endpoint_name="testpe",
+            resource_group_name="sjrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics:PrivateEndpoint An Example Private Endpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName}/privateEndpoints/{privateEndpointName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.

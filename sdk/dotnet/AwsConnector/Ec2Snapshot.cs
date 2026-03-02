@@ -13,6 +13,90 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2Snapshots_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2Snapshot = new AzureNative.AwsConnector.Ec2Snapshot("ec2Snapshot", new()
+    ///     {
+    ///         Location = "kqbtvnmdasfajwylafmkah",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2SnapshotPropertiesArgs
+    ///         {
+    ///             Arn = "z",
+    ///             AwsAccountId = "iizqmtavivxapbfqrqqrauezng",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2SnapshotPropertiesArgs
+    ///             {
+    ///                 DataEncryptionKeyId = "mhxbzyyikypulohbdxtpoldzxm",
+    ///                 Description = "tsduasxksmdr",
+    ///                 Encrypted = true,
+    ///                 KmsKeyId = "djnzahvxonsnocqhz",
+    ///                 OutpostArn = "vpqkamzadulbg",
+    ///                 OwnerAlias = "bmfwdqpzxg",
+    ///                 OwnerId = "xudlgprkedlmxatpupwvaknlkxfs",
+    ///                 Progress = "ecdblvtjkixoklgjh",
+    ///                 RestoreExpiryTime = "2024-10-08T03:53:51.251Z",
+    ///                 SnapshotId = "lpcr",
+    ///                 SseType = new AzureNative.AwsConnector.Inputs.SSETypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.SSEType.None,
+    ///                 },
+    ///                 StartTime = "2024-10-08T03:53:51.251Z",
+    ///                 State = new AzureNative.AwsConnector.Inputs.SnapshotStateEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.SnapshotState.Completed,
+    ///                 },
+    ///                 StateMessage = "nogwovxkgpjylsijzipkpqzxpvjh",
+    ///                 StorageTier = new AzureNative.AwsConnector.Inputs.StorageTierEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.StorageTier.Archive,
+    ///                 },
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "xjeeorwcwraovqjs",
+    ///                         Value = "vjhh",
+    ///                     },
+    ///                 },
+    ///                 VolumeId = "rzepawgzsvqncqbpjxnijhwofbgc",
+    ///                 VolumeSize = 3,
+    ///             },
+    ///             AwsRegion = "yylufbdgujuqmqwhscnglwsa",
+    ///             AwsSourceSchema = "gmzpssyyjoqqnqjxwcluwnyrswywcv",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key9124", "okxaaygyj" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "bfcselosmakgrkibu",
+    ///             PublicCloudResourceName = "eyltdaumfqmdgmnlwpgjhjlavikc",
+    ///         },
+    ///         ResourceGroupName = "rgec2Snapshot",
+    ///         Tags = 
+    ///         {
+    ///             { "key9392", "chbsxcwosjxo" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2Snapshot ewnypudielhizpefkqlexr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Snapshots/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2Snapshot")]
     public partial class Ec2Snapshot : global::Pulumi.CustomResource

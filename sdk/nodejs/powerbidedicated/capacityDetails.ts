@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Represents an instance of a Dedicated Capacity resource.
  *
  * Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
+ *
+ * ## Example Usage
+ * ### Create capacity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const capacityDetails = new azure_native.powerbidedicated.CapacityDetails("capacityDetails", {
+ *     administration: {
+ *         members: [
+ *             "azsdktest@microsoft.com",
+ *             "azsdktest2@microsoft.com",
+ *         ],
+ *     },
+ *     dedicatedCapacityName: "azsdktest",
+ *     location: "West US",
+ *     resourceGroupName: "TestRG",
+ *     sku: {
+ *         name: "A1",
+ *         tier: azure_native.powerbidedicated.CapacitySkuTier.PBIE_Azure,
+ *     },
+ *     tags: {
+ *         testKey: "testValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerbidedicated:CapacityDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName} 
+ * ```
  */
 export class CapacityDetails extends pulumi.CustomResource {
     /**

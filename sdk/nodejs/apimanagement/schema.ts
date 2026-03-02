@@ -11,6 +11,70 @@ import * as utilities from "../utilities";
  * Schema Contract details.
  *
  * Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateSchema1
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schema = new azure_native.apimanagement.Schema("schema", {
+ *     description: "sample schema description",
+ *     resourceGroupName: "rg1",
+ *     schemaId: "schema1",
+ *     schemaType: azure_native.apimanagement.SchemaType.Xml,
+ *     serviceName: "apimService1",
+ *     value: `<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"\x0d
+ *            xmlns:tns="http://tempuri.org/PurchaseOrderSchema.xsd"\x0d
+ *            targetNamespace="http://tempuri.org/PurchaseOrderSchema.xsd"\x0d
+ *            elementFormDefault="qualified">\x0d
+ *  <xsd:element name="PurchaseOrder" type="tns:PurchaseOrderType"/>\x0d
+ *  <xsd:complexType name="PurchaseOrderType">\x0d
+ *   <xsd:sequence>\x0d
+ *    <xsd:element name="ShipTo" type="tns:USAddress" maxOccurs="2"/>\x0d
+ *    <xsd:element name="BillTo" type="tns:USAddress"/>\x0d
+ *   </xsd:sequence>\x0d
+ *   <xsd:attribute name="OrderDate" type="xsd:date"/>\x0d
+ *  </xsd:complexType>\x0d
+ * \x0d
+ *  <xsd:complexType name="USAddress">\x0d
+ *   <xsd:sequence>\x0d
+ *    <xsd:element name="name"   type="xsd:string"/>\x0d
+ *    <xsd:element name="street" type="xsd:string"/>\x0d
+ *    <xsd:element name="city"   type="xsd:string"/>\x0d
+ *    <xsd:element name="state"  type="xsd:string"/>\x0d
+ *    <xsd:element name="zip"    type="xsd:integer"/>\x0d
+ *   </xsd:sequence>\x0d
+ *   <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US"/>\x0d
+ *  </xsd:complexType>\x0d
+ * </xsd:schema>`,
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateSchema2
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schema = new azure_native.apimanagement.Schema("schema", {
+ *     description: "sample schema description",
+ *     resourceGroupName: "rg1",
+ *     schemaId: "schema1",
+ *     schemaType: azure_native.apimanagement.SchemaType.Json,
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:Schema schema1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/schemas/{schemaId} 
+ * ```
  */
 export class Schema extends pulumi.CustomResource {
     /**

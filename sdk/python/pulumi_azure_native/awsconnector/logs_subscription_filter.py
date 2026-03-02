@@ -29,6 +29,7 @@ class LogsSubscriptionFilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsSubscriptionFilter resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of LogsSubscriptionFilter
@@ -123,6 +124,51 @@ class LogsSubscriptionFilter(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### LogsSubscriptionFilters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logs_subscription_filter = azure_native.awsconnector.LogsSubscriptionFilter("logsSubscriptionFilter",
+            location="chliijcrgqpxjf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "sbvdldikixyoalpxj",
+                "aws_account_id": "fckvzypgfibfyknjwyrvmez",
+                "aws_properties": {
+                    "destination_arn": "k",
+                    "distribution": azure_native.awsconnector.Distribution.BY_LOG_STREAM,
+                    "filter_name": "tboamjix",
+                    "filter_pattern": "ui",
+                    "log_group_name": "ku",
+                    "role_arn": "qgjbnrzdeigsxsfrkkfiaf",
+                },
+                "aws_region": "oogmbpnzqlvdmcntbzbsi",
+                "aws_source_schema": "anvmszmmknfesvacxje",
+                "aws_tags": {
+                    "key7628": "ipzrwulgfuznh",
+                },
+                "public_cloud_connectors_resource_id": "ywjmogqrbdroewncecotnxyijemqjz",
+                "public_cloud_resource_name": "gilkw",
+            },
+            resource_group_name="rglogsSubscriptionFilter",
+            tags={
+                "key9410": "ajuntrgfwfnfaobudwmc",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LogsSubscriptionFilter absefomwvezvofheloadtrcpwldja /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsSubscriptionFilters/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +187,51 @@ class LogsSubscriptionFilter(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### LogsSubscriptionFilters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logs_subscription_filter = azure_native.awsconnector.LogsSubscriptionFilter("logsSubscriptionFilter",
+            location="chliijcrgqpxjf",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "sbvdldikixyoalpxj",
+                "aws_account_id": "fckvzypgfibfyknjwyrvmez",
+                "aws_properties": {
+                    "destination_arn": "k",
+                    "distribution": azure_native.awsconnector.Distribution.BY_LOG_STREAM,
+                    "filter_name": "tboamjix",
+                    "filter_pattern": "ui",
+                    "log_group_name": "ku",
+                    "role_arn": "qgjbnrzdeigsxsfrkkfiaf",
+                },
+                "aws_region": "oogmbpnzqlvdmcntbzbsi",
+                "aws_source_schema": "anvmszmmknfesvacxje",
+                "aws_tags": {
+                    "key7628": "ipzrwulgfuznh",
+                },
+                "public_cloud_connectors_resource_id": "ywjmogqrbdroewncecotnxyijemqjz",
+                "public_cloud_resource_name": "gilkw",
+            },
+            resource_group_name="rglogsSubscriptionFilter",
+            tags={
+                "key9410": "ajuntrgfwfnfaobudwmc",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LogsSubscriptionFilter absefomwvezvofheloadtrcpwldja /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsSubscriptionFilters/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsSubscriptionFilterArgs args: The arguments to use to populate this resource's properties.

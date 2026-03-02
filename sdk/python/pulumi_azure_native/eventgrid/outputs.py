@@ -141,6 +141,7 @@ class AzureFunctionEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the azure function destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'AzureFunction'.
         :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
@@ -232,6 +233,7 @@ class BoolEqualsAdvancedFilterResponse(dict):
                  value: Optional[_builtins.bool] = None):
         """
         BoolEquals Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'BoolEquals'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -297,6 +299,7 @@ class BoolEqualsFilterResponse(dict):
                  value: Optional[_builtins.bool] = None):
         """
         BoolEquals Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'BoolEquals'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -363,6 +366,7 @@ class ClientCertificateAuthenticationResponse(dict):
                  validation_scheme: Optional[_builtins.str] = None):
         """
         The certificate authentication properties for the client.
+
         :param Sequence[_builtins.str] allowed_thumbprints: The list of thumbprints that are allowed during client authentication. This property is required only if the validationScheme is 'ThumbprintMatch'.
         :param _builtins.str validation_scheme: The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
         """
@@ -416,6 +420,7 @@ class ConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         ConnectionState information.
+
         :param _builtins.str actions_required: Actions required (if any).
         :param _builtins.str description: Description of the connection state.
         :param _builtins.str status: Status of the connection.
@@ -491,6 +496,7 @@ class CustomDomainConfigurationResponse(dict):
                  validation_state: Optional[_builtins.str] = None):
         """
         A custom domain configuration that allows users to publish to their own domain name.
+
         :param _builtins.str fully_qualified_domain_name: Fully Qualified Domain Name (FQDN) for the custom domain.
         :param _builtins.str certificate_url: The URL for the certificate that is used for publishing to the custom domain. We currently support certificates stored in Azure Key Vault only. While certificate URL can be either
                versioned URL of the following format https://{key-vault-name}.vault.azure.net/certificates/{certificate-name}/{version-id}, or unversioned URL of the following format (e.g.,
@@ -592,6 +598,7 @@ class CustomDomainIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         The identity information for retrieving the certificate for the custom domain.
+
         :param _builtins.str type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         :param _builtins.str user_assigned_identity: The user identity associated with the resource.
         """
@@ -644,6 +651,7 @@ class DeadLetterWithResourceIdentityResponse(dict):
                  identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
         """
         Information about the deadletter destination with resource identity.
+
         :param 'StorageBlobDeadLetterDestinationResponse' dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         :param 'EventSubscriptionIdentityResponse' identity: The identity to use when dead-lettering events.
@@ -699,6 +707,7 @@ class DeliveryConfigurationResponse(dict):
                  queue: Optional['outputs.QueueInfoResponse'] = None):
         """
         Properties of the delivery configuration information of the event subscription.
+
         :param _builtins.str delivery_mode: Delivery mode of the event subscription.
         :param 'PushInfoResponse' push: This property should be populated when deliveryMode is push and represents information about the push subscription.
         :param 'QueueInfoResponse' queue: This property should be populated when deliveryMode is queue and represents information about the queue subscription.
@@ -745,6 +754,7 @@ class DeliveryWithResourceIdentityResponse(dict):
                  identity: Optional['outputs.EventSubscriptionIdentityResponse'] = None):
         """
         Information about the delivery for an event subscription with resource identity.
+
         :param Union['AzureFunctionEventSubscriptionDestinationResponse', 'EventHubEventSubscriptionDestinationResponse', 'HybridConnectionEventSubscriptionDestinationResponse', 'MonitorAlertEventSubscriptionDestinationResponse', 'NamespaceTopicEventSubscriptionDestinationResponse', 'ServiceBusQueueEventSubscriptionDestinationResponse', 'ServiceBusTopicEventSubscriptionDestinationResponse', 'StorageQueueEventSubscriptionDestinationResponse', 'WebHookEventSubscriptionDestinationResponse'] destination: Information about the destination where events have to be delivered for the event subscription.
                Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
         :param 'EventSubscriptionIdentityResponse' identity: The identity to use when delivering events.
@@ -800,6 +810,7 @@ class DynamicDeliveryAttributeMappingResponse(dict):
                  source_field: Optional[_builtins.str] = None):
         """
         Dynamic delivery attribute mapping details.
+
         :param _builtins.str type: Type of the delivery attribute or header name.
                Expected value is 'Dynamic'.
         :param _builtins.str name: Name of the delivery attribute or header.
@@ -900,6 +911,7 @@ class EventHubEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the event hub destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'EventHub'.
         :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
@@ -978,6 +990,7 @@ class EventSubscriptionFilterResponse(dict):
                  subject_ends_with: Optional[_builtins.str] = None):
         """
         Filter for the Event Subscription.
+
         :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
         :param _builtins.bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
         :param Sequence[_builtins.str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
@@ -1084,6 +1097,7 @@ class EventSubscriptionIdentityResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         The identity information with the event subscription.
+
         :param _builtins.str type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         :param _builtins.str user_assigned_identity: The user identity associated with the resource.
         """
@@ -1136,6 +1150,7 @@ class EventTypeInfoResponse(dict):
                  kind: Optional[_builtins.str] = None):
         """
         The event type information for Channels.
+
         :param Mapping[str, 'InlineEventPropertiesResponse'] inline_event_types: A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
                An example of a valid inline event name is "Contoso.OrderCreated".
                The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
@@ -1192,6 +1207,7 @@ class FiltersConfigurationResponse(dict):
                  included_event_types: Optional[Sequence[_builtins.str]] = None):
         """
         Filters configuration for the Event Subscription.
+
         :param Sequence[Union['BoolEqualsFilterResponse', 'IsNotNullFilterResponse', 'IsNullOrUndefinedFilterResponse', 'NumberGreaterThanFilterResponse', 'NumberGreaterThanOrEqualsFilterResponse', 'NumberInFilterResponse', 'NumberInRangeFilterResponse', 'NumberLessThanFilterResponse', 'NumberLessThanOrEqualsFilterResponse', 'NumberNotInFilterResponse', 'NumberNotInRangeFilterResponse', 'StringBeginsWithFilterResponse', 'StringContainsFilterResponse', 'StringEndsWithFilterResponse', 'StringInFilterResponse', 'StringNotBeginsWithFilterResponse', 'StringNotContainsFilterResponse', 'StringNotEndsWithFilterResponse', 'StringNotInFilterResponse']] filters: An array of filters that are used for filtering event subscriptions.
         :param Sequence[_builtins.str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         """
@@ -1249,6 +1265,7 @@ class HybridConnectionEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the HybridConnection destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'HybridConnection'.
         :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
@@ -1319,6 +1336,7 @@ class IdentityInfoResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
         """
         The identity information for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
@@ -1451,6 +1469,7 @@ class InlineEventPropertiesResponse(dict):
                  documentation_url: Optional[_builtins.str] = None):
         """
         Additional information about every inline event.
+
         :param _builtins.str data_schema_url: The dataSchemaUrl for the inline event.
         :param _builtins.str description: The description for the inline event.
         :param _builtins.str display_name: The displayName for the inline event.
@@ -1525,6 +1544,7 @@ class IsNotNullAdvancedFilterResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         IsNotNull Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'IsNotNull'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -1578,6 +1598,7 @@ class IsNotNullFilterResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         IsNotNull Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'IsNotNull'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -1631,6 +1652,7 @@ class IsNullOrUndefinedAdvancedFilterResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         IsNullOrUndefined Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'IsNullOrUndefined'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -1684,6 +1706,7 @@ class IsNullOrUndefinedFilterResponse(dict):
                  key: Optional[_builtins.str] = None):
         """
         IsNullOrUndefined Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'IsNullOrUndefined'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -1736,6 +1759,7 @@ class JsonFieldResponse(dict):
                  source_field: Optional[_builtins.str] = None):
         """
         This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id', 'topic' and 'eventtime' properties. This represents a field in the input event schema.
+
         :param _builtins.str source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
         """
         if source_field is not None:
@@ -1785,6 +1809,7 @@ class JsonFieldWithDefaultResponse(dict):
         in the Event Grid Event schema. This is currently used in the mappings for the 'subject',
         'eventtype' and 'dataversion' properties. This represents a field in the input event schema
         along with a default value to be used, and at least one of these two properties should be provided.
+
         :param _builtins.str default_value: The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
         :param _builtins.str source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
         """
@@ -1848,6 +1873,7 @@ class JsonInputSchemaMappingResponse(dict):
                  topic: Optional['outputs.JsonFieldResponse'] = None):
         """
         This enables publishing to Event Grid using a custom input schema. This can be used to map properties from a custom input JSON schema to the Event Grid event schema.
+
         :param _builtins.str input_schema_mapping_type: Type of the custom mapping
                Expected value is 'Json'.
         :param 'JsonFieldWithDefaultResponse' data_version: The mapping information for the DataVersion property of the Event Grid Event.
@@ -1960,6 +1986,7 @@ class MonitorAlertEventSubscriptionDestinationResponse(dict):
                  severity: Optional[_builtins.str] = None):
         """
         Information about the Monitor Alert destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'MonitorAlert'.
         :param Sequence[_builtins.str] action_groups: The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.
@@ -2022,6 +2049,7 @@ class NamespaceSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Represents available Sku pricing tiers.
+
         :param _builtins.int capacity: Specifies the number of Throughput Units that defines the capacity for the namespace. The property default value is
                1 which signifies 1 Throughput Unit = 1MB/s ingress and 2MB/s egress per namespace. Min capacity is 1 and
                max allowed capacity is 20.
@@ -2080,6 +2108,7 @@ class NamespaceTopicEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the Namespace Topic destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'NamespaceTopic'.
         :param _builtins.str resource_id: The Azure resource Id that represents the endpoint of the Event Grid Namespace Topic destination of an event subscription.
@@ -2138,6 +2167,7 @@ class NumberGreaterThanAdvancedFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberGreaterThan Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberGreaterThan'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2203,6 +2233,7 @@ class NumberGreaterThanFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberGreaterThan Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberGreaterThan'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2268,6 +2299,7 @@ class NumberGreaterThanOrEqualsAdvancedFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberGreaterThanOrEquals Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberGreaterThanOrEquals'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2333,6 +2365,7 @@ class NumberGreaterThanOrEqualsFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberGreaterThanOrEquals Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberGreaterThanOrEquals'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2398,6 +2431,7 @@ class NumberInAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.float]] = None):
         """
         NumberIn Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2463,6 +2497,7 @@ class NumberInFilterResponse(dict):
                  values: Optional[Sequence[_builtins.float]] = None):
         """
         NumberIn Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2528,6 +2563,7 @@ class NumberInRangeAdvancedFilterResponse(dict):
                  values: Optional[Sequence[Sequence[_builtins.float]]] = None):
         """
         NumberInRange Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberInRange'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2593,6 +2629,7 @@ class NumberInRangeFilterResponse(dict):
                  values: Optional[Sequence[Sequence[_builtins.float]]] = None):
         """
         NumberInRange Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberInRange'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2658,6 +2695,7 @@ class NumberLessThanAdvancedFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberLessThan Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberLessThan'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2723,6 +2761,7 @@ class NumberLessThanFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberLessThan Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberLessThan'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2788,6 +2827,7 @@ class NumberLessThanOrEqualsAdvancedFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberLessThanOrEquals Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberLessThanOrEquals'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2853,6 +2893,7 @@ class NumberLessThanOrEqualsFilterResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         NumberLessThanOrEquals Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberLessThanOrEquals'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2918,6 +2959,7 @@ class NumberNotInAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.float]] = None):
         """
         NumberNotIn Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberNotIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -2983,6 +3025,7 @@ class NumberNotInFilterResponse(dict):
                  values: Optional[Sequence[_builtins.float]] = None):
         """
         NumberNotIn Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberNotIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -3048,6 +3091,7 @@ class NumberNotInRangeAdvancedFilterResponse(dict):
                  values: Optional[Sequence[Sequence[_builtins.float]]] = None):
         """
         NumberNotInRange Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberNotInRange'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -3113,6 +3157,7 @@ class NumberNotInRangeFilterResponse(dict):
                  values: Optional[Sequence[Sequence[_builtins.float]]] = None):
         """
         NumberNotInRange Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'NumberNotInRange'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -3179,6 +3224,7 @@ class PartnerAuthorizationResponse(dict):
                  default_maximum_expiration_time_in_days: Optional[_builtins.int] = None):
         """
         The partner authorization details.
+
         :param Sequence['PartnerResponse'] authorized_partners_list: The list of authorized partners.
         :param _builtins.int default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
                not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
@@ -3238,6 +3284,7 @@ class PartnerResponse(dict):
                  partner_registration_immutable_id: Optional[_builtins.str] = None):
         """
         Information about the partner.
+
         :param _builtins.str authorization_expiration_time_in_utc: Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
                context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
                If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
@@ -3312,6 +3359,7 @@ class PartnerTopicInfoResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Properties of the corresponding partner topic of a Channel.
+
         :param _builtins.str azure_subscription_id: Azure subscription ID of the subscriber. The partner topic associated with the channel will be
                created under this Azure subscription.
         :param 'EventTypeInfoResponse' event_type_info: Event Type Information for the partner topic. This information is provided by the publisher and can be used by the 
@@ -3500,6 +3548,7 @@ class PrivateEndpointResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         PrivateEndpoint information.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint.
         """
         if id is not None:
@@ -3550,6 +3599,7 @@ class PushInfoResponse(dict):
                  max_delivery_count: Optional[_builtins.int] = None):
         """
         Properties of the destination info for event subscription supporting push.
+
         :param 'DeadLetterWithResourceIdentityResponse' dead_letter_destination_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
                Uses the managed identity setup on the parent resource (namely, namespace) to acquire the authentication tokens being used during dead-lettering.
         :param 'DeliveryWithResourceIdentityResponse' delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
@@ -3679,6 +3729,7 @@ class QueueInfoResponse(dict):
                  receive_lock_duration_in_seconds: Optional[_builtins.int] = None):
         """
         Properties of the Queue info for event subscription.
+
         :param 'DeadLetterWithResourceIdentityResponse' dead_letter_destination_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
                Uses the managed identity setup on the parent resource (namely, topic) to acquire the authentication tokens being used during delivery / dead-lettering.
         :param _builtins.str event_time_to_live: Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
@@ -3791,6 +3842,7 @@ class RetryPolicyResponse(dict):
                  max_delivery_attempts: Optional[_builtins.int] = None):
         """
         Information about the retry policy for an event subscription.
+
         :param _builtins.int event_time_to_live_in_minutes: Time To Live (in minutes) for events.
         :param _builtins.int max_delivery_attempts: Maximum number of delivery retry attempts for events.
         """
@@ -3868,6 +3920,7 @@ class RoutingIdentityInfoResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Routing identity info for topic spaces configuration.
+
         :param _builtins.str type: Routing identity type for topic spaces configuration.
         """
         if type is not None:
@@ -3921,6 +3974,7 @@ class ServiceBusQueueEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the service bus destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'ServiceBusQueue'.
         :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
@@ -3990,6 +4044,7 @@ class ServiceBusTopicEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the service bus topic destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'ServiceBusTopic'.
         :param Sequence[Union['DynamicDeliveryAttributeMappingResponse', 'StaticDeliveryAttributeMappingResponse']] delivery_attribute_mappings: Delivery attribute details.
@@ -4056,6 +4111,7 @@ class StaticDeliveryAttributeMappingResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Static delivery attribute mapping details.
+
         :param _builtins.str type: Type of the delivery attribute or header name.
                Expected value is 'Static'.
         :param _builtins.bool is_secret: Boolean flag to tell if the attribute contains sensitive information .
@@ -4199,6 +4255,7 @@ class StorageBlobDeadLetterDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the storage blob based dead letter destination.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the dead letter destination
                Expected value is 'StorageBlob'.
         :param _builtins.str blob_container_name: The name of the Storage blob container that is the destination of the deadletter events
@@ -4271,6 +4328,7 @@ class StorageQueueEventSubscriptionDestinationResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Information about the storage queue destination for an event subscription.
+
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'StorageQueue'.
         :param _builtins.float queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
@@ -4347,6 +4405,7 @@ class StringBeginsWithAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringBeginsWith Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringBeginsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4412,6 +4471,7 @@ class StringBeginsWithFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringBeginsWith Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringBeginsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4477,6 +4537,7 @@ class StringContainsAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringContains Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringContains'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4542,6 +4603,7 @@ class StringContainsFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringContains Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringContains'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4607,6 +4669,7 @@ class StringEndsWithAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringEndsWith Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringEndsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4672,6 +4735,7 @@ class StringEndsWithFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringEndsWith Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringEndsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4737,6 +4801,7 @@ class StringInAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringIn Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4802,6 +4867,7 @@ class StringInFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringIn Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4867,6 +4933,7 @@ class StringNotBeginsWithAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotBeginsWith Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotBeginsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4932,6 +4999,7 @@ class StringNotBeginsWithFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotBeginsWith Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotBeginsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -4997,6 +5065,7 @@ class StringNotContainsAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotContains Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotContains'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -5062,6 +5131,7 @@ class StringNotContainsFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotContains Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotContains'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -5127,6 +5197,7 @@ class StringNotEndsWithAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotEndsWith Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotEndsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -5192,6 +5263,7 @@ class StringNotEndsWithFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotEndsWith Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotEndsWith'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -5257,6 +5329,7 @@ class StringNotInAdvancedFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotIn Advanced Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -5322,6 +5395,7 @@ class StringNotInFilterResponse(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         StringNotIn Filter.
+
         :param _builtins.str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
                Expected value is 'StringNotIn'.
         :param _builtins.str key: The field/property in the event based on which you want to filter.
@@ -5400,6 +5474,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -5512,6 +5587,7 @@ class TopicSpacesConfigurationResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Properties of the Topic Spaces Configuration.
+
         :param _builtins.str hostname: The endpoint for the topic spaces configuration. This is a read-only property.
         :param Sequence['CustomDomainConfigurationResponse'] custom_domains: List of custom domain configurations for the namespace.
         :param _builtins.int maximum_client_sessions_per_authentication_name: The maximum number of sessions per authentication name. The property default value is 1.
@@ -5639,6 +5715,7 @@ class TopicsConfigurationResponse(dict):
                  custom_domains: Optional[Sequence['outputs.CustomDomainConfigurationResponse']] = None):
         """
         Properties of the Topics Configuration.
+
         :param _builtins.str hostname: The hostname for the topics configuration. This is a read-only property.
         :param Sequence['CustomDomainConfigurationResponse'] custom_domains: List of custom domain configurations for the namespace.
         """
@@ -5692,6 +5769,7 @@ class UserIdentityPropertiesResponse(dict):
                  principal_id: Optional[_builtins.str] = None):
         """
         The information about the user identity.
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         """
@@ -5767,6 +5845,7 @@ class WebHookEventSubscriptionDestinationResponse(dict):
                  preferred_batch_size_in_kilobytes: Optional[_builtins.int] = None):
         """
         Information about the webhook destination for an event subscription.
+
         :param _builtins.str endpoint_base_url: The base URL that represents the endpoint of the destination of an event subscription.
         :param _builtins.str endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'WebHook'.

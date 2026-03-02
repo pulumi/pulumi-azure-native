@@ -42,6 +42,7 @@ class AzureCliScriptArgs:
                  timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzureCliScript resource.
+
         :param pulumi.Input[_builtins.str] az_cli_version: Azure CLI module version to be used.
         :param pulumi.Input[_builtins.str] kind: Type of the script.
                Expected value is 'AzureCLI'.
@@ -347,6 +348,83 @@ class AzureCliScript(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
+        ## Example Usage
+        ### DeploymentScriptsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreateNoUserManagedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_MinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingAciWithSubnets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingCustomACIName
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingExistingStorageAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:AzureCliScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -379,6 +457,83 @@ class AzureCliScript(pulumi.CustomResource):
         Object model for the Azure CLI script.
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
+
+        ## Example Usage
+        ### DeploymentScriptsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreateNoUserManagedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_MinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingAciWithSubnets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingCustomACIName
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingExistingStorageAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:AzureCliScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureCliScriptArgs args: The arguments to use to populate this resource's properties.

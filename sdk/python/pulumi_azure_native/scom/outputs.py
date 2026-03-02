@@ -65,6 +65,7 @@ class AzureHybridBenefitPropertiesResponse(dict):
                  windows_server_license_type: Optional[_builtins.str] = None):
         """
         The properties to maximize savings by using Azure Hybrid Benefit
+
         :param _builtins.str scom_license_type: SCOM license type. Maximize savings by using license you already own
         :param _builtins.str sql_server_license_type: SQL Server license type. Maximize savings by using Azure Hybrid Benefit for SQL Server with license you already own
         :param _builtins.str windows_server_license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -139,6 +140,7 @@ class DatabaseInstancePropertiesResponse(dict):
                  database_instance_id: Optional[_builtins.str] = None):
         """
         The properties of database instance
+
         :param _builtins.str database_fqdn: Fully qualified domain name of existing database instance
         :param _builtins.str dw_database_id: Resource Id of warehouse database on database instance
         :param _builtins.str dw_database_name: Name of warehouse database on database instance
@@ -225,6 +227,7 @@ class DomainControllerPropertiesResponse(dict):
                  ou_path: Optional[_builtins.str] = None):
         """
         The properties of domain controller to which SCOM and SQL servers join for AuthN/AuthZ.
+
         :param _builtins.str dns_server: IP address of DNS server 
         :param _builtins.str domain_name: Fully qualified domain name
         :param _builtins.str ou_path: Organizational Unit path in which the SCOM servers will be present
@@ -295,6 +298,7 @@ class DomainUserCredentialsResponse(dict):
                  user_name_secret: Optional[_builtins.str] = None):
         """
         Get Domain user name and password from key vault
+
         :param _builtins.str key_vault_url: Key vault url to get the domain username and password
         :param _builtins.str password_secret: Domain Password secret 
         :param _builtins.str user_name_secret: Domain user name secret 
@@ -366,6 +370,7 @@ class GmsaDetailsResponse(dict):
                  management_server_group_name: Optional[_builtins.str] = None):
         """
         Gmsa Details
+
         :param _builtins.str dns_name: Frontend DNS name for Load Balancer which will be used by Agents to initiate communication
         :param _builtins.str gmsa_account: gMSA account under which context all Management Server services will run
         :param _builtins.str load_balancer_ip: Frontend IP configuration for Load Balancer, which should be an available IP in customer VNet
@@ -445,6 +450,7 @@ class LogAnalyticsConfigurationResponse(dict):
                  workspace_id: Optional[_builtins.str] = None):
         """
         Configuration for Log Analytics linking to SCOM managed instance.
+
         :param Sequence[_builtins.str] data_types: The types of data to be ingested to Log Analytics workspace.
         :param _builtins.bool import_data: A one-time optional parameter to import data of last 7 days.
         :param _builtins.str workspace_id: The resource ID of the Log Analytics workspace to be used.
@@ -534,6 +540,7 @@ class ManagedGatewayPropertiesResponse(dict):
                  resource_location: Optional[_builtins.str] = None):
         """
         The properties of a gateway resource.
+
         :param _builtins.str connection_status: The connection status of the gateway resource.
         :param _builtins.str health_status: The health status of the gateway resource.
         :param _builtins.str install_type: Install type of gateway resource.
@@ -670,6 +677,7 @@ class ManagedIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str principal_id: System Assigned Identity ObjectId.
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
         :param _builtins.str type: The identity type
@@ -745,6 +753,7 @@ class ManagedInstanceOperationStatusResponse(dict):
                  operation_state: _builtins.str):
         """
         Gets status of current and latest SCOM managed instance operation.
+
         :param _builtins.str id: Operation id
         :param _builtins.str operation_name: Operation Name
         :param _builtins.str operation_state: Operation status
@@ -814,6 +823,7 @@ class ManagementServerPropertiesResponse(dict):
                  vm_res_id: _builtins.str):
         """
         The properties of management server
+
         :param _builtins.str fqdn: Management server Fully Qualified Domain Name.
         :param _builtins.str health_state: Management server health state.
         :param _builtins.str server_name: Management server Name
@@ -920,6 +930,7 @@ class MonitoredResourcePropertiesResponse(dict):
                  resource_location: Optional[_builtins.str] = None):
         """
         The properties of a monitored resource.
+
         :param _builtins.str agent_version: The version of the monitored resource agent version.
         :param _builtins.str connection_status: The connection status of the monitored resource.
         :param _builtins.str health_status: The health status of the monitored resource.
@@ -1079,6 +1090,7 @@ class MonitoringInstancePropertiesResponse(dict):
                  v_net_subnet_id: Optional[_builtins.str] = None):
         """
         The properties of a SCOM instance resource
+
         :param 'LogAnalyticsConfigurationResponse' log_analytics_properties: Details of Log Analytics workspace and data being ingested.
         :param Sequence['ManagementServerPropertiesResponse'] management_endpoints: List of management server endpoints
         :param Sequence['ManagedInstanceOperationStatusResponse'] operations_status: Gets status of current and latest SCOM managed instance operations.
@@ -1239,6 +1251,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1337,6 +1350,7 @@ class UserIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str client_id: The Azure Active Directory client id.
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         """

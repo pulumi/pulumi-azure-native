@@ -36,7 +36,6 @@ __all__ = [
     'RuleCategory',
     'RuleStatus',
     'RuleType',
-    'ScenarioType',
     'SkuTier',
     'TrafficRoutingProtocol',
 ]
@@ -396,9 +395,6 @@ class KeySource(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:cognitiveservices:ManagedPERequirement")
 class ManagedPERequirement(_builtins.str, Enum):
-    """
-    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-    """
     REQUIRED = "Required"
     NOT_REQUIRED = "NotRequired"
     NOT_APPLICABLE = "NotApplicable"
@@ -406,9 +402,6 @@ class ManagedPERequirement(_builtins.str, Enum):
 
 @pulumi.type_token("azure-native:cognitiveservices:ManagedPEStatus")
 class ManagedPEStatus(_builtins.str, Enum):
-    """
-    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-    """
     INACTIVE = "Inactive"
     ACTIVE = "Active"
     NOT_APPLICABLE = "NotApplicable"
@@ -530,15 +523,6 @@ class RuleType(_builtins.str, Enum):
     FQDN = "FQDN"
     PRIVATE_ENDPOINT = "PrivateEndpoint"
     SERVICE_TAG = "ServiceTag"
-
-
-@pulumi.type_token("azure-native:cognitiveservices:ScenarioType")
-class ScenarioType(_builtins.str, Enum):
-    """
-    Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
-    """
-    NONE = "none"
-    AGENT = "agent"
 
 
 @pulumi.type_token("azure-native:cognitiveservices:SkuTier")

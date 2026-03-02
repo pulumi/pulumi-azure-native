@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.Batch
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationPackageCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationPackage = new AzureNative.Batch.ApplicationPackage("applicationPackage", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         ApplicationName = "app1",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         VersionName = "1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:batch:ApplicationPackage 1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/applications/{applicationName}/versions/{versionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:ApplicationPackage")]
     public partial class ApplicationPackage : global::Pulumi.CustomResource

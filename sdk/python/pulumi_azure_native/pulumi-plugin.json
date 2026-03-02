@@ -1,5 +1,4 @@
 {
   "resource": true,
-  "name": "azure-native",
-  "version": "3.0.0-alpha.0+dev"
+  "name": "azure-native"
 }

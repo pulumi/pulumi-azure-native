@@ -11,6 +11,119 @@ import * as utilities from "../utilities";
  * Represents a server.
  *
  * Uses Azure REST API version 2017-12-01.
+ *
+ * ## Example Usage
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbformysql.SingleServer("singleServer", {
+ *     location: "brazilsouth",
+ *     properties: {
+ *         createMode: "PointInTimeRestore",
+ *         restorePointInTime: "2017-12-14T00:00:37.467Z",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: azure_native.dbformysql.SingleServerSkuTier.GeneralPurpose,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbformysql.SingleServer("singleServer", {
+ *     location: "westus",
+ *     properties: {
+ *         administratorLogin: "cloudsa",
+ *         administratorLoginPassword: "<administratorLoginPassword>",
+ *         createMode: "Default",
+ *         sslEnforcement: azure_native.dbformysql.SslEnforcementEnum.Enabled,
+ *         storageProfile: {
+ *             backupRetentionDays: 7,
+ *             geoRedundantBackup: azure_native.dbformysql.GeoRedundantBackup.Enabled,
+ *             storageMB: 128000,
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     serverName: "mysqltestsvc4",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: azure_native.dbformysql.SingleServerSkuTier.GeneralPurpose,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a replica server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbformysql.SingleServer("singleServer", {
+ *     location: "westus",
+ *     properties: {
+ *         createMode: "Replica",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMySQL/servers/masterserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ * });
+ *
+ * ```
+ * ### Create a server as a geo restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbformysql.SingleServer("singleServer", {
+ *     location: "westus",
+ *     properties: {
+ *         createMode: "GeoRestore",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: azure_native.dbformysql.SingleServerSkuTier.GeneralPurpose,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformysql:SingleServer targetserver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName} 
+ * ```
  */
 export class SingleServer extends pulumi.CustomResource {
     /**

@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Dns
     /// Uses Azure REST API version 2023-07-01-preview.
     /// 
     /// Other available API versions: 2015-05-04-preview, 2016-04-01, 2017-09-01, 2017-10-01, 2018-03-01-preview, 2018-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var zone = new AzureNative.Dns.Zone("zone", new()
+    ///     {
+    ///         Location = "Global",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dns:Zone zone1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dns:Zone")]
     public partial class Zone : global::Pulumi.CustomResource

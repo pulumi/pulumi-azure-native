@@ -37,6 +37,7 @@ class AzureBareMetalInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureBareMetalInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] azure_bare_metal_instance_id: Specifies the Azure Bare Metal Instance unique ID.
         :param pulumi.Input[_builtins.str] azure_bare_metal_instance_name: Name of the Azure Bare Metal Instance, also known as the ResourceName.
@@ -259,6 +260,55 @@ class AzureBareMetalInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
+        ## Example Usage
+        ### AzureBareMetalInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_bare_metal_instance = azure_native.baremetalinfrastructure.AzureBareMetalInstance("azureBareMetalInstance",
+            azure_bare_metal_instance_id="23415635-4d7e-41dc-9598-8194f22c24e1",
+            azure_bare_metal_instance_name="myBMIInstance",
+            hardware_profile={
+                "azure_bare_metal_instance_size": azure_native.baremetalinfrastructure.AzureBareMetalInstanceSizeNamesEnum.S72,
+                "hardware_type": azure_native.baremetalinfrastructure.AzureBareMetalHardwareTypeNamesEnum.CISCO_UCS,
+            },
+            hw_revision="Rev 3",
+            location="westus",
+            network_profile={
+                "circuit_id": "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Network/expressRouteCircuit",
+                "network_interfaces": [{
+                    "ip_address": "100.100.100.100",
+                }],
+            },
+            os_profile={
+                "computer_name": "myComputerName",
+                "os_type": "SUSE",
+                "ssh_public_key": "{ssh-rsa public key}",
+                "version": "12 SP1",
+            },
+            power_state=azure_native.baremetalinfrastructure.AzureBareMetalInstancePowerStateEnum.STARTED,
+            proximity_placement_group="/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myplacementgroup",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "nfs_ip_address": "200.200.200.200",
+            },
+            tags={
+                "testkey": "testvalue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:baremetalinfrastructure:AzureBareMetalInstance myBMIInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalInstances/{azureBareMetalInstanceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_bare_metal_instance_id: Specifies the Azure Bare Metal Instance unique ID.
@@ -285,6 +335,55 @@ class AzureBareMetalInstance(pulumi.CustomResource):
         AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
+
+        ## Example Usage
+        ### AzureBareMetalInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_bare_metal_instance = azure_native.baremetalinfrastructure.AzureBareMetalInstance("azureBareMetalInstance",
+            azure_bare_metal_instance_id="23415635-4d7e-41dc-9598-8194f22c24e1",
+            azure_bare_metal_instance_name="myBMIInstance",
+            hardware_profile={
+                "azure_bare_metal_instance_size": azure_native.baremetalinfrastructure.AzureBareMetalInstanceSizeNamesEnum.S72,
+                "hardware_type": azure_native.baremetalinfrastructure.AzureBareMetalHardwareTypeNamesEnum.CISCO_UCS,
+            },
+            hw_revision="Rev 3",
+            location="westus",
+            network_profile={
+                "circuit_id": "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Network/expressRouteCircuit",
+                "network_interfaces": [{
+                    "ip_address": "100.100.100.100",
+                }],
+            },
+            os_profile={
+                "computer_name": "myComputerName",
+                "os_type": "SUSE",
+                "ssh_public_key": "{ssh-rsa public key}",
+                "version": "12 SP1",
+            },
+            power_state=azure_native.baremetalinfrastructure.AzureBareMetalInstancePowerStateEnum.STARTED,
+            proximity_placement_group="/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myplacementgroup",
+            resource_group_name="myResourceGroup",
+            storage_profile={
+                "nfs_ip_address": "200.200.200.200",
+            },
+            tags={
+                "testkey": "testvalue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:baremetalinfrastructure:AzureBareMetalInstance myBMIInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BareMetalInfrastructure/bareMetalInstances/{azureBareMetalInstanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureBareMetalInstanceArgs args: The arguments to use to populate this resource's properties.

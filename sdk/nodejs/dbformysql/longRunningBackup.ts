@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Server backup properties
  *
  * Uses Azure REST API version 2025-06-01-preview.
+ *
+ * ## Example Usage
+ * ### Create backup for a server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const longRunningBackup = new azure_native.dbformysql.LongRunningBackup("longRunningBackup", {
+ *     backupName: "testback",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "mysqltestserver",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformysql:LongRunningBackup customer_20220507t073755_bb392c3b-17c6-4d3f-9742-8479ca87b3ac_mybackup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/backupsV2/{backupName} 
+ * ```
  */
 export class LongRunningBackup extends pulumi.CustomResource {
     /**

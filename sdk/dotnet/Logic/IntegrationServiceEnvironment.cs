@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.Logic
     /// The integration service environment.
     /// 
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration service environment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationServiceEnvironment = new AzureNative.Logic.IntegrationServiceEnvironment("integrationServiceEnvironment", new()
+    ///     {
+    ///         IntegrationServiceEnvironmentName = "testIntegrationServiceEnvironment",
+    ///         Location = "brazilsouth",
+    ///         Properties = new AzureNative.Logic.Inputs.IntegrationServiceEnvironmentPropertiesArgs
+    ///         {
+    ///             EncryptionConfiguration = new AzureNative.Logic.Inputs.IntegrationServiceEnvironmenEncryptionConfigurationArgs
+    ///             {
+    ///                 EncryptionKeyReference = new AzureNative.Logic.Inputs.IntegrationServiceEnvironmenEncryptionKeyReferenceArgs
+    ///                 {
+    ///                     KeyName = "testKeyName",
+    ///                     KeyVault = new AzureNative.Logic.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.KeyVault/vaults/testKeyVault",
+    ///                     },
+    ///                     KeyVersion = "13b261d30b984753869902d7f47f4d55",
+    ///                 },
+    ///             },
+    ///             NetworkConfiguration = new AzureNative.Logic.Inputs.NetworkConfigurationArgs
+    ///             {
+    ///                 AccessEndpoint = new AzureNative.Logic.Inputs.IntegrationServiceEnvironmentAccessEndpointArgs
+    ///                 {
+    ///                     Type = AzureNative.Logic.IntegrationServiceEnvironmentAccessEndpointType.Internal,
+    ///                 },
+    ///                 Subnets = new[]
+    ///                 {
+    ///                     new AzureNative.Logic.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1",
+    ///                     },
+    ///                     new AzureNative.Logic.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2",
+    ///                     },
+    ///                     new AzureNative.Logic.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3",
+    ///                     },
+    ///                     new AzureNative.Logic.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroup = "testResourceGroup",
+    ///         Sku = new AzureNative.Logic.Inputs.IntegrationServiceEnvironmentSkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = AzureNative.Logic.IntegrationServiceEnvironmentSkuName.Premium,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:IntegrationServiceEnvironment testIntegrationServiceEnvironment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationServiceEnvironment")]
     public partial class IntegrationServiceEnvironment : global::Pulumi.CustomResource

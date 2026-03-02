@@ -13,6 +13,42 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-15-preview.
  *
  * Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Migration Service with maximum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrationService = new azure_native.datamigration.MigrationService("migrationService", {
+ *     location: "northeurope",
+ *     migrationServiceName: "testagent",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ * ### Create or Update Migration Service with minimum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrationService = new azure_native.datamigration.MigrationService("migrationService", {
+ *     location: "northeurope",
+ *     migrationServiceName: "testagent",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration:MigrationService testagent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataMigration/migrationServices/{migrationServiceName} 
+ * ```
  */
 export class MigrationService extends pulumi.CustomResource {
     /**

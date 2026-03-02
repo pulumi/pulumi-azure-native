@@ -15,6 +15,35 @@ namespace Pulumi.AzureNative.Authorization
     /// Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
     /// 
     /// Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create role definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleDefinition = new AzureNative.Authorization.RoleDefinition("roleDefinition", new()
+    ///     {
+    ///         RoleDefinitionId = "roleDefinitionId",
+    ///         Scope = "scope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:RoleDefinition roleDefinitionId /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleDefinition")]
     public partial class RoleDefinition : global::Pulumi.CustomResource

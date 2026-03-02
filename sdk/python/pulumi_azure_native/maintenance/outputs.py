@@ -61,6 +61,7 @@ class ConfigurationAssignmentFilterPropertiesResponse(dict):
                  tag_settings: Optional['outputs.TagSettingsPropertiesResponse'] = None):
         """
         Azure query for the update configuration.
+
         :param Sequence[_builtins.str] locations: List of locations to scope the query to.
         :param Sequence[_builtins.str] os_types: List of allowed operating systems.
         :param Sequence[_builtins.str] resource_groups: List of allowed resource groups.
@@ -151,6 +152,7 @@ class InputLinuxParametersResponse(dict):
                  package_name_masks_to_include: Optional[Sequence[_builtins.str]] = None):
         """
         Input properties for patching a Linux machine.
+
         :param Sequence[_builtins.str] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         :param Sequence[_builtins.str] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param Sequence[_builtins.str] package_name_masks_to_include: Package names to be included for patching.
@@ -219,6 +221,7 @@ class InputPatchConfigurationResponse(dict):
                  windows_parameters: Optional['outputs.InputWindowsParametersResponse'] = None):
         """
         Input configuration for a patch run
+
         :param 'InputLinuxParametersResponse' linux_parameters: Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.
         :param _builtins.str reboot_setting: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         :param 'InputWindowsParametersResponse' windows_parameters: Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.
@@ -292,6 +295,7 @@ class InputWindowsParametersResponse(dict):
                  kb_numbers_to_include: Optional[Sequence[_builtins.str]] = None):
         """
         Input properties for patching a Windows machine.
+
         :param Sequence[_builtins.str] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         :param _builtins.bool exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param Sequence[_builtins.str] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
@@ -380,6 +384,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -476,6 +481,7 @@ class TagSettingsPropertiesResponse(dict):
                  tags: Optional[Mapping[str, Sequence[_builtins.str]]] = None):
         """
         Tag filter information for the VM.
+
         :param _builtins.str filter_operator: Filter VMs by Any or All specified tags.
         :param Mapping[str, Sequence[_builtins.str]] tags: Dictionary of tags with its list of values.
         """

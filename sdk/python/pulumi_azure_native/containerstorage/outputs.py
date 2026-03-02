@@ -45,6 +45,7 @@ class AssignmentResponse(dict):
                  status: 'outputs.AssignmentStatusResponse'):
         """
         Assignment Properties
+
         :param _builtins.str id: Resource id for the assigned resource
         :param 'AssignmentStatusResponse' status: Indicates if the assignment is in a usable state
         """
@@ -78,6 +79,7 @@ class AssignmentStatusResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Status of the assignment resource
+
         :param _builtins.str state: State of the assignment resource
         :param _builtins.str message: Reason for the status
         """
@@ -133,6 +135,7 @@ class AzureDiskResponse(dict):
                  sku_name: Optional[_builtins.str] = None):
         """
         Azure Disk Pool Properties
+
         :param _builtins.str resource_group: Managed resource group for the pool.
         :param Sequence['DiskResponse'] disks: Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         :param 'EncryptionResponse' encryption: Encryption specifies the encryption configuration for the Azure Disk pool
@@ -189,6 +192,7 @@ class DiskResponse(dict):
                  reference: _builtins.str):
         """
         Model for disk for that pool is using
+
         :param _builtins.str id: ID is the disk identifier visible to the OS. It is typically the WWN or disk ID in formats such as eui.e8238fa6bf530001001b448b45263379 or 0x5002cf6cbc5dd460
         :param _builtins.str reference: Reference is the location of the disk in an external system.
         """
@@ -242,6 +246,7 @@ class ElasticSanResponse(dict):
                  sku_name: Optional[_builtins.str] = None):
         """
         Elastic San Pool Properties
+
         :param _builtins.str resource_group: Managed resource group for the pool.
         :param 'EncryptionResponse' encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param _builtins.str sku_name: Sku name
@@ -309,6 +314,7 @@ class ElasticSanVolumePropertiesResponse(dict):
                  target_portal_port: _builtins.int):
         """
         Properties of the ElasticSAN iSCSI target
+
         :param _builtins.str target_iqn: iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server"
         :param _builtins.str target_portal_hostname: iSCSI Target Portal Host Name
         :param _builtins.int target_portal_port: iSCSI Target Portal Port
@@ -372,6 +378,7 @@ class EncryptionResponse(dict):
                  identity: Optional['outputs.ManagedServiceIdentityResponse'] = None):
         """
         Encryption key properties for the pool.
+
         :param _builtins.str key_name: The name of the key vault key.
         :param _builtins.str key_vault_uri: The URI of the key vault.
         :param 'ManagedServiceIdentityResponse' identity: The managed service identities assigned to this resource.
@@ -416,6 +423,7 @@ class EphemeralDiskResponse(dict):
                  replicas: Optional[_builtins.float] = None):
         """
         Ephemeral Disk Pool Properties
+
         :param Sequence['DiskResponse'] disks: Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         :param _builtins.float replicas: The number of data copies. Default 3.
         """
@@ -476,6 +484,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -552,6 +561,7 @@ class PoolTypeResponse(dict):
                  ephemeral_disk: Optional['outputs.EphemeralDiskResponse'] = None):
         """
         Type of the Pool: ephemeralDisk, azureDisk, or elasticsan
+
         :param 'AzureDiskResponse' azure_disk: Disk Pool Properties
         :param 'ElasticSanResponse' elastic_san: Elastic San Pool Properties
         :param 'EphemeralDiskResponse' ephemeral_disk: Ephemeral Pool Properties
@@ -597,6 +607,7 @@ class RequestsResponse(dict):
                  storage: Optional[_builtins.float] = None):
         """
         Requests for capacity for the pool.
+
         :param _builtins.float storage: Requested capacity of the pool in GiB.
         """
         if storage is None:
@@ -623,6 +634,7 @@ class ResourceOperationalStatusResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         Status of the resource
+
         :param _builtins.str state: state of the resource
         :param _builtins.str message: Reason for state.
         """
@@ -656,6 +668,7 @@ class ResourcesResponse(dict):
                  requests: Optional['outputs.RequestsResponse'] = None):
         """
         Resource Requests for the pool.
+
         :param 'RequestsResponse' requests: Requests for capacity for the pool.
         """
         if requests is not None:
@@ -711,6 +724,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -809,6 +823,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -858,6 +873,7 @@ class VolumeTypeResponse(dict):
                  elastic_san: 'outputs.ElasticSanVolumePropertiesResponse'):
         """
         Properties of the volume
+
         :param 'ElasticSanVolumePropertiesResponse' elastic_san: Properties of the ElasticSAN iSCSI target
         """
         pulumi.set(__self__, "elastic_san", elastic_san)

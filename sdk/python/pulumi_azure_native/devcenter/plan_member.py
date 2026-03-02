@@ -30,6 +30,7 @@ class PlanMemberArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlanMember resource.
+
         :param pulumi.Input[_builtins.str] plan_name: The name of the devcenter plan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] member_id: The unique id of the member.
@@ -157,6 +158,35 @@ class PlanMember(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Plans_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        plan_member = azure_native.devcenter.PlanMember("planMember",
+            member_id="d702f662-b3f2-4796-9e8c-13c22378ced3",
+            member_name="d702f662-b3f2-4796-9e8c-13c22378ced3",
+            member_type=azure_native.devcenter.PlanMemberType.USER,
+            plan_name="ContosoPlan",
+            resource_group_name="rg1",
+            tags={
+                "CostCode": "12345",
+            },
+            tier="Standard")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:PlanMember d702f662-b3f2-4796-9e8c-13c22378ced3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/plans/{planName}/members/{memberName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] member_id: The unique id of the member.
@@ -179,6 +209,35 @@ class PlanMember(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Plans_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        plan_member = azure_native.devcenter.PlanMember("planMember",
+            member_id="d702f662-b3f2-4796-9e8c-13c22378ced3",
+            member_name="d702f662-b3f2-4796-9e8c-13c22378ced3",
+            member_type=azure_native.devcenter.PlanMemberType.USER,
+            plan_name="ContosoPlan",
+            resource_group_name="rg1",
+            tags={
+                "CostCode": "12345",
+            },
+            tier="Standard")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:PlanMember d702f662-b3f2-4796-9e8c-13c22378ced3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/plans/{planName}/members/{memberName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PlanMemberArgs args: The arguments to use to populate this resource's properties.

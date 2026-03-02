@@ -15,6 +15,355 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
     /// 
     /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Broker_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var broker = new AzureNative.IoTOperations.Broker("broker", new()
+    ///     {
+    ///         BrokerName = "resource-name123",
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "qmbrfwcpwwhggszhrdjv",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-name123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.BrokerPropertiesArgs
+    ///         {
+    ///             Advanced = new AzureNative.IoTOperations.Inputs.AdvancedSettingsArgs
+    ///             {
+    ///                 Clients = new AzureNative.IoTOperations.Inputs.ClientConfigArgs
+    ///                 {
+    ///                     MaxKeepAliveSeconds = 3744,
+    ///                     MaxMessageExpirySeconds = 3263,
+    ///                     MaxPacketSizeBytes = 3029,
+    ///                     MaxReceiveMaximum = 2365,
+    ///                     MaxSessionExpirySeconds = 3859,
+    ///                     SubscriberQueueLimit = new AzureNative.IoTOperations.Inputs.SubscriberQueueLimitArgs
+    ///                     {
+    ///                         Length = 6,
+    ///                         Strategy = AzureNative.IoTOperations.SubscriberMessageDropStrategy.None,
+    ///                     },
+    ///                 },
+    ///                 EncryptInternalTraffic = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///                 InternalCerts = new AzureNative.IoTOperations.Inputs.CertManagerCertOptionsArgs
+    ///                 {
+    ///                     Duration = "bchrc",
+    ///                     PrivateKey = new AzureNative.IoTOperations.Inputs.CertManagerPrivateKeyArgs
+    ///                     {
+    ///                         Algorithm = AzureNative.IoTOperations.PrivateKeyAlgorithm.Ec256,
+    ///                         RotationPolicy = AzureNative.IoTOperations.PrivateKeyRotationPolicy.Always,
+    ///                     },
+    ///                     RenewBefore = "xkafmpgjfifkwwrhkswtopdnne",
+    ///                 },
+    ///             },
+    ///             Cardinality = new AzureNative.IoTOperations.Inputs.CardinalityArgs
+    ///             {
+    ///                 BackendChain = new AzureNative.IoTOperations.Inputs.BackendChainArgs
+    ///                 {
+    ///                     Partitions = 11,
+    ///                     RedundancyFactor = 5,
+    ///                     Workers = 15,
+    ///                 },
+    ///                 Frontend = new AzureNative.IoTOperations.Inputs.FrontendArgs
+    ///                 {
+    ///                     Replicas = 2,
+    ///                     Workers = 6,
+    ///                 },
+    ///             },
+    ///             Diagnostics = new AzureNative.IoTOperations.Inputs.BrokerDiagnosticsArgs
+    ///             {
+    ///                 Logs = new AzureNative.IoTOperations.Inputs.DiagnosticsLogsArgs
+    ///                 {
+    ///                     Level = "rnmwokumdmebpmfxxxzvvjfdywotav",
+    ///                 },
+    ///                 Metrics = new AzureNative.IoTOperations.Inputs.MetricsArgs
+    ///                 {
+    ///                     PrometheusPort = 7581,
+    ///                 },
+    ///                 SelfCheck = new AzureNative.IoTOperations.Inputs.SelfCheckArgs
+    ///                 {
+    ///                     IntervalSeconds = 158,
+    ///                     Mode = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///                     TimeoutSeconds = 14,
+    ///                 },
+    ///                 Traces = new AzureNative.IoTOperations.Inputs.TracesArgs
+    ///                 {
+    ///                     CacheSizeMegabytes = 28,
+    ///                     Mode = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///                     SelfTracing = new AzureNative.IoTOperations.Inputs.SelfTracingArgs
+    ///                     {
+    ///                         IntervalSeconds = 22,
+    ///                         Mode = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///                     },
+    ///                     SpanChannelCapacity = 1000,
+    ///                 },
+    ///             },
+    ///             DiskBackedMessageBuffer = new AzureNative.IoTOperations.Inputs.DiskBackedMessageBufferArgs
+    ///             {
+    ///                 EphemeralVolumeClaimSpec = new AzureNative.IoTOperations.Inputs.VolumeClaimSpecArgs
+    ///                 {
+    ///                     AccessModes = new[]
+    ///                     {
+    ///                         "nuluhigrbb",
+    ///                     },
+    ///                     DataSource = new AzureNative.IoTOperations.Inputs.LocalKubernetesReferenceArgs
+    ///                     {
+    ///                         ApiGroup = "npqapyksvvpkohujx",
+    ///                         Kind = "wazgyb",
+    ///                         Name = "cwhsgxxcxsyppoefm",
+    ///                     },
+    ///                     DataSourceRef = new AzureNative.IoTOperations.Inputs.KubernetesReferenceArgs
+    ///                     {
+    ///                         ApiGroup = "mnfnykznjjsoqpfsgdqioupt",
+    ///                         Kind = "odynqzekfzsnawrctaxg",
+    ///                         Name = "envszivbbmixbyddzg",
+    ///                         Namespace = "etcfzvxqd",
+    ///                     },
+    ///                     Resources = new AzureNative.IoTOperations.Inputs.VolumeClaimResourceRequirementsArgs
+    ///                     {
+    ///                         Limits = 
+    ///                         {
+    ///                             { "key2719", "hmphcrgctu" },
+    ///                         },
+    ///                         Requests = 
+    ///                         {
+    ///                             { "key2909", "txocprnyrsgvhfrg" },
+    ///                         },
+    ///                     },
+    ///                     Selector = new AzureNative.IoTOperations.Inputs.VolumeClaimSpecSelectorArgs
+    ///                     {
+    ///                         MatchExpressions = new[]
+    ///                         {
+    ///                             new AzureNative.IoTOperations.Inputs.VolumeClaimSpecSelectorMatchExpressionsArgs
+    ///                             {
+    ///                                 Key = "e",
+    ///                                 Operator = AzureNative.IoTOperations.OperatorValues.In,
+    ///                                 Values = new[]
+    ///                                 {
+    ///                                     "slmpajlywqvuyknipgztsonqyybt",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         MatchLabels = 
+    ///                         {
+    ///                             { "key6673", "wlngfalznwxnurzpgxomcxhbqefpr" },
+    ///                         },
+    ///                     },
+    ///                     StorageClassName = "sseyhrjptkhrqvpdpjmornkqvon",
+    ///                     VolumeMode = "rxvpksjuuugqnqzeiprocknbn",
+    ///                     VolumeName = "c",
+    ///                 },
+    ///                 MaxSize = "500M",
+    ///                 PersistentVolumeClaimSpec = new AzureNative.IoTOperations.Inputs.VolumeClaimSpecArgs
+    ///                 {
+    ///                     AccessModes = new[]
+    ///                     {
+    ///                         "nuluhigrbb",
+    ///                     },
+    ///                     DataSource = new AzureNative.IoTOperations.Inputs.LocalKubernetesReferenceArgs
+    ///                     {
+    ///                         ApiGroup = "npqapyksvvpkohujx",
+    ///                         Kind = "wazgyb",
+    ///                         Name = "cwhsgxxcxsyppoefm",
+    ///                     },
+    ///                     DataSourceRef = new AzureNative.IoTOperations.Inputs.KubernetesReferenceArgs
+    ///                     {
+    ///                         ApiGroup = "mnfnykznjjsoqpfsgdqioupt",
+    ///                         Kind = "odynqzekfzsnawrctaxg",
+    ///                         Name = "envszivbbmixbyddzg",
+    ///                         Namespace = "etcfzvxqd",
+    ///                     },
+    ///                     Resources = new AzureNative.IoTOperations.Inputs.VolumeClaimResourceRequirementsArgs
+    ///                     {
+    ///                         Limits = 
+    ///                         {
+    ///                             { "key2719", "hmphcrgctu" },
+    ///                         },
+    ///                         Requests = 
+    ///                         {
+    ///                             { "key2909", "txocprnyrsgvhfrg" },
+    ///                         },
+    ///                     },
+    ///                     Selector = new AzureNative.IoTOperations.Inputs.VolumeClaimSpecSelectorArgs
+    ///                     {
+    ///                         MatchExpressions = new[]
+    ///                         {
+    ///                             new AzureNative.IoTOperations.Inputs.VolumeClaimSpecSelectorMatchExpressionsArgs
+    ///                             {
+    ///                                 Key = "e",
+    ///                                 Operator = AzureNative.IoTOperations.OperatorValues.In,
+    ///                                 Values = new[]
+    ///                                 {
+    ///                                     "slmpajlywqvuyknipgztsonqyybt",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         MatchLabels = 
+    ///                         {
+    ///                             { "key6673", "wlngfalznwxnurzpgxomcxhbqefpr" },
+    ///                         },
+    ///                     },
+    ///                     StorageClassName = "sseyhrjptkhrqvpdpjmornkqvon",
+    ///                     VolumeMode = "rxvpksjuuugqnqzeiprocknbn",
+    ///                     VolumeName = "c",
+    ///                 },
+    ///             },
+    ///             GenerateResourceLimits = new AzureNative.IoTOperations.Inputs.GenerateResourceLimitsArgs
+    ///             {
+    ///                 Cpu = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///             },
+    ///             MemoryProfile = AzureNative.IoTOperations.BrokerMemoryProfile.Tiny,
+    ///         },
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Broker_CreateOrUpdate_Complex
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var broker = new AzureNative.IoTOperations.Broker("broker", new()
+    ///     {
+    ///         BrokerName = "resource-name123",
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "qmbrfwcpwwhggszhrdjv",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-name123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.BrokerPropertiesArgs
+    ///         {
+    ///             Cardinality = new AzureNative.IoTOperations.Inputs.CardinalityArgs
+    ///             {
+    ///                 BackendChain = new AzureNative.IoTOperations.Inputs.BackendChainArgs
+    ///                 {
+    ///                     Partitions = 2,
+    ///                     RedundancyFactor = 2,
+    ///                     Workers = 2,
+    ///                 },
+    ///                 Frontend = new AzureNative.IoTOperations.Inputs.FrontendArgs
+    ///                 {
+    ///                     Replicas = 2,
+    ///                     Workers = 2,
+    ///                 },
+    ///             },
+    ///             DiskBackedMessageBuffer = new AzureNative.IoTOperations.Inputs.DiskBackedMessageBufferArgs
+    ///             {
+    ///                 MaxSize = "50M",
+    ///             },
+    ///             GenerateResourceLimits = new AzureNative.IoTOperations.Inputs.GenerateResourceLimitsArgs
+    ///             {
+    ///                 Cpu = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///             },
+    ///             MemoryProfile = AzureNative.IoTOperations.BrokerMemoryProfile.Medium,
+    ///         },
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Broker_CreateOrUpdate_Minimal
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var broker = new AzureNative.IoTOperations.Broker("broker", new()
+    ///     {
+    ///         BrokerName = "resource-name123",
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "qmbrfwcpwwhggszhrdjv",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-name123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.BrokerPropertiesArgs
+    ///         {
+    ///             MemoryProfile = AzureNative.IoTOperations.BrokerMemoryProfile.Tiny,
+    ///         },
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Broker_CreateOrUpdate_Simple
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var broker = new AzureNative.IoTOperations.Broker("broker", new()
+    ///     {
+    ///         BrokerName = "resource-name123",
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "qmbrfwcpwwhggszhrdjv",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-name123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.BrokerPropertiesArgs
+    ///         {
+    ///             Cardinality = new AzureNative.IoTOperations.Inputs.CardinalityArgs
+    ///             {
+    ///                 BackendChain = new AzureNative.IoTOperations.Inputs.BackendChainArgs
+    ///                 {
+    ///                     Partitions = 2,
+    ///                     RedundancyFactor = 2,
+    ///                     Workers = 2,
+    ///                 },
+    ///                 Frontend = new AzureNative.IoTOperations.Inputs.FrontendArgs
+    ///                 {
+    ///                     Replicas = 2,
+    ///                     Workers = 2,
+    ///                 },
+    ///             },
+    ///             GenerateResourceLimits = new AzureNative.IoTOperations.Inputs.GenerateResourceLimitsArgs
+    ///             {
+    ///                 Cpu = AzureNative.IoTOperations.OperationalMode.Enabled,
+    ///             },
+    ///             MemoryProfile = AzureNative.IoTOperations.BrokerMemoryProfile.Low,
+    ///         },
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperations:Broker dowrkel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/brokers/{brokerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:Broker")]
     public partial class Broker : global::Pulumi.CustomResource

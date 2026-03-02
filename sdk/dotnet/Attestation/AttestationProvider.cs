@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.Attestation
     /// Attestation service response message.
     /// 
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
+    /// 
+    /// ## Example Usage
+    /// ### AttestationProviders_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attestationProvider = new AzureNative.Attestation.AttestationProvider("attestationProvider", new()
+    ///     {
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Attestation.Inputs.AttestationServiceCreationSpecificParamsArgs
+    ///         {
+    ///             PublicNetworkAccess = AzureNative.Attestation.PublicNetworkAccessType.Enabled,
+    ///             TpmAttestationAuthentication = AzureNative.Attestation.TpmAttestationAuthenticationType.Enabled,
+    ///         },
+    ///         ProviderName = "myattestationprovider",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Property1", "Value1" },
+    ///             { "Property2", "Value2" },
+    ///             { "Property3", "Value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:attestation:AttestationProvider myattestationprovider /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation:AttestationProvider")]
     public partial class AttestationProvider : global::Pulumi.CustomResource

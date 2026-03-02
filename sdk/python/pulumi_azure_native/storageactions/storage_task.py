@@ -32,6 +32,7 @@ class StorageTaskArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageTask resource.
+
         :param pulumi.Input['StorageTaskActionArgs'] action: The storage task action that is executed
         :param pulumi.Input[_builtins.str] description: Text that describes the purpose of the storage task
         :param pulumi.Input[_builtins.bool] enabled: Storage Task is enabled when set to true and disabled when set to false
@@ -170,6 +171,54 @@ class StorageTask(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
+        ## Example Usage
+        ### PutStorageTask
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_task = azure_native.storageactions.StorageTask("storageTask",
+            action={
+                "else_": {
+                    "operations": [{
+                        "name": azure_native.storageactions.StorageTaskOperationName.DELETE_BLOB,
+                        "on_failure": azure_native.storageactions.OnFailure.BREAK_,
+                        "on_success": azure_native.storageactions.OnSuccess.CONTINUE_,
+                    }],
+                },
+                "if_": {
+                    "condition": "[[equals(AccessTier, 'Cool')]]",
+                    "operations": [{
+                        "name": azure_native.storageactions.StorageTaskOperationName.SET_BLOB_TIER,
+                        "on_failure": azure_native.storageactions.OnFailure.BREAK_,
+                        "on_success": azure_native.storageactions.OnSuccess.CONTINUE_,
+                        "parameters": {
+                            "tier": "Hot",
+                        },
+                    }],
+                },
+            },
+            description="My Storage task",
+            enabled=True,
+            identity={
+                "type": azure_native.storageactions.ManagedServiceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="westus",
+            resource_group_name="res4228",
+            storage_task_name="mytask1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storageactions:StorageTask mytask1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageActions/storageTasks/{storageTaskName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StorageTaskActionArgs', 'StorageTaskActionArgsDict']] action: The storage task action that is executed
@@ -191,6 +240,54 @@ class StorageTask(pulumi.CustomResource):
         Represents Storage Task.
 
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
+
+        ## Example Usage
+        ### PutStorageTask
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_task = azure_native.storageactions.StorageTask("storageTask",
+            action={
+                "else_": {
+                    "operations": [{
+                        "name": azure_native.storageactions.StorageTaskOperationName.DELETE_BLOB,
+                        "on_failure": azure_native.storageactions.OnFailure.BREAK_,
+                        "on_success": azure_native.storageactions.OnSuccess.CONTINUE_,
+                    }],
+                },
+                "if_": {
+                    "condition": "[[equals(AccessTier, 'Cool')]]",
+                    "operations": [{
+                        "name": azure_native.storageactions.StorageTaskOperationName.SET_BLOB_TIER,
+                        "on_failure": azure_native.storageactions.OnFailure.BREAK_,
+                        "on_success": azure_native.storageactions.OnSuccess.CONTINUE_,
+                        "parameters": {
+                            "tier": "Hot",
+                        },
+                    }],
+                },
+            },
+            description="My Storage task",
+            enabled=True,
+            identity={
+                "type": azure_native.storageactions.ManagedServiceIdentityType.SYSTEM_ASSIGNED,
+            },
+            location="westus",
+            resource_group_name="res4228",
+            storage_task_name="mytask1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storageactions:StorageTask mytask1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageActions/storageTasks/{storageTaskName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageTaskArgs args: The arguments to use to populate this resource's properties.

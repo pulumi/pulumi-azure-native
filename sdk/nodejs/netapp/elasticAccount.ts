@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * NetApp elastic account resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### ElasticAccounts_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticAccount = new azure_native.netapp.ElasticAccount("elasticAccount", {
+ *     accountName: "account1",
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "myRG",
+ *     tags: {
+ *         "ac-tag1": "account1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:ElasticAccount account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName} 
+ * ```
  */
 export class ElasticAccount extends pulumi.CustomResource {
     /**

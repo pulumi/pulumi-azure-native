@@ -11,6 +11,72 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Ec2Snapshots_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ec2Snapshot = new azure_native.awsconnector.Ec2Snapshot("ec2Snapshot", {
+ *     location: "kqbtvnmdasfajwylafmkah",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "z",
+ *         awsAccountId: "iizqmtavivxapbfqrqqrauezng",
+ *         awsProperties: {
+ *             dataEncryptionKeyId: "mhxbzyyikypulohbdxtpoldzxm",
+ *             description: "tsduasxksmdr",
+ *             encrypted: true,
+ *             kmsKeyId: "djnzahvxonsnocqhz",
+ *             outpostArn: "vpqkamzadulbg",
+ *             ownerAlias: "bmfwdqpzxg",
+ *             ownerId: "xudlgprkedlmxatpupwvaknlkxfs",
+ *             progress: "ecdblvtjkixoklgjh",
+ *             restoreExpiryTime: "2024-10-08T03:53:51.251Z",
+ *             snapshotId: "lpcr",
+ *             sseType: {
+ *                 value: azure_native.awsconnector.SSEType.None,
+ *             },
+ *             startTime: "2024-10-08T03:53:51.251Z",
+ *             state: {
+ *                 value: azure_native.awsconnector.SnapshotState.Completed,
+ *             },
+ *             stateMessage: "nogwovxkgpjylsijzipkpqzxpvjh",
+ *             storageTier: {
+ *                 value: azure_native.awsconnector.StorageTier.Archive,
+ *             },
+ *             tags: [{
+ *                 key: "xjeeorwcwraovqjs",
+ *                 value: "vjhh",
+ *             }],
+ *             volumeId: "rzepawgzsvqncqbpjxnijhwofbgc",
+ *             volumeSize: 3,
+ *         },
+ *         awsRegion: "yylufbdgujuqmqwhscnglwsa",
+ *         awsSourceSchema: "gmzpssyyjoqqnqjxwcluwnyrswywcv",
+ *         awsTags: {
+ *             key9124: "okxaaygyj",
+ *         },
+ *         publicCloudConnectorsResourceId: "bfcselosmakgrkibu",
+ *         publicCloudResourceName: "eyltdaumfqmdgmnlwpgjhjlavikc",
+ *     },
+ *     resourceGroupName: "rgec2Snapshot",
+ *     tags: {
+ *         key9392: "chbsxcwosjxo",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Ec2Snapshot ewnypudielhizpefkqlexr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Snapshots/{name} 
+ * ```
  */
 export class Ec2Snapshot extends pulumi.CustomResource {
     /**

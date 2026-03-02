@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2022-07-01, 2022-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kubernetesconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Source Control Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sourceControlConfiguration = new AzureNative.KubernetesConfiguration.SourceControlConfiguration("sourceControlConfiguration", new()
+    ///     {
+    ///         ClusterName = "clusterName1",
+    ///         ClusterResourceName = "connectedClusters",
+    ///         ClusterRp = "Microsoft.Kubernetes",
+    ///         ConfigurationProtectedSettings = 
+    ///         {
+    ///             { "protectedSetting1Key", "protectedSetting1Value" },
+    ///         },
+    ///         EnableHelmOperator = true,
+    ///         HelmOperatorProperties = new AzureNative.KubernetesConfiguration.Inputs.HelmOperatorPropertiesArgs
+    ///         {
+    ///             ChartValues = "--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+    ///             ChartVersion = "0.3.0",
+    ///         },
+    ///         OperatorInstanceName = "SRSGitHubFluxOp-01",
+    ///         OperatorNamespace = "SRS_Namespace",
+    ///         OperatorParams = "--git-email=xyzgituser@users.srs.github.com",
+    ///         OperatorScope = AzureNative.KubernetesConfiguration.OperatorScopeType.@Namespace,
+    ///         OperatorType = AzureNative.KubernetesConfiguration.OperatorType.Flux,
+    ///         RepositoryUrl = "git@github.com:k8sdeveloper425/flux-get-started",
+    ///         ResourceGroupName = "rg1",
+    ///         SourceControlConfigurationName = "SRS_GitHubConfig",
+    ///         SshKnownHostsContents = "c3NoLmRldi5henVyZS5jb20gc3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFDN0hyMW9UV3FOcU9sekdKT2ZHSjROYWtWeUl6ZjFyWFlkNGQ3d282akJsa0x2Q0E0b2RCbEwwbURVeVowL1FVZlRUcWV1K3RtMjJnT3N2K1ZyVlRNazZ2d1JVNzVnWS95OXV0NU1iM2JSNUJWNThkS1h5cTlBOVVlQjVDYWtlaG41WmdtNngxbUtvVnlmK0ZGbjI2aVlxWEpSZ3pJWlpjWjVWNmhyRTBRZzM5a1ptNGF6NDhvMEFVYmY2U3A0U0xkdm51TWEyc1ZOd0hCYm9TN0VKa201N1hRUFZVMy9RcHlOTEhiV0Rkend0cmxTK2V6MzBTM0FkWWhMS0VPeEFHOHdlT255cnRMSkFVZW45bVRrb2w4b0lJMWVkZjdtV1diV1ZmMG5CbWx5MjErblpjbUNUSVNRQnRkY3lQYUVubzdmRlFNREQyNi9zMGxmS29iNEt3OEg=",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kubernetesconfiguration:SourceControlConfiguration SRS_GitHubConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/{sourceControlConfigurationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : global::Pulumi.CustomResource

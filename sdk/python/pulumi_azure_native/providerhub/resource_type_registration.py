@@ -28,6 +28,7 @@ class ResourceTypeRegistrationInitArgs:
                  resource_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceTypeRegistration resource.
+
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] resource_type: The resource type.
@@ -106,6 +107,253 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### DirectResourceTypeRegistrations_CreateOrUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration",
+            properties={
+                "add_resource_list_target_locations": True,
+                "additional_options": azure_native.providerhub.AdditionalOptionsResourceTypeRegistration.PROTECTED_ASYNC_OPERATION_POLLING,
+                "allow_empty_role_assignments": False,
+                "allowed_resource_names": [
+                    {
+                        "get_action_verb": "list",
+                        "name": "name1",
+                    },
+                    {
+                        "name": "name2",
+                    },
+                ],
+                "allowed_template_deployment_reference_actions": [
+                    "ListKeys",
+                    "ListSAS",
+                ],
+                "api_profiles": [
+                    {
+                        "api_version": "2018-02-01",
+                        "profile_version": "2018-03-01-hybrid",
+                    },
+                    {
+                        "api_version": "2016-06-01",
+                        "profile_version": "2019-03-01-hybrid",
+                    },
+                ],
+                "async_timeout_rules": [{
+                    "action_name": "Microsoft.ClassicCompute/domainNames/write",
+                    "timeout": "PT12H",
+                }],
+                "availability_zone_rule": {
+                    "availability_zone_policy": azure_native.providerhub.AvailabilityZonePolicy.MULTI_ZONED,
+                },
+                "capacity_rule": {
+                    "capacity_policy": azure_native.providerhub.CapacityPolicy.RESTRICTED,
+                    "sku_alias": "incorrectAlias",
+                },
+                "common_api_versions": ["2021-01-01"],
+                "dsts_configuration": {
+                    "service_dns_name": "prds.sparta.azure.com",
+                    "service_name": "prds-shim",
+                },
+                "endpoints": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "locations": [
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    "required_features": ["<feature flag>"],
+                }],
+                "grouping_tag": "groupingTag",
+                "legacy_name": "legacyName",
+                "legacy_names": ["legacyName"],
+                "legacy_policy": {
+                    "disallowed_conditions": [{
+                        "disallowed_legacy_operations": [
+                            azure_native.providerhub.LegacyOperation.CREATE,
+                            azure_native.providerhub.LegacyOperation.DELETE,
+                        ],
+                        "feature": "Microsoft.RP/ArmOnlyJobCollections",
+                    }],
+                    "disallowed_legacy_operations": [azure_native.providerhub.LegacyOperation.CREATE],
+                },
+                "linked_operation_rules": [
+                    {
+                        "linked_action": azure_native.providerhub.LinkedAction.BLOCKED,
+                        "linked_operation": azure_native.providerhub.LinkedOperation.CROSS_SUBSCRIPTION_RESOURCE_MOVE,
+                    },
+                    {
+                        "linked_action": azure_native.providerhub.LinkedAction.VALIDATE,
+                        "linked_operation": azure_native.providerhub.LinkedOperation.CROSS_RESOURCE_GROUP_RESOURCE_MOVE,
+                    },
+                ],
+                "management": {
+                    "authorization_owners": ["RPAAS-PlatformServiceAdministrator"],
+                    "incident_contact_email": "helpme@contoso.com",
+                    "incident_routing_service": "",
+                    "incident_routing_team": "",
+                    "manifest_owners": ["SPARTA-PlatformServiceAdministrator"],
+                    "resource_access_policy": azure_native.providerhub.ResourceAccessPolicy.NOT_SPECIFIED,
+                    "service_tree_infos": [{
+                        "component_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        "readiness": azure_native.providerhub.Readiness.IN_DEVELOPMENT,
+                        "service_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    }],
+                },
+                "manifest_link": "https://azure.com",
+                "marketplace_options": {
+                    "add_on_plan_conversion_allowed": True,
+                },
+                "metadata": {},
+                "notifications": [{
+                    "notification_type": azure_native.providerhub.NotificationType.SUBSCRIPTION_NOTIFICATION,
+                    "skip_notifications": azure_native.providerhub.SkipNotifications.DISABLED,
+                }],
+                "open_api_configuration": {
+                    "validation": {
+                        "allow_noncompliant_collection_response": True,
+                    },
+                },
+                "policy_execution_type": azure_native.providerhub.PolicyExecutionType.BYPASS_POLICIES,
+                "regionality": azure_native.providerhub.Regionality.REGIONAL,
+                "request_header_options": {
+                    "opt_out_headers": azure_native.providerhub.OptOutHeaderType.SYSTEM_DATA_CREATED_BY_LAST_MODIFIED_BY,
+                },
+                "resource_cache": {
+                    "enable_resource_cache": True,
+                    "resource_cache_expiration_timespan": "PT2M",
+                },
+                "resource_concurrency_control_options": {
+                    "patch": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "post": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "put": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                },
+                "resource_graph_configuration": {
+                    "api_version": "2019-01-01",
+                    "enabled": True,
+                },
+                "resource_management_options": {
+                    "batch_provisioning_support": {
+                        "supported_operations": "Get, Delete",
+                    },
+                    "delete_dependencies": [{
+                        "linked_property": "properties.edgeProfile.subscription.id",
+                    }],
+                },
+                "resource_query_management": {
+                    "filter_option": azure_native.providerhub.FilterOption.ENABLE_SUBSCRIPTION_FILTER_ON_TENANT,
+                },
+                "resource_type_common_attribute_management": {
+                    "common_api_versions_merge_mode": azure_native.providerhub.CommonApiVersionsMergeMode.MERGE,
+                },
+                "routing_rule": {
+                    "host_resource_type": "servers/databases",
+                },
+                "routing_type": azure_native.providerhub.RoutingType.DEFAULT,
+                "supports_tags": True,
+                "swagger_specifications": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "swagger_spec_folder_uri": "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                }],
+                "template_deployment_policy": {
+                    "capabilities": azure_native.providerhub.TemplateDeploymentCapabilities.PREFLIGHT,
+                    "preflight_notifications": azure_native.providerhub.TemplateDeploymentPreflightNotifications.NONE,
+                    "preflight_options": "ValidationRequests, DeploymentRequests",
+                },
+            },
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration",
+            properties={
+                "cross_tenant_token_validation": azure_native.providerhub.CrossTenantTokenValidation.ENSURE_SECURE_VALIDATION,
+                "endpoints": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "locations": [
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    "required_features": ["<feature flag>"],
+                }],
+                "management": {
+                    "authorization_owners": ["RPAAS-PlatformServiceAdministrator"],
+                    "incident_contact_email": "helpme@contoso.com",
+                    "incident_routing_service": "",
+                    "incident_routing_team": "",
+                    "manifest_owners": ["SPARTA-PlatformServiceAdministrator"],
+                    "resource_access_policy": azure_native.providerhub.ResourceAccessPolicy.NOT_SPECIFIED,
+                    "service_tree_infos": [{
+                        "component_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        "readiness": azure_native.providerhub.Readiness.IN_DEVELOPMENT,
+                        "service_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    }],
+                },
+                "metadata": {},
+                "notifications": [{
+                    "notification_type": azure_native.providerhub.NotificationType.SUBSCRIPTION_NOTIFICATION,
+                    "skip_notifications": azure_native.providerhub.SkipNotifications.DISABLED,
+                }],
+                "open_api_configuration": {
+                    "validation": {
+                        "allow_noncompliant_collection_response": True,
+                    },
+                },
+                "regionality": azure_native.providerhub.Regionality.REGIONAL,
+                "request_header_options": {
+                    "opt_out_headers": azure_native.providerhub.OptOutHeaderType.SYSTEM_DATA_CREATED_BY_LAST_MODIFIED_BY,
+                },
+                "resource_concurrency_control_options": {
+                    "patch": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "post": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "put": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                },
+                "resource_graph_configuration": {
+                    "api_version": "2019-01-01",
+                    "enabled": True,
+                },
+                "routing_type": azure_native.providerhub.RoutingType.DEFAULT,
+                "swagger_specifications": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "swagger_spec_folder_uri": "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                }],
+            },
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:ResourceTypeRegistration Microsoft.Contoso/employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'ResourceTypeRegistrationKind']] kind: Resource type registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -124,6 +372,253 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### DirectResourceTypeRegistrations_CreateOrUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration",
+            properties={
+                "add_resource_list_target_locations": True,
+                "additional_options": azure_native.providerhub.AdditionalOptionsResourceTypeRegistration.PROTECTED_ASYNC_OPERATION_POLLING,
+                "allow_empty_role_assignments": False,
+                "allowed_resource_names": [
+                    {
+                        "get_action_verb": "list",
+                        "name": "name1",
+                    },
+                    {
+                        "name": "name2",
+                    },
+                ],
+                "allowed_template_deployment_reference_actions": [
+                    "ListKeys",
+                    "ListSAS",
+                ],
+                "api_profiles": [
+                    {
+                        "api_version": "2018-02-01",
+                        "profile_version": "2018-03-01-hybrid",
+                    },
+                    {
+                        "api_version": "2016-06-01",
+                        "profile_version": "2019-03-01-hybrid",
+                    },
+                ],
+                "async_timeout_rules": [{
+                    "action_name": "Microsoft.ClassicCompute/domainNames/write",
+                    "timeout": "PT12H",
+                }],
+                "availability_zone_rule": {
+                    "availability_zone_policy": azure_native.providerhub.AvailabilityZonePolicy.MULTI_ZONED,
+                },
+                "capacity_rule": {
+                    "capacity_policy": azure_native.providerhub.CapacityPolicy.RESTRICTED,
+                    "sku_alias": "incorrectAlias",
+                },
+                "common_api_versions": ["2021-01-01"],
+                "dsts_configuration": {
+                    "service_dns_name": "prds.sparta.azure.com",
+                    "service_name": "prds-shim",
+                },
+                "endpoints": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "locations": [
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    "required_features": ["<feature flag>"],
+                }],
+                "grouping_tag": "groupingTag",
+                "legacy_name": "legacyName",
+                "legacy_names": ["legacyName"],
+                "legacy_policy": {
+                    "disallowed_conditions": [{
+                        "disallowed_legacy_operations": [
+                            azure_native.providerhub.LegacyOperation.CREATE,
+                            azure_native.providerhub.LegacyOperation.DELETE,
+                        ],
+                        "feature": "Microsoft.RP/ArmOnlyJobCollections",
+                    }],
+                    "disallowed_legacy_operations": [azure_native.providerhub.LegacyOperation.CREATE],
+                },
+                "linked_operation_rules": [
+                    {
+                        "linked_action": azure_native.providerhub.LinkedAction.BLOCKED,
+                        "linked_operation": azure_native.providerhub.LinkedOperation.CROSS_SUBSCRIPTION_RESOURCE_MOVE,
+                    },
+                    {
+                        "linked_action": azure_native.providerhub.LinkedAction.VALIDATE,
+                        "linked_operation": azure_native.providerhub.LinkedOperation.CROSS_RESOURCE_GROUP_RESOURCE_MOVE,
+                    },
+                ],
+                "management": {
+                    "authorization_owners": ["RPAAS-PlatformServiceAdministrator"],
+                    "incident_contact_email": "helpme@contoso.com",
+                    "incident_routing_service": "",
+                    "incident_routing_team": "",
+                    "manifest_owners": ["SPARTA-PlatformServiceAdministrator"],
+                    "resource_access_policy": azure_native.providerhub.ResourceAccessPolicy.NOT_SPECIFIED,
+                    "service_tree_infos": [{
+                        "component_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        "readiness": azure_native.providerhub.Readiness.IN_DEVELOPMENT,
+                        "service_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    }],
+                },
+                "manifest_link": "https://azure.com",
+                "marketplace_options": {
+                    "add_on_plan_conversion_allowed": True,
+                },
+                "metadata": {},
+                "notifications": [{
+                    "notification_type": azure_native.providerhub.NotificationType.SUBSCRIPTION_NOTIFICATION,
+                    "skip_notifications": azure_native.providerhub.SkipNotifications.DISABLED,
+                }],
+                "open_api_configuration": {
+                    "validation": {
+                        "allow_noncompliant_collection_response": True,
+                    },
+                },
+                "policy_execution_type": azure_native.providerhub.PolicyExecutionType.BYPASS_POLICIES,
+                "regionality": azure_native.providerhub.Regionality.REGIONAL,
+                "request_header_options": {
+                    "opt_out_headers": azure_native.providerhub.OptOutHeaderType.SYSTEM_DATA_CREATED_BY_LAST_MODIFIED_BY,
+                },
+                "resource_cache": {
+                    "enable_resource_cache": True,
+                    "resource_cache_expiration_timespan": "PT2M",
+                },
+                "resource_concurrency_control_options": {
+                    "patch": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "post": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "put": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                },
+                "resource_graph_configuration": {
+                    "api_version": "2019-01-01",
+                    "enabled": True,
+                },
+                "resource_management_options": {
+                    "batch_provisioning_support": {
+                        "supported_operations": "Get, Delete",
+                    },
+                    "delete_dependencies": [{
+                        "linked_property": "properties.edgeProfile.subscription.id",
+                    }],
+                },
+                "resource_query_management": {
+                    "filter_option": azure_native.providerhub.FilterOption.ENABLE_SUBSCRIPTION_FILTER_ON_TENANT,
+                },
+                "resource_type_common_attribute_management": {
+                    "common_api_versions_merge_mode": azure_native.providerhub.CommonApiVersionsMergeMode.MERGE,
+                },
+                "routing_rule": {
+                    "host_resource_type": "servers/databases",
+                },
+                "routing_type": azure_native.providerhub.RoutingType.DEFAULT,
+                "supports_tags": True,
+                "swagger_specifications": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "swagger_spec_folder_uri": "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                }],
+                "template_deployment_policy": {
+                    "capabilities": azure_native.providerhub.TemplateDeploymentCapabilities.PREFLIGHT,
+                    "preflight_notifications": azure_native.providerhub.TemplateDeploymentPreflightNotifications.NONE,
+                    "preflight_options": "ValidationRequests, DeploymentRequests",
+                },
+            },
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration",
+            properties={
+                "cross_tenant_token_validation": azure_native.providerhub.CrossTenantTokenValidation.ENSURE_SECURE_VALIDATION,
+                "endpoints": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "locations": [
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    "required_features": ["<feature flag>"],
+                }],
+                "management": {
+                    "authorization_owners": ["RPAAS-PlatformServiceAdministrator"],
+                    "incident_contact_email": "helpme@contoso.com",
+                    "incident_routing_service": "",
+                    "incident_routing_team": "",
+                    "manifest_owners": ["SPARTA-PlatformServiceAdministrator"],
+                    "resource_access_policy": azure_native.providerhub.ResourceAccessPolicy.NOT_SPECIFIED,
+                    "service_tree_infos": [{
+                        "component_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        "readiness": azure_native.providerhub.Readiness.IN_DEVELOPMENT,
+                        "service_id": "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    }],
+                },
+                "metadata": {},
+                "notifications": [{
+                    "notification_type": azure_native.providerhub.NotificationType.SUBSCRIPTION_NOTIFICATION,
+                    "skip_notifications": azure_native.providerhub.SkipNotifications.DISABLED,
+                }],
+                "open_api_configuration": {
+                    "validation": {
+                        "allow_noncompliant_collection_response": True,
+                    },
+                },
+                "regionality": azure_native.providerhub.Regionality.REGIONAL,
+                "request_header_options": {
+                    "opt_out_headers": azure_native.providerhub.OptOutHeaderType.SYSTEM_DATA_CREATED_BY_LAST_MODIFIED_BY,
+                },
+                "resource_concurrency_control_options": {
+                    "patch": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "post": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                    "put": {
+                        "policy": azure_native.providerhub.Policy.SYNCHRONIZE_BEGIN_EXTENSION,
+                    },
+                },
+                "resource_graph_configuration": {
+                    "api_version": "2019-01-01",
+                    "enabled": True,
+                },
+                "routing_type": azure_native.providerhub.RoutingType.DEFAULT,
+                "swagger_specifications": [{
+                    "api_versions": ["2020-06-01-preview"],
+                    "swagger_spec_folder_uri": "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                }],
+            },
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:ResourceTypeRegistration Microsoft.Contoso/employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.

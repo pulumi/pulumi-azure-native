@@ -36,6 +36,7 @@ class IntegrationAccountAgreementArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAgreement resource.
+
         :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
         :param pulumi.Input['AgreementContentArgs'] content: The agreement content.
         :param pulumi.Input['BusinessIdentityArgs'] guest_identity: The business identity of the guest partner.
@@ -237,6 +238,181 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update an agreement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("integrationAccountAgreement",
+            agreement_name="testAgreement",
+            agreement_type=azure_native.logic.AgreementType.AS2,
+            content={
+                "a_s2": {
+                    "receive_agreement": {
+                        "protocol_settings": {
+                            "acknowledgement_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "envelope_settings": {
+                                "autogenerate_file_name": True,
+                                "file_name_template": "Test",
+                                "message_content_type": "text/plain",
+                                "suspend_message_on_file_name_generation_error": True,
+                                "transmit_file_name_in_mime_header": True,
+                            },
+                            "error_settings": {
+                                "resend_if_mdn_not_received": True,
+                                "suspend_duplicate_message": True,
+                            },
+                            "mdn_settings": {
+                                "disposition_notification_to": "http://tempuri.org",
+                                "mdn_text": "Sample",
+                                "mic_hashing_algorithm": azure_native.logic.HashingAlgorithm.SHA1,
+                                "need_mdn": True,
+                                "receipt_delivery_url": "http://tempuri.org",
+                                "send_inbound_mdn_to_message_box": True,
+                                "send_mdnasynchronously": True,
+                                "sign_mdn": True,
+                                "sign_outbound_mdn_if_optional": True,
+                            },
+                            "message_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "security_settings": {
+                                "enable_nrr_for_inbound_decoded_messages": True,
+                                "enable_nrr_for_inbound_encoded_messages": True,
+                                "enable_nrr_for_inbound_mdn": True,
+                                "enable_nrr_for_outbound_decoded_messages": True,
+                                "enable_nrr_for_outbound_encoded_messages": True,
+                                "enable_nrr_for_outbound_mdn": True,
+                                "override_group_signing_certificate": False,
+                            },
+                            "validation_settings": {
+                                "check_certificate_revocation_list_on_receive": True,
+                                "check_certificate_revocation_list_on_send": True,
+                                "check_duplicate_message": True,
+                                "compress_message": True,
+                                "encrypt_message": False,
+                                "encryption_algorithm": azure_native.logic.EncryptionAlgorithm.AES128,
+                                "interchange_duplicates_validity_days": 100,
+                                "override_message_properties": True,
+                                "sign_message": False,
+                            },
+                        },
+                        "receiver_business_identity": {
+                            "qualifier": "ZZ",
+                            "value": "ZZ",
+                        },
+                        "sender_business_identity": {
+                            "qualifier": "AA",
+                            "value": "AA",
+                        },
+                    },
+                    "send_agreement": {
+                        "protocol_settings": {
+                            "acknowledgement_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "envelope_settings": {
+                                "autogenerate_file_name": True,
+                                "file_name_template": "Test",
+                                "message_content_type": "text/plain",
+                                "suspend_message_on_file_name_generation_error": True,
+                                "transmit_file_name_in_mime_header": True,
+                            },
+                            "error_settings": {
+                                "resend_if_mdn_not_received": True,
+                                "suspend_duplicate_message": True,
+                            },
+                            "mdn_settings": {
+                                "disposition_notification_to": "http://tempuri.org",
+                                "mdn_text": "Sample",
+                                "mic_hashing_algorithm": azure_native.logic.HashingAlgorithm.SHA1,
+                                "need_mdn": True,
+                                "receipt_delivery_url": "http://tempuri.org",
+                                "send_inbound_mdn_to_message_box": True,
+                                "send_mdnasynchronously": True,
+                                "sign_mdn": True,
+                                "sign_outbound_mdn_if_optional": True,
+                            },
+                            "message_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "security_settings": {
+                                "enable_nrr_for_inbound_decoded_messages": True,
+                                "enable_nrr_for_inbound_encoded_messages": True,
+                                "enable_nrr_for_inbound_mdn": True,
+                                "enable_nrr_for_outbound_decoded_messages": True,
+                                "enable_nrr_for_outbound_encoded_messages": True,
+                                "enable_nrr_for_outbound_mdn": True,
+                                "override_group_signing_certificate": False,
+                            },
+                            "validation_settings": {
+                                "check_certificate_revocation_list_on_receive": True,
+                                "check_certificate_revocation_list_on_send": True,
+                                "check_duplicate_message": True,
+                                "compress_message": True,
+                                "encrypt_message": False,
+                                "encryption_algorithm": azure_native.logic.EncryptionAlgorithm.AES128,
+                                "interchange_duplicates_validity_days": 100,
+                                "override_message_properties": True,
+                                "sign_message": False,
+                            },
+                        },
+                        "receiver_business_identity": {
+                            "qualifier": "AA",
+                            "value": "AA",
+                        },
+                        "sender_business_identity": {
+                            "qualifier": "ZZ",
+                            "value": "ZZ",
+                        },
+                    },
+                },
+            },
+            guest_identity={
+                "qualifier": "AA",
+                "value": "AA",
+            },
+            guest_partner="GuestPartner",
+            host_identity={
+                "qualifier": "ZZ",
+                "value": "ZZ",
+            },
+            host_partner="HostPartner",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            resource_group_name="testResourceGroup",
+            tags={
+                "IntegrationAccountAgreement": "<IntegrationAccountAgreementName>",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationAccountAgreement <IntegrationAccountAgreementName> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/agreements/{agreementName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agreement_name: The integration account agreement name.
@@ -264,6 +440,181 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update an agreement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("integrationAccountAgreement",
+            agreement_name="testAgreement",
+            agreement_type=azure_native.logic.AgreementType.AS2,
+            content={
+                "a_s2": {
+                    "receive_agreement": {
+                        "protocol_settings": {
+                            "acknowledgement_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "envelope_settings": {
+                                "autogenerate_file_name": True,
+                                "file_name_template": "Test",
+                                "message_content_type": "text/plain",
+                                "suspend_message_on_file_name_generation_error": True,
+                                "transmit_file_name_in_mime_header": True,
+                            },
+                            "error_settings": {
+                                "resend_if_mdn_not_received": True,
+                                "suspend_duplicate_message": True,
+                            },
+                            "mdn_settings": {
+                                "disposition_notification_to": "http://tempuri.org",
+                                "mdn_text": "Sample",
+                                "mic_hashing_algorithm": azure_native.logic.HashingAlgorithm.SHA1,
+                                "need_mdn": True,
+                                "receipt_delivery_url": "http://tempuri.org",
+                                "send_inbound_mdn_to_message_box": True,
+                                "send_mdnasynchronously": True,
+                                "sign_mdn": True,
+                                "sign_outbound_mdn_if_optional": True,
+                            },
+                            "message_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "security_settings": {
+                                "enable_nrr_for_inbound_decoded_messages": True,
+                                "enable_nrr_for_inbound_encoded_messages": True,
+                                "enable_nrr_for_inbound_mdn": True,
+                                "enable_nrr_for_outbound_decoded_messages": True,
+                                "enable_nrr_for_outbound_encoded_messages": True,
+                                "enable_nrr_for_outbound_mdn": True,
+                                "override_group_signing_certificate": False,
+                            },
+                            "validation_settings": {
+                                "check_certificate_revocation_list_on_receive": True,
+                                "check_certificate_revocation_list_on_send": True,
+                                "check_duplicate_message": True,
+                                "compress_message": True,
+                                "encrypt_message": False,
+                                "encryption_algorithm": azure_native.logic.EncryptionAlgorithm.AES128,
+                                "interchange_duplicates_validity_days": 100,
+                                "override_message_properties": True,
+                                "sign_message": False,
+                            },
+                        },
+                        "receiver_business_identity": {
+                            "qualifier": "ZZ",
+                            "value": "ZZ",
+                        },
+                        "sender_business_identity": {
+                            "qualifier": "AA",
+                            "value": "AA",
+                        },
+                    },
+                    "send_agreement": {
+                        "protocol_settings": {
+                            "acknowledgement_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "envelope_settings": {
+                                "autogenerate_file_name": True,
+                                "file_name_template": "Test",
+                                "message_content_type": "text/plain",
+                                "suspend_message_on_file_name_generation_error": True,
+                                "transmit_file_name_in_mime_header": True,
+                            },
+                            "error_settings": {
+                                "resend_if_mdn_not_received": True,
+                                "suspend_duplicate_message": True,
+                            },
+                            "mdn_settings": {
+                                "disposition_notification_to": "http://tempuri.org",
+                                "mdn_text": "Sample",
+                                "mic_hashing_algorithm": azure_native.logic.HashingAlgorithm.SHA1,
+                                "need_mdn": True,
+                                "receipt_delivery_url": "http://tempuri.org",
+                                "send_inbound_mdn_to_message_box": True,
+                                "send_mdnasynchronously": True,
+                                "sign_mdn": True,
+                                "sign_outbound_mdn_if_optional": True,
+                            },
+                            "message_connection_settings": {
+                                "ignore_certificate_name_mismatch": True,
+                                "keep_http_connection_alive": True,
+                                "support_http_status_code_continue": True,
+                                "unfold_http_headers": True,
+                            },
+                            "security_settings": {
+                                "enable_nrr_for_inbound_decoded_messages": True,
+                                "enable_nrr_for_inbound_encoded_messages": True,
+                                "enable_nrr_for_inbound_mdn": True,
+                                "enable_nrr_for_outbound_decoded_messages": True,
+                                "enable_nrr_for_outbound_encoded_messages": True,
+                                "enable_nrr_for_outbound_mdn": True,
+                                "override_group_signing_certificate": False,
+                            },
+                            "validation_settings": {
+                                "check_certificate_revocation_list_on_receive": True,
+                                "check_certificate_revocation_list_on_send": True,
+                                "check_duplicate_message": True,
+                                "compress_message": True,
+                                "encrypt_message": False,
+                                "encryption_algorithm": azure_native.logic.EncryptionAlgorithm.AES128,
+                                "interchange_duplicates_validity_days": 100,
+                                "override_message_properties": True,
+                                "sign_message": False,
+                            },
+                        },
+                        "receiver_business_identity": {
+                            "qualifier": "AA",
+                            "value": "AA",
+                        },
+                        "sender_business_identity": {
+                            "qualifier": "ZZ",
+                            "value": "ZZ",
+                        },
+                    },
+                },
+            },
+            guest_identity={
+                "qualifier": "AA",
+                "value": "AA",
+            },
+            guest_partner="GuestPartner",
+            host_identity={
+                "qualifier": "ZZ",
+                "value": "ZZ",
+            },
+            host_partner="HostPartner",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            resource_group_name="testResourceGroup",
+            tags={
+                "IntegrationAccountAgreement": "<IntegrationAccountAgreementName>",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationAccountAgreement <IntegrationAccountAgreementName> /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/agreements/{agreementName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.CodeSigning
     /// Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-05-preview.
     /// 
     /// Other available API versions: 2024-02-05-preview, 2025-10-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native codesigning [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a trusted Signing Account.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var codeSigningAccount = new AzureNative.CodeSigning.CodeSigningAccount("codeSigningAccount", new()
+    ///     {
+    ///         AccountName = "MyAccount",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         Sku = new AzureNative.CodeSigning.Inputs.AccountSkuArgs
+    ///         {
+    ///             Name = AzureNative.CodeSigning.SkuName.Basic,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:codesigning:CodeSigningAccount MyAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CodeSigning/codeSigningAccounts/{accountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:codesigning:CodeSigningAccount")]
     public partial class CodeSigningAccount : global::Pulumi.CustomResource

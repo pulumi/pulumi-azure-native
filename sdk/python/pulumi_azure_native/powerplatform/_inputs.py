@@ -36,19 +36,14 @@ __all__ = [
     'VirtualNetworkPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EnterprisePolicyIdentityArgsDict(TypedDict):
-        """
-        The identity of the EnterprisePolicy.
-        """
-        type: NotRequired[pulumi.Input['ResourceIdentityType']]
-        """
-        The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-        """
-elif False:
-    EnterprisePolicyIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EnterprisePolicyIdentityArgsDict(TypedDict):
+    """
+    The identity of the EnterprisePolicy.
+    """
+    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    """
+    The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+    """
 
 @pulumi.input_type
 class EnterprisePolicyIdentityArgs:
@@ -56,6 +51,7 @@ class EnterprisePolicyIdentityArgs:
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         The identity of the EnterprisePolicy.
+
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
         if type is not None:
@@ -74,21 +70,18 @@ class EnterprisePolicyIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class KeyPropertiesArgsDict(TypedDict):
-        """
-        Url and version of the KeyVault Secret
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the key vault key used to encrypt data.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the identity which will be used to access key vault.
-        """
-elif False:
-    KeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyPropertiesArgsDict(TypedDict):
+    """
+    Url and version of the KeyVault Secret
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the key vault key used to encrypt data.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the identity which will be used to access key vault.
+    """
 
 @pulumi.input_type
 class KeyPropertiesArgs:
@@ -97,6 +90,7 @@ class KeyPropertiesArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Url and version of the KeyVault Secret
+
         :param pulumi.Input[_builtins.str] name: The identifier of the key vault key used to encrypt data.
         :param pulumi.Input[_builtins.str] version: The version of the identity which will be used to access key vault.
         """
@@ -130,21 +124,18 @@ class KeyPropertiesArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Settings concerning key vault encryption for a configuration store.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of KeyVault
-        """
-        key: NotRequired[pulumi.Input['KeyPropertiesArgsDict']]
-        """
-        Identity of the secret that includes name and version.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Settings concerning key vault encryption for a configuration store.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of KeyVault
+    """
+    key: NotRequired[pulumi.Input['KeyPropertiesArgsDict']]
+    """
+    Identity of the secret that includes name and version.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -153,6 +144,7 @@ class KeyVaultPropertiesArgs:
                  key: Optional[pulumi.Input['KeyPropertiesArgs']] = None):
         """
         Settings concerning key vault encryption for a configuration store.
+
         :param pulumi.Input[_builtins.str] id: Uri of KeyVault
         :param pulumi.Input['KeyPropertiesArgs'] key: Identity of the secret that includes name and version.
         """
@@ -186,25 +178,22 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        actions_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -214,6 +203,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -262,21 +252,18 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class PropertiesEncryptionArgsDict(TypedDict):
-        """
-        The encryption settings for a configuration store.
-        """
-        key_vault: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Key vault properties.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
-        """
-        The state of onboarding, which only appears in the response.
-        """
-elif False:
-    PropertiesEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class PropertiesEncryptionArgsDict(TypedDict):
+    """
+    The encryption settings for a configuration store.
+    """
+    key_vault: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Key vault properties.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    """
+    The state of onboarding, which only appears in the response.
+    """
 
 @pulumi.input_type
 class PropertiesEncryptionArgs:
@@ -285,6 +272,7 @@ class PropertiesEncryptionArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
         """
         The encryption settings for a configuration store.
+
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault: Key vault properties.
         :param pulumi.Input[Union[_builtins.str, 'State']] state: The state of onboarding, which only appears in the response.
         """
@@ -318,17 +306,14 @@ class PropertiesEncryptionArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class PropertiesLockboxArgsDict(TypedDict):
-        """
-        Settings concerning lockbox.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
-        """
-        lockbox configuration
-        """
-elif False:
-    PropertiesLockboxArgsDict: TypeAlias = Mapping[str, Any]
+class PropertiesLockboxArgsDict(TypedDict):
+    """
+    Settings concerning lockbox.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    """
+    lockbox configuration
+    """
 
 @pulumi.input_type
 class PropertiesLockboxArgs:
@@ -336,6 +321,7 @@ class PropertiesLockboxArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
         """
         Settings concerning lockbox.
+
         :param pulumi.Input[Union[_builtins.str, 'State']] state: lockbox configuration
         """
         if state is not None:
@@ -354,17 +340,14 @@ class PropertiesLockboxArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class PropertiesNetworkInjectionArgsDict(TypedDict):
-        """
-        Settings concerning network injection.
-        """
-        virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]
-        """
-        Network injection configuration
-        """
-elif False:
-    PropertiesNetworkInjectionArgsDict: TypeAlias = Mapping[str, Any]
+class PropertiesNetworkInjectionArgsDict(TypedDict):
+    """
+    Settings concerning network injection.
+    """
+    virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]
+    """
+    Network injection configuration
+    """
 
 @pulumi.input_type
 class PropertiesNetworkInjectionArgs:
@@ -372,6 +355,7 @@ class PropertiesNetworkInjectionArgs:
                  virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
         """
         Settings concerning network injection.
+
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]] virtual_networks: Network injection configuration
         """
         if virtual_networks is not None:
@@ -390,17 +374,14 @@ class PropertiesNetworkInjectionArgs:
         pulumi.set(self, "virtual_networks", value)
 
 
-if not MYPY:
-    class SubnetPropertiesArgsDict(TypedDict):
-        """
-        Properties of a subnet.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet name.
-        """
-elif False:
-    SubnetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetPropertiesArgsDict(TypedDict):
+    """
+    Properties of a subnet.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet name.
+    """
 
 @pulumi.input_type
 class SubnetPropertiesArgs:
@@ -408,6 +389,7 @@ class SubnetPropertiesArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a subnet.
+
         :param pulumi.Input[_builtins.str] name: Subnet name.
         """
         if name is not None:
@@ -426,21 +408,18 @@ class SubnetPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class VirtualNetworkPropertiesArgsDict(TypedDict):
-        """
-        Settings concerning the virtual network.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Uri of the virtual network.
-        """
-        subnet: NotRequired[pulumi.Input['SubnetPropertiesArgsDict']]
-        """
-        Properties of a subnet.
-        """
-elif False:
-    VirtualNetworkPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkPropertiesArgsDict(TypedDict):
+    """
+    Settings concerning the virtual network.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Uri of the virtual network.
+    """
+    subnet: NotRequired[pulumi.Input['SubnetPropertiesArgsDict']]
+    """
+    Properties of a subnet.
+    """
 
 @pulumi.input_type
 class VirtualNetworkPropertiesArgs:
@@ -449,6 +428,7 @@ class VirtualNetworkPropertiesArgs:
                  subnet: Optional[pulumi.Input['SubnetPropertiesArgs']] = None):
         """
         Settings concerning the virtual network.
+
         :param pulumi.Input[_builtins.str] id: Uri of the virtual network.
         :param pulumi.Input['SubnetPropertiesArgs'] subnet: Properties of a subnet.
         """

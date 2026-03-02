@@ -23,6 +23,7 @@ class ManagementGroupSubscriptionArgs:
                  group_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ManagementGroupSubscription resource.
+
         :param pulumi.Input[_builtins.str] group_id: Management Group ID.
         """
         pulumi.set(__self__, "group_id", group_id)
@@ -55,6 +56,26 @@ class ManagementGroupSubscription(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_subscription = azure_native.management.ManagementGroupSubscription("managementGroupSubscription", group_id="Group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc /providers/Microsoft.Management/managementGroups/{groupId}/subscriptions/{subscriptionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: Management Group ID.
@@ -71,6 +92,26 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
         Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_subscription = azure_native.management.ManagementGroupSubscription("managementGroupSubscription", group_id="Group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc /providers/Microsoft.Management/managementGroups/{groupId}/subscriptions/{subscriptionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupSubscriptionArgs args: The arguments to use to populate this resource's properties.

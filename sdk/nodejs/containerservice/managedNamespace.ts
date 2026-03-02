@@ -13,6 +13,52 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-09-01.
  *
  * Other available API versions: 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create/Update Managed Namespace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedNamespace = new azure_native.containerservice.ManagedNamespace("managedNamespace", {
+ *     managedNamespaceName: "namespace1",
+ *     properties: {
+ *         adoptionPolicy: azure_native.containerservice.AdoptionPolicy.IfIdentical,
+ *         annotations: {
+ *             annatationKey: "annatationValue",
+ *         },
+ *         defaultNetworkPolicy: {
+ *             egress: azure_native.containerservice.PolicyRule.AllowAll,
+ *             ingress: azure_native.containerservice.PolicyRule.AllowSameNamespace,
+ *         },
+ *         defaultResourceQuota: {
+ *             cpuLimit: "3m",
+ *             cpuRequest: "3m",
+ *             memoryLimit: "5Gi",
+ *             memoryRequest: "5Gi",
+ *         },
+ *         deletePolicy: azure_native.containerservice.DeletePolicy.Keep,
+ *         labels: {
+ *             "kubernetes.io/metadata.name": "true",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     tags: {
+ *         tagKey1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:ManagedNamespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName} 
+ * ```
  */
 export class ManagedNamespace extends pulumi.CustomResource {
     /**

@@ -15,6 +15,65 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
     /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateWorkspaceCertificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceCertificate = new AzureNative.ApiManagement.WorkspaceCertificate("workspaceCertificate", new()
+    ///     {
+    ///         CertificateId = "tempcert",
+    ///         Data = "****************Base 64 Encoded Certificate *******************************",
+    ///         Password = "****Certificate Password******",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateWorkspaceCertificateWithKeyVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceCertificate = new AzureNative.ApiManagement.WorkspaceCertificate("workspaceCertificate", new()
+    ///     {
+    ///         CertificateId = "templateCertkv",
+    ///         KeyVault = new AzureNative.ApiManagement.Inputs.KeyVaultContractCreatePropertiesArgs
+    ///         {
+    ///             IdentityClientId = "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+    ///             SecretIdentifier = "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:WorkspaceCertificate templateCertkv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/certificates/{certificateId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceCertificate")]
     public partial class WorkspaceCertificate : global::Pulumi.CustomResource

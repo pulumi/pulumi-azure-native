@@ -28,6 +28,7 @@ class ServiceArgs:
                  service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['DataTransferServiceResourceCreateUpdatePropertiesArgs', 'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs', 'MaterializedViewsBuilderServiceResourceCreateUpdatePropertiesArgs', 'SqlDedicatedGatewayServiceResourceCreateUpdatePropertiesArgs']] properties: Properties in ServiceResourceCreateUpdateParameters.
@@ -107,6 +108,86 @@ class Service(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### DataTransferServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "DataTransfer",
+            },
+            resource_group_name="rg1",
+            service_name="DataTransfer")
+
+        ```
+        ### GraphAPIComputeServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "GraphAPICompute",
+            },
+            resource_group_name="rg1",
+            service_name="GraphAPICompute")
+
+        ```
+        ### MaterializedViewsBuilderServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "MaterializedViewsBuilder",
+            },
+            resource_group_name="rg1",
+            service_name="MaterializedViewsBuilder")
+
+        ```
+        ### SqlDedicatedGatewayServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "dedicated_gateway_type": azure_native.cosmosdb.DedicatedGatewayType.INTEGRATED_CACHE,
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "SqlDedicatedGateway",
+            },
+            resource_group_name="rg1",
+            service_name="SqlDedicatedGateway")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:Service SqlDedicatedGateway /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/services/{serviceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
@@ -126,6 +207,86 @@ class Service(pulumi.CustomResource):
         Uses Azure REST API version 2025-10-15.
 
         Other available API versions: 2021-04-01-preview, 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### DataTransferServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "DataTransfer",
+            },
+            resource_group_name="rg1",
+            service_name="DataTransfer")
+
+        ```
+        ### GraphAPIComputeServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "GraphAPICompute",
+            },
+            resource_group_name="rg1",
+            service_name="GraphAPICompute")
+
+        ```
+        ### MaterializedViewsBuilderServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "MaterializedViewsBuilder",
+            },
+            resource_group_name="rg1",
+            service_name="MaterializedViewsBuilder")
+
+        ```
+        ### SqlDedicatedGatewayServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.cosmosdb.Service("service",
+            account_name="ddb1",
+            properties={
+                "dedicated_gateway_type": azure_native.cosmosdb.DedicatedGatewayType.INTEGRATED_CACHE,
+                "instance_count": 1,
+                "instance_size": azure_native.cosmosdb.ServiceSize.COSMOS_D4S,
+                "service_type": "SqlDedicatedGateway",
+            },
+            resource_group_name="rg1",
+            service_name="SqlDedicatedGateway")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:Service SqlDedicatedGateway /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/services/{serviceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

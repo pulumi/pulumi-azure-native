@@ -29,6 +29,7 @@ class AksAssessmentOperationArgs:
                  scope: Optional[pulumi.Input['AssessmentScopeParametersArgs']] = None):
         """
         The set of arguments for constructing a AksAssessmentOperation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AKSAssessmentSettingsArgs'] settings: Gets or sets AKS Assessment Settings.
@@ -123,6 +124,51 @@ class AksAssessmentOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### AksAssessmentOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aks_assessment_operation = azure_native.migrate.AksAssessmentOperation("aksAssessmentOperation",
+            assessment_name="testaksassessment",
+            project_name="testproject",
+            resource_group_name="rgaksswagger",
+            scope={
+                "server_group_id": "/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
+            },
+            settings={
+                "azure_location": "Unknown",
+                "category": azure_native.migrate.AzureVmCategory.ALL,
+                "consolidation": azure_native.migrate.ConsolidationType.FULL,
+                "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
+                "discount_percentage": 15,
+                "environment_type": azure_native.migrate.AzureEnvironmentType.UNKNOWN,
+                "licensing_program": "Default",
+                "performance_data": {
+                    "percentile": azure_native.migrate.Percentile.PERCENTILE50,
+                    "perf_data_end_time": "2023-11-07T06:51:24.320Z",
+                    "perf_data_start_time": "2023-11-07T06:51:24.320Z",
+                    "time_range": azure_native.migrate.TimeRange.DAY,
+                },
+                "pricing_tier": azure_native.migrate.PricingTier.STANDARD,
+                "savings_options": azure_native.migrate.SavingsOptions.NONE,
+                "scaling_factor": 3,
+                "sizing_criteria": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:AksAssessmentOperation testaksassessment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: AKS Assessment Name.
@@ -143,6 +189,51 @@ class AksAssessmentOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### AksAssessmentOperations_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aks_assessment_operation = azure_native.migrate.AksAssessmentOperation("aksAssessmentOperation",
+            assessment_name="testaksassessment",
+            project_name="testproject",
+            resource_group_name="rgaksswagger",
+            scope={
+                "server_group_id": "/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
+            },
+            settings={
+                "azure_location": "Unknown",
+                "category": azure_native.migrate.AzureVmCategory.ALL,
+                "consolidation": azure_native.migrate.ConsolidationType.FULL,
+                "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
+                "discount_percentage": 15,
+                "environment_type": azure_native.migrate.AzureEnvironmentType.UNKNOWN,
+                "licensing_program": "Default",
+                "performance_data": {
+                    "percentile": azure_native.migrate.Percentile.PERCENTILE50,
+                    "perf_data_end_time": "2023-11-07T06:51:24.320Z",
+                    "perf_data_start_time": "2023-11-07T06:51:24.320Z",
+                    "time_range": azure_native.migrate.TimeRange.DAY,
+                },
+                "pricing_tier": azure_native.migrate.PricingTier.STANDARD,
+                "savings_options": azure_native.migrate.SavingsOptions.NONE,
+                "scaling_factor": 3,
+                "sizing_criteria": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:AksAssessmentOperation testaksassessment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AksAssessmentOperationArgs args: The arguments to use to populate this resource's properties.

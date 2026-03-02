@@ -78,6 +78,7 @@ class AssociatedWorkspaceResponse(dict):
                  workspace_name: _builtins.str):
         """
         The list of Log Analytics workspaces associated with the cluster.
+
         :param _builtins.str associate_date: The time of workspace association.
         :param _builtins.str resource_id: Associated workspace arm resource id, in the form of: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}.
         :param _builtins.str workspace_id: Associated workspace immutable id.
@@ -150,6 +151,7 @@ class CapacityReservationPropertiesResponse(dict):
                  min_capacity: _builtins.float):
         """
         The Capacity Reservation properties.
+
         :param _builtins.str last_sku_update: The last time Sku was updated.
         :param _builtins.float min_capacity: Minimum CapacityReservation value in Gigabytes.
         """
@@ -183,6 +185,7 @@ class ClusterSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The cluster sku definition.
+
         :param _builtins.float capacity: The capacity reservation level in Gigabytes for this cluster.
         :param _builtins.str name: The SKU (tier) of a cluster.
         """
@@ -246,6 +249,7 @@ class ColumnResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Table column.
+
         :param _builtins.bool is_default_display: Is displayed by default.
         :param _builtins.bool is_hidden: Is column hidden.
         :param _builtins.str data_type_hint: Column data type logical hint.
@@ -357,6 +361,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: Type of managed service identity.
@@ -436,6 +441,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         The key vault properties.
+
         :param _builtins.str key_name: The name of the key associated with the Log Analytics cluster.
         :param _builtins.int key_rsa_size: Selected key minimum required size.
         :param _builtins.str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
@@ -511,6 +517,7 @@ class LogAnalyticsQueryPackQueryPropertiesResponseRelated(dict):
                  solutions: Optional[Sequence[_builtins.str]] = None):
         """
         The related metadata items for the function.
+
         :param Sequence[_builtins.str] categories: The related categories for the function.
         :param Sequence[_builtins.str] resource_types: The related resource types for the function.
         :param Sequence[_builtins.str] solutions: The related Log Analytics solutions for the function.
@@ -580,6 +587,7 @@ class MachineReferenceWithHintsResponse(dict):
                  type: _builtins.str):
         """
         A machine reference with a hint of the machine's name and operating system.
+
         :param _builtins.str display_name_hint: Last known display name.
         :param _builtins.str id: Resource URI.
         :param _builtins.str kind: Specifies the sub-class of the reference.
@@ -678,6 +686,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -751,6 +760,7 @@ class PrivateLinkScopedResourceResponse(dict):
                  scope_id: Optional[_builtins.str] = None):
         """
         The private link scope resource reference.
+
         :param _builtins.str resource_id: The full resource Id of the private link scope resource.
         :param _builtins.str scope_id: The private link scope unique Identifier.
         """
@@ -811,6 +821,7 @@ class RestoredLogsResponse(dict):
                  start_restore_time: Optional[_builtins.str] = None):
         """
         Restore parameters.
+
         :param _builtins.str azure_async_operation_id: Search results table async operation id.
         :param _builtins.str end_restore_time: The timestamp to end the restore by (UTC).
         :param _builtins.str source_table: The table to restore data from.
@@ -887,6 +898,7 @@ class ResultStatisticsResponse(dict):
                  scanned_gb: _builtins.float):
         """
         Search job execution statistics.
+
         :param _builtins.int ingested_records: The number of rows that were returned by the search job.
         :param _builtins.float progress: Search job completion percentage.
         :param _builtins.float scanned_gb: Search job: Amount of scanned data.
@@ -959,6 +971,7 @@ class RuleDefinitionResponse(dict):
                  time_selector: Optional[_builtins.str] = None):
         """
         Rule definition parameters.
+
         :param _builtins.int bin_delay: The minimum delay in seconds before bin processing.
         :param _builtins.int bin_size: Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
         :param _builtins.str bin_start_time: The start time (UTC) when Summary rule execution starts.
@@ -1070,6 +1083,7 @@ class SchemaResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Table's schema.
+
         :param Sequence[_builtins.str] categories: Table category.
         :param Sequence[_builtins.str] labels: Table labels.
         :param Sequence[_builtins.str] solutions: List of solutions the table is affiliated with
@@ -1225,6 +1239,7 @@ class SearchResultsResponse(dict):
                  start_search_time: Optional[_builtins.str] = None):
         """
         Parameters of the search job that initiated this table.
+
         :param _builtins.str azure_async_operation_id: Search results table async operation id.
         :param _builtins.str source_table: The table used in the search job.
         :param _builtins.str description: Search job Description.
@@ -1313,6 +1328,7 @@ class StorageAccountResponse(dict):
                  key: _builtins.str):
         """
         Describes a storage account connection.
+
         :param _builtins.str id: The Azure Resource Manager ID of the storage account resource.
         :param _builtins.str key: The storage account key.
         """
@@ -1346,6 +1362,7 @@ class StorageInsightStatusResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The status of the storage insight.
+
         :param _builtins.str state: The state of the storage insight connection to the workspace
         :param _builtins.str description: Description of the state of the storage insight.
         """
@@ -1411,6 +1428,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1490,6 +1508,7 @@ class TagResponse(dict):
                  value: _builtins.str):
         """
         A tag of a saved search.
+
         :param _builtins.str name: The tag name.
         :param _builtins.str value: The tag value.
         """
@@ -1542,6 +1561,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -1594,6 +1614,7 @@ class UserIdentityPropertiesResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties.
+
         :param _builtins.str client_id: The client id of user assigned identity.
         :param _builtins.str principal_id: The principal id of user assigned identity.
         """
@@ -1649,6 +1670,7 @@ class WorkspaceCappingResponse(dict):
                  daily_quota_gb: Optional[_builtins.float] = None):
         """
         The daily volume cap for ingestion.
+
         :param _builtins.str data_ingestion_status: The status of data ingestion for this workspace.
         :param _builtins.str quota_next_reset_time: The time when the quota will be rest.
         :param _builtins.float daily_quota_gb: The workspace daily quota for ingestion.
@@ -1724,6 +1746,7 @@ class WorkspaceFeaturesResponse(dict):
                  immediate_purge_data_on30_days: Optional[_builtins.bool] = None):
         """
         Workspace features.
+
         :param _builtins.bool unified_sentinel_billing_only: An indication if the specify workspace is limited to sentinel's unified billing model only.
         :param _builtins.str cluster_resource_id: Dedicated LA cluster resourceId that is linked to the workspaces.
         :param _builtins.bool disable_local_auth: Disable Non-AAD based Auth.
@@ -1822,6 +1845,7 @@ class WorkspaceSkuResponse(dict):
                  capacity_reservation_level: Optional[_builtins.int] = None):
         """
         The SKU (tier) of a workspace.
+
         :param _builtins.str last_sku_update: The last time when the sku was updated.
         :param _builtins.str name: The name of the SKU.
         :param _builtins.int capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.

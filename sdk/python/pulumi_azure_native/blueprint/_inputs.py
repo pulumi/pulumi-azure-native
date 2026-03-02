@@ -36,27 +36,22 @@ __all__ = [
     'UserAssignedIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssignmentLockSettingsArgsDict(TypedDict):
-        """
-        Defines how resources deployed by a blueprint assignment are locked.
-        """
-        excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-        """
-        excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
-        """
-        mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]]
-        """
-        Lock mode.
-        """
-elif False:
-    AssignmentLockSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class AssignmentLockSettingsArgsDict(TypedDict):
+    """
+    Defines how resources deployed by a blueprint assignment are locked.
+    """
+    excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
+    """
+    excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+    """
+    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]]
+    """
+    Lock mode.
+    """
 
 @pulumi.input_type
 class AssignmentLockSettingsArgs:
@@ -66,6 +61,7 @@ class AssignmentLockSettingsArgs:
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]] = None):
         """
         Defines how resources deployed by a blueprint assignment are locked.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         :param pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']] mode: Lock mode.
@@ -114,17 +110,14 @@ class AssignmentLockSettingsArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class KeyVaultReferenceArgsDict(TypedDict):
-        """
-        Specifies the link to a Key Vault.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Azure resource ID of the Key Vault.
-        """
-elif False:
-    KeyVaultReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultReferenceArgsDict(TypedDict):
+    """
+    Specifies the link to a Key Vault.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Azure resource ID of the Key Vault.
+    """
 
 @pulumi.input_type
 class KeyVaultReferenceArgs:
@@ -132,6 +125,7 @@ class KeyVaultReferenceArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         Specifies the link to a Key Vault.
+
         :param pulumi.Input[_builtins.str] id: Azure resource ID of the Key Vault.
         """
         pulumi.set(__self__, "id", id)
@@ -149,29 +143,26 @@ class KeyVaultReferenceArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed identity generic object.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of the managed identity.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Active Directory principal ID associated with this Identity.
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the Azure Active Directory.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
-        """
-        The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed identity generic object.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of the managed identity.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Active Directory principal ID associated with this Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the Azure Active Directory.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+    """
+    The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -182,6 +173,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed identity generic object.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[_builtins.str] principal_id: Azure Active Directory principal ID associated with this Identity.
         :param pulumi.Input[_builtins.str] tenant_id: ID of the Azure Active Directory.
@@ -244,37 +236,34 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ParameterDefinitionArgsDict(TypedDict):
-        """
-        Represent a parameter with constrains and metadata.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'TemplateParameterType']]
-        """
-        Allowed data types for Resource Manager template parameters.
-        """
-        allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
-        """
-        Array of allowed values for this parameter.
-        """
-        default_value: NotRequired[Any]
-        """
-        Default Value for this parameter.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of this parameter/resourceGroup.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DisplayName of this parameter/resourceGroup.
-        """
-        strong_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-        """
-elif False:
-    ParameterDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterDefinitionArgsDict(TypedDict):
+    """
+    Represent a parameter with constrains and metadata.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'TemplateParameterType']]
+    """
+    Allowed data types for Resource Manager template parameters.
+    """
+    allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
+    """
+    Array of allowed values for this parameter.
+    """
+    default_value: NotRequired[Any]
+    """
+    Default Value for this parameter.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of this parameter/resourceGroup.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DisplayName of this parameter/resourceGroup.
+    """
+    strong_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
+    """
 
 @pulumi.input_type
 class ParameterDefinitionArgs:
@@ -287,6 +276,7 @@ class ParameterDefinitionArgs:
                  strong_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represent a parameter with constrains and metadata.
+
         :param pulumi.Input[Union[_builtins.str, 'TemplateParameterType']] type: Allowed data types for Resource Manager template parameters.
         :param pulumi.Input[Sequence[Any]] allowed_values: Array of allowed values for this parameter.
         :param Any default_value: Default Value for this parameter.
@@ -379,21 +369,18 @@ class ParameterDefinitionArgs:
         pulumi.set(self, "strong_type", value)
 
 
-if not MYPY:
-    class ParameterValueArgsDict(TypedDict):
-        """
-        Value for the specified parameter. Can be either 'value' or 'reference' but not both.
-        """
-        reference: NotRequired[pulumi.Input['SecretValueReferenceArgsDict']]
-        """
-        Parameter value as reference type.
-        """
-        value: NotRequired[Any]
-        """
-        Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-        """
-elif False:
-    ParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterValueArgsDict(TypedDict):
+    """
+    Value for the specified parameter. Can be either 'value' or 'reference' but not both.
+    """
+    reference: NotRequired[pulumi.Input['SecretValueReferenceArgsDict']]
+    """
+    Parameter value as reference type.
+    """
+    value: NotRequired[Any]
+    """
+    Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
+    """
 
 @pulumi.input_type
 class ParameterValueArgs:
@@ -402,6 +389,7 @@ class ParameterValueArgs:
                  value: Optional[Any] = None):
         """
         Value for the specified parameter. Can be either 'value' or 'reference' but not both.
+
         :param pulumi.Input['SecretValueReferenceArgs'] reference: Parameter value as reference type.
         :param Any value: Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
         """
@@ -435,41 +423,38 @@ class ParameterValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ResourceGroupDefinitionArgsDict(TypedDict):
-        """
-        Represents an Azure resource group in a blueprint definition.
-        """
-        depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Artifacts which need to be deployed before this resource group.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of this parameter/resourceGroup.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DisplayName of this parameter/resourceGroup.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
-        """
-        strong_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Tags to be assigned to this resource group.
-        """
-elif False:
-    ResourceGroupDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupDefinitionArgsDict(TypedDict):
+    """
+    Represents an Azure resource group in a blueprint definition.
+    """
+    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Artifacts which need to be deployed before this resource group.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of this parameter/resourceGroup.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DisplayName of this parameter/resourceGroup.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
+    """
+    strong_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Tags to be assigned to this resource group.
+    """
 
 @pulumi.input_type
 class ResourceGroupDefinitionArgs:
@@ -483,6 +468,7 @@ class ResourceGroupDefinitionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Represents an Azure resource group in a blueprint definition.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] depends_on: Artifacts which need to be deployed before this resource group.
         :param pulumi.Input[_builtins.str] description: Description of this parameter/resourceGroup.
         :param pulumi.Input[_builtins.str] display_name: DisplayName of this parameter/resourceGroup.
@@ -591,21 +577,18 @@ class ResourceGroupDefinitionArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class ResourceGroupValueArgsDict(TypedDict):
-        """
-        Represents an Azure resource group.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of the resource group.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the resource group.
-        """
-elif False:
-    ResourceGroupValueArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceGroupValueArgsDict(TypedDict):
+    """
+    Represents an Azure resource group.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of the resource group.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the resource group.
+    """
 
 @pulumi.input_type
 class ResourceGroupValueArgs:
@@ -614,6 +597,7 @@ class ResourceGroupValueArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents an Azure resource group.
+
         :param pulumi.Input[_builtins.str] location: Location of the resource group.
         :param pulumi.Input[_builtins.str] name: Name of the resource group.
         """
@@ -647,25 +631,22 @@ class ResourceGroupValueArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SecretValueReferenceArgsDict(TypedDict):
-        """
-        Reference to a Key Vault secret.
-        """
-        key_vault: pulumi.Input['KeyVaultReferenceArgsDict']
-        """
-        Specifies the reference to a given Azure Key Vault.
-        """
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret.
-        """
-        secret_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the secret to use. If left blank, the latest version of the secret is used.
-        """
-elif False:
-    SecretValueReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class SecretValueReferenceArgsDict(TypedDict):
+    """
+    Reference to a Key Vault secret.
+    """
+    key_vault: pulumi.Input['KeyVaultReferenceArgsDict']
+    """
+    Specifies the reference to a given Azure Key Vault.
+    """
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret.
+    """
+    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the secret to use. If left blank, the latest version of the secret is used.
+    """
 
 @pulumi.input_type
 class SecretValueReferenceArgs:
@@ -675,6 +656,7 @@ class SecretValueReferenceArgs:
                  secret_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Reference to a Key Vault secret.
+
         :param pulumi.Input['KeyVaultReferenceArgs'] key_vault: Specifies the reference to a given Azure Key Vault.
         :param pulumi.Input[_builtins.str] secret_name: Name of the secret.
         :param pulumi.Input[_builtins.str] secret_version: The version of the secret to use. If left blank, the latest version of the secret is used.
@@ -721,21 +703,18 @@ class SecretValueReferenceArgs:
         pulumi.set(self, "secret_version", value)
 
 
-if not MYPY:
-    class UserAssignedIdentityArgsDict(TypedDict):
-        """
-        User-assigned managed identity.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client App Id associated with this identity.
-        """
-        principal_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Active Directory principal ID associated with this Identity.
-        """
-elif False:
-    UserAssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class UserAssignedIdentityArgsDict(TypedDict):
+    """
+    User-assigned managed identity.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client App Id associated with this identity.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Active Directory principal ID associated with this Identity.
+    """
 
 @pulumi.input_type
 class UserAssignedIdentityArgs:
@@ -744,6 +723,7 @@ class UserAssignedIdentityArgs:
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         User-assigned managed identity.
+
         :param pulumi.Input[_builtins.str] client_id: Client App Id associated with this identity.
         :param pulumi.Input[_builtins.str] principal_id: Azure Active Directory principal ID associated with this Identity.
         """

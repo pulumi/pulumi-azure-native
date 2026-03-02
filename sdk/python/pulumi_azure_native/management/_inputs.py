@@ -25,19 +25,14 @@ __all__ = [
     'ServiceGroupPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CreateManagementGroupDetailsArgsDict(TypedDict):
-        """
-        The details of a management group used during creation.
-        """
-        parent: NotRequired[pulumi.Input['CreateParentGroupInfoArgsDict']]
-        """
-        (Optional) The ID of the parent management group used during creation.
-        """
-elif False:
-    CreateManagementGroupDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class CreateManagementGroupDetailsArgsDict(TypedDict):
+    """
+    The details of a management group used during creation.
+    """
+    parent: NotRequired[pulumi.Input['CreateParentGroupInfoArgsDict']]
+    """
+    (Optional) The ID of the parent management group used during creation.
+    """
 
 @pulumi.input_type
 class CreateManagementGroupDetailsArgs:
@@ -45,6 +40,7 @@ class CreateManagementGroupDetailsArgs:
                  parent: Optional[pulumi.Input['CreateParentGroupInfoArgs']] = None):
         """
         The details of a management group used during creation.
+
         :param pulumi.Input['CreateParentGroupInfoArgs'] parent: (Optional) The ID of the parent management group used during creation.
         """
         if parent is not None:
@@ -63,17 +59,14 @@ class CreateManagementGroupDetailsArgs:
         pulumi.set(self, "parent", value)
 
 
-if not MYPY:
-    class CreateParentGroupInfoArgsDict(TypedDict):
-        """
-        (Optional) The ID of the parent management group used during creation.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-        """
-elif False:
-    CreateParentGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
+class CreateParentGroupInfoArgsDict(TypedDict):
+    """
+    (Optional) The ID of the parent management group used during creation.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+    """
 
 @pulumi.input_type
 class CreateParentGroupInfoArgs:
@@ -81,6 +74,7 @@ class CreateParentGroupInfoArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         (Optional) The ID of the parent management group used during creation.
+
         :param pulumi.Input[_builtins.str] id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         if id is not None:
@@ -99,17 +93,14 @@ class CreateParentGroupInfoArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class ParentServiceGroupPropertiesArgsDict(TypedDict):
-        """
-        The details of the parent serviceGroup.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
-        """
-elif False:
-    ParentServiceGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ParentServiceGroupPropertiesArgsDict(TypedDict):
+    """
+    The details of the parent serviceGroup.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
+    """
 
 @pulumi.input_type
 class ParentServiceGroupPropertiesArgs:
@@ -117,6 +108,7 @@ class ParentServiceGroupPropertiesArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The details of the parent serviceGroup.
+
         :param pulumi.Input[_builtins.str] resource_id: The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
         """
         if resource_id is not None:
@@ -135,21 +127,18 @@ class ParentServiceGroupPropertiesArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class ServiceGroupPropertiesArgsDict(TypedDict):
-        """
-        ServiceGroup creation request body parameters.
-        """
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name of the serviceGroup. For example, ServiceGroupTest1
-        """
-        parent: NotRequired[pulumi.Input['ParentServiceGroupPropertiesArgsDict']]
-        """
-        The details of the parent serviceGroup.
-        """
-elif False:
-    ServiceGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceGroupPropertiesArgsDict(TypedDict):
+    """
+    ServiceGroup creation request body parameters.
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name of the serviceGroup. For example, ServiceGroupTest1
+    """
+    parent: NotRequired[pulumi.Input['ParentServiceGroupPropertiesArgsDict']]
+    """
+    The details of the parent serviceGroup.
+    """
 
 @pulumi.input_type
 class ServiceGroupPropertiesArgs:
@@ -158,6 +147,7 @@ class ServiceGroupPropertiesArgs:
                  parent: Optional[pulumi.Input['ParentServiceGroupPropertiesArgs']] = None):
         """
         ServiceGroup creation request body parameters.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the serviceGroup. For example, ServiceGroupTest1
         :param pulumi.Input['ParentServiceGroupPropertiesArgs'] parent: The details of the parent serviceGroup.
         """

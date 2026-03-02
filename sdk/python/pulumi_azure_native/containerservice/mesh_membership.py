@@ -28,6 +28,7 @@ class MeshMembershipArgs:
                  properties: Optional[pulumi.Input['MeshMembershipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MeshMembership resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -123,6 +124,32 @@ class MeshMembership(pulumi.CustomResource):
 
         Other available API versions: 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update Mesh Membership
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mesh_membership = azure_native.containerservice.MeshMembership("meshMembership",
+            mesh_membership_name="meshmembership1",
+            properties={
+                "managed_mesh_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AppLink/applinks/applink1/appLinkMembers/member1",
+            },
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:MeshMembership meshmembership1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshMemberships/{meshMembershipName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -143,6 +170,32 @@ class MeshMembership(pulumi.CustomResource):
         Uses Azure REST API version 2025-08-02-preview.
 
         Other available API versions: 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update Mesh Membership
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mesh_membership = azure_native.containerservice.MeshMembership("meshMembership",
+            mesh_membership_name="meshmembership1",
+            properties={
+                "managed_mesh_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.AppLink/applinks/applink1/appLinkMembers/member1",
+            },
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:MeshMembership meshmembership1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshMemberships/{meshMembershipName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MeshMembershipArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,66 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
     /// 
     /// Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ReachabilityAnalysisIntentCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var reachabilityAnalysisIntent = new AzureNative.Network.ReachabilityAnalysisIntent("reachabilityAnalysisIntent", new()
+    ///     {
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         Properties = new AzureNative.Network.Inputs.ReachabilityAnalysisIntentPropertiesArgs
+    ///         {
+    ///             Description = "A sample reachability analysis intent",
+    ///             DestinationResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/testVmDest",
+    ///             IpTraffic = new AzureNative.Network.Inputs.IPTrafficArgs
+    ///             {
+    ///                 DestinationIps = new[]
+    ///                 {
+    ///                     "10.4.0.1",
+    ///                 },
+    ///                 DestinationPorts = new[]
+    ///                 {
+    ///                     "0",
+    ///                 },
+    ///                 Protocols = new[]
+    ///                 {
+    ///                     AzureNative.Network.NetworkProtocol.Any,
+    ///                 },
+    ///                 SourceIps = new[]
+    ///                 {
+    ///                     "10.4.0.0",
+    ///                 },
+    ///                 SourcePorts = new[]
+    ///                 {
+    ///                     "0",
+    ///                 },
+    ///             },
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/testVmSrc",
+    ///         },
+    ///         ReachabilityAnalysisIntentName = "testAnalysisIntentName",
+    ///         ResourceGroupName = "rg1",
+    ///         WorkspaceName = "testWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ReachabilityAnalysisIntent testAnalysisIntentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisIntents/{reachabilityAnalysisIntentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ReachabilityAnalysisIntent")]
     public partial class ReachabilityAnalysisIntent : global::Pulumi.CustomResource

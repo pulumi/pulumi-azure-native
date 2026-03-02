@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.Workloads
     /// Define the SAP Instance resource.
     /// 
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Creates the SAP Instance resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapInstance = new AzureNative.Workloads.SapInstance("sapInstance", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapDiscoverySiteName = "SampleSite",
+    ///         SapInstanceName = "MPP_MPP",
+    ///         Tags = 
+    ///         {
+    ///             { "property1", "value1" },
+    ///             { "property2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads:SapInstance MPP_MPP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapInstance")]
     public partial class SapInstance : global::Pulumi.CustomResource

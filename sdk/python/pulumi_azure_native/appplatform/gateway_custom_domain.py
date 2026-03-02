@@ -28,6 +28,7 @@ class GatewayCustomDomainArgs:
                  properties: Optional[pulumi.Input['GatewayCustomDomainPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GatewayCustomDomain resource.
+
         :param pulumi.Input[_builtins.str] gateway_name: The name of Spring Cloud Gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
@@ -122,6 +123,33 @@ class GatewayCustomDomain(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### GatewayCustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_custom_domain = azure_native.appplatform.GatewayCustomDomain("gatewayCustomDomain",
+            domain_name="myDomainName",
+            gateway_name="default",
+            properties={
+                "thumbprint": "*",
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:GatewayCustomDomain myDomainName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/gateways/{gatewayName}/domains/{domainName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Spring Cloud Gateway custom domain.
@@ -142,6 +170,33 @@ class GatewayCustomDomain(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### GatewayCustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_custom_domain = azure_native.appplatform.GatewayCustomDomain("gatewayCustomDomain",
+            domain_name="myDomainName",
+            gateway_name="default",
+            properties={
+                "thumbprint": "*",
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:GatewayCustomDomain myDomainName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/gateways/{gatewayName}/domains/{domainName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param GatewayCustomDomainArgs args: The arguments to use to populate this resource's properties.

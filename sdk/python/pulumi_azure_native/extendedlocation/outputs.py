@@ -31,6 +31,7 @@ class CustomLocationPropertiesResponseAuthentication(dict):
                  type: Optional[_builtins.str] = None):
         """
         This is optional input that contains the authentication that should be used to generate the namespace.
+
         :param _builtins.str type: The type of the Custom Locations authentication
         """
         if type is not None:
@@ -75,6 +76,7 @@ class IdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -135,6 +137,7 @@ class ResourceSyncRulePropertiesResponseSelector(dict):
                  match_labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+
         :param Mapping[str, _builtins.str] match_labels: MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
         """
         if match_labels is not None:
@@ -190,6 +193,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

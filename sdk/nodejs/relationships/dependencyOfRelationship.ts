@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Defines a dependencyOf relationship resource.
  *
  * Uses Azure REST API version 2023-09-01-preview.
+ *
+ * ## Example Usage
+ * ### DependencyOfRelationships_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dependencyOfRelationship = new azure_native.relationships.DependencyOfRelationship("dependencyOfRelationship", {
+ *     name: "relationshipOne",
+ *     properties: {
+ *         targetId: "/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg123/providers/Microsoft.Web/staticSites/test-site",
+ *         targetTenant: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *     },
+ *     resourceUri: "subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relationships:DependencyOfRelationship relationshipOne /{resourceUri}/providers/Microsoft.Relationships/dependencyOf/{name} 
+ * ```
  */
 export class DependencyOfRelationship extends pulumi.CustomResource {
     /**

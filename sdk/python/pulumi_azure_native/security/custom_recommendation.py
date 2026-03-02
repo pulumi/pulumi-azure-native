@@ -32,6 +32,7 @@ class CustomRecommendationArgs:
                  severity: Optional[pulumi.Input[Union[_builtins.str, 'SeverityEnum']]] = None):
         """
         The set of arguments for constructing a CustomRecommendation resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'RecommendationSupportedClouds']]]] cloud_providers: List of all standard supported clouds.
         :param pulumi.Input[_builtins.str] custom_recommendation_name: Name of the Custom Recommendation.
@@ -190,6 +191,71 @@ class CustomRecommendation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
+        ## Example Usage
+        ### Create or update custom recommendation over management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_recommendation = azure_native.security.CustomRecommendation("customRecommendation",
+            cloud_providers=[azure_native.security.RecommendationSupportedClouds.AWS],
+            custom_recommendation_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            description="organization passwords policy",
+            display_name="Password Policy",
+            query="RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+            remediation_description="Change password policy to...",
+            scope="providers/Microsoft.Management/managementGroups/contoso",
+            security_issue=azure_native.security.SecurityIssue.VULNERABILITY,
+            severity=azure_native.security.SeverityEnum.MEDIUM)
+
+        ```
+        ### Create or update custom recommendation over security connector scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_recommendation = azure_native.security.CustomRecommendation("customRecommendation",
+            cloud_providers=[azure_native.security.RecommendationSupportedClouds.AWS],
+            custom_recommendation_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            description="organization passwords policy",
+            display_name="Password Policy",
+            query="RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+            remediation_description="Change password policy to...",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+            security_issue=azure_native.security.SecurityIssue.VULNERABILITY,
+            severity=azure_native.security.SeverityEnum.MEDIUM)
+
+        ```
+        ### Create or update custom recommendation over subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_recommendation = azure_native.security.CustomRecommendation("customRecommendation",
+            cloud_providers=[azure_native.security.RecommendationSupportedClouds.AWS],
+            custom_recommendation_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            description="organization passwords policy",
+            display_name="Password Policy",
+            query="RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+            remediation_description="Change password policy to...",
+            scope="subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b",
+            security_issue=azure_native.security.SecurityIssue.VULNERABILITY,
+            severity=azure_native.security.SeverityEnum.MEDIUM)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:CustomRecommendation 33e7cc6e-a139-4723-a0e5-76993aee0771 /{scope}/providers/Microsoft.Security/customRecommendations/{customRecommendationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'RecommendationSupportedClouds']]]] cloud_providers: List of all standard supported clouds.
@@ -212,6 +278,71 @@ class CustomRecommendation(pulumi.CustomResource):
         Custom Recommendation
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+
+        ## Example Usage
+        ### Create or update custom recommendation over management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_recommendation = azure_native.security.CustomRecommendation("customRecommendation",
+            cloud_providers=[azure_native.security.RecommendationSupportedClouds.AWS],
+            custom_recommendation_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            description="organization passwords policy",
+            display_name="Password Policy",
+            query="RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+            remediation_description="Change password policy to...",
+            scope="providers/Microsoft.Management/managementGroups/contoso",
+            security_issue=azure_native.security.SecurityIssue.VULNERABILITY,
+            severity=azure_native.security.SeverityEnum.MEDIUM)
+
+        ```
+        ### Create or update custom recommendation over security connector scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_recommendation = azure_native.security.CustomRecommendation("customRecommendation",
+            cloud_providers=[azure_native.security.RecommendationSupportedClouds.AWS],
+            custom_recommendation_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            description="organization passwords policy",
+            display_name="Password Policy",
+            query="RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+            remediation_description="Change password policy to...",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+            security_issue=azure_native.security.SecurityIssue.VULNERABILITY,
+            severity=azure_native.security.SeverityEnum.MEDIUM)
+
+        ```
+        ### Create or update custom recommendation over subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_recommendation = azure_native.security.CustomRecommendation("customRecommendation",
+            cloud_providers=[azure_native.security.RecommendationSupportedClouds.AWS],
+            custom_recommendation_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            description="organization passwords policy",
+            display_name="Password Policy",
+            query="RawEntityMetadata | where Environment == 'GCP' and Identifiers.Type == 'compute.firewalls' | extend IslogConfigEnabled = tobool(Record.logConfig.enable) | extend HealthStatus = iff(IslogConfigEnabled, 'HEALTHY', 'UNHEALTHY')",
+            remediation_description="Change password policy to...",
+            scope="subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b",
+            security_issue=azure_native.security.SecurityIssue.VULNERABILITY,
+            severity=azure_native.security.SeverityEnum.MEDIUM)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:CustomRecommendation 33e7cc6e-a139-4723-a0e5-76993aee0771 /{scope}/providers/Microsoft.Security/customRecommendations/{customRecommendationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomRecommendationArgs args: The arguments to use to populate this resource's properties.

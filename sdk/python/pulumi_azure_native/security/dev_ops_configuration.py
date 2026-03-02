@@ -27,6 +27,7 @@ class DevOpsConfigurationArgs:
                  properties: Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DevOpsConfiguration resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
         :param pulumi.Input['DevOpsConfigurationPropertiesArgs'] properties: DevOps Configuration properties.
@@ -90,6 +91,72 @@ class DevOpsConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdate_DevOpsConfigurations_OnboardCurrentAndFuture
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
+            properties={
+                "authorization": {
+                    "code": "00000000000000000000",
+                },
+                "auto_discovery": azure_native.security.AutoDiscovery.ENABLED,
+            },
+            resource_group_name="myRg",
+            security_connector_name="mySecurityConnectorName")
+
+        ```
+        ### CreateOrUpdate_DevOpsConfigurations_OnboardCurrentOnly
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
+            properties={
+                "authorization": {
+                    "code": "00000000000000000000",
+                },
+                "auto_discovery": azure_native.security.AutoDiscovery.DISABLED,
+            },
+            resource_group_name="myRg",
+            security_connector_name="mySecurityConnectorName")
+
+        ```
+        ### CreateOrUpdate_DevOpsConfigurations_OnboardSelected
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
+            properties={
+                "authorization": {
+                    "code": "00000000000000000000",
+                },
+                "auto_discovery": azure_native.security.AutoDiscovery.DISABLED,
+                "top_level_inventory_list": [
+                    "org1",
+                    "org2",
+                ],
+            },
+            resource_group_name="myRg",
+            security_connector_name="mySecurityConnectorName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:DevOpsConfiguration default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']] properties: DevOps Configuration properties.
@@ -108,6 +175,72 @@ class DevOpsConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate_DevOpsConfigurations_OnboardCurrentAndFuture
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
+            properties={
+                "authorization": {
+                    "code": "00000000000000000000",
+                },
+                "auto_discovery": azure_native.security.AutoDiscovery.ENABLED,
+            },
+            resource_group_name="myRg",
+            security_connector_name="mySecurityConnectorName")
+
+        ```
+        ### CreateOrUpdate_DevOpsConfigurations_OnboardCurrentOnly
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
+            properties={
+                "authorization": {
+                    "code": "00000000000000000000",
+                },
+                "auto_discovery": azure_native.security.AutoDiscovery.DISABLED,
+            },
+            resource_group_name="myRg",
+            security_connector_name="mySecurityConnectorName")
+
+        ```
+        ### CreateOrUpdate_DevOpsConfigurations_OnboardSelected
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
+            properties={
+                "authorization": {
+                    "code": "00000000000000000000",
+                },
+                "auto_discovery": azure_native.security.AutoDiscovery.DISABLED,
+                "top_level_inventory_list": [
+                    "org1",
+                    "org2",
+                ],
+            },
+            resource_group_name="myRg",
+            security_connector_name="mySecurityConnectorName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:DevOpsConfiguration default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/devops/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DevOpsConfigurationArgs args: The arguments to use to populate this resource's properties.

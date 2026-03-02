@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraRoleDefinitionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cassandraResourceCassandraRoleDefinition = new AzureNative.CosmosDB.CassandraResourceCassandraRoleDefinition("cassandraResourceCassandraRoleDefinition", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
+    ///             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
+    ///         },
+    ///         Permissions = new[]
+    ///         {
+    ///             new AzureNative.CosmosDB.Inputs.PermissionArgs
+    ///             {
+    ///                 DataActions = new[]
+    ///                 {
+    ///                     "Microsoft.DocumentDB/databaseAccounts/cassandraDatabases/containers/entities/create",
+    ///                     "Microsoft.DocumentDB/databaseAccounts/cassandraDatabases/containers/entities/read",
+    ///                 },
+    ///                 NotDataActions = new() { },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         RoleDefinitionId = "myRoleDefinitionId",
+    ///         RoleName = "myRoleName",
+    ///         Type = AzureNative.CosmosDB.RoleDefinitionType.CustomRole,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:CassandraResourceCassandraRoleDefinition myRoleDefinitionId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraRoleDefinitions/{roleDefinitionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:CassandraResourceCassandraRoleDefinition")]
     public partial class CassandraResourceCassandraRoleDefinition : global::Pulumi.CustomResource

@@ -13,6 +13,145 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
  * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### StorageAccountCreateObjectReplicationPolicyOnDestination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "dst112",
+ *     destinationAccount: "dst112",
+ *     metrics: {
+ *         enabled: true,
+ *     },
+ *     objectReplicationPolicyId: "default",
+ *     resourceGroupName: "res7687",
+ *     rules: [{
+ *         destinationContainer: "dcont139",
+ *         filters: {
+ *             prefixMatch: [
+ *                 "blobA",
+ *                 "blobB",
+ *             ],
+ *         },
+ *         sourceContainer: "scont139",
+ *     }],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateObjectReplicationPolicyOnSource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "src1122",
+ *     destinationAccount: "dst112",
+ *     metrics: {
+ *         enabled: true,
+ *     },
+ *     objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+ *     resourceGroupName: "res7687",
+ *     rules: [{
+ *         destinationContainer: "dcont139",
+ *         filters: {
+ *             minCreationTime: "2020-02-19T16:05:00Z",
+ *             prefixMatch: [
+ *                 "blobA",
+ *                 "blobB",
+ *             ],
+ *         },
+ *         ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+ *         sourceContainer: "scont139",
+ *     }],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ * ### StorageAccountUpdateObjectReplicationPolicyOnDestination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "dst112",
+ *     destinationAccount: "dst112",
+ *     metrics: {
+ *         enabled: true,
+ *     },
+ *     objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+ *     resourceGroupName: "res7687",
+ *     rules: [
+ *         {
+ *             destinationContainer: "dcont139",
+ *             filters: {
+ *                 prefixMatch: [
+ *                     "blobA",
+ *                     "blobB",
+ *                 ],
+ *             },
+ *             ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+ *             sourceContainer: "scont139",
+ *         },
+ *         {
+ *             destinationContainer: "dcont179",
+ *             sourceContainer: "scont179",
+ *         },
+ *     ],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ * ### StorageAccountUpdateObjectReplicationPolicyOnSource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "src1122",
+ *     destinationAccount: "dst112",
+ *     metrics: {
+ *         enabled: true,
+ *     },
+ *     objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+ *     resourceGroupName: "res7687",
+ *     rules: [
+ *         {
+ *             destinationContainer: "dcont139",
+ *             filters: {
+ *                 prefixMatch: [
+ *                     "blobA",
+ *                     "blobB",
+ *                 ],
+ *             },
+ *             ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+ *             sourceContainer: "scont139",
+ *         },
+ *         {
+ *             destinationContainer: "dcont179",
+ *             ruleId: "cfbb4bc2-8b60-429f-b05a-d1e0942b33b2",
+ *             sourceContainer: "scont179",
+ *         },
+ *     ],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:ObjectReplicationPolicy 2a20bb73-5717-4635-985a-5d4cf777438f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/objectReplicationPolicies/{objectReplicationPolicyId} 
+ * ```
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**

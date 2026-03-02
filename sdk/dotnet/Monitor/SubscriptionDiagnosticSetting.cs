@@ -13,6 +13,78 @@ namespace Pulumi.AzureNative.Monitor
     /// The subscription diagnostic setting resource.
     /// 
     /// Uses Azure REST API version 2021-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or Updates the subscription diagnostic setting
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscriptionDiagnosticSetting = new AzureNative.Monitor.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting", new()
+    ///     {
+    ///         EventHubAuthorizationRuleId = "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+    ///         EventHubName = "myeventhub",
+    ///         Logs = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.SubscriptionLogSettingsArgs
+    ///             {
+    ///                 CategoryGroup = "allLogs",
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         MarketplacePartnerId = "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+    ///         Name = "ds4",
+    ///         StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    ///         WorkspaceId = "",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or Updates the subscription diagnostic setting for category
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscriptionDiagnosticSetting = new AzureNative.Monitor.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting", new()
+    ///     {
+    ///         EventHubAuthorizationRuleId = "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+    ///         EventHubName = "myeventhub",
+    ///         Logs = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.SubscriptionLogSettingsArgs
+    ///             {
+    ///                 Category = "Security",
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         MarketplacePartnerId = "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+    ///         Name = "ds4",
+    ///         StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    ///         WorkspaceId = "",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:SubscriptionDiagnosticSetting ds4 /subscriptions/{subscriptionId}/providers/Microsoft.Insights/diagnosticSettings/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:SubscriptionDiagnosticSetting")]
     public partial class SubscriptionDiagnosticSetting : global::Pulumi.CustomResource

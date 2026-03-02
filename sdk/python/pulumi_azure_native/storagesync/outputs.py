@@ -107,6 +107,7 @@ class CloudEndpointChangeEnumerationActivityResponse(dict):
                  total_size_bytes: _builtins.float):
         """
         Cloud endpoint change enumeration activity object
+
         :param _builtins.int deletes_progress_percent: Progress percentage for processing deletes. This is done separately from the rest of the enumeration run
         :param _builtins.str last_updated_timestamp: Last updated timestamp
         :param _builtins.int minutes_remaining: Estimate of time remaining for the enumeration run
@@ -270,6 +271,7 @@ class CloudEndpointChangeEnumerationStatusResponse(dict):
                  last_updated_timestamp: _builtins.str):
         """
         Cloud endpoint change enumeration status object
+
         :param 'CloudEndpointChangeEnumerationActivityResponse' activity: Change enumeration activity
         :param 'CloudEndpointLastChangeEnumerationStatusResponse' last_enumeration_status: Status of last completed change enumeration
         :param _builtins.str last_updated_timestamp: Last updated timestamp
@@ -344,6 +346,7 @@ class CloudEndpointLastChangeEnumerationStatusResponse(dict):
                  started_timestamp: _builtins.str):
         """
         Cloud endpoint change enumeration status object
+
         :param _builtins.str completed_timestamp: Timestamp when change enumeration completed
         :param _builtins.float namespace_directories_count: Count of directories in the namespace
         :param _builtins.float namespace_files_count: Count of files in the namespace
@@ -442,6 +445,7 @@ class CloudTieringCachePerformanceResponse(dict):
                  last_updated_timestamp: _builtins.str):
         """
         Server endpoint cloud tiering status object.
+
         :param _builtins.float cache_hit_bytes: Count of bytes that were served from the local server
         :param _builtins.int cache_hit_bytes_percent: Percentage of total bytes (hit + miss) that were served from the local server
         :param _builtins.float cache_miss_bytes: Count of bytes that were served from the cloud
@@ -514,6 +518,7 @@ class CloudTieringDatePolicyStatusResponse(dict):
                  tiered_files_most_recent_access_timestamp: _builtins.str):
         """
         Status of the date policy
+
         :param _builtins.str last_updated_timestamp: Last updated timestamp
         :param _builtins.str tiered_files_most_recent_access_timestamp: Most recent access time of tiered files
         """
@@ -567,6 +572,7 @@ class CloudTieringFilesNotTieringResponse(dict):
                  total_file_count: _builtins.float):
         """
         Server endpoint cloud tiering status object.
+
         :param Sequence['FilesNotTieringErrorResponse'] errors: Array of tiering errors
         :param _builtins.str last_updated_timestamp: Last updated timestamp
         :param _builtins.float total_file_count: Last cloud tiering result (HResult)
@@ -627,6 +633,7 @@ class CloudTieringLowDiskModeResponse(dict):
                  state: _builtins.str):
         """
         Information regarding the low disk mode state
+
         :param _builtins.str last_updated_timestamp: Last updated timestamp
         :param _builtins.str state: Low disk mode state
         """
@@ -691,6 +698,7 @@ class CloudTieringSpaceSavingsResponse(dict):
                  volume_size_bytes: _builtins.float):
         """
         Server endpoint cloud tiering status object.
+
         :param _builtins.float cached_size_bytes: Cached content size on the server
         :param _builtins.str last_updated_timestamp: Last updated timestamp
         :param _builtins.float space_savings_bytes: Count of bytes saved on the server
@@ -786,6 +794,7 @@ class CloudTieringVolumeFreeSpacePolicyStatusResponse(dict):
                  last_updated_timestamp: _builtins.str):
         """
         Status of the volume free space policy
+
         :param _builtins.int current_volume_free_space_percent: Current volume free space percentage.
         :param _builtins.int effective_volume_free_space_policy: In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
         :param _builtins.str last_updated_timestamp: Last updated timestamp
@@ -848,6 +857,7 @@ class FilesNotTieringErrorResponse(dict):
                  file_count: _builtins.float):
         """
         Files not tiering error object
+
         :param _builtins.int error_code: Error code (HResult)
         :param _builtins.float file_count: Count of files with this error
         """
@@ -904,6 +914,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -989,6 +1000,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -1082,6 +1094,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -1123,6 +1136,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1192,6 +1206,7 @@ class ServerEndpointBackgroundDataDownloadActivityResponse(dict):
                  timestamp: _builtins.str):
         """
         Background data download activity object
+
         :param _builtins.float downloaded_bytes: Running count of bytes downloaded
         :param _builtins.int percent_progress: Progress percentage
         :param _builtins.str started_timestamp: Timestamp when the operation started
@@ -1289,6 +1304,7 @@ class ServerEndpointCloudTieringStatusResponse(dict):
                  volume_free_space_policy_status: 'outputs.CloudTieringVolumeFreeSpacePolicyStatusResponse'):
         """
         Server endpoint cloud tiering status object.
+
         :param 'CloudTieringCachePerformanceResponse' cache_performance: Information regarding how well the local cache on the server is performing.
         :param 'CloudTieringDatePolicyStatusResponse' date_policy_status: Status of the date policy
         :param 'CloudTieringFilesNotTieringResponse' files_not_tiering: Information regarding files that failed to be tiered
@@ -1434,6 +1450,7 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
                  transient_count: _builtins.float):
         """
         Files not syncing error object
+
         :param _builtins.int error_code: Error code (HResult)
         :param _builtins.float persistent_count: Count of persistent files not syncing with the specified error code
         :param _builtins.float transient_count: Count of transient files not syncing with the specified error code
@@ -1499,6 +1516,7 @@ class ServerEndpointProvisioningStatusResponse(dict):
                  provisioning_type: _builtins.str):
         """
         Server endpoint provisioning status information
+
         :param _builtins.str provisioning_status: Server Endpoint provisioning status
         :param Sequence['ServerEndpointProvisioningStepStatusResponse'] provisioning_step_statuses: Provisioning Step status information for each step in the provisioning process
         :param _builtins.str provisioning_type: Server Endpoint provisioning type
@@ -1575,6 +1593,7 @@ class ServerEndpointProvisioningStepStatusResponse(dict):
                  status: _builtins.str):
         """
         Server endpoint provisioning step status object.
+
         :param Mapping[str, _builtins.str] additional_information: Additional information for the provisioning step
         :param _builtins.str end_time: End time of the provisioning step
         :param _builtins.int error_code: Error code (HResult) for the provisioning step
@@ -1685,6 +1704,7 @@ class ServerEndpointRecallErrorResponse(dict):
                  error_code: _builtins.int):
         """
         Server endpoint recall error object
+
         :param _builtins.float count: Count of occurences of the error
         :param _builtins.int error_code: Error code (HResult)
         """
@@ -1740,6 +1760,7 @@ class ServerEndpointRecallStatusResponse(dict):
                  total_recall_errors_count: _builtins.float):
         """
         Server endpoint recall status object.
+
         :param _builtins.str last_updated_timestamp: Last updated timestamp
         :param Sequence['ServerEndpointRecallErrorResponse'] recall_errors: Array of recall errors
         :param _builtins.float total_recall_errors_count: Total count of recall errors.
@@ -1818,6 +1839,7 @@ class ServerEndpointSyncActivityStatusResponse(dict):
                  total_item_count: _builtins.float):
         """
         Sync Session status object.
+
         :param _builtins.float applied_bytes: Applied bytes
         :param _builtins.float applied_item_count: Applied item count.
         :param _builtins.float per_item_error_count: Per item error count
@@ -1948,6 +1970,7 @@ class ServerEndpointSyncSessionStatusResponse(dict):
                  transient_files_not_syncing_count: _builtins.float):
         """
         Sync Session status object.
+
         :param Sequence['ServerEndpointFilesNotSyncingErrorResponse'] files_not_syncing_errors: Array of per-item errors coming from the last sync session.
         :param _builtins.str last_sync_mode: Sync mode
         :param _builtins.float last_sync_per_item_error_count: Last sync per item error count.
@@ -2090,6 +2113,7 @@ class ServerEndpointSyncStatusResponse(dict):
                  upload_status: 'outputs.ServerEndpointSyncSessionStatusResponse'):
         """
         Server Endpoint sync status
+
         :param 'ServerEndpointBackgroundDataDownloadActivityResponse' background_data_download_activity: Background data download activity
         :param _builtins.str combined_health: Combined Health Status.
         :param 'ServerEndpointSyncActivityStatusResponse' download_activity: Download sync activity
@@ -2254,6 +2278,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2352,6 +2377,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

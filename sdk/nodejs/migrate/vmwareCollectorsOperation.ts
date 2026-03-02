@@ -13,6 +13,43 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### VmwareCollectorsOperations_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vmwareCollectorsOperation = new azure_native.migrate.VmwareCollectorsOperation("vmwareCollectorsOperation", {
+ *     agentProperties: {
+ *         id: "fe243486-3318-41fa-aaba-c48b5df75308",
+ *         lastHeartbeatUtc: "2022-03-29T12:10:08.9167289Z",
+ *         spnDetails: {
+ *             applicationId: "82b3e452-c0e8-4662-8347-58282925ae84",
+ *             audience: "82b3e452-c0e8-4662-8347-58282925ae84",
+ *             authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *             objectId: "3fc89111-1405-4938-9214-37aa4739401d",
+ *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *         },
+ *         version: "1.0.8.383",
+ *     },
+ *     discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/VMwareSites/Vmware2744site",
+ *     projectName: "app18700project",
+ *     provisioningState: azure_native.migrate.ProvisioningState.Succeeded,
+ *     resourceGroupName: "ayagrawRG",
+ *     vmWareCollectorName: "Vmware2258collector",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:VmwareCollectorsOperation Vmware2258collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName} 
+ * ```
  */
 export class VmwareCollectorsOperation extends pulumi.CustomResource {
     /**

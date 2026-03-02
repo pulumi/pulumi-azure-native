@@ -13,6 +13,56 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// An event source that receives its data from an Azure IoTHub.
     /// 
     /// Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
+    /// 
+    /// ## Example Usage
+    /// ### CreateEventHubEventSource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ioTHubEventSource = new AzureNative.TimeSeriesInsights.IoTHubEventSource("ioTHubEventSource", new()
+    ///     {
+    ///         EnvironmentName = "env1",
+    ///         EventSourceName = "es1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### EventSourcesCreateEventHubWithCustomEnquedTime
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ioTHubEventSource = new AzureNative.TimeSeriesInsights.IoTHubEventSource("ioTHubEventSource", new()
+    ///     {
+    ///         EnvironmentName = "env1",
+    ///         EventSourceName = "es1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights:IoTHubEventSource es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:IoTHubEventSource")]
     public partial class IoTHubEventSource : global::Pulumi.CustomResource

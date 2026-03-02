@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Represents a published blueprint.
  *
  * Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
+ *
+ * ## Example Usage
+ * ### PublishedManagementGroupBlueprint_Publish
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publishedBlueprint = new azure_native.blueprint.PublishedBlueprint("publishedBlueprint", {
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ *     versionId: "v2",
+ * });
+ *
+ * ```
+ * ### PublishedSubscriptionBlueprint_Publish
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publishedBlueprint = new azure_native.blueprint.PublishedBlueprint("publishedBlueprint", {
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ *     versionId: "v2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint:PublishedBlueprint v2 /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId} 
+ * ```
  */
 export class PublishedBlueprint extends pulumi.CustomResource {
     /**

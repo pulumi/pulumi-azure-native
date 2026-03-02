@@ -13,6 +13,179 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create edge enabled device with UsernamesPassword inbound authentication.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceDevice = new azure_native.deviceregistry.NamespaceDevice("namespaceDevice", {
+ *     attributes: {
+ *         deviceCategory: 16,
+ *         deviceOwner: "IT",
+ *         deviceType: "sensor",
+ *     },
+ *     deviceName: "namespace-device-on-edge",
+ *     enabled: true,
+ *     endpoints: {
+ *         inbound: {
+ *             theOnlyOPCUABroker: {
+ *                 address: "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+ *                 authentication: {
+ *                     method: azure_native.deviceregistry.AuthenticationMethod.UsernamePassword,
+ *                     usernamePasswordCredentials: {
+ *                         passwordSecretName: "pwd-ref",
+ *                         usernameSecretName: "user-ref",
+ *                     },
+ *                 },
+ *                 endpointType: "microsoft.opcua/v1",
+ *                 version: "2",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     externalDeviceId: "unique-edge-device-identifier",
+ *     location: "West Europe",
+ *     namespaceName: "adr-namespace-gbk0925-n01",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create edge enabled device with anonymous host authentication.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceDevice = new azure_native.deviceregistry.NamespaceDevice("namespaceDevice", {
+ *     attributes: {
+ *         deviceCategory: 16,
+ *         deviceOwner: "OT",
+ *         deviceType: "dough-maker",
+ *     },
+ *     deviceName: "namespace-device-on-edge",
+ *     enabled: true,
+ *     endpoints: {
+ *         inbound: {
+ *             theOnlyOPCUABroker: {
+ *                 address: "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+ *                 authentication: {
+ *                     method: azure_native.deviceregistry.AuthenticationMethod.Anonymous,
+ *                 },
+ *                 endpointType: "microsoft.opcua/v1",
+ *                 version: "2",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     externalDeviceId: "unique-edge-device-identifier",
+ *     location: "West Europe",
+ *     namespaceName: "adr-namespace-gbk0925-n01",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create edge enabled device with x509 inbound authentication.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceDevice = new azure_native.deviceregistry.NamespaceDevice("namespaceDevice", {
+ *     attributes: {
+ *         deviceCategory: 16,
+ *         deviceOwner: "OT",
+ *         deviceType: "OPCUAServers",
+ *     },
+ *     deviceName: "namespace-device-on-edge",
+ *     enabled: true,
+ *     endpoints: {
+ *         inbound: {
+ *             theV1OPCUAEndpoint: {
+ *                 address: "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+ *                 authentication: {
+ *                     method: azure_native.deviceregistry.AuthenticationMethod.Certificate,
+ *                     x509Credentials: {
+ *                         certificateSecretName: "cert-secret",
+ *                     },
+ *                 },
+ *                 endpointType: "microsoft.opcua/v1",
+ *                 version: "2",
+ *             },
+ *             theV2OPCUAEndpoint: {
+ *                 address: "opc.tcp://192.168.86.23:51211/UA/SampleServer",
+ *                 authentication: {
+ *                     method: azure_native.deviceregistry.AuthenticationMethod.Certificate,
+ *                     x509Credentials: {
+ *                         certificateSecretName: "cert-secret",
+ *                     },
+ *                 },
+ *                 endpointType: "microsoft.opcua/v1",
+ *                 trustSettings: {
+ *                     trustList: "trust-secret-reference",
+ *                 },
+ *                 version: "2",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+ *         type: "CustomLocation",
+ *     },
+ *     externalDeviceId: "unique-edge-device-identifier",
+ *     location: "West Europe",
+ *     namespaceName: "adr-namespace-gbk0925-n01",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### CreateOrReplace_NamespaceDevices
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceDevice = new azure_native.deviceregistry.NamespaceDevice("namespaceDevice", {
+ *     attributes: {
+ *         deviceCategory: 16,
+ *         deviceOwner: "IT",
+ *         deviceType: "sensor",
+ *     },
+ *     deviceName: "dev-namespace-gbk0925-n01",
+ *     enabled: true,
+ *     endpoints: {
+ *         outbound: {
+ *             assigned: {
+ *                 eventGridEndpoint: {
+ *                     address: "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
+ *                     endpointType: "Microsoft.EventGrid",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     externalDeviceId: "adr-smart-device3-7a848b15-af47-40a7-8c06-a3f43314d44f",
+ *     location: "West Europe",
+ *     namespaceName: "adr-namespace-gbk0925-n01",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceregistry:NamespaceDevice adr-smart-device3-7a848b15-af47-40a7-8c06-a3f43314d44f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName} 
+ * ```
  */
 export class NamespaceDevice extends pulumi.CustomResource {
     /**

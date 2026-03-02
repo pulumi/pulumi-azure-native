@@ -15,6 +15,128 @@ namespace Pulumi.AzureNative.RedisEnterprise
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### RedisEnterpriseDatabasesCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.RedisEnterprise.Database("database", new()
+    ///     {
+    ///         AccessKeysAuthentication = AzureNative.RedisEnterprise.AccessKeysAuthentication.Enabled,
+    ///         ClientProtocol = AzureNative.RedisEnterprise.Protocol.Encrypted,
+    ///         ClusterName = "cache1",
+    ///         ClusteringPolicy = AzureNative.RedisEnterprise.ClusteringPolicy.EnterpriseCluster,
+    ///         DatabaseName = "default",
+    ///         DeferUpgrade = AzureNative.RedisEnterprise.DeferUpgradeSetting.NotDeferred,
+    ///         EvictionPolicy = AzureNative.RedisEnterprise.EvictionPolicy.AllKeysLRU,
+    ///         Modules = new[]
+    ///         {
+    ///             new AzureNative.RedisEnterprise.Inputs.ModuleArgs
+    ///             {
+    ///                 Args = "ERROR_RATE 0.00 INITIAL_SIZE 400",
+    ///                 Name = "RedisBloom",
+    ///             },
+    ///             new AzureNative.RedisEnterprise.Inputs.ModuleArgs
+    ///             {
+    ///                 Args = "RETENTION_POLICY 20",
+    ///                 Name = "RedisTimeSeries",
+    ///             },
+    ///             new AzureNative.RedisEnterprise.Inputs.ModuleArgs
+    ///             {
+    ///                 Name = "RediSearch",
+    ///             },
+    ///         },
+    ///         Persistence = new AzureNative.RedisEnterprise.Inputs.PersistenceArgs
+    ///         {
+    ///             AofEnabled = true,
+    ///             AofFrequency = AzureNative.RedisEnterprise.AofFrequency.AofFrequency_1s,
+    ///         },
+    ///         Port = 10000,
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RedisEnterpriseDatabasesCreate No Cluster Cache
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.RedisEnterprise.Database("database", new()
+    ///     {
+    ///         ClientProtocol = AzureNative.RedisEnterprise.Protocol.Encrypted,
+    ///         ClusterName = "cache1",
+    ///         ClusteringPolicy = AzureNative.RedisEnterprise.ClusteringPolicy.NoCluster,
+    ///         DatabaseName = "default",
+    ///         EvictionPolicy = AzureNative.RedisEnterprise.EvictionPolicy.NoEviction,
+    ///         Port = 10000,
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RedisEnterpriseDatabasesCreate With Active Geo Replication
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.RedisEnterprise.Database("database", new()
+    ///     {
+    ///         AccessKeysAuthentication = AzureNative.RedisEnterprise.AccessKeysAuthentication.Enabled,
+    ///         ClientProtocol = AzureNative.RedisEnterprise.Protocol.Encrypted,
+    ///         ClusterName = "cache1",
+    ///         ClusteringPolicy = AzureNative.RedisEnterprise.ClusteringPolicy.EnterpriseCluster,
+    ///         DatabaseName = "default",
+    ///         EvictionPolicy = AzureNative.RedisEnterprise.EvictionPolicy.NoEviction,
+    ///         GeoReplication = new AzureNative.RedisEnterprise.Inputs.DatabasePropertiesGeoReplicationArgs
+    ///         {
+    ///             GroupNickname = "groupName",
+    ///             LinkedDatabases = new[]
+    ///             {
+    ///                 new AzureNative.RedisEnterprise.Inputs.LinkedDatabaseArgs
+    ///                 {
+    ///                     Id = "/subscriptions/e7b5a9d2-6b6a-4d2f-9143-20d9a10f5b8f/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default",
+    ///                 },
+    ///                 new AzureNative.RedisEnterprise.Inputs.LinkedDatabaseArgs
+    ///                 {
+    ///                     Id = "/subscriptions/e7b5a9d2-6b6a-4d2f-9143-20d9a10f5b8e/resourceGroups/rg2/providers/Microsoft.Cache/redisEnterprise/cache2/databases/default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Port = 10000,
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:redisenterprise:Database cache1/default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redisenterprise:Database")]
     public partial class Database : global::Pulumi.CustomResource

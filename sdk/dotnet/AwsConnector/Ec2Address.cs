@@ -13,6 +13,80 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2Addresses_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2Address = new AzureNative.AwsConnector.Ec2Address("ec2Address", new()
+    ///     {
+    ///         Location = "uwbmdjhaqaqz",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2AddressPropertiesArgs
+    ///         {
+    ///             Arn = "kgqnwrdoqeqjraczlznfiu",
+    ///             AwsAccountId = "nfzczrgklte",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2AddressPropertiesArgs
+    ///             {
+    ///                 AllocationId = "lakfpwuipmqvwqzpiojxgxjrh",
+    ///                 AssociationId = "wwgugzolrxtpvpaxafaqi",
+    ///                 CarrierIp = "tpwlxdfmqhkr",
+    ///                 CustomerOwnedIp = "qpvlzqkbksm",
+    ///                 CustomerOwnedIpv4Pool = "sbzgaydiiwsnarhj",
+    ///                 Domain = new AzureNative.AwsConnector.Inputs.DomainTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.DomainType.Standard,
+    ///                 },
+    ///                 InstanceId = "lcw",
+    ///                 NetworkBorderGroup = "cvmuzymwrwriouiziwwhybkwv",
+    ///                 NetworkInterfaceId = "pundetxxybkvjkwhenmdlxzoji",
+    ///                 NetworkInterfaceOwnerId = "mxcypkkbqs",
+    ///                 PrivateIpAddress = "syfgrbvaucqkmkakjhez",
+    ///                 PublicIp = "uzkzeonfghtefuulqaev",
+    ///                 PublicIpv4Pool = "dlv",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "acaotlyww",
+    ///                         Value = "tcahesrhkpnaonjnhbfsmiyhypjmw",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "qocfydee",
+    ///             AwsSourceSchema = "uachsjdkxtczamkh",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key6276", "nolpfwzekiehxektjfku" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "eytnpsrqhczygcelqjky",
+    ///             PublicCloudResourceName = "xongligvmdxe",
+    ///         },
+    ///         ResourceGroupName = "rgec2Address",
+    ///         Tags = 
+    ///         {
+    ///             { "key991", "zgudcnhfnizgcnyjetbfss" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2Address xnduh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Addresses/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2Address")]
     public partial class Ec2Address : global::Pulumi.CustomResource

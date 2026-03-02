@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// The storageSpaces resource definition.
     /// 
     /// Uses Azure REST API version 2022-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutStorageSpace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageSpaceRetrieve = new AzureNative.HybridContainerService.StorageSpaceRetrieve("storageSpaceRetrieve", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.HybridContainerService.Inputs.StorageSpacesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.HybridContainerService.Inputs.StorageSpacesPropertiesArgs
+    ///         {
+    ///             HciStorageProfile = new AzureNative.HybridContainerService.Inputs.StorageSpacesPropertiesHciStorageProfileArgs
+    ///             {
+    ///                 MocGroup = "target-group",
+    ///                 MocLocation = "MocLocation",
+    ///                 MocStorageContainer = "WssdStorageContainer",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-arcappliance-resgrp",
+    ///         StorageSpacesName = "test-storage",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcontainerservice:StorageSpaceRetrieve test-storage /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpacesName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:StorageSpaceRetrieve")]
     public partial class StorageSpaceRetrieve : global::Pulumi.CustomResource

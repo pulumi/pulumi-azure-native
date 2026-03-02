@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### AccessAnalyzerAnalyzers_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessAnalyzerAnalyzer = new AzureNative.AwsConnector.AccessAnalyzerAnalyzer("accessAnalyzerAnalyzer", new()
+    ///     {
+    ///         Location = "jpcbvhsspnqhnreartkjyr",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.AccessAnalyzerAnalyzerPropertiesArgs
+    ///         {
+    ///             Arn = "dgzbebaorvepu",
+    ///             AwsAccountId = "pvsawejgihtmvcjqnob",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsAccessAnalyzerAnalyzerPropertiesArgs
+    ///             {
+    ///                 AnalyzerConfiguration = new AzureNative.AwsConnector.Inputs.UnusedAccessConfigurationArgs
+    ///                 {
+    ///                     UnusedAccessAge = 29,
+    ///                 },
+    ///                 AnalyzerName = "owom",
+    ///                 ArchiveRules = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ArchiveRuleArgs
+    ///                     {
+    ///                         Filter = new[]
+    ///                         {
+    ///                             null,
+    ///                         },
+    ///                         RuleName = "hvfnklcbuefkibrtayx",
+    ///                     },
+    ///                 },
+    ///                 Arn = "bmt",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "xeapsjw",
+    ///                         Value = "mtcjrbabaynnrmqttjf",
+    ///                     },
+    ///                 },
+    ///                 Type = "vswmvhmkyxepqkvvksbglssmrgg",
+    ///             },
+    ///             AwsRegion = "edosnsqdwcvgl",
+    ///             AwsSourceSchema = "ur",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key746", "ux" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "qfefhuzrkvg",
+    ///             PublicCloudResourceName = "euuddejz",
+    ///         },
+    ///         ResourceGroupName = "rgaccessAnalyzerAnalyzer",
+    ///         Tags = 
+    ///         {
+    ///             { "key5531", "fkyuwvyhzd" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:AccessAnalyzerAnalyzer ufpyfqqujqkhoaysswb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/accessAnalyzerAnalyzers/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:AccessAnalyzerAnalyzer")]
     public partial class AccessAnalyzerAnalyzer : global::Pulumi.CustomResource

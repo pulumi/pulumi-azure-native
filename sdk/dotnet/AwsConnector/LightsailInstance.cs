@@ -13,6 +13,150 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### LightsailInstances_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var lightsailInstance = new AzureNative.AwsConnector.LightsailInstance("lightsailInstance", new()
+    ///     {
+    ///         Location = "cry",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.LightsailInstancePropertiesArgs
+    ///         {
+    ///             Arn = "dcvwurrexherolt",
+    ///             AwsAccountId = "bclcfxetkkugpyilojpvoypui",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsLightsailInstancePropertiesArgs
+    ///             {
+    ///                 AddOns = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.AddOnArgs
+    ///                     {
+    ///                         AddOnType = "dk",
+    ///                         AutoSnapshotAddOnRequest = new AzureNative.AwsConnector.Inputs.AutoSnapshotAddOnArgs
+    ///                         {
+    ///                             SnapshotTimeOfDay = "mnthrtsoittlqrvxnwvrbaxaazh",
+    ///                         },
+    ///                         Status = AzureNative.AwsConnector.AddOnStatus.Disabled,
+    ///                     },
+    ///                 },
+    ///                 AvailabilityZone = "an",
+    ///                 BlueprintId = "fcezpmlwqhchkvmrdnywpr",
+    ///                 BundleId = "yckqxqitrffsidmdxkrmaulfgmrj",
+    ///                 Hardware = new AzureNative.AwsConnector.Inputs.HardwareArgs
+    ///                 {
+    ///                     CpuCount = 30,
+    ///                     Disks = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.DiskArgs
+    ///                         {
+    ///                             AttachedTo = "qoievao",
+    ///                             AttachmentState = "ujinucmjcnzuosaqycrkndh",
+    ///                             DiskName = "tmfpjhluaytgmpxxqtccohpge",
+    ///                             Iops = 11,
+    ///                             IsSystemDisk = true,
+    ///                             Path = "urbubhyieizmbnyddjkyaadmod",
+    ///                             SizeInGb = "vpd",
+    ///                         },
+    ///                     },
+    ///                     RamSizeInGb = 4,
+    ///                 },
+    ///                 InstanceArn = "mnodcgqlejrhlctqngwxyoqewk",
+    ///                 InstanceName = "xfxnlievrppfrt",
+    ///                 IsStaticIp = true,
+    ///                 KeyPairName = "wtwjhokvviiafrsb",
+    ///                 Location = new AzureNative.AwsConnector.Inputs.LocationArgs
+    ///                 {
+    ///                     AvailabilityZone = "t",
+    ///                     RegionName = "zgmew",
+    ///                 },
+    ///                 Networking = new AzureNative.AwsConnector.Inputs.NetworkingArgs
+    ///                 {
+    ///                     MonthlyTransfer = new AzureNative.AwsConnector.Inputs.MonthlyTransferArgs
+    ///                     {
+    ///                         GbPerMonthAllocated = "dvbefi",
+    ///                     },
+    ///                     Ports = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.PortArgs
+    ///                         {
+    ///                             AccessDirection = "bybrpghkgcvx",
+    ///                             AccessFrom = "kslf",
+    ///                             AccessType = "dcqaucgpbxngw",
+    ///                             CidrListAliases = new[]
+    ///                             {
+    ///                                 "btgxaahlpibcqefsgcghfd",
+    ///                             },
+    ///                             Cidrs = new[]
+    ///                             {
+    ///                                 "lhmvhnh",
+    ///                             },
+    ///                             CommonName = "t",
+    ///                             FromPort = 23,
+    ///                             Ipv6Cidrs = new[]
+    ///                             {
+    ///                                 "qladlrdxfiad",
+    ///                             },
+    ///                             Protocol = "bzikwazzeydyrukrjhsaogkkxua",
+    ///                             ToPort = 13,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 PrivateIpAddress = "ieeqsrklgnc",
+    ///                 PublicIpAddress = "vonneqx",
+    ///                 ResourceType = "obxjqk",
+    ///                 SshKeyName = "vjifxmchpparahfut",
+    ///                 State = new AzureNative.AwsConnector.Inputs.StateArgs
+    ///                 {
+    ///                     Code = 29,
+    ///                     Name = "xdtssqcrsvaqphv",
+    ///                 },
+    ///                 SupportCode = "nxvcadptkoljiizhffgqdqqzkc",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "oeyvtbbbaviazuesvytzykdrje",
+    ///                         Value = "vbybagbqynriyix",
+    ///                     },
+    ///                 },
+    ///                 UserData = "f",
+    ///                 UserName = "rhivoaleeqwog",
+    ///             },
+    ///             AwsRegion = "zjxqlmimpqxec",
+    ///             AwsSourceSchema = "zzcfeeoutptp",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key8646", "ilziiib" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "vsgxzwhzepjvcjjoqj",
+    ///             PublicCloudResourceName = "ibkgqwotzyy",
+    ///         },
+    ///         ResourceGroupName = "rglightsailInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "key2601", "s" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:LightsailInstance cbectofyydqecqgockmputsryovezv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lightsailInstances/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:LightsailInstance")]
     public partial class LightsailInstance : global::Pulumi.CustomResource

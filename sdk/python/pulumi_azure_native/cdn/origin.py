@@ -37,6 +37,7 @@ class OriginArgs:
                  weight: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Origin resource.
+
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[_builtins.str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
@@ -290,6 +291,40 @@ class Origin(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Origins_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        origin = azure_native.cdn.Origin("origin",
+            enabled=True,
+            endpoint_name="endpoint1",
+            host_name="www.someDomain.net",
+            http_port=80,
+            https_port=443,
+            origin_host_header="www.someDomain.net",
+            origin_name="www-someDomain-net",
+            priority=1,
+            private_link_approval_message="Please approve the connection request for this Private Link",
+            private_link_location="eastus",
+            private_link_resource_id="/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+            profile_name="profile1",
+            resource_group_name="RG",
+            weight=50)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Origin www-someDomain-net /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/origins/{originName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Origin is enabled for load balancing or not
@@ -320,6 +355,40 @@ class Origin(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Origins_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        origin = azure_native.cdn.Origin("origin",
+            enabled=True,
+            endpoint_name="endpoint1",
+            host_name="www.someDomain.net",
+            http_port=80,
+            https_port=443,
+            origin_host_header="www.someDomain.net",
+            origin_name="www-someDomain-net",
+            priority=1,
+            private_link_approval_message="Please approve the connection request for this Private Link",
+            private_link_location="eastus",
+            private_link_resource_id="/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+            profile_name="profile1",
+            resource_group_name="RG",
+            weight=50)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Origin www-someDomain-net /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/origins/{originName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OriginArgs args: The arguments to use to populate this resource's properties.

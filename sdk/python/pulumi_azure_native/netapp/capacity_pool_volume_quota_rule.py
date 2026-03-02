@@ -33,6 +33,7 @@ class CapacityPoolVolumeQuotaRuleArgs:
                  volume_quota_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CapacityPoolVolumeQuotaRule resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -206,6 +207,35 @@ class CapacityPoolVolumeQuotaRule(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### VolumeQuotaRules_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_pool_volume_quota_rule = azure_native.netapp.CapacityPoolVolumeQuotaRule("capacityPoolVolumeQuotaRule",
+            account_name="account-9957",
+            location="westus",
+            pool_name="pool-5210",
+            quota_size_in_ki_bs=100005,
+            quota_target="1821",
+            quota_type=azure_native.netapp.Type.INDIVIDUAL_USER_QUOTA,
+            resource_group_name="myRG",
+            volume_name="volume-6387",
+            volume_quota_rule_name="rule-0004")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:CapacityPoolVolumeQuotaRule account-9957/pool-5210/volume-6387/rule-0004 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
@@ -231,6 +261,35 @@ class CapacityPoolVolumeQuotaRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01.
 
         Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### VolumeQuotaRules_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_pool_volume_quota_rule = azure_native.netapp.CapacityPoolVolumeQuotaRule("capacityPoolVolumeQuotaRule",
+            account_name="account-9957",
+            location="westus",
+            pool_name="pool-5210",
+            quota_size_in_ki_bs=100005,
+            quota_target="1821",
+            quota_type=azure_native.netapp.Type.INDIVIDUAL_USER_QUOTA,
+            resource_group_name="myRG",
+            volume_name="volume-6387",
+            volume_quota_rule_name="rule-0004")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:CapacityPoolVolumeQuotaRule account-9957/pool-5210/volume-6387/rule-0004 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityPoolVolumeQuotaRuleArgs args: The arguments to use to populate this resource's properties.

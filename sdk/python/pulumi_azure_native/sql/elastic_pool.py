@@ -40,6 +40,7 @@ class ElasticPoolArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ElasticPool resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.int] auto_pause_delay: Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
@@ -323,6 +324,164 @@ class ElasticPool(pulumi.CustomResource):
 
         Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update an elastic pool with Availability Zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            availability_zone=azure_native.sql.AvailabilityZoneType.ONE,
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings={
+                "max_capacity": 2,
+                "min_capacity": 0.25,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "HS_Gen5_4",
+            },
+            zone_redundant=True)
+
+        ```
+        ### Create or Update an elastic pool with serverless properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            auto_pause_delay=60,
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            min_capacity=0.5,
+            per_database_settings={
+                "auto_pause_delay": 80,
+                "max_capacity": 2,
+                "min_capacity": 0,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "capacity": 2,
+                "name": "GP_S_Gen5_2",
+                "tier": "GeneralPurpose",
+            })
+
+        ```
+        ### Create or update Hyperscale elastic pool with high availability replica count parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            high_availability_replica_count=2,
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "HS_Gen5_4",
+            })
+
+        ```
+        ### Create or update elastic pool with all parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings={
+                "max_capacity": 2,
+                "min_capacity": 0.25,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "capacity": 2,
+                "name": "GP_Gen4_2",
+                "tier": "GeneralPurpose",
+            })
+
+        ```
+        ### Create or update elastic pool with maintenance configuration parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+        ### Create or update elastic pool with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+        ### Create or update elastic pool with preferred enclave type parameter as Default
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.DEFAULT,
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "GP_Gen5_4",
+            })
+
+        ```
+        ### Create or update elastic pool with preferred enclave type parameter as VBS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.VBS,
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "GP_Gen5_4",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ElasticPool sqlcrudtest-8102 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] auto_pause_delay: Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
@@ -360,6 +519,164 @@ class ElasticPool(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2014-04-01, 2017-10-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update an elastic pool with Availability Zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            availability_zone=azure_native.sql.AvailabilityZoneType.ONE,
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings={
+                "max_capacity": 2,
+                "min_capacity": 0.25,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "HS_Gen5_4",
+            },
+            zone_redundant=True)
+
+        ```
+        ### Create or Update an elastic pool with serverless properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            auto_pause_delay=60,
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            min_capacity=0.5,
+            per_database_settings={
+                "auto_pause_delay": 80,
+                "max_capacity": 2,
+                "min_capacity": 0,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "capacity": 2,
+                "name": "GP_S_Gen5_2",
+                "tier": "GeneralPurpose",
+            })
+
+        ```
+        ### Create or update Hyperscale elastic pool with high availability replica count parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            high_availability_replica_count=2,
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "HS_Gen5_4",
+            })
+
+        ```
+        ### Create or update elastic pool with all parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings={
+                "max_capacity": 2,
+                "min_capacity": 0.25,
+            },
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "capacity": 2,
+                "name": "GP_Gen4_2",
+                "tier": "GeneralPurpose",
+            })
+
+        ```
+        ### Create or update elastic pool with maintenance configuration parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+        ### Create or update elastic pool with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+        ### Create or update elastic pool with preferred enclave type parameter as Default
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.DEFAULT,
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "GP_Gen5_4",
+            })
+
+        ```
+        ### Create or update elastic pool with preferred enclave type parameter as VBS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.VBS,
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku={
+                "name": "GP_Gen5_4",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ElasticPool sqlcrudtest-8102 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.

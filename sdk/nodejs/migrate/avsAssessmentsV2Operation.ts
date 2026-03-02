@@ -11,6 +11,69 @@ import * as utilities from "../utilities";
  * AVS assessment V2 resource.
  *
  * Uses Azure REST API version 2024-03-03-preview.
+ *
+ * ## Example Usage
+ * ### AvsAssessmentsV2Operations_Create_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const avsAssessmentsV2Operation = new azure_native.migrate.AvsAssessmentsV2Operation("avsAssessmentsV2Operation", {
+ *     assessmentName: "assessmentName",
+ *     projectName: "contosoProject",
+ *     properties: {
+ *         fallbackMachineAssessmentArmId: "tpjvxfcyxsgngqdxyrrfh",
+ *         scope: {
+ *             azureResourceGraphQuery: "ylnfwgptlyzwzkotmunbx",
+ *             scopeType: azure_native.migrate.ScopeType.ServerGroupId,
+ *             serverGroupId: "fxonspfmzfuiaepr",
+ *         },
+ *         settings: {
+ *             avsAssessmentScenario: azure_native.migrate.AvsAssessmentScenario.Unknown,
+ *             azureLocation: "actuloeieva",
+ *             billingSettings: {
+ *                 licensingProgram: azure_native.migrate.LicensingProgram.Retail,
+ *                 subscriptionId: "xvtuenxmmjuqlhgmvev",
+ *             },
+ *             cpuHeadroom: 27,
+ *             currency: azure_native.migrate.AzureCurrency.Unknown,
+ *             dedupeCompression: 26,
+ *             discountPercentage: 27,
+ *             environmentType: azure_native.migrate.EnvironmentType.Production,
+ *             externalStorageTypes: [azure_native.migrate.ExternalStorageType.Unknown],
+ *             failuresToTolerateAndRaidLevelList: [azure_native.migrate.FttAndRaidLevel.Unknown],
+ *             isStretchClusterEnabled: true,
+ *             isVcfByolEnabled: true,
+ *             memOvercommit: 11,
+ *             nodeTypes: [azure_native.migrate.AzureAvsNodeType.Unknown],
+ *             performanceData: {
+ *                 percentile: "Unknown",
+ *                 perfDataEndTime: "2025-02-21T05:36:34.751Z",
+ *                 perfDataStartTime: "2025-02-21T05:36:34.751Z",
+ *                 timeRange: azure_native.migrate.TimeRange.Day,
+ *             },
+ *             savingsSettings: {
+ *                 azureOfferCode: azure_native.migrate.AzureOffer.Unknown,
+ *                 savingsOptions: azure_native.migrate.SavingsOptions.None,
+ *             },
+ *             scalingFactor: 28,
+ *             sizingCriterion: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
+ *             vcpuOversubscription: 25,
+ *         },
+ *     },
+ *     resourceGroupName: "rgavsAssessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:AvsAssessmentsV2Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/avsAssessments/{assessmentName} 
+ * ```
  */
 export class AvsAssessmentsV2Operation extends pulumi.CustomResource {
     /**

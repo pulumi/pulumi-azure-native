@@ -29,6 +29,7 @@ class ManagedClusterApplicationTypeVersionArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedClusterApplicationTypeVersion resource.
+
         :param pulumi.Input[_builtins.str] app_package_url: The URL to the application package
         :param pulumi.Input[_builtins.str] application_type_name: The name of the application type name resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
@@ -154,6 +155,32 @@ class ManagedClusterApplicationTypeVersion(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put an application type version
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_application_type_version = azure_native.servicefabric.ManagedClusterApplicationTypeVersion("managedClusterApplicationTypeVersion",
+            app_package_url="http://fakelink.test.com/MyAppType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedClusterApplicationTypeVersion 1.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_package_url: The URL to the application package
@@ -176,6 +203,32 @@ class ManagedClusterApplicationTypeVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put an application type version
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_application_type_version = azure_native.servicefabric.ManagedClusterApplicationTypeVersion("managedClusterApplicationTypeVersion",
+            app_package_url="http://fakelink.test.com/MyAppType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedClusterApplicationTypeVersion 1.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterApplicationTypeVersionArgs args: The arguments to use to populate this resource's properties.

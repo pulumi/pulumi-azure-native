@@ -15,6 +15,45 @@ namespace Pulumi.AzureNative.Relay
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpacePrivateEndPointConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Relay.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         NamespaceName = "example-RelayNamespace-5849",
+    ///         PrivateEndpoint = new AzureNative.Relay.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+    ///         },
+    ///         PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Relay.Inputs.ConnectionStateArgs
+    ///         {
+    ///             Description = "You may pass",
+    ///             Status = AzureNative.Relay.PrivateLinkConnectionStatus.Approved,
+    ///         },
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay:PrivateEndpointConnection {privateEndpointConnection name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

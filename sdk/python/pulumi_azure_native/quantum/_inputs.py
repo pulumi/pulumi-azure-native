@@ -24,23 +24,18 @@ __all__ = [
     'WorkspaceResourcePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -49,6 +44,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -81,37 +77,34 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ProviderArgsDict(TypedDict):
-        """
-        Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
-        """
-        application_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The provider's marketplace application display name.
-        """
-        instance_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A Uri identifying the specific instance of this provider.
-        """
-        provider_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique id of this provider.
-        """
-        provider_sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The sku associated with pricing information for this provider.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderStatus']]]
-        """
-        Provisioning status field
-        """
-        resource_usage_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Id to track resource usage for the provider.
-        """
-elif False:
-    ProviderArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderArgsDict(TypedDict):
+    """
+    Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+    """
+    application_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The provider's marketplace application display name.
+    """
+    instance_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A Uri identifying the specific instance of this provider.
+    """
+    provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique id of this provider.
+    """
+    provider_sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The sku associated with pricing information for this provider.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'ProviderStatus']]]
+    """
+    Provisioning status field
+    """
+    resource_usage_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Id to track resource usage for the provider.
+    """
 
 @pulumi.input_type
 class ProviderArgs:
@@ -124,6 +117,7 @@ class ProviderArgs:
                  resource_usage_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+
         :param pulumi.Input[_builtins.str] application_name: The provider's marketplace application display name.
         :param pulumi.Input[_builtins.str] instance_uri: A Uri identifying the specific instance of this provider.
         :param pulumi.Input[_builtins.str] provider_id: Unique id of this provider.
@@ -217,25 +211,22 @@ class ProviderArgs:
         pulumi.set(self, "resource_usage_id", value)
 
 
-if not MYPY:
-    class WorkspaceResourcePropertiesArgsDict(TypedDict):
-        """
-        Properties of a Workspace
-        """
-        api_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicator of enablement of the Quantum workspace Api keys.
-        """
-        providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProviderArgsDict']]]]
-        """
-        List of Providers selected for this Workspace
-        """
-        storage_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource Id of the storage account associated with this workspace.
-        """
-elif False:
-    WorkspaceResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceResourcePropertiesArgsDict(TypedDict):
+    """
+    Properties of a Workspace
+    """
+    api_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicator of enablement of the Quantum workspace Api keys.
+    """
+    providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProviderArgsDict']]]]
+    """
+    List of Providers selected for this Workspace
+    """
+    storage_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource Id of the storage account associated with this workspace.
+    """
 
 @pulumi.input_type
 class WorkspaceResourcePropertiesArgs:
@@ -245,6 +236,7 @@ class WorkspaceResourcePropertiesArgs:
                  storage_account: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of a Workspace
+
         :param pulumi.Input[_builtins.bool] api_key_enabled: Indicator of enablement of the Quantum workspace Api keys.
         :param pulumi.Input[Sequence[pulumi.Input['ProviderArgs']]] providers: List of Providers selected for this Workspace
         :param pulumi.Input[_builtins.str] storage_account: ARM Resource Id of the storage account associated with this workspace.

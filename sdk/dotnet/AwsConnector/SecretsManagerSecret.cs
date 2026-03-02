@@ -13,6 +13,90 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### SecretsManagerSecrets_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var secretsManagerSecret = new AzureNative.AwsConnector.SecretsManagerSecret("secretsManagerSecret", new()
+    ///     {
+    ///         Location = "balqdxuifwdmtcinyxjit",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.SecretsManagerSecretPropertiesArgs
+    ///         {
+    ///             Arn = "qxrdtehsmibehk",
+    ///             AwsAccountId = "wtxdsgybisrqopffdhreyacjrysd",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsSecretsManagerSecretPropertiesArgs
+    ///             {
+    ///                 Description = "esljjbmcrcqe",
+    ///                 GenerateSecretString = new AzureNative.AwsConnector.Inputs.GenerateSecretStringArgs
+    ///                 {
+    ///                     ExcludeCharacters = "hsixzpgawn",
+    ///                     ExcludeLowercase = true,
+    ///                     ExcludeNumbers = true,
+    ///                     ExcludePunctuation = true,
+    ///                     ExcludeUppercase = true,
+    ///                     GenerateStringKey = "dxyswggnusnewllmvmoskwswk",
+    ///                     IncludeSpace = true,
+    ///                     PasswordLength = 17,
+    ///                     RequireEachIncludedType = true,
+    ///                     SecretStringTemplate = "qgspiepreoyooekaprlglfjbvittue",
+    ///                 },
+    ///                 Id = "vpnzmovjfbrltixnsgeml",
+    ///                 KmsKeyId = "vunob",
+    ///                 Name = "jqmtr",
+    ///                 ReplicaRegions = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ReplicaRegionArgs
+    ///                     {
+    ///                         KmsKeyId = "bkyubkuxwbasjkguqm",
+    ///                         Region = "m",
+    ///                     },
+    ///                 },
+    ///                 SecretString = "sbroa",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "ybodkythhxmehguhlrmodxhcduf",
+    ///                         Value = "wrci",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "mw",
+    ///             AwsSourceSchema = "whhfrjfzgejfasbcycqe",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key4141", "jdlhnhoxtob" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "osnofxgmgmrsc",
+    ///             PublicCloudResourceName = "wj",
+    ///         },
+    ///         ResourceGroupName = "rgsecretsManagerSecret",
+    ///         Tags = 
+    ///         {
+    ///             { "key1461", "aqew" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:SecretsManagerSecret fhctmzwyqjl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/secretsManagerSecrets/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:SecretsManagerSecret")]
     public partial class SecretsManagerSecret : global::Pulumi.CustomResource

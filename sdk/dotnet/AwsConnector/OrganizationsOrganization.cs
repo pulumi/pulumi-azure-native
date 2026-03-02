@@ -13,6 +13,63 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### OrganizationsOrganizations_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var organizationsOrganization = new AzureNative.AwsConnector.OrganizationsOrganization("organizationsOrganization", new()
+    ///     {
+    ///         Location = "fnzfxrkfm",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.OrganizationsOrganizationPropertiesArgs
+    ///         {
+    ///             Arn = "zitrzzdipihyovymdibklklp",
+    ///             AwsAccountId = "jusgdaxywgsswam",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsOrganizationsOrganizationPropertiesArgs
+    ///             {
+    ///                 Arn = "fzkwsgtciqziilbltckzwq",
+    ///                 FeatureSet = AzureNative.AwsConnector.FeatureSet.ALL,
+    ///                 Id = "tqnrsqnzkqywpecutoxisdogfsu",
+    ///                 ManagementAccountArn = "aobzot",
+    ///                 ManagementAccountEmail = "vvcketnvinjxxhqabioa",
+    ///                 ManagementAccountId = "bvkksaokvmucejmtqhlwqoiuluet",
+    ///                 RootId = "jtmupzgyvqhoiag",
+    ///             },
+    ///             AwsRegion = "gogfumxcpzmqfcpynwlbjhjax",
+    ///             AwsSourceSchema = "pdqllbj",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key8866", "zzxfaowxlvuuzuc" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "xdnn",
+    ///             PublicCloudResourceName = "vvwkbodgowhbhletjswxg",
+    ///         },
+    ///         ResourceGroupName = "rgorganizationsOrganization",
+    ///         Tags = 
+    ///         {
+    ///             { "key6745", "seperqgwgodhrcsengozvpmpqcp" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:OrganizationsOrganization ydamgdjqobm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/organizationsOrganizations/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:OrganizationsOrganization")]
     public partial class OrganizationsOrganization : global::Pulumi.CustomResource

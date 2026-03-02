@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.Resources
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a deployment that will deploy a templateSpec with the given resourceId
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentAtSubscriptionScope = new AzureNative.Resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtSubscriptionScope")]
     public partial class DeploymentAtSubscriptionScope : global::Pulumi.CustomResource

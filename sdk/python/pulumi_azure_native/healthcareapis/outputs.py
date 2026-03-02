@@ -83,6 +83,7 @@ class AnalyticsConnectorDataLakeDataDestinationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The Data Lake data destination for Analytics Connector.
+
         :param _builtins.str data_lake_name: The name for the Data Lake.
         :param _builtins.str type: Type of data destination.
                Expected value is 'datalake'.
@@ -130,6 +131,7 @@ class AnalyticsConnectorFhirServiceDataSourceResponse(dict):
                  url: _builtins.str):
         """
         The FHIR service data source for Analytics Connector.
+
         :param _builtins.str kind: The kind of FHIR Service.
         :param _builtins.str type: Type of data source.
                Expected value is 'fhirservice'.
@@ -195,6 +197,7 @@ class AnalyticsConnectorFhirToParquetMappingResponse(dict):
                  filter_configuration_reference: Optional[_builtins.str] = None):
         """
         FHIR Service data mapping configuration for Analytics Connector.
+
         :param _builtins.str type: Type of data mapping.
                Expected value is 'fhirToParquet'.
         :param _builtins.str extension_schema_reference: Artifact reference for extension schema.
@@ -264,6 +267,7 @@ class CorsConfigurationResponse(dict):
                  origins: Optional[Sequence[_builtins.str]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param _builtins.bool allow_credentials: If credentials are allowed via CORS.
         :param Sequence[_builtins.str] headers: The headers to be allowed via CORS.
         :param _builtins.int max_age: The max age to be allowed via CORS.
@@ -332,6 +336,7 @@ class DicomServiceAuthenticationConfigurationResponse(dict):
                  authority: _builtins.str):
         """
         Authentication configuration information
+
         :param Sequence[_builtins.str] audiences: The audiences for the service
         :param _builtins.str authority: The authority url for the service
         """
@@ -381,6 +386,7 @@ class EncryptionResponse(dict):
                  customer_managed_key_encryption: Optional['outputs.EncryptionResponseCustomerManagedKeyEncryption'] = None):
         """
         Settings to encrypt a service
+
         :param 'EncryptionResponseCustomerManagedKeyEncryption' customer_managed_key_encryption: The encryption settings for the customer-managed key
         """
         if customer_managed_key_encryption is not None:
@@ -421,6 +427,7 @@ class EncryptionResponseCustomerManagedKeyEncryption(dict):
                  key_encryption_key_url: Optional[_builtins.str] = None):
         """
         The encryption settings for the customer-managed key
+
         :param _builtins.str key_encryption_key_url: The URL of the key to use for encryption
         """
         if key_encryption_key_url is not None:
@@ -464,6 +471,7 @@ class FhirServiceAcrConfigurationResponse(dict):
                  oci_artifacts: Optional[Sequence['outputs.ServiceOciArtifactEntryResponse']] = None):
         """
         Azure container registry configuration information
+
         :param Sequence[_builtins.str] login_servers: The list of the Azure container registry login servers.
         :param Sequence['ServiceOciArtifactEntryResponse'] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
@@ -520,6 +528,7 @@ class FhirServiceAuthenticationConfigurationResponse(dict):
                  smart_proxy_enabled: Optional[_builtins.bool] = None):
         """
         Authentication configuration information
+
         :param _builtins.str audience: The audience url for the service
         :param _builtins.str authority: The authority url for the service
         :param Sequence['SmartIdentityProviderConfigurationResponse'] smart_identity_providers: The array of identity provider configurations for SMART on FHIR authentication.
@@ -599,6 +608,7 @@ class FhirServiceCorsConfigurationResponse(dict):
                  origins: Optional[Sequence[_builtins.str]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param _builtins.bool allow_credentials: If credentials are allowed via CORS.
         :param Sequence[_builtins.str] headers: The headers to be allowed via CORS.
         :param _builtins.int max_age: The max age to be allowed via CORS.
@@ -683,6 +693,7 @@ class FhirServiceExportConfigurationResponse(dict):
                  storage_account_name: Optional[_builtins.str] = None):
         """
         Export operation configuration information
+
         :param _builtins.str storage_account_name: The name of the default export storage account.
         """
         if storage_account_name is not None:
@@ -727,6 +738,7 @@ class FhirServiceImportConfigurationResponse(dict):
                  integration_data_store: Optional[_builtins.str] = None):
         """
         Import operation configuration information
+
         :param _builtins.bool enabled: If the import operation is enabled.
         :param _builtins.bool initial_import_mode: If the FHIR service is in InitialImportMode.
         :param _builtins.str integration_data_store: The name of the default integration storage account.
@@ -789,6 +801,7 @@ class ImplementationGuidesConfigurationResponse(dict):
                  us_core_missing_data: Optional[_builtins.bool] = None):
         """
         The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+
         :param _builtins.bool us_core_missing_data: If US Core Missing Data requirement is enabled.
         """
         if us_core_missing_data is not None:
@@ -835,6 +848,7 @@ class IotEventHubIngestionEndpointConfigurationResponse(dict):
                  fully_qualified_event_hub_namespace: Optional[_builtins.str] = None):
         """
         Event Hub ingestion endpoint configuration
+
         :param _builtins.str consumer_group: Consumer group of the event hub to connected to.
         :param _builtins.str event_hub_name: Event Hub name to connect to.
         :param _builtins.str fully_qualified_event_hub_namespace: Fully qualified namespace of the Event Hub to connect to.
@@ -880,6 +894,7 @@ class IotMappingPropertiesResponse(dict):
                  content: Optional[Any] = None):
         """
         The mapping content.
+
         :param Any content: The mapping.
         """
         if content is not None:
@@ -929,6 +944,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -1002,6 +1018,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -1043,6 +1060,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -1106,6 +1124,7 @@ class ResourceVersionPolicyConfigurationResponse(dict):
                  resource_type_overrides: Optional[Mapping[str, _builtins.str]] = None):
         """
         The settings for history tracking for FHIR resources.
+
         :param _builtins.str default: The default value for tracking history across all resources.
         :param Mapping[str, _builtins.str] resource_type_overrides: A list of FHIR Resources and their version policy overrides.
         """
@@ -1157,6 +1176,7 @@ class ServiceAccessPolicyEntryResponse(dict):
                  object_id: _builtins.str):
         """
         An access policy entry.
+
         :param _builtins.str object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
         """
         pulumi.set(__self__, "object_id", object_id)
@@ -1199,6 +1219,7 @@ class ServiceAcrConfigurationInfoResponse(dict):
                  oci_artifacts: Optional[Sequence['outputs.ServiceOciArtifactEntryResponse']] = None):
         """
         Azure container registry configuration information
+
         :param Sequence[_builtins.str] login_servers: The list of the ACR login servers.
         :param Sequence['ServiceOciArtifactEntryResponse'] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
@@ -1252,6 +1273,7 @@ class ServiceAuthenticationConfigurationInfoResponse(dict):
                  smart_proxy_enabled: Optional[_builtins.bool] = None):
         """
         Authentication configuration information
+
         :param _builtins.str audience: The audience url for the service
         :param _builtins.str authority: The authority url for the service
         :param _builtins.bool smart_proxy_enabled: If the SMART on FHIR proxy is enabled
@@ -1320,6 +1342,7 @@ class ServiceCorsConfigurationInfoResponse(dict):
                  origins: Optional[Sequence[_builtins.str]] = None):
         """
         The settings for the CORS configuration of the service instance.
+
         :param _builtins.bool allow_credentials: If credentials are allowed via CORS.
         :param Sequence[_builtins.str] headers: The headers to be allowed via CORS.
         :param _builtins.int max_age: The max age to be allowed via CORS.
@@ -1410,6 +1433,7 @@ class ServiceCosmosDbConfigurationInfoResponse(dict):
                  offer_throughput: Optional[_builtins.int] = None):
         """
         The settings for the Cosmos DB database backing the service.
+
         :param _builtins.str cross_tenant_cmk_application_id: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
         :param _builtins.str key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param _builtins.int offer_throughput: The provisioned throughput for the backing database.
@@ -1472,6 +1496,7 @@ class ServiceExportConfigurationInfoResponse(dict):
                  storage_account_name: Optional[_builtins.str] = None):
         """
         Export operation configuration information
+
         :param _builtins.str storage_account_name: The name of the default export storage account.
         """
         if storage_account_name is not None:
@@ -1516,6 +1541,7 @@ class ServiceImportConfigurationInfoResponse(dict):
                  integration_data_store: Optional[_builtins.str] = None):
         """
         Import operation configuration information
+
         :param _builtins.bool enabled: If the import operation is enabled.
         :param _builtins.bool initial_import_mode: If the FHIR service is in InitialImportMode.
         :param _builtins.str integration_data_store: The name of the default integration storage account.
@@ -1585,6 +1611,7 @@ class ServiceManagedIdentityResponseIdentity(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -1659,6 +1686,7 @@ class ServiceOciArtifactEntryResponse(dict):
                  login_server: Optional[_builtins.str] = None):
         """
         An Open Container Initiative (OCI) artifact.
+
         :param _builtins.str digest: The artifact digest.
         :param _builtins.str image_name: The artifact name.
         :param _builtins.str login_server: The Azure Container Registry login server.
@@ -1748,6 +1776,7 @@ class ServicesPropertiesResponse(dict):
                  public_network_access: Optional[_builtins.str] = None):
         """
         The properties of a service instance.
+
         :param _builtins.str provisioning_state: The provisioning state.
         :param Sequence['ServiceAccessPolicyEntryResponse'] access_policies: The access policies of the service instance.
         :param 'ServiceAcrConfigurationInfoResponse' acr_configuration: The azure container registry settings used for convert data operation of the service instance.
@@ -1890,6 +1919,7 @@ class ServicesResourceResponseIdentity(dict):
                  type: Optional[_builtins.str] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+
         :param _builtins.str principal_id: The principal ID of the resource identity.
         :param _builtins.str tenant_id: The tenant ID of the resource.
         :param _builtins.str type: Type of identity being specified, currently SystemAssigned and None are allowed.
@@ -1954,6 +1984,7 @@ class SmartIdentityProviderApplicationResponse(dict):
                  client_id: Optional[_builtins.str] = None):
         """
         An Application configured in the Identity Provider used to access FHIR resources.
+
         :param Sequence[_builtins.str] allowed_data_actions: The actions that are permitted to be performed on FHIR resources for the application.
         :param _builtins.str audience: The audience that will be used to validate bearer tokens against the given authority.
         :param _builtins.str client_id: The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
@@ -2000,6 +2031,7 @@ class SmartIdentityProviderConfigurationResponse(dict):
                  authority: Optional[_builtins.str] = None):
         """
         An object to configure an identity provider for use with SMART on FHIR authentication.
+
         :param Sequence['SmartIdentityProviderApplicationResponse'] applications: The array of identity provider applications for SMART on FHIR authentication.
         :param _builtins.str authority: The identity provider token authority also known as the token issuing authority.
         """
@@ -2054,6 +2086,7 @@ class StorageConfigurationResponse(dict):
                  storage_resource_id: Optional[_builtins.str] = None):
         """
         The configuration of connected storage
+
         :param _builtins.str file_system_name: The filesystem name of connected storage account.
         :param _builtins.str storage_resource_id: The resource id of connected storage account.
         """
@@ -2120,6 +2153,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -2218,6 +2252,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -2273,6 +2308,7 @@ class WorkspaceResponseProperties(dict):
                  public_network_access: _builtins.str):
         """
         Workspaces resource specific properties.
+
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param _builtins.str provisioning_state: The provisioning state.
         :param _builtins.str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.

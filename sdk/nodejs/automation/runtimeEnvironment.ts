@@ -13,6 +13,35 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
  *
  * Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update automation account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const runtimeEnvironment = new azure_native.automation.RuntimeEnvironment("runtimeEnvironment", {
+ *     automationAccountName: "myAutomationAccount9",
+ *     defaultPackages: {
+ *         Az: "8.3.0",
+ *     },
+ *     language: "PowerShell",
+ *     location: "East US 2",
+ *     resourceGroupName: "rg",
+ *     runtimeEnvironmentName: "myRuntimeEnvironmentName",
+ *     version: "7.1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:RuntimeEnvironment myRuntimeEnvironmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName} 
+ * ```
  */
 export class RuntimeEnvironment extends pulumi.CustomResource {
     /**

@@ -29,6 +29,7 @@ class DataflowEndpointArgs:
                  properties: Optional[pulumi.Input['DataflowEndpointPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataflowEndpoint resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -123,6 +124,457 @@ class DataflowEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### DataflowEndpoint_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "data_explorer_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "database": "yqcdpjsifm",
+                    "host": "<cluster>.<region>.kusto.windows.net",
+                },
+                "data_lake_storage_settings": {
+                    "authentication": {
+                        "access_token_settings": {
+                            "secret_ref": "sevriyphcvnlrnfudqzejecwa",
+                        },
+                        "method": azure_native.iotoperations.DataLakeStorageAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "host": "<account>.blob.core.windows.net",
+                },
+                "endpoint_type": azure_native.iotoperations.EndpointType.DATA_EXPLORER,
+                "fabric_one_lake_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "host": "https://<host>.fabric.microsoft.com",
+                    "names": {
+                        "lakehouse_name": "wpeathi",
+                        "workspace_name": "nwgmitkbljztgms",
+                    },
+                    "one_lake_path_type": azure_native.iotoperations.DataflowEndpointFabricPathType.FILES,
+                },
+                "kafka_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.KafkaAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "sasl_settings": {
+                            "sasl_type": azure_native.iotoperations.DataflowEndpointAuthenticationSaslType.PLAIN,
+                            "secret_ref": "visyxoztqnylvbyokhtmpdkwes",
+                        },
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                        "x509_certificate_settings": {
+                            "secret_ref": "afwizrystfslkfqd",
+                        },
+                    },
+                    "batching": {
+                        "latency_ms": 3679,
+                        "max_bytes": 8887,
+                        "max_messages": 2174,
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                    "cloud_event_attributes": "PassThrough",
+                    "compression": azure_native.iotoperations.DataflowEndpointKafkaCompression.NONE,
+                    "consumer_group_id": "ukkzcjiyenhxokat",
+                    "copy_mqtt_properties": azure_native.iotoperations.OperationalMode.ENABLED,
+                    "host": "pwcqfiqclcgneolpewnyavoulbip",
+                    "kafka_acks": azure_native.iotoperations.DataflowEndpointKafkaAcks.ZERO,
+                    "partition_strategy": azure_native.iotoperations.DataflowEndpointKafkaPartitionStrategy.DEFAULT,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "tectjjvukvelsreihwadh",
+                    },
+                },
+                "local_storage_settings": {
+                    "persistent_volume_claim_ref": "jjwqwvd",
+                },
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.MqttAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "service_account_token_settings": {
+                            "audience": "ejbklrbxgjaqleoycgpje",
+                        },
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                        "x509_certificate_settings": {
+                            "secret_ref": "afwizrystfslkfqd",
+                        },
+                    },
+                    "client_id_prefix": "kkljsdxdirfhwxtkavldekeqhv",
+                    "cloud_event_attributes": "PassThrough",
+                    "host": "nyhnxqnbspstctl",
+                    "keep_alive_seconds": 0,
+                    "max_inflight_messages": 0,
+                    "protocol": azure_native.iotoperations.BrokerProtocolType.MQTT,
+                    "qos": 1,
+                    "retain": azure_native.iotoperations.MqttRetainType.KEEP,
+                    "session_expiry_seconds": 0,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "tectjjvukvelsreihwadh",
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_ADLSv2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="adlsv2-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "data_lake_storage_settings": {
+                    "authentication": {
+                        "access_token_settings": {
+                            "secret_ref": "my-secret",
+                        },
+                        "method": azure_native.iotoperations.DataLakeStorageAuthMethod.ACCESS_TOKEN,
+                    },
+                    "host": "example.blob.core.windows.net",
+                },
+                "endpoint_type": azure_native.iotoperations.EndpointType.DATA_LAKE_STORAGE,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_ADX
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="adx-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "data_explorer_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "database": "example-database",
+                    "host": "example.westeurope.kusto.windows.net",
+                },
+                "endpoint_type": azure_native.iotoperations.EndpointType.DATA_EXPLORER,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_AIO
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="aio-builtin-broker-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.MQTT,
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": "Kubernetes",
+                        "service_account_token_settings": {
+                            "audience": "aio-internal",
+                        },
+                    },
+                    "host": "aio-broker:18883",
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "aio-ca-trust-bundle-test-only",
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_EventGrid
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="event-grid-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.MQTT,
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.MqttAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "host": "example.westeurope-1.ts.eventgrid.azure.net:8883",
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_EventHub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="event-hub-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.KAFKA,
+                "kafka_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.KafkaAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "consumer_group_id": "aiodataflows",
+                    "host": "example.servicebus.windows.net:9093",
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_Fabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="fabric-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.FABRIC_ONE_LAKE,
+                "fabric_one_lake_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "host": "onelake.dfs.fabric.microsoft.com",
+                    "names": {
+                        "lakehouse_name": "example-lakehouse",
+                        "workspace_name": "example-workspace",
+                    },
+                    "one_lake_path_type": azure_native.iotoperations.DataflowEndpointFabricPathType.TABLES,
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_Kafka
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="generic-kafka-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.KAFKA,
+                "kafka_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.KafkaAuthMethod.SASL,
+                        "sasl_settings": {
+                            "sasl_type": azure_native.iotoperations.DataflowEndpointAuthenticationSaslType.PLAIN,
+                            "secret_ref": "my-secret",
+                        },
+                    },
+                    "batching": {
+                        "latency_ms": 5,
+                        "max_bytes": 1000000,
+                        "max_messages": 100000,
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                    "cloud_event_attributes": azure_native.iotoperations.CloudEventAttributeType.PROPAGATE,
+                    "compression": azure_native.iotoperations.DataflowEndpointKafkaCompression.GZIP,
+                    "consumer_group_id": "dataflows",
+                    "copy_mqtt_properties": azure_native.iotoperations.OperationalMode.ENABLED,
+                    "host": "example.kafka.local:9093",
+                    "kafka_acks": azure_native.iotoperations.DataflowEndpointKafkaAcks.ALL,
+                    "partition_strategy": azure_native.iotoperations.DataflowEndpointKafkaPartitionStrategy.DEFAULT,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "ca-certificates",
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_LocalStorage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="local-storage-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.LOCAL_STORAGE,
+                "local_storage_settings": {
+                    "persistent_volume_claim_ref": "example-pvc",
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_MQTT
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="generic-mqtt-broker-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.MQTT,
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.MqttAuthMethod.X509_CERTIFICATE,
+                        "x509_certificate_settings": {
+                            "secret_ref": "example-secret",
+                        },
+                    },
+                    "client_id_prefix": "factory-gateway",
+                    "host": "example.broker.local:1883",
+                    "keep_alive_seconds": 60,
+                    "max_inflight_messages": 100,
+                    "protocol": azure_native.iotoperations.BrokerProtocolType.WEB_SOCKETS,
+                    "qos": 1,
+                    "retain": azure_native.iotoperations.MqttRetainType.KEEP,
+                    "session_expiry_seconds": 3600,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.DISABLED,
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:DataflowEndpoint zyhxscudobzfacetvgyjiav /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowEndpoints/{dataflowEndpointName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataflow_endpoint_name: Name of Instance dataflowEndpoint resource
@@ -143,6 +595,457 @@ class DataflowEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### DataflowEndpoint_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "data_explorer_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "database": "yqcdpjsifm",
+                    "host": "<cluster>.<region>.kusto.windows.net",
+                },
+                "data_lake_storage_settings": {
+                    "authentication": {
+                        "access_token_settings": {
+                            "secret_ref": "sevriyphcvnlrnfudqzejecwa",
+                        },
+                        "method": azure_native.iotoperations.DataLakeStorageAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "host": "<account>.blob.core.windows.net",
+                },
+                "endpoint_type": azure_native.iotoperations.EndpointType.DATA_EXPLORER,
+                "fabric_one_lake_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "host": "https://<host>.fabric.microsoft.com",
+                    "names": {
+                        "lakehouse_name": "wpeathi",
+                        "workspace_name": "nwgmitkbljztgms",
+                    },
+                    "one_lake_path_type": azure_native.iotoperations.DataflowEndpointFabricPathType.FILES,
+                },
+                "kafka_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.KafkaAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "sasl_settings": {
+                            "sasl_type": azure_native.iotoperations.DataflowEndpointAuthenticationSaslType.PLAIN,
+                            "secret_ref": "visyxoztqnylvbyokhtmpdkwes",
+                        },
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                        "x509_certificate_settings": {
+                            "secret_ref": "afwizrystfslkfqd",
+                        },
+                    },
+                    "batching": {
+                        "latency_ms": 3679,
+                        "max_bytes": 8887,
+                        "max_messages": 2174,
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                    "cloud_event_attributes": "PassThrough",
+                    "compression": azure_native.iotoperations.DataflowEndpointKafkaCompression.NONE,
+                    "consumer_group_id": "ukkzcjiyenhxokat",
+                    "copy_mqtt_properties": azure_native.iotoperations.OperationalMode.ENABLED,
+                    "host": "pwcqfiqclcgneolpewnyavoulbip",
+                    "kafka_acks": azure_native.iotoperations.DataflowEndpointKafkaAcks.ZERO,
+                    "partition_strategy": azure_native.iotoperations.DataflowEndpointKafkaPartitionStrategy.DEFAULT,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "tectjjvukvelsreihwadh",
+                    },
+                },
+                "local_storage_settings": {
+                    "persistent_volume_claim_ref": "jjwqwvd",
+                },
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.MqttAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "service_account_token_settings": {
+                            "audience": "ejbklrbxgjaqleoycgpje",
+                        },
+                        "system_assigned_managed_identity_settings": {
+                            "audience": "psxomrfbhoflycm",
+                        },
+                        "user_assigned_managed_identity_settings": {
+                            "client_id": "fb90f267-8872-431a-a76a-a1cec5d3c4d2",
+                            "scope": "zop",
+                            "tenant_id": "ed060aa2-71ff-4d3f-99c4-a9138356fdec",
+                        },
+                        "x509_certificate_settings": {
+                            "secret_ref": "afwizrystfslkfqd",
+                        },
+                    },
+                    "client_id_prefix": "kkljsdxdirfhwxtkavldekeqhv",
+                    "cloud_event_attributes": "PassThrough",
+                    "host": "nyhnxqnbspstctl",
+                    "keep_alive_seconds": 0,
+                    "max_inflight_messages": 0,
+                    "protocol": azure_native.iotoperations.BrokerProtocolType.MQTT,
+                    "qos": 1,
+                    "retain": azure_native.iotoperations.MqttRetainType.KEEP,
+                    "session_expiry_seconds": 0,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "tectjjvukvelsreihwadh",
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_ADLSv2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="adlsv2-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "data_lake_storage_settings": {
+                    "authentication": {
+                        "access_token_settings": {
+                            "secret_ref": "my-secret",
+                        },
+                        "method": azure_native.iotoperations.DataLakeStorageAuthMethod.ACCESS_TOKEN,
+                    },
+                    "host": "example.blob.core.windows.net",
+                },
+                "endpoint_type": azure_native.iotoperations.EndpointType.DATA_LAKE_STORAGE,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_ADX
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="adx-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "data_explorer_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "batching": {
+                        "latency_seconds": 9312,
+                        "max_messages": 9028,
+                    },
+                    "database": "example-database",
+                    "host": "example.westeurope.kusto.windows.net",
+                },
+                "endpoint_type": azure_native.iotoperations.EndpointType.DATA_EXPLORER,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_AIO
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="aio-builtin-broker-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.MQTT,
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": "Kubernetes",
+                        "service_account_token_settings": {
+                            "audience": "aio-internal",
+                        },
+                    },
+                    "host": "aio-broker:18883",
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "aio-ca-trust-bundle-test-only",
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_EventGrid
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="event-grid-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.MQTT,
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.MqttAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "host": "example.westeurope-1.ts.eventgrid.azure.net:8883",
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_EventHub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="event-hub-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.KAFKA,
+                "kafka_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.KafkaAuthMethod.SYSTEM_ASSIGNED_MANAGED_IDENTITY,
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "consumer_group_id": "aiodataflows",
+                    "host": "example.servicebus.windows.net:9093",
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_Fabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="fabric-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.FABRIC_ONE_LAKE,
+                "fabric_one_lake_settings": {
+                    "authentication": {
+                        "method": "SystemAssignedManagedIdentity",
+                        "system_assigned_managed_identity_settings": {},
+                    },
+                    "host": "onelake.dfs.fabric.microsoft.com",
+                    "names": {
+                        "lakehouse_name": "example-lakehouse",
+                        "workspace_name": "example-workspace",
+                    },
+                    "one_lake_path_type": azure_native.iotoperations.DataflowEndpointFabricPathType.TABLES,
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_Kafka
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="generic-kafka-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.KAFKA,
+                "kafka_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.KafkaAuthMethod.SASL,
+                        "sasl_settings": {
+                            "sasl_type": azure_native.iotoperations.DataflowEndpointAuthenticationSaslType.PLAIN,
+                            "secret_ref": "my-secret",
+                        },
+                    },
+                    "batching": {
+                        "latency_ms": 5,
+                        "max_bytes": 1000000,
+                        "max_messages": 100000,
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                    },
+                    "cloud_event_attributes": azure_native.iotoperations.CloudEventAttributeType.PROPAGATE,
+                    "compression": azure_native.iotoperations.DataflowEndpointKafkaCompression.GZIP,
+                    "consumer_group_id": "dataflows",
+                    "copy_mqtt_properties": azure_native.iotoperations.OperationalMode.ENABLED,
+                    "host": "example.kafka.local:9093",
+                    "kafka_acks": azure_native.iotoperations.DataflowEndpointKafkaAcks.ALL,
+                    "partition_strategy": azure_native.iotoperations.DataflowEndpointKafkaPartitionStrategy.DEFAULT,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.ENABLED,
+                        "trusted_ca_certificate_config_map_ref": "ca-certificates",
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_LocalStorage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="local-storage-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.LOCAL_STORAGE,
+                "local_storage_settings": {
+                    "persistent_volume_claim_ref": "example-pvc",
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowEndpoint_CreateOrUpdate_MQTT
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_endpoint = azure_native.iotoperations.DataflowEndpoint("dataflowEndpoint",
+            dataflow_endpoint_name="generic-mqtt-broker-endpoint",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "endpoint_type": azure_native.iotoperations.EndpointType.MQTT,
+                "mqtt_settings": {
+                    "authentication": {
+                        "method": azure_native.iotoperations.MqttAuthMethod.X509_CERTIFICATE,
+                        "x509_certificate_settings": {
+                            "secret_ref": "example-secret",
+                        },
+                    },
+                    "client_id_prefix": "factory-gateway",
+                    "host": "example.broker.local:1883",
+                    "keep_alive_seconds": 60,
+                    "max_inflight_messages": 100,
+                    "protocol": azure_native.iotoperations.BrokerProtocolType.WEB_SOCKETS,
+                    "qos": 1,
+                    "retain": azure_native.iotoperations.MqttRetainType.KEEP,
+                    "session_expiry_seconds": 3600,
+                    "tls": {
+                        "mode": azure_native.iotoperations.OperationalMode.DISABLED,
+                    },
+                },
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:DataflowEndpoint zyhxscudobzfacetvgyjiav /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowEndpoints/{dataflowEndpointName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DataflowEndpointArgs args: The arguments to use to populate this resource's properties.

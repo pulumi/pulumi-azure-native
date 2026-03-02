@@ -13,6 +13,85 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01.
  *
  * Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Update Auth Settings V2
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppAuthSettingsV2WithoutSecrets = new azure_native.web.WebAppAuthSettingsV2WithoutSecrets("webAppAuthSettingsV2WithoutSecrets", {
+ *     globalValidation: {
+ *         excludedPaths: ["/nosecrets/Path"],
+ *         requireAuthentication: true,
+ *         unauthenticatedClientAction: azure_native.web.UnauthenticatedClientActionV2.Return403,
+ *     },
+ *     httpSettings: {
+ *         forwardProxy: {
+ *             convention: azure_native.web.ForwardProxyConvention.Standard,
+ *             customHostHeaderName: "authHeader",
+ *             customProtoHeaderName: "customProtoHeader",
+ *         },
+ *         requireHttps: true,
+ *         routes: {
+ *             apiPrefix: "/authv2/",
+ *         },
+ *     },
+ *     identityProviders: {
+ *         google: {
+ *             enabled: true,
+ *             login: {
+ *                 scopes: ["admin"],
+ *             },
+ *             registration: {
+ *                 clientId: "42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+ *                 clientSecretSettingName: "ClientSecret",
+ *             },
+ *             validation: {
+ *                 allowedAudiences: ["https://example.com"],
+ *             },
+ *         },
+ *     },
+ *     login: {
+ *         allowedExternalRedirectUrls: ["https://someurl.com"],
+ *         cookieExpiration: {
+ *             convention: azure_native.web.CookieExpirationConvention.IdentityProviderDerived,
+ *             timeToExpiration: "2022:09-01T00:00Z",
+ *         },
+ *         nonce: {
+ *             validateNonce: true,
+ *         },
+ *         preserveUrlFragmentsForLogins: true,
+ *         routes: {
+ *             logoutEndpoint: "https://app.com/logout",
+ *         },
+ *         tokenStore: {
+ *             enabled: true,
+ *             fileSystem: {
+ *                 directory: "/wwwroot/sites/example",
+ *             },
+ *             tokenRefreshExtensionHours: 96,
+ *         },
+ *     },
+ *     name: "sitef6141",
+ *     platform: {
+ *         configFilePath: "/auth/config.json",
+ *         enabled: true,
+ *         runtimeVersion: "~1",
+ *     },
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:WebAppAuthSettingsV2WithoutSecrets authsettingsv2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettingsV2 
+ * ```
  */
 export class WebAppAuthSettingsV2WithoutSecrets extends pulumi.CustomResource {
     /**

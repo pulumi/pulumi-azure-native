@@ -11,6 +11,46 @@ import * as utilities from "../utilities";
  * Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
  *
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+ *
+ * ## Example Usage
+ * ### TunnelPolicies_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tunnelPolicy = new azure_native.cdn.TunnelPolicy("tunnelPolicy", {
+ *     domains: [
+ *         {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+ *         },
+ *         {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+ *         },
+ *     ],
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     targetGroups: [
+ *         {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup1",
+ *         },
+ *         {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup2",
+ *         },
+ *     ],
+ *     tunnelPolicyName: "tunnelPolicy1",
+ *     tunnelType: azure_native.cdn.TunnelType.HttpConnect,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:TunnelPolicy tunnelPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/tunnelPolicies/{tunnelPolicyName} 
+ * ```
  */
 export class TunnelPolicy extends pulumi.CustomResource {
     /**

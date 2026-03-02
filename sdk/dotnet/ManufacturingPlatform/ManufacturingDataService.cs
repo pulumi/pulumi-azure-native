@@ -13,6 +13,13 @@ namespace Pulumi.AzureNative.ManufacturingPlatform
     /// A ManufacturingPlatformProviderHub resource
     /// 
     /// Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2025-03-01.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:manufacturingplatform:ManufacturingDataService -JC180-G53HQ-DV45--2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManufacturingPlatform/manufacturingDataServices/{mdsResourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:manufacturingplatform:ManufacturingDataService")]
     public partial class ManufacturingDataService : global::Pulumi.CustomResource

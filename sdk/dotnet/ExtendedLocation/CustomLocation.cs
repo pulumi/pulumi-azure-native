@@ -15,6 +15,52 @@ namespace Pulumi.AzureNative.ExtendedLocation
     /// Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-15.
     /// 
     /// Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Custom Location
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customLocation = new AzureNative.ExtendedLocation.CustomLocation("customLocation", new()
+    ///     {
+    ///         Authentication = new AzureNative.ExtendedLocation.Inputs.CustomLocationPropertiesAuthenticationArgs
+    ///         {
+    ///             Type = "KubeConfig",
+    ///             Value = "&lt;base64 KubeConfig&gt;",
+    ///         },
+    ///         ClusterExtensionIds = new[]
+    ///         {
+    ///             "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension",
+    ///         },
+    ///         DisplayName = "customLocationLocation01",
+    ///         HostResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
+    ///         Identity = new AzureNative.ExtendedLocation.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.ExtendedLocation.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "West US",
+    ///         Namespace = "namespace01",
+    ///         ResourceGroupName = "testresourcegroup",
+    ///         ResourceName = "customLocation01",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:extendedlocation:CustomLocation customLocation01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation:CustomLocation")]
     public partial class CustomLocation : global::Pulumi.CustomResource

@@ -13,6 +13,343 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     additionalLocations: [{
+ *         disableGateway: true,
+ *         location: "East US",
+ *         sku: {
+ *             capacity: 1,
+ *             name: azure_native.apimanagement.SkuType.Premium,
+ *         },
+ *     }],
+ *     apiVersionConstraint: {
+ *         minApiVersion: "2019-01-01",
+ *     },
+ *     hostnameConfigurations: [
+ *         {
+ *             certificatePassword: "Password",
+ *             defaultSslBinding: true,
+ *             encodedCertificate: "****** Base 64 Encoded Certificate ************",
+ *             hostName: "gateway1.msitesting.net",
+ *             type: azure_native.apimanagement.HostnameType.Proxy,
+ *         },
+ *         {
+ *             certificatePassword: "Password",
+ *             encodedCertificate: "****** Base 64 Encoded Certificate ************",
+ *             hostName: "mgmt.msitesting.net",
+ *             type: azure_native.apimanagement.HostnameType.Management,
+ *         },
+ *         {
+ *             certificatePassword: "Password",
+ *             encodedCertificate: "****** Base 64 Encoded Certificate ************",
+ *             hostName: "portal1.msitesting.net",
+ *             type: azure_native.apimanagement.HostnameType.Portal,
+ *         },
+ *     ],
+ *     location: "West US",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.SkuType.Premium,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ *     virtualNetworkType: azure_native.apimanagement.VirtualNetworkType.None,
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     location: "South Central US",
+ *     publisherEmail: "foo@contoso.com",
+ *     publisherName: "foo",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.SkuType.Developer,
+ *     },
+ *     tags: {
+ *         Name: "Contoso",
+ *         Test: "User",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceHavingMsi
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     identity: {
+ *         type: azure_native.apimanagement.ApimIdentityType.SystemAssigned,
+ *     },
+ *     location: "West US",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 0,
+ *         name: azure_native.apimanagement.SkuType.Consumption,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceInVnetWithPublicIP
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     location: "East US 2 EUAP",
+ *     publicIpAddressId: "/subscriptions/subid/resourceGroups/rgName/providers/Microsoft.Network/publicIPAddresses/apimazvnet",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 2,
+ *         name: azure_native.apimanagement.SkuType.Premium,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ *     virtualNetworkConfiguration: {
+ *         subnetResourceId: "/subscriptions/subid/resourceGroups/rgName/providers/Microsoft.Network/virtualNetworks/apimcus/subnets/tenant",
+ *     },
+ *     virtualNetworkType: azure_native.apimanagement.VirtualNetworkType.External,
+ *     zones: [
+ *         "1",
+ *         "2",
+ *     ],
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceInZones
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     location: "North europe",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 2,
+ *         name: azure_native.apimanagement.SkuType.Premium,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ *     zones: [
+ *         "1",
+ *         "2",
+ *     ],
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceWithCustomHostnameKeyVault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     apiVersionConstraint: {
+ *         minApiVersion: "2019-01-01",
+ *     },
+ *     hostnameConfigurations: [
+ *         {
+ *             defaultSslBinding: true,
+ *             hostName: "gateway1.msitesting.net",
+ *             identityClientId: "329419bc-adec-4dce-9568-25a6d486e468",
+ *             keyVaultId: "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+ *             type: azure_native.apimanagement.HostnameType.Proxy,
+ *         },
+ *         {
+ *             hostName: "mgmt.msitesting.net",
+ *             identityClientId: "329419bc-adec-4dce-9568-25a6d486e468",
+ *             keyVaultId: "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+ *             type: azure_native.apimanagement.HostnameType.Management,
+ *         },
+ *         {
+ *             hostName: "portal1.msitesting.net",
+ *             identityClientId: "329419bc-adec-4dce-9568-25a6d486e468",
+ *             keyVaultId: "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+ *             type: azure_native.apimanagement.HostnameType.Portal,
+ *         },
+ *     ],
+ *     identity: {
+ *         type: azure_native.apimanagement.ApimIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+ *         },
+ *     },
+ *     location: "North Europe",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.SkuType.Premium,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ *     virtualNetworkType: azure_native.apimanagement.VirtualNetworkType.None,
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceWithNatGatewayEnabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     location: "East US",
+ *     natGatewayState: azure_native.apimanagement.NatGatewayState.Enabled,
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.SkuType.Premium,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceWithSystemCertificates
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     certificates: [{
+ *         certificatePassword: "Password",
+ *         encodedCertificate: "*******Base64 encoded Certificate******************",
+ *         storeName: "CertificateAuthority",
+ *     }],
+ *     location: "Central US",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.SkuType.Basic,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceWithUserAssignedIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     identity: {
+ *         type: azure_native.apimanagement.ApimIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1": {},
+ *         },
+ *     },
+ *     location: "West US",
+ *     publisherEmail: "apim@autorestsdk.com",
+ *     publisherName: "autorestsdk",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 0,
+ *         name: azure_native.apimanagement.SkuType.Consumption,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *         tag3: "value3",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementUndelete
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+ *     location: "South Central US",
+ *     publisherEmail: "foo@contoso.com",
+ *     publisherName: "foo",
+ *     resourceGroupName: "rg1",
+ *     restore: true,
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.SkuType.Developer,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ApiManagementService apimService1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName} 
+ * ```
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**

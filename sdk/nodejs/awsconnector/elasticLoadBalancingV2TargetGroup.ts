@@ -11,6 +11,81 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### ElasticLoadBalancingV2TargetGroups_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticLoadBalancingV2TargetGroup = new azure_native.awsconnector.ElasticLoadBalancingV2TargetGroup("elasticLoadBalancingV2TargetGroup", {
+ *     location: "uyngtpdaililbq",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "avccwbbipudnfjximva",
+ *         awsAccountId: "vjdgbgqisnvysonxlwjoczc",
+ *         awsProperties: {
+ *             healthCheckEnabled: true,
+ *             healthCheckIntervalSeconds: 16,
+ *             healthCheckPath: "exmwepsqjmnvppxuwwvineim",
+ *             healthCheckPort: "cjuqka",
+ *             healthCheckProtocol: "vkarvxh",
+ *             healthCheckTimeoutSeconds: 13,
+ *             healthyThresholdCount: 21,
+ *             ipAddressType: "da",
+ *             loadBalancerArns: ["tzafgmrxzoifkxbmzsivajwdwedjw"],
+ *             matcher: {
+ *                 grpcCode: "tbnxw",
+ *                 httpCode: "pavevmyswjhnoptlankjaiieao",
+ *             },
+ *             name: "ruyunzpgs",
+ *             port: 9,
+ *             protocol: "cltdmqhlrmrhgdamynxpmnbshrth",
+ *             protocolVersion: "rpqn",
+ *             tags: [{
+ *                 key: "fkysin",
+ *                 value: "ivjhgawgxhfvwiyaeruurbpkyx",
+ *             }],
+ *             targetGroupArn: "nlyfkpaomu",
+ *             targetGroupAttributes: [{
+ *                 key: "edcafpxbnifvdfchilay",
+ *                 value: "fiffi",
+ *             }],
+ *             targetGroupFullName: "xhghbskmnfhkswoncku",
+ *             targetGroupName: "b",
+ *             targetType: "eekpandbuoghdxtg",
+ *             targets: [{
+ *                 availabilityZone: "degmktltnufhywqic",
+ *                 id: "dpaky",
+ *                 port: 13,
+ *             }],
+ *             unhealthyThresholdCount: 14,
+ *             vpcId: "leubklsppgcmljbowvzpwvwya",
+ *         },
+ *         awsRegion: "qlfglghejmmlo",
+ *         awsSourceSchema: "cljfeojrexeruhvjklisrmf",
+ *         awsTags: {
+ *             key5023: "tfayscxthf",
+ *         },
+ *         publicCloudConnectorsResourceId: "agzteeghhpawmqbjrdkgduq",
+ *         publicCloudResourceName: "muortngxuegbngvcemmzovetqah",
+ *     },
+ *     resourceGroupName: "rgelasticLoadBalancingV2TargetGroup",
+ *     tags: {
+ *         key6050: "pemhzyusesfpizecwecekae",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:ElasticLoadBalancingV2TargetGroup vxovzlnkinigqarvabyfm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2TargetGroups/{name} 
+ * ```
  */
 export class ElasticLoadBalancingV2TargetGroup extends pulumi.CustomResource {
     /**

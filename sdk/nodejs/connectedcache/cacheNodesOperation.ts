@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
  * Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
+ *
+ * ## Example Usage
+ * ### CacheNodesOperations_CreateorUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cacheNodesOperation = new azure_native.connectedcache.CacheNodesOperation("cacheNodesOperation", {
+ *     customerResourceName: "lwrsyhvfpcfrwrim",
+ *     location: "westus",
+ *     properties: {
+ *         statusCode: "movtzupooyhdqk",
+ *         statusDetails: "quuziibkwtgf",
+ *         statusText: "bjnsrpzaofjntleoesjwammgbi",
+ *     },
+ *     resourceGroupName: "rgConnectedCache",
+ *     tags: {
+ *         key8256: "oreqiywrjkmate",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedcache:CacheNodesOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/cacheNodes/{customerResourceName} 
+ * ```
  */
 export class CacheNodesOperation extends pulumi.CustomResource {
     /**

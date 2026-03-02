@@ -30,6 +30,7 @@ class CapacityPoolBackupArgs:
                  use_existing_snapshot: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CapacityPoolBackup resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -171,6 +172,33 @@ class CapacityPoolBackup(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01.
 
+        ## Example Usage
+        ### Backups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_pool_backup = azure_native.netapp.CapacityPoolBackup("capacityPoolBackup",
+            account_name="account1",
+            backup_name="backup1",
+            label="myLabel",
+            location="eastus",
+            pool_name="pool1",
+            resource_group_name="myRG",
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:CapacityPoolBackup account1/pool1/volume1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
@@ -192,6 +220,33 @@ class CapacityPoolBackup(pulumi.CustomResource):
         Backup of a Volume
 
         Uses Azure REST API version 2022-11-01.
+
+        ## Example Usage
+        ### Backups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_pool_backup = azure_native.netapp.CapacityPoolBackup("capacityPoolBackup",
+            account_name="account1",
+            backup_name="backup1",
+            label="myLabel",
+            location="eastus",
+            pool_name="pool1",
+            resource_group_name="myRG",
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:CapacityPoolBackup account1/pool1/volume1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CapacityPoolBackupArgs args: The arguments to use to populate this resource's properties.

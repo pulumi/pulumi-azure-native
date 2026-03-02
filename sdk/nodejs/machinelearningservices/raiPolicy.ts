@@ -13,6 +13,50 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
  *
  * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create Rai policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const raiPolicy = new azure_native.machinelearningservices.RaiPolicy("raiPolicy", {
+ *     endpointName: "Azure.OpenAI",
+ *     properties: {
+ *         basePolicyName: "112",
+ *         completionBlocklists: [{
+ *             blocking: false,
+ *             blocklistName: "blocklistName",
+ *         }],
+ *         contentFilters: [{
+ *             allowedContentLevel: azure_native.machinelearningservices.AllowedContentLevel.Low,
+ *             blocking: false,
+ *             enabled: false,
+ *             name: "policyName",
+ *             source: azure_native.machinelearningservices.RaiPolicyContentSource.Prompt,
+ *         }],
+ *         mode: azure_native.machinelearningservices.RaiPolicyMode.Blocking,
+ *         promptBlocklists: [{
+ *             blocking: false,
+ *             blocklistName: "blocklistName",
+ *         }],
+ *         type: azure_native.machinelearningservices.RaiPolicyType.SystemManaged,
+ *     },
+ *     raiPolicyName: "raiPolicyName",
+ *     resourceGroupName: "test-rg",
+ *     workspaceName: "aml-workspace-name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:RaiPolicy raiPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/raiPolicies/{raiPolicyName} 
+ * ```
  */
 export class RaiPolicy extends pulumi.CustomResource {
     /**

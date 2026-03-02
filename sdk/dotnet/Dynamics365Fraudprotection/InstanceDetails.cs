@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
     /// Represents an instance of a DFP instance resource.
     /// 
     /// Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var instanceDetails = new AzureNative.Dynamics365Fraudprotection.InstanceDetails("instanceDetails", new()
+    ///     {
+    ///         Administration = new AzureNative.Dynamics365Fraudprotection.Inputs.DFPInstanceAdministratorsArgs
+    ///         {
+    ///             Members = new[]
+    ///             {
+    ///                 "azsdktest@microsoft.com",
+    ///                 "azsdktest2@microsoft.com",
+    ///             },
+    ///         },
+    ///         InstanceName = "azsdktest",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         Tags = 
+    ///         {
+    ///             { "testKey", "testValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dynamics365fraudprotection:InstanceDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dynamics365fraudprotection:InstanceDetails")]
     public partial class InstanceDetails : global::Pulumi.CustomResource

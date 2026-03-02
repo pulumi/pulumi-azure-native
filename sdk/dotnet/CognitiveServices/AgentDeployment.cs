@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Agent Deployment resource
     /// 
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Agent Deployment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentDeployment = new AzureNative.CognitiveServices.AgentDeployment("agentDeployment", new()
+    ///     {
+    ///         AccountName = "my-cognitive-services-account",
+    ///         AppName = "agent-app-1",
+    ///         DeploymentName = "deployment-1",
+    ///         ProjectName = "my-project",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.ManagedAgentDeploymentArgs
+    ///         {
+    ///             Agents = new[]
+    ///             {
+    ///                 new AzureNative.CognitiveServices.Inputs.VersionedAgentReferenceArgs
+    ///                 {
+    ///                     AgentId = "agent-123",
+    ///                     AgentName = "support-agent",
+    ///                     AgentVersion = "1.0.0",
+    ///                 },
+    ///             },
+    ///             DeploymentType = "Managed",
+    ///             DisplayName = "Production Deployment",
+    ///             Protocols = new[]
+    ///             {
+    ///                 new AzureNative.CognitiveServices.Inputs.AgentProtocolVersionArgs
+    ///                 {
+    ///                     Protocol = AzureNative.CognitiveServices.AgentProtocol.Agent,
+    ///                     Version = "1.0",
+    ///                 },
+    ///             },
+    ///             State = AzureNative.CognitiveServices.AgentDeploymentState.Starting,
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:AgentDeployment deployment-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{appName}/agentDeployments/{deploymentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:AgentDeployment")]
     public partial class AgentDeployment : global::Pulumi.CustomResource

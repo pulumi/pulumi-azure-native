@@ -28,6 +28,7 @@ class PrivateEndpointConnectionArgs:
                  properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] private_endpoint_connection_name: Private Endpoint Connection Name
@@ -107,6 +108,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.notificationhubs.PrivateEndpointConnection("privateEndpointConnection",
+            namespace_name="nh-sdk-ns",
+            private_endpoint_connection_name="nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+            properties={
+                "private_link_service_connection_state": {
+                    "status": azure_native.notificationhubs.PrivateLinkConnectionStatus.APPROVED,
+                },
+            },
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:PrivateEndpointConnection nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
@@ -126,6 +155,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.notificationhubs.PrivateEndpointConnection("privateEndpointConnection",
+            namespace_name="nh-sdk-ns",
+            private_endpoint_connection_name="nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+            properties={
+                "private_link_service_connection_state": {
+                    "status": azure_native.notificationhubs.PrivateLinkConnectionStatus.APPROVED,
+                },
+            },
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:PrivateEndpointConnection nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

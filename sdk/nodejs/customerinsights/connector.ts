@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * The connector resource format.
  *
  * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+ *
+ * ## Example Usage
+ * ### Connectors_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connector = new azure_native.customerinsights.Connector("connector", {
+ *     connectorName: "testConnector",
+ *     connectorProperties: {
+ *         connectionKeyVaultUrl: {
+ *             organizationId: "XXX",
+ *             organizationUrl: "https://XXX.crmlivetie.com/",
+ *         },
+ *     },
+ *     connectorType: azure_native.customerinsights.ConnectorTypes.AzureBlob,
+ *     description: "Test connector",
+ *     displayName: "testConnector",
+ *     hubName: "sdkTestHub",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights:Connector sdkTestHub/testConnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName} 
+ * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

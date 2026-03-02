@@ -13,6 +13,54 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
  * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### EventHubCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHub = new azure_native.eventhub.EventHub("eventHub", {
+ *     captureDescription: {
+ *         destination: {
+ *             archiveNameFormat: "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+ *             blobContainer: "container",
+ *             identity: {
+ *                 type: azure_native.eventhub.CaptureIdentityType.UserAssigned,
+ *                 userAssignedIdentity: "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2",
+ *             },
+ *             name: "EventHubArchive.AzureBlockBlob",
+ *             storageAccountResourceId: "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+ *         },
+ *         enabled: true,
+ *         encoding: azure_native.eventhub.EncodingCaptureDescription.Avro,
+ *         intervalInSeconds: 120,
+ *         sizeLimitInBytes: 10485763,
+ *     },
+ *     eventHubName: "sdk-EventHub-6547",
+ *     messageRetentionInDays: 4,
+ *     namespaceName: "sdk-Namespace-5357",
+ *     partitionCount: 4,
+ *     resourceGroupName: "Default-NotificationHubs-AustraliaEast",
+ *     retentionDescription: {
+ *         cleanupPolicy: azure_native.eventhub.CleanupPolicyRetentionDescription.Compact,
+ *         retentionTimeInHours: 96,
+ *         tombstoneRetentionTimeInHours: 1,
+ *     },
+ *     status: azure_native.eventhub.EntityStatus.Active,
+ *     userMetadata: "key",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:EventHub sdk-EventHub-10 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName} 
+ * ```
  */
 export class EventHub extends pulumi.CustomResource {
     /**

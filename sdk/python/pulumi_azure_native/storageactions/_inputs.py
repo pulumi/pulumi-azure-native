@@ -28,19 +28,14 @@ __all__ = [
     'StorageTaskOperationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ElseConditionArgsDict(TypedDict):
-        """
-        The else block of storage task operation
-        """
-        operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgsDict']]]
-        """
-        List of operations to execute in the else block
-        """
-elif False:
-    ElseConditionArgsDict: TypeAlias = Mapping[str, Any]
+class ElseConditionArgsDict(TypedDict):
+    """
+    The else block of storage task operation
+    """
+    operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgsDict']]]
+    """
+    List of operations to execute in the else block
+    """
 
 @pulumi.input_type
 class ElseConditionArgs:
@@ -48,6 +43,7 @@ class ElseConditionArgs:
                  operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]]):
         """
         The else block of storage task operation
+
         :param pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]] operations: List of operations to execute in the else block
         """
         pulumi.set(__self__, "operations", operations)
@@ -65,21 +61,18 @@ class ElseConditionArgs:
         pulumi.set(self, "operations", value)
 
 
-if not MYPY:
-    class IfConditionArgsDict(TypedDict):
-        """
-        The if block of storage task operation
-        """
-        condition: pulumi.Input[_builtins.str]
-        """
-        Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
-        """
-        operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgsDict']]]
-        """
-        List of operations to execute when the condition predicate satisfies.
-        """
-elif False:
-    IfConditionArgsDict: TypeAlias = Mapping[str, Any]
+class IfConditionArgsDict(TypedDict):
+    """
+    The if block of storage task operation
+    """
+    condition: pulumi.Input[_builtins.str]
+    """
+    Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
+    """
+    operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgsDict']]]
+    """
+    List of operations to execute when the condition predicate satisfies.
+    """
 
 @pulumi.input_type
 class IfConditionArgs:
@@ -88,6 +81,7 @@ class IfConditionArgs:
                  operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]]):
         """
         The if block of storage task operation
+
         :param pulumi.Input[_builtins.str] condition: Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         :param pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]] operations: List of operations to execute when the condition predicate satisfies.
         """
@@ -119,21 +113,18 @@ class IfConditionArgs:
         pulumi.set(self, "operations", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -142,6 +133,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -174,21 +166,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class StorageTaskActionArgsDict(TypedDict):
-        """
-        The storage task action represents conditional statements and operations to be performed on target objects.
-        """
-        if_: pulumi.Input['IfConditionArgsDict']
-        """
-        The if block of storage task operation
-        """
-        else_: NotRequired[pulumi.Input['ElseConditionArgsDict']]
-        """
-        The else block of storage task operation
-        """
-elif False:
-    StorageTaskActionArgsDict: TypeAlias = Mapping[str, Any]
+class StorageTaskActionArgsDict(TypedDict):
+    """
+    The storage task action represents conditional statements and operations to be performed on target objects.
+    """
+    if_: pulumi.Input['IfConditionArgsDict']
+    """
+    The if block of storage task operation
+    """
+    else_: NotRequired[pulumi.Input['ElseConditionArgsDict']]
+    """
+    The else block of storage task operation
+    """
 
 @pulumi.input_type
 class StorageTaskActionArgs:
@@ -197,6 +186,7 @@ class StorageTaskActionArgs:
                  else_: Optional[pulumi.Input['ElseConditionArgs']] = None):
         """
         The storage task action represents conditional statements and operations to be performed on target objects.
+
         :param pulumi.Input['IfConditionArgs'] if_: The if block of storage task operation
         :param pulumi.Input['ElseConditionArgs'] else_: The else block of storage task operation
         """
@@ -229,29 +219,26 @@ class StorageTaskActionArgs:
         pulumi.set(self, "else_", value)
 
 
-if not MYPY:
-    class StorageTaskOperationArgsDict(TypedDict):
-        """
-        Represents an operation to be performed on the object
-        """
-        name: pulumi.Input[Union[_builtins.str, 'StorageTaskOperationName']]
-        """
-        The operation to be performed on the object.
-        """
-        on_failure: NotRequired[pulumi.Input[Union[_builtins.str, 'OnFailure']]]
-        """
-        Action to be taken when the operation fails for a object.
-        """
-        on_success: NotRequired[pulumi.Input[Union[_builtins.str, 'OnSuccess']]]
-        """
-        Action to be taken when the operation is successful for a object.
-        """
-        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key-value parameters for the operation.
-        """
-elif False:
-    StorageTaskOperationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageTaskOperationArgsDict(TypedDict):
+    """
+    Represents an operation to be performed on the object
+    """
+    name: pulumi.Input[Union[_builtins.str, 'StorageTaskOperationName']]
+    """
+    The operation to be performed on the object.
+    """
+    on_failure: NotRequired[pulumi.Input[Union[_builtins.str, 'OnFailure']]]
+    """
+    Action to be taken when the operation fails for a object.
+    """
+    on_success: NotRequired[pulumi.Input[Union[_builtins.str, 'OnSuccess']]]
+    """
+    Action to be taken when the operation is successful for a object.
+    """
+    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key-value parameters for the operation.
+    """
 
 @pulumi.input_type
 class StorageTaskOperationArgs:
@@ -262,6 +249,7 @@ class StorageTaskOperationArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Represents an operation to be performed on the object
+
         :param pulumi.Input[Union[_builtins.str, 'StorageTaskOperationName']] name: The operation to be performed on the object.
         :param pulumi.Input[Union[_builtins.str, 'OnFailure']] on_failure: Action to be taken when the operation fails for a object.
         :param pulumi.Input[Union[_builtins.str, 'OnSuccess']] on_success: Action to be taken when the operation is successful for a object.

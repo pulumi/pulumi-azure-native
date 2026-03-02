@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         private InputList<string>? _storageConnections;
 
         /// <summary>
-        /// List of connection names from those available in the account or project to be used as a storage resource.
+        /// List of Storage connections.
         /// </summary>
         public InputList<string> StorageConnections
         {
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         private InputList<string>? _threadStorageConnections;
 
         /// <summary>
-        /// List of connection names from those available in the account or project to be used for Thread storage.
+        /// List of Thread storage connections.
         /// </summary>
         public InputList<string> ThreadStorageConnections
         {
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         private InputList<string>? _vectorStoreConnections;
 
         /// <summary>
-        /// List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+        /// List of VectorStore connections.
         /// </summary>
         public InputList<string> VectorStoreConnections
         {
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
 
         public CapabilityHostArgs()
         {
+            CapabilityHostKind = "Agents";
         }
         public static new CapabilityHostArgs Empty => new CapabilityHostArgs();
     }

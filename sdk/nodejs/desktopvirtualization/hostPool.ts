@@ -13,6 +13,65 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
  * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### HostPool_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hostPool = new azure_native.desktopvirtualization.HostPool("hostPool", {
+ *     agentUpdate: {
+ *         maintenanceWindowTimeZone: "Alaskan Standard Time",
+ *         maintenanceWindows: [
+ *             {
+ *                 dayOfWeek: azure_native.desktopvirtualization.DayOfWeek.Friday,
+ *                 hour: 7,
+ *             },
+ *             {
+ *                 dayOfWeek: azure_native.desktopvirtualization.DayOfWeek.Saturday,
+ *                 hour: 8,
+ *             },
+ *         ],
+ *         type: azure_native.desktopvirtualization.SessionHostComponentUpdateType.Scheduled,
+ *         useSessionHostLocalTime: false,
+ *     },
+ *     description: "des1",
+ *     friendlyName: "friendly",
+ *     hostPoolName: "hostPool1",
+ *     hostPoolType: azure_native.desktopvirtualization.HostPoolType.Pooled,
+ *     loadBalancerType: azure_native.desktopvirtualization.LoadBalancerType.BreadthFirst,
+ *     location: "centralus",
+ *     maxSessionLimit: 999999,
+ *     personalDesktopAssignmentType: azure_native.desktopvirtualization.PersonalDesktopAssignmentType.Automatic,
+ *     preferredAppGroupType: azure_native.desktopvirtualization.PreferredAppGroupType.Desktop,
+ *     registrationInfo: {
+ *         expirationTime: "2020-10-01T14:01:54.9571247Z",
+ *         registrationTokenOperation: azure_native.desktopvirtualization.RegistrationTokenOperation.Update,
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     ssoClientId: "client",
+ *     ssoClientSecretKeyVaultPath: "https://keyvault/secret",
+ *     ssoSecretType: azure_native.desktopvirtualization.SSOSecretType.SharedKey,
+ *     ssoadfsAuthority: "https://adfs",
+ *     startVMOnConnect: false,
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     vmTemplate: "{json:json}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization:HostPool hostPool1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName} 
+ * ```
  */
 export class HostPool extends pulumi.CustomResource {
     /**

@@ -24,6 +24,7 @@ class APICollectionArgs:
                  api_collection_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a APICollection resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
@@ -85,6 +86,29 @@ class APICollection(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
 
+        ## Example Usage
+        ### Onboard an Azure API Management API to Defender for APIs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_collection = azure_native.security.APICollection("apiCollection",
+            api_collection_id="echo-api",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:APICollection echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiCollectionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_collection_id: A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
@@ -101,6 +125,29 @@ class APICollection(pulumi.CustomResource):
         An API collection as represented by Defender for APIs.
 
         Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
+
+        ## Example Usage
+        ### Onboard an Azure API Management API to Defender for APIs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_collection = azure_native.security.APICollection("apiCollection",
+            api_collection_id="echo-api",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:APICollection echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiCollectionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param APICollectionArgs args: The arguments to use to populate this resource's properties.

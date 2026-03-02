@@ -13,6 +13,107 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
  *
  * Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PackageCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _package = new azure_native.testbase.Package("package", {
+ *     applicationName: "contoso-package2",
+ *     blobPath: "storageAccountPath/package.zip",
+ *     firstPartyApps: [{
+ *         architecture: azure_native.testbase.Architecture.X64,
+ *         channel: "Current Channel",
+ *         interopExecutionMode: azure_native.testbase.InteropExecutionMode.FirstPartyAppWithTests,
+ *         name: "Office",
+ *         ring: "Insider",
+ *     }],
+ *     flightingRing: "Insider Beta Channel",
+ *     location: "westus",
+ *     packageName: "contoso-package2",
+ *     resourceGroupName: "contoso-rg1",
+ *     tags: {},
+ *     targetOSList: [{
+ *         osUpdateType: "Security updates",
+ *         targetOSs: [
+ *             "Windows 10 2004",
+ *             "Windows 10 1903",
+ *         ],
+ *     }],
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ *     tests: [{
+ *         commands: [
+ *             {
+ *                 action: azure_native.testbase.Action.Install,
+ *                 alwaysRun: true,
+ *                 applyUpdateBefore: false,
+ *                 content: "app/scripts/install/job.ps1",
+ *                 contentType: azure_native.testbase.ContentType.Path,
+ *                 install1PAppBefore: true,
+ *                 maxRunTime: 1800,
+ *                 name: "Install",
+ *                 restartAfter: true,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *             {
+ *                 action: azure_native.testbase.Action.Launch,
+ *                 alwaysRun: false,
+ *                 applyUpdateBefore: true,
+ *                 content: "app/scripts/launch/job.ps1",
+ *                 contentType: azure_native.testbase.ContentType.Path,
+ *                 install1PAppBefore: false,
+ *                 maxRunTime: 1800,
+ *                 name: "Launch",
+ *                 restartAfter: false,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *             {
+ *                 action: azure_native.testbase.Action.Close,
+ *                 alwaysRun: false,
+ *                 applyUpdateBefore: false,
+ *                 content: "app/scripts/close/job.ps1",
+ *                 contentType: azure_native.testbase.ContentType.Path,
+ *                 install1PAppBefore: false,
+ *                 maxRunTime: 1800,
+ *                 name: "Close",
+ *                 restartAfter: false,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *             {
+ *                 action: azure_native.testbase.Action.Uninstall,
+ *                 alwaysRun: true,
+ *                 applyUpdateBefore: false,
+ *                 content: "app/scripts/uninstall/job.ps1",
+ *                 contentType: azure_native.testbase.ContentType.Path,
+ *                 install1PAppBefore: false,
+ *                 maxRunTime: 1800,
+ *                 name: "Uninstall",
+ *                 restartAfter: false,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *         ],
+ *         isActive: true,
+ *         testType: azure_native.testbase.TestType.OutOfBoxTest,
+ *     }],
+ *     version: "1.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:Package contoso-package2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName} 
+ * ```
  */
 export class Package extends pulumi.CustomResource {
     /**

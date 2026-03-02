@@ -13,6 +13,215 @@ namespace Pulumi.AzureNative.Monitor
     /// The autoscale setting resource.
     /// 
     /// Uses Azure REST API version 2021-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an autoscale setting
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var autoscaleSetting = new AzureNative.Monitor.AutoscaleSetting("autoscaleSetting", new()
+    ///     {
+    ///         AutoscaleSettingName = "MySetting",
+    ///         Enabled = true,
+    ///         Location = "West US",
+    ///         Notifications = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.AutoscaleNotificationArgs
+    ///             {
+    ///                 Email = new AzureNative.Monitor.Inputs.EmailNotificationArgs
+    ///                 {
+    ///                     CustomEmails = new[]
+    ///                     {
+    ///                         "gu@ms.com",
+    ///                         "ge@ns.net",
+    ///                     },
+    ///                     SendToSubscriptionAdministrator = true,
+    ///                     SendToSubscriptionCoAdministrators = true,
+    ///                 },
+    ///                 Operation = AzureNative.Monitor.OperationType.Scale,
+    ///                 Webhooks = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.WebhookNotificationArgs
+    ///                     {
+    ///                         Properties = null,
+    ///                         ServiceUri = "http://myservice.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         PredictiveAutoscalePolicy = new AzureNative.Monitor.Inputs.PredictiveAutoscalePolicyArgs
+    ///         {
+    ///             ScaleMode = AzureNative.Monitor.PredictiveAutoscalePolicyScaleMode.Enabled,
+    ///         },
+    ///         Profiles = new[]
+    ///         {
+    ///             new AzureNative.Monitor.Inputs.AutoscaleProfileArgs
+    ///             {
+    ///                 Capacity = new AzureNative.Monitor.Inputs.ScaleCapacityArgs
+    ///                 {
+    ///                     Default = "1",
+    ///                     Maximum = "10",
+    ///                     Minimum = "1",
+    ///                 },
+    ///                 FixedDate = new AzureNative.Monitor.Inputs.TimeWindowArgs
+    ///                 {
+    ///                     End = "2015-03-05T14:30:00Z",
+    ///                     Start = "2015-03-05T14:00:00Z",
+    ///                     TimeZone = "UTC",
+    ///                 },
+    ///                 Name = "adios",
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new AzureNative.Monitor.Inputs.MetricTriggerArgs
+    ///                         {
+    ///                             DividePerInstance = false,
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                             Operator = AzureNative.Monitor.ComparisonOperationType.GreaterThan,
+    ///                             Statistic = AzureNative.Monitor.MetricStatisticType.Average,
+    ///                             Threshold = 10,
+    ///                             TimeAggregation = AzureNative.Monitor.TimeAggregationType.Average,
+    ///                             TimeGrain = "PT1M",
+    ///                             TimeWindow = "PT5M",
+    ///                         },
+    ///                         ScaleAction = new AzureNative.Monitor.Inputs.ScaleActionArgs
+    ///                         {
+    ///                             Cooldown = "PT5M",
+    ///                             Direction = AzureNative.Monitor.ScaleDirection.Increase,
+    ///                             Type = AzureNative.Monitor.ScaleType.ChangeCount,
+    ///                             Value = "1",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Monitor.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new AzureNative.Monitor.Inputs.MetricTriggerArgs
+    ///                         {
+    ///                             DividePerInstance = false,
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                             Operator = AzureNative.Monitor.ComparisonOperationType.GreaterThan,
+    ///                             Statistic = AzureNative.Monitor.MetricStatisticType.Average,
+    ///                             Threshold = 15,
+    ///                             TimeAggregation = AzureNative.Monitor.TimeAggregationType.Average,
+    ///                             TimeGrain = "PT2M",
+    ///                             TimeWindow = "PT5M",
+    ///                         },
+    ///                         ScaleAction = new AzureNative.Monitor.Inputs.ScaleActionArgs
+    ///                         {
+    ///                             Cooldown = "PT6M",
+    ///                             Direction = AzureNative.Monitor.ScaleDirection.Decrease,
+    ///                             Type = AzureNative.Monitor.ScaleType.ChangeCount,
+    ///                             Value = "2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Monitor.Inputs.AutoscaleProfileArgs
+    ///             {
+    ///                 Capacity = new AzureNative.Monitor.Inputs.ScaleCapacityArgs
+    ///                 {
+    ///                     Default = "1",
+    ///                     Maximum = "10",
+    ///                     Minimum = "1",
+    ///                 },
+    ///                 Name = "saludos",
+    ///                 Recurrence = new AzureNative.Monitor.Inputs.RecurrenceArgs
+    ///                 {
+    ///                     Frequency = AzureNative.Monitor.RecurrenceFrequency.Week,
+    ///                     Schedule = new AzureNative.Monitor.Inputs.RecurrentScheduleArgs
+    ///                     {
+    ///                         Days = new[]
+    ///                         {
+    ///                             "1",
+    ///                         },
+    ///                         Hours = new[]
+    ///                         {
+    ///                             5,
+    ///                         },
+    ///                         Minutes = new[]
+    ///                         {
+    ///                             15,
+    ///                         },
+    ///                         TimeZone = "UTC",
+    ///                     },
+    ///                 },
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Monitor.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new AzureNative.Monitor.Inputs.MetricTriggerArgs
+    ///                         {
+    ///                             DividePerInstance = false,
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                             Operator = AzureNative.Monitor.ComparisonOperationType.GreaterThan,
+    ///                             Statistic = AzureNative.Monitor.MetricStatisticType.Average,
+    ///                             Threshold = 10,
+    ///                             TimeAggregation = AzureNative.Monitor.TimeAggregationType.Average,
+    ///                             TimeGrain = "PT1M",
+    ///                             TimeWindow = "PT5M",
+    ///                         },
+    ///                         ScaleAction = new AzureNative.Monitor.Inputs.ScaleActionArgs
+    ///                         {
+    ///                             Cooldown = "PT5M",
+    ///                             Direction = AzureNative.Monitor.ScaleDirection.Increase,
+    ///                             Type = AzureNative.Monitor.ScaleType.ChangeCount,
+    ///                             Value = "1",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Monitor.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new AzureNative.Monitor.Inputs.MetricTriggerArgs
+    ///                         {
+    ///                             DividePerInstance = false,
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///                             Operator = AzureNative.Monitor.ComparisonOperationType.GreaterThan,
+    ///                             Statistic = AzureNative.Monitor.MetricStatisticType.Average,
+    ///                             Threshold = 15,
+    ///                             TimeAggregation = AzureNative.Monitor.TimeAggregationType.Average,
+    ///                             TimeGrain = "PT2M",
+    ///                             TimeWindow = "PT5M",
+    ///                         },
+    ///                         ScaleAction = new AzureNative.Monitor.Inputs.ScaleActionArgs
+    ///                         {
+    ///                             Cooldown = "PT6M",
+    ///                             Direction = AzureNative.Monitor.ScaleDirection.Decrease,
+    ///                             Type = AzureNative.Monitor.ScaleType.ChangeCount,
+    ///                             Value = "2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestingMetricsScaleSet",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///         TargetResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:AutoscaleSetting MySetting /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Insights/autoscalesettings/{autoscaleSettingName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:AutoscaleSetting")]
     public partial class AutoscaleSetting : global::Pulumi.CustomResource

@@ -11,6 +11,205 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### OpenSearchDomainStatuses_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const openSearchDomainStatus = new azure_native.awsconnector.OpenSearchDomainStatus("openSearchDomainStatus", {
+ *     location: "cjnfjucekzuxbrhfzskptnxmy",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "xxoyruemlfezddeqgvpfvbvqrmmhzk",
+ *         awsAccountId: "l",
+ *         awsProperties: {
+ *             accessPolicies: "zmizapetmvhfuhnuevg",
+ *             advancedOptions: {
+ *                 key5855: "vqbdzcigjhn",
+ *             },
+ *             advancedSecurityOptions: {
+ *                 anonymousAuthDisableDate: "2024-10-08T03:49:18.317Z",
+ *                 anonymousAuthEnabled: true,
+ *                 enabled: true,
+ *                 internalUserDatabaseEnabled: true,
+ *                 samlOptions: {
+ *                     enabled: true,
+ *                     idp: {
+ *                         entityId: "ujb",
+ *                         metadataContent: "ncvlnvyvuwdkmspvvynhbjwzzerkl",
+ *                     },
+ *                     rolesKey: "pphcuihmcksjghguam",
+ *                     sessionTimeoutMinutes: 22,
+ *                     subjectKey: "pnnavlixxrzg",
+ *                 },
+ *             },
+ *             arn: "svblrdkqxeghxc",
+ *             autoTuneOptions: {
+ *                 errorMessage: "gdouqrr",
+ *                 state: {
+ *                     value: azure_native.awsconnector.AutoTuneState.DISABLED,
+ *                 },
+ *                 useOffPeakWindow: true,
+ *             },
+ *             changeProgressDetails: {
+ *                 changeId: "acuqzpomrpdxccssgsjtftt",
+ *                 configChangeStatus: {
+ *                     value: azure_native.awsconnector.ConfigChangeStatus.ApplyingChanges,
+ *                 },
+ *                 initiatedBy: {
+ *                     value: azure_native.awsconnector.InitiatedBy.CUSTOMER,
+ *                 },
+ *                 lastUpdatedTime: "2024-10-08T03:49:18.319Z",
+ *                 message: "netweglaakukislhan",
+ *                 startTime: "2024-10-08T03:49:18.319Z",
+ *             },
+ *             clusterConfig: {
+ *                 coldStorageOptions: {
+ *                     enabled: true,
+ *                 },
+ *                 dedicatedMasterCount: 15,
+ *                 dedicatedMasterEnabled: true,
+ *                 dedicatedMasterType: {
+ *                     value: azure_native.awsconnector.OpenSearchPartitionInstanceType.C42xlargeSearch,
+ *                 },
+ *                 instanceCount: 6,
+ *                 instanceType: {
+ *                     value: azure_native.awsconnector.OpenSearchPartitionInstanceType.C42xlargeSearch,
+ *                 },
+ *                 multiAZWithStandbyEnabled: true,
+ *                 warmCount: 29,
+ *                 warmEnabled: true,
+ *                 warmType: {
+ *                     value: azure_native.awsconnector.OpenSearchWarmPartitionInstanceType.Ultrawarm1LargeSearch,
+ *                 },
+ *                 zoneAwarenessConfig: {
+ *                     availabilityZoneCount: 20,
+ *                 },
+ *                 zoneAwarenessEnabled: true,
+ *             },
+ *             cognitoOptions: {
+ *                 enabled: true,
+ *                 identityPoolId: "dcpqrbpnpihpqvibpysnhi",
+ *                 roleArn: "wdpsbg",
+ *                 userPoolId: "oeiqtnpxt",
+ *             },
+ *             created: true,
+ *             deleted: true,
+ *             domainEndpointOptions: {
+ *                 customEndpoint: "pkalvbtpzxwdwtzlhet",
+ *                 customEndpointCertificateArn: "bmcnynq",
+ *                 customEndpointEnabled: true,
+ *                 enforceHTTPS: true,
+ *                 tlsSecurityPolicy: {
+ *                     value: azure_native.awsconnector.TLSSecurityPolicy.PolicyMinTLS10201907,
+ *                 },
+ *             },
+ *             domainId: "vdvjabmtsxndtepulmirzlkxjc",
+ *             domainName: "zmweyexy",
+ *             domainProcessingStatus: {
+ *                 value: azure_native.awsconnector.DomainProcessingStatusType.Active,
+ *             },
+ *             ebsOptions: {
+ *                 ebsEnabled: true,
+ *                 iops: 1,
+ *                 throughput: 6,
+ *                 volumeSize: 16,
+ *                 volumeType: {
+ *                     value: azure_native.awsconnector.VolumeType.Gp2,
+ *                 },
+ *             },
+ *             encryptionAtRestOptions: {
+ *                 enabled: true,
+ *                 kmsKeyId: "vfmtoghzhlyifmzgt",
+ *             },
+ *             endpoint: "y",
+ *             endpointV2: "lnmdhcvptzovtjrggoqef",
+ *             endpoints: {
+ *                 key7016: "mnbnwxhmvteoxgmcif",
+ *             },
+ *             engineVersion: "nafwkgnvpagjlvctspjtgg",
+ *             ipAddressType: {
+ *                 value: azure_native.awsconnector.IPAddressType.Dualstack,
+ *             },
+ *             logPublishingOptions: {
+ *                 key1257: {
+ *                     cloudWatchLogsLogGroupArn: "yflaoiiuhbxlodpwh",
+ *                     enabled: true,
+ *                 },
+ *             },
+ *             modifyingProperties: [{
+ *                 activeValue: "igvntcixfgeammklivfvtjjxfka",
+ *                 name: "wbfqxsudlhdpidezy",
+ *                 pendingValue: "n",
+ *                 valueType: {
+ *                     value: azure_native.awsconnector.PropertyValueType.PLAIN_TEXT,
+ *                 },
+ *             }],
+ *             nodeToNodeEncryptionOptions: {
+ *                 enabled: true,
+ *             },
+ *             offPeakWindowOptions: {
+ *                 enabled: true,
+ *                 offPeakWindow: {
+ *                     windowStartTime: {
+ *                         hours: 19,
+ *                         minutes: 7,
+ *                     },
+ *                 },
+ *             },
+ *             processing: true,
+ *             serviceSoftwareOptions: {
+ *                 automatedUpdateDate: "2024-10-08T03:49:18.320Z",
+ *                 cancellable: true,
+ *                 currentVersion: "ugdoxim",
+ *                 description: "moodysfsdplowtykjopgnlgeodxt",
+ *                 newVersion: "awqdkyicwktzdn",
+ *                 optionalDeployment: true,
+ *                 updateAvailable: true,
+ *                 updateStatus: {
+ *                     value: azure_native.awsconnector.DeploymentStatus.COMPLETED,
+ *                 },
+ *             },
+ *             snapshotOptions: {
+ *                 automatedSnapshotStartHour: 9,
+ *             },
+ *             softwareUpdateOptions: {
+ *                 autoSoftwareUpdateEnabled: true,
+ *             },
+ *             upgradeProcessing: true,
+ *             vpcOptions: {
+ *                 availabilityZones: ["laxoeorkeojjhcnoji"],
+ *                 securityGroupIds: ["ap"],
+ *                 subnetIds: ["oric"],
+ *                 vpcId: "jffbtwxjojtqphtd",
+ *             },
+ *         },
+ *         awsRegion: "mpszpnxbznm",
+ *         awsSourceSchema: "qrkamtxqjfb",
+ *         awsTags: {
+ *             key5895: "bosxipjwti",
+ *         },
+ *         publicCloudConnectorsResourceId: "g",
+ *         publicCloudResourceName: "sntfjznnaylmvehihglcoyqpcyacz",
+ *     },
+ *     resourceGroupName: "rgopenSearchDomainStatus",
+ *     tags: {
+ *         key9493: "seimlf",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:OpenSearchDomainStatus yuwkzpllpffeycwynrymxayw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/openSearchDomainStatuses/{name} 
+ * ```
  */
 export class OpenSearchDomainStatus extends pulumi.CustomResource {
     /**

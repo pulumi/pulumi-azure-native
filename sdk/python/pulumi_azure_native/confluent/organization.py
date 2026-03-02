@@ -31,6 +31,7 @@ class OrganizationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Organization resource.
+
         :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
@@ -157,6 +158,51 @@ class Organization(pulumi.CustomResource):
 
         Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Organization_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization = azure_native.confluent.Organization("organization",
+            link_organization={
+                "token": "string",
+            },
+            location="West US",
+            offer_detail={
+                "id": "string",
+                "plan_id": "string",
+                "plan_name": "string",
+                "private_offer_id": "string",
+                "private_offer_ids": ["string"],
+                "publisher_id": "string",
+                "term_unit": "string",
+            },
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            tags={
+                "Environment": "Dev",
+            },
+            user_detail={
+                "aad_email": "contoso@microsoft.com",
+                "email_address": "contoso@microsoft.com",
+                "first_name": "string",
+                "last_name": "string",
+                "user_principal_name": "contoso@microsoft.com",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:Organization myOrganization /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']] link_organization: Link an existing Confluent organization
@@ -179,6 +225,51 @@ class Organization(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
 
         Other available API versions: 2021-12-01, 2023-08-22, 2024-02-13, 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Organization_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization = azure_native.confluent.Organization("organization",
+            link_organization={
+                "token": "string",
+            },
+            location="West US",
+            offer_detail={
+                "id": "string",
+                "plan_id": "string",
+                "plan_name": "string",
+                "private_offer_id": "string",
+                "private_offer_ids": ["string"],
+                "publisher_id": "string",
+                "term_unit": "string",
+            },
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            tags={
+                "Environment": "Dev",
+            },
+            user_detail={
+                "aad_email": "contoso@microsoft.com",
+                "email_address": "contoso@microsoft.com",
+                "first_name": "string",
+                "last_name": "string",
+                "user_principal_name": "contoso@microsoft.com",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:Organization myOrganization /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.

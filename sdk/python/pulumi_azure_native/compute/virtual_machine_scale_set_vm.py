@@ -44,6 +44,7 @@ class VirtualMachineScaleSetVMArgs:
                  user_data: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineScaleSetVM resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
@@ -379,6 +380,323 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### VirtualMachineScaleSetVM_Update_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_vm = azure_native.compute.VirtualMachineScaleSetVM("virtualMachineScaleSetVM",
+            additional_capabilities={
+                "hibernation_enabled": True,
+                "ultra_ssd_enabled": True,
+            },
+            availability_set={
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+            },
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "aaaaaaaaaaaaa",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.BASIC_A0,
+                "vm_size_properties": {
+                    "v_cpus_available": 9,
+                    "v_cpus_per_core": 12,
+                },
+            },
+            instance_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            license_type="aaaaaaaaaa",
+            location="westus",
+            network_profile={
+                "network_api_version": azure_native.compute.NetworkApiVersion.NETWORK_API_VERSION_2020_11_01,
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "dns_settings": {
+                        "dns_servers": ["aaaaaa"],
+                    },
+                    "dscp_configuration": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                    },
+                    "enable_accelerated_networking": True,
+                    "enable_fpga": True,
+                    "enable_ip_forwarding": True,
+                    "ip_configurations": [{
+                        "application_gateway_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "application_security_groups": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "load_balancer_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "name": "aa",
+                        "primary": True,
+                        "private_ip_address_version": azure_native.compute.IPVersions.I_PV4,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                            "dns_settings": {
+                                "domain_name_label": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                            },
+                            "idle_timeout_in_minutes": 2,
+                            "ip_tags": [{
+                                "ip_tag_type": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                                "tag": "aaaaaaaaaaaaaaaaaaaa",
+                            }],
+                            "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                            "public_ip_address_version": azure_native.compute.IPVersions.I_PV4,
+                            "public_ip_allocation_method": azure_native.compute.PublicIPAllocationMethod.DYNAMIC,
+                            "public_ip_prefix": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.REGIONAL,
+                            },
+                        },
+                        "subnet": {
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        },
+                    }],
+                    "name": "aaaaaaaaaaa",
+                    "network_security_group": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                    },
+                    "primary": True,
+                }],
+                "network_interfaces": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}/virtualMachines/0/networkInterfaces/vmsstestnetconfig5415",
+                    "primary": True,
+                }],
+            },
+            network_profile_configuration={
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "dns_settings": {
+                        "dns_servers": [],
+                    },
+                    "enable_accelerated_networking": True,
+                    "enable_fpga": True,
+                    "enable_ip_forwarding": True,
+                    "ip_configurations": [{
+                        "application_gateway_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "application_security_groups": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "load_balancer_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "load_balancer_inbound_nat_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "name": "vmsstestnetconfig9693",
+                        "primary": True,
+                        "private_ip_address_version": azure_native.compute.IPVersion.I_PV4,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                            "dns_settings": {
+                                "domain_name_label": "aaaaaaaaaaaaaaaaaa",
+                            },
+                            "idle_timeout_in_minutes": 18,
+                            "ip_tags": [{
+                                "ip_tag_type": "aaaaaaa",
+                                "tag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                            }],
+                            "name": "aaaaaaaaaaaaaaaaaa",
+                            "public_ip_address_version": azure_native.compute.IPVersion.I_PV4,
+                            "public_ip_prefix": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.REGIONAL,
+                            },
+                        },
+                        "subnet": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/vn4071/subnets/sn5503",
+                        },
+                    }],
+                    "name": "vmsstestnetconfig5415",
+                    "network_security_group": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                    },
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "aaaaaaaaaaaaaaaa",
+                "admin_username": "Foo12",
+                "allow_extension_operations": True,
+                "computer_name": "test000000",
+                "custom_data": "aaaa",
+                "linux_configuration": {
+                    "disable_password_authentication": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.IMAGE_DEFAULT,
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                    "ssh": {
+                        "public_keys": [{
+                            "key_data": "aaaaaa",
+                            "path": "aaa",
+                        }],
+                    },
+                },
+                "require_guest_provision_signal": True,
+                "secrets": [],
+                "windows_configuration": {
+                    "additional_unattend_content": [{
+                        "component_name": azure_native.compute.ComponentName.MICROSOFT_WINDOWS_SHELL_SETUP,
+                        "content": "aaaaaaaaaaaaaaaaaaaa",
+                        "pass_name": azure_native.compute.PassName.OOBE_SYSTEM,
+                        "setting_name": azure_native.compute.SettingNames.AUTO_LOGON,
+                    }],
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.IMAGE_DEFAULT,
+                        "enable_hotpatching": True,
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.MANUAL,
+                    },
+                    "provision_vm_agent": True,
+                    "time_zone": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "win_rm": {
+                        "listeners": [{
+                            "certificate_url": "aaaaaaaaaaaaaaaaaaaaaa",
+                            "protocol": azure_native.compute.ProtocolTypes.HTTP,
+                        }],
+                    },
+                },
+            },
+            plan={
+                "name": "aaaaaaaaaa",
+                "product": "aaaaaaaaaaaaaaaaaaaa",
+                "promotion_code": "aaaaaaaaaaaaaaaaaaaa",
+                "publisher": "aaaaaaaaaaaaaaaaaaaaaa",
+            },
+            protection_policy={
+                "protect_from_scale_in": True,
+                "protect_from_scale_set_actions": True,
+            },
+            resource_group_name="rgcompute",
+            security_profile={
+                "encryption_at_host": True,
+                "security_type": azure_native.compute.SecurityTypes.TRUSTED_LAUNCH,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "data_disks": [{
+                    "caching": azure_native.compute.CachingTypes.NONE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                    "delete_option": azure_native.compute.DiskDeleteOptionTypes.DELETE,
+                    "detach_option": azure_native.compute.DiskDetachOptionTypes.FORCE_DETACH,
+                    "disk_size_gb": 128,
+                    "image": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "lun": 1,
+                    "managed_disk": {
+                        "disk_encryption_set": {
+                            "id": "aaaaaaaaaaaa",
+                        },
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vmss3176_vmss3176_0_disk2_6c4f554bdafa49baa780eb2d128ff39d",
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmss3176_vmss3176_0_disk2_6c4f554bdafa49baa780eb2d128ff39d",
+                    "to_be_detached": True,
+                    "vhd": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "write_accelerator_enabled": True,
+                }],
+                "image_reference": {
+                    "id": "a",
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "shared_gallery_image_id": "aaaaaaaaaaaaaaaaaaaa",
+                    "sku": "2012-R2-Datacenter",
+                    "version": "4.127.20180315",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.NONE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "delete_option": azure_native.compute.DiskDeleteOptionTypes.DELETE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.CACHE_DISK,
+                    },
+                    "disk_size_gb": 127,
+                    "encryption_settings": {
+                        "disk_encryption_key": {
+                            "secret_url": "aaaaaaaa",
+                            "source_vault": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                        },
+                        "enabled": True,
+                        "key_encryption_key": {
+                            "key_url": "aaaaaaaaaaaaaa",
+                            "source_vault": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                        },
+                    },
+                    "image": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "managed_disk": {
+                        "disk_encryption_set": {
+                            "id": "aaaaaaaaaaaa",
+                        },
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vmss3176_vmss3176_0_OsDisk_1_6d72b805e50e4de6830303c5055077fc",
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmss3176_vmss3176_0_OsDisk_1_6d72b805e50e4de6830303c5055077fc",
+                    "os_type": azure_native.compute.OperatingSystemTypes.WINDOWS,
+                    "vhd": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "write_accelerator_enabled": True,
+                },
+            },
+            tags={},
+            user_data="RXhhbXBsZSBVc2VyRGF0YQ==",
+            vm_scale_set_name="aaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineScaleSetVM_Update_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_vm = azure_native.compute.VirtualMachineScaleSetVM("virtualMachineScaleSetVM",
+            instance_id="aaaaaaaaaaaaaaaaaaaa",
+            location="westus",
+            resource_group_name="rgcompute",
+            vm_scale_set_name="aaaaaaaaaaaaaaaaaa")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:VirtualMachineScaleSetVM {vmss-vm-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AdditionalCapabilitiesArgs', 'AdditionalCapabilitiesArgsDict']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
@@ -414,6 +732,323 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### VirtualMachineScaleSetVM_Update_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_vm = azure_native.compute.VirtualMachineScaleSetVM("virtualMachineScaleSetVM",
+            additional_capabilities={
+                "hibernation_enabled": True,
+                "ultra_ssd_enabled": True,
+            },
+            availability_set={
+                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+            },
+            diagnostics_profile={
+                "boot_diagnostics": {
+                    "enabled": True,
+                    "storage_uri": "aaaaaaaaaaaaa",
+                },
+            },
+            hardware_profile={
+                "vm_size": azure_native.compute.VirtualMachineSizeTypes.BASIC_A0,
+                "vm_size_properties": {
+                    "v_cpus_available": 9,
+                    "v_cpus_per_core": 12,
+                },
+            },
+            instance_id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            license_type="aaaaaaaaaa",
+            location="westus",
+            network_profile={
+                "network_api_version": azure_native.compute.NetworkApiVersion.NETWORK_API_VERSION_2020_11_01,
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "dns_settings": {
+                        "dns_servers": ["aaaaaa"],
+                    },
+                    "dscp_configuration": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                    },
+                    "enable_accelerated_networking": True,
+                    "enable_fpga": True,
+                    "enable_ip_forwarding": True,
+                    "ip_configurations": [{
+                        "application_gateway_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "application_security_groups": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "load_balancer_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "name": "aa",
+                        "primary": True,
+                        "private_ip_address_version": azure_native.compute.IPVersions.I_PV4,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                            "dns_settings": {
+                                "domain_name_label": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                            },
+                            "idle_timeout_in_minutes": 2,
+                            "ip_tags": [{
+                                "ip_tag_type": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                                "tag": "aaaaaaaaaaaaaaaaaaaa",
+                            }],
+                            "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                            "public_ip_address_version": azure_native.compute.IPVersions.I_PV4,
+                            "public_ip_allocation_method": azure_native.compute.PublicIPAllocationMethod.DYNAMIC,
+                            "public_ip_prefix": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.REGIONAL,
+                            },
+                        },
+                        "subnet": {
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        },
+                    }],
+                    "name": "aaaaaaaaaaa",
+                    "network_security_group": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                    },
+                    "primary": True,
+                }],
+                "network_interfaces": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{vmss-name}/virtualMachines/0/networkInterfaces/vmsstestnetconfig5415",
+                    "primary": True,
+                }],
+            },
+            network_profile_configuration={
+                "network_interface_configurations": [{
+                    "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                    "dns_settings": {
+                        "dns_servers": [],
+                    },
+                    "enable_accelerated_networking": True,
+                    "enable_fpga": True,
+                    "enable_ip_forwarding": True,
+                    "ip_configurations": [{
+                        "application_gateway_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "application_security_groups": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "load_balancer_backend_address_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "load_balancer_inbound_nat_pools": [{
+                            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                        }],
+                        "name": "vmsstestnetconfig9693",
+                        "primary": True,
+                        "private_ip_address_version": azure_native.compute.IPVersion.I_PV4,
+                        "public_ip_address_configuration": {
+                            "delete_option": azure_native.compute.DeleteOptions.DELETE,
+                            "dns_settings": {
+                                "domain_name_label": "aaaaaaaaaaaaaaaaaa",
+                            },
+                            "idle_timeout_in_minutes": 18,
+                            "ip_tags": [{
+                                "ip_tag_type": "aaaaaaa",
+                                "tag": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                            }],
+                            "name": "aaaaaaaaaaaaaaaaaa",
+                            "public_ip_address_version": azure_native.compute.IPVersion.I_PV4,
+                            "public_ip_prefix": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                            "sku": {
+                                "name": azure_native.compute.PublicIPAddressSkuName.BASIC,
+                                "tier": azure_native.compute.PublicIPAddressSkuTier.REGIONAL,
+                            },
+                        },
+                        "subnet": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/vn4071/subnets/sn5503",
+                        },
+                    }],
+                    "name": "vmsstestnetconfig5415",
+                    "network_security_group": {
+                        "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                    },
+                    "primary": True,
+                }],
+            },
+            os_profile={
+                "admin_password": "aaaaaaaaaaaaaaaa",
+                "admin_username": "Foo12",
+                "allow_extension_operations": True,
+                "computer_name": "test000000",
+                "custom_data": "aaaa",
+                "linux_configuration": {
+                    "disable_password_authentication": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.LinuxPatchAssessmentMode.IMAGE_DEFAULT,
+                        "patch_mode": azure_native.compute.LinuxVMGuestPatchMode.IMAGE_DEFAULT,
+                    },
+                    "provision_vm_agent": True,
+                    "ssh": {
+                        "public_keys": [{
+                            "key_data": "aaaaaa",
+                            "path": "aaa",
+                        }],
+                    },
+                },
+                "require_guest_provision_signal": True,
+                "secrets": [],
+                "windows_configuration": {
+                    "additional_unattend_content": [{
+                        "component_name": azure_native.compute.ComponentName.MICROSOFT_WINDOWS_SHELL_SETUP,
+                        "content": "aaaaaaaaaaaaaaaaaaaa",
+                        "pass_name": azure_native.compute.PassName.OOBE_SYSTEM,
+                        "setting_name": azure_native.compute.SettingNames.AUTO_LOGON,
+                    }],
+                    "enable_automatic_updates": True,
+                    "patch_settings": {
+                        "assessment_mode": azure_native.compute.WindowsPatchAssessmentMode.IMAGE_DEFAULT,
+                        "enable_hotpatching": True,
+                        "patch_mode": azure_native.compute.WindowsVMGuestPatchMode.MANUAL,
+                    },
+                    "provision_vm_agent": True,
+                    "time_zone": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "win_rm": {
+                        "listeners": [{
+                            "certificate_url": "aaaaaaaaaaaaaaaaaaaaaa",
+                            "protocol": azure_native.compute.ProtocolTypes.HTTP,
+                        }],
+                    },
+                },
+            },
+            plan={
+                "name": "aaaaaaaaaa",
+                "product": "aaaaaaaaaaaaaaaaaaaa",
+                "promotion_code": "aaaaaaaaaaaaaaaaaaaa",
+                "publisher": "aaaaaaaaaaaaaaaaaaaaaa",
+            },
+            protection_policy={
+                "protect_from_scale_in": True,
+                "protect_from_scale_set_actions": True,
+            },
+            resource_group_name="rgcompute",
+            security_profile={
+                "encryption_at_host": True,
+                "security_type": azure_native.compute.SecurityTypes.TRUSTED_LAUNCH,
+                "uefi_settings": {
+                    "secure_boot_enabled": True,
+                    "v_tpm_enabled": True,
+                },
+            },
+            storage_profile={
+                "data_disks": [{
+                    "caching": azure_native.compute.CachingTypes.NONE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.EMPTY,
+                    "delete_option": azure_native.compute.DiskDeleteOptionTypes.DELETE,
+                    "detach_option": azure_native.compute.DiskDetachOptionTypes.FORCE_DETACH,
+                    "disk_size_gb": 128,
+                    "image": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "lun": 1,
+                    "managed_disk": {
+                        "disk_encryption_set": {
+                            "id": "aaaaaaaaaaaa",
+                        },
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vmss3176_vmss3176_0_disk2_6c4f554bdafa49baa780eb2d128ff39d",
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmss3176_vmss3176_0_disk2_6c4f554bdafa49baa780eb2d128ff39d",
+                    "to_be_detached": True,
+                    "vhd": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "write_accelerator_enabled": True,
+                }],
+                "image_reference": {
+                    "id": "a",
+                    "offer": "WindowsServer",
+                    "publisher": "MicrosoftWindowsServer",
+                    "shared_gallery_image_id": "aaaaaaaaaaaaaaaaaaaa",
+                    "sku": "2012-R2-Datacenter",
+                    "version": "4.127.20180315",
+                },
+                "os_disk": {
+                    "caching": azure_native.compute.CachingTypes.NONE,
+                    "create_option": azure_native.compute.DiskCreateOptionTypes.FROM_IMAGE,
+                    "delete_option": azure_native.compute.DiskDeleteOptionTypes.DELETE,
+                    "diff_disk_settings": {
+                        "option": azure_native.compute.DiffDiskOptions.LOCAL,
+                        "placement": azure_native.compute.DiffDiskPlacement.CACHE_DISK,
+                    },
+                    "disk_size_gb": 127,
+                    "encryption_settings": {
+                        "disk_encryption_key": {
+                            "secret_url": "aaaaaaaa",
+                            "source_vault": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                        },
+                        "enabled": True,
+                        "key_encryption_key": {
+                            "key_url": "aaaaaaaaaaaaaa",
+                            "source_vault": {
+                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
+                            },
+                        },
+                    },
+                    "image": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "managed_disk": {
+                        "disk_encryption_set": {
+                            "id": "aaaaaaaaaaaa",
+                        },
+                        "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vmss3176_vmss3176_0_OsDisk_1_6d72b805e50e4de6830303c5055077fc",
+                        "storage_account_type": azure_native.compute.StorageAccountTypes.STANDARD_LRS,
+                    },
+                    "name": "vmss3176_vmss3176_0_OsDisk_1_6d72b805e50e4de6830303c5055077fc",
+                    "os_type": azure_native.compute.OperatingSystemTypes.WINDOWS,
+                    "vhd": {
+                        "uri": "https://{storageAccountName}.blob.core.windows.net/{containerName}/{vhdName}.vhd",
+                    },
+                    "write_accelerator_enabled": True,
+                },
+            },
+            tags={},
+            user_data="RXhhbXBsZSBVc2VyRGF0YQ==",
+            vm_scale_set_name="aaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineScaleSetVM_Update_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_vm = azure_native.compute.VirtualMachineScaleSetVM("virtualMachineScaleSetVM",
+            instance_id="aaaaaaaaaaaaaaaaaaaa",
+            location="westus",
+            resource_group_name="rgcompute",
+            vm_scale_set_name="aaaaaaaaaaaaaaaaaa")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:VirtualMachineScaleSetVM {vmss-vm-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines/{instanceId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,66 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     /// Uses Azure REST API version 2024-04-01-preview.
     /// 
     /// Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### springbootservers_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var springbootserver = new AzureNative.OffAzureSpringBoot.Springbootserver("springbootserver", new()
+    ///     {
+    ///         Properties = new AzureNative.OffAzureSpringBoot.Inputs.SpringbootserversPropertiesArgs
+    ///         {
+    ///             Errors = new() { },
+    ///             FqdnAndIpAddressList = new() { },
+    ///             MachineArmId = "fvfkiapbqsprnbzczdfmuryknrna",
+    ///             Port = 10,
+    ///             Server = "thhuxocfyqpeluqcgnypi",
+    ///             SpringBootApps = 17,
+    ///             TotalApps = 5,
+    ///         },
+    ///         ResourceGroupName = "rgspringbootservers",
+    ///         SiteName = "hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+    ///         SpringbootserversName = "zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### springbootservers_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var springbootserver = new AzureNative.OffAzureSpringBoot.Springbootserver("springbootserver", new()
+    ///     {
+    ///         ResourceGroupName = "rgspringbootservers",
+    ///         SiteName = "hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+    ///         SpringbootserversName = "zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazurespringboot:Springbootserver licrobomiqalwnrti /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazurespringboot:Springbootserver")]
     public partial class Springbootserver : global::Pulumi.CustomResource

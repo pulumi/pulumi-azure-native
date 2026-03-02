@@ -30,6 +30,7 @@ class CloudServiceArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
         :param pulumi.Input[_builtins.str] cloud_service_name: Name of the cloud service.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -142,6 +143,271 @@ class CloudService(pulumi.CustomResource):
 
         Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create New Cloud Service with Multiple Roles
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [
+                        {
+                            "name": "ContosoFrontend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                        {
+                            "name": "ContosoBackend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                    ],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+        ### Create New Cloud Service with Multiple Roles in a specific availability zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [
+                        {
+                            "name": "ContosoFrontend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                        {
+                            "name": "ContosoBackend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                    ],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG",
+            zones=["1"])
+
+        ```
+        ### Create New Cloud Service with Single Role
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "myLoadBalancer",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "myfe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [{
+                        "name": "ContosoFrontend",
+                        "sku": {
+                            "capacity": 1,
+                            "name": "Standard_D1_v2",
+                            "tier": "Standard",
+                        },
+                    }],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+        ### Create New Cloud Service with Single Role and Certificate from Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "os_profile": {
+                    "secrets": [{
+                        "source_vault": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.KeyVault/vaults/{keyvault-name}",
+                        },
+                        "vault_certificates": [{
+                            "certificate_url": "https://{keyvault-name}.vault.azure.net:443/secrets/ContosoCertificate/{secret-id}",
+                        }],
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [{
+                        "name": "ContosoFrontend",
+                        "sku": {
+                            "capacity": 1,
+                            "name": "Standard_D1_v2",
+                            "tier": "Standard",
+                        },
+                    }],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+        ### Create New Cloud Service with Single Role and RDP Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "extension_profile": {
+                    "extensions": [{
+                        "name": "RDPExtension",
+                        "properties": {
+                            "auto_upgrade_minor_version": False,
+                            "protected_settings": "<PrivateConfig><Password>{password}</Password></PrivateConfig>",
+                            "publisher": "Microsoft.Windows.Azure.Extensions",
+                            "settings": "<PublicConfig><UserName>UserAzure</UserName><Expiration>10/22/2021 15:05:45</Expiration></PublicConfig>",
+                            "type": "RDP",
+                            "type_handler_version": "1.2",
+                        },
+                    }],
+                },
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [{
+                        "name": "ContosoFrontend",
+                        "sku": {
+                            "capacity": 1,
+                            "name": "Standard_D1_v2",
+                            "tier": "Standard",
+                        },
+                    }],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:CloudService {cs-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud_service_name: Name of the cloud service.
@@ -163,6 +429,271 @@ class CloudService(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-04. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
 
         Other available API versions: 2022-04-04, 2024-11-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create New Cloud Service with Multiple Roles
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [
+                        {
+                            "name": "ContosoFrontend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                        {
+                            "name": "ContosoBackend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                    ],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+        ### Create New Cloud Service with Multiple Roles in a specific availability zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [
+                        {
+                            "name": "ContosoFrontend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                        {
+                            "name": "ContosoBackend",
+                            "sku": {
+                                "capacity": 1,
+                                "name": "Standard_D1_v2",
+                                "tier": "Standard",
+                            },
+                        },
+                    ],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG",
+            zones=["1"])
+
+        ```
+        ### Create New Cloud Service with Single Role
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "myLoadBalancer",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "myfe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [{
+                        "name": "ContosoFrontend",
+                        "sku": {
+                            "capacity": 1,
+                            "name": "Standard_D1_v2",
+                            "tier": "Standard",
+                        },
+                    }],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+        ### Create New Cloud Service with Single Role and Certificate from Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "os_profile": {
+                    "secrets": [{
+                        "source_vault": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.KeyVault/vaults/{keyvault-name}",
+                        },
+                        "vault_certificates": [{
+                            "certificate_url": "https://{keyvault-name}.vault.azure.net:443/secrets/ContosoCertificate/{secret-id}",
+                        }],
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [{
+                        "name": "ContosoFrontend",
+                        "sku": {
+                            "capacity": 1,
+                            "name": "Standard_D1_v2",
+                            "tier": "Standard",
+                        },
+                    }],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+        ### Create New Cloud Service with Single Role and RDP Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_service = azure_native.compute.CloudService("cloudService",
+            cloud_service_name="{cs-name}",
+            location="westus",
+            properties={
+                "configuration": "{ServiceConfiguration}",
+                "extension_profile": {
+                    "extensions": [{
+                        "name": "RDPExtension",
+                        "properties": {
+                            "auto_upgrade_minor_version": False,
+                            "protected_settings": "<PrivateConfig><Password>{password}</Password></PrivateConfig>",
+                            "publisher": "Microsoft.Windows.Azure.Extensions",
+                            "settings": "<PublicConfig><UserName>UserAzure</UserName><Expiration>10/22/2021 15:05:45</Expiration></PublicConfig>",
+                            "type": "RDP",
+                            "type_handler_version": "1.2",
+                        },
+                    }],
+                },
+                "network_profile": {
+                    "load_balancer_configurations": [{
+                        "name": "contosolb",
+                        "properties": {
+                            "frontend_ip_configurations": [{
+                                "name": "contosofe",
+                                "properties": {
+                                    "public_ip_address": {
+                                        "id": "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                    },
+                                },
+                            }],
+                        },
+                    }],
+                },
+                "package_url": "{PackageUrl}",
+                "role_profile": {
+                    "roles": [{
+                        "name": "ContosoFrontend",
+                        "sku": {
+                            "capacity": 1,
+                            "name": "Standard_D1_v2",
+                            "tier": "Standard",
+                        },
+                    }],
+                },
+                "upgrade_mode": azure_native.compute.CloudServiceUpgradeMode.AUTO,
+            },
+            resource_group_name="ConstosoRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:CloudService {cs-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudServiceArgs args: The arguments to use to populate this resource's properties.

@@ -62,6 +62,7 @@ class AccountResourceResponseProperties(dict):
                  reports_connection_string: Optional[_builtins.str] = None):
         """
         Account resource properties.
+
         :param _builtins.str provisioning_state: The resource provisioning state.
         :param _builtins.str configuration: Account configuration. This can only be set at RecommendationsService Account creation.
         :param Sequence['CorsRuleResponse'] cors: The list of CORS details.
@@ -157,6 +158,7 @@ class CorsRuleResponse(dict):
                  max_age_in_seconds: Optional[_builtins.int] = None):
         """
         CORS details.
+
         :param Sequence[_builtins.str] allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
         :param Sequence[_builtins.str] allowed_headers: The request headers that the origin domain may specify on the CORS request.
         :param Sequence[_builtins.str] allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
@@ -246,6 +248,7 @@ class EndpointAuthenticationResponse(dict):
                  principal_type: Optional[_builtins.str] = None):
         """
         Service endpoints authentication details.
+
         :param _builtins.str aad_tenant_id: AAD tenant ID.
         :param _builtins.str principal_id: AAD principal ID.
         :param _builtins.str principal_type: AAD principal type.
@@ -315,6 +318,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -385,6 +389,7 @@ class ModelingInputDataResponse(dict):
                  connection_string: Optional[_builtins.str] = None):
         """
         The configuration to raw CDM data to be used as Modeling resource input.
+
         :param _builtins.str connection_string: Connection string to raw input data.
         """
         if connection_string is not None:
@@ -431,6 +436,7 @@ class ModelingResourceResponseProperties(dict):
                  size: Optional[_builtins.str] = None):
         """
         Modeling resource properties.
+
         :param _builtins.str provisioning_state: The resource provisioning state.
         :param _builtins.str features: Modeling features controls the set of supported scenarios\\models being computed. This can only be set at Modeling creation.
         :param _builtins.str frequency: Modeling frequency controls the modeling compute frequency.
@@ -521,6 +527,7 @@ class ServiceEndpointResourceResponseProperties(dict):
                  pre_allocated_capacity: Optional[_builtins.int] = None):
         """
         ServiceEndpoint resource properties.
+
         :param _builtins.str paired_location: The paired location that will be used by this ServiceEndpoint.
         :param _builtins.str provisioning_state: The resource provisioning state.
         :param _builtins.str url: The URL where the ServiceEndpoint API is accessible at.
@@ -606,6 +613,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -704,6 +712,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

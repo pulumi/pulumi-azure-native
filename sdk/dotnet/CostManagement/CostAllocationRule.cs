@@ -15,6 +15,144 @@ namespace Pulumi.AzureNative.CostManagement
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01-preview.
     /// 
     /// Other available API versions: 2020-03-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CostAllocationRulesCreateResourceGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var costAllocationRule = new AzureNative.CostManagement.CostAllocationRule("costAllocationRule", new()
+    ///     {
+    ///         BillingAccountId = "100",
+    ///         Properties = new AzureNative.CostManagement.Inputs.CostAllocationRulePropertiesArgs
+    ///         {
+    ///             Description = "This is a testRule",
+    ///             Details = new AzureNative.CostManagement.Inputs.CostAllocationRuleDetailsArgs
+    ///             {
+    ///                 SourceResources = new[]
+    ///                 {
+    ///                     new AzureNative.CostManagement.Inputs.SourceCostAllocationResourceArgs
+    ///                     {
+    ///                         Name = "ResourceGroupName",
+    ///                         ResourceType = AzureNative.CostManagement.CostAllocationResourceType.Dimension,
+    ///                         Values = new[]
+    ///                         {
+    ///                             "sampleRG",
+    ///                             "secondRG",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 TargetResources = new[]
+    ///                 {
+    ///                     new AzureNative.CostManagement.Inputs.TargetCostAllocationResourceArgs
+    ///                     {
+    ///                         Name = "ResourceGroupName",
+    ///                         PolicyType = AzureNative.CostManagement.CostAllocationPolicyType.FixedProportion,
+    ///                         ResourceType = AzureNative.CostManagement.CostAllocationResourceType.Dimension,
+    ///                         Values = new[]
+    ///                         {
+    ///                             new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+    ///                             {
+    ///                                 Name = "destinationRG",
+    ///                                 Percentage = 45,
+    ///                             },
+    ///                             new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+    ///                             {
+    ///                                 Name = "destinationRG2",
+    ///                                 Percentage = 54,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Status = AzureNative.CostManagement.RuleStatus.Active,
+    ///         },
+    ///         RuleName = "testRule",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CostAllocationRulesCreateTag
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var costAllocationRule = new AzureNative.CostManagement.CostAllocationRule("costAllocationRule", new()
+    ///     {
+    ///         BillingAccountId = "100",
+    ///         Properties = new AzureNative.CostManagement.Inputs.CostAllocationRulePropertiesArgs
+    ///         {
+    ///             Description = "This is a testRule",
+    ///             Details = new AzureNative.CostManagement.Inputs.CostAllocationRuleDetailsArgs
+    ///             {
+    ///                 SourceResources = new[]
+    ///                 {
+    ///                     new AzureNative.CostManagement.Inputs.SourceCostAllocationResourceArgs
+    ///                     {
+    ///                         Name = "category",
+    ///                         ResourceType = AzureNative.CostManagement.CostAllocationResourceType.Tag,
+    ///                         Values = new[]
+    ///                         {
+    ///                             "devops",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 TargetResources = new[]
+    ///                 {
+    ///                     new AzureNative.CostManagement.Inputs.TargetCostAllocationResourceArgs
+    ///                     {
+    ///                         Name = "ResourceGroupName",
+    ///                         PolicyType = AzureNative.CostManagement.CostAllocationPolicyType.FixedProportion,
+    ///                         ResourceType = AzureNative.CostManagement.CostAllocationResourceType.Dimension,
+    ///                         Values = new[]
+    ///                         {
+    ///                             new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+    ///                             {
+    ///                                 Name = "destinationRG",
+    ///                                 Percentage = 33.33,
+    ///                             },
+    ///                             new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+    ///                             {
+    ///                                 Name = "destinationRG2",
+    ///                                 Percentage = 33.33,
+    ///                             },
+    ///                             new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+    ///                             {
+    ///                                 Name = "destinationRG3",
+    ///                                 Percentage = 33.34,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Status = AzureNative.CostManagement.RuleStatus.Active,
+    ///         },
+    ///         RuleName = "testRule",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement:CostAllocationRule testRule /providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/costAllocationRules/{ruleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:CostAllocationRule")]
     public partial class CostAllocationRule : global::Pulumi.CustomResource

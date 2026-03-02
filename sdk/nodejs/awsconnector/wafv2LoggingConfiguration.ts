@@ -11,6 +11,68 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Wafv2LoggingConfigurations_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const wafv2LoggingConfiguration = new azure_native.awsconnector.Wafv2LoggingConfiguration("wafv2LoggingConfiguration", {
+ *     location: "miqjaa",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "vvamx",
+ *         awsAccountId: "opcrasgtswrifmkonwy",
+ *         awsProperties: {
+ *             logDestinationConfigs: ["lyxpldjogdqpffwthdto"],
+ *             loggingFilter: {
+ *                 defaultBehavior: azure_native.awsconnector.DefaultBehavior.DROP,
+ *                 filters: [{
+ *                     behavior: azure_native.awsconnector.FilterBehavior.DROP,
+ *                     conditions: [{
+ *                         actionCondition: {
+ *                             action: azure_native.awsconnector.Action.ALLOW,
+ *                         },
+ *                         labelNameCondition: {
+ *                             labelName: "oypkvstyighnjavknhfon",
+ *                         },
+ *                     }],
+ *                     requirement: azure_native.awsconnector.FilterRequirement.MEETS_ALL,
+ *                 }],
+ *             },
+ *             managedByFirewallManager: true,
+ *             redactedFields: [{
+ *                 singleHeader: {
+ *                     name: "bfqodp",
+ *                 },
+ *             }],
+ *             resourceArn: "bnozeamipjgc",
+ *         },
+ *         awsRegion: "kkwxoqqqiadksrmfpvopq",
+ *         awsSourceSchema: "ywgazosjmcwothayguih",
+ *         awsTags: {
+ *             key5392: "qn",
+ *         },
+ *         publicCloudConnectorsResourceId: "towziecfnbhswtodyqkkqrtatogbl",
+ *         publicCloudResourceName: "eniprewwy",
+ *     },
+ *     resourceGroupName: "rgwafv2LoggingConfiguration",
+ *     tags: {
+ *         key643: "cmguxikvqhszupgpbhlz",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Wafv2LoggingConfiguration fhprvqrekcufvebkfddaoyll /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/wafv2LoggingConfigurations/{name} 
+ * ```
  */
 export class Wafv2LoggingConfiguration extends pulumi.CustomResource {
     /**

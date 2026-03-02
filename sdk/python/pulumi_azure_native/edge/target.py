@@ -30,6 +30,7 @@ class TargetArgs:
                  target_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -142,6 +143,46 @@ class Target(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Targets_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        target = azure_native.edge.Target("target",
+            extended_location={
+                "name": "szjrwimeqyiue",
+                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
+            },
+            location="kckloegmwsjgwtcl",
+            properties={
+                "capabilities": ["grjapghdidoao"],
+                "context_id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                "description": "riabrxtvhlmizyhffdpjeyhvw",
+                "display_name": "qjlbshhqzfmwxvvynibkoi",
+                "hierarchy_level": "octqptfirejhjfavlnfqeiikqx",
+                "solution_scope": "testname",
+                "state": azure_native.edge.ResourceState.ACTIVE,
+                "target_specification": {},
+            },
+            resource_group_name="rgconfigurationmanager",
+            tags={
+                "key612": "vtqzrk",
+            },
+            target_name="testname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:Target hcunxaczkbi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AzureResourceManagerCommonTypesExtendedLocationArgs', 'AzureResourceManagerCommonTypesExtendedLocationArgsDict']] extended_location: The complex type of the extended location.
@@ -163,6 +204,46 @@ class Target(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Targets_CreateOrUpdate_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        target = azure_native.edge.Target("target",
+            extended_location={
+                "name": "szjrwimeqyiue",
+                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
+            },
+            location="kckloegmwsjgwtcl",
+            properties={
+                "capabilities": ["grjapghdidoao"],
+                "context_id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                "description": "riabrxtvhlmizyhffdpjeyhvw",
+                "display_name": "qjlbshhqzfmwxvvynibkoi",
+                "hierarchy_level": "octqptfirejhjfavlnfqeiikqx",
+                "solution_scope": "testname",
+                "state": azure_native.edge.ResourceState.ACTIVE,
+                "target_specification": {},
+            },
+            resource_group_name="rgconfigurationmanager",
+            tags={
+                "key612": "vtqzrk",
+            },
+            target_name="testname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:Target hcunxaczkbi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.

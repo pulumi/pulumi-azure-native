@@ -6,6 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Enables the static website feature of a storage account.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:StorageAccountStaticWebsite myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/staticWebsite 
+ * ```
  */
 export class StorageAccountStaticWebsite extends pulumi.CustomResource {
     /**

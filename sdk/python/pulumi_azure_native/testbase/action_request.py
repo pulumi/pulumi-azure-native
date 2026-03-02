@@ -29,6 +29,7 @@ class ActionRequestArgs:
                  pre_release_access_request_spec: Optional[pulumi.Input['PreReleaseAccessRequestSpecArgs']] = None):
         """
         The set of arguments for constructing a ActionRequest resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         """
@@ -107,6 +108,29 @@ class ActionRequest(pulumi.CustomResource):
         """
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
+        ## Example Usage
+        ### ActionRequestPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        action_request = azure_native.testbase.ActionRequest("actionRequest",
+            action_request_name="167184141414254",
+            resource_group_name="contoso-rg",
+            test_base_account_name="contoso-testBaseAccount")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase:ActionRequest 167184141414254 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/actionRequests/{actionRequestName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +144,29 @@ class ActionRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+
+        ## Example Usage
+        ### ActionRequestPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        action_request = azure_native.testbase.ActionRequest("actionRequest",
+            action_request_name="167184141414254",
+            resource_group_name="contoso-rg",
+            test_base_account_name="contoso-testBaseAccount")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase:ActionRequest 167184141414254 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/actionRequests/{actionRequestName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ActionRequestArgs args: The arguments to use to populate this resource's properties.

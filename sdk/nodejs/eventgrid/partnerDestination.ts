@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
  * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PartnerDestinations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerDestination = new azure_native.eventgrid.PartnerDestination("partnerDestination", {
+ *     endpointBaseUrl: "https://www.example/endpoint",
+ *     endpointServiceContext: "This is an example",
+ *     expirationTimeIfNotActivatedUtc: "2022-03-14T19:33:43.430Z",
+ *     location: "westus2",
+ *     messageForActivation: "Sample Activation message",
+ *     partnerDestinationName: "examplePartnerDestinationName1",
+ *     partnerRegistrationImmutableId: "0bd70ee2-7d95-447e-ab1f-c4f320019404",
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid:PartnerDestination examplePartnerDestinationName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerDestinations/{partnerDestinationName} 
+ * ```
  */
 export class PartnerDestination extends pulumi.CustomResource {
     /**

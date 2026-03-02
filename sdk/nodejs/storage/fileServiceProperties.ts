@@ -13,6 +13,119 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
  * Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### PutFileServices
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServiceProperties = new azure_native.storage.FileServiceProperties("fileServiceProperties", {
+ *     accountName: "sto8607",
+ *     cors: {
+ *         corsRules: [
+ *             {
+ *                 allowedHeaders: [
+ *                     "x-ms-meta-abc",
+ *                     "x-ms-meta-data*",
+ *                     "x-ms-meta-target*",
+ *                 ],
+ *                 allowedMethods: [
+ *                     azure_native.storage.AllowedMethods.GET,
+ *                     azure_native.storage.AllowedMethods.HEAD,
+ *                     azure_native.storage.AllowedMethods.POST,
+ *                     azure_native.storage.AllowedMethods.OPTIONS,
+ *                     azure_native.storage.AllowedMethods.MERGE,
+ *                     azure_native.storage.AllowedMethods.PUT,
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "http://www.contoso.com",
+ *                     "http://www.fabrikam.com",
+ *                 ],
+ *                 exposedHeaders: ["x-ms-meta-*"],
+ *                 maxAgeInSeconds: 100,
+ *             },
+ *             {
+ *                 allowedHeaders: ["*"],
+ *                 allowedMethods: [azure_native.storage.AllowedMethods.GET],
+ *                 allowedOrigins: ["*"],
+ *                 exposedHeaders: ["*"],
+ *                 maxAgeInSeconds: 2,
+ *             },
+ *             {
+ *                 allowedHeaders: ["x-ms-meta-12345675754564*"],
+ *                 allowedMethods: [
+ *                     azure_native.storage.AllowedMethods.GET,
+ *                     azure_native.storage.AllowedMethods.PUT,
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "http://www.abc23.com",
+ *                     "https://www.fabrikam.com/*",
+ *                 ],
+ *                 exposedHeaders: [
+ *                     "x-ms-meta-abc",
+ *                     "x-ms-meta-data*",
+ *                     "x-ms-meta-target*",
+ *                 ],
+ *                 maxAgeInSeconds: 2000,
+ *             },
+ *         ],
+ *     },
+ *     fileServicesName: "default",
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ * ### PutFileServices_EnableSMBMultichannel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServiceProperties = new azure_native.storage.FileServiceProperties("fileServiceProperties", {
+ *     accountName: "sto8607",
+ *     fileServicesName: "default",
+ *     protocolSettings: {
+ *         smb: {
+ *             multichannel: {
+ *                 enabled: true,
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ * ### PutFileServices_EnableSecureSmbFeatures
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServiceProperties = new azure_native.storage.FileServiceProperties("fileServiceProperties", {
+ *     accountName: "sto8607",
+ *     fileServicesName: "default",
+ *     protocolSettings: {
+ *         smb: {
+ *             authenticationMethods: "NTLMv2;Kerberos",
+ *             channelEncryption: "AES-128-CCM;AES-128-GCM;AES-256-GCM",
+ *             kerberosTicketEncryption: "RC4-HMAC;AES-256",
+ *             versions: "SMB2.1;SMB3.0;SMB3.1.1",
+ *         },
+ *     },
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:FileServiceProperties default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/fileServices/{FileServicesName} 
+ * ```
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**

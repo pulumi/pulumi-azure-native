@@ -32,6 +32,7 @@ class KustoPoolDatabasePrincipalAssignmentArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a KustoPoolDatabasePrincipalAssignment resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] principal_id: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
@@ -184,6 +185,35 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
+        ## Example Usage
+        ### KustoPoolDatabasePrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_pool_database_principal_assignment = azure_native.synapse.KustoPoolDatabasePrincipalAssignment("kustoPoolDatabasePrincipalAssignment",
+            database_name="Kustodatabase8",
+            kusto_pool_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type=azure_native.synapse.PrincipalType.APP,
+            resource_group_name="kustorptest",
+            role=azure_native.synapse.DatabasePrincipalRole.ADMIN,
+            tenant_id="12345678-1234-1234-1234-123456789123",
+            workspace_name="synapseWorkspaceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:KustoPoolDatabasePrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/principalAssignments/{principalAssignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto pool.
@@ -206,6 +236,35 @@ class KustoPoolDatabasePrincipalAssignment(pulumi.CustomResource):
         Class representing a database principal assignment.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+
+        ## Example Usage
+        ### KustoPoolDatabasePrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_pool_database_principal_assignment = azure_native.synapse.KustoPoolDatabasePrincipalAssignment("kustoPoolDatabasePrincipalAssignment",
+            database_name="Kustodatabase8",
+            kusto_pool_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type=azure_native.synapse.PrincipalType.APP,
+            resource_group_name="kustorptest",
+            role=azure_native.synapse.DatabasePrincipalRole.ADMIN,
+            tenant_id="12345678-1234-1234-1234-123456789123",
+            workspace_name="synapseWorkspaceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:KustoPoolDatabasePrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/principalAssignments/{principalAssignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param KustoPoolDatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

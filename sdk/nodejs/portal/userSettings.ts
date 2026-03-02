@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * Response to get user settings
  *
  * Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
+ *
+ * ## Example Usage
+ * ### PutUserSettings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const userSettings = new azure_native.portal.UserSettings("userSettings", {
+ *     properties: {
+ *         preferredLocation: "eastus",
+ *         preferredOsType: azure_native.portal.OsType.Linux,
+ *         preferredShellType: azure_native.portal.ShellType.Bash,
+ *         storageProfile: {
+ *             diskSizeInGB: 5,
+ *             fileShareName: "string",
+ *             storageAccountResourceId: "string",
+ *         },
+ *         terminalSettings: {
+ *             fontSize: azure_native.portal.FontSize.Medium,
+ *             fontStyle: azure_native.portal.FontStyle.Monospace,
+ *         },
+ *     },
+ *     userSettingsName: "cloudconsole",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:portal:UserSettings myresource1 /providers/Microsoft.Portal/userSettings/{userSettingsName} 
+ * ```
  */
 export class UserSettings extends pulumi.CustomResource {
     /**

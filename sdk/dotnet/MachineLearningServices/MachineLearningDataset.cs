@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Machine Learning dataset object wrapped into ARM resource envelope.
     /// 
     /// Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create Dataset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDataset = new AzureNative.MachineLearningServices.MachineLearningDataset("machineLearningDataset", new()
+    ///     {
+    ///         DatasetName = "datasetName123",
+    ///         DatasetType = AzureNative.MachineLearningServices.DatasetType.File,
+    ///         Parameters = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestParametersArgs
+    ///         {
+    ///             Path = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestPathArgs
+    ///             {
+    ///                 DataPath = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestDataPathArgs
+    ///                 {
+    ///                     DatastoreName = "testblobfromarm",
+    ///                     RelativePath = "UI/03-26-2020_083359_UTC/latin1encoding.csv",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Registration = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestRegistrationArgs
+    ///         {
+    ///             Description = "test description",
+    ///             Name = "datasetName123",
+    ///         },
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         SkipValidation = false,
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:MachineLearningDataset datasetName123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datasets/{datasetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:MachineLearningDataset")]
     public partial class MachineLearningDataset : global::Pulumi.CustomResource

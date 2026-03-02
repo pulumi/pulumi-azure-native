@@ -26,6 +26,7 @@ class RegistrationAssignmentArgs:
                  registration_assignment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistrationAssignment resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: The properties of a registration assignment.
         :param pulumi.Input[_builtins.str] registration_assignment_id: The GUID of the registration assignment.
@@ -88,6 +89,31 @@ class RegistrationAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
+        ## Example Usage
+        ### Put Registration Assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registration_assignment = azure_native.managedservices.RegistrationAssignment("registrationAssignment",
+            properties={
+                "registration_definition_id": "/subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            },
+            registration_assignment_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedservices:RegistrationAssignment 484a7d5f-9729-4b87-bc9b-26610985a013 /{scope}/providers/Microsoft.ManagedServices/registrationAssignments/{registrationAssignmentId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RegistrationAssignmentPropertiesArgs', 'RegistrationAssignmentPropertiesArgsDict']] properties: The properties of a registration assignment.
@@ -104,6 +130,31 @@ class RegistrationAssignment(pulumi.CustomResource):
         The registration assignment.
 
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
+
+        ## Example Usage
+        ### Put Registration Assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registration_assignment = azure_native.managedservices.RegistrationAssignment("registrationAssignment",
+            properties={
+                "registration_definition_id": "/subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            },
+            registration_assignment_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedservices:RegistrationAssignment 484a7d5f-9729-4b87-bc9b-26610985a013 /{scope}/providers/Microsoft.ManagedServices/registrationAssignments/{registrationAssignmentId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RegistrationAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -21,23 +21,18 @@ __all__ = [
     'ServiceGroupMemberRelationshipPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DependencyOfRelationshipPropertiesArgsDict(TypedDict):
-        """
-        dependencyOf relationship properties.
-        """
-        target_id: pulumi.Input[_builtins.str]
-        """
-        The relationship target resource id.
-        """
-        target_tenant: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relationship target tenant id.
-        """
-elif False:
-    DependencyOfRelationshipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DependencyOfRelationshipPropertiesArgsDict(TypedDict):
+    """
+    dependencyOf relationship properties.
+    """
+    target_id: pulumi.Input[_builtins.str]
+    """
+    The relationship target resource id.
+    """
+    target_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relationship target tenant id.
+    """
 
 @pulumi.input_type
 class DependencyOfRelationshipPropertiesArgs:
@@ -46,6 +41,7 @@ class DependencyOfRelationshipPropertiesArgs:
                  target_tenant: Optional[pulumi.Input[_builtins.str]] = None):
         """
         dependencyOf relationship properties.
+
         :param pulumi.Input[_builtins.str] target_id: The relationship target resource id.
         :param pulumi.Input[_builtins.str] target_tenant: The relationship target tenant id.
         """
@@ -78,21 +74,18 @@ class DependencyOfRelationshipPropertiesArgs:
         pulumi.set(self, "target_tenant", value)
 
 
-if not MYPY:
-    class ServiceGroupMemberRelationshipPropertiesArgsDict(TypedDict):
-        """
-        ServiceGroupMember relationship properties.
-        """
-        target_id: pulumi.Input[_builtins.str]
-        """
-        The relationship target resource id.
-        """
-        target_tenant: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The relationship target tenant id.
-        """
-elif False:
-    ServiceGroupMemberRelationshipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceGroupMemberRelationshipPropertiesArgsDict(TypedDict):
+    """
+    ServiceGroupMember relationship properties.
+    """
+    target_id: pulumi.Input[_builtins.str]
+    """
+    The relationship target resource id.
+    """
+    target_tenant: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The relationship target tenant id.
+    """
 
 @pulumi.input_type
 class ServiceGroupMemberRelationshipPropertiesArgs:
@@ -101,6 +94,7 @@ class ServiceGroupMemberRelationshipPropertiesArgs:
                  target_tenant: Optional[pulumi.Input[_builtins.str]] = None):
         """
         ServiceGroupMember relationship properties.
+
         :param pulumi.Input[_builtins.str] target_id: The relationship target resource id.
         :param pulumi.Input[_builtins.str] target_tenant: The relationship target tenant id.
         """

@@ -8,6 +8,67 @@ import * as utilities from "../utilities";
  * Class representing a CosmosDb data connection.
  *
  * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
+ *
+ * ## Example Usage
+ * ### KustoDataConnectionsCosmosDbCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cosmosDbDataConnection = new azure_native.kusto.CosmosDbDataConnection("cosmosDbDataConnection", {
+ *     clusterName: "kustoCluster",
+ *     cosmosDbAccountResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.DocumentDb/databaseAccounts/cosmosDbAccountTest1",
+ *     cosmosDbContainer: "cosmosDbContainerTest",
+ *     cosmosDbDatabase: "cosmosDbDatabaseTest",
+ *     dataConnectionName: "dataConnectionTest",
+ *     databaseName: "KustoDatabase1",
+ *     kind: "CosmosDb",
+ *     location: "westus",
+ *     managedIdentityResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/managedidentityTest1",
+ *     mappingRuleName: "TestMapping",
+ *     resourceGroupName: "kustorptest",
+ *     retrievalStartDate: "2022-07-29T12:00:00.6554616Z",
+ *     tableName: "TestTable",
+ * });
+ *
+ * ```
+ * ### KustoDataConnectionsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cosmosDbDataConnection = new azure_native.kusto.CosmosDbDataConnection("cosmosDbDataConnection", {
+ *     clusterName: "kustoCluster",
+ *     dataConnectionName: "dataConnectionTest",
+ *     databaseName: "KustoDatabase8",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ * ### KustoDataConnectionsEventGridCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cosmosDbDataConnection = new azure_native.kusto.CosmosDbDataConnection("cosmosDbDataConnection", {
+ *     clusterName: "kustoCluster",
+ *     dataConnectionName: "dataConnectionTest",
+ *     databaseName: "KustoDatabase8",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto:CosmosDbDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
+ * ```
  */
 export class CosmosDbDataConnection extends pulumi.CustomResource {
     /**

@@ -13,6 +13,86 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### ElasticLoadBalancingv2TargetHealthDescriptions_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticLoadBalancingv2TargetHealthDescription = new AzureNative.AwsConnector.ElasticLoadBalancingv2TargetHealthDescription("elasticLoadBalancingv2TargetHealthDescription", new()
+    ///     {
+    ///         Location = "fjdx",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.ElasticLoadBalancingv2TargetHealthDescriptionPropertiesArgs
+    ///         {
+    ///             Arn = "hwxzsqacyslkcfypjntjeecsgic",
+    ///             AwsAccountId = "nqhdoshumaulzimktuhfyzbokepnin",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsElasticLoadBalancingv2TargetHealthDescriptionPropertiesArgs
+    ///             {
+    ///                 AnomalyDetection = new AzureNative.AwsConnector.Inputs.AnomalyDetectionArgs
+    ///                 {
+    ///                     MitigationInEffect = new AzureNative.AwsConnector.Inputs.MitigationInEffectEnumEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.MitigationInEffectEnum.No,
+    ///                     },
+    ///                     Result = new AzureNative.AwsConnector.Inputs.AnomalyResultEnumEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.AnomalyResultEnum.Anomalous,
+    ///                     },
+    ///                 },
+    ///                 HealthCheckPort = "wncbdhbdrxjzdwg",
+    ///                 Target = new AzureNative.AwsConnector.Inputs.TargetDescriptionArgs
+    ///                 {
+    ///                     AvailabilityZone = "lopqxsnyhbsjjqaj",
+    ///                     Id = "wrhggxodbbktxivhn",
+    ///                     Port = 29,
+    ///                 },
+    ///                 TargetHealth = new AzureNative.AwsConnector.Inputs.TargetHealthArgs
+    ///                 {
+    ///                     Description = "v",
+    ///                     Reason = new AzureNative.AwsConnector.Inputs.TargetHealthReasonEnumEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.TargetHealthReasonEnum.ElbInitialHealthChecking,
+    ///                     },
+    ///                     State = new AzureNative.AwsConnector.Inputs.TargetHealthStateEnumEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.TargetHealthStateEnum.Draining,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "jhbryqdcp",
+    ///             AwsSourceSchema = "kqowwthevk",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key1547", "ursadfghvwitmnfl" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "zwes",
+    ///             PublicCloudResourceName = "dwtgooliytsuedlhhauisu",
+    ///         },
+    ///         ResourceGroupName = "rgelasticLoadBalancingV2TargetHealthDescription",
+    ///         Tags = 
+    ///         {
+    ///             { "key7243", "rnnjfbxaflvpmnutqzvg" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:ElasticLoadBalancingv2TargetHealthDescription jpetudmwrkfgbiihrhfwekiomcafmh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2TargetHealthDescriptions/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ElasticLoadBalancingv2TargetHealthDescription")]
     public partial class ElasticLoadBalancingv2TargetHealthDescription : global::Pulumi.CustomResource

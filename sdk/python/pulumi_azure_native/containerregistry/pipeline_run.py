@@ -29,6 +29,7 @@ class PipelineRunArgs:
                  request: Optional[pulumi.Input['PipelineRunRequestArgs']] = None):
         """
         The set of arguments for constructing a PipelineRun resource.
+
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
@@ -124,6 +125,61 @@ class PipelineRun(pulumi.CustomResource):
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PipelineRunCreate_Export
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_run = azure_native.containerregistry.PipelineRun("pipelineRun",
+            pipeline_run_name="myPipelineRun",
+            registry_name="myRegistry",
+            request={
+                "artifacts": [
+                    "sourceRepository/hello-world",
+                    "sourceRepository2@sha256:00000000000000000000000000000000000",
+                ],
+                "pipeline_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+                "target": {
+                    "name": "myblob.tar.gz",
+                    "type": azure_native.containerregistry.PipelineRunTargetType.AZURE_STORAGE_BLOB,
+                },
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### PipelineRunCreate_Import
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_run = azure_native.containerregistry.PipelineRun("pipelineRun",
+            force_update_tag="2020-03-04T17:23:21.9261521+00:00",
+            pipeline_run_name="myPipelineRun",
+            registry_name="myRegistry",
+            request={
+                "catalog_digest": "sha256@",
+                "pipeline_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
+                "source": {
+                    "name": "myblob.tar.gz",
+                    "type": azure_native.containerregistry.PipelineRunSourceType.AZURE_STORAGE_BLOB,
+                },
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:PipelineRun myPipelineRun /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/pipelineRuns/{pipelineRunName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
@@ -144,6 +200,61 @@ class PipelineRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PipelineRunCreate_Export
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_run = azure_native.containerregistry.PipelineRun("pipelineRun",
+            pipeline_run_name="myPipelineRun",
+            registry_name="myRegistry",
+            request={
+                "artifacts": [
+                    "sourceRepository/hello-world",
+                    "sourceRepository2@sha256:00000000000000000000000000000000000",
+                ],
+                "pipeline_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+                "target": {
+                    "name": "myblob.tar.gz",
+                    "type": azure_native.containerregistry.PipelineRunTargetType.AZURE_STORAGE_BLOB,
+                },
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### PipelineRunCreate_Import
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_run = azure_native.containerregistry.PipelineRun("pipelineRun",
+            force_update_tag="2020-03-04T17:23:21.9261521+00:00",
+            pipeline_run_name="myPipelineRun",
+            registry_name="myRegistry",
+            request={
+                "catalog_digest": "sha256@",
+                "pipeline_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
+                "source": {
+                    "name": "myblob.tar.gz",
+                    "type": azure_native.containerregistry.PipelineRunSourceType.AZURE_STORAGE_BLOB,
+                },
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:PipelineRun myPipelineRun /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/pipelineRuns/{pipelineRunName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PipelineRunArgs args: The arguments to use to populate this resource's properties.

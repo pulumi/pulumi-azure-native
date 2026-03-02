@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ mqttBridgeTopicMap resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### MqttBridgeTopicMap_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mqttBridgeTopicMap = new AzureNative.IoTOperationsMQ.MqttBridgeTopicMap("mqttBridgeTopicMap", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Location = "icfdftifk",
+    ///         MqName = "52A1-D1-t--Q7O9-C-2S",
+    ///         MqttBridgeConnectorName = "5sKfh6461-KDI8h-5",
+    ///         MqttBridgeConnectorRef = "aemmhvfdzmdtxwgimpaqephgo",
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         Routes = new[]
+    ///         {
+    ///             new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRoutesArgs
+    ///             {
+    ///                 Direction = AzureNative.IoTOperationsMQ.MqttBridgeRouteDirection.RemoteToLocal,
+    ///                 Name = "u",
+    ///                 Qos = 2,
+    ///                 SharedSubscription = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRouteSharedSubscriptionArgs
+    ///                 {
+    ///                     GroupMinimumShareNumber = 129,
+    ///                     GroupName = "exnfgkdccpuvzqhxrg",
+    ///                 },
+    ///                 Source = "xwnfgkkfezlgh",
+    ///                 Target = "mgwem",
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///         TopicMapName = "5--CR4S47--UaxB4-",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:MqttBridgeTopicMap vfnttiyszrcrtvwzqwfgeasgwtil /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName}/topicMap/{topicMapName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:MqttBridgeTopicMap")]
     public partial class MqttBridgeTopicMap : global::Pulumi.CustomResource

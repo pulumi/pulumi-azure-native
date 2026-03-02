@@ -11,6 +11,46 @@ import * as utilities from "../utilities";
  * Define the Database resource.
  *
  * Uses Azure REST API version 2024-09-01.
+ *
+ * ## Example Usage
+ * ### Create SAP Database Instances for HA System with Availability Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapDatabaseInstance = new azure_native.workloads.SapDatabaseInstance("sapDatabaseInstance", {
+ *     databaseInstanceName: "databaseServer",
+ *     location: "westcentralus",
+ *     resourceGroupName: "test-rg",
+ *     sapVirtualInstanceName: "X00",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### SAPDatabaseInstances_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapDatabaseInstance = new azure_native.workloads.SapDatabaseInstance("sapDatabaseInstance", {
+ *     databaseInstanceName: "databaseServer",
+ *     location: "westcentralus",
+ *     resourceGroupName: "test-rg",
+ *     sapVirtualInstanceName: "X00",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads:SapDatabaseInstance databaseServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/databaseInstances/{databaseInstanceName} 
+ * ```
  */
 export class SapDatabaseInstance extends pulumi.CustomResource {
     /**

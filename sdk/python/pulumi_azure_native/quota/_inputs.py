@@ -19,16 +19,11 @@ __all__ = [
     'GroupQuotasEntityPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupQuotasEntityPropertiesArgsDict(TypedDict):
-        display_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Display name of the GroupQuota entity.
-        """
-elif False:
-    GroupQuotasEntityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class GroupQuotasEntityPropertiesArgsDict(TypedDict):
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name of the GroupQuota entity.
+    """
 
 @pulumi.input_type
 class GroupQuotasEntityPropertiesArgs:

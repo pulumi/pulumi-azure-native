@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Class representing an Event Grid data connection.
  *
  * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+ *
+ * ## Example Usage
+ * ### KustoPoolDataConnectionsCreateOrUpdate.json
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventGridDataConnection = new azure_native.synapse.EventGridDataConnection("eventGridDataConnection", {
+ *     dataConnectionName: "DataConnections8",
+ *     databaseName: "KustoDatabase8",
+ *     kustoPoolName: "kustoclusterrptest4",
+ *     resourceGroupName: "kustorptest",
+ *     workspaceName: "synapseWorkspaceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:EventGridDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
+ * ```
  */
 export class EventGridDataConnection extends pulumi.CustomResource {
     /**

@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Dashboard
     /// Uses Azure REST API version 2024-11-01-preview.
     /// 
     /// Other available API versions: 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Dashboard_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dashboard = new AzureNative.Dashboard.Dashboard("dashboard", new()
+    ///     {
+    ///         DashboardName = "myDashboard",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dashboard:Dashboard myDashboard /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/dashboards/{dashboardName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource

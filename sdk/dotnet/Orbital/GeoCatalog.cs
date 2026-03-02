@@ -15,6 +15,13 @@ namespace Pulumi.AzureNative.Orbital
     /// Uses Azure REST API version 2025-02-11-preview.
     /// 
     /// Other available API versions: 2024-01-31-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:orbital:GeoCatalog MyCatalog /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/geoCatalogs/{catalogName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:GeoCatalog")]
     public partial class GeoCatalog : global::Pulumi.CustomResource

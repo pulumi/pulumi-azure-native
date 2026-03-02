@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.LoadTestService
     /// Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
     /// 
     /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Load Test Profile Mappings resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadTestProfileMapping = new AzureNative.LoadTestService.LoadTestProfileMapping("loadTestProfileMapping", new()
+    ///     {
+    ///         AzureLoadTestingResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest",
+    ///         LoadTestProfileMappingName = "myLoadTestProfileMapping",
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.Web/sites/sitename",
+    ///         TestProfileId = "123456",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:loadtestservice:LoadTestProfileMapping myLoadTestProfileMapping /{resourceUri}/providers/Microsoft.LoadTestService/loadTestProfileMappings/{loadTestProfileMappingName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:LoadTestProfileMapping")]
     public partial class LoadTestProfileMapping : global::Pulumi.CustomResource

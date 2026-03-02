@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * NetApp Elastic Backup under an elastic Backup Vault
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * ## Example Usage
+ * ### ElasticBackups_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticBackup = new azure_native.netapp.ElasticBackup("elasticBackup", {
+ *     accountName: "account1",
+ *     backupName: "backup1",
+ *     backupVaultName: "backupVault1",
+ *     properties: {
+ *         elasticSnapshotResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1/elasticSnapshots/snap1",
+ *         elasticVolumeResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1",
+ *         label: "myLabel",
+ *         snapshotUsage: azure_native.netapp.SnapshotUsage.UseExistingSnapshot,
+ *     },
+ *     resourceGroupName: "myRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:ElasticBackup account1/backupVault1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName}/elasticBackups/{backupName} 
+ * ```
  */
 export class ElasticBackup extends pulumi.CustomResource {
     /**

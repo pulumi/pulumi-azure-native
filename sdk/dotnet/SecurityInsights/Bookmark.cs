@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a bookmark.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bookmark = new AzureNative.SecurityInsights.Bookmark("bookmark", new()
+    ///     {
+    ///         BookmarkId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         Created = "2019-01-01T13:15:30Z",
+    ///         CreatedBy = new AzureNative.SecurityInsights.Inputs.UserInfoArgs
+    ///         {
+    ///             ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+    ///         },
+    ///         DisplayName = "My bookmark",
+    ///         Labels = new[]
+    ///         {
+    ///             "Tag1",
+    ///             "Tag2",
+    ///         },
+    ///         Notes = "Found a suspicious activity",
+    ///         Query = "SecurityEvent | where TimeGenerated &gt; ago(1d) and TimeGenerated &lt; ago(2d)",
+    ///         QueryResult = "Security Event query result",
+    ///         ResourceGroupName = "myRg",
+    ///         Updated = "2019-01-01T13:15:30Z",
+    ///         UpdatedBy = new AzureNative.SecurityInsights.Inputs.UserInfoArgs
+    ///         {
+    ///             ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:Bookmark 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/bookmarks/{bookmarkId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Bookmark")]
     public partial class Bookmark : global::Pulumi.CustomResource

@@ -30,6 +30,7 @@ class SqlServerDatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerDatabase resource.
+
         :param pulumi.Input['SqlServerDatabaseResourcePropertiesArgs'] properties: Properties of Arc Sql Server database
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[_builtins.str] sql_server_instance_name: Name of SQL Server Instance
@@ -140,6 +141,68 @@ class SqlServerDatabase(pulumi.CustomResource):
 
         Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a Arc Sql Server database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_database = azure_native.azurearcdata.SqlServerDatabase("sqlServerDatabase",
+            database_name="testdb",
+            location="southeastasia",
+            properties={
+                "backup_information": {
+                    "last_full_backup": "2022-05-05T16:26:33.883Z",
+                    "last_log_backup": "2022-05-10T16:26:33.883Z",
+                },
+                "backup_policy": {
+                    "differential_backup_hours": 12,
+                    "full_backup_days": 1,
+                    "retention_period_days": 1,
+                    "transaction_log_backup_minutes": 30,
+                },
+                "collation_name": "SQL_Latin1_General_CP1_CI_AS",
+                "compatibility_level": 150,
+                "create_mode": azure_native.azurearcdata.DatabaseCreateMode.POINT_IN_TIME_RESTORE,
+                "data_file_size_mb": 80,
+                "database_creation_date": "2022-04-05T16:26:33.883Z",
+                "database_options": {
+                    "is_auto_close_on": True,
+                    "is_auto_create_stats_on": True,
+                    "is_auto_shrink_on": True,
+                    "is_auto_update_stats_on": True,
+                    "is_encrypted": True,
+                    "is_memory_optimization_enabled": True,
+                    "is_remote_data_archive_enabled": True,
+                    "is_trustworthy_on": True,
+                },
+                "is_read_only": True,
+                "log_file_size_mb": 70,
+                "recovery_mode": azure_native.azurearcdata.RecoveryMode.FULL,
+                "restore_point_in_time": "2022-05-05T16:26:33.883Z",
+                "size_mb": 150,
+                "source_database_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/testSqlServerInstance/testsqlManagedInstance/databases/MyDatabase",
+                "space_available_mb": 100,
+                "state": azure_native.azurearcdata.DatabaseState.ONLINE,
+            },
+            resource_group_name="testrg",
+            sql_server_instance_name="testSqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:SqlServerDatabase testdb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/databases/{databaseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_name: Name of the database
@@ -161,6 +224,68 @@ class SqlServerDatabase(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-15-preview.
 
         Other available API versions: 2023-01-15-preview, 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a Arc Sql Server database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_database = azure_native.azurearcdata.SqlServerDatabase("sqlServerDatabase",
+            database_name="testdb",
+            location="southeastasia",
+            properties={
+                "backup_information": {
+                    "last_full_backup": "2022-05-05T16:26:33.883Z",
+                    "last_log_backup": "2022-05-10T16:26:33.883Z",
+                },
+                "backup_policy": {
+                    "differential_backup_hours": 12,
+                    "full_backup_days": 1,
+                    "retention_period_days": 1,
+                    "transaction_log_backup_minutes": 30,
+                },
+                "collation_name": "SQL_Latin1_General_CP1_CI_AS",
+                "compatibility_level": 150,
+                "create_mode": azure_native.azurearcdata.DatabaseCreateMode.POINT_IN_TIME_RESTORE,
+                "data_file_size_mb": 80,
+                "database_creation_date": "2022-04-05T16:26:33.883Z",
+                "database_options": {
+                    "is_auto_close_on": True,
+                    "is_auto_create_stats_on": True,
+                    "is_auto_shrink_on": True,
+                    "is_auto_update_stats_on": True,
+                    "is_encrypted": True,
+                    "is_memory_optimization_enabled": True,
+                    "is_remote_data_archive_enabled": True,
+                    "is_trustworthy_on": True,
+                },
+                "is_read_only": True,
+                "log_file_size_mb": 70,
+                "recovery_mode": azure_native.azurearcdata.RecoveryMode.FULL,
+                "restore_point_in_time": "2022-05-05T16:26:33.883Z",
+                "size_mb": 150,
+                "source_database_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/testSqlServerInstance/testsqlManagedInstance/databases/MyDatabase",
+                "space_available_mb": 100,
+                "state": azure_native.azurearcdata.DatabaseState.ONLINE,
+            },
+            resource_group_name="testrg",
+            sql_server_instance_name="testSqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:SqlServerDatabase testdb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/databases/{databaseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SqlServerDatabaseArgs args: The arguments to use to populate this resource's properties.

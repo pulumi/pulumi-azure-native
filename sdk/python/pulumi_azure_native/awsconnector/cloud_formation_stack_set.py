@@ -29,6 +29,7 @@ class CloudFormationStackSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudFormationStackSet resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of CloudFormationStackSet
@@ -123,6 +124,89 @@ class CloudFormationStackSet(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### CloudFormationStackSets_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_formation_stack_set = azure_native.awsconnector.CloudFormationStackSet("cloudFormationStackSet",
+            location="oubo",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "sldueqvlzdilykrozxapbb",
+                "aws_account_id": "jtdycoxjyvqvrxyy",
+                "aws_properties": {
+                    "administration_role_arn": "ybtuoky",
+                    "auto_deployment": {
+                        "enabled": True,
+                        "retain_stacks_on_account_removal": True,
+                    },
+                    "call_as": azure_native.awsconnector.CallAs.DELEGATE_D_ADMIN,
+                    "capabilities": ["begwecrhvitloplqjhhydjwhve"],
+                    "description": "czkasvectlrpghrjojr",
+                    "execution_role_name": "fclmt",
+                    "managed_execution": {
+                        "active": True,
+                    },
+                    "operation_preferences": {
+                        "failure_tolerance_count": 30,
+                        "failure_tolerance_percentage": 16,
+                        "max_concurrent_count": 11,
+                        "max_concurrent_percentage": 15,
+                        "region_concurrency_type": azure_native.awsconnector.OperationPreferencesRegionConcurrencyType.PARALLEL,
+                        "region_order": ["gwaceriunclgehhoue"],
+                    },
+                    "parameters": [{
+                        "parameter_value": "lldiqsjfqukysjecb",
+                    }],
+                    "permission_model": azure_native.awsconnector.PermissionModel.SEL_F_MANAGED,
+                    "stack_instances_group": [{
+                        "deployment_targets": {
+                            "account_filter_type": azure_native.awsconnector.DeploymentTargetsAccountFilterType.DIFFERENCE,
+                            "accounts": ["xc"],
+                            "accounts_url": "nvixaunvovhintyelj",
+                            "organizational_unit_ids": ["gnnzuj"],
+                        },
+                        "parameter_overrides": [{
+                            "parameter_value": "lldiqsjfqukysjecb",
+                        }],
+                        "regions": ["eyondljwt"],
+                    }],
+                    "stack_set_id": "ypfkcclgbgzikkjqfeiq",
+                    "stack_set_name": "bkfqkuqedspfb",
+                    "tags": [{
+                        "key": "rhuz",
+                        "value": "ntm",
+                    }],
+                    "template_body": "no",
+                    "template_url": "icoki",
+                },
+                "aws_region": "drpqdznyarlwjnjslcrmvm",
+                "aws_source_schema": "wpvatxlrosokkyqsq",
+                "aws_tags": {
+                    "key7598": "zigarduulhgfhujfaxwpu",
+                },
+                "public_cloud_connectors_resource_id": "eqapackzslaofkx",
+                "public_cloud_resource_name": "dyaxkuzcwhqspayuipml",
+            },
+            resource_group_name="rgcloudFormationStackSet",
+            tags={
+                "key307": "edjq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:CloudFormationStackSet gkzgnjmgm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudFormationStackSets/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +225,89 @@ class CloudFormationStackSet(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### CloudFormationStackSets_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_formation_stack_set = azure_native.awsconnector.CloudFormationStackSet("cloudFormationStackSet",
+            location="oubo",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "sldueqvlzdilykrozxapbb",
+                "aws_account_id": "jtdycoxjyvqvrxyy",
+                "aws_properties": {
+                    "administration_role_arn": "ybtuoky",
+                    "auto_deployment": {
+                        "enabled": True,
+                        "retain_stacks_on_account_removal": True,
+                    },
+                    "call_as": azure_native.awsconnector.CallAs.DELEGATE_D_ADMIN,
+                    "capabilities": ["begwecrhvitloplqjhhydjwhve"],
+                    "description": "czkasvectlrpghrjojr",
+                    "execution_role_name": "fclmt",
+                    "managed_execution": {
+                        "active": True,
+                    },
+                    "operation_preferences": {
+                        "failure_tolerance_count": 30,
+                        "failure_tolerance_percentage": 16,
+                        "max_concurrent_count": 11,
+                        "max_concurrent_percentage": 15,
+                        "region_concurrency_type": azure_native.awsconnector.OperationPreferencesRegionConcurrencyType.PARALLEL,
+                        "region_order": ["gwaceriunclgehhoue"],
+                    },
+                    "parameters": [{
+                        "parameter_value": "lldiqsjfqukysjecb",
+                    }],
+                    "permission_model": azure_native.awsconnector.PermissionModel.SEL_F_MANAGED,
+                    "stack_instances_group": [{
+                        "deployment_targets": {
+                            "account_filter_type": azure_native.awsconnector.DeploymentTargetsAccountFilterType.DIFFERENCE,
+                            "accounts": ["xc"],
+                            "accounts_url": "nvixaunvovhintyelj",
+                            "organizational_unit_ids": ["gnnzuj"],
+                        },
+                        "parameter_overrides": [{
+                            "parameter_value": "lldiqsjfqukysjecb",
+                        }],
+                        "regions": ["eyondljwt"],
+                    }],
+                    "stack_set_id": "ypfkcclgbgzikkjqfeiq",
+                    "stack_set_name": "bkfqkuqedspfb",
+                    "tags": [{
+                        "key": "rhuz",
+                        "value": "ntm",
+                    }],
+                    "template_body": "no",
+                    "template_url": "icoki",
+                },
+                "aws_region": "drpqdznyarlwjnjslcrmvm",
+                "aws_source_schema": "wpvatxlrosokkyqsq",
+                "aws_tags": {
+                    "key7598": "zigarduulhgfhujfaxwpu",
+                },
+                "public_cloud_connectors_resource_id": "eqapackzslaofkx",
+                "public_cloud_resource_name": "dyaxkuzcwhqspayuipml",
+            },
+            resource_group_name="rgcloudFormationStackSet",
+            tags={
+                "key307": "edjq",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:CloudFormationStackSet gkzgnjmgm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/cloudFormationStackSets/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CloudFormationStackSetArgs args: The arguments to use to populate this resource's properties.

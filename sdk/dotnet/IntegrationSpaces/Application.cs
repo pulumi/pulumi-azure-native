@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     /// An integration application under space.
     /// 
     /// Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateApplication
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.IntegrationSpaces.Application("application", new()
+    ///     {
+    ///         ApplicationName = "Application1",
+    ///         Description = "This is the user provided description of the application.",
+    ///         Location = "CentralUS",
+    ///         ResourceGroupName = "testrg",
+    ///         SpaceName = "Space1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "Value1" },
+    ///         },
+    ///         TrackingDataStores = 
+    ///         {
+    ///             { "dataStoreName1", new AzureNative.IntegrationSpaces.Inputs.TrackingDataStoreArgs
+    ///             {
+    ///                 DataStoreIngestionUri = "https://ingest-someClusterName.someRegionName.kusto.windows.net",
+    ///                 DataStoreResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
+    ///                 DataStoreUri = "https://someClusterName.someRegionName.kusto.windows.net",
+    ///                 DatabaseName = "testDatabase1",
+    ///             } },
+    ///             { "dataStoreName2", new AzureNative.IntegrationSpaces.Inputs.TrackingDataStoreArgs
+    ///             {
+    ///                 DataStoreIngestionUri = "https://ingest-someClusterName.someRegionName.kusto.windows.net",
+    ///                 DataStoreResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
+    ///                 DataStoreUri = "https://someClusterName.someRegionName.kusto.windows.net",
+    ///                 DatabaseName = "testDatabase1",
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:integrationspaces:Application Application1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:Application")]
     public partial class Application : global::Pulumi.CustomResource

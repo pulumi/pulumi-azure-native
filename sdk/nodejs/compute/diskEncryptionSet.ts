@@ -13,6 +13,59 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
  *
  * Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### create a disk encryption set with key vault from a different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diskEncryptionSet = new azure_native.compute.DiskEncryptionSet("diskEncryptionSet", {
+ *     activeKey: {
+ *         keyUrl: "https://myvaultdifferentsub.vault-int.azure-int.net/keys/{key}",
+ *     },
+ *     diskEncryptionSetName: "myDiskEncryptionSet",
+ *     encryptionType: azure_native.compute.DiskEncryptionSetType.EncryptionAtRestWithCustomerKey,
+ *     identity: {
+ *         type: azure_native.compute.DiskEncryptionSetIdentityType.SystemAssigned,
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### create a disk encryption set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diskEncryptionSet = new azure_native.compute.DiskEncryptionSet("diskEncryptionSet", {
+ *     activeKey: {
+ *         keyUrl: "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+ *         sourceVault: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+ *         },
+ *     },
+ *     diskEncryptionSetName: "myDiskEncryptionSet",
+ *     encryptionType: azure_native.compute.DiskEncryptionSetType.EncryptionAtRestWithCustomerKey,
+ *     identity: {
+ *         type: azure_native.compute.DiskEncryptionSetIdentityType.SystemAssigned,
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:DiskEncryptionSet myDiskEncryptionSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName} 
+ * ```
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**

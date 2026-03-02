@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.ApplicationInsights
     /// Properties that define an Analytics item that is associated to an Application Insights component.
     /// 
     /// Uses Azure REST API version 2015-05-01.
+    /// 
+    /// ## Example Usage
+    /// ### AnalyticsItemPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var analyticsItem = new AzureNative.ApplicationInsights.AnalyticsItem("analyticsItem", new()
+    ///     {
+    ///         Content = @"let newExceptionsTimeRange = 1d;
+    /// let timeRangeToCheckBefore = 7d;
+    /// exceptions
+    /// | where timestamp &lt; ago(timeRangeToCheckBefore)
+    /// | summarize count() by problemId
+    /// | join kind= rightanti (
+    /// exceptions
+    /// | where timestamp &gt;= ago(newExceptionsTimeRange)
+    /// | extend stack = tostring(details[0].rawStack)
+    /// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+    /// ) on problemId 
+    /// | order by  count_ desc
+    /// ",
+    ///         Name = "Exceptions - New in the last 24 hours",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///         Scope = AzureNative.ApplicationInsights.ItemScope.Shared,
+    ///         ScopePath = "analyticsItems",
+    ///         Type = AzureNative.ApplicationInsights.ItemType.Query,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:applicationinsights:AnalyticsItem myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:applicationinsights:AnalyticsItem")]
     public partial class AnalyticsItem : global::Pulumi.CustomResource

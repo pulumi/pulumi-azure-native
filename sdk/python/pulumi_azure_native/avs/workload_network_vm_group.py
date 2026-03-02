@@ -28,6 +28,7 @@ class WorkloadNetworkVMGroupArgs:
                  vm_group_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkVMGroup resource.
+
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] display_name: Display name of the VM group.
@@ -139,6 +140,32 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### WorkloadNetworks_CreateVMGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_vm_group = azure_native.avs.WorkloadNetworkVMGroup("workloadNetworkVMGroup",
+            display_name="vmGroup1",
+            members=["564d43da-fefc-2a3b-1d92-42855622fa50"],
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            vm_group_id="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkVMGroup vmGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: Display name of the VM group.
@@ -160,6 +187,32 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### WorkloadNetworks_CreateVMGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_vm_group = azure_native.avs.WorkloadNetworkVMGroup("workloadNetworkVMGroup",
+            display_name="vmGroup1",
+            members=["564d43da-fefc-2a3b-1d92-42855622fa50"],
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            vm_group_id="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkVMGroup vmGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkVMGroupArgs args: The arguments to use to populate this resource's properties.

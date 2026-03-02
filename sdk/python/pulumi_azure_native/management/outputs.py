@@ -38,6 +38,7 @@ class DescendantParentGroupInfoResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The ID of the parent management group.
+
         :param _builtins.str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         if id is not None:
@@ -73,6 +74,7 @@ class EntityInfoResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         The entity.
+
         :param _builtins.str id: The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param _builtins.str name: The name of the entity. For example, 00000000-0000-0000-0000-000000000000
         :param _builtins.str type: The type of the resource. For example, Microsoft.Management/managementGroups
@@ -225,6 +227,7 @@ class EntityParentGroupInfoResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         (Optional) The ID of the parent management group.
+
         :param _builtins.str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         if id is not None:
@@ -269,6 +272,7 @@ class ManagementGroupChildInfoResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The child information of a management group.
+
         :param Sequence['ManagementGroupChildInfoResponse'] children: The list of children.
         :param _builtins.str display_name: The friendly name of the child resource.
         :param _builtins.str id: The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
@@ -365,6 +369,7 @@ class ManagementGroupDetailsResponse(dict):
                  version: Optional[_builtins.int] = None):
         """
         The details of a management group.
+
         :param Sequence[_builtins.str] management_group_ancestors: The ancestors of the management group.
         :param Sequence['ManagementGroupPathElementResponse'] management_group_ancestors_chain: The ancestors of the management group displayed in reversed order, from immediate parent to the root.
         :param 'ParentGroupInfoResponse' parent: (Optional) The ID of the parent management group.
@@ -472,6 +477,7 @@ class ManagementGroupPathElementResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         A path element of a management group ancestors.
+
         :param _builtins.str display_name: The friendly name of the group.
         :param _builtins.str name: The name of the group.
         """
@@ -525,6 +531,7 @@ class ParentGroupInfoResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         (Optional) The ID of the parent management group.
+
         :param _builtins.str display_name: The friendly name of the parent management group.
         :param _builtins.str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         :param _builtins.str name: The name of the parent management group
@@ -587,6 +594,7 @@ class ParentServiceGroupPropertiesResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         The details of the parent serviceGroup.
+
         :param _builtins.str resource_id: The fully qualified ID of the parent serviceGroup.  For example, '/providers/Microsoft.Management/serviceGroups/TestServiceGroup'
         """
         if resource_id is not None:
@@ -631,6 +639,7 @@ class ServiceGroupPropertiesResponse(dict):
                  parent: Optional['outputs.ParentServiceGroupPropertiesResponse'] = None):
         """
         ServiceGroup creation request body parameters.
+
         :param _builtins.str provisioning_state: The provisioning state of the serviceGroup. For example, Running
         :param _builtins.str display_name: The display name of the serviceGroup. For example, ServiceGroupTest1
         :param 'ParentServiceGroupPropertiesResponse' parent: The details of the parent serviceGroup.
@@ -681,6 +690,7 @@ class ServiceGroupResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         The serviceGroup details.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -798,6 +808,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

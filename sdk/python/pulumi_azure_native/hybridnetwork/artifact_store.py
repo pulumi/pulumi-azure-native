@@ -30,6 +30,7 @@ class ArtifactStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ArtifactStore resource.
+
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] artifact_store_name: The name of the artifact store.
@@ -141,6 +142,82 @@ class ArtifactStore(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update an artifact store of publisher resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+            artifact_store_name="TestArtifactStore",
+            location="eastus",
+            properties={
+                "managed_resource_group_configuration": {
+                    "location": "eastus",
+                    "name": "testRg",
+                },
+                "replication_strategy": azure_native.hybridnetwork.ArtifactReplicationStrategy.SINGLE_REPLICATION,
+                "store_type": azure_native.hybridnetwork.ArtifactStoreType.AZURE_CONTAINER_REGISTRY,
+            },
+            publisher_name="TestPublisher",
+            resource_group_name="rg")
+
+        ```
+        ### Create or update an artifact store of publisher resource with container registry
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+            artifact_store_name="TestArtifactStore",
+            location="eastus",
+            properties={
+                "backing_resource_public_network_access": azure_native.hybridnetwork.BackingResourcePublicNetworkAccess.DISABLED,
+                "managed_resource_group_configuration": {
+                    "location": "eastus",
+                    "name": "testRg",
+                },
+                "replication_strategy": azure_native.hybridnetwork.ArtifactReplicationStrategy.SINGLE_REPLICATION,
+                "store_type": azure_native.hybridnetwork.ArtifactStoreType.AZURE_CONTAINER_REGISTRY,
+            },
+            publisher_name="TestPublisher",
+            resource_group_name="rg")
+
+        ```
+        ### Create or update an artifact store of publisher resource with storage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+            artifact_store_name="TestArtifactStore",
+            location="eastus",
+            properties={
+                "backing_resource_public_network_access": azure_native.hybridnetwork.BackingResourcePublicNetworkAccess.ENABLED,
+                "managed_resource_group_configuration": {
+                    "location": "eastus",
+                    "name": "testRg",
+                },
+                "replication_strategy": azure_native.hybridnetwork.ArtifactReplicationStrategy.SINGLE_REPLICATION,
+                "store_type": azure_native.hybridnetwork.ArtifactStoreType.AZURE_STORAGE_ACCOUNT,
+            },
+            publisher_name="TestPublisher",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:ArtifactStore TestArtifactStore /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/artifactStores/{artifactStoreName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_store_name: The name of the artifact store.
@@ -162,6 +239,82 @@ class ArtifactStore(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update an artifact store of publisher resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+            artifact_store_name="TestArtifactStore",
+            location="eastus",
+            properties={
+                "managed_resource_group_configuration": {
+                    "location": "eastus",
+                    "name": "testRg",
+                },
+                "replication_strategy": azure_native.hybridnetwork.ArtifactReplicationStrategy.SINGLE_REPLICATION,
+                "store_type": azure_native.hybridnetwork.ArtifactStoreType.AZURE_CONTAINER_REGISTRY,
+            },
+            publisher_name="TestPublisher",
+            resource_group_name="rg")
+
+        ```
+        ### Create or update an artifact store of publisher resource with container registry
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+            artifact_store_name="TestArtifactStore",
+            location="eastus",
+            properties={
+                "backing_resource_public_network_access": azure_native.hybridnetwork.BackingResourcePublicNetworkAccess.DISABLED,
+                "managed_resource_group_configuration": {
+                    "location": "eastus",
+                    "name": "testRg",
+                },
+                "replication_strategy": azure_native.hybridnetwork.ArtifactReplicationStrategy.SINGLE_REPLICATION,
+                "store_type": azure_native.hybridnetwork.ArtifactStoreType.AZURE_CONTAINER_REGISTRY,
+            },
+            publisher_name="TestPublisher",
+            resource_group_name="rg")
+
+        ```
+        ### Create or update an artifact store of publisher resource with storage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+            artifact_store_name="TestArtifactStore",
+            location="eastus",
+            properties={
+                "backing_resource_public_network_access": azure_native.hybridnetwork.BackingResourcePublicNetworkAccess.ENABLED,
+                "managed_resource_group_configuration": {
+                    "location": "eastus",
+                    "name": "testRg",
+                },
+                "replication_strategy": azure_native.hybridnetwork.ArtifactReplicationStrategy.SINGLE_REPLICATION,
+                "store_type": azure_native.hybridnetwork.ArtifactStoreType.AZURE_STORAGE_ACCOUNT,
+            },
+            publisher_name="TestPublisher",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:ArtifactStore TestArtifactStore /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/artifactStores/{artifactStoreName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ArtifactStoreArgs args: The arguments to use to populate this resource's properties.

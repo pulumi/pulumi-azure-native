@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
  *
  * Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### QueueAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const queueAuthorizationRule = new azure_native.servicebus.QueueAuthorizationRule("queueAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-5800",
+ *     namespaceName: "sdk-Namespace-7982",
+ *     queueName: "sdk-Queues-2317",
+ *     resourceGroupName: "ArunMonocle",
+ *     rights: [
+ *         azure_native.servicebus.AccessRights.Listen,
+ *         azure_native.servicebus.AccessRights.Send,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus:QueueAuthorizationRule sdk-AuthRules-5800 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/queues/{queueName}/authorizationRules/{authorizationRuleName} 
+ * ```
  */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**

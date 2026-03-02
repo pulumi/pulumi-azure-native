@@ -15,6 +15,62 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateImmutabilityPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobContainerImmutabilityPolicy = new AzureNative.Storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", new()
+    ///     {
+    ///         AccountName = "sto7069",
+    ///         AllowProtectedAppendWrites = true,
+    ///         ContainerName = "container6397",
+    ///         ImmutabilityPeriodSinceCreationInDays = 3,
+    ///         ImmutabilityPolicyName = "default",
+    ///         ResourceGroupName = "res1782",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdateImmutabilityPolicyWithAllowProtectedAppendWritesAll
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobContainerImmutabilityPolicy = new AzureNative.Storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", new()
+    ///     {
+    ///         AccountName = "sto7069",
+    ///         AllowProtectedAppendWritesAll = true,
+    ///         ContainerName = "container6397",
+    ///         ImmutabilityPeriodSinceCreationInDays = 3,
+    ///         ImmutabilityPolicyName = "default",
+    ///         ResourceGroupName = "res1782",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:BlobContainerImmutabilityPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/immutabilityPolicies/{immutabilityPolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobContainerImmutabilityPolicy")]
     public partial class BlobContainerImmutabilityPolicy : global::Pulumi.CustomResource

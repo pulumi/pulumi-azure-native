@@ -149,6 +149,7 @@ class AS2AcknowledgementConnectionSettingsResponse(dict):
                  unfold_http_headers: _builtins.bool):
         """
         The AS2 agreement acknowledgement connection settings.
+
         :param _builtins.bool ignore_certificate_name_mismatch: Indicates whether to ignore mismatch in certificate name.
         :param _builtins.bool keep_http_connection_alive: Indicates whether to keep the connection alive.
         :param _builtins.bool support_http_status_code_continue: Indicates whether to support HTTP status code 'CONTINUE'.
@@ -221,6 +222,7 @@ class AS2AgreementContentResponse(dict):
                  send_agreement: 'outputs.AS2OneWayAgreementResponse'):
         """
         The integration account AS2 agreement content.
+
         :param 'AS2OneWayAgreementResponse' receive_agreement: The AS2 one-way receive agreement.
         :param 'AS2OneWayAgreementResponse' send_agreement: The AS2 one-way send agreement.
         """
@@ -282,6 +284,7 @@ class AS2EnvelopeSettingsResponse(dict):
                  transmit_file_name_in_mime_header: _builtins.bool):
         """
         The AS2 agreement envelope settings.
+
         :param _builtins.bool autogenerate_file_name: The value indicating whether to auto generate file name.
         :param _builtins.str file_name_template: The template for file name.
         :param _builtins.str message_content_type: The message content type.
@@ -364,6 +367,7 @@ class AS2ErrorSettingsResponse(dict):
                  suspend_duplicate_message: _builtins.bool):
         """
         The AS2 agreement error settings.
+
         :param _builtins.bool resend_if_mdn_not_received: The value indicating whether to resend message If MDN is not received.
         :param _builtins.bool suspend_duplicate_message: The value indicating whether to suspend duplicate message.
         """
@@ -437,6 +441,7 @@ class AS2MdnSettingsResponse(dict):
                  receipt_delivery_url: Optional[_builtins.str] = None):
         """
         The AS2 agreement mdn settings.
+
         :param _builtins.str mic_hashing_algorithm: The signing or hashing algorithm.
         :param _builtins.bool need_mdn: The value indicating whether to send or request a MDN.
         :param _builtins.bool send_inbound_mdn_to_message_box: The value indicating whether to send inbound MDN to message box.
@@ -568,6 +573,7 @@ class AS2MessageConnectionSettingsResponse(dict):
                  unfold_http_headers: _builtins.bool):
         """
         The AS2 agreement message connection settings.
+
         :param _builtins.bool ignore_certificate_name_mismatch: The value indicating whether to ignore mismatch in certificate name.
         :param _builtins.bool keep_http_connection_alive: The value indicating whether to keep the connection alive.
         :param _builtins.bool support_http_status_code_continue: The value indicating whether to support HTTP status code 'CONTINUE'.
@@ -643,6 +649,7 @@ class AS2OneWayAgreementResponse(dict):
                  sender_business_identity: 'outputs.BusinessIdentityResponse'):
         """
         The integration account AS2 one-way agreement.
+
         :param 'AS2ProtocolSettingsResponse' protocol_settings: The AS2 protocol settings.
         :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
         :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
@@ -720,6 +727,7 @@ class AS2ProtocolSettingsResponse(dict):
                  validation_settings: 'outputs.AS2ValidationSettingsResponse'):
         """
         The AS2 agreement protocol settings.
+
         :param 'AS2AcknowledgementConnectionSettingsResponse' acknowledgement_connection_settings: The acknowledgement connection settings.
         :param 'AS2EnvelopeSettingsResponse' envelope_settings: The envelope settings.
         :param 'AS2ErrorSettingsResponse' error_settings: The error settings.
@@ -846,6 +854,7 @@ class AS2SecuritySettingsResponse(dict):
                  signing_certificate_name: Optional[_builtins.str] = None):
         """
         The AS2 agreement security settings.
+
         :param _builtins.bool enable_nrr_for_inbound_decoded_messages: The value indicating whether to enable NRR for inbound decoded messages.
         :param _builtins.bool enable_nrr_for_inbound_encoded_messages: The value indicating whether to enable NRR for inbound encoded messages.
         :param _builtins.bool enable_nrr_for_inbound_mdn: The value indicating whether to enable NRR for inbound MDN.
@@ -1005,6 +1014,7 @@ class AS2ValidationSettingsResponse(dict):
                  signing_algorithm: Optional[_builtins.str] = None):
         """
         The AS2 agreement validation settings.
+
         :param _builtins.bool check_certificate_revocation_list_on_receive: The value indicating whether to check for certificate revocation list on receive.
         :param _builtins.bool check_certificate_revocation_list_on_send: The value indicating whether to check for certificate revocation list on send.
         :param _builtins.bool check_duplicate_message: The value indicating whether to check for duplicate message.
@@ -1137,6 +1147,7 @@ class AgreementContentResponse(dict):
                  x12: Optional['outputs.X12AgreementContentResponse'] = None):
         """
         The integration account agreement content.
+
         :param 'AS2AgreementContentResponse' a_s2: The AS2 agreement content.
         :param 'EdifactAgreementContentResponse' edifact: The EDIFACT agreement content.
         :param 'X12AgreementContentResponse' x12: The X12 agreement content.
@@ -1205,6 +1216,7 @@ class ApiDeploymentParameterMetadataResponse(dict):
                  visibility: Optional[_builtins.str] = None):
         """
         The API deployment parameter metadata.
+
         :param _builtins.str description: The description.
         :param _builtins.str display_name: The display name.
         :param _builtins.bool is_required: Indicates whether its required.
@@ -1292,6 +1304,7 @@ class ApiDeploymentParameterMetadataSetResponse(dict):
                  redis_cache_connection_string: Optional['outputs.ApiDeploymentParameterMetadataResponse'] = None):
         """
         The API deployment parameters metadata.
+
         :param 'ApiDeploymentParameterMetadataResponse' package_content_link: The package content link parameter.
         :param 'ApiDeploymentParameterMetadataResponse' redis_cache_connection_string: The package content link parameter.
         """
@@ -1343,6 +1356,7 @@ class ApiResourceBackendServiceResponse(dict):
                  service_url: Optional[_builtins.str] = None):
         """
         The API backend service.
+
         :param _builtins.str service_url: The service URL.
         """
         if service_url is not None:
@@ -1386,6 +1400,7 @@ class ApiResourceDefinitionsResponse(dict):
                  original_swagger_url: Optional[_builtins.str] = None):
         """
         The Api resource definition.
+
         :param _builtins.str modified_swagger_url: The modified swagger url.
         :param _builtins.str original_swagger_url: The original swagger url.
         """
@@ -1448,6 +1463,7 @@ class ApiResourceGeneralInformationResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The API general information.
+
         :param _builtins.str description: The description.
         :param _builtins.str display_name: The display name.
         :param _builtins.str icon_url: The icon url.
@@ -1566,6 +1582,7 @@ class ApiResourceMetadataResponse(dict):
                  wsdl_service: Optional['outputs.WsdlServiceResponse'] = None):
         """
         The api resource metadata.
+
         :param _builtins.str api_type: The api type.
         :param _builtins.str brand_color: The brand color.
         :param _builtins.str connection_type: The connection type.
@@ -1706,6 +1723,7 @@ class ApiResourcePoliciesResponse(dict):
                  content_link: Optional[_builtins.str] = None):
         """
         The API resource policies.
+
         :param _builtins.str content: The API level only policies XML as embedded content.
         :param _builtins.str content_link: The content link to the policies.
         """
@@ -1780,6 +1798,7 @@ class AssemblyPropertiesResponse(dict):
                  metadata: Optional[Any] = None):
         """
         The assembly properties definition.
+
         :param _builtins.str assembly_name: The assembly name.
         :param _builtins.str assembly_culture: The assembly culture.
         :param _builtins.str assembly_public_key_token: The assembly public key token.
@@ -1895,6 +1914,7 @@ class AzureResourceErrorInfoResponse(dict):
                  details: Optional[Sequence['outputs.AzureResourceErrorInfoResponse']] = None):
         """
         The azure resource error info.
+
         :param _builtins.str code: The error code.
         :param _builtins.str message: The error message.
         :param Sequence['AzureResourceErrorInfoResponse'] details: The error details.
@@ -1955,6 +1975,7 @@ class B2BPartnerContentResponse(dict):
                  business_identities: Optional[Sequence['outputs.BusinessIdentityResponse']] = None):
         """
         The B2B partner content.
+
         :param Sequence['BusinessIdentityResponse'] business_identities: The list of partner business identities.
         """
         if business_identities is not None:
@@ -2005,6 +2026,7 @@ class BatchConfigurationPropertiesResponse(dict):
                  metadata: Optional[Any] = None):
         """
         The batch configuration properties definition.
+
         :param _builtins.str batch_group_name: The name of the batch group.
         :param 'BatchReleaseCriteriaResponse' release_criteria: The batch release criteria.
         :param _builtins.str changed_time: The artifact changed time.
@@ -2087,6 +2109,7 @@ class BatchReleaseCriteriaResponse(dict):
                  recurrence: Optional['outputs.WorkflowTriggerRecurrenceResponse'] = None):
         """
         The batch release criteria.
+
         :param _builtins.int batch_size: The batch size in bytes.
         :param _builtins.int message_count: The message count.
         :param 'WorkflowTriggerRecurrenceResponse' recurrence: The recurrence.
@@ -2133,6 +2156,7 @@ class BusinessIdentityResponse(dict):
                  value: _builtins.str):
         """
         The integration account partner's business identity.
+
         :param _builtins.str qualifier: The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
         :param _builtins.str value: The user defined business identity value.
         """
@@ -2166,6 +2190,7 @@ class ContentHashResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         The content hash.
+
         :param _builtins.str algorithm: The algorithm of the content hash.
         :param _builtins.str value: The value of the content hash.
         """
@@ -2225,6 +2250,7 @@ class ContentLinkResponse(dict):
                  uri: Optional[_builtins.str] = None):
         """
         The content link.
+
         :param 'ContentHashResponse' content_hash: The content hash.
         :param _builtins.float content_size: The content size.
         :param _builtins.str content_version: The content version.
@@ -2335,6 +2361,7 @@ class EdifactAcknowledgementSettingsResponse(dict):
                  acknowledgement_control_number_suffix: Optional[_builtins.str] = None):
         """
         The Edifact agreement acknowledgement settings.
+
         :param _builtins.int acknowledgement_control_number_lower_bound: The acknowledgement control number lower bound.
         :param _builtins.int acknowledgement_control_number_upper_bound: The acknowledgement control number upper bound.
         :param _builtins.bool batch_functional_acknowledgements: The value indicating whether to batch functional acknowledgements.
@@ -2479,6 +2506,7 @@ class EdifactAgreementContentResponse(dict):
                  send_agreement: 'outputs.EdifactOneWayAgreementResponse'):
         """
         The Edifact agreement content.
+
         :param 'EdifactOneWayAgreementResponse' receive_agreement: The EDIFACT one-way receive agreement.
         :param 'EdifactOneWayAgreementResponse' send_agreement: The EDIFACT one-way send agreement.
         """
@@ -2561,6 +2589,7 @@ class EdifactDelimiterOverrideResponse(dict):
                  target_namespace: Optional[_builtins.str] = None):
         """
         The Edifact delimiter override settings.
+
         :param _builtins.int component_separator: The component separator.
         :param _builtins.int data_element_separator: The data element separator.
         :param _builtins.str decimal_point_indicator: The decimal point indicator.
@@ -2757,6 +2786,7 @@ class EdifactEnvelopeOverrideResponse(dict):
                  target_namespace: Optional[_builtins.str] = None):
         """
         The Edifact envelope override settings.
+
         :param _builtins.str application_password: The application password.
         :param _builtins.str association_assigned_code: The association assigned code.
         :param _builtins.str controlling_agency_code: The controlling agency code.
@@ -3071,6 +3101,7 @@ class EdifactEnvelopeSettingsResponse(dict):
                  transaction_set_control_number_suffix: Optional[_builtins.str] = None):
         """
         The Edifact agreement envelope settings.
+
         :param _builtins.bool apply_delimiter_string_advice: The value indicating whether to apply delimiter string advice.
         :param _builtins.bool create_grouping_segments: The value indicating whether to create grouping segments.
         :param _builtins.bool enable_default_group_headers: The value indicating whether to enable default group headers.
@@ -3567,6 +3598,7 @@ class EdifactFramingSettingsResponse(dict):
                  service_code_list_directory_version: Optional[_builtins.str] = None):
         """
         The Edifact agreement framing settings.
+
         :param _builtins.str character_set: The EDIFACT frame setting characterSet.
         :param _builtins.int component_separator: The component separator.
         :param _builtins.int data_element_separator: The data element separator.
@@ -3708,6 +3740,7 @@ class EdifactMessageFilterResponse(dict):
                  message_filter_type: _builtins.str):
         """
         The Edifact message filter for odata query.
+
         :param _builtins.str message_filter_type: The message filter type.
         """
         pulumi.set(__self__, "message_filter_type", message_filter_type)
@@ -3747,6 +3780,7 @@ class EdifactMessageIdentifierResponse(dict):
                  message_id: _builtins.str):
         """
         The Edifact message identifier.
+
         :param _builtins.str message_id: The message id on which this envelope settings has to be applied.
         """
         pulumi.set(__self__, "message_id", message_id)
@@ -3792,6 +3826,7 @@ class EdifactOneWayAgreementResponse(dict):
                  sender_business_identity: 'outputs.BusinessIdentityResponse'):
         """
         The Edifact one way agreement.
+
         :param 'EdifactProtocolSettingsResponse' protocol_settings: The EDIFACT protocol settings.
         :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
         :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
@@ -3863,6 +3898,7 @@ class EdifactProcessingSettingsResponse(dict):
                  use_dot_as_decimal_separator: _builtins.bool):
         """
         The Edifact agreement protocol settings.
+
         :param _builtins.bool create_empty_xml_tags_for_trailing_separators: The value indicating whether to create empty xml tags for trailing separators.
         :param _builtins.bool mask_security_info: The value indicating whether to mask security information.
         :param _builtins.bool preserve_interchange: The value indicating whether to preserve interchange.
@@ -3972,6 +4008,7 @@ class EdifactProtocolSettingsResponse(dict):
                  validation_overrides: Optional[Sequence['outputs.EdifactValidationOverrideResponse']] = None):
         """
         The Edifact agreement protocol settings.
+
         :param 'EdifactAcknowledgementSettingsResponse' acknowledgement_settings: The EDIFACT acknowledgement settings.
         :param 'EdifactEnvelopeSettingsResponse' envelope_settings: The EDIFACT envelope settings.
         :param 'EdifactFramingSettingsResponse' framing_settings: The EDIFACT framing settings.
@@ -4133,6 +4170,7 @@ class EdifactSchemaReferenceResponse(dict):
                  sender_application_qualifier: Optional[_builtins.str] = None):
         """
         The Edifact schema reference.
+
         :param _builtins.str message_id: The message id.
         :param _builtins.str message_release: The message release version.
         :param _builtins.str message_version: The message version.
@@ -4253,6 +4291,7 @@ class EdifactValidationOverrideResponse(dict):
                  validate_xsd_types: _builtins.bool):
         """
         The Edifact validation override settings.
+
         :param _builtins.bool allow_leading_and_trailing_spaces_and_zeroes: The value indicating whether to allow leading and trailing spaces and zeroes.
         :param _builtins.bool enforce_character_set: The value indicating whether to validate character Set.
         :param _builtins.str message_id: The message id on which the validation settings has to be applied.
@@ -4379,6 +4418,7 @@ class EdifactValidationSettingsResponse(dict):
                  validate_xsd_types: _builtins.bool):
         """
         The Edifact agreement validation settings.
+
         :param _builtins.bool allow_leading_and_trailing_spaces_and_zeroes: The value indicating whether to allow leading and trailing spaces and zeroes.
         :param _builtins.bool check_duplicate_group_control_number: The value indicating whether to check for duplicate group control number.
         :param _builtins.bool check_duplicate_interchange_control_number: The value indicating whether to check for duplicate interchange control number.
@@ -4494,6 +4534,7 @@ class ExpressionResponse(dict):
                  value: Optional[Any] = None):
         """
         The expression.
+
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
         :param _builtins.str text: The text.
@@ -4550,6 +4591,7 @@ class ExpressionRootResponse(dict):
                  value: Optional[Any] = None):
         """
         The expression root.
+
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param _builtins.str path: The path.
         :param Sequence['ExpressionResponse'] subexpressions: The sub expressions.
@@ -4633,6 +4675,7 @@ class FlowAccessControlConfigurationPolicyResponse(dict):
                  open_authentication_policies: Optional['outputs.OpenAuthenticationAccessPoliciesResponse'] = None):
         """
         The access control configuration policy.
+
         :param Sequence['IpAddressRangeResponse'] allowed_caller_ip_addresses: The allowed caller IP address ranges.
         :param 'OpenAuthenticationAccessPoliciesResponse' open_authentication_policies: The authentication policies for workflow.
         """
@@ -4687,6 +4730,7 @@ class FlowAccessControlConfigurationResponse(dict):
                  workflow_management: Optional['outputs.FlowAccessControlConfigurationPolicyResponse'] = None):
         """
         The access control configuration.
+
         :param 'FlowAccessControlConfigurationPolicyResponse' actions: The access control configuration for workflow actions.
         :param 'FlowAccessControlConfigurationPolicyResponse' contents: The access control configuration for accessing workflow run contents.
         :param 'FlowAccessControlConfigurationPolicyResponse' triggers: The access control configuration for invoking workflow triggers.
@@ -4744,6 +4788,7 @@ class FlowEndpointsConfigurationResponse(dict):
                  workflow: Optional['outputs.FlowEndpointsResponse'] = None):
         """
         The endpoints configuration.
+
         :param 'FlowEndpointsResponse' connector: The connector endpoints.
         :param 'FlowEndpointsResponse' workflow: The workflow endpoints.
         """
@@ -4798,6 +4843,7 @@ class FlowEndpointsResponse(dict):
                  outgoing_ip_addresses: Optional[Sequence['outputs.IpAddressResponse']] = None):
         """
         The flow endpoints configuration.
+
         :param Sequence['IpAddressResponse'] access_endpoint_ip_addresses: The access endpoint ip address.
         :param Sequence['IpAddressResponse'] outgoing_ip_addresses: The outgoing ip address.
         """
@@ -4832,6 +4878,7 @@ class IntegrationAccountMapPropertiesResponseParametersSchema(dict):
                  ref: Optional[_builtins.str] = None):
         """
         The parameters schema of integration account map.
+
         :param _builtins.str ref: The reference name.
         """
         if ref is not None:
@@ -4855,6 +4902,7 @@ class IntegrationAccountSkuResponse(dict):
                  name: _builtins.str):
         """
         The integration account sku.
+
         :param _builtins.str name: The sku name.
         """
         pulumi.set(__self__, "name", name)
@@ -4894,6 +4942,7 @@ class IntegrationServiceEnvironmenEncryptionConfigurationResponse(dict):
                  encryption_key_reference: Optional['outputs.IntegrationServiceEnvironmenEncryptionKeyReferenceResponse'] = None):
         """
         The encryption configuration for the integration service environment.
+
         :param 'IntegrationServiceEnvironmenEncryptionKeyReferenceResponse' encryption_key_reference: The encryption key reference.
         """
         if encryption_key_reference is not None:
@@ -4940,6 +4989,7 @@ class IntegrationServiceEnvironmenEncryptionKeyReferenceResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         The encryption key details for the integration service environment.
+
         :param _builtins.str key_name: Gets the key name in the Key Vault.
         :param 'ResourceReferenceResponse' key_vault: The key vault reference.
         :param _builtins.str key_version: Gets the version of the key specified in the keyName property.
@@ -4985,6 +5035,7 @@ class IntegrationServiceEnvironmentAccessEndpointResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The integration service environment access endpoint.
+
         :param _builtins.str type: The access endpoint type.
         """
         if type is not None:
@@ -5025,6 +5076,7 @@ class IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse(dict):
                  content_link_definition: Optional['outputs.ContentLinkResponse'] = None):
         """
         The integration service environment managed api deployment parameters.
+
         :param 'ContentLinkResponse' content_link_definition: The integration service environment managed api content link for deployment.
         """
         if content_link_definition is not None:
@@ -5078,6 +5130,7 @@ class IntegrationServiceEnvironmentPropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         The integration service environment properties.
+
         :param 'IntegrationServiceEnvironmenEncryptionConfigurationResponse' encryption_configuration: The encryption configuration.
         :param 'FlowEndpointsConfigurationResponse' endpoints_configuration: The endpoints configuration.
         :param _builtins.str integration_service_environment_id: Gets the tracking id.
@@ -5157,6 +5210,7 @@ class IntegrationServiceEnvironmentSkuResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The integration service environment sku.
+
         :param _builtins.int capacity: The sku capacity.
         :param _builtins.str name: The sku name.
         """
@@ -5208,6 +5262,7 @@ class IpAddressRangeResponse(dict):
                  address_range: Optional[_builtins.str] = None):
         """
         The ip address range.
+
         :param _builtins.str address_range: The IP address range.
         """
         if address_range is not None:
@@ -5231,6 +5286,7 @@ class IpAddressResponse(dict):
                  address: Optional[_builtins.str] = None):
         """
         The ip address.
+
         :param _builtins.str address: The address.
         """
         if address is not None:
@@ -5277,6 +5333,7 @@ class KeyVaultKeyReferenceResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         The reference to the key vault key.
+
         :param _builtins.str key_name: The private key name in key vault.
         :param 'KeyVaultKeyReferenceResponseKeyVault' key_vault: The key vault reference.
         :param _builtins.str key_version: The private key version in key vault.
@@ -5322,6 +5379,7 @@ class KeyVaultKeyReferenceResponseKeyVault(dict):
                  id: Optional[_builtins.str] = None):
         """
         The key vault reference.
+
         :param _builtins.str name: The resource name.
         :param _builtins.str type: The resource type.
         :param _builtins.str id: The resource id.
@@ -5366,6 +5424,7 @@ class KeyVaultKeyResponse(dict):
                  kid: Optional[_builtins.str] = None):
         """
         The key vault key.
+
         :param 'KeyVaultKeyResponseAttributes' attributes: The key attributes.
         :param _builtins.str kid: The key id.
         """
@@ -5402,6 +5461,7 @@ class KeyVaultKeyResponseAttributes(dict):
                  updated: Optional[_builtins.float] = None):
         """
         The key attributes.
+
         :param _builtins.float created: When the key was created.
         :param _builtins.bool enabled: Whether the key is enabled or not.
         :param _builtins.float updated: When the key was updated.
@@ -5471,6 +5531,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity properties.
+
         :param _builtins.str principal_id: Principal Id of managed service identity.
         :param _builtins.str tenant_id: Tenant of managed service identity.
         :param _builtins.str type: Type of managed service identity. The type 'SystemAssigned' includes an implicitly created identity. The type 'None' will remove any identities from the resource.
@@ -5545,6 +5606,7 @@ class NetworkConfigurationResponse(dict):
                  virtual_network_address_space: Optional[_builtins.str] = None):
         """
         The network configuration.
+
         :param 'IntegrationServiceEnvironmentAccessEndpointResponse' access_endpoint: The access endpoint.
         :param Sequence['ResourceReferenceResponse'] subnets: The subnets.
         :param _builtins.str virtual_network_address_space: Gets the virtual network address space.
@@ -5590,6 +5652,7 @@ class OpenAuthenticationAccessPoliciesResponse(dict):
                  policies: Optional[Mapping[str, 'outputs.OpenAuthenticationAccessPolicyResponse']] = None):
         """
         AuthenticationPolicy of type Open.
+
         :param Mapping[str, 'OpenAuthenticationAccessPolicyResponse'] policies: Open authentication policies.
         """
         if policies is not None:
@@ -5614,6 +5677,7 @@ class OpenAuthenticationAccessPolicyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Open authentication access policy defined by user.
+
         :param Sequence['OpenAuthenticationPolicyClaimResponse'] claims: The access policy claims.
         :param _builtins.str type: Type of provider for OAuth.
         """
@@ -5649,6 +5713,7 @@ class OpenAuthenticationPolicyClaimResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Open authentication policy claim.
+
         :param _builtins.str name: The name of the claim.
         :param _builtins.str value: The value of the claim.
         """
@@ -5683,6 +5748,7 @@ class PartnerContentResponse(dict):
                  b2b: Optional['outputs.B2BPartnerContentResponse'] = None):
         """
         The integration account partner content.
+
         :param 'B2BPartnerContentResponse' b2b: The B2B partner content.
         """
         if b2b is not None:
@@ -5707,6 +5773,7 @@ class RecurrenceScheduleOccurrenceResponse(dict):
                  occurrence: Optional[_builtins.int] = None):
         """
         The recurrence schedule occurrence.
+
         :param _builtins.str day: The day of the week.
         :param _builtins.int occurrence: The occurrence.
         """
@@ -5766,6 +5833,7 @@ class RecurrenceScheduleResponse(dict):
                  week_days: Optional[Sequence[_builtins.str]] = None):
         """
         The recurrence schedule.
+
         :param Sequence[_builtins.int] hours: The hours.
         :param Sequence[_builtins.int] minutes: The minutes.
         :param Sequence[_builtins.int] month_days: The month days.
@@ -5835,6 +5903,7 @@ class ResourceReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         The resource reference.
+
         :param _builtins.str name: Gets the resource name.
         :param _builtins.str type: Gets the resource type.
         :param _builtins.str id: The resource id.
@@ -5898,6 +5967,7 @@ class RosettaNetPipAcknowledgmentOfReceiptSettingsResponse(dict):
                  time_to_acknowledge_in_seconds: _builtins.int):
         """
         The integration account RosettaNet ProcessConfiguration Acknowledgement settings.
+
         :param _builtins.bool is_non_repudiation_required: The non-repudiation is required or not.
         :param _builtins.int time_to_acknowledge_in_seconds: The time to acknowledge in seconds.
         """
@@ -5968,6 +6038,7 @@ class RosettaNetPipActivityBehaviorResponse(dict):
                  time_to_perform_in_seconds: _builtins.int):
         """
         The integration account RosettaNet ProcessConfiguration activity behavior.
+
         :param _builtins.str action_type: The value indicating whether the RosettaNet PIP is used for a single action.
         :param _builtins.bool is_authorization_required: The value indicating whether authorization is required.
         :param _builtins.bool is_secured_transport_required: The value indicating whether secured transport is required.
@@ -6083,6 +6154,7 @@ class RosettaNetPipActivitySettingsResponse(dict):
                  activity_type: _builtins.str):
         """
         The integration account RosettaNet ProcessConfiguration activity settings.
+
         :param 'RosettaNetPipAcknowledgmentOfReceiptSettingsResponse' acknowledgment_of_receipt_settings: The RosettaNet ProcessConfiguration acknowledgement settings.
         :param 'RosettaNetPipActivityBehaviorResponse' activity_behavior: The RosettaNet ProcessConfiguration activity behavior.
         :param _builtins.str activity_type: The RosettaNet ProcessConfiguration activity type.
@@ -6127,6 +6199,7 @@ class RosettaNetPipBusinessDocumentResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The RosettaNet ProcessConfiguration business document settings.
+
         :param _builtins.str name: The business document name.
         :param _builtins.str version: The business document version.
         :param _builtins.str description: The business document description.
@@ -6197,6 +6270,7 @@ class RosettaNetPipRoleSettingsResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         The integration account RosettaNet ProcessConfiguration role settings.
+
         :param _builtins.str action: The action name.
         :param 'RosettaNetPipBusinessDocumentResponse' business_document: The RosettaNet ProcessConfiguration business document.
         :param _builtins.str role: The role name.
@@ -6281,6 +6355,7 @@ class SkuResponse(dict):
                  plan: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         The sku type.
+
         :param _builtins.str name: The name.
         :param 'ResourceReferenceResponse' plan: The reference to plan.
         """
@@ -6334,6 +6409,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User Assigned identity properties.
+
         :param _builtins.str client_id: Client Id of user assigned identity
         :param _builtins.str principal_id: Principal Id of user assigned identity
         """
@@ -6369,6 +6445,7 @@ class WorkflowParameterResponse(dict):
                  value: Optional[Any] = None):
         """
         The workflow parameters.
+
         :param _builtins.str description: The description.
         :param Any metadata: The metadata.
         :param _builtins.str type: The type.
@@ -6429,6 +6506,7 @@ class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
                  sv: Optional[_builtins.str] = None):
         """
         Gets the workflow trigger callback URL query parameters.
+
         :param _builtins.str api_version: The api version.
         :param _builtins.str se: The SAS timestamp.
         :param _builtins.str sig: The SAS signature.
@@ -6522,6 +6600,7 @@ class WorkflowTriggerRecurrenceResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         The workflow trigger recurrence.
+
         :param _builtins.str end_time: The end time.
         :param _builtins.str frequency: The frequency.
         :param _builtins.int interval: The interval.
@@ -6620,6 +6699,7 @@ class WsdlServiceResponse(dict):
                  qualified_name: Optional[_builtins.str] = None):
         """
         The WSDL service.
+
         :param Sequence[_builtins.str] endpoint_qualified_names: The list of endpoints' qualified names.
         :param _builtins.str qualified_name: The qualified name.
         """
@@ -6713,6 +6793,7 @@ class X12AcknowledgementSettingsResponse(dict):
                  implementation_acknowledgement_version: Optional[_builtins.str] = None):
         """
         The X12 agreement acknowledgement settings.
+
         :param _builtins.int acknowledgement_control_number_lower_bound: The acknowledgement control number lower bound.
         :param _builtins.int acknowledgement_control_number_upper_bound: The acknowledgement control number upper bound.
         :param _builtins.bool batch_functional_acknowledgements: The value indicating whether to batch functional acknowledgements.
@@ -6899,6 +6980,7 @@ class X12AgreementContentResponse(dict):
                  send_agreement: 'outputs.X12OneWayAgreementResponse'):
         """
         The X12 agreement content.
+
         :param 'X12OneWayAgreementResponse' receive_agreement: The X12 one-way receive agreement.
         :param 'X12OneWayAgreementResponse' send_agreement: The X12 one-way send agreement.
         """
@@ -6972,6 +7054,7 @@ class X12DelimiterOverridesResponse(dict):
                  target_namespace: Optional[_builtins.str] = None):
         """
         The X12 delimiter override settings.
+
         :param _builtins.int component_separator: The component separator.
         :param _builtins.int data_element_separator: The data element separator.
         :param _builtins.int replace_character: The replacement character.
@@ -7121,6 +7204,7 @@ class X12EnvelopeOverrideResponse(dict):
                  functional_identifier_code: Optional[_builtins.str] = None):
         """
         The X12 envelope override settings.
+
         :param _builtins.str date_format: The date format.
         :param _builtins.str header_version: The header version.
         :param _builtins.str message_id: The message id on which this envelope settings has to be applied.
@@ -7320,6 +7404,7 @@ class X12EnvelopeSettingsResponse(dict):
                  transaction_set_control_number_suffix: Optional[_builtins.str] = None):
         """
         The X12 agreement envelope settings.
+
         :param _builtins.int control_standards_id: The controls standards id.
         :param _builtins.str control_version_number: The control version number.
         :param _builtins.bool enable_default_group_headers: The value indicating whether to enable default group headers.
@@ -7610,6 +7695,7 @@ class X12FramingSettingsResponse(dict):
                  segment_terminator_suffix: _builtins.str):
         """
         The X12 agreement framing settings.
+
         :param _builtins.str character_set: The X12 character set.
         :param _builtins.int component_separator: The component separator.
         :param _builtins.int data_element_separator: The data element separator.
@@ -7709,6 +7795,7 @@ class X12MessageFilterResponse(dict):
                  message_filter_type: _builtins.str):
         """
         The X12 message filter for odata query.
+
         :param _builtins.str message_filter_type: The message filter type.
         """
         pulumi.set(__self__, "message_filter_type", message_filter_type)
@@ -7748,6 +7835,7 @@ class X12MessageIdentifierResponse(dict):
                  message_id: _builtins.str):
         """
         The X12 message identifier.
+
         :param _builtins.str message_id: The message id.
         """
         pulumi.set(__self__, "message_id", message_id)
@@ -7793,6 +7881,7 @@ class X12OneWayAgreementResponse(dict):
                  sender_business_identity: 'outputs.BusinessIdentityResponse'):
         """
         The X12 one-way agreement.
+
         :param 'X12ProtocolSettingsResponse' protocol_settings: The X12 protocol settings.
         :param 'BusinessIdentityResponse' receiver_business_identity: The receiver business identity
         :param 'BusinessIdentityResponse' sender_business_identity: The sender business identity
@@ -7867,6 +7956,7 @@ class X12ProcessingSettingsResponse(dict):
                  use_dot_as_decimal_separator: _builtins.bool):
         """
         The X12 processing settings.
+
         :param _builtins.bool convert_implied_decimal: The value indicating whether to convert numerical type to implied decimal.
         :param _builtins.bool create_empty_xml_tags_for_trailing_separators: The value indicating whether to create empty xml tags for trailing separators.
         :param _builtins.bool mask_security_info: The value indicating whether to mask security information.
@@ -7989,6 +8079,7 @@ class X12ProtocolSettingsResponse(dict):
                  x12_delimiter_overrides: Optional[Sequence['outputs.X12DelimiterOverridesResponse']] = None):
         """
         The X12 agreement protocol settings.
+
         :param 'X12AcknowledgementSettingsResponse' acknowledgement_settings: The X12 acknowledgment settings.
         :param 'X12EnvelopeSettingsResponse' envelope_settings: The X12 envelope settings.
         :param 'X12FramingSettingsResponse' framing_settings: The X12 framing settings.
@@ -8151,6 +8242,7 @@ class X12SchemaReferenceResponse(dict):
                  sender_application_id: Optional[_builtins.str] = None):
         """
         The X12 schema reference.
+
         :param _builtins.str message_id: The message id.
         :param _builtins.str schema_name: The schema name.
         :param _builtins.str schema_version: The schema version.
@@ -8230,6 +8322,7 @@ class X12SecuritySettingsResponse(dict):
                  password_value: Optional[_builtins.str] = None):
         """
         The X12 agreement security settings.
+
         :param _builtins.str authorization_qualifier: The authorization qualifier.
         :param _builtins.str security_qualifier: The security qualifier.
         :param _builtins.str authorization_value: The authorization value.
@@ -8319,6 +8412,7 @@ class X12ValidationOverrideResponse(dict):
                  validate_xsd_types: _builtins.bool):
         """
         The X12 validation override settings.
+
         :param _builtins.bool allow_leading_and_trailing_spaces_and_zeroes: The value indicating whether to allow leading and trailing spaces and zeroes.
         :param _builtins.str message_id: The message id on which the validation settings has to be applied.
         :param _builtins.str trailing_separator_policy: The trailing separator policy.
@@ -8445,6 +8539,7 @@ class X12ValidationSettingsResponse(dict):
                  validate_xsd_types: _builtins.bool):
         """
         The X12 agreement validation settings.
+
         :param _builtins.bool allow_leading_and_trailing_spaces_and_zeroes: The value indicating whether to allow leading and trailing spaces and zeroes.
         :param _builtins.bool check_duplicate_group_control_number: The value indicating whether to check for duplicate group control number.
         :param _builtins.bool check_duplicate_interchange_control_number: The value indicating whether to check for duplicate interchange control number.

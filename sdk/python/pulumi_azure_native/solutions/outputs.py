@@ -53,6 +53,7 @@ class ApplicationArtifactResponse(dict):
                  uri: _builtins.str):
         """
         Managed application artifact.
+
         :param _builtins.str name: The managed application artifact name.
         :param _builtins.str type: The managed application artifact type.
         :param _builtins.str uri: The managed application artifact blob uri.
@@ -115,6 +116,7 @@ class ApplicationAuthorizationResponse(dict):
                  role_definition_id: _builtins.str):
         """
         The managed application provider authorization.
+
         :param _builtins.str principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
         :param _builtins.str role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
         """
@@ -164,6 +166,7 @@ class ApplicationBillingDetailsDefinitionResponse(dict):
                  resource_usage_id: Optional[_builtins.str] = None):
         """
         Managed application billing details definition.
+
         :param _builtins.str resource_usage_id: The managed application resource usage Id.
         """
         if resource_usage_id is not None:
@@ -206,6 +209,7 @@ class ApplicationClientDetailsResponse(dict):
                  puid: Optional[_builtins.str] = None):
         """
         The application client details to track the entity creating/updating the managed app resource.
+
         :param _builtins.str application_id: The client application Id.
         :param _builtins.str oid: The client Oid.
         :param _builtins.str puid: The client Puid
@@ -253,6 +257,7 @@ class ApplicationDefinitionArtifactResponse(dict):
                  uri: _builtins.str):
         """
         Application definition artifact.
+
         :param _builtins.str name: The managed application definition artifact name.
         :param _builtins.str type: The managed application definition artifact type.
         :param _builtins.str uri: The managed application definition artifact blob uri.
@@ -312,6 +317,7 @@ class ApplicationDeploymentPolicyResponse(dict):
                  deployment_mode: _builtins.str):
         """
         Managed application deployment policy.
+
         :param _builtins.str deployment_mode: The managed application deployment mode.
         """
         pulumi.set(__self__, "deployment_mode", deployment_mode)
@@ -360,6 +366,7 @@ class ApplicationJitAccessPolicyResponse(dict):
                  maximum_jit_access_duration: Optional[_builtins.str] = None):
         """
         Managed application Jit access policy.
+
         :param _builtins.bool jit_access_enabled: Whether the JIT access is enabled.
         :param _builtins.str jit_approval_mode: JIT approval mode.
         :param Sequence['JitApproverDefinitionResponse'] jit_approvers: The JIT approvers
@@ -415,6 +422,7 @@ class ApplicationManagementPolicyResponse(dict):
                  mode: Optional[_builtins.str] = None):
         """
         Managed application management policy.
+
         :param _builtins.str mode: The managed application management mode.
         """
         if mode is not None:
@@ -438,6 +446,7 @@ class ApplicationNotificationEndpointResponse(dict):
                  uri: _builtins.str):
         """
         Managed application notification endpoint.
+
         :param _builtins.str uri: The managed application notification endpoint uri.
         """
         pulumi.set(__self__, "uri", uri)
@@ -477,6 +486,7 @@ class ApplicationNotificationPolicyResponse(dict):
                  notification_endpoints: Sequence['outputs.ApplicationNotificationEndpointResponse']):
         """
         Managed application notification policy.
+
         :param Sequence['ApplicationNotificationEndpointResponse'] notification_endpoints: The managed application notification endpoint.
         """
         pulumi.set(__self__, "notification_endpoints", notification_endpoints)
@@ -518,6 +528,7 @@ class ApplicationPackageContactResponse(dict):
                  contact_name: Optional[_builtins.str] = None):
         """
         The application package contact information.
+
         :param _builtins.str email: The contact email.
         :param _builtins.str phone: The contact phone number.
         :param _builtins.str contact_name: The contact name.
@@ -581,6 +592,7 @@ class ApplicationPackageLockingPolicyDefinitionResponse(dict):
                  allowed_data_actions: Optional[Sequence[_builtins.str]] = None):
         """
         Managed application locking policy.
+
         :param Sequence[_builtins.str] allowed_actions: The deny assignment excluded actions.
         :param Sequence[_builtins.str] allowed_data_actions: The deny assignment excluded data actions.
         """
@@ -635,6 +647,7 @@ class ApplicationPackageSupportUrlsResponse(dict):
                  public_azure: Optional[_builtins.str] = None):
         """
         The appliance package support URLs.
+
         :param _builtins.str government_cloud: The government cloud support URL.
         :param _builtins.str public_azure: The public azure support URL.
         """
@@ -688,6 +701,7 @@ class ApplicationPolicyResponse(dict):
                  policy_definition_id: Optional[_builtins.str] = None):
         """
         Managed application policy.
+
         :param _builtins.str name: The policy name
         :param _builtins.str parameters: The policy parameters.
         :param _builtins.str policy_definition_id: The policy definition Id.
@@ -757,6 +771,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedResourceIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -830,6 +845,7 @@ class JitApproverDefinitionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         JIT approver definition.
+
         :param _builtins.str id: The approver service principal Id.
         :param _builtins.str display_name: The approver display name.
         :param _builtins.str type: The approver type.
@@ -894,6 +910,7 @@ class JitAuthorizationPoliciesResponse(dict):
                  role_definition_id: _builtins.str):
         """
         The JIT authorization policies.
+
         :param _builtins.str principal_id: The the principal id that will be granted JIT access.
         :param _builtins.str role_definition_id: The role definition id that will be granted to the Principal.
         """
@@ -945,6 +962,7 @@ class JitSchedulingPolicyResponse(dict):
                  type: _builtins.str):
         """
         The JIT scheduling policies.
+
         :param _builtins.str start_time: The start time of the request.
         :param _builtins.str type: The type of JIT schedule.
         """
@@ -989,6 +1007,7 @@ class ManagedIdentityTokenResponse(dict):
                  token_type: Optional[_builtins.str] = None):
         """
         The managed identity token for the managed app resource.
+
         :param _builtins.str access_token: The requested access token.
         :param _builtins.str authorization_audience: The aud (audience) the access token was request for. This is the same as what was provided in the listTokens request.
         :param _builtins.str expires_in: The number of seconds the access token will be valid.
@@ -1099,6 +1118,7 @@ class PlanResponse(dict):
                  promotion_code: Optional[_builtins.str] = None):
         """
         Plan for the managed application.
+
         :param _builtins.str name: The plan name.
         :param _builtins.str product: The product code.
         :param _builtins.str publisher: The publisher ID.
@@ -1167,6 +1187,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         SKU for the resource.
+
         :param _builtins.str name: The SKU name.
         :param _builtins.int capacity: The SKU capacity.
         :param _builtins.str family: The SKU family.
@@ -1276,6 +1297,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1374,6 +1396,7 @@ class UserAssignedResourceIdentityResponse(dict):
                  tenant_id: _builtins.str):
         """
         Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+
         :param _builtins.str principal_id: The principal id of user assigned identity.
         :param _builtins.str tenant_id: The tenant id of user assigned identity.
         """

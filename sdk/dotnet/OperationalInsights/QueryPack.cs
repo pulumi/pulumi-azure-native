@@ -15,6 +15,60 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
     /// 
     /// Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### QueryPackCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queryPack = new AzureNative.OperationalInsights.QueryPack("queryPack", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         QueryPackName = "my-querypack",
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### QueryPackUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queryPack = new AzureNative.OperationalInsights.QueryPack("queryPack", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         QueryPackName = "my-querypack",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights:QueryPack my-querypack /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:QueryPack")]
     public partial class QueryPack : global::Pulumi.CustomResource

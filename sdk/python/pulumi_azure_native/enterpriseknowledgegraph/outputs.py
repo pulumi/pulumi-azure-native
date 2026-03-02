@@ -48,6 +48,7 @@ class EnterpriseKnowledgeGraphPropertiesResponse(dict):
                  provisioning_state: Optional[_builtins.str] = None):
         """
         The parameters to provide for the EnterpriseKnowledgeGraph.
+
         :param _builtins.str description: The description of the EnterpriseKnowledgeGraph
         :param Any metadata: Specifies the metadata  of the resource.
         :param _builtins.str provisioning_state: The state of EnterpriseKnowledgeGraph provisioning
@@ -93,6 +94,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         The SKU of the EnterpriseKnowledgeGraph service account.
+
         :param _builtins.str name: The sku name
         """
         pulumi.set(__self__, "name", name)

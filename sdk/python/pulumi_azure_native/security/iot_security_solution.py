@@ -38,6 +38,7 @@ class IotSecuritySolutionArgs:
                  workspace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IotSecuritySolution resource.
+
         :param pulumi.Input[_builtins.str] display_name: Resource display name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -280,6 +281,51 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a IoT security solution
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_security_solution = azure_native.security.IotSecuritySolution("iotSecuritySolution",
+            disabled_data_sources=[],
+            display_name="Solution Default",
+            export=[],
+            iot_hubs=["/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"],
+            location="East Us",
+            recommendations_configuration=[
+                {
+                    "recommendation_type": azure_native.security.RecommendationType.IO_T_OPEN_PORTS,
+                    "status": azure_native.security.RecommendationConfigStatus.DISABLED,
+                },
+                {
+                    "recommendation_type": azure_native.security.RecommendationType.IO_T_SHARED_CREDENTIALS,
+                    "status": azure_native.security.RecommendationConfigStatus.DISABLED,
+                },
+            ],
+            resource_group_name="MyGroup",
+            solution_name="default",
+            status=azure_native.security.SecuritySolutionStatus.ENABLED,
+            tags={},
+            unmasked_ip_logging_status=azure_native.security.UnmaskedIpLoggingStatus.ENABLED,
+            user_defined_resources={
+                "query": "where type != \\"microsoft.devices/iothubs\\" | where name contains \\"iot\\"",
+                "query_subscriptions": ["075423e9-7d33-4166-8bdf-3920b04e3735"],
+            },
+            workspace="/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:IotSecuritySolution default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AdditionalWorkspacesPropertiesArgs', 'AdditionalWorkspacesPropertiesArgsDict']]]] additional_workspaces: List of additional workspaces
@@ -309,6 +355,51 @@ class IotSecuritySolution(pulumi.CustomResource):
         Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
 
         Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a IoT security solution
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_security_solution = azure_native.security.IotSecuritySolution("iotSecuritySolution",
+            disabled_data_sources=[],
+            display_name="Solution Default",
+            export=[],
+            iot_hubs=["/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"],
+            location="East Us",
+            recommendations_configuration=[
+                {
+                    "recommendation_type": azure_native.security.RecommendationType.IO_T_OPEN_PORTS,
+                    "status": azure_native.security.RecommendationConfigStatus.DISABLED,
+                },
+                {
+                    "recommendation_type": azure_native.security.RecommendationType.IO_T_SHARED_CREDENTIALS,
+                    "status": azure_native.security.RecommendationConfigStatus.DISABLED,
+                },
+            ],
+            resource_group_name="MyGroup",
+            solution_name="default",
+            status=azure_native.security.SecuritySolutionStatus.ENABLED,
+            tags={},
+            unmasked_ip_logging_status=azure_native.security.UnmaskedIpLoggingStatus.ENABLED,
+            user_defined_resources={
+                "query": "where type != \\"microsoft.devices/iothubs\\" | where name contains \\"iot\\"",
+                "query_subscriptions": ["075423e9-7d33-4166-8bdf-3920b04e3735"],
+            },
+            workspace="/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:IotSecuritySolution default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IotSecuritySolutionArgs args: The arguments to use to populate this resource's properties.

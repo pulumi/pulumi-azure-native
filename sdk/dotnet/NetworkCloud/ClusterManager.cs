@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
     /// Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update cluster manager
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var clusterManager = new AzureNative.NetworkCloud.ClusterManager("clusterManager", new()
+    ///     {
+    ///         AnalyticsWorkspaceId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+    ///         ClusterManagerName = "clusterManagerName",
+    ///         FabricControllerId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+    ///         Identity = new AzureNative.NetworkCloud.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.NetworkCloud.ManagedServiceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "location",
+    ///         ManagedResourceGroupConfiguration = new AzureNative.NetworkCloud.Inputs.ManagedResourceGroupConfigurationArgs
+    ///         {
+    ///             Location = "East US",
+    ///             Name = "my-managed-rg",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:ClusterManager clusterManagerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:ClusterManager")]
     public partial class ClusterManager : global::Pulumi.CustomResource

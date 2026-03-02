@@ -33,6 +33,7 @@ class BusinessProcessArgs:
                  tracking_data_store_reference_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BusinessProcess resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] space_name: The name of the space
@@ -205,6 +206,105 @@ class BusinessProcess(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
 
+        ## Example Usage
+        ### CreateOrUpdateBusinessProcess
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        business_process = azure_native.integrationspaces.BusinessProcess("businessProcess",
+            application_name="Application1",
+            business_process_mapping={
+                "Completed": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "CompletedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "Fulfillment",
+                },
+                "Denied": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "DeniedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "Fulfillment",
+                },
+                "Processing": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "ApprovedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "PurchaseOrder",
+                },
+                "Received": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "manual",
+                    "operation_type": "Trigger",
+                    "workflow_name": "PurchaseOrder",
+                },
+                "Shipped": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "ShippedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "Fulfillment",
+                },
+            },
+            business_process_name="BusinessProcess1",
+            business_process_stages={
+                "Completed": {
+                    "description": "Completed",
+                    "stages_before": ["Shipped"],
+                },
+                "Denied": {
+                    "description": "Denied",
+                    "stages_before": ["Processing"],
+                },
+                "Processing": {
+                    "description": "Processing",
+                    "properties": {
+                        "ApprovalState": "String",
+                        "ApproverName": "String",
+                        "POAmount": "Integer",
+                    },
+                    "stages_before": ["Received"],
+                },
+                "Received": {
+                    "description": "received",
+                    "properties": {
+                        "City": "String",
+                        "Product": "String",
+                        "Quantity": "Integer",
+                        "State": "String",
+                    },
+                },
+                "Shipped": {
+                    "description": "Shipped",
+                    "properties": {
+                        "ShipPriority": "Integer",
+                        "TrackingID": "Integer",
+                    },
+                    "stages_before": ["Denied"],
+                },
+            },
+            description="First Business Process",
+            identifier={
+                "property_name": "businessIdentifier-1",
+                "property_type": "String",
+            },
+            resource_group_name="testrg",
+            space_name="Space1",
+            table_name="table1",
+            tracking_data_store_reference_name="trackingDataStoreReferenceName1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:BusinessProcess BusinessProcess1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Application
@@ -228,6 +328,105 @@ class BusinessProcess(pulumi.CustomResource):
         A business process under application.
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
+
+        ## Example Usage
+        ### CreateOrUpdateBusinessProcess
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        business_process = azure_native.integrationspaces.BusinessProcess("businessProcess",
+            application_name="Application1",
+            business_process_mapping={
+                "Completed": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "CompletedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "Fulfillment",
+                },
+                "Denied": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "DeniedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "Fulfillment",
+                },
+                "Processing": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "ApprovedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "PurchaseOrder",
+                },
+                "Received": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "manual",
+                    "operation_type": "Trigger",
+                    "workflow_name": "PurchaseOrder",
+                },
+                "Shipped": {
+                    "logic_app_resource_id": "subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+                    "operation_name": "ShippedPO",
+                    "operation_type": "Action",
+                    "workflow_name": "Fulfillment",
+                },
+            },
+            business_process_name="BusinessProcess1",
+            business_process_stages={
+                "Completed": {
+                    "description": "Completed",
+                    "stages_before": ["Shipped"],
+                },
+                "Denied": {
+                    "description": "Denied",
+                    "stages_before": ["Processing"],
+                },
+                "Processing": {
+                    "description": "Processing",
+                    "properties": {
+                        "ApprovalState": "String",
+                        "ApproverName": "String",
+                        "POAmount": "Integer",
+                    },
+                    "stages_before": ["Received"],
+                },
+                "Received": {
+                    "description": "received",
+                    "properties": {
+                        "City": "String",
+                        "Product": "String",
+                        "Quantity": "Integer",
+                        "State": "String",
+                    },
+                },
+                "Shipped": {
+                    "description": "Shipped",
+                    "properties": {
+                        "ShipPriority": "Integer",
+                        "TrackingID": "Integer",
+                    },
+                    "stages_before": ["Denied"],
+                },
+            },
+            description="First Business Process",
+            identifier={
+                "property_name": "businessIdentifier-1",
+                "property_type": "String",
+            },
+            resource_group_name="testrg",
+            space_name="Space1",
+            table_name="table1",
+            tracking_data_store_reference_name="trackingDataStoreReferenceName1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:integrationspaces:BusinessProcess BusinessProcess1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/businessProcesses/{businessProcessName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BusinessProcessArgs args: The arguments to use to populate this resource's properties.

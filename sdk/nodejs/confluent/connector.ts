@@ -13,6 +13,55 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
  *
  * Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Connector_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connector = new azure_native.confluent.Connector("connector", {
+ *     clusterId: "dlz-f3a90de",
+ *     connectorBasicInfo: {
+ *         connectorClass: "AZUREBLOBSTORAGESINK",
+ *         connectorName: "connector-1",
+ *         connectorType: azure_native.confluent.ConnectorType.SINK,
+ *     },
+ *     connectorName: "connector-1",
+ *     connectorServiceTypeInfo: {
+ *         connectorServiceType: "AzureBlobStorageSinkConnector",
+ *         storageAccountKey: "*******",
+ *         storageAccountName: "stcfaccount-1",
+ *         storageContainerName: "continer-1",
+ *     },
+ *     environmentId: "env-12132",
+ *     organizationName: "myOrganization",
+ *     partnerConnectorInfo: {
+ *         apiKey: "xxxxxxx",
+ *         apiSecret: "*******",
+ *         authType: azure_native.confluent.AuthType.KAFKA_API_KEY,
+ *         flushSize: "1000",
+ *         inputFormat: azure_native.confluent.DataFormatType.JSON,
+ *         maxTasks: "2",
+ *         outputFormat: azure_native.confluent.DataFormatType.JSON,
+ *         partnerConnectorType: "KafkaAzureBlobStorageSink",
+ *         timeInterval: "DAILY",
+ *         topics: ["topic-1"],
+ *         topicsDir: "topicsDir",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:confluent:Connector connector-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId}/connectors/{connectorName} 
+ * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

@@ -15,6 +15,183 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### BlobServicesPutAllowPermanentDelete
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobServiceProperties = new AzureNative.Storage.BlobServiceProperties("blobServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         BlobServicesName = "default",
+    ///         DeleteRetentionPolicy = new AzureNative.Storage.Inputs.DeleteRetentionPolicyArgs
+    ///         {
+    ///             AllowPermanentDelete = true,
+    ///             Days = 300,
+    ///             Enabled = true,
+    ///         },
+    ///         IsVersioningEnabled = true,
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### BlobServicesPutLastAccessTimeBasedTracking
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobServiceProperties = new AzureNative.Storage.BlobServiceProperties("blobServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         BlobServicesName = "default",
+    ///         LastAccessTimeTrackingPolicy = new AzureNative.Storage.Inputs.LastAccessTimeTrackingPolicyArgs
+    ///         {
+    ///             BlobType = new[]
+    ///             {
+    ///                 "blockBlob",
+    ///             },
+    ///             Enable = true,
+    ///             Name = AzureNative.Storage.Name.AccessTimeTracking,
+    ///             TrackingGranularityInDays = 1,
+    ///         },
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutBlobServices
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobServiceProperties = new AzureNative.Storage.BlobServiceProperties("blobServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         BlobServicesName = "default",
+    ///         ChangeFeed = new AzureNative.Storage.Inputs.ChangeFeedArgs
+    ///         {
+    ///             Enabled = true,
+    ///             RetentionInDays = 7,
+    ///         },
+    ///         Cors = new AzureNative.Storage.Inputs.CorsRulesArgs
+    ///         {
+    ///             CorsRules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         AzureNative.Storage.AllowedMethods.GET,
+    ///                         AzureNative.Storage.AllowedMethods.HEAD,
+    ///                         AzureNative.Storage.AllowedMethods.POST,
+    ///                         AzureNative.Storage.AllowedMethods.OPTIONS,
+    ///                         AzureNative.Storage.AllowedMethods.MERGE,
+    ///                         AzureNative.Storage.AllowedMethods.PUT,
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.contoso.com",
+    ///                         "http://www.fabrikam.com",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 100,
+    ///                 },
+    ///                 new AzureNative.Storage.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         AzureNative.Storage.AllowedMethods.GET,
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2,
+    ///                 },
+    ///                 new AzureNative.Storage.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-12345675754564*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         AzureNative.Storage.AllowedMethods.GET,
+    ///                         AzureNative.Storage.AllowedMethods.PUT,
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.abc23.com",
+    ///                         "https://www.fabrikam.com/*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x -ms-meta-target*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultServiceVersion = "2017-07-29",
+    ///         DeleteRetentionPolicy = new AzureNative.Storage.Inputs.DeleteRetentionPolicyArgs
+    ///         {
+    ///             Days = 300,
+    ///             Enabled = true,
+    ///         },
+    ///         IsVersioningEnabled = true,
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:BlobServiceProperties default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/{BlobServicesName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobServiceProperties")]
     public partial class BlobServiceProperties : global::Pulumi.CustomResource

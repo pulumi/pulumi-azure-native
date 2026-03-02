@@ -15,6 +15,169 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
     /// 
     /// Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### BrokerAuthentication_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var brokerAuthentication = new AzureNative.IoTOperations.BrokerAuthentication("brokerAuthentication", new()
+    ///     {
+    ///         AuthenticationName = "resource-name123",
+    ///         BrokerName = "resource-name123",
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "qmbrfwcpwwhggszhrdjv",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-name123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.BrokerAuthenticationPropertiesArgs
+    ///         {
+    ///             AuthenticationMethods = new[]
+    ///             {
+    ///                 new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodsArgs
+    ///                 {
+    ///                     CustomSettings = new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodCustomArgs
+    ///                     {
+    ///                         Auth = new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorCustomAuthArgs
+    ///                         {
+    ///                             X509 = new AzureNative.IoTOperations.Inputs.X509ManualCertificateArgs
+    ///                             {
+    ///                                 SecretRef = "secret-name",
+    ///                             },
+    ///                         },
+    ///                         CaCertConfigMap = "pdecudefqyolvncbus",
+    ///                         Endpoint = "https://www.example.com",
+    ///                         Headers = 
+    ///                         {
+    ///                             { "key8518", "bwityjy" },
+    ///                         },
+    ///                     },
+    ///                     Method = AzureNative.IoTOperations.BrokerAuthenticationMethod.Custom,
+    ///                     ServiceAccountTokenSettings = new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodSatArgs
+    ///                     {
+    ///                         Audiences = new[]
+    ///                         {
+    ///                             "jqyhyqatuydg",
+    ///                         },
+    ///                     },
+    ///                     X509Settings = new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodX509Args
+    ///                     {
+    ///                         AuthorizationAttributes = 
+    ///                         {
+    ///                             { "key3384", new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodX509AttributesArgs
+    ///                             {
+    ///                                 Attributes = 
+    ///                                 {
+    ///                                     { "key186", "ucpajramsz" },
+    ///                                 },
+    ///                                 Subject = "jpgwctfeixitptfgfnqhua",
+    ///                             } },
+    ///                         },
+    ///                         TrustedClientCaCert = "vlctsqddl",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### BrokerAuthentication_CreateOrUpdate_Complex
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var brokerAuthentication = new AzureNative.IoTOperations.BrokerAuthentication("brokerAuthentication", new()
+    ///     {
+    ///         AuthenticationName = "resource-name123",
+    ///         BrokerName = "resource-name123",
+    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "qmbrfwcpwwhggszhrdjv",
+    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         InstanceName = "resource-name123",
+    ///         Properties = new AzureNative.IoTOperations.Inputs.BrokerAuthenticationPropertiesArgs
+    ///         {
+    ///             AuthenticationMethods = new[]
+    ///             {
+    ///                 new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodsArgs
+    ///                 {
+    ///                     Method = AzureNative.IoTOperations.BrokerAuthenticationMethod.ServiceAccountToken,
+    ///                     ServiceAccountTokenSettings = new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodSatArgs
+    ///                     {
+    ///                         Audiences = new[]
+    ///                         {
+    ///                             "aio-internal",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodsArgs
+    ///                 {
+    ///                     Method = AzureNative.IoTOperations.BrokerAuthenticationMethod.X509,
+    ///                     X509Settings = new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodX509Args
+    ///                     {
+    ///                         AuthorizationAttributes = 
+    ///                         {
+    ///                             { "intermediate", new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodX509AttributesArgs
+    ///                             {
+    ///                                 Attributes = 
+    ///                                 {
+    ///                                     { "city", "seattle" },
+    ///                                     { "foo", "bar" },
+    ///                                 },
+    ///                                 Subject = "CN = Contoso Intermediate CA",
+    ///                             } },
+    ///                             { "root", new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodX509AttributesArgs
+    ///                             {
+    ///                                 Attributes = 
+    ///                                 {
+    ///                                     { "organization", "contoso" },
+    ///                                 },
+    ///                                 Subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US",
+    ///                             } },
+    ///                             { "smart-fan", new AzureNative.IoTOperations.Inputs.BrokerAuthenticatorMethodX509AttributesArgs
+    ///                             {
+    ///                                 Attributes = 
+    ///                                 {
+    ///                                     { "building", "17" },
+    ///                                 },
+    ///                                 Subject = "CN = smart-fan",
+    ///                             } },
+    ///                         },
+    ///                         TrustedClientCaCert = "my-ca",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgiotoperations",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperations:BrokerAuthentication lwucizfvtsdpx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/brokers/{brokerName}/authentications/{authenticationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:BrokerAuthentication")]
     public partial class BrokerAuthentication : global::Pulumi.CustomResource

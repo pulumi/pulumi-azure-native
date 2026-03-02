@@ -9,6 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Key Vault Access Policy for managing policies on existing vaults.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault:AccessPolicy myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{policy.objectId} 
+ * ```
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**

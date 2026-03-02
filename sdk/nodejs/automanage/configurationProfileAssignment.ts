@@ -13,6 +13,32 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-05-04. In version 2.x of the Azure Native provider, it used API version 2022-05-04.
  *
  * Other available API versions: 2020-06-30-preview, 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update configuration profile assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationProfileAssignment = new azure_native.automanage.ConfigurationProfileAssignment("configurationProfileAssignment", {
+ *     configurationProfileAssignmentName: "default",
+ *     properties: {
+ *         configurationProfile: "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmName: "myVMName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automanage:ConfigurationProfileAssignment default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.Automanage/configurationProfileAssignments/{configurationProfileAssignmentName} 
+ * ```
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**

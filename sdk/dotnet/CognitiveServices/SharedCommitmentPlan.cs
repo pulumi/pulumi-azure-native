@@ -12,9 +12,54 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// <summary>
     /// Cognitive Services account commitment plan.
     /// 
-    /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+    /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create Commitment Plan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sharedCommitmentPlan = new AzureNative.CognitiveServices.SharedCommitmentPlan("sharedCommitmentPlan", new()
+    ///     {
+    ///         CommitmentPlanName = "commitmentPlanName",
+    ///         Kind = "SpeechServices",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.CommitmentPlanPropertiesArgs
+    ///         {
+    ///             AutoRenew = true,
+    ///             Current = new AzureNative.CognitiveServices.Inputs.CommitmentPeriodArgs
+    ///             {
+    ///                 Tier = "T1",
+    ///             },
+    ///             HostingModel = AzureNative.CognitiveServices.HostingModel.Web,
+    ///             PlanType = "STT",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:SharedCommitmentPlan commitmentPlanName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:SharedCommitmentPlan")]
     public partial class SharedCommitmentPlan : global::Pulumi.CustomResource

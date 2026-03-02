@@ -134,23 +134,18 @@ __all__ = [
     'VpnConfigurationPropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessControlListActionArgsDict(TypedDict):
-        """
-        Action that need to performed.
-        """
-        counter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the counter block to get match count information.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'AclActionType']]]
-        """
-        Type of actions that can be performed.
-        """
-elif False:
-    AccessControlListActionArgsDict: TypeAlias = Mapping[str, Any]
+class AccessControlListActionArgsDict(TypedDict):
+    """
+    Action that need to performed.
+    """
+    counter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the counter block to get match count information.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'AclActionType']]]
+    """
+    Type of actions that can be performed.
+    """
 
 @pulumi.input_type
 class AccessControlListActionArgs:
@@ -159,6 +154,7 @@ class AccessControlListActionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'AclActionType']]] = None):
         """
         Action that need to performed.
+
         :param pulumi.Input[_builtins.str] counter_name: Name of the counter block to get match count information.
         :param pulumi.Input[Union[_builtins.str, 'AclActionType']] type: Type of actions that can be performed.
         """
@@ -192,49 +188,46 @@ class AccessControlListActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AccessControlListMatchConditionArgsDict(TypedDict):
-        """
-        Defines the match condition that is supported to filter the traffic.
-        """
-        dscp_markings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of DSCP Markings that need to be matched.
-        """
-        ether_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of ether type values that need to be matched.
-        """
-        fragments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP fragment packets that need to be matched.
-        """
-        ip_condition: NotRequired[pulumi.Input['IpMatchConditionArgsDict']]
-        """
-        IP condition that needs to be matched.
-        """
-        ip_lengths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP Lengths that need to be matched.
-        """
-        port_condition: NotRequired[pulumi.Input['AccessControlListPortConditionArgsDict']]
-        """
-        Defines the port condition that needs to be matched.
-        """
-        protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the protocols that need to be matched.
-        """
-        ttl_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of TTL [Time To Live] values that need to be matched.
-        """
-        vlan_match_condition: NotRequired[pulumi.Input['VlanMatchConditionArgsDict']]
-        """
-        Vlan match condition that needs to be matched.
-        """
-elif False:
-    AccessControlListMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class AccessControlListMatchConditionArgsDict(TypedDict):
+    """
+    Defines the match condition that is supported to filter the traffic.
+    """
+    dscp_markings: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of DSCP Markings that need to be matched.
+    """
+    ether_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of ether type values that need to be matched.
+    """
+    fragments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP fragment packets that need to be matched.
+    """
+    ip_condition: NotRequired[pulumi.Input['IpMatchConditionArgsDict']]
+    """
+    IP condition that needs to be matched.
+    """
+    ip_lengths: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP Lengths that need to be matched.
+    """
+    port_condition: NotRequired[pulumi.Input['AccessControlListPortConditionArgsDict']]
+    """
+    Defines the port condition that needs to be matched.
+    """
+    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the protocols that need to be matched.
+    """
+    ttl_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of TTL [Time To Live] values that need to be matched.
+    """
+    vlan_match_condition: NotRequired[pulumi.Input['VlanMatchConditionArgsDict']]
+    """
+    Vlan match condition that needs to be matched.
+    """
 
 @pulumi.input_type
 class AccessControlListMatchConditionArgs:
@@ -250,6 +243,7 @@ class AccessControlListMatchConditionArgs:
                  vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None):
         """
         Defines the match condition that is supported to filter the traffic.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dscp_markings: List of DSCP Markings that need to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ether_types: List of ether type values that need to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fragments: List of IP fragment packets that need to be matched.
@@ -388,33 +382,30 @@ class AccessControlListMatchConditionArgs:
         pulumi.set(self, "vlan_match_condition", value)
 
 
-if not MYPY:
-    class AccessControlListMatchConfigurationArgsDict(TypedDict):
-        """
-        Defines the match configuration that are supported to filter the traffic.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgsDict']]]]
-        """
-        List of actions that need to be performed for the matched conditions.
-        """
-        ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
-        """
-        Type of IP Address. IPv4 or IPv6
-        """
-        match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgsDict']]]]
-        """
-        List of the match conditions.
-        """
-        match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the match configuration.
-        """
-        sequence_number: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Sequence Number of the match configuration.
-        """
-elif False:
-    AccessControlListMatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessControlListMatchConfigurationArgsDict(TypedDict):
+    """
+    Defines the match configuration that are supported to filter the traffic.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgsDict']]]]
+    """
+    List of actions that need to be performed for the matched conditions.
+    """
+    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    """
+    Type of IP Address. IPv4 or IPv6
+    """
+    match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgsDict']]]]
+    """
+    List of the match conditions.
+    """
+    match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the match configuration.
+    """
+    sequence_number: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Sequence Number of the match configuration.
+    """
 
 @pulumi.input_type
 class AccessControlListMatchConfigurationArgs:
@@ -426,6 +417,7 @@ class AccessControlListMatchConfigurationArgs:
                  sequence_number: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Defines the match configuration that are supported to filter the traffic.
+
         :param pulumi.Input[Sequence[pulumi.Input['AccessControlListActionArgs']]] actions: List of actions that need to be performed for the matched conditions.
         :param pulumi.Input[Union[_builtins.str, 'IPAddressType']] ip_address_type: Type of IP Address. IPv4 or IPv6
         :param pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConditionArgs']]] match_conditions: List of the match conditions.
@@ -504,33 +496,30 @@ class AccessControlListMatchConfigurationArgs:
         pulumi.set(self, "sequence_number", value)
 
 
-if not MYPY:
-    class AccessControlListPortConditionArgsDict(TypedDict):
-        """
-        Defines the port condition that needs to be matched.
-        """
-        layer4_protocol: pulumi.Input[Union[_builtins.str, 'Layer4Protocol']]
-        """
-        Layer4 protocol type that needs to be matched.
-        """
-        flags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
-        """
-        port_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the port Group Names that need to be matched.
-        """
-        port_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PortType']]]
-        """
-        Port type that needs to be matched.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the Ports that need to be matched.
-        """
-elif False:
-    AccessControlListPortConditionArgsDict: TypeAlias = Mapping[str, Any]
+class AccessControlListPortConditionArgsDict(TypedDict):
+    """
+    Defines the port condition that needs to be matched.
+    """
+    layer4_protocol: pulumi.Input[Union[_builtins.str, 'Layer4Protocol']]
+    """
+    Layer4 protocol type that needs to be matched.
+    """
+    flags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
+    """
+    port_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the port Group Names that need to be matched.
+    """
+    port_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PortType']]]
+    """
+    Port type that needs to be matched.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the Ports that need to be matched.
+    """
 
 @pulumi.input_type
 class AccessControlListPortConditionArgs:
@@ -542,6 +531,7 @@ class AccessControlListPortConditionArgs:
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Defines the port condition that needs to be matched.
+
         :param pulumi.Input[Union[_builtins.str, 'Layer4Protocol']] layer4_protocol: Layer4 protocol type that needs to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] flags: List of protocol flags that need to be matched. Example: established | initial | <List-of-TCP-flags>. List of eligible TCP Flags are ack, fin, not-ack, not-fin, not-psh, not-rst, not-syn, not-urg, psh, rst, syn, urg
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_group_names: List of the port Group Names that need to be matched.
@@ -619,25 +609,22 @@ class AccessControlListPortConditionArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class ActionIpCommunityPropertiesArgsDict(TypedDict):
-        """
-        IP Community Properties.
-        """
-        add: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
-        """
-        List of IP Community IDs.
-        """
-        delete: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
-        """
-        List of IP Community IDs.
-        """
-        set: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
-        """
-        List of IP Community IDs.
-        """
-elif False:
-    ActionIpCommunityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ActionIpCommunityPropertiesArgsDict(TypedDict):
+    """
+    IP Community Properties.
+    """
+    add: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
+    """
+    List of IP Community IDs.
+    """
+    delete: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
+    """
+    List of IP Community IDs.
+    """
+    set: NotRequired[pulumi.Input['IpCommunityIdListArgsDict']]
+    """
+    List of IP Community IDs.
+    """
 
 @pulumi.input_type
 class ActionIpCommunityPropertiesArgs:
@@ -647,6 +634,7 @@ class ActionIpCommunityPropertiesArgs:
                  set: Optional[pulumi.Input['IpCommunityIdListArgs']] = None):
         """
         IP Community Properties.
+
         :param pulumi.Input['IpCommunityIdListArgs'] add: List of IP Community IDs.
         :param pulumi.Input['IpCommunityIdListArgs'] delete: List of IP Community IDs.
         :param pulumi.Input['IpCommunityIdListArgs'] set: List of IP Community IDs.
@@ -695,25 +683,22 @@ class ActionIpCommunityPropertiesArgs:
         pulumi.set(self, "set", value)
 
 
-if not MYPY:
-    class ActionIpExtendedCommunityPropertiesArgsDict(TypedDict):
-        """
-        IP Extended Community Properties.
-        """
-        add: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
-        """
-        List of IP Extended Community IDs.
-        """
-        delete: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
-        """
-        List of IP Extended Community IDs.
-        """
-        set: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
-        """
-        List of IP Extended Community IDs.
-        """
-elif False:
-    ActionIpExtendedCommunityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ActionIpExtendedCommunityPropertiesArgsDict(TypedDict):
+    """
+    IP Extended Community Properties.
+    """
+    add: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
+    """
+    List of IP Extended Community IDs.
+    """
+    delete: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
+    """
+    List of IP Extended Community IDs.
+    """
+    set: NotRequired[pulumi.Input['IpExtendedCommunityIdListArgsDict']]
+    """
+    List of IP Extended Community IDs.
+    """
 
 @pulumi.input_type
 class ActionIpExtendedCommunityPropertiesArgs:
@@ -723,6 +708,7 @@ class ActionIpExtendedCommunityPropertiesArgs:
                  set: Optional[pulumi.Input['IpExtendedCommunityIdListArgs']] = None):
         """
         IP Extended Community Properties.
+
         :param pulumi.Input['IpExtendedCommunityIdListArgs'] add: List of IP Extended Community IDs.
         :param pulumi.Input['IpExtendedCommunityIdListArgs'] delete: List of IP Extended Community IDs.
         :param pulumi.Input['IpExtendedCommunityIdListArgs'] set: List of IP Extended Community IDs.
@@ -771,21 +757,18 @@ class ActionIpExtendedCommunityPropertiesArgs:
         pulumi.set(self, "set", value)
 
 
-if not MYPY:
-    class AggregateRouteConfigurationArgsDict(TypedDict):
-        """
-        List of IPv4 and IPv6 aggregate routes.
-        """
-        ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]
-        """
-        List of IPv4 Route prefixes.
-        """
-        ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]
-        """
-        List of Ipv6Routes prefixes.
-        """
-elif False:
-    AggregateRouteConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AggregateRouteConfigurationArgsDict(TypedDict):
+    """
+    List of IPv4 and IPv6 aggregate routes.
+    """
+    ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]
+    """
+    List of IPv4 Route prefixes.
+    """
+    ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgsDict']]]]
+    """
+    List of Ipv6Routes prefixes.
+    """
 
 @pulumi.input_type
 class AggregateRouteConfigurationArgs:
@@ -794,6 +777,7 @@ class AggregateRouteConfigurationArgs:
                  ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]]] = None):
         """
         List of IPv4 and IPv6 aggregate routes.
+
         :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv4_routes: List of IPv4 Route prefixes.
         :param pulumi.Input[Sequence[pulumi.Input['AggregateRouteArgs']]] ipv6_routes: List of Ipv6Routes prefixes.
         """
@@ -827,17 +811,14 @@ class AggregateRouteConfigurationArgs:
         pulumi.set(self, "ipv6_routes", value)
 
 
-if not MYPY:
-    class AggregateRouteArgsDict(TypedDict):
-        """
-        aggregateIpv4Route model.
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        IPv4 Prefix of the aggregate Ipv4Route.
-        """
-elif False:
-    AggregateRouteArgsDict: TypeAlias = Mapping[str, Any]
+class AggregateRouteArgsDict(TypedDict):
+    """
+    aggregateIpv4Route model.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    IPv4 Prefix of the aggregate Ipv4Route.
+    """
 
 @pulumi.input_type
 class AggregateRouteArgs:
@@ -845,6 +826,7 @@ class AggregateRouteArgs:
                  prefix: pulumi.Input[_builtins.str]):
         """
         aggregateIpv4Route model.
+
         :param pulumi.Input[_builtins.str] prefix: IPv4 Prefix of the aggregate Ipv4Route.
         """
         pulumi.set(__self__, "prefix", prefix)
@@ -862,21 +844,18 @@ class AggregateRouteArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class BfdConfigurationArgsDict(TypedDict):
-        """
-        BFD configuration properties
-        """
-        interval_in_milli_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Interval in milliseconds. Example: 300.
-        """
-        multiplier: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Multiplier for the Bfd Configuration. Example: 5.
-        """
-elif False:
-    BfdConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BfdConfigurationArgsDict(TypedDict):
+    """
+    BFD configuration properties
+    """
+    interval_in_milli_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Interval in milliseconds. Example: 300.
+    """
+    multiplier: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Multiplier for the Bfd Configuration. Example: 5.
+    """
 
 @pulumi.input_type
 class BfdConfigurationArgs:
@@ -885,6 +864,7 @@ class BfdConfigurationArgs:
                  multiplier: Optional[pulumi.Input[_builtins.int]] = None):
         """
         BFD configuration properties
+
         :param pulumi.Input[_builtins.int] interval_in_milli_seconds: Interval in milliseconds. Example: 300.
         :param pulumi.Input[_builtins.int] multiplier: Multiplier for the Bfd Configuration. Example: 5.
         """
@@ -922,57 +902,54 @@ class BfdConfigurationArgs:
         pulumi.set(self, "multiplier", value)
 
 
-if not MYPY:
-    class BmpConfigurationPropertiesArgsDict(TypedDict):
-        """
-        BGP Monitoring Protocol (BMP) Configuration properties.
-        """
-        export_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']]]
-        """
-        Export Policy for the BMP Configuration.
-        """
-        monitored_address_families: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]
-        """
-        Monitored Address Families for the BMP Configuration.
-        """
-        monitored_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The List of Network ID's that need to be monitored.
-        """
-        scope_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scope resource ARM Identifier.
-        """
-        station_configuration_state: NotRequired[pulumi.Input[Union[_builtins.str, 'StationConfigurationState']]]
-        """
-        Enabling a station. Either True/False.
-        """
-        station_connection_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'StationConnectionMode']]]
-        """
-        Station Connection Mode.
-        """
-        station_connection_properties: NotRequired[pulumi.Input['StationConnectionPropertiesArgsDict']]
-        """
-        Station Connection Properties.
-        """
-        station_ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Address of the station.
-        """
-        station_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the station.
-        """
-        station_network: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Network of the station
-        """
-        station_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port of the station. Default value is 5000.
-        """
-elif False:
-    BmpConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BmpConfigurationPropertiesArgsDict(TypedDict):
+    """
+    BGP Monitoring Protocol (BMP) Configuration properties.
+    """
+    export_policy: NotRequired[pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']]]
+    """
+    Export Policy for the BMP Configuration.
+    """
+    monitored_address_families: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]]]
+    """
+    Monitored Address Families for the BMP Configuration.
+    """
+    monitored_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The List of Network ID's that need to be monitored.
+    """
+    scope_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scope resource ARM Identifier.
+    """
+    station_configuration_state: NotRequired[pulumi.Input[Union[_builtins.str, 'StationConfigurationState']]]
+    """
+    Enabling a station. Either True/False.
+    """
+    station_connection_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'StationConnectionMode']]]
+    """
+    Station Connection Mode.
+    """
+    station_connection_properties: NotRequired[pulumi.Input['StationConnectionPropertiesArgsDict']]
+    """
+    Station Connection Properties.
+    """
+    station_ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Address of the station.
+    """
+    station_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the station.
+    """
+    station_network: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network of the station
+    """
+    station_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port of the station. Default value is 5000.
+    """
 
 @pulumi.input_type
 class BmpConfigurationPropertiesArgs:
@@ -990,6 +967,7 @@ class BmpConfigurationPropertiesArgs:
                  station_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         BGP Monitoring Protocol (BMP) Configuration properties.
+
         :param pulumi.Input[Union[_builtins.str, 'BmpExportPolicy']] export_policy: Export Policy for the BMP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BmpMonitoredAddressFamily']]]] monitored_address_families: Monitored Address Families for the BMP Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitored_networks: The List of Network ID's that need to be monitored.
@@ -1162,25 +1140,22 @@ class BmpConfigurationPropertiesArgs:
         pulumi.set(self, "station_port", value)
 
 
-if not MYPY:
-    class CommonDynamicMatchConfigurationArgsDict(TypedDict):
-        """
-        Dynamic match configuration object.
-        """
-        ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgsDict']]]]
-        """
-        List of IP Groups.
-        """
-        port_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgsDict']]]]
-        """
-        List of the port groups.
-        """
-        vlan_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgsDict']]]]
-        """
-        List of vlan groups.
-        """
-elif False:
-    CommonDynamicMatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CommonDynamicMatchConfigurationArgsDict(TypedDict):
+    """
+    Dynamic match configuration object.
+    """
+    ip_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgsDict']]]]
+    """
+    List of IP Groups.
+    """
+    port_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgsDict']]]]
+    """
+    List of the port groups.
+    """
+    vlan_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgsDict']]]]
+    """
+    List of vlan groups.
+    """
 
 @pulumi.input_type
 class CommonDynamicMatchConfigurationArgs:
@@ -1190,6 +1165,7 @@ class CommonDynamicMatchConfigurationArgs:
                  vlan_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]] = None):
         """
         Dynamic match configuration object.
+
         :param pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]] ip_groups: List of IP Groups.
         :param pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]] port_groups: List of the port groups.
         :param pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]] vlan_groups: List of vlan groups.
@@ -1238,21 +1214,18 @@ class CommonDynamicMatchConfigurationArgs:
         pulumi.set(self, "vlan_groups", value)
 
 
-if not MYPY:
-    class ConnectedSubnetRoutePolicyArgsDict(TypedDict):
-        """
-        Connected Subnet Route Policy properties.
-        """
-        export_route_policy: NotRequired[pulumi.Input['L3ExportRoutePolicyArgsDict']]
-        """
-        Array of ARM Resource ID of the RoutePolicies.
-        """
-        export_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource ID of the Route Policy. This is used for the backward compatibility.
-        """
-elif False:
-    ConnectedSubnetRoutePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectedSubnetRoutePolicyArgsDict(TypedDict):
+    """
+    Connected Subnet Route Policy properties.
+    """
+    export_route_policy: NotRequired[pulumi.Input['L3ExportRoutePolicyArgsDict']]
+    """
+    Array of ARM Resource ID of the RoutePolicies.
+    """
+    export_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource ID of the Route Policy. This is used for the backward compatibility.
+    """
 
 @pulumi.input_type
 class ConnectedSubnetRoutePolicyArgs:
@@ -1261,6 +1234,7 @@ class ConnectedSubnetRoutePolicyArgs:
                  export_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Connected Subnet Route Policy properties.
+
         :param pulumi.Input['L3ExportRoutePolicyArgs'] export_route_policy: Array of ARM Resource ID of the RoutePolicies.
         :param pulumi.Input[_builtins.str] export_route_policy_id: ARM Resource ID of the Route Policy. This is used for the backward compatibility.
         """
@@ -1294,21 +1268,18 @@ class ConnectedSubnetRoutePolicyArgs:
         pulumi.set(self, "export_route_policy_id", value)
 
 
-if not MYPY:
-    class ConnectedSubnetArgsDict(TypedDict):
-        """
-        Connected Subnet properties.
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        Prefix of the Connected Subnet.
-        """
-        annotation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Switch configuration description.
-        """
-elif False:
-    ConnectedSubnetArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectedSubnetArgsDict(TypedDict):
+    """
+    Connected Subnet properties.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    Prefix of the Connected Subnet.
+    """
+    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Switch configuration description.
+    """
 
 @pulumi.input_type
 class ConnectedSubnetArgs:
@@ -1317,6 +1288,7 @@ class ConnectedSubnetArgs:
                  annotation: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Connected Subnet properties.
+
         :param pulumi.Input[_builtins.str] prefix: Prefix of the Connected Subnet.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         """
@@ -1349,21 +1321,18 @@ class ConnectedSubnetArgs:
         pulumi.set(self, "annotation", value)
 
 
-if not MYPY:
-    class ExportRoutePolicyInformationArgsDict(TypedDict):
-        """
-        Export Route Policy Configuration.
-        """
-        export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Export IPv4 Route Policy Id.
-        """
-        export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Export IPv6 Route Policy Id.
-        """
-elif False:
-    ExportRoutePolicyInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ExportRoutePolicyInformationArgsDict(TypedDict):
+    """
+    Export Route Policy Configuration.
+    """
+    export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Export IPv4 Route Policy Id.
+    """
+    export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Export IPv6 Route Policy Id.
+    """
 
 @pulumi.input_type
 class ExportRoutePolicyInformationArgs:
@@ -1372,6 +1341,7 @@ class ExportRoutePolicyInformationArgs:
                  export_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Export Route Policy Configuration.
+
         :param pulumi.Input[_builtins.str] export_ipv4_route_policy_id: Export IPv4 Route Policy Id.
         :param pulumi.Input[_builtins.str] export_ipv6_route_policy_id: Export IPv6 Route Policy Id.
         """
@@ -1405,21 +1375,18 @@ class ExportRoutePolicyInformationArgs:
         pulumi.set(self, "export_ipv6_route_policy_id", value)
 
 
-if not MYPY:
-    class ExportRoutePolicyArgsDict(TypedDict):
-        """
-        Export Route Policy either IPv4 or IPv6.
-        """
-        export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM resource ID of RoutePolicy.
-        """
-        export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM resource ID of RoutePolicy.
-        """
-elif False:
-    ExportRoutePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ExportRoutePolicyArgsDict(TypedDict):
+    """
+    Export Route Policy either IPv4 or IPv6.
+    """
+    export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM resource ID of RoutePolicy.
+    """
+    export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM resource ID of RoutePolicy.
+    """
 
 @pulumi.input_type
 class ExportRoutePolicyArgs:
@@ -1428,6 +1395,7 @@ class ExportRoutePolicyArgs:
                  export_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Export Route Policy either IPv4 or IPv6.
+
         :param pulumi.Input[_builtins.str] export_ipv4_route_policy_id: ARM resource ID of RoutePolicy.
         :param pulumi.Input[_builtins.str] export_ipv6_route_policy_id: ARM resource ID of RoutePolicy.
         """
@@ -1461,21 +1429,18 @@ class ExportRoutePolicyArgs:
         pulumi.set(self, "export_ipv6_route_policy_id", value)
 
 
-if not MYPY:
-    class ExpressRouteConnectionInformationArgsDict(TypedDict):
-        """
-        The ExpressRoute circuit ID and the Auth Key are required for you to successfully deploy NFC service.
-        """
-        express_route_authorization_key: pulumi.Input[_builtins.str]
-        """
-        Authorization key for the circuit, must be of type Microsoft.Network/expressRouteCircuits/authorizations. The Auth Key is a mandatory attribute.
-        """
-        express_route_circuit_id: pulumi.Input[_builtins.str]
-        """
-        The express route circuit Azure resource ID, must be of type Microsoft.Network/expressRouteCircuits/circuitName. The ExpressRoute Circuit is a mandatory attribute.
-        """
-elif False:
-    ExpressRouteConnectionInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ExpressRouteConnectionInformationArgsDict(TypedDict):
+    """
+    The ExpressRoute circuit ID and the Auth Key are required for you to successfully deploy NFC service.
+    """
+    express_route_authorization_key: pulumi.Input[_builtins.str]
+    """
+    Authorization key for the circuit, must be of type Microsoft.Network/expressRouteCircuits/authorizations. The Auth Key is a mandatory attribute.
+    """
+    express_route_circuit_id: pulumi.Input[_builtins.str]
+    """
+    The express route circuit Azure resource ID, must be of type Microsoft.Network/expressRouteCircuits/circuitName. The ExpressRoute Circuit is a mandatory attribute.
+    """
 
 @pulumi.input_type
 class ExpressRouteConnectionInformationArgs:
@@ -1484,6 +1449,7 @@ class ExpressRouteConnectionInformationArgs:
                  express_route_circuit_id: pulumi.Input[_builtins.str]):
         """
         The ExpressRoute circuit ID and the Auth Key are required for you to successfully deploy NFC service.
+
         :param pulumi.Input[_builtins.str] express_route_authorization_key: Authorization key for the circuit, must be of type Microsoft.Network/expressRouteCircuits/authorizations. The Auth Key is a mandatory attribute.
         :param pulumi.Input[_builtins.str] express_route_circuit_id: The express route circuit Azure resource ID, must be of type Microsoft.Network/expressRouteCircuits/circuitName. The ExpressRoute Circuit is a mandatory attribute.
         """
@@ -1515,53 +1481,50 @@ class ExpressRouteConnectionInformationArgs:
         pulumi.set(self, "express_route_circuit_id", value)
 
 
-if not MYPY:
-    class ExternalNetworkPropertiesOptionAPropertiesArgsDict(TypedDict):
-        """
-        option A properties object
-        """
-        peer_asn: pulumi.Input[_builtins.float]
-        """
-        Peer ASN number.Example : 28
-        """
-        vlan_id: pulumi.Input[_builtins.int]
-        """
-        Vlan identifier. Example : 501
-        """
-        bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
-        """
-        BFD configuration properties
-        """
-        egress_acl_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Egress Acl. ARM resource ID of Access Control Lists.
-        """
-        ingress_acl_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ingress Acl. ARM resource ID of Access Control Lists.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        MTU to use for option A peering.
-        """
-        primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv4 Address Prefix.
-        """
-        primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv6 Address Prefix.
-        """
-        secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv4 Address Prefix.
-        """
-        secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv6 Address Prefix.
-        """
-elif False:
-    ExternalNetworkPropertiesOptionAPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ExternalNetworkPropertiesOptionAPropertiesArgsDict(TypedDict):
+    """
+    option A properties object
+    """
+    peer_asn: pulumi.Input[_builtins.float]
+    """
+    Peer ASN number.Example : 28
+    """
+    vlan_id: pulumi.Input[_builtins.int]
+    """
+    Vlan identifier. Example : 501
+    """
+    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    """
+    BFD configuration properties
+    """
+    egress_acl_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Egress Acl. ARM resource ID of Access Control Lists.
+    """
+    ingress_acl_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ingress Acl. ARM resource ID of Access Control Lists.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    MTU to use for option A peering.
+    """
+    primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv4 Address Prefix.
+    """
+    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv6 Address Prefix.
+    """
+    secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv4 Address Prefix.
+    """
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv6 Address Prefix.
+    """
 
 @pulumi.input_type
 class ExternalNetworkPropertiesOptionAPropertiesArgs:
@@ -1578,6 +1541,7 @@ class ExternalNetworkPropertiesOptionAPropertiesArgs:
                  secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         option A properties object
+
         :param pulumi.Input[_builtins.float] peer_asn: Peer ASN number.Example : 28
         :param pulumi.Input[_builtins.int] vlan_id: Vlan identifier. Example : 501
         :param pulumi.Input['BfdConfigurationArgs'] bfd_configuration: BFD configuration properties
@@ -1731,25 +1695,22 @@ class ExternalNetworkPropertiesOptionAPropertiesArgs:
         pulumi.set(self, "secondary_ipv6_prefix", value)
 
 
-if not MYPY:
-    class FabricOptionBPropertiesArgsDict(TypedDict):
-        """
-        Option B configuration to be used for Management VPN.
-        """
-        export_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
-        """
-        import_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
-        """
-        route_targets: NotRequired[pulumi.Input['RouteTargetInformationArgsDict']]
-        """
-        Route Targets to be applied.
-        """
-elif False:
-    FabricOptionBPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FabricOptionBPropertiesArgsDict(TypedDict):
+    """
+    Option B configuration to be used for Management VPN.
+    """
+    export_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
+    """
+    import_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
+    """
+    route_targets: NotRequired[pulumi.Input['RouteTargetInformationArgsDict']]
+    """
+    Route Targets to be applied.
+    """
 
 @pulumi.input_type
 class FabricOptionBPropertiesArgs:
@@ -1759,6 +1720,7 @@ class FabricOptionBPropertiesArgs:
                  route_targets: Optional[pulumi.Input['RouteTargetInformationArgs']] = None):
         """
         Option B configuration to be used for Management VPN.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_route_targets: Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] import_route_targets: Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
         :param pulumi.Input['RouteTargetInformationArgs'] route_targets: Route Targets to be applied.
@@ -1807,21 +1769,18 @@ class FabricOptionBPropertiesArgs:
         pulumi.set(self, "route_targets", value)
 
 
-if not MYPY:
-    class ImportRoutePolicyInformationArgsDict(TypedDict):
-        """
-        Import Route Policy Configuration.
-        """
-        import_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Import IPv4 Route Policy Id.
-        """
-        import_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Import IPv6 Route Policy Id.
-        """
-elif False:
-    ImportRoutePolicyInformationArgsDict: TypeAlias = Mapping[str, Any]
+class ImportRoutePolicyInformationArgsDict(TypedDict):
+    """
+    Import Route Policy Configuration.
+    """
+    import_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Import IPv4 Route Policy Id.
+    """
+    import_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Import IPv6 Route Policy Id.
+    """
 
 @pulumi.input_type
 class ImportRoutePolicyInformationArgs:
@@ -1830,6 +1789,7 @@ class ImportRoutePolicyInformationArgs:
                  import_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Import Route Policy Configuration.
+
         :param pulumi.Input[_builtins.str] import_ipv4_route_policy_id: Import IPv4 Route Policy Id.
         :param pulumi.Input[_builtins.str] import_ipv6_route_policy_id: Import IPv6 Route Policy Id.
         """
@@ -1863,21 +1823,18 @@ class ImportRoutePolicyInformationArgs:
         pulumi.set(self, "import_ipv6_route_policy_id", value)
 
 
-if not MYPY:
-    class ImportRoutePolicyArgsDict(TypedDict):
-        """
-        Import Route Policy either IPv4 or IPv6.
-        """
-        import_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM resource ID of RoutePolicy.
-        """
-        import_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM resource ID of RoutePolicy.
-        """
-elif False:
-    ImportRoutePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ImportRoutePolicyArgsDict(TypedDict):
+    """
+    Import Route Policy either IPv4 or IPv6.
+    """
+    import_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM resource ID of RoutePolicy.
+    """
+    import_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM resource ID of RoutePolicy.
+    """
 
 @pulumi.input_type
 class ImportRoutePolicyArgs:
@@ -1886,6 +1843,7 @@ class ImportRoutePolicyArgs:
                  import_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Import Route Policy either IPv4 or IPv6.
+
         :param pulumi.Input[_builtins.str] import_ipv4_route_policy_id: ARM resource ID of RoutePolicy.
         :param pulumi.Input[_builtins.str] import_ipv6_route_policy_id: ARM resource ID of RoutePolicy.
         """
@@ -1919,53 +1877,50 @@ class ImportRoutePolicyArgs:
         pulumi.set(self, "import_ipv6_route_policy_id", value)
 
 
-if not MYPY:
-    class InternalNetworkPropertiesBgpConfigurationArgsDict(TypedDict):
-        """
-        BGP configuration properties.
-        """
-        peer_asn: pulumi.Input[_builtins.float]
-        """
-        Peer ASN. Example: 65047.
-        """
-        allow_as: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.
-        """
-        allow_as_override: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowASOverride']]]
-        """
-        Enable Or Disable state.
-        """
-        annotation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Switch configuration description.
-        """
-        bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
-        """
-        BFD configuration properties
-        """
-        default_route_originate: NotRequired[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]
-        """
-        Originate a defaultRoute. Ex: "True" | "False".
-        """
-        ipv4_listen_range_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of BGP IPv4 Listen Range prefixes.
-        """
-        ipv4_neighbor_address: NotRequired[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]
-        """
-        List with stringified IPv4 Neighbor Addresses.
-        """
-        ipv6_listen_range_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of BGP IPv6 Listen Ranges prefixes.
-        """
-        ipv6_neighbor_address: NotRequired[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]
-        """
-        List with stringified IPv6 Neighbor Address.
-        """
-elif False:
-    InternalNetworkPropertiesBgpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class InternalNetworkPropertiesBgpConfigurationArgsDict(TypedDict):
+    """
+    BGP configuration properties.
+    """
+    peer_asn: pulumi.Input[_builtins.float]
+    """
+    Peer ASN. Example: 65047.
+    """
+    allow_as: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.
+    """
+    allow_as_override: NotRequired[pulumi.Input[Union[_builtins.str, 'AllowASOverride']]]
+    """
+    Enable Or Disable state.
+    """
+    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Switch configuration description.
+    """
+    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    """
+    BFD configuration properties
+    """
+    default_route_originate: NotRequired[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]
+    """
+    Originate a defaultRoute. Ex: "True" | "False".
+    """
+    ipv4_listen_range_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of BGP IPv4 Listen Range prefixes.
+    """
+    ipv4_neighbor_address: NotRequired[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]
+    """
+    List with stringified IPv4 Neighbor Addresses.
+    """
+    ipv6_listen_range_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of BGP IPv6 Listen Ranges prefixes.
+    """
+    ipv6_neighbor_address: NotRequired[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgsDict']]]]
+    """
+    List with stringified IPv6 Neighbor Address.
+    """
 
 @pulumi.input_type
 class InternalNetworkPropertiesBgpConfigurationArgs:
@@ -1982,6 +1937,7 @@ class InternalNetworkPropertiesBgpConfigurationArgs:
                  ipv6_neighbor_address: Optional[pulumi.Input[Sequence[pulumi.Input['NeighborAddressArgs']]]] = None):
         """
         BGP configuration properties.
+
         :param pulumi.Input[_builtins.float] peer_asn: Peer ASN. Example: 65047.
         :param pulumi.Input[_builtins.int] allow_as: Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. 0 is disable, Possible values are 1-10, default is 2.
         :param pulumi.Input[Union[_builtins.str, 'AllowASOverride']] allow_as_override: Enable Or Disable state.
@@ -2136,29 +2092,26 @@ class InternalNetworkPropertiesBgpConfigurationArgs:
         pulumi.set(self, "ipv6_neighbor_address", value)
 
 
-if not MYPY:
-    class InternalNetworkPropertiesStaticRouteConfigurationArgsDict(TypedDict):
-        """
-        Static Route Configuration properties.
-        """
-        bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
-        """
-        BFD configuration properties
-        """
-        extension: NotRequired[pulumi.Input[Union[_builtins.str, 'Extension']]]
-        """
-        Extension. Example: NoExtension | NPB.
-        """
-        ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
-        """
-        List of IPv4 Routes.
-        """
-        ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
-        """
-        List of IPv6 Routes.
-        """
-elif False:
-    InternalNetworkPropertiesStaticRouteConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class InternalNetworkPropertiesStaticRouteConfigurationArgsDict(TypedDict):
+    """
+    Static Route Configuration properties.
+    """
+    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    """
+    BFD configuration properties
+    """
+    extension: NotRequired[pulumi.Input[Union[_builtins.str, 'Extension']]]
+    """
+    Extension. Example: NoExtension | NPB.
+    """
+    ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    """
+    List of IPv4 Routes.
+    """
+    ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    """
+    List of IPv6 Routes.
+    """
 
 @pulumi.input_type
 class InternalNetworkPropertiesStaticRouteConfigurationArgs:
@@ -2169,6 +2122,7 @@ class InternalNetworkPropertiesStaticRouteConfigurationArgs:
                  ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None):
         """
         Static Route Configuration properties.
+
         :param pulumi.Input['BfdConfigurationArgs'] bfd_configuration: BFD configuration properties
         :param pulumi.Input[Union[_builtins.str, 'Extension']] extension: Extension. Example: NoExtension | NPB.
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv4_routes: List of IPv4 Routes.
@@ -2234,17 +2188,14 @@ class InternalNetworkPropertiesStaticRouteConfigurationArgs:
         pulumi.set(self, "ipv6_routes", value)
 
 
-if not MYPY:
-    class IpCommunityIdListArgsDict(TypedDict):
-        """
-        IP Community ID list properties.
-        """
-        ip_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP Community resource IDs.
-        """
-elif False:
-    IpCommunityIdListArgsDict: TypeAlias = Mapping[str, Any]
+class IpCommunityIdListArgsDict(TypedDict):
+    """
+    IP Community ID list properties.
+    """
+    ip_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP Community resource IDs.
+    """
 
 @pulumi.input_type
 class IpCommunityIdListArgs:
@@ -2252,6 +2203,7 @@ class IpCommunityIdListArgs:
                  ip_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         IP Community ID list properties.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_community_ids: List of IP Community resource IDs.
         """
         if ip_community_ids is not None:
@@ -2270,29 +2222,26 @@ class IpCommunityIdListArgs:
         pulumi.set(self, "ip_community_ids", value)
 
 
-if not MYPY:
-    class IpCommunityRuleArgsDict(TypedDict):
-        """
-        IP Community patchable properties.
-        """
-        action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]
-        """
-        Action to be taken on the configuration. Example: Permit | Deny.
-        """
-        community_members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List the community members of IP Community.
-        """
-        sequence_number: pulumi.Input[_builtins.float]
-        """
-        Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
-        """
-        well_known_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]
-        """
-        Supported well known Community List.
-        """
-elif False:
-    IpCommunityRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpCommunityRuleArgsDict(TypedDict):
+    """
+    IP Community patchable properties.
+    """
+    action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]
+    """
+    Action to be taken on the configuration. Example: Permit | Deny.
+    """
+    community_members: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List the community members of IP Community.
+    """
+    sequence_number: pulumi.Input[_builtins.float]
+    """
+    Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
+    """
+    well_known_communities: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]]
+    """
+    Supported well known Community List.
+    """
 
 @pulumi.input_type
 class IpCommunityRuleArgs:
@@ -2303,6 +2252,7 @@ class IpCommunityRuleArgs:
                  well_known_communities: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WellKnownCommunities']]]]] = None):
         """
         IP Community patchable properties.
+
         :param pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] community_members: List the community members of IP Community.
         :param pulumi.Input[_builtins.float] sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
@@ -2363,17 +2313,14 @@ class IpCommunityRuleArgs:
         pulumi.set(self, "well_known_communities", value)
 
 
-if not MYPY:
-    class IpExtendedCommunityIdListArgsDict(TypedDict):
-        """
-        IP Extended Community Id list properties.
-        """
-        ip_extended_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP Extended Community resource IDs.
-        """
-elif False:
-    IpExtendedCommunityIdListArgsDict: TypeAlias = Mapping[str, Any]
+class IpExtendedCommunityIdListArgsDict(TypedDict):
+    """
+    IP Extended Community Id list properties.
+    """
+    ip_extended_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP Extended Community resource IDs.
+    """
 
 @pulumi.input_type
 class IpExtendedCommunityIdListArgs:
@@ -2381,6 +2328,7 @@ class IpExtendedCommunityIdListArgs:
                  ip_extended_community_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         IP Extended Community Id list properties.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_extended_community_ids: List of IP Extended Community resource IDs.
         """
         if ip_extended_community_ids is not None:
@@ -2399,25 +2347,22 @@ class IpExtendedCommunityIdListArgs:
         pulumi.set(self, "ip_extended_community_ids", value)
 
 
-if not MYPY:
-    class IpExtendedCommunityRuleArgsDict(TypedDict):
-        """
-        List of IP Extended Community Rules.
-        """
-        action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]
-        """
-        Action to be taken on the configuration. Example: Permit | Deny.
-        """
-        route_targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-        """
-        sequence_number: pulumi.Input[_builtins.float]
-        """
-        Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
-        """
-elif False:
-    IpExtendedCommunityRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpExtendedCommunityRuleArgsDict(TypedDict):
+    """
+    List of IP Extended Community Rules.
+    """
+    action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]
+    """
+    Action to be taken on the configuration. Example: Permit | Deny.
+    """
+    route_targets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
+    """
+    sequence_number: pulumi.Input[_builtins.float]
+    """
+    Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
+    """
 
 @pulumi.input_type
 class IpExtendedCommunityRuleArgs:
@@ -2427,6 +2372,7 @@ class IpExtendedCommunityRuleArgs:
                  sequence_number: pulumi.Input[_builtins.float]):
         """
         List of IP Extended Community Rules.
+
         :param pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_targets: Route Target List.The expected formats are ASN(plain):NN >> example 4294967294:50, ASN.ASN:NN >> example 65533.65333:40, IP-address:NN >> example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
         :param pulumi.Input[_builtins.float] sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
@@ -2472,25 +2418,22 @@ class IpExtendedCommunityRuleArgs:
         pulumi.set(self, "sequence_number", value)
 
 
-if not MYPY:
-    class IpGroupPropertiesArgsDict(TypedDict):
-        """
-        IP Group properties.
-        """
-        ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
-        """
-        IP Address type.
-        """
-        ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP Prefixes.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Group name.
-        """
-elif False:
-    IpGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IpGroupPropertiesArgsDict(TypedDict):
+    """
+    IP Group properties.
+    """
+    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    """
+    IP Address type.
+    """
+    ip_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP Prefixes.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Group name.
+    """
 
 @pulumi.input_type
 class IpGroupPropertiesArgs:
@@ -2500,6 +2443,7 @@ class IpGroupPropertiesArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         IP Group properties.
+
         :param pulumi.Input[Union[_builtins.str, 'IPAddressType']] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_prefixes: List of IP Prefixes.
         :param pulumi.Input[_builtins.str] name: IP Group name.
@@ -2548,29 +2492,26 @@ class IpGroupPropertiesArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class IpMatchConditionArgsDict(TypedDict):
-        """
-        Defines the condition that can be filtered using the selected IPs.
-        """
-        ip_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The List of IP Group Names that need to be matched.
-        """
-        ip_prefix_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of IP Prefixes that need to be matched.
-        """
-        prefix_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrefixType']]]
-        """
-        IP Prefix Type that needs to be matched.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]]
-        """
-        IP Address type that needs to be matched.
-        """
-elif False:
-    IpMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class IpMatchConditionArgsDict(TypedDict):
+    """
+    Defines the condition that can be filtered using the selected IPs.
+    """
+    ip_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The List of IP Group Names that need to be matched.
+    """
+    ip_prefix_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of IP Prefixes that need to be matched.
+    """
+    prefix_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrefixType']]]
+    """
+    IP Prefix Type that needs to be matched.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]]
+    """
+    IP Address type that needs to be matched.
+    """
 
 @pulumi.input_type
 class IpMatchConditionArgs:
@@ -2581,6 +2522,7 @@ class IpMatchConditionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'SourceDestinationType']]] = None):
         """
         Defines the condition that can be filtered using the selected IPs.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_names: The List of IP Group Names that need to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_prefix_values: The list of IP Prefixes that need to be matched.
         :param pulumi.Input[Union[_builtins.str, 'PrefixType']] prefix_type: IP Prefix Type that needs to be matched.
@@ -2644,33 +2586,30 @@ class IpMatchConditionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IpPrefixRuleArgsDict(TypedDict):
-        """
-        IP Prefix Rule properties.
-        """
-        action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]
-        """
-        Action to be taken on the configuration. Example: Permit | Deny.
-        """
-        network_prefix: pulumi.Input[_builtins.str]
-        """
-        Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
-        """
-        sequence_number: pulumi.Input[_builtins.float]
-        """
-        Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
-        """
-        condition: NotRequired[pulumi.Input[Union[_builtins.str, 'Condition']]]
-        """
-        Specify prefix-list bounds.
-        """
-        subnet_mask_length: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
-        """
-elif False:
-    IpPrefixRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpPrefixRuleArgsDict(TypedDict):
+    """
+    IP Prefix Rule properties.
+    """
+    action: pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']]
+    """
+    Action to be taken on the configuration. Example: Permit | Deny.
+    """
+    network_prefix: pulumi.Input[_builtins.str]
+    """
+    Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
+    """
+    sequence_number: pulumi.Input[_builtins.float]
+    """
+    Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
+    """
+    condition: NotRequired[pulumi.Input[Union[_builtins.str, 'Condition']]]
+    """
+    Specify prefix-list bounds.
+    """
+    subnet_mask_length: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SubnetMaskLength gives the minimum NetworkPrefix length to be matched. Possible values for IPv4 are 1 - 32 . Possible values of IPv6 are 1 - 128.
+    """
 
 @pulumi.input_type
 class IpPrefixRuleArgs:
@@ -2682,6 +2621,7 @@ class IpPrefixRuleArgs:
                  subnet_mask_length: Optional[pulumi.Input[_builtins.str]] = None):
         """
         IP Prefix Rule properties.
+
         :param pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']] action: Action to be taken on the configuration. Example: Permit | Deny.
         :param pulumi.Input[_builtins.str] network_prefix: Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. Example: 1.1.1.0/24 | 3FFE:FFFF:0:CD30::/126 
         :param pulumi.Input[_builtins.float] sequence_number: Sequence to insert to/delete from existing route. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored.
@@ -2757,21 +2697,18 @@ class IpPrefixRuleArgs:
         pulumi.set(self, "subnet_mask_length", value)
 
 
-if not MYPY:
-    class IsolationDomainPropertiesArgsDict(TypedDict):
-        """
-        Isolation Domain Properties.
-        """
-        encapsulation: NotRequired[pulumi.Input[Union[_builtins.str, 'Encapsulation']]]
-        """
-        Type of encapsulation.
-        """
-        neighbor_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of Neighbor Group IDs.
-        """
-elif False:
-    IsolationDomainPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class IsolationDomainPropertiesArgsDict(TypedDict):
+    """
+    Isolation Domain Properties.
+    """
+    encapsulation: NotRequired[pulumi.Input[Union[_builtins.str, 'Encapsulation']]]
+    """
+    Type of encapsulation.
+    """
+    neighbor_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Neighbor Group IDs.
+    """
 
 @pulumi.input_type
 class IsolationDomainPropertiesArgs:
@@ -2780,6 +2717,7 @@ class IsolationDomainPropertiesArgs:
                  neighbor_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Isolation Domain Properties.
+
         :param pulumi.Input[Union[_builtins.str, 'Encapsulation']] encapsulation: Type of encapsulation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] neighbor_group_ids: List of Neighbor Group IDs.
         """
@@ -2813,21 +2751,18 @@ class IsolationDomainPropertiesArgs:
         pulumi.set(self, "neighbor_group_ids", value)
 
 
-if not MYPY:
-    class L3ExportRoutePolicyArgsDict(TypedDict):
-        """
-        Array of ARM Resource ID of the RoutePolicies.
-        """
-        export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource ID of the RoutePolicy.
-        """
-        export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource ID of the RoutePolicy.
-        """
-elif False:
-    L3ExportRoutePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class L3ExportRoutePolicyArgsDict(TypedDict):
+    """
+    Array of ARM Resource ID of the RoutePolicies.
+    """
+    export_ipv4_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource ID of the RoutePolicy.
+    """
+    export_ipv6_route_policy_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource ID of the RoutePolicy.
+    """
 
 @pulumi.input_type
 class L3ExportRoutePolicyArgs:
@@ -2836,6 +2771,7 @@ class L3ExportRoutePolicyArgs:
                  export_ipv6_route_policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Array of ARM Resource ID of the RoutePolicies.
+
         :param pulumi.Input[_builtins.str] export_ipv4_route_policy_id: ARM Resource ID of the RoutePolicy.
         :param pulumi.Input[_builtins.str] export_ipv6_route_policy_id: ARM Resource ID of the RoutePolicy.
         """
@@ -2869,25 +2805,22 @@ class L3ExportRoutePolicyArgs:
         pulumi.set(self, "export_ipv6_route_policy_id", value)
 
 
-if not MYPY:
-    class L3OptionBPropertiesArgsDict(TypedDict):
-        """
-        Option B configuration.
-        """
-        export_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        RouteTargets to be applied. This is used for the backward compatibility.
-        """
-        import_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        RouteTargets to be applied. This is used for the backward compatibility.
-        """
-        route_targets: NotRequired[pulumi.Input['RouteTargetInformationArgsDict']]
-        """
-        RouteTargets to be applied.
-        """
-elif False:
-    L3OptionBPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class L3OptionBPropertiesArgsDict(TypedDict):
+    """
+    Option B configuration.
+    """
+    export_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    RouteTargets to be applied. This is used for the backward compatibility.
+    """
+    import_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    RouteTargets to be applied. This is used for the backward compatibility.
+    """
+    route_targets: NotRequired[pulumi.Input['RouteTargetInformationArgsDict']]
+    """
+    RouteTargets to be applied.
+    """
 
 @pulumi.input_type
 class L3OptionBPropertiesArgs:
@@ -2897,6 +2830,7 @@ class L3OptionBPropertiesArgs:
                  route_targets: Optional[pulumi.Input['RouteTargetInformationArgs']] = None):
         """
         Option B configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_route_targets: RouteTargets to be applied. This is used for the backward compatibility.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] import_route_targets: RouteTargets to be applied. This is used for the backward compatibility.
         :param pulumi.Input['RouteTargetInformationArgs'] route_targets: RouteTargets to be applied.
@@ -2945,21 +2879,18 @@ class L3OptionBPropertiesArgs:
         pulumi.set(self, "route_targets", value)
 
 
-if not MYPY:
-    class Layer2ConfigurationArgsDict(TypedDict):
-        """
-        Common properties for Layer2 Configuration.
-        """
-        interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of network device interfaces resource IDs.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        MTU of the packets between PE & CE.
-        """
-elif False:
-    Layer2ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class Layer2ConfigurationArgsDict(TypedDict):
+    """
+    Common properties for Layer2 Configuration.
+    """
+    interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of network device interfaces resource IDs.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    MTU of the packets between PE & CE.
+    """
 
 @pulumi.input_type
 class Layer2ConfigurationArgs:
@@ -2968,6 +2899,7 @@ class Layer2ConfigurationArgs:
                  mtu: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Common properties for Layer2 Configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] interfaces: List of network device interfaces resource IDs.
         :param pulumi.Input[_builtins.int] mtu: MTU of the packets between PE & CE.
         """
@@ -3003,21 +2935,18 @@ class Layer2ConfigurationArgs:
         pulumi.set(self, "mtu", value)
 
 
-if not MYPY:
-    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
-        """
-        Managed Resource Group configuration properties.
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Managed resource group location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The NFC service will be hosted in a Managed resource group.
-        """
-elif False:
-    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+    """
+    Managed Resource Group configuration properties.
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed resource group location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The NFC service will be hosted in a Managed resource group.
+    """
 
 @pulumi.input_type
 class ManagedResourceGroupConfigurationArgs:
@@ -3026,6 +2955,7 @@ class ManagedResourceGroupConfigurationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Managed Resource Group configuration properties.
+
         :param pulumi.Input[_builtins.str] location: Managed resource group location.
         :param pulumi.Input[_builtins.str] name: The NFC service will be hosted in a Managed resource group.
         """
@@ -3059,21 +2989,18 @@ class ManagedResourceGroupConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class ManagementNetworkConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Configuration to be used to setup the management network.
-        """
-        infrastructure_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgsDict']
-        """
-        VPN Configuration properties.
-        """
-        workload_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgsDict']
-        """
-        VPN Configuration properties.
-        """
-elif False:
-    ManagementNetworkConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementNetworkConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration to be used to setup the management network.
+    """
+    infrastructure_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgsDict']
+    """
+    VPN Configuration properties.
+    """
+    workload_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgsDict']
+    """
+    VPN Configuration properties.
+    """
 
 @pulumi.input_type
 class ManagementNetworkConfigurationPropertiesArgs:
@@ -3082,6 +3009,7 @@ class ManagementNetworkConfigurationPropertiesArgs:
                  workload_vpn_configuration: pulumi.Input['VpnConfigurationPropertiesArgs']):
         """
         Configuration to be used to setup the management network.
+
         :param pulumi.Input['VpnConfigurationPropertiesArgs'] infrastructure_vpn_configuration: VPN Configuration properties.
         :param pulumi.Input['VpnConfigurationPropertiesArgs'] workload_vpn_configuration: VPN Configuration properties.
         """
@@ -3113,17 +3041,14 @@ class ManagementNetworkConfigurationPropertiesArgs:
         pulumi.set(self, "workload_vpn_configuration", value)
 
 
-if not MYPY:
-    class NeighborAddressArgsDict(TypedDict):
-        """
-        Neighbor Address properties.
-        """
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Address.
-        """
-elif False:
-    NeighborAddressArgsDict: TypeAlias = Mapping[str, Any]
+class NeighborAddressArgsDict(TypedDict):
+    """
+    Neighbor Address properties.
+    """
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Address.
+    """
 
 @pulumi.input_type
 class NeighborAddressArgs:
@@ -3131,6 +3056,7 @@ class NeighborAddressArgs:
                  address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Neighbor Address properties.
+
         :param pulumi.Input[_builtins.str] address: IP Address.
         """
         if address is not None:
@@ -3149,21 +3075,18 @@ class NeighborAddressArgs:
         pulumi.set(self, "address", value)
 
 
-if not MYPY:
-    class NeighborGroupDestinationArgsDict(TypedDict):
-        """
-        An array of destination IPv4 Addresses or IPv6 Addresses.
-        """
-        ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of IPv4 Addresses.
-        """
-        ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Array of IPv6 Addresses.
-        """
-elif False:
-    NeighborGroupDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class NeighborGroupDestinationArgsDict(TypedDict):
+    """
+    An array of destination IPv4 Addresses or IPv6 Addresses.
+    """
+    ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of IPv4 Addresses.
+    """
+    ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Array of IPv6 Addresses.
+    """
 
 @pulumi.input_type
 class NeighborGroupDestinationArgs:
@@ -3172,6 +3095,7 @@ class NeighborGroupDestinationArgs:
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of destination IPv4 Addresses or IPv6 Addresses.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv4_addresses: Array of IPv4 Addresses.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: Array of IPv6 Addresses.
         """
@@ -3205,21 +3129,18 @@ class NeighborGroupDestinationArgs:
         pulumi.set(self, "ipv6_addresses", value)
 
 
-if not MYPY:
-    class NetworkMonitorPropertiesArgsDict(TypedDict):
-        """
-        Network Monitor Properties defines the properties of the resource.
-        """
-        annotation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Switch configuration description.
-        """
-        bmp_configuration: NotRequired[pulumi.Input['BmpConfigurationPropertiesArgsDict']]
-        """
-        BMP Configurations for the Network Fabric.
-        """
-elif False:
-    NetworkMonitorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkMonitorPropertiesArgsDict(TypedDict):
+    """
+    Network Monitor Properties defines the properties of the resource.
+    """
+    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Switch configuration description.
+    """
+    bmp_configuration: NotRequired[pulumi.Input['BmpConfigurationPropertiesArgsDict']]
+    """
+    BMP Configurations for the Network Fabric.
+    """
 
 @pulumi.input_type
 class NetworkMonitorPropertiesArgs:
@@ -3228,6 +3149,7 @@ class NetworkMonitorPropertiesArgs:
                  bmp_configuration: Optional[pulumi.Input['BmpConfigurationPropertiesArgs']] = None):
         """
         Network Monitor Properties defines the properties of the resource.
+
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input['BmpConfigurationPropertiesArgs'] bmp_configuration: BMP Configurations for the Network Fabric.
         """
@@ -3261,33 +3183,30 @@ class NetworkMonitorPropertiesArgs:
         pulumi.set(self, "bmp_configuration", value)
 
 
-if not MYPY:
-    class NetworkTapPropertiesDestinationsArgsDict(TypedDict):
-        """
-        Destination.
-        """
-        destination_id: pulumi.Input[_builtins.str]
-        """
-        The destination Id. ARM Resource ID of either NNI or Internal Networks.
-        """
-        destination_type: pulumi.Input[Union[_builtins.str, 'DestinationType']]
-        """
-        Type of destination. Input can be IsolationDomain or Direct.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Destination name.
-        """
-        destination_tap_rule_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource ID of destination Tap Rule that contains match configurations.
-        """
-        isolation_domain_properties: NotRequired[pulumi.Input['IsolationDomainPropertiesArgsDict']]
-        """
-        Isolation Domain Properties.
-        """
-elif False:
-    NetworkTapPropertiesDestinationsArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkTapPropertiesDestinationsArgsDict(TypedDict):
+    """
+    Destination.
+    """
+    destination_id: pulumi.Input[_builtins.str]
+    """
+    The destination Id. ARM Resource ID of either NNI or Internal Networks.
+    """
+    destination_type: pulumi.Input[Union[_builtins.str, 'DestinationType']]
+    """
+    Type of destination. Input can be IsolationDomain or Direct.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Destination name.
+    """
+    destination_tap_rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource ID of destination Tap Rule that contains match configurations.
+    """
+    isolation_domain_properties: NotRequired[pulumi.Input['IsolationDomainPropertiesArgsDict']]
+    """
+    Isolation Domain Properties.
+    """
 
 @pulumi.input_type
 class NetworkTapPropertiesDestinationsArgs:
@@ -3299,6 +3218,7 @@ class NetworkTapPropertiesDestinationsArgs:
                  isolation_domain_properties: Optional[pulumi.Input['IsolationDomainPropertiesArgs']] = None):
         """
         Destination.
+
         :param pulumi.Input[_builtins.str] destination_id: The destination Id. ARM Resource ID of either NNI or Internal Networks.
         :param pulumi.Input[Union[_builtins.str, 'DestinationType']] destination_type: Type of destination. Input can be IsolationDomain or Direct.
         :param pulumi.Input[_builtins.str] name: Destination name.
@@ -3374,33 +3294,30 @@ class NetworkTapPropertiesDestinationsArgs:
         pulumi.set(self, "isolation_domain_properties", value)
 
 
-if not MYPY:
-    class NetworkTapRuleActionArgsDict(TypedDict):
-        """
-        Action that need to performed.
-        """
-        destination_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
-        """
-        is_timestamp_enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]
-        """
-        The parameter to enable or disable the timestamp.
-        """
-        match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
-        """
-        truncate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Truncate. 0 indicates do not truncate.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]]
-        """
-        Type of actions that can be performed.
-        """
-elif False:
-    NetworkTapRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkTapRuleActionArgsDict(TypedDict):
+    """
+    Action that need to performed.
+    """
+    destination_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
+    """
+    is_timestamp_enabled: NotRequired[pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']]]
+    """
+    The parameter to enable or disable the timestamp.
+    """
+    match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
+    """
+    truncate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Truncate. 0 indicates do not truncate.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]]
+    """
+    Type of actions that can be performed.
+    """
 
 @pulumi.input_type
 class NetworkTapRuleActionArgs:
@@ -3412,6 +3329,7 @@ class NetworkTapRuleActionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'TapRuleActionType']]] = None):
         """
         Action that need to performed.
+
         :param pulumi.Input[_builtins.str] destination_id: Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']] is_timestamp_enabled: The parameter to enable or disable the timestamp.
         :param pulumi.Input[_builtins.str] match_configuration_name: The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
@@ -3490,33 +3408,30 @@ class NetworkTapRuleActionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class NetworkTapRuleMatchConditionArgsDict(TypedDict):
-        """
-        Defines the match condition that is supported to filter the traffic.
-        """
-        encapsulation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EncapsulationType']]]
-        """
-        Encapsulation Type that needs to be matched.
-        """
-        ip_condition: NotRequired[pulumi.Input['IpMatchConditionArgsDict']]
-        """
-        IP condition that needs to be matched.
-        """
-        port_condition: NotRequired[pulumi.Input['PortConditionArgsDict']]
-        """
-        Defines the port condition that needs to be matched.
-        """
-        protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the protocols that need to be matched.
-        """
-        vlan_match_condition: NotRequired[pulumi.Input['VlanMatchConditionArgsDict']]
-        """
-        Vlan match condition that needs to be matched.
-        """
-elif False:
-    NetworkTapRuleMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkTapRuleMatchConditionArgsDict(TypedDict):
+    """
+    Defines the match condition that is supported to filter the traffic.
+    """
+    encapsulation_type: NotRequired[pulumi.Input[Union[_builtins.str, 'EncapsulationType']]]
+    """
+    Encapsulation Type that needs to be matched.
+    """
+    ip_condition: NotRequired[pulumi.Input['IpMatchConditionArgsDict']]
+    """
+    IP condition that needs to be matched.
+    """
+    port_condition: NotRequired[pulumi.Input['PortConditionArgsDict']]
+    """
+    Defines the port condition that needs to be matched.
+    """
+    protocol_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the protocols that need to be matched.
+    """
+    vlan_match_condition: NotRequired[pulumi.Input['VlanMatchConditionArgsDict']]
+    """
+    Vlan match condition that needs to be matched.
+    """
 
 @pulumi.input_type
 class NetworkTapRuleMatchConditionArgs:
@@ -3528,6 +3443,7 @@ class NetworkTapRuleMatchConditionArgs:
                  vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None):
         """
         Defines the match condition that is supported to filter the traffic.
+
         :param pulumi.Input[Union[_builtins.str, 'EncapsulationType']] encapsulation_type: Encapsulation Type that needs to be matched.
         :param pulumi.Input['IpMatchConditionArgs'] ip_condition: IP condition that needs to be matched.
         :param pulumi.Input['PortConditionArgs'] port_condition: Defines the port condition that needs to be matched.
@@ -3608,33 +3524,30 @@ class NetworkTapRuleMatchConditionArgs:
         pulumi.set(self, "vlan_match_condition", value)
 
 
-if not MYPY:
-    class NetworkTapRuleMatchConfigurationArgsDict(TypedDict):
-        """
-        Defines the match configuration that are supported to filter the traffic.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgsDict']]]]
-        """
-        List of actions that need to be performed for the matched conditions.
-        """
-        ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
-        """
-        Type of IP Address. IPv4 or IPv6
-        """
-        match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgsDict']]]]
-        """
-        List of the match conditions.
-        """
-        match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the match configuration.
-        """
-        sequence_number: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Sequence Number of the match configuration..
-        """
-elif False:
-    NetworkTapRuleMatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkTapRuleMatchConfigurationArgsDict(TypedDict):
+    """
+    Defines the match configuration that are supported to filter the traffic.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgsDict']]]]
+    """
+    List of actions that need to be performed for the matched conditions.
+    """
+    ip_address_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IPAddressType']]]
+    """
+    Type of IP Address. IPv4 or IPv6
+    """
+    match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgsDict']]]]
+    """
+    List of the match conditions.
+    """
+    match_configuration_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the match configuration.
+    """
+    sequence_number: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Sequence Number of the match configuration..
+    """
 
 @pulumi.input_type
 class NetworkTapRuleMatchConfigurationArgs:
@@ -3646,6 +3559,7 @@ class NetworkTapRuleMatchConfigurationArgs:
                  sequence_number: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Defines the match configuration that are supported to filter the traffic.
+
         :param pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]] actions: List of actions that need to be performed for the matched conditions.
         :param pulumi.Input[Union[_builtins.str, 'IPAddressType']] ip_address_type: Type of IP Address. IPv4 or IPv6
         :param pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]] match_conditions: List of the match conditions.
@@ -3724,37 +3638,34 @@ class NetworkTapRuleMatchConfigurationArgs:
         pulumi.set(self, "sequence_number", value)
 
 
-if not MYPY:
-    class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict(TypedDict):
-        """
-        Common properties for Layer3Configuration.
-        """
-        peer_asn: pulumi.Input[_builtins.float]
-        """
-        ASN of PE devices for CE/PE connectivity.Example : 28
-        """
-        vlan_id: pulumi.Input[_builtins.int]
-        """
-        VLAN for CE/PE Layer 3 connectivity.Example : 501
-        """
-        primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv4 Address Prefix.
-        """
-        primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv6 Address Prefix.
-        """
-        secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv4 Address Prefix.
-        """
-        secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv6 Address Prefix.
-        """
-elif False:
-    NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgsDict(TypedDict):
+    """
+    Common properties for Layer3Configuration.
+    """
+    peer_asn: pulumi.Input[_builtins.float]
+    """
+    ASN of PE devices for CE/PE connectivity.Example : 28
+    """
+    vlan_id: pulumi.Input[_builtins.int]
+    """
+    VLAN for CE/PE Layer 3 connectivity.Example : 501
+    """
+    primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv4 Address Prefix.
+    """
+    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv6 Address Prefix.
+    """
+    secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv4 Address Prefix.
+    """
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv6 Address Prefix.
+    """
 
 @pulumi.input_type
 class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs:
@@ -3767,6 +3678,7 @@ class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs:
                  secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Common properties for Layer3Configuration.
+
         :param pulumi.Input[_builtins.float] peer_asn: ASN of PE devices for CE/PE connectivity.Example : 28
         :param pulumi.Input[_builtins.int] vlan_id: VLAN for CE/PE Layer 3 connectivity.Example : 501
         :param pulumi.Input[_builtins.str] primary_ipv4_prefix: IPv4 Address Prefix.
@@ -3858,25 +3770,22 @@ class NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs:
         pulumi.set(self, "secondary_ipv6_prefix", value)
 
 
-if not MYPY:
-    class NpbStaticRouteConfigurationArgsDict(TypedDict):
-        """
-        NPB Static Route Configuration properties.
-        """
-        bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
-        """
-        BFD Configuration properties.
-        """
-        ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
-        """
-        List of IPv4 Routes.
-        """
-        ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
-        """
-        List of IPv6 Routes.
-        """
-elif False:
-    NpbStaticRouteConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class NpbStaticRouteConfigurationArgsDict(TypedDict):
+    """
+    NPB Static Route Configuration properties.
+    """
+    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    """
+    BFD Configuration properties.
+    """
+    ipv4_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    """
+    List of IPv4 Routes.
+    """
+    ipv6_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgsDict']]]]
+    """
+    List of IPv6 Routes.
+    """
 
 @pulumi.input_type
 class NpbStaticRouteConfigurationArgs:
@@ -3886,6 +3795,7 @@ class NpbStaticRouteConfigurationArgs:
                  ipv6_routes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]]] = None):
         """
         NPB Static Route Configuration properties.
+
         :param pulumi.Input['BfdConfigurationArgs'] bfd_configuration: BFD Configuration properties.
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv4_routes: List of IPv4 Routes.
         :param pulumi.Input[Sequence[pulumi.Input['StaticRoutePropertiesArgs']]] ipv6_routes: List of IPv6 Routes.
@@ -3934,29 +3844,26 @@ class NpbStaticRouteConfigurationArgs:
         pulumi.set(self, "ipv6_routes", value)
 
 
-if not MYPY:
-    class PortConditionArgsDict(TypedDict):
-        """
-        Port condition that needs to be matched.
-        """
-        layer4_protocol: pulumi.Input[Union[_builtins.str, 'Layer4Protocol']]
-        """
-        Layer4 protocol type that needs to be matched.
-        """
-        port_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the port Group Names that need to be matched.
-        """
-        port_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PortType']]]
-        """
-        Port type that needs to be matched.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the Ports that need to be matched.
-        """
-elif False:
-    PortConditionArgsDict: TypeAlias = Mapping[str, Any]
+class PortConditionArgsDict(TypedDict):
+    """
+    Port condition that needs to be matched.
+    """
+    layer4_protocol: pulumi.Input[Union[_builtins.str, 'Layer4Protocol']]
+    """
+    Layer4 protocol type that needs to be matched.
+    """
+    port_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the port Group Names that need to be matched.
+    """
+    port_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PortType']]]
+    """
+    Port type that needs to be matched.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the Ports that need to be matched.
+    """
 
 @pulumi.input_type
 class PortConditionArgs:
@@ -3967,6 +3874,7 @@ class PortConditionArgs:
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Port condition that needs to be matched.
+
         :param pulumi.Input[Union[_builtins.str, 'Layer4Protocol']] layer4_protocol: Layer4 protocol type that needs to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_group_names: List of the port Group Names that need to be matched.
         :param pulumi.Input[Union[_builtins.str, 'PortType']] port_type: Port type that needs to be matched.
@@ -4029,21 +3937,18 @@ class PortConditionArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class PortGroupPropertiesArgsDict(TypedDict):
-        """
-        Port Group properties.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the port group.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the ports that need to be matched.
-        """
-elif False:
-    PortGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PortGroupPropertiesArgsDict(TypedDict):
+    """
+    Port Group properties.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the port group.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the ports that need to be matched.
+    """
 
 @pulumi.input_type
 class PortGroupPropertiesArgs:
@@ -4052,6 +3957,7 @@ class PortGroupPropertiesArgs:
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Port Group properties.
+
         :param pulumi.Input[_builtins.str] name: The name of the port group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ports: List of the ports that need to be matched.
         """
@@ -4085,29 +3991,26 @@ class PortGroupPropertiesArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class RoutePolicyStatementPropertiesArgsDict(TypedDict):
-        """
-        Route Policy Statement properties.
-        """
-        action: pulumi.Input['StatementActionPropertiesArgsDict']
-        """
-        Route policy action properties.
-        """
-        condition: pulumi.Input['StatementConditionPropertiesArgsDict']
-        """
-        Route policy condition properties.
-        """
-        sequence_number: pulumi.Input[_builtins.float]
-        """
-        Sequence to insert to/delete from existing route.
-        """
-        annotation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Switch configuration description.
-        """
-elif False:
-    RoutePolicyStatementPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RoutePolicyStatementPropertiesArgsDict(TypedDict):
+    """
+    Route Policy Statement properties.
+    """
+    action: pulumi.Input['StatementActionPropertiesArgsDict']
+    """
+    Route policy action properties.
+    """
+    condition: pulumi.Input['StatementConditionPropertiesArgsDict']
+    """
+    Route policy condition properties.
+    """
+    sequence_number: pulumi.Input[_builtins.float]
+    """
+    Sequence to insert to/delete from existing route.
+    """
+    annotation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Switch configuration description.
+    """
 
 @pulumi.input_type
 class RoutePolicyStatementPropertiesArgs:
@@ -4118,6 +4021,7 @@ class RoutePolicyStatementPropertiesArgs:
                  annotation: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Route Policy Statement properties.
+
         :param pulumi.Input['StatementActionPropertiesArgs'] action: Route policy action properties.
         :param pulumi.Input['StatementConditionPropertiesArgs'] condition: Route policy condition properties.
         :param pulumi.Input[_builtins.float] sequence_number: Sequence to insert to/delete from existing route.
@@ -4178,29 +4082,26 @@ class RoutePolicyStatementPropertiesArgs:
         pulumi.set(self, "annotation", value)
 
 
-if not MYPY:
-    class RouteTargetInformationArgsDict(TypedDict):
-        """
-        Route Target Configuration.
-        """
-        export_ipv4_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Route Targets to be applied for outgoing routes into CE.
-        """
-        export_ipv6_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Route Targets to be applied for outgoing routes from CE.
-        """
-        import_ipv4_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Route Targets to be applied for incoming routes into CE.
-        """
-        import_ipv6_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Route Targets to be applied for incoming routes from CE.
-        """
-elif False:
-    RouteTargetInformationArgsDict: TypeAlias = Mapping[str, Any]
+class RouteTargetInformationArgsDict(TypedDict):
+    """
+    Route Target Configuration.
+    """
+    export_ipv4_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Route Targets to be applied for outgoing routes into CE.
+    """
+    export_ipv6_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Route Targets to be applied for outgoing routes from CE.
+    """
+    import_ipv4_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Route Targets to be applied for incoming routes into CE.
+    """
+    import_ipv6_route_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Route Targets to be applied for incoming routes from CE.
+    """
 
 @pulumi.input_type
 class RouteTargetInformationArgs:
@@ -4211,6 +4112,7 @@ class RouteTargetInformationArgs:
                  import_ipv6_route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Route Target Configuration.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_ipv4_route_targets: Route Targets to be applied for outgoing routes into CE.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] export_ipv6_route_targets: Route Targets to be applied for outgoing routes from CE.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] import_ipv4_route_targets: Route Targets to be applied for incoming routes into CE.
@@ -4274,21 +4176,18 @@ class RouteTargetInformationArgs:
         pulumi.set(self, "import_ipv6_route_targets", value)
 
 
-if not MYPY:
-    class RulePropertiesArgsDict(TypedDict):
-        """
-        Rules for the InternetGateways
-        """
-        action: pulumi.Input[Union[_builtins.str, 'Action']]
-        """
-        Specify action.
-        """
-        address_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of Addresses to be allowed or denied.
-        """
-elif False:
-    RulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RulePropertiesArgsDict(TypedDict):
+    """
+    Rules for the InternetGateways
+    """
+    action: pulumi.Input[Union[_builtins.str, 'Action']]
+    """
+    Specify action.
+    """
+    address_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of Addresses to be allowed or denied.
+    """
 
 @pulumi.input_type
 class RulePropertiesArgs:
@@ -4297,6 +4196,7 @@ class RulePropertiesArgs:
                  address_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         Rules for the InternetGateways
+
         :param pulumi.Input[Union[_builtins.str, 'Action']] action: Specify action.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_list: List of Addresses to be allowed or denied.
         """
@@ -4328,29 +4228,26 @@ class RulePropertiesArgs:
         pulumi.set(self, "address_list", value)
 
 
-if not MYPY:
-    class StatementActionPropertiesArgsDict(TypedDict):
-        """
-        Route policy action properties.
-        """
-        action_type: pulumi.Input[Union[_builtins.str, 'RoutePolicyActionType']]
-        """
-        Action type. Example: Permit | Deny | Continue.
-        """
-        ip_community_properties: NotRequired[pulumi.Input['ActionIpCommunityPropertiesArgsDict']]
-        """
-        IP Community Properties.
-        """
-        ip_extended_community_properties: NotRequired[pulumi.Input['ActionIpExtendedCommunityPropertiesArgsDict']]
-        """
-        IP Extended Community Properties.
-        """
-        local_preference: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Local Preference of the route policy.
-        """
-elif False:
-    StatementActionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StatementActionPropertiesArgsDict(TypedDict):
+    """
+    Route policy action properties.
+    """
+    action_type: pulumi.Input[Union[_builtins.str, 'RoutePolicyActionType']]
+    """
+    Action type. Example: Permit | Deny | Continue.
+    """
+    ip_community_properties: NotRequired[pulumi.Input['ActionIpCommunityPropertiesArgsDict']]
+    """
+    IP Community Properties.
+    """
+    ip_extended_community_properties: NotRequired[pulumi.Input['ActionIpExtendedCommunityPropertiesArgsDict']]
+    """
+    IP Extended Community Properties.
+    """
+    local_preference: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Local Preference of the route policy.
+    """
 
 @pulumi.input_type
 class StatementActionPropertiesArgs:
@@ -4361,6 +4258,7 @@ class StatementActionPropertiesArgs:
                  local_preference: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Route policy action properties.
+
         :param pulumi.Input[Union[_builtins.str, 'RoutePolicyActionType']] action_type: Action type. Example: Permit | Deny | Continue.
         :param pulumi.Input['ActionIpCommunityPropertiesArgs'] ip_community_properties: IP Community Properties.
         :param pulumi.Input['ActionIpExtendedCommunityPropertiesArgs'] ip_extended_community_properties: IP Extended Community Properties.
@@ -4423,29 +4321,26 @@ class StatementActionPropertiesArgs:
         pulumi.set(self, "local_preference", value)
 
 
-if not MYPY:
-    class StatementConditionPropertiesArgsDict(TypedDict):
-        """
-        Route policy statement condition properties.
-        """
-        ip_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP Community resource IDs.
-        """
-        ip_extended_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of IP Extended Community resource IDs.
-        """
-        ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Arm Resource Id of IpPrefix.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]]
-        """
-        Type of the condition used.
-        """
-elif False:
-    StatementConditionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StatementConditionPropertiesArgsDict(TypedDict):
+    """
+    Route policy statement condition properties.
+    """
+    ip_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP Community resource IDs.
+    """
+    ip_extended_community_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of IP Extended Community resource IDs.
+    """
+    ip_prefix_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Arm Resource Id of IpPrefix.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]]
+    """
+    Type of the condition used.
+    """
 
 @pulumi.input_type
 class StatementConditionPropertiesArgs:
@@ -4456,6 +4351,7 @@ class StatementConditionPropertiesArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'RoutePolicyConditionType']]] = None):
         """
         Route policy statement condition properties.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_community_ids: List of IP Community resource IDs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_extended_community_ids: List of IP Extended Community resource IDs.
         :param pulumi.Input[_builtins.str] ip_prefix_id: Arm Resource Id of IpPrefix.
@@ -4521,21 +4417,18 @@ class StatementConditionPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class StaticRoutePropertiesArgsDict(TypedDict):
-        """
-        Route Properties.
-        """
-        next_hop: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of next hop addresses.
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        Prefix of the route.
-        """
-elif False:
-    StaticRoutePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StaticRoutePropertiesArgsDict(TypedDict):
+    """
+    Route Properties.
+    """
+    next_hop: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of next hop addresses.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    Prefix of the route.
+    """
 
 @pulumi.input_type
 class StaticRoutePropertiesArgs:
@@ -4544,6 +4437,7 @@ class StaticRoutePropertiesArgs:
                  prefix: pulumi.Input[_builtins.str]):
         """
         Route Properties.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] next_hop: List of next hop addresses.
         :param pulumi.Input[_builtins.str] prefix: Prefix of the route.
         """
@@ -4575,25 +4469,22 @@ class StaticRoutePropertiesArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class StationConnectionPropertiesArgsDict(TypedDict):
-        """
-        Station Connection Properties.
-        """
-        keepalive_idle_time: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Connection keepalive idle time in seconds
-        """
-        probe_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Probe count, default value is 10
-        """
-        probe_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Probe interval in seconds, default value is 60
-        """
-elif False:
-    StationConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StationConnectionPropertiesArgsDict(TypedDict):
+    """
+    Station Connection Properties.
+    """
+    keepalive_idle_time: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Connection keepalive idle time in seconds
+    """
+    probe_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Probe count, default value is 10
+    """
+    probe_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Probe interval in seconds, default value is 60
+    """
 
 @pulumi.input_type
 class StationConnectionPropertiesArgs:
@@ -4603,6 +4494,7 @@ class StationConnectionPropertiesArgs:
                  probe_interval: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Station Connection Properties.
+
         :param pulumi.Input[_builtins.int] keepalive_idle_time: Connection keepalive idle time in seconds
         :param pulumi.Input[_builtins.int] probe_count: Probe count, default value is 10
         :param pulumi.Input[_builtins.int] probe_interval: Probe interval in seconds, default value is 60
@@ -4657,41 +4549,38 @@ class StationConnectionPropertiesArgs:
         pulumi.set(self, "probe_interval", value)
 
 
-if not MYPY:
-    class TerminalServerConfigurationArgsDict(TypedDict):
-        """
-        Network and credentials configuration currently applied to terminal server.
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        Password for the terminal server connection.
-        """
-        primary_ipv4_prefix: pulumi.Input[_builtins.str]
-        """
-        IPv4 Address Prefix.
-        """
-        secondary_ipv4_prefix: pulumi.Input[_builtins.str]
-        """
-        Secondary IPv4 Address Prefix.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        Username for the terminal server connection.
-        """
-        primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv6 Address Prefix.
-        """
-        secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv6 Address Prefix.
-        """
-        serial_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Serial Number of Terminal server.
-        """
-elif False:
-    TerminalServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TerminalServerConfigurationArgsDict(TypedDict):
+    """
+    Network and credentials configuration currently applied to terminal server.
+    """
+    password: pulumi.Input[_builtins.str]
+    """
+    Password for the terminal server connection.
+    """
+    primary_ipv4_prefix: pulumi.Input[_builtins.str]
+    """
+    IPv4 Address Prefix.
+    """
+    secondary_ipv4_prefix: pulumi.Input[_builtins.str]
+    """
+    Secondary IPv4 Address Prefix.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    Username for the terminal server connection.
+    """
+    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv6 Address Prefix.
+    """
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv6 Address Prefix.
+    """
+    serial_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Serial Number of Terminal server.
+    """
 
 @pulumi.input_type
 class TerminalServerConfigurationArgs:
@@ -4705,6 +4594,7 @@ class TerminalServerConfigurationArgs:
                  serial_number: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Network and credentials configuration currently applied to terminal server.
+
         :param pulumi.Input[_builtins.str] password: Password for the terminal server connection.
         :param pulumi.Input[_builtins.str] primary_ipv4_prefix: IPv4 Address Prefix.
         :param pulumi.Input[_builtins.str] secondary_ipv4_prefix: Secondary IPv4 Address Prefix.
@@ -4809,21 +4699,18 @@ class TerminalServerConfigurationArgs:
         pulumi.set(self, "serial_number", value)
 
 
-if not MYPY:
-    class VlanGroupPropertiesArgsDict(TypedDict):
-        """
-        Vlan group properties.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Vlan group name.
-        """
-        vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of vlans.
-        """
-elif False:
-    VlanGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VlanGroupPropertiesArgsDict(TypedDict):
+    """
+    Vlan group properties.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Vlan group name.
+    """
+    vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of vlans.
+    """
 
 @pulumi.input_type
 class VlanGroupPropertiesArgs:
@@ -4832,6 +4719,7 @@ class VlanGroupPropertiesArgs:
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Vlan group properties.
+
         :param pulumi.Input[_builtins.str] name: Vlan group name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlans: List of vlans.
         """
@@ -4865,25 +4753,22 @@ class VlanGroupPropertiesArgs:
         pulumi.set(self, "vlans", value)
 
 
-if not MYPY:
-    class VlanMatchConditionArgsDict(TypedDict):
-        """
-        The vlan match conditions that need to be matched.
-        """
-        inner_vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of inner vlans that need to be matched.
-        """
-        vlan_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of vlan group names that need to be matched.
-        """
-        vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of vlans that need to be matched.
-        """
-elif False:
-    VlanMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class VlanMatchConditionArgsDict(TypedDict):
+    """
+    The vlan match conditions that need to be matched.
+    """
+    inner_vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of inner vlans that need to be matched.
+    """
+    vlan_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of vlan group names that need to be matched.
+    """
+    vlans: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of vlans that need to be matched.
+    """
 
 @pulumi.input_type
 class VlanMatchConditionArgs:
@@ -4893,6 +4778,7 @@ class VlanMatchConditionArgs:
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The vlan match conditions that need to be matched.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] inner_vlans: List of inner vlans that need to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlan_group_names: List of vlan group names that need to be matched.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlans: List of vlans that need to be matched.
@@ -4941,45 +4827,42 @@ class VlanMatchConditionArgs:
         pulumi.set(self, "vlans", value)
 
 
-if not MYPY:
-    class VpnConfigurationPropertiesOptionAPropertiesArgsDict(TypedDict):
-        """
-        option A properties
-        """
-        peer_asn: pulumi.Input[_builtins.float]
-        """
-        Peer ASN number.Example : 28
-        """
-        vlan_id: pulumi.Input[_builtins.int]
-        """
-        Vlan Id.Example : 501
-        """
-        bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
-        """
-        BFD Configuration properties.
-        """
-        mtu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        MTU to use for option A peering.
-        """
-        primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv4 Address Prefix.
-        """
-        primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IPv6 Address Prefix.
-        """
-        secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv4 Address Prefix.
-        """
-        secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secondary IPv6 Address Prefix.
-        """
-elif False:
-    VpnConfigurationPropertiesOptionAPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConfigurationPropertiesOptionAPropertiesArgsDict(TypedDict):
+    """
+    option A properties
+    """
+    peer_asn: pulumi.Input[_builtins.float]
+    """
+    Peer ASN number.Example : 28
+    """
+    vlan_id: pulumi.Input[_builtins.int]
+    """
+    Vlan Id.Example : 501
+    """
+    bfd_configuration: NotRequired[pulumi.Input['BfdConfigurationArgsDict']]
+    """
+    BFD Configuration properties.
+    """
+    mtu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    MTU to use for option A peering.
+    """
+    primary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv4 Address Prefix.
+    """
+    primary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IPv6 Address Prefix.
+    """
+    secondary_ipv4_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv4 Address Prefix.
+    """
+    secondary_ipv6_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secondary IPv6 Address Prefix.
+    """
 
 @pulumi.input_type
 class VpnConfigurationPropertiesOptionAPropertiesArgs:
@@ -4994,6 +4877,7 @@ class VpnConfigurationPropertiesOptionAPropertiesArgs:
                  secondary_ipv6_prefix: Optional[pulumi.Input[_builtins.str]] = None):
         """
         option A properties
+
         :param pulumi.Input[_builtins.float] peer_asn: Peer ASN number.Example : 28
         :param pulumi.Input[_builtins.int] vlan_id: Vlan Id.Example : 501
         :param pulumi.Input['BfdConfigurationArgs'] bfd_configuration: BFD Configuration properties.
@@ -5117,29 +5001,26 @@ class VpnConfigurationPropertiesOptionAPropertiesArgs:
         pulumi.set(self, "secondary_ipv6_prefix", value)
 
 
-if not MYPY:
-    class VpnConfigurationPropertiesArgsDict(TypedDict):
-        """
-        Network and credential configuration currently applied on terminal server.
-        """
-        peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']]
-        """
-        Peering option list.
-        """
-        network_to_network_interconnect_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARM Resource ID of the Network To Network Interconnect.
-        """
-        option_a_properties: NotRequired[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgsDict']]
-        """
-        option A properties
-        """
-        option_b_properties: NotRequired[pulumi.Input['FabricOptionBPropertiesArgsDict']]
-        """
-        option B properties
-        """
-elif False:
-    VpnConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class VpnConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Network and credential configuration currently applied on terminal server.
+    """
+    peering_option: pulumi.Input[Union[_builtins.str, 'PeeringOption']]
+    """
+    Peering option list.
+    """
+    network_to_network_interconnect_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM Resource ID of the Network To Network Interconnect.
+    """
+    option_a_properties: NotRequired[pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgsDict']]
+    """
+    option A properties
+    """
+    option_b_properties: NotRequired[pulumi.Input['FabricOptionBPropertiesArgsDict']]
+    """
+    option B properties
+    """
 
 @pulumi.input_type
 class VpnConfigurationPropertiesArgs:
@@ -5150,6 +5031,7 @@ class VpnConfigurationPropertiesArgs:
                  option_b_properties: Optional[pulumi.Input['FabricOptionBPropertiesArgs']] = None):
         """
         Network and credential configuration currently applied on terminal server.
+
         :param pulumi.Input[Union[_builtins.str, 'PeeringOption']] peering_option: Peering option list.
         :param pulumi.Input[_builtins.str] network_to_network_interconnect_id: ARM Resource ID of the Network To Network Interconnect.
         :param pulumi.Input['VpnConfigurationPropertiesOptionAPropertiesArgs'] option_a_properties: option A properties

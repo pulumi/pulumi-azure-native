@@ -21,19 +21,14 @@ __all__ = [
     'ConfigurationProfilePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
-        """
-        Automanage configuration profile assignment properties.
-        """
-        configuration_profile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Automanage configurationProfile ARM Resource URI.
-        """
-elif False:
-    ConfigurationProfileAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfileAssignmentPropertiesArgsDict(TypedDict):
+    """
+    Automanage configuration profile assignment properties.
+    """
+    configuration_profile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Automanage configurationProfile ARM Resource URI.
+    """
 
 @pulumi.input_type
 class ConfigurationProfileAssignmentPropertiesArgs:
@@ -41,6 +36,7 @@ class ConfigurationProfileAssignmentPropertiesArgs:
                  configuration_profile: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Automanage configuration profile assignment properties.
+
         :param pulumi.Input[_builtins.str] configuration_profile: The Automanage configurationProfile ARM Resource URI.
         """
         if configuration_profile is not None:
@@ -59,17 +55,14 @@ class ConfigurationProfileAssignmentPropertiesArgs:
         pulumi.set(self, "configuration_profile", value)
 
 
-if not MYPY:
-    class ConfigurationProfilePropertiesArgsDict(TypedDict):
-        """
-        Automanage configuration profile properties.
-        """
-        configuration: NotRequired[Any]
-        """
-        configuration dictionary of the configuration profile.
-        """
-elif False:
-    ConfigurationProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfilePropertiesArgsDict(TypedDict):
+    """
+    Automanage configuration profile properties.
+    """
+    configuration: NotRequired[Any]
+    """
+    configuration dictionary of the configuration profile.
+    """
 
 @pulumi.input_type
 class ConfigurationProfilePropertiesArgs:
@@ -77,6 +70,7 @@ class ConfigurationProfilePropertiesArgs:
                  configuration: Optional[Any] = None):
         """
         Automanage configuration profile properties.
+
         :param Any configuration: configuration dictionary of the configuration profile.
         """
         if configuration is not None:

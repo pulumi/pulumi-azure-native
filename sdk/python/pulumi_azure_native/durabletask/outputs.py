@@ -54,6 +54,7 @@ class RetentionPolicyDetailsResponse(dict):
                  orchestration_state: Optional[_builtins.str] = None):
         """
         The properties of a retention policy
+
         :param _builtins.int retention_period_in_days: The retention period in days after which the orchestration will be purged automatically
         :param _builtins.str orchestration_state: The orchestration state to which this policy applies. If omitted, the policy applies to all purgeable orchestration states.
         """
@@ -107,6 +108,7 @@ class RetentionPolicyPropertiesResponse(dict):
                  retention_policies: Optional[Sequence['outputs.RetentionPolicyDetailsResponse']] = None):
         """
         The retention policy settings for the resource
+
         :param _builtins.str provisioning_state: The status of the last operation
         :param Sequence['RetentionPolicyDetailsResponse'] retention_policies: The orchestration retention policies
         """
@@ -162,6 +164,7 @@ class SchedulerPropertiesResponse(dict):
                  sku: 'outputs.SchedulerSkuResponse'):
         """
         Details of the Scheduler
+
         :param _builtins.str endpoint: URL of the durable task scheduler
         :param Sequence[_builtins.str] ip_allowlist: IP allow list for durable task scheduler. Values can be IPv4, IPv6 or CIDR
         :param _builtins.str provisioning_state: The status of the last operation
@@ -233,6 +236,7 @@ class SchedulerSkuResponse(dict):
                  capacity: Optional[_builtins.int] = None):
         """
         The SKU (Stock Keeping Unit) assigned to this durable task scheduler
+
         :param _builtins.str name: The name of the SKU
         :param _builtins.str redundancy_state: Indicates whether the current SKU configuration is zone redundant
         :param _builtins.int capacity: The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy
@@ -308,6 +312,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -406,6 +411,7 @@ class TaskHubPropertiesResponse(dict):
                  provisioning_state: _builtins.str):
         """
         The properties of Task Hub
+
         :param _builtins.str dashboard_url: URL of the durable task scheduler dashboard
         :param _builtins.str provisioning_state: The status of the last operation
         """

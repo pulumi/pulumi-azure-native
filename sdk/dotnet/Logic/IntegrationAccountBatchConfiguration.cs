@@ -15,6 +15,53 @@ namespace Pulumi.AzureNative.Logic
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
     /// Other available API versions: 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a batch configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountBatchConfiguration = new AzureNative.Logic.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration", new()
+    ///     {
+    ///         BatchConfigurationName = "testBatchConfiguration",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.Logic.Inputs.BatchConfigurationPropertiesArgs
+    ///         {
+    ///             BatchGroupName = "DEFAULT",
+    ///             ReleaseCriteria = new AzureNative.Logic.Inputs.BatchReleaseCriteriaArgs
+    ///             {
+    ///                 BatchSize = 234567,
+    ///                 MessageCount = 10,
+    ///                 Recurrence = new AzureNative.Logic.Inputs.WorkflowTriggerRecurrenceArgs
+    ///                 {
+    ///                     Frequency = AzureNative.Logic.RecurrenceFrequency.Minute,
+    ///                     Interval = 1,
+    ///                     StartTime = "2017-03-24T11:43:00",
+    ///                     TimeZone = "India Standard Time",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:IntegrationAccountBatchConfiguration testBatchConfiguration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/batchConfigurations/{batchConfigurationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : global::Pulumi.CustomResource

@@ -39,6 +39,7 @@ class NamespaceDiscoveredDeviceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NamespaceDiscoveredDevice resource.
+
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the discovered device.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
@@ -291,6 +292,49 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrReplace_NamespaceDiscoveredDevice
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_discovered_device = azure_native.deviceregistry.NamespaceDiscoveredDevice("namespaceDiscoveredDevice",
+            discovered_device_name="my-discovereddevice-1",
+            discovery_id="discoveryId1",
+            endpoints={
+                "outbound": {
+                    "assigned": {
+                        "eventGridEndpoint": {
+                            "address": "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
+                            "endpoint_type": "Microsoft.EventGrid",
+                        },
+                    },
+                },
+            },
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+                "type": "CustomLocation",
+            },
+            location="West Europe",
+            namespace_name="my-namespace-1",
+            resource_group_name="myResourceGroup",
+            tags={
+                "site": "building-1",
+            },
+            version=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:NamespaceDiscoveredDevice my-discovereddevice-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any attributes: A set of key-value pairs that contain custom attributes.
@@ -321,6 +365,49 @@ class NamespaceDiscoveredDevice(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrReplace_NamespaceDiscoveredDevice
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_discovered_device = azure_native.deviceregistry.NamespaceDiscoveredDevice("namespaceDiscoveredDevice",
+            discovered_device_name="my-discovereddevice-1",
+            discovery_id="discoveryId1",
+            endpoints={
+                "outbound": {
+                    "assigned": {
+                        "eventGridEndpoint": {
+                            "address": "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
+                            "endpoint_type": "Microsoft.EventGrid",
+                        },
+                    },
+                },
+            },
+            extended_location={
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+                "type": "CustomLocation",
+            },
+            location="West Europe",
+            namespace_name="my-namespace-1",
+            resource_group_name="myResourceGroup",
+            tags={
+                "site": "building-1",
+            },
+            version=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceregistry:NamespaceDiscoveredDevice my-discovereddevice-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NamespaceDiscoveredDeviceArgs args: The arguments to use to populate this resource's properties.

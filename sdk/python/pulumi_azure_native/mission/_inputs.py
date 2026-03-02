@@ -50,75 +50,70 @@ __all__ = [
     'TransitOptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApprovalSettingsArgsDict(TypedDict):
-        """
-        ApprovalSettings Properties
-        """
-        connection_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for enclave connection creation (Required or NotRequired).
-        """
-        connection_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for enclave connection deletion (Required or NotRequired).
-        """
-        connection_update: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for enclave connection update (Required or NotRequired).
-        """
-        enclave_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for virtual enclave creation (Required or NotRequired).
-        """
-        enclave_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for virtual enclave deletion (Required or NotRequired).
-        """
-        endpoint_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for endpoint creation (Required or NotRequired).
-        """
-        endpoint_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for endpoint deletion (Required or NotRequired).
-        """
-        endpoint_update: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for endpoint update (Required or NotRequired).
-        """
-        maintenance_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for toggling maintenance mode (Required or NotRequired).
-        """
-        mandatory_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['MandatoryApproverArgsDict']]]]
-        """
-        List of mandatory approvers for the approval request
-        """
-        minimum_approvers_required: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum number of approvers required for the approval request
-        """
-        notification_on_approval_action: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Notification will be sent on any action taken (Approve/Reject) on an Approval Request
-        """
-        notification_on_approval_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Notification will be sent on creation of an Approval Request
-        """
-        notification_on_approval_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Notification will be sent on deletion of an Approval Request
-        """
-        service_catalog_deployment: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
-        """
-        Approval required for deploying service catalog templates (Required or NotRequired).
-        """
-elif False:
-    ApprovalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ApprovalSettingsArgsDict(TypedDict):
+    """
+    ApprovalSettings Properties
+    """
+    connection_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for enclave connection creation (Required or NotRequired).
+    """
+    connection_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for enclave connection deletion (Required or NotRequired).
+    """
+    connection_update: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for enclave connection update (Required or NotRequired).
+    """
+    enclave_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for virtual enclave creation (Required or NotRequired).
+    """
+    enclave_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for virtual enclave deletion (Required or NotRequired).
+    """
+    endpoint_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for endpoint creation (Required or NotRequired).
+    """
+    endpoint_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for endpoint deletion (Required or NotRequired).
+    """
+    endpoint_update: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for endpoint update (Required or NotRequired).
+    """
+    maintenance_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for toggling maintenance mode (Required or NotRequired).
+    """
+    mandatory_approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['MandatoryApproverArgsDict']]]]
+    """
+    List of mandatory approvers for the approval request
+    """
+    minimum_approvers_required: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum number of approvers required for the approval request
+    """
+    notification_on_approval_action: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Notification will be sent on any action taken (Approve/Reject) on an Approval Request
+    """
+    notification_on_approval_creation: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Notification will be sent on creation of an Approval Request
+    """
+    notification_on_approval_deletion: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Notification will be sent on deletion of an Approval Request
+    """
+    service_catalog_deployment: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]]
+    """
+    Approval required for deploying service catalog templates (Required or NotRequired).
+    """
 
 @pulumi.input_type
 class ApprovalSettingsArgs:
@@ -140,6 +135,7 @@ class ApprovalSettingsArgs:
                  service_catalog_deployment: Optional[pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']]] = None):
         """
         ApprovalSettings Properties
+
         :param pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']] connection_creation: Approval required for enclave connection creation (Required or NotRequired).
         :param pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']] connection_deletion: Approval required for enclave connection deletion (Required or NotRequired).
         :param pulumi.Input[Union[_builtins.str, 'ApprovalPolicy']] connection_update: Approval required for enclave connection update (Required or NotRequired).
@@ -368,25 +364,22 @@ class ApprovalSettingsArgs:
         pulumi.set(self, "service_catalog_deployment", value)
 
 
-if not MYPY:
-    class ApproverArgsDict(TypedDict):
-        """
-        Approver Metadata for approvals request.
-        """
-        approver_entra_id: pulumi.Input[_builtins.str]
-        """
-        Entra ObjectID of the approver
-        """
-        last_updated_at: pulumi.Input[_builtins.str]
-        """
-        approval request last updated at
-        """
-        action_performed: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionPerformed']]]
-        """
-        Action Performed by approver
-        """
-elif False:
-    ApproverArgsDict: TypeAlias = Mapping[str, Any]
+class ApproverArgsDict(TypedDict):
+    """
+    Approver Metadata for approvals request.
+    """
+    approver_entra_id: pulumi.Input[_builtins.str]
+    """
+    Entra ObjectID of the approver
+    """
+    last_updated_at: pulumi.Input[_builtins.str]
+    """
+    approval request last updated at
+    """
+    action_performed: NotRequired[pulumi.Input[Union[_builtins.str, 'ActionPerformed']]]
+    """
+    Action Performed by approver
+    """
 
 @pulumi.input_type
 class ApproverArgs:
@@ -396,6 +389,7 @@ class ApproverArgs:
                  action_performed: Optional[pulumi.Input[Union[_builtins.str, 'ActionPerformed']]] = None):
         """
         Approver Metadata for approvals request.
+
         :param pulumi.Input[_builtins.str] approver_entra_id: Entra ObjectID of the approver
         :param pulumi.Input[_builtins.str] last_updated_at: approval request last updated at
         :param pulumi.Input[Union[_builtins.str, 'ActionPerformed']] action_performed: Action Performed by approver
@@ -442,37 +436,34 @@ class ApproverArgs:
         pulumi.set(self, "action_performed", value)
 
 
-if not MYPY:
-    class CommunityEndpointDestinationRuleArgsDict(TypedDict):
-        """
-        Base type for destination rules.
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
-        """
-        destination_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DestinationType']]]
-        """
-        Destination Type.
-        """
-        endpoint_rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Endpoint Rule Name.
-        """
-        ports: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port. Can include multiple ports separated by commas or a range indicated by a hyphen.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CommunityEndpointProtocol']]]]]
-        """
-        Protocols. Options specified by Endpoint Protocol Enum.
-        """
-        transit_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Transit Hub Resource Id.
-        """
-elif False:
-    CommunityEndpointDestinationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CommunityEndpointDestinationRuleArgsDict(TypedDict):
+    """
+    Base type for destination rules.
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
+    """
+    destination_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DestinationType']]]
+    """
+    Destination Type.
+    """
+    endpoint_rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Endpoint Rule Name.
+    """
+    ports: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port. Can include multiple ports separated by commas or a range indicated by a hyphen.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'CommunityEndpointProtocol']]]]]
+    """
+    Protocols. Options specified by Endpoint Protocol Enum.
+    """
+    transit_hub_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Transit Hub Resource Id.
+    """
 
 @pulumi.input_type
 class CommunityEndpointDestinationRuleArgs:
@@ -485,6 +476,7 @@ class CommunityEndpointDestinationRuleArgs:
                  transit_hub_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Base type for destination rules.
+
         :param pulumi.Input[_builtins.str] destination: Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
         :param pulumi.Input[Union[_builtins.str, 'DestinationType']] destination_type: Destination Type.
         :param pulumi.Input[_builtins.str] endpoint_rule_name: Endpoint Rule Name.
@@ -578,17 +570,14 @@ class CommunityEndpointDestinationRuleArgs:
         pulumi.set(self, "transit_hub_resource_id", value)
 
 
-if not MYPY:
-    class EnclaveDefaultSettingsModelArgsDict(TypedDict):
-        """
-        Virtual Enclave Default Settings
-        """
-        diagnostic_destination: NotRequired[pulumi.Input[Union[_builtins.str, 'DiagnosticDestination']]]
-        """
-        Diagnostic Destination.
-        """
-elif False:
-    EnclaveDefaultSettingsModelArgsDict: TypeAlias = Mapping[str, Any]
+class EnclaveDefaultSettingsModelArgsDict(TypedDict):
+    """
+    Virtual Enclave Default Settings
+    """
+    diagnostic_destination: NotRequired[pulumi.Input[Union[_builtins.str, 'DiagnosticDestination']]]
+    """
+    Diagnostic Destination.
+    """
 
 @pulumi.input_type
 class EnclaveDefaultSettingsModelArgs:
@@ -596,6 +585,7 @@ class EnclaveDefaultSettingsModelArgs:
                  diagnostic_destination: Optional[pulumi.Input[Union[_builtins.str, 'DiagnosticDestination']]] = None):
         """
         Virtual Enclave Default Settings
+
         :param pulumi.Input[Union[_builtins.str, 'DiagnosticDestination']] diagnostic_destination: Diagnostic Destination.
         """
         if diagnostic_destination is None:
@@ -616,29 +606,26 @@ class EnclaveDefaultSettingsModelArgs:
         pulumi.set(self, "diagnostic_destination", value)
 
 
-if not MYPY:
-    class EnclaveEndpointDestinationRuleArgsDict(TypedDict):
-        """
-        Enclave Endpoint Rule Properties
-        """
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
-        """
-        endpoint_rule_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Endpoint Rule Name.
-        """
-        ports: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port. Can include multiple ports separated by commas or a range indicated by a hyphen.
-        """
-        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnclaveEndpointProtocol']]]]]
-        """
-        Protocols. Options specified by Endpoint Protocol Enum.
-        """
-elif False:
-    EnclaveEndpointDestinationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class EnclaveEndpointDestinationRuleArgsDict(TypedDict):
+    """
+    Enclave Endpoint Rule Properties
+    """
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
+    """
+    endpoint_rule_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Endpoint Rule Name.
+    """
+    ports: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port. Can include multiple ports separated by commas or a range indicated by a hyphen.
+    """
+    protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnclaveEndpointProtocol']]]]]
+    """
+    Protocols. Options specified by Endpoint Protocol Enum.
+    """
 
 @pulumi.input_type
 class EnclaveEndpointDestinationRuleArgs:
@@ -649,6 +636,7 @@ class EnclaveEndpointDestinationRuleArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'EnclaveEndpointProtocol']]]]] = None):
         """
         Enclave Endpoint Rule Properties
+
         :param pulumi.Input[_builtins.str] destination: Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
         :param pulumi.Input[_builtins.str] endpoint_rule_name: Endpoint Rule Name.
         :param pulumi.Input[_builtins.str] ports: Port. Can include multiple ports separated by commas or a range indicated by a hyphen.
@@ -712,33 +700,30 @@ class EnclaveEndpointDestinationRuleArgs:
         pulumi.set(self, "protocols", value)
 
 
-if not MYPY:
-    class EnclaveVirtualNetworkModelArgsDict(TypedDict):
-        """
-        Enclave Virtual Network Properties
-        """
-        allow_subnet_communication: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow Subnet Communication.
-        """
-        custom_cidr_range: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom CIDR Range.
-        """
-        network_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Network Name.
-        """
-        network_size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Network Size.
-        """
-        subnet_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetConfigurationArgsDict']]]]
-        """
-        Subnet Configurations.
-        """
-elif False:
-    EnclaveVirtualNetworkModelArgsDict: TypeAlias = Mapping[str, Any]
+class EnclaveVirtualNetworkModelArgsDict(TypedDict):
+    """
+    Enclave Virtual Network Properties
+    """
+    allow_subnet_communication: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow Subnet Communication.
+    """
+    custom_cidr_range: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom CIDR Range.
+    """
+    network_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network Name.
+    """
+    network_size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Network Size.
+    """
+    subnet_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubnetConfigurationArgsDict']]]]
+    """
+    Subnet Configurations.
+    """
 
 @pulumi.input_type
 class EnclaveVirtualNetworkModelArgs:
@@ -750,6 +735,7 @@ class EnclaveVirtualNetworkModelArgs:
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetConfigurationArgs']]]] = None):
         """
         Enclave Virtual Network Properties
+
         :param pulumi.Input[_builtins.bool] allow_subnet_communication: Allow Subnet Communication.
         :param pulumi.Input[_builtins.str] custom_cidr_range: Custom CIDR Range.
         :param pulumi.Input[_builtins.str] network_name: Network Name.
@@ -830,29 +816,26 @@ class EnclaveVirtualNetworkModelArgs:
         pulumi.set(self, "subnet_configurations", value)
 
 
-if not MYPY:
-    class GovernedServiceItemArgsDict(TypedDict):
-        """
-        GovernedServiceItem Properties
-        """
-        service_id: pulumi.Input[Union[_builtins.str, 'ServiceIdentifier']]
-        """
-        Service ID
-        """
-        enforcement: NotRequired[pulumi.Input[Union[_builtins.str, 'Enforcement']]]
-        """
-        Initiative enforcement (Enabled or Disabled).
-        """
-        option: NotRequired[pulumi.Input[Union[_builtins.str, 'Option']]]
-        """
-        Governance option for this service (Allow, Deny, ExceptionOnly, or NotApplicable).
-        """
-        policy_action: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyAction']]]
-        """
-        Enforcement mode for policy. AuditOnly, Enforce, or None.
-        """
-elif False:
-    GovernedServiceItemArgsDict: TypeAlias = Mapping[str, Any]
+class GovernedServiceItemArgsDict(TypedDict):
+    """
+    GovernedServiceItem Properties
+    """
+    service_id: pulumi.Input[Union[_builtins.str, 'ServiceIdentifier']]
+    """
+    Service ID
+    """
+    enforcement: NotRequired[pulumi.Input[Union[_builtins.str, 'Enforcement']]]
+    """
+    Initiative enforcement (Enabled or Disabled).
+    """
+    option: NotRequired[pulumi.Input[Union[_builtins.str, 'Option']]]
+    """
+    Governance option for this service (Allow, Deny, ExceptionOnly, or NotApplicable).
+    """
+    policy_action: NotRequired[pulumi.Input[Union[_builtins.str, 'PolicyAction']]]
+    """
+    Enforcement mode for policy. AuditOnly, Enforce, or None.
+    """
 
 @pulumi.input_type
 class GovernedServiceItemArgs:
@@ -863,6 +846,7 @@ class GovernedServiceItemArgs:
                  policy_action: Optional[pulumi.Input[Union[_builtins.str, 'PolicyAction']]] = None):
         """
         GovernedServiceItem Properties
+
         :param pulumi.Input[Union[_builtins.str, 'ServiceIdentifier']] service_id: Service ID
         :param pulumi.Input[Union[_builtins.str, 'Enforcement']] enforcement: Initiative enforcement (Enabled or Disabled).
         :param pulumi.Input[Union[_builtins.str, 'Option']] option: Governance option for this service (Allow, Deny, ExceptionOnly, or NotApplicable).
@@ -925,25 +909,22 @@ class GovernedServiceItemArgs:
         pulumi.set(self, "policy_action", value)
 
 
-if not MYPY:
-    class MaintenanceModeConfigurationModelArgsDict(TypedDict):
-        """
-        Maintenance Mode
-        """
-        mode: pulumi.Input[Union[_builtins.str, 'Mode']]
-        """
-        Current mode of Maintenance Mode Configuration
-        """
-        justification: NotRequired[pulumi.Input[Union[_builtins.str, 'Justification']]]
-        """
-        Justification for entering or exiting Maintenance Mode
-        """
-        principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrincipalArgsDict']]]]
-        """
-        The user, group or service principal object affected by Maintenance Mode
-        """
-elif False:
-    MaintenanceModeConfigurationModelArgsDict: TypeAlias = Mapping[str, Any]
+class MaintenanceModeConfigurationModelArgsDict(TypedDict):
+    """
+    Maintenance Mode
+    """
+    mode: pulumi.Input[Union[_builtins.str, 'Mode']]
+    """
+    Current mode of Maintenance Mode Configuration
+    """
+    justification: NotRequired[pulumi.Input[Union[_builtins.str, 'Justification']]]
+    """
+    Justification for entering or exiting Maintenance Mode
+    """
+    principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrincipalArgsDict']]]]
+    """
+    The user, group or service principal object affected by Maintenance Mode
+    """
 
 @pulumi.input_type
 class MaintenanceModeConfigurationModelArgs:
@@ -953,6 +934,7 @@ class MaintenanceModeConfigurationModelArgs:
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalArgs']]]] = None):
         """
         Maintenance Mode
+
         :param pulumi.Input[Union[_builtins.str, 'Mode']] mode: Current mode of Maintenance Mode Configuration
         :param pulumi.Input[Union[_builtins.str, 'Justification']] justification: Justification for entering or exiting Maintenance Mode
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalArgs']]] principals: The user, group or service principal object affected by Maintenance Mode
@@ -1004,21 +986,18 @@ class MaintenanceModeConfigurationModelArgs:
         pulumi.set(self, "principals", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -1027,6 +1006,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -1059,17 +1039,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class MandatoryApproverArgsDict(TypedDict):
-        """
-        Approver Metadata for approvals request.
-        """
-        approver_entra_id: pulumi.Input[_builtins.str]
-        """
-        EntraId of the approver
-        """
-elif False:
-    MandatoryApproverArgsDict: TypeAlias = Mapping[str, Any]
+class MandatoryApproverArgsDict(TypedDict):
+    """
+    Approver Metadata for approvals request.
+    """
+    approver_entra_id: pulumi.Input[_builtins.str]
+    """
+    EntraId of the approver
+    """
 
 @pulumi.input_type
 class MandatoryApproverArgs:
@@ -1077,6 +1054,7 @@ class MandatoryApproverArgs:
                  approver_entra_id: pulumi.Input[_builtins.str]):
         """
         Approver Metadata for approvals request.
+
         :param pulumi.Input[_builtins.str] approver_entra_id: EntraId of the approver
         """
         pulumi.set(__self__, "approver_entra_id", approver_entra_id)
@@ -1094,21 +1072,18 @@ class MandatoryApproverArgs:
         pulumi.set(self, "approver_entra_id", value)
 
 
-if not MYPY:
-    class PrincipalArgsDict(TypedDict):
-        """
-        Principal for maintenance mode or role assignments
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The object id associated with the principal
-        """
-        type: pulumi.Input[Union[_builtins.str, 'Type']]
-        """
-        The type of the object id. We currently allow users, groups, and service principals
-        """
-elif False:
-    PrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class PrincipalArgsDict(TypedDict):
+    """
+    Principal for maintenance mode or role assignments
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The object id associated with the principal
+    """
+    type: pulumi.Input[Union[_builtins.str, 'Type']]
+    """
+    The type of the object id. We currently allow users, groups, and service principals
+    """
 
 @pulumi.input_type
 class PrincipalArgs:
@@ -1117,6 +1092,7 @@ class PrincipalArgs:
                  type: pulumi.Input[Union[_builtins.str, 'Type']]):
         """
         Principal for maintenance mode or role assignments
+
         :param pulumi.Input[_builtins.str] id: The object id associated with the principal
         :param pulumi.Input[Union[_builtins.str, 'Type']] type: The type of the object id. We currently allow users, groups, and service principals
         """
@@ -1148,29 +1124,26 @@ class PrincipalArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RequestMetadataArgsDict(TypedDict):
-        """
-        Request Metadata for approvals request.
-        """
-        resource_action: pulumi.Input[_builtins.str]
-        """
-        Resource Action of the item being approved or declined.
-        """
-        approval_callback_payload: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Payload to be sent upon any action on approval request
-        """
-        approval_callback_route: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Route name for the approval callback
-        """
-        approval_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalStatus']]]
-        """
-        Status of the approval. Uses ApprovalStatus enum.
-        """
-elif False:
-    RequestMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class RequestMetadataArgsDict(TypedDict):
+    """
+    Request Metadata for approvals request.
+    """
+    resource_action: pulumi.Input[_builtins.str]
+    """
+    Resource Action of the item being approved or declined.
+    """
+    approval_callback_payload: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Payload to be sent upon any action on approval request
+    """
+    approval_callback_route: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Route name for the approval callback
+    """
+    approval_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ApprovalStatus']]]
+    """
+    Status of the approval. Uses ApprovalStatus enum.
+    """
 
 @pulumi.input_type
 class RequestMetadataArgs:
@@ -1181,6 +1154,7 @@ class RequestMetadataArgs:
                  approval_status: Optional[pulumi.Input[Union[_builtins.str, 'ApprovalStatus']]] = None):
         """
         Request Metadata for approvals request.
+
         :param pulumi.Input[_builtins.str] resource_action: Resource Action of the item being approved or declined.
         :param pulumi.Input[_builtins.str] approval_callback_payload: Payload to be sent upon any action on approval request
         :param pulumi.Input[_builtins.str] approval_callback_route: Route name for the approval callback
@@ -1245,21 +1219,18 @@ class RequestMetadataArgs:
         pulumi.set(self, "approval_status", value)
 
 
-if not MYPY:
-    class RoleAssignmentItemArgsDict(TypedDict):
-        """
-        Role assignment item that indicates which principals should be assigned this role definition
-        """
-        role_definition_id: pulumi.Input[_builtins.str]
-        """
-        Role definition identifier
-        """
-        principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrincipalArgsDict']]]]
-        """
-        List of principal IDs to which to assign this role definition
-        """
-elif False:
-    RoleAssignmentItemArgsDict: TypeAlias = Mapping[str, Any]
+class RoleAssignmentItemArgsDict(TypedDict):
+    """
+    Role assignment item that indicates which principals should be assigned this role definition
+    """
+    role_definition_id: pulumi.Input[_builtins.str]
+    """
+    Role definition identifier
+    """
+    principals: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrincipalArgsDict']]]]
+    """
+    List of principal IDs to which to assign this role definition
+    """
 
 @pulumi.input_type
 class RoleAssignmentItemArgs:
@@ -1268,6 +1239,7 @@ class RoleAssignmentItemArgs:
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalArgs']]]] = None):
         """
         Role assignment item that indicates which principals should be assigned this role definition
+
         :param pulumi.Input[_builtins.str] role_definition_id: Role definition identifier
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalArgs']]] principals: List of principal IDs to which to assign this role definition
         """
@@ -1300,25 +1272,22 @@ class RoleAssignmentItemArgs:
         pulumi.set(self, "principals", value)
 
 
-if not MYPY:
-    class SubnetConfigurationArgsDict(TypedDict):
-        """
-        Subnet Configuration
-        """
-        network_prefix_size: pulumi.Input[_builtins.int]
-        """
-        Network prefix size.
-        """
-        subnet_name: pulumi.Input[_builtins.str]
-        """
-        Subnet name.
-        """
-        subnet_delegation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subnet delegation.
-        """
-elif False:
-    SubnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class SubnetConfigurationArgsDict(TypedDict):
+    """
+    Subnet Configuration
+    """
+    network_prefix_size: pulumi.Input[_builtins.int]
+    """
+    Network prefix size.
+    """
+    subnet_name: pulumi.Input[_builtins.str]
+    """
+    Subnet name.
+    """
+    subnet_delegation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subnet delegation.
+    """
 
 @pulumi.input_type
 class SubnetConfigurationArgs:
@@ -1328,6 +1297,7 @@ class SubnetConfigurationArgs:
                  subnet_delegation: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Subnet Configuration
+
         :param pulumi.Input[_builtins.int] network_prefix_size: Network prefix size.
         :param pulumi.Input[_builtins.str] subnet_name: Subnet name.
         :param pulumi.Input[_builtins.str] subnet_delegation: Subnet delegation.
@@ -1374,21 +1344,18 @@ class SubnetConfigurationArgs:
         pulumi.set(self, "subnet_delegation", value)
 
 
-if not MYPY:
-    class TransitOptionParamsArgsDict(TypedDict):
-        """
-        TransitOptionParams Properties
-        """
-        remote_virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Transit Option Params remoteVirtualNetworkId.
-        """
-        scale_units: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Transit Option Params scaleUnits.
-        """
-elif False:
-    TransitOptionParamsArgsDict: TypeAlias = Mapping[str, Any]
+class TransitOptionParamsArgsDict(TypedDict):
+    """
+    TransitOptionParams Properties
+    """
+    remote_virtual_network_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Transit Option Params remoteVirtualNetworkId.
+    """
+    scale_units: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Transit Option Params scaleUnits.
+    """
 
 @pulumi.input_type
 class TransitOptionParamsArgs:
@@ -1397,6 +1364,7 @@ class TransitOptionParamsArgs:
                  scale_units: Optional[pulumi.Input[_builtins.float]] = None):
         """
         TransitOptionParams Properties
+
         :param pulumi.Input[_builtins.str] remote_virtual_network_id: Transit Option Params remoteVirtualNetworkId.
         :param pulumi.Input[_builtins.float] scale_units: Transit Option Params scaleUnits.
         """
@@ -1430,21 +1398,18 @@ class TransitOptionParamsArgs:
         pulumi.set(self, "scale_units", value)
 
 
-if not MYPY:
-    class TransitOptionArgsDict(TypedDict):
-        """
-        TransitOption Properties
-        """
-        params: NotRequired[pulumi.Input['TransitOptionParamsArgsDict']]
-        """
-        Transit Option Params
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'TransitOptionType']]]
-        """
-        Transit Option Type.
-        """
-elif False:
-    TransitOptionArgsDict: TypeAlias = Mapping[str, Any]
+class TransitOptionArgsDict(TypedDict):
+    """
+    TransitOption Properties
+    """
+    params: NotRequired[pulumi.Input['TransitOptionParamsArgsDict']]
+    """
+    Transit Option Params
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'TransitOptionType']]]
+    """
+    Transit Option Type.
+    """
 
 @pulumi.input_type
 class TransitOptionArgs:
@@ -1453,6 +1418,7 @@ class TransitOptionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'TransitOptionType']]] = None):
         """
         TransitOption Properties
+
         :param pulumi.Input['TransitOptionParamsArgs'] params: Transit Option Params
         :param pulumi.Input[Union[_builtins.str, 'TransitOptionType']] type: Transit Option Type.
         """

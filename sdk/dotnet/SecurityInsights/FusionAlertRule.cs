@@ -13,6 +13,79 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents Fusion alert rule.
     /// 
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         AlertRuleTemplateName = "f71aba3d-28fb-450b-b192-4e76a83015c8",
+    ///         Enabled = true,
+    ///         Kind = "Fusion",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "microsoftSecurityIncidentCreationRuleExample",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Scheduled alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:FusionAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/alertRules/{ruleId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:FusionAlertRule")]
     public partial class FusionAlertRule : global::Pulumi.CustomResource

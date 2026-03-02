@@ -48,6 +48,7 @@ class EmployeePropertiesResponse(dict):
                  profile: Optional[_builtins.str] = None):
         """
         Employee properties
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.int age: Age of employee
         :param _builtins.str city: City of employee
@@ -135,6 +136,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

@@ -28,6 +28,7 @@ class LogsLogStreamArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsLogStream resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of LogsLogStream
@@ -122,6 +123,47 @@ class LogsLogStream(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### LogsLogStreams_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logs_log_stream = azure_native.awsconnector.LogsLogStream("logsLogStream",
+            location="kptftndcymfuhgrknmxtkeqwlpjun",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "lzfqztmbbgeu",
+                "aws_account_id": "wdatjpiqtspvmqdqquuhipephuthnh",
+                "aws_properties": {
+                    "log_group_name": "bfwnrdojlqlwrmih",
+                    "log_stream_name": "pbtlxfgftiixnduazjvqezmnpwbr",
+                },
+                "aws_region": "dzyiblunsedfhiq",
+                "aws_source_schema": "ffgsbwzxveleoxawcyogkiigworq",
+                "aws_tags": {
+                    "key9843": "dbwvhopavlbkhbaofrgwznkwoj",
+                },
+                "public_cloud_connectors_resource_id": "lihllkk",
+                "public_cloud_resource_name": "wftlmsgyanjghqoyfkzoqgqxrcdkq",
+            },
+            resource_group_name="rglogsLogStream",
+            tags={
+                "key6354": "a",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LogsLogStream vgqiwnoslesmwgvckknr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsLogStreams/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +182,47 @@ class LogsLogStream(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### LogsLogStreams_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logs_log_stream = azure_native.awsconnector.LogsLogStream("logsLogStream",
+            location="kptftndcymfuhgrknmxtkeqwlpjun",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "lzfqztmbbgeu",
+                "aws_account_id": "wdatjpiqtspvmqdqquuhipephuthnh",
+                "aws_properties": {
+                    "log_group_name": "bfwnrdojlqlwrmih",
+                    "log_stream_name": "pbtlxfgftiixnduazjvqezmnpwbr",
+                },
+                "aws_region": "dzyiblunsedfhiq",
+                "aws_source_schema": "ffgsbwzxveleoxawcyogkiigworq",
+                "aws_tags": {
+                    "key9843": "dbwvhopavlbkhbaofrgwznkwoj",
+                },
+                "public_cloud_connectors_resource_id": "lihllkk",
+                "public_cloud_resource_name": "wftlmsgyanjghqoyfkzoqgqxrcdkq",
+            },
+            resource_group_name="rglogsLogStream",
+            tags={
+                "key6354": "a",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LogsLogStream vgqiwnoslesmwgvckknr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsLogStreams/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsLogStreamArgs args: The arguments to use to populate this resource's properties.

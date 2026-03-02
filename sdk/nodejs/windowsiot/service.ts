@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * The description of the Windows IoT Device Service.
  *
  * Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
+ *
+ * ## Example Usage
+ * ### Service_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.windowsiot.Service("service", {
+ *     adminDomainName: "d.e.f",
+ *     billingDomainName: "a.b.c",
+ *     deviceName: "service4445",
+ *     location: "East US",
+ *     notes: "blah",
+ *     quantity: 1000000,
+ *     resourceGroupName: "res9101",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:windowsiot:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

@@ -41,6 +41,7 @@ class NotificationHubArgs:
                  xiaomi_credential: Optional[pulumi.Input['XiaomiCredentialArgs']] = None):
         """
         The set of arguments for constructing a NotificationHub resource.
+
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AdmCredentialArgs'] adm_credential: Description of a NotificationHub AdmCredential.
@@ -328,6 +329,30 @@ class NotificationHub(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NotificationHubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub = azure_native.notificationhubs.NotificationHub("notificationHub",
+            location="eastus",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NotificationHub test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AdmCredentialArgs', 'AdmCredentialArgsDict']] adm_credential: Description of a NotificationHub AdmCredential.
@@ -360,6 +385,30 @@ class NotificationHub(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native notificationhubs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NotificationHubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub = azure_native.notificationhubs.NotificationHub("notificationHub",
+            location="eastus",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NotificationHub test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationHubArgs args: The arguments to use to populate this resource's properties.

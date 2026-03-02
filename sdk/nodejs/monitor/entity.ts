@@ -11,6 +11,90 @@ import * as utilities from "../utilities";
  * An entity (aka node) of a health model
  *
  * Uses Azure REST API version 2025-05-03-preview.
+ *
+ * ## Example Usage
+ * ### Entities_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const entity = new azure_native.monitor.Entity("entity", {
+ *     azureMonitorWorkspaceName: "myWorkspace",
+ *     entityName: "entity1",
+ *     healthModelName: "myHealthModel",
+ *     properties: {
+ *         alerts: {
+ *             degraded: {
+ *                 actionGroupIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/myactiongroup"],
+ *                 description: "Alert description",
+ *                 severity: azure_native.monitor.AlertSeverity.Sev4,
+ *             },
+ *             unhealthy: {
+ *                 actionGroupIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Insights/actionGroups/myactiongroup"],
+ *                 description: "Alert description",
+ *                 severity: azure_native.monitor.AlertSeverity.Sev1,
+ *             },
+ *         },
+ *         canvasPosition: {
+ *             x: 14,
+ *             y: 13,
+ *         },
+ *         displayName: "My entity",
+ *         healthObjective: 62,
+ *         icon: {
+ *             customData: "rcitntvapruccrhtxmkqjphbxunkz",
+ *             iconName: "Custom",
+ *         },
+ *         impact: azure_native.monitor.EntityImpact.Standard,
+ *         kind: "User Flow",
+ *         signals: {
+ *             azureLogAnalytics: {
+ *                 authenticationSetting: "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+ *                 logAnalyticsWorkspaceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+ *                 signalAssignments: [{
+ *                     signalDefinitions: ["B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX"],
+ *                 }],
+ *             },
+ *             azureMonitorWorkspace: {
+ *                 authenticationSetting: "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+ *                 azureMonitorWorkspaceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Monitor/accounts/myworkspace",
+ *                 signalAssignments: [
+ *                     {
+ *                         signalDefinitions: ["sigdef2"],
+ *                     },
+ *                     {
+ *                         signalDefinitions: ["sigdef3"],
+ *                     },
+ *                 ],
+ *             },
+ *             azureResource: {
+ *                 authenticationSetting: "B3P1X3e-FZtZ-4Ak-2VLHGQ-4m4-05DE-XNW5zW3P-46XY-DC3SSX",
+ *                 azureResourceId: "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+ *                 signalAssignments: [{
+ *                     signalDefinitions: ["sigdef1"],
+ *                 }],
+ *             },
+ *             dependencies: {
+ *                 aggregationType: azure_native.monitor.DependenciesAggregationType.WorstOf,
+ *             },
+ *         },
+ *         tags: {
+ *             key1376: "ixfvzsfnpvkkbrce",
+ *         },
+ *     },
+ *     resourceGroupName: "rgopenapi",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:Entity entity1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/entities/{entityName} 
+ * ```
  */
 export class Entity extends pulumi.CustomResource {
     /**

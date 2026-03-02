@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2024-12-01-preview.
     /// 
     /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDB ThroughputPool Account Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var throughputPoolAccount = new AzureNative.CosmosDB.ThroughputPoolAccount("throughputPoolAccount", new()
+    ///     {
+    ///         AccountLocation = "West US",
+    ///         AccountResourceIdentifier = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/providers/Microsoft.DocumentDB/resourceGroup/rg1/databaseAccounts/db1/",
+    ///         ResourceGroupName = "rg1",
+    ///         ThroughputPoolAccountName = "db1",
+    ///         ThroughputPoolName = "tp1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:ThroughputPoolAccount myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName}/throughputPoolAccounts/{throughputPoolAccountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:ThroughputPoolAccount")]
     public partial class ThroughputPoolAccount : global::Pulumi.CustomResource

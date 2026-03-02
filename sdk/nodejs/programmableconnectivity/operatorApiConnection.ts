@@ -13,6 +13,50 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
  *
  * Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### OperatorApiConnections_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const operatorApiConnection = new azure_native.programmableconnectivity.OperatorApiConnection("operatorApiConnection", {
+ *     accountType: azure_native.programmableconnectivity.AccountType.AzureManaged,
+ *     appId: "czgrhbvgr",
+ *     appSecret: "wtxnpes",
+ *     configuredApplication: {
+ *         applicationDescription: "gjlwegnqvffvsc",
+ *         applicationType: "f",
+ *         legalName: "ar",
+ *         name: "idzqqen",
+ *         organizationDescription: "fcueqzlxxr",
+ *         privacyContactEmailAddress: "l",
+ *         taxNumber: "ngzv",
+ *     },
+ *     gatewayId: "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/example-rg/providers/Microsoft.ProgrammableConnectivity/gateways/cdvcixxcdhjqw",
+ *     location: "dwvzfkjoepbmksygazllqryyinn",
+ *     operatorApiConnectionName: "nzsdg",
+ *     operatorApiPlanId: "/subscriptions/00000000-0000-0000-0000-00000000000/providers/Microsoft.ProgrammableConnectivity/operatorApiPlans/livmzrh",
+ *     resourceGroupName: "rgopenapi",
+ *     saasProperties: {
+ *         saasResourceId: "pekejefyvfviabimdrmno",
+ *         saasSubscriptionId: "mgyusmqt",
+ *     },
+ *     tags: {
+ *         key5536: "bjhvpzsmtalqxmjjbsfdizhg",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:programmableconnectivity:OperatorApiConnection zsilgtpflhroamaglfbywbn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProgrammableConnectivity/operatorApiConnections/{operatorApiConnectionName} 
+ * ```
  */
 export class OperatorApiConnection extends pulumi.CustomResource {
     /**

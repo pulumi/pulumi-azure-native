@@ -49,6 +49,7 @@ class AcceptedAudiencesResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Represents an accepted audience trusted by the cluster.
+
         :param _builtins.str value: GUID or valid URL representing an accepted audience.
         """
         if value is not None:
@@ -74,6 +75,7 @@ class AzureSkuResponse(dict):
                  capacity: Optional[_builtins.int] = None):
         """
         Azure SKU definition.
+
         :param _builtins.str name: SKU name.
         :param _builtins.str tier: SKU tier.
         :param _builtins.int capacity: The number of instances of the cluster.
@@ -143,6 +145,7 @@ class CalloutPolicyResponse(dict):
                  outbound_access: Optional[_builtins.str] = None):
         """
         Configuration for external callout policies, including URI patterns, access types, and service types.
+
         :param _builtins.str callout_id: Unique identifier for the callout configuration.
         :param _builtins.str callout_type: Type of the callout service, specifying the kind of external resource or service being accessed.
         :param _builtins.str callout_uri_regex: Regular expression or FQDN pattern for the callout URI.
@@ -204,6 +207,7 @@ class DatabasePrincipalResponse(dict):
                  fqn: Optional[_builtins.str] = None):
         """
         A class representing database principal entity.
+
         :param _builtins.str name: Database principal name.
         :param _builtins.str role: Database principal role.
         :param _builtins.str tenant_name: The tenant name of the principal
@@ -289,6 +293,7 @@ class DatabaseStatisticsResponse(dict):
                  size: Optional[_builtins.float] = None):
         """
         A class that contains database statistics information.
+
         :param _builtins.float size: The database size - the total size of compressed data and index in bytes.
         """
         if size is not None:
@@ -316,6 +321,7 @@ class FollowerDatabaseDefinitionResponse(dict):
                  table_level_sharing_properties: 'outputs.TableLevelSharingPropertiesResponse'):
         """
         A class representing follower database request.
+
         :param _builtins.str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
         :param _builtins.str cluster_resource_id: Resource id of the cluster that follows a database owned by this cluster.
         :param _builtins.str database_name: The database name owned by this cluster that was followed. * in case following all databases.
@@ -402,6 +408,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.IdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
@@ -529,6 +536,7 @@ class KeyVaultPropertiesResponse(dict):
                  user_identity: Optional[_builtins.str] = None):
         """
         Properties of the key vault.
+
         :param _builtins.str key_name: The name of the key vault key.
         :param _builtins.str key_vault_uri: The Uri of the key vault.
         :param _builtins.str key_version: The version of the key vault key.
@@ -608,6 +616,7 @@ class LanguageExtensionResponse(dict):
                  language_extension_name: Optional[_builtins.str] = None):
         """
         The language extension object.
+
         :param _builtins.str language_extension_custom_image_name: The language extension custom image name.
         :param _builtins.str language_extension_image_name: The language extension image name.
         :param _builtins.str language_extension_name: The language extension name.
@@ -653,6 +662,7 @@ class LanguageExtensionsListResponse(dict):
                  value: Optional[Sequence['outputs.LanguageExtensionResponse']] = None):
         """
         The list of language extension objects.
+
         :param Sequence['LanguageExtensionResponse'] value: The list of language extensions.
         """
         if value is not None:
@@ -696,6 +706,7 @@ class MigrationClusterPropertiesResponse(dict):
                  uri: _builtins.str):
         """
         Represents a properties of a cluster that is part of a migration.
+
         :param _builtins.str data_ingestion_uri: The public data ingestion URL of the cluster.
         :param _builtins.str id: The resource ID of the cluster.
         :param _builtins.str role: The role of the cluster in the migration process.
@@ -768,6 +779,7 @@ class OptimizedAutoscaleResponse(dict):
                  version: _builtins.int):
         """
         A class that contains the optimized auto scale definition.
+
         :param _builtins.bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
         :param _builtins.int maximum: Maximum allowed instances count.
         :param _builtins.int minimum: Minimum allowed instances count.
@@ -852,6 +864,7 @@ class PrivateEndpointConnectionResponse(dict):
                  type: _builtins.str):
         """
         A private endpoint connection
+
         :param _builtins.str group_id: Group id of the private endpoint.
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -944,6 +957,7 @@ class PrivateEndpointPropertyResponse(dict):
                  id: _builtins.str):
         """
         Private endpoint which the connection belongs to.
+
         :param _builtins.str id: Resource id of the private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -985,6 +999,7 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         Connection State of the Private Endpoint Connection.
+
         :param _builtins.str actions_required: Any action that is required beyond basic workflow (approve/ reject/ disconnect)
         :param _builtins.str description: The private link service connection description.
         :param _builtins.str status: The private link service connection status.
@@ -1046,6 +1061,7 @@ class SuspensionDetailsResponse(dict):
                  suspension_start_date: Optional[_builtins.str] = None):
         """
         The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+
         :param _builtins.str suspension_start_date: The starting date and time of the suspension state.
         """
         if suspension_start_date is not None:
@@ -1101,6 +1117,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1217,6 +1234,7 @@ class TableLevelSharingPropertiesResponse(dict):
                  tables_to_include: Optional[Sequence[_builtins.str]] = None):
         """
         Tables that will be included and excluded in the follower database
+
         :param Sequence[_builtins.str] external_tables_to_exclude: List of external tables to exclude from the follower database
         :param Sequence[_builtins.str] external_tables_to_include: List of external tables to include in the follower database
         :param Sequence[_builtins.str] functions_to_exclude: List of functions to exclude from the follower database
@@ -1317,6 +1335,7 @@ class TrustedExternalTenantResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Represents a tenant ID that is trusted by the cluster.
+
         :param _builtins.str value: GUID representing an external tenant.
         """
         if value is not None:
@@ -1364,6 +1383,7 @@ class VirtualNetworkConfigurationResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         A class that contains virtual network definition.
+
         :param _builtins.str data_management_public_ip_id: Data management's service public IP address resource id.
         :param _builtins.str engine_public_ip_id: Engine service's public IP address resource id.
         :param _builtins.str subnet_id: The subnet resource id.

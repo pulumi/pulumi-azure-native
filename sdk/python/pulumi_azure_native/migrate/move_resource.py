@@ -28,6 +28,7 @@ class MoveResourceArgs:
                  properties: Optional[pulumi.Input['MoveResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a MoveResource resource.
+
         :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] move_resource_name: The Move Resource Name.
@@ -107,6 +108,43 @@ class MoveResource(pulumi.CustomResource):
 
         Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### MoveResources_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        move_resource = azure_native.migrate.MoveResource("moveResource",
+            move_collection_name="movecollection1",
+            move_resource_name="moveresourcename1",
+            properties={
+                "depends_on_overrides": [{
+                    "id": "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                    "target_id": "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                }],
+                "resource_settings": {
+                    "resource_type": "Microsoft.Compute/virtualMachines",
+                    "target_availability_set_id": "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/availabilitySets/avset1",
+                    "target_availability_zone": azure_native.migrate.TargetAvailabilityZone.TWO,
+                    "target_resource_name": "westusvm1",
+                    "user_managed_identities": ["/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi1"],
+                },
+                "source_id": "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1",
+            },
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:MoveResource moveresourcename1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/moveResources/{moveResourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] move_collection_name: The Move Collection Name.
@@ -126,6 +164,43 @@ class MoveResource(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### MoveResources_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        move_resource = azure_native.migrate.MoveResource("moveResource",
+            move_collection_name="movecollection1",
+            move_resource_name="moveresourcename1",
+            properties={
+                "depends_on_overrides": [{
+                    "id": "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                    "target_id": "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                }],
+                "resource_settings": {
+                    "resource_type": "Microsoft.Compute/virtualMachines",
+                    "target_availability_set_id": "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/availabilitySets/avset1",
+                    "target_availability_zone": azure_native.migrate.TargetAvailabilityZone.TWO,
+                    "target_resource_name": "westusvm1",
+                    "user_managed_identities": ["/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi1"],
+                },
+                "source_id": "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1",
+            },
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:MoveResource moveresourcename1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/moveResources/{moveResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MoveResourceArgs args: The arguments to use to populate this resource's properties.

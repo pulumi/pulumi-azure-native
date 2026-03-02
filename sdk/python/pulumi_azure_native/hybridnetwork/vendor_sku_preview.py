@@ -25,6 +25,7 @@ class VendorSkuPreviewArgs:
                  preview_subscription: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VendorSkuPreview resource.
+
         :param pulumi.Input[_builtins.str] sku_name: The name of the vendor sku.
         :param pulumi.Input[_builtins.str] vendor_name: The name of the vendor.
         :param pulumi.Input[_builtins.str] preview_subscription: Preview subscription ID.
@@ -86,6 +87,29 @@ class VendorSkuPreview(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
+        ## Example Usage
+        ### Create or update preview subscription of vendor sku sub resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vendor_sku_preview = azure_native.hybridnetwork.VendorSkuPreview("vendorSkuPreview",
+            preview_subscription="previewSub",
+            sku_name="TestSku",
+            vendor_name="TestVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:VendorSkuPreview previewSub /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName}/vendorSkus/{skuName}/previewSubscriptions/{previewSubscription} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] preview_subscription: Preview subscription ID.
@@ -102,6 +126,29 @@ class VendorSkuPreview(pulumi.CustomResource):
         Customer subscription which can use a sku.
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+
+        ## Example Usage
+        ### Create or update preview subscription of vendor sku sub resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vendor_sku_preview = azure_native.hybridnetwork.VendorSkuPreview("vendorSkuPreview",
+            preview_subscription="previewSub",
+            sku_name="TestSku",
+            vendor_name="TestVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:VendorSkuPreview previewSub /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName}/vendorSkus/{skuName}/previewSubscriptions/{previewSubscription} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VendorSkuPreviewArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Tool details.
  *
  * Uses Azure REST API version 2025-03-01-preview.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiTool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiTool = new azure_native.apimanagement.ApiTool("apiTool", {
+ *     apiId: "github-mcp-api",
+ *     description: "This is a MCP tool to create an issue in a github repository",
+ *     displayName: "createIssue",
+ *     operationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/github-rest-api/operations/createIssue",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     toolId: "createIssue",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ApiTool createIssue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tools/{toolId} 
+ * ```
  */
 export class ApiTool extends pulumi.CustomResource {
     /**

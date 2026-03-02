@@ -49,6 +49,7 @@ class CustomRPActionRouteDefinitionResponse(dict):
                  routing_type: Optional[_builtins.str] = None):
         """
         The route definition for an action implemented by the custom resource provider.
+
         :param _builtins.str endpoint: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
         :param _builtins.str name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
         :param _builtins.str routing_type: The routing types that are supported for action requests.
@@ -111,6 +112,7 @@ class CustomRPResourceTypeRouteDefinitionResponse(dict):
                  routing_type: Optional[_builtins.str] = None):
         """
         The route definition for a resource implemented by the custom resource provider.
+
         :param _builtins.str endpoint: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
         :param _builtins.str name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
         :param _builtins.str routing_type: The routing types that are supported for resource requests.
@@ -172,6 +174,7 @@ class CustomRPValidationsResponse(dict):
                  validation_type: Optional[_builtins.str] = None):
         """
         A validation to apply on custom resource provider requests.
+
         :param _builtins.str specification: A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
         :param _builtins.str validation_type: The type of validation to run against a matching request.
         """

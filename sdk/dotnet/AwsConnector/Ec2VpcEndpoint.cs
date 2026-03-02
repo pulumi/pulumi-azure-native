@@ -13,6 +13,83 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2VpcEndpoints_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2VpcEndpoint = new AzureNative.AwsConnector.Ec2VpcEndpoint("ec2VpcEndpoint", new()
+    ///     {
+    ///         Location = "kkohg",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2VPCEndpointPropertiesArgs
+    ///         {
+    ///             Arn = "cxdwblbwakjiwxs",
+    ///             AwsAccountId = "wtjkq",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2VPCEndpointPropertiesArgs
+    ///             {
+    ///                 CreationTimestamp = "wmawquyzuhbnkrveo",
+    ///                 DnsEntries = new[]
+    ///                 {
+    ///                     "kenhegadrd",
+    ///                 },
+    ///                 Id = "xfylmv",
+    ///                 NetworkInterfaceIds = new[]
+    ///                 {
+    ///                     "uvzbeqj",
+    ///                 },
+    ///                 PolicyDocument = null,
+    ///                 PrivateDnsEnabled = true,
+    ///                 RouteTableIds = new[]
+    ///                 {
+    ///                     "ybkagmpjwuixbpltpabcrwewbjgj",
+    ///                 },
+    ///                 SecurityGroupIds = new[]
+    ///                 {
+    ///                     "swfhjyallivwkmzqdyqsgitfilel",
+    ///                 },
+    ///                 ServiceName = "bltgximadajrfctijpznsmxgy",
+    ///                 SubnetIds = new[]
+    ///                 {
+    ///                     "oyfzvlrnugigsjyadmdpjblsgpcxkr",
+    ///                 },
+    ///                 VpcEndpointType = AzureNative.AwsConnector.VpcEndpointType.Gateway,
+    ///                 VpcId = "ebbnplgbjkbqfifbmbrii",
+    ///             },
+    ///             AwsRegion = "hmnjtlhnkmnlwcuykbighvnvnjc",
+    ///             AwsSourceSchema = "mpgbtkugoucwqsqzzchrl",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key7370", "ru" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "lyxajxyfvrugpvxchbigrlulomftou",
+    ///             PublicCloudResourceName = "zwgwsjbodssxgzq",
+    ///         },
+    ///         ResourceGroupName = "rgec2VPCEndpoint",
+    ///         Tags = 
+    ///         {
+    ///             { "key8512", "flakqatnfqyuqukrwcy" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2VpcEndpoint gwdblodylojmzwamkvkhborn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCEndpoints/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2VpcEndpoint")]
     public partial class Ec2VpcEndpoint : global::Pulumi.CustomResource

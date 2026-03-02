@@ -13,6 +13,244 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
  *
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CreateVirtualMachineInstanceFromLocal
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineInstance = new azure_native.azurestackhci.VirtualMachineInstance("virtualMachineInstance", {
+ *     createFromLocal: true,
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkInterfaces/test-nic",
+ *         }],
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+ *     storageProfile: {
+ *         dataDisks: [{
+ *             id: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/virtualHardDisks/test-vhd",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ * ### PutVirtualMachineInstanceWithGalleryImage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineInstance = new azure_native.azurestackhci.VirtualMachineInstance("virtualMachineInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     hardwareProfile: {
+ *         vmSize: azure_native.azurestackhci.VmSizeEnum.Default,
+ *     },
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkInterfaces/test-nic",
+ *         }],
+ *     },
+ *     osProfile: {
+ *         adminPassword: "password",
+ *         adminUsername: "localadmin",
+ *         computerName: "luamaster",
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+ *     securityProfile: {
+ *         enableTPM: true,
+ *         uefiSettings: {
+ *             secureBootEnabled: true,
+ *         },
+ *     },
+ *     storageProfile: {
+ *         imageReference: {
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image",
+ *         },
+ *         vmConfigStoragePathId: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+ *     },
+ * });
+ *
+ * ```
+ * ### PutVirtualMachineInstanceWithGpu
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineInstance = new azure_native.azurestackhci.VirtualMachineInstance("virtualMachineInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     hardwareProfile: {
+ *         virtualMachineGPUs: [{
+ *             assignmentType: azure_native.azurestackhci.GpuAssignmentTypeEnum.GpuDDA,
+ *             partitionSizeMB: 0,
+ *         }],
+ *         vmSize: azure_native.azurestackhci.VmSizeEnum.Default,
+ *     },
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkInterfaces/test-nic",
+ *         }],
+ *     },
+ *     osProfile: {
+ *         adminPassword: "password",
+ *         adminUsername: "localadmin",
+ *         computerName: "luamaster",
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+ *     securityProfile: {
+ *         enableTPM: true,
+ *         uefiSettings: {
+ *             secureBootEnabled: true,
+ *         },
+ *     },
+ *     storageProfile: {
+ *         imageReference: {
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image",
+ *         },
+ *         vmConfigStoragePathId: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+ *     },
+ * });
+ *
+ * ```
+ * ### PutVirtualMachineInstanceWithMarketplaceGalleryImage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineInstance = new azure_native.azurestackhci.VirtualMachineInstance("virtualMachineInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     hardwareProfile: {
+ *         vmSize: azure_native.azurestackhci.VmSizeEnum.Default,
+ *     },
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkInterfaces/test-nic",
+ *         }],
+ *     },
+ *     osProfile: {
+ *         adminPassword: "password",
+ *         adminUsername: "localadmin",
+ *         computerName: "luamaster",
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+ *     securityProfile: {
+ *         enableTPM: true,
+ *         uefiSettings: {
+ *             secureBootEnabled: true,
+ *         },
+ *     },
+ *     storageProfile: {
+ *         imageReference: {
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
+ *         },
+ *         vmConfigStoragePathId: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+ *     },
+ * });
+ *
+ * ```
+ * ### PutVirtualMachineInstanceWithOsDisk
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineInstance = new azure_native.azurestackhci.VirtualMachineInstance("virtualMachineInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     hardwareProfile: {
+ *         vmSize: azure_native.azurestackhci.VmSizeEnum.Default,
+ *     },
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkInterfaces/test-nic",
+ *         }],
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+ *     securityProfile: {
+ *         enableTPM: true,
+ *         uefiSettings: {
+ *             secureBootEnabled: true,
+ *         },
+ *     },
+ *     storageProfile: {
+ *         osDisk: {
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualHardDisks/test-vhd",
+ *         },
+ *         vmConfigStoragePathId: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+ *     },
+ * });
+ *
+ * ```
+ * ### PutVirtualMachineInstanceWithVMConfigAgent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineInstance = new azure_native.azurestackhci.VirtualMachineInstance("virtualMachineInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: azure_native.azurestackhci.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     hardwareProfile: {
+ *         vmSize: azure_native.azurestackhci.VmSizeEnum.Default,
+ *     },
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkInterfaces/test-nic",
+ *         }],
+ *     },
+ *     osProfile: {
+ *         adminPassword: "password",
+ *         adminUsername: "localadmin",
+ *         computerName: "luamaster",
+ *         windowsConfiguration: {
+ *             provisionVMConfigAgent: true,
+ *         },
+ *     },
+ *     resourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+ *     securityProfile: {
+ *         enableTPM: true,
+ *         uefiSettings: {
+ *             secureBootEnabled: true,
+ *         },
+ *     },
+ *     storageProfile: {
+ *         imageReference: {
+ *             id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image",
+ *         },
+ *         vmConfigStoragePathId: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:VirtualMachineInstance myresource1 /{resourceUri}/providers/Microsoft.AzureStackHCI/virtualMachineInstances/default 
+ * ```
  */
 export class VirtualMachineInstance extends pulumi.CustomResource {
     /**

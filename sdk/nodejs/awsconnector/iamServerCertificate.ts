@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### IamServerCertificates_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iamServerCertificate = new azure_native.awsconnector.IamServerCertificate("iamServerCertificate", {
+ *     location: "ddjdvyseqfbfufjoxr",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "fkbemnwycxjjjxwievb",
+ *         awsAccountId: "egfew",
+ *         awsProperties: {
+ *             arn: "ahekoegi",
+ *             certificateBody: "fagqepujrwsvkhdrvofvmkderig",
+ *             certificateChain: "ozzjlnmjijy",
+ *             path: "qvvxpzaoshpkkvncguxmv",
+ *             privateKey: "ynoaydpaju",
+ *             serverCertificateName: "yblyjjfteysombtxapaqjkrqo",
+ *             tags: [{
+ *                 key: "ipoetrffzaxcntgqbdcuprhbn",
+ *                 value: "jstuopgodfwmzigjbb",
+ *             }],
+ *         },
+ *         awsRegion: "gflixuzdblwuy",
+ *         awsSourceSchema: "hlvxmkdmh",
+ *         awsTags: {
+ *             key1989: "jwathlzongmwbilki",
+ *         },
+ *         publicCloudConnectorsResourceId: "iqnmafujozzlwfnhamvbhfjcuob",
+ *         publicCloudResourceName: "g",
+ *     },
+ *     resourceGroupName: "rgiamServerCertificate",
+ *     tags: {
+ *         key6646: "iu",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:IamServerCertificate o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamServerCertificates/{name} 
+ * ```
  */
 export class IamServerCertificate extends pulumi.CustomResource {
     /**

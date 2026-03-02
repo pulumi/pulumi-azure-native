@@ -11,6 +11,25 @@ import * as utilities from "../utilities";
  * Vendor resource.
  *
  * Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+ *
+ * ## Example Usage
+ * ### Create or update Vendor resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vendor = new azure_native.hybridnetwork.Vendor("vendor", {vendorName: "TestVendor"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork:Vendor TestVendor /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName} 
+ * ```
  */
 export class Vendor extends pulumi.CustomResource {
     /**

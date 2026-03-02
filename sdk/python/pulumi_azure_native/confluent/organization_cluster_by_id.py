@@ -32,6 +32,7 @@ class OrganizationClusterByIdArgs:
                  status: Optional[pulumi.Input['ClusterStatusEntityArgs']] = None):
         """
         The set of arguments for constructing a OrganizationClusterById resource.
+
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -174,6 +175,37 @@ class OrganizationClusterById(pulumi.CustomResource):
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Cluster_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization_cluster_by_id = azure_native.confluent.OrganizationClusterById("organizationClusterById",
+            cluster_id="cluster-1",
+            environment_id="env-1",
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            spec={
+                "environment": {
+                    "id": "env-1",
+                },
+                "package": azure_native.confluent.Package.ESSENTIALS,
+                "region": "us-east4",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:OrganizationClusterById cluster-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: Confluent kafka or schema registry cluster id
@@ -197,6 +229,37 @@ class OrganizationClusterById(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Cluster_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization_cluster_by_id = azure_native.confluent.OrganizationClusterById("organizationClusterById",
+            cluster_id="cluster-1",
+            environment_id="env-1",
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            spec={
+                "environment": {
+                    "id": "env-1",
+                },
+                "package": azure_native.confluent.Package.ESSENTIALS,
+                "region": "us-east4",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:OrganizationClusterById cluster-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationClusterByIdArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class HyperVCollectorArgs:
                  properties: Optional[pulumi.Input['CollectorPropertiesArgs']] = None):
         """
         The set of arguments for constructing a HyperVCollector resource.
+
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
@@ -111,6 +112,42 @@ class HyperVCollector(pulumi.CustomResource):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
+        ## Example Usage
+        ### HyperVCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hyper_v_collector = azure_native.migrate.HyperVCollector("hyperVCollector",
+            e_tag="\\"00000981-0000-0300-0000-5d74cd5f0000\\"",
+            hyper_v_collector_name="migrateprojectce73collector",
+            project_name="migrateprojectce73project",
+            properties={
+                "agent_properties": {
+                    "spn_details": {
+                        "application_id": "827f1053-44dc-439f-b832-05416dcce12b",
+                        "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/migrateprojectce73agentauthaadapp",
+                        "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        "object_id": "be75098e-c0fc-4ac4-98c7-282ebbcf8370",
+                        "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    },
+                },
+                "discovery_site_id": "/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/resourceGroups/ContosoITHyperV/providers/Microsoft.OffAzure/HyperVSites/migrateprojectce73site",
+            },
+            resource_group_name="contosoithyperv")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:HyperVCollector migrateprojectce73collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hyperVCollectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hyper_v_collector_name: Unique name of a Hyper-V collector within a project.
@@ -125,6 +162,42 @@ class HyperVCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+
+        ## Example Usage
+        ### HyperVCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hyper_v_collector = azure_native.migrate.HyperVCollector("hyperVCollector",
+            e_tag="\\"00000981-0000-0300-0000-5d74cd5f0000\\"",
+            hyper_v_collector_name="migrateprojectce73collector",
+            project_name="migrateprojectce73project",
+            properties={
+                "agent_properties": {
+                    "spn_details": {
+                        "application_id": "827f1053-44dc-439f-b832-05416dcce12b",
+                        "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/migrateprojectce73agentauthaadapp",
+                        "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        "object_id": "be75098e-c0fc-4ac4-98c7-282ebbcf8370",
+                        "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    },
+                },
+                "discovery_site_id": "/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/resourceGroups/ContosoITHyperV/providers/Microsoft.OffAzure/HyperVSites/migrateprojectce73site",
+            },
+            resource_group_name="contosoithyperv")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:HyperVCollector migrateprojectce73collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hyperVCollectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param HyperVCollectorArgs args: The arguments to use to populate this resource's properties.

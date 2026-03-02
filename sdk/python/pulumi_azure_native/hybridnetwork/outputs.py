@@ -129,6 +129,7 @@ class ArmResourceDefinitionResourceElementTemplateDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The arm resource definition resource element template details.
+
         :param _builtins.str resource_element_type: The resource element template type.
                Expected value is 'ArmResourceDefinition'.
         :param 'ArmResourceDefinitionResourceElementTemplateResponse' configuration: The resource element template type.
@@ -209,6 +210,7 @@ class ArmResourceDefinitionResourceElementTemplateResponse(dict):
                  template_type: Optional[_builtins.str] = None):
         """
         The arm template RE.
+
         :param 'NSDArtifactProfileResponse' artifact_profile: Artifact profile properties.
         :param _builtins.str parameter_values: Name and value pairs that define the parameter values. It can be  a well formed escaped JSON string.
         :param _builtins.str template_type: The template type.
@@ -274,6 +276,7 @@ class ArmTemplateArtifactProfileResponse(dict):
                  template_version: Optional[_builtins.str] = None):
         """
         Template artifact profile.
+
         :param _builtins.str template_name: Template name.
         :param _builtins.str template_version: Template version.
         """
@@ -325,6 +328,7 @@ class ArmTemplateMappingRuleProfileResponse(dict):
                  template_parameters: Optional[_builtins.str] = None):
         """
         Template mapping rule profile
+
         :param _builtins.str template_parameters: List of template parameters.
         """
         if template_parameters is not None:
@@ -369,6 +373,7 @@ class ArtifactManifestPropertiesFormatResponse(dict):
                  artifacts: Optional[Sequence['outputs.ManifestArtifactFormatResponse']] = None):
         """
         Artifact manifest properties.
+
         :param _builtins.str artifact_manifest_state: The artifact manifest state.
         :param _builtins.str provisioning_state: The provisioning state of the ArtifactManifest resource.
         :param Sequence['ManifestArtifactFormatResponse'] artifacts: The artifacts list.
@@ -412,6 +417,7 @@ class ArtifactStoreNetworkFabricControllerEndPointsResponse(dict):
                  network_fabric_controller_ids: Optional[Sequence['outputs.ReferencedResourceResponse']] = None):
         """
         List of network fabric controller ids.
+
         :param Sequence['ReferencedResourceResponse'] network_fabric_controller_ids: list of network fabric controllers.
         """
         if network_fabric_controller_ids is not None:
@@ -435,6 +441,7 @@ class ArtifactStorePrivateEndPointsFormatResponse(dict):
                  manual_private_end_point_connections: Optional[Sequence['outputs.ReferencedResourceResponse']] = None):
         """
         List of manual private endpoints.
+
         :param Sequence['ReferencedResourceResponse'] manual_private_end_point_connections: list of private endpoints.
         """
         if manual_private_end_point_connections is not None:
@@ -490,6 +497,7 @@ class ArtifactStorePropertiesFormatResponse(dict):
                  store_type: Optional[_builtins.str] = None):
         """
         Artifact store properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the application groups resource.
         :param _builtins.str storage_resource_id: The created storage resource id
         :param _builtins.str backing_resource_public_network_access: The artifact store backing resource network access type
@@ -614,6 +622,7 @@ class AzureArcK8sClusterNFVIDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The AzureArcK8sCluster NFVI detail.
+
         :param _builtins.str nfvi_type: The NFVI type.
                Expected value is 'AzureArcKubernetes'.
         :param 'ReferencedResourceResponse' custom_location_reference: The reference to the custom location.
@@ -680,6 +689,7 @@ class AzureArcKubernetesArtifactProfileResponse(dict):
                  helm_artifact_profile: Optional['outputs.HelmArtifactProfileResponse'] = None):
         """
         Azure arc kubernetes artifact profile properties.
+
         :param 'ReferencedResourceResponse' artifact_store: The reference to artifact store.
         :param 'HelmArtifactProfileResponse' helm_artifact_profile: Helm artifact profile.
         """
@@ -734,6 +744,7 @@ class AzureArcKubernetesDeployMappingRuleProfileResponse(dict):
                  helm_mapping_rule_profile: Optional['outputs.HelmMappingRuleProfileResponse'] = None):
         """
         Azure arc kubernetes deploy mapping rule profile.
+
         :param _builtins.str application_enablement: The application enablement.
         :param 'HelmMappingRuleProfileResponse' helm_mapping_rule_profile: The helm mapping rule profile.
         """
@@ -795,6 +806,7 @@ class AzureArcKubernetesHelmApplicationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Azure arc kubernetes helm application configurations.
+
         :param _builtins.str artifact_type: The artifact type.
                Expected value is 'HelmPackage'.
         :param 'AzureArcKubernetesArtifactProfileResponse' artifact_profile: Azure arc kubernetes artifact profile.
@@ -883,6 +895,7 @@ class AzureArcKubernetesNetworkFunctionTemplateResponse(dict):
                  network_function_applications: Optional[Sequence['outputs.AzureArcKubernetesHelmApplicationResponse']] = None):
         """
         Azure Arc kubernetes network function template.
+
         :param _builtins.str nfvi_type: The network function type.
                Expected value is 'AzureArcKubernetes'.
         :param Sequence['AzureArcKubernetesHelmApplicationResponse'] network_function_applications: Network function applications.
@@ -938,6 +951,7 @@ class AzureCoreArmTemplateArtifactProfileResponse(dict):
                  template_artifact_profile: Optional['outputs.ArmTemplateArtifactProfileResponse'] = None):
         """
         Azure template artifact profile properties.
+
         :param 'ReferencedResourceResponse' artifact_store: The reference to artifact store.
         :param 'ArmTemplateArtifactProfileResponse' template_artifact_profile: Template artifact profile.
         """
@@ -992,6 +1006,7 @@ class AzureCoreArmTemplateDeployMappingRuleProfileResponse(dict):
                  template_mapping_rule_profile: Optional['outputs.ArmTemplateMappingRuleProfileResponse'] = None):
         """
         Azure template deploy mapping rule profile.
+
         :param _builtins.str application_enablement: The application enablement.
         :param 'ArmTemplateMappingRuleProfileResponse' template_mapping_rule_profile: The template mapping rule profile.
         """
@@ -1045,6 +1060,7 @@ class AzureCoreNFVIDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The Azure Core NFVI detail.
+
         :param _builtins.str nfvi_type: The NFVI type.
                Expected value is 'AzureCore'.
         :param _builtins.str location: Location of the Azure core.
@@ -1118,6 +1134,7 @@ class AzureCoreNetworkFunctionArmTemplateApplicationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Azure core network function Template application definition.
+
         :param _builtins.str artifact_type: The artifact type.
                Expected value is 'ArmTemplate'.
         :param 'AzureCoreArmTemplateArtifactProfileResponse' artifact_profile: Azure template artifact profile.
@@ -1206,6 +1223,7 @@ class AzureCoreNetworkFunctionTemplateResponse(dict):
                  network_function_applications: Optional[Sequence[Any]] = None):
         """
         Azure virtual network function template.
+
         :param _builtins.str nfvi_type: The network function type.
                Expected value is 'AzureCore'.
         :param Sequence[Union['AzureCoreNetworkFunctionArmTemplateApplicationResponse', 'AzureCoreNetworkFunctionVhdApplicationResponse']] network_function_applications: Network function applications.
@@ -1268,6 +1286,7 @@ class AzureCoreNetworkFunctionVhdApplicationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Azure core network function vhd application definition.
+
         :param _builtins.str artifact_type: The artifact type.
                Expected value is 'VhdImageFile'.
         :param 'AzureCoreVhdImageArtifactProfileResponse' artifact_profile: Azure vhd image artifact profile.
@@ -1356,6 +1375,7 @@ class AzureCoreVhdImageArtifactProfileResponse(dict):
                  vhd_artifact_profile: Optional['outputs.VhdImageArtifactProfileResponse'] = None):
         """
         Azure vhd artifact profile properties.
+
         :param 'ReferencedResourceResponse' artifact_store: The reference to artifact store.
         :param 'VhdImageArtifactProfileResponse' vhd_artifact_profile: Vhd artifact profile.
         """
@@ -1410,6 +1430,7 @@ class AzureCoreVhdImageDeployMappingRuleProfileResponse(dict):
                  vhd_image_mapping_rule_profile: Optional['outputs.VhdImageMappingRuleProfileResponse'] = None):
         """
         Azure vhd deploy mapping rule profile.
+
         :param _builtins.str application_enablement: The application enablement.
         :param 'VhdImageMappingRuleProfileResponse' vhd_image_mapping_rule_profile: The vhd mapping rule profile.
         """
@@ -1464,6 +1485,7 @@ class AzureOperatorNexusArmTemplateArtifactProfileResponse(dict):
                  template_artifact_profile: Optional['outputs.ArmTemplateArtifactProfileResponse'] = None):
         """
         Azure Operator Distributed Services vhd artifact profile properties.
+
         :param 'ReferencedResourceResponse' artifact_store: The reference to artifact store.
         :param 'ArmTemplateArtifactProfileResponse' template_artifact_profile: Template artifact profile.
         """
@@ -1518,6 +1540,7 @@ class AzureOperatorNexusArmTemplateDeployMappingRuleProfileResponse(dict):
                  template_mapping_rule_profile: Optional['outputs.ArmTemplateMappingRuleProfileResponse'] = None):
         """
         Azure Operator Distributed Services template deploy mapping rule profile.
+
         :param _builtins.str application_enablement: The application enablement.
         :param 'ArmTemplateMappingRuleProfileResponse' template_mapping_rule_profile: The template mapping rule profile.
         """
@@ -1573,6 +1596,7 @@ class AzureOperatorNexusClusterNFVIDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The AzureOperatorNexusCluster NFVI detail.
+
         :param _builtins.str nfvi_type: The NFVI type.
                Expected value is 'AzureOperatorNexus'.
         :param 'ReferencedResourceResponse' custom_location_reference: The reference to the custom location.
@@ -1639,6 +1663,7 @@ class AzureOperatorNexusImageArtifactProfileResponse(dict):
                  image_artifact_profile: Optional['outputs.ImageArtifactProfileResponse'] = None):
         """
         Azure Operator Distributed Services image artifact profile properties.
+
         :param 'ReferencedResourceResponse' artifact_store: The reference to artifact store.
         :param 'ImageArtifactProfileResponse' image_artifact_profile: Image artifact profile.
         """
@@ -1693,6 +1718,7 @@ class AzureOperatorNexusImageDeployMappingRuleProfileResponse(dict):
                  image_mapping_rule_profile: Optional['outputs.ImageMappingRuleProfileResponse'] = None):
         """
         Azure Operator Distributed Services image deploy mapping rule profile.
+
         :param _builtins.str application_enablement: The application enablement.
         :param 'ImageMappingRuleProfileResponse' image_mapping_rule_profile: The vhd mapping rule profile.
         """
@@ -1754,6 +1780,7 @@ class AzureOperatorNexusNetworkFunctionArmTemplateApplicationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Azure Operator Distributed Services network function Template application definition.
+
         :param _builtins.str artifact_type: The artifact type.
                Expected value is 'ArmTemplate'.
         :param 'AzureOperatorNexusArmTemplateArtifactProfileResponse' artifact_profile: Azure Operator Distributed Services Template artifact profile.
@@ -1849,6 +1876,7 @@ class AzureOperatorNexusNetworkFunctionImageApplicationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Azure Operator Distributed Services network function image application definition.
+
         :param _builtins.str artifact_type: The artifact type.
                Expected value is 'ImageFile'.
         :param 'AzureOperatorNexusImageArtifactProfileResponse' artifact_profile: Azure Operator Distributed Services image artifact profile.
@@ -1937,6 +1965,7 @@ class AzureOperatorNexusNetworkFunctionTemplateResponse(dict):
                  network_function_applications: Optional[Sequence[Any]] = None):
         """
         Azure Operator Distributed Services network function template.
+
         :param _builtins.str nfvi_type: The network function type.
                Expected value is 'AzureOperatorNexus'.
         :param Sequence[Union['AzureOperatorNexusNetworkFunctionArmTemplateApplicationResponse', 'AzureOperatorNexusNetworkFunctionImageApplicationResponse']] network_function_applications: Network function applications.
@@ -1996,6 +2025,7 @@ class ConfigurationGroupSchemaPropertiesFormatResponse(dict):
                  schema_definition: Optional[_builtins.str] = None):
         """
         Configuration group schema properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the Configuration group schema resource.
         :param _builtins.str version_state: The configuration group schema version state.
         :param _builtins.str description: Description of what schema can contain.
@@ -2085,6 +2115,7 @@ class ConfigurationValueWithSecretsResponse(dict):
                  configuration_group_schema_resource_reference: Optional[Any] = None):
         """
         The ConfigurationValue with secrets.
+
         :param _builtins.str configuration_group_schema_name: The configuration group schema name.
         :param _builtins.str configuration_group_schema_offering_location: The location of the configuration group schema offering.
         :param _builtins.str configuration_type: The secret type which indicates if secret or not.
@@ -2208,6 +2239,7 @@ class ConfigurationValueWithoutSecretsResponse(dict):
                  configuration_value: Optional[_builtins.str] = None):
         """
         The ConfigurationValue with no secrets.
+
         :param _builtins.str configuration_group_schema_name: The configuration group schema name.
         :param _builtins.str configuration_group_schema_offering_location: The location of the configuration group schema offering.
         :param _builtins.str configuration_type: The secret type which indicates if secret or not.
@@ -2334,6 +2366,7 @@ class ContainerizedNetworkFunctionDefinitionVersionResponse(dict):
                  network_function_template: Optional['outputs.AzureArcKubernetesNetworkFunctionTemplateResponse'] = None):
         """
         Containerized network function network function definition version properties.
+
         :param _builtins.str network_function_type: The network function type.
                Expected value is 'ContainerizedNetworkFunction'.
         :param _builtins.str provisioning_state: The provisioning state of the network function definition version resource.
@@ -2428,6 +2461,7 @@ class CustomProfileResponse(dict):
                  metadata_configuration_path: Optional[_builtins.str] = None):
         """
         Specifies the custom settings for the virtual machine.
+
         :param _builtins.str metadata_configuration_path: Path for metadata configuration.
         """
         if metadata_configuration_path is not None:
@@ -2472,6 +2506,7 @@ class DataDiskResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
         :param _builtins.str create_option: Specifies how the virtual machine should be created.
         :param _builtins.int disk_size_gb: Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
         :param _builtins.str name: The name of data disk.
@@ -2540,6 +2575,7 @@ class DependsOnProfileResponse(dict):
                  update_depends_on: Optional[Sequence[_builtins.str]] = None):
         """
         Depends on profile definition.
+
         :param Sequence[_builtins.str] install_depends_on: Application installation operation dependency.
         :param Sequence[_builtins.str] uninstall_depends_on: Application deletion operation dependency.
         :param Sequence[_builtins.str] update_depends_on: Application update operation dependency.
@@ -2611,6 +2647,7 @@ class HelmArtifactProfileResponse(dict):
                  registry_values_paths: Optional[Sequence[_builtins.str]] = None):
         """
         Helm artifact profile.
+
         :param _builtins.str helm_package_name: Helm package name.
         :param _builtins.str helm_package_version_range: Helm package version range.
         :param Sequence[_builtins.str] image_pull_secrets_values_paths: The image pull secrets values path list.
@@ -2669,6 +2706,7 @@ class HelmInstallOptionsResponse(dict):
                  wait: Optional[_builtins.str] = None):
         """
         The helm deployment install options
+
         :param _builtins.str atomic: The helm deployment atomic options
         :param _builtins.str timeout: The helm deployment timeout options
         :param _builtins.str wait: The helm deployment wait options
@@ -2739,6 +2777,7 @@ class HelmMappingRuleProfileResponse(dict):
                  values: Optional[_builtins.str] = None):
         """
         Helm mapping rule profile
+
         :param _builtins.str helm_package_version: Helm package version.
         :param 'HelmMappingRuleProfileResponseOptions' options: The helm deployment options
         :param _builtins.str release_name: Helm release name.
@@ -2826,6 +2865,7 @@ class HelmMappingRuleProfileResponseOptions(dict):
                  upgrade_options: Optional['outputs.HelmUpgradeOptionsResponse'] = None):
         """
         The helm deployment options
+
         :param 'HelmInstallOptionsResponse' install_options: The helm deployment install options
         :param 'HelmUpgradeOptionsResponse' upgrade_options: The helm deployment upgrade options
         """
@@ -2862,6 +2902,7 @@ class HelmUpgradeOptionsResponse(dict):
                  wait: Optional[_builtins.str] = None):
         """
         The helm deployment install options
+
         :param _builtins.str atomic: The helm deployment atomic options
         :param _builtins.str timeout: The helm deployment timeout options
         :param _builtins.str wait: The helm deployment wait options
@@ -2927,6 +2968,7 @@ class ImageArtifactProfileResponse(dict):
                  image_version: Optional[_builtins.str] = None):
         """
         Image artifact profile.
+
         :param _builtins.str image_name: Image name.
         :param _builtins.str image_version: Image version.
         """
@@ -2978,6 +3020,7 @@ class ImageMappingRuleProfileResponse(dict):
                  user_configuration: Optional[_builtins.str] = None):
         """
         Image mapping rule profile
+
         :param _builtins.str user_configuration: List of values.
         """
         if user_configuration is not None:
@@ -3022,6 +3065,7 @@ class ImageReferenceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The image reference properties.
+
         :param _builtins.str exact_version: Specifies in decimal numbers, the exact version of image used to create the virtual machine.
         :param _builtins.str offer: Specifies the offer of the image used to create the virtual machine.
         :param _builtins.str publisher: The image publisher.
@@ -3089,6 +3133,7 @@ class LinuxConfigurationResponse(dict):
                  ssh: Optional['outputs.SshConfigurationResponse'] = None):
         """
         Specifies the Linux operating system settings on the virtual machine.
+
         :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
         if ssh is not None:
@@ -3113,6 +3158,7 @@ class ManagedResourceGroupConfigurationResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Managed resource group configuration.
+
         :param _builtins.str location: Managed resource group location.
         :param _builtins.str name: Managed resource group name.
         """
@@ -3171,6 +3217,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -3247,6 +3294,7 @@ class ManifestArtifactFormatResponse(dict):
                  artifact_version: Optional[_builtins.str] = None):
         """
         Manifest artifact properties.
+
         :param _builtins.str artifact_name: The artifact name
         :param _builtins.str artifact_type: The artifact type.
         :param _builtins.str artifact_version: The artifact version.
@@ -3315,6 +3363,7 @@ class NSDArtifactProfileResponse(dict):
                  artifact_version: Optional[_builtins.str] = None):
         """
         Artifact profile properties.
+
         :param _builtins.str artifact_name: Artifact name.
         :param 'ReferencedResourceResponse' artifact_store_reference: The artifact store resource id
         :param _builtins.str artifact_version: Artifact version.
@@ -3378,6 +3427,7 @@ class NetworkFunctionDefinitionGroupPropertiesFormatResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Network function definition group properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the network function definition groups resource.
         :param _builtins.str description: The network function definition group description.
         """
@@ -3433,6 +3483,7 @@ class NetworkFunctionDefinitionResourceElementTemplateDetailsResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         The network function definition resource element template details.
+
         :param _builtins.str resource_element_type: The resource element template type.
                Expected value is 'NetworkFunctionDefinition'.
         :param 'ArmResourceDefinitionResourceElementTemplateResponse' configuration: The resource element template type.
@@ -3531,6 +3582,7 @@ class NetworkFunctionRoleConfigurationResponse(dict):
                  virtual_machine_size: Optional[_builtins.str] = None):
         """
         Network function role configuration.
+
         :param 'CustomProfileResponse' custom_profile: Specifies the custom settings for the virtual machine.
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: The network interface configurations.
         :param 'OsProfileResponse' os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
@@ -3659,6 +3711,7 @@ class NetworkFunctionTemplateResponse(dict):
                  network_function_role_configurations: Optional[Sequence['outputs.NetworkFunctionRoleConfigurationResponse']] = None):
         """
         The network function template.
+
         :param Sequence['NetworkFunctionRoleConfigurationResponse'] network_function_role_configurations: An array of network function role definitions.
         """
         if network_function_role_configurations is not None:
@@ -3732,6 +3785,7 @@ class NetworkFunctionValueWithSecretsResponse(dict):
                  role_override_values: Optional[Sequence[_builtins.str]] = None):
         """
         NetworkFunction with secrets.
+
         :param _builtins.str configuration_type: The secret type which indicates if secret or not.
                Expected value is 'Secret'.
         :param _builtins.str provisioning_state: The provisioning state of the network function resource.
@@ -3929,6 +3983,7 @@ class NetworkFunctionValueWithoutSecretsResponse(dict):
                  role_override_values: Optional[Sequence[_builtins.str]] = None):
         """
         NetworkFunction with no secrets.
+
         :param _builtins.str configuration_type: The secret type which indicates if secret or not.
                Expected value is 'Open'.
         :param _builtins.str provisioning_state: The provisioning state of the network function resource.
@@ -4112,6 +4167,7 @@ class NetworkInterfaceIPConfigurationResponse(dict):
                  subnet: Optional[_builtins.str] = None):
         """
         Network interface IP configuration properties.
+
         :param Sequence[_builtins.str] dns_servers: The list of DNS servers IP addresses.
         :param _builtins.str gateway: The value of the gateway.
         :param _builtins.str ip_address: The value of the IP address.
@@ -4216,6 +4272,7 @@ class NetworkInterfaceResponse(dict):
                  vm_switch_type: Optional[_builtins.str] = None):
         """
         Network interface properties.
+
         :param Sequence['NetworkInterfaceIPConfigurationResponse'] ip_configurations: A list of IP configurations of the network interface.
         :param _builtins.str mac_address: The MAC address of the network interface.
         :param _builtins.str network_interface_name: The name of the network interface.
@@ -4290,6 +4347,7 @@ class NetworkServiceDesignGroupPropertiesFormatResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         network service design group properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the network service design groups resource.
         :param _builtins.str description: The network service design group description.
         """
@@ -4353,6 +4411,7 @@ class NetworkServiceDesignVersionPropertiesFormatResponse(dict):
                  resource_element_templates: Optional[Sequence[Any]] = None):
         """
         network service design version properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the network service design version resource.
         :param _builtins.str version_state: The network service design version state.
         :param Mapping[str, 'ReferencedResourceResponse'] configuration_group_schema_references: The configuration schemas to used to define the values.
@@ -4430,6 +4489,7 @@ class NfviDetailsResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The nfvi details.
+
         :param _builtins.str name: The nfvi name.
         :param _builtins.str type: The nfvi type.
         """
@@ -4482,6 +4542,7 @@ class OpenDeploymentResourceReferenceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Non secret deployment resource id reference.
+
         :param _builtins.str id_type: The resource reference arm id type.
                Expected value is 'Open'.
         :param _builtins.str id: Resource ID.
@@ -4538,6 +4599,7 @@ class OsDiskResponse(dict):
                  os_type: Optional[_builtins.str] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
         :param _builtins.int disk_size_gb: Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
         :param _builtins.str name: The VHD name.
         :param _builtins.str os_type: The OS type.
@@ -4609,6 +4671,7 @@ class OsProfileResponse(dict):
                  linux_configuration: Optional['outputs.LinuxConfigurationResponse'] = None):
         """
         Specifies the operating system settings for the role instance.
+
         :param _builtins.str admin_username: Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param _builtins.str custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
         :param _builtins.bool custom_data_required: Indicates if custom data is required to deploy this role.
@@ -4685,6 +4748,7 @@ class PublisherPropertiesFormatResponse(dict):
                  scope: Optional[_builtins.str] = None):
         """
         publisher properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the publisher resource.
         :param _builtins.str scope: The publisher scope.
         """
@@ -4718,6 +4782,7 @@ class ReferencedResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another resource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -4758,6 +4823,7 @@ class SecretDeploymentResourceReferenceResponse(dict):
                  id_type: _builtins.str):
         """
         Secret deployment resource id reference.
+
         :param _builtins.str id_type: The resource reference arm id type.
                Expected value is 'Secret'.
         """
@@ -4832,6 +4898,7 @@ class SiteNetworkServicePropertiesFormatResponse(dict):
                  site_reference: Optional['outputs.ReferencedResourceResponse'] = None):
         """
         Site network service properties.
+
         :param Mapping[str, 'ReferencedResourceResponse'] last_state_configuration_group_value_references: The last state of the site network service resource.
         :param _builtins.str last_state_network_service_design_version_name: The network service design version for the site network service.
         :param _builtins.str network_service_design_group_name: The network service design group name for the site network service.
@@ -4989,6 +5056,7 @@ class SitePropertiesFormatResponse(dict):
                  nfvis: Optional[Sequence[Any]] = None):
         """
         Site properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the site resource. **TODO**: Confirm if this is needed.
         :param Sequence['ReferencedResourceResponse'] site_network_service_references: The list of site network services on the site.
         :param Sequence[Union['AzureArcK8sClusterNFVIDetailsResponse', 'AzureCoreNFVIDetailsResponse', 'AzureOperatorNexusClusterNFVIDetailsResponse']] nfvis: List of NFVIs
@@ -5033,6 +5101,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         Sku, to be associated with a SiteNetworkService.
+
         :param _builtins.str name: Name of this Sku
         :param _builtins.str tier: The SKU tier based on the SKU name.
         """
@@ -5082,6 +5151,7 @@ class SshConfigurationResponse(dict):
                  public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
         """
         SSH configuration for Linux based VMs running on Azure
+
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
         if public_keys is not None:
@@ -5123,6 +5193,7 @@ class SshPublicKeyResponse(dict):
                  path: Optional[_builtins.str] = None):
         """
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+
         :param _builtins.str key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
         :param _builtins.str path: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
@@ -5180,6 +5251,7 @@ class StorageProfileResponse(dict):
                  os_disk: Optional['outputs.OsDiskResponse'] = None):
         """
         Specifies the storage settings for the virtual machine disks.
+
         :param Sequence['DataDiskResponse'] data_disks: Specifies the parameters that are used to add a data disk to a virtual machine.
         :param 'ImageReferenceResponse' image_reference: The image reference properties.
         :param 'OsDiskResponse' os_disk: Specifies information about the operating system disk used by the virtual machine.
@@ -5225,6 +5297,7 @@ class SubResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Reference to another sub resource.
+
         :param _builtins.str id: Resource ID.
         """
         if id is not None:
@@ -5280,6 +5353,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -5378,6 +5452,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -5430,6 +5505,7 @@ class VhdImageArtifactProfileResponse(dict):
                  vhd_version: Optional[_builtins.str] = None):
         """
         Vhd artifact profile.
+
         :param _builtins.str vhd_name: Vhd name.
         :param _builtins.str vhd_version: Vhd version.
         """
@@ -5481,6 +5557,7 @@ class VhdImageMappingRuleProfileResponse(dict):
                  user_configuration: Optional[_builtins.str] = None):
         """
         Vhd mapping rule profile
+
         :param _builtins.str user_configuration: List of values.
         """
         if user_configuration is not None:
@@ -5534,6 +5611,7 @@ class VirtualNetworkFunctionNetworkFunctionDefinitionVersionResponse(dict):
                  network_function_template: Optional[Any] = None):
         """
         Virtual network function network function definition version properties.
+
         :param _builtins.str network_function_type: The network function type.
                Expected value is 'VirtualNetworkFunction'.
         :param _builtins.str provisioning_state: The provisioning state of the network function definition version resource.

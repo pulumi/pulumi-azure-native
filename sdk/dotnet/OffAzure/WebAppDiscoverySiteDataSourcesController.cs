@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.OffAzure
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
     /// 
     /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### WebAppDiscoverySiteDataSourcesController_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppDiscoverySiteDataSourcesController = new AzureNative.OffAzure.WebAppDiscoverySiteDataSourcesController("webAppDiscoverySiteDataSourcesController", new()
+    ///     {
+    ///         DiscoverySiteDataSourceName = "XJ-V535YCO5L3PIWdB",
+    ///         DiscoverySiteId = "gsqqojvnjtbdabo",
+    ///         ResourceGroupName = "rgmigrate",
+    ///         SiteName = "3363G4K-7-XWJ7384S",
+    ///         WebAppSiteName = "42883RRtL4-CE155--u65v-",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazure:WebAppDiscoverySiteDataSourcesController ctlzidatxazufjrtysorbfum /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/webAppSites/{webAppSiteName}/discoverySiteDataSources/{discoverySiteDataSourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:WebAppDiscoverySiteDataSourcesController")]
     public partial class WebAppDiscoverySiteDataSourcesController : global::Pulumi.CustomResource

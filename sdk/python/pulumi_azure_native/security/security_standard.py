@@ -31,6 +31,7 @@ class SecurityStandardArgs:
                  standard_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityStandard resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]] assessments: List of assessment keys to apply to standard scope.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]] cloud_providers: List of all standard supported clouds.
@@ -157,6 +158,85 @@ class SecurityStandard(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
+        ## Example Usage
+        ### Create or update security standard over management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_standard = azure_native.security.SecurityStandard("securityStandard",
+            assessments=[
+                {
+                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
+                },
+                {
+                    "assessment_key": "dbd0cb49-b563-45e7-9724-889e799fa648",
+                },
+            ],
+            cloud_providers=[azure_native.security.StandardSupportedCloud.GCP],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            policy_set_definition_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+            scope="providers/Microsoft.Management/managementGroups/contoso",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e")
+
+        ```
+        ### Create or update security standard over security connector scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_standard = azure_native.security.SecurityStandard("securityStandard",
+            assessments=[
+                {
+                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
+                },
+                {
+                    "assessment_key": "dbd0cb49-b563-45e7-9724-889e799fa648",
+                },
+            ],
+            cloud_providers=[azure_native.security.StandardSupportedCloud.GCP],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e")
+
+        ```
+        ### Create or update security standard over subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_standard = azure_native.security.SecurityStandard("securityStandard",
+            assessments=[
+                {
+                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
+                },
+                {
+                    "assessment_key": "dbd0cb49-b563-45e7-9724-889e799fa648",
+                },
+            ],
+            cloud_providers=[azure_native.security.StandardSupportedCloud.GCP],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            policy_set_definition_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityStandard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{scope}/providers/Microsoft.Security/securityStandards/{standardId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PartialAssessmentPropertiesArgs', 'PartialAssessmentPropertiesArgsDict']]]] assessments: List of assessment keys to apply to standard scope.
@@ -177,6 +257,85 @@ class SecurityStandard(pulumi.CustomResource):
         Security Standard on a resource
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
+
+        ## Example Usage
+        ### Create or update security standard over management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_standard = azure_native.security.SecurityStandard("securityStandard",
+            assessments=[
+                {
+                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
+                },
+                {
+                    "assessment_key": "dbd0cb49-b563-45e7-9724-889e799fa648",
+                },
+            ],
+            cloud_providers=[azure_native.security.StandardSupportedCloud.GCP],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            policy_set_definition_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+            scope="providers/Microsoft.Management/managementGroups/contoso",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e")
+
+        ```
+        ### Create or update security standard over security connector scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_standard = azure_native.security.SecurityStandard("securityStandard",
+            assessments=[
+                {
+                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
+                },
+                {
+                    "assessment_key": "dbd0cb49-b563-45e7-9724-889e799fa648",
+                },
+            ],
+            cloud_providers=[azure_native.security.StandardSupportedCloud.GCP],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e")
+
+        ```
+        ### Create or update security standard over subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_standard = azure_native.security.SecurityStandard("securityStandard",
+            assessments=[
+                {
+                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
+                },
+                {
+                    "assessment_key": "dbd0cb49-b563-45e7-9724-889e799fa648",
+                },
+            ],
+            cloud_providers=[azure_native.security.StandardSupportedCloud.GCP],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            policy_set_definition_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Authorization/policySetDefinitions/patchorchestration-applicationversions",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityStandard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{scope}/providers/Microsoft.Security/securityStandards/{standardId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityStandardArgs args: The arguments to use to populate this resource's properties.

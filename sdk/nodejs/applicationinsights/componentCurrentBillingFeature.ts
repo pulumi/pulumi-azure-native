@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * An Application Insights component billing features
  *
  * Uses Azure REST API version 2015-05-01.
+ *
+ * ## Example Usage
+ * ### ComponentCurrentBillingFeaturesUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const componentCurrentBillingFeature = new azure_native.applicationinsights.ComponentCurrentBillingFeature("componentCurrentBillingFeature", {
+ *     currentBillingFeatures: [
+ *         "Basic",
+ *         "Application Insights Enterprise",
+ *     ],
+ *     dataVolumeCap: {
+ *         cap: 100,
+ *         stopSendNotificationWhenHitCap: true,
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:applicationinsights:ComponentCurrentBillingFeature myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures 
+ * ```
  */
 export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
     /**

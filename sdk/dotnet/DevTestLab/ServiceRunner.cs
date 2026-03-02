@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A container for a managed identity to execute DevTest lab services.
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+    /// 
+    /// ## Example Usage
+    /// ### ServiceRunners_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceRunner = new AzureNative.DevTestLab.ServiceRunner("serviceRunner", new()
+    ///     {
+    ///         Identity = new AzureNative.DevTestLab.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             ClientSecretUrl = "{identityClientSecretUrl}",
+    ///             PrincipalId = "{identityPrincipalId}",
+    ///             TenantId = "{identityTenantId}",
+    ///             Type = "{identityType}",
+    ///         },
+    ///         LabName = "{devtestlabName}",
+    ///         Location = "{location}",
+    ///         Name = "{servicerunnerName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:ServiceRunner {serviceRunnerName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/servicerunners/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ServiceRunner")]
     public partial class ServiceRunner : global::Pulumi.CustomResource

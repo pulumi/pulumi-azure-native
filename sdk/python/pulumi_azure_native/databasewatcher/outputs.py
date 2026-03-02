@@ -72,6 +72,7 @@ class DatastoreResponse(dict):
                  kusto_cluster_display_name: Optional[_builtins.str] = None):
         """
         The properties of a data store.
+
         :param _builtins.str kusto_cluster_uri: The Kusto cluster URI.
         :param _builtins.str kusto_data_ingestion_uri: The Kusto data ingestion URI.
         :param _builtins.str kusto_database_name: The name of a Kusto database.
@@ -180,6 +181,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -271,6 +273,7 @@ class SqlDbElasticPoolTargetPropertiesResponse(dict):
                  target_vault: Optional['outputs.VaultSecretResponse'] = None):
         """
         The properties specific to an elastic pool in Azure SQL Database.
+
         :param _builtins.str anchor_database_resource_id: The Azure resource ID of the anchor database used to connect to an elastic pool.
         :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param _builtins.str provisioning_state: The provisioning state of the resource.
@@ -404,6 +407,7 @@ class SqlDbSingleDatabaseTargetPropertiesResponse(dict):
                  target_vault: Optional['outputs.VaultSecretResponse'] = None):
         """
         The properties specific to a database in Azure SQL Database.
+
         :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param _builtins.str provisioning_state: The provisioning state of the resource.
         :param _builtins.str sql_db_resource_id: The Azure resource ID of an Azure SQL DB database target.
@@ -530,6 +534,7 @@ class SqlMiTargetPropertiesResponse(dict):
                  target_vault: Optional['outputs.VaultSecretResponse'] = None):
         """
         The properties specific to Azure SQL Managed Instance targets.
+
         :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param _builtins.str provisioning_state: The provisioning state of the resource.
         :param _builtins.str sql_mi_resource_id: The Azure resource ID of an Azure SQL Managed Instance target.
@@ -669,6 +674,7 @@ class SqlVmTargetPropertiesResponse(dict):
                  target_vault: Optional['outputs.VaultSecretResponse'] = None):
         """
         The properties specific to Azure SQL VM targets.
+
         :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
         :param _builtins.str provisioning_state: The provisioning state of the resource.
         :param _builtins.str sql_vm_resource_id: The Azure resource ID of an Azure SQL VM target.
@@ -800,6 +806,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -898,6 +905,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -953,6 +961,7 @@ class VaultSecretResponse(dict):
                  akv_target_user: Optional[_builtins.str] = None):
         """
         The vault specific details required if using SQL authentication to connect to a target.
+
         :param _builtins.str akv_resource_id: The Azure resource ID of the Key Vault instance storing database authentication secrets.
         :param _builtins.str akv_target_password: The path to the Key Vault secret storing the password for authentication to a target.
         :param _builtins.str akv_target_user: The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.

@@ -15,6 +15,37 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update the network service design group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkServiceDesignGroup = new AzureNative.HybridNetwork.NetworkServiceDesignGroup("networkServiceDesignGroup", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NetworkServiceDesignGroupName = "TestNetworkServiceDesignGroupName",
+    ///         PublisherName = "TestPublisher",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:NetworkServiceDesignGroup TestNetworkServiceDesignGroupName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkServiceDesignGroups/{networkServiceDesignGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:NetworkServiceDesignGroup")]
     public partial class NetworkServiceDesignGroup : global::Pulumi.CustomResource

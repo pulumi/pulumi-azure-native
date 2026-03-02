@@ -15,6 +15,51 @@ namespace Pulumi.AzureNative.DnsResolver
     /// Uses Azure REST API version 2023-07-01-preview.
     /// 
     /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert DNS forwarding ruleset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dnsForwardingRuleset = new AzureNative.DnsResolver.DnsForwardingRuleset("dnsForwardingRuleset", new()
+    ///     {
+    ///         DnsForwardingRulesetName = "samplednsForwardingRuleset",
+    ///         DnsResolverOutboundEndpoints = new[]
+    ///         {
+    ///             new AzureNative.DnsResolver.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+    ///             },
+    ///             new AzureNative.DnsResolver.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dnsresolver:DnsForwardingRuleset sampleDnsForwardingRuleset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dnsresolver:DnsForwardingRuleset")]
     public partial class DnsForwardingRuleset : global::Pulumi.CustomResource

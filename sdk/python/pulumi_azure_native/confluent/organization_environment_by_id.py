@@ -30,6 +30,7 @@ class OrganizationEnvironmentByIdArgs:
                  stream_governance_config: Optional[pulumi.Input['StreamGovernanceConfigArgs']] = None):
         """
         The set of arguments for constructing a OrganizationEnvironmentById resource.
+
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
@@ -141,6 +142,32 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Environment_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization_environment_by_id = azure_native.confluent.OrganizationEnvironmentById("organizationEnvironmentById",
+            environment_id="env-1",
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            stream_governance_config={
+                "package": azure_native.confluent.Package.ESSENTIALS,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:OrganizationEnvironmentById env-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
@@ -162,6 +189,32 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
 
         Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Environment_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization_environment_by_id = azure_native.confluent.OrganizationEnvironmentById("organizationEnvironmentById",
+            environment_id="env-1",
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            stream_governance_config={
+                "package": azure_native.confluent.Package.ESSENTIALS,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent:OrganizationEnvironmentById env-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OrganizationEnvironmentByIdArgs args: The arguments to use to populate this resource's properties.

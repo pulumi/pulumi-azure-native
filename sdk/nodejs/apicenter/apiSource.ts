@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * API source entity.
  *
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+ *
+ * ## Example Usage
+ * ### ApiSources_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiSource = new azure_native.apicenter.ApiSource("apiSource", {
+ *     apiSourceName: "contoso-api-management",
+ *     azureApiManagementSource: {
+ *         msiResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity",
+ *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso",
+ *     },
+ *     importSpecification: azure_native.apicenter.ImportSpecificationOptions.OnDemand,
+ *     resourceGroupName: "contoso-resources",
+ *     serviceName: "contoso",
+ *     targetEnvironmentId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiCenter/services/contoso/workspaces/default/environments/azure-api-management",
+ *     targetLifecycleStage: azure_native.apicenter.LifecycleStage.Design,
+ *     workspaceName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apicenter:ApiSource contoso-api-management /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apiSources/{apiSourceName} 
+ * ```
  */
 export class ApiSource extends pulumi.CustomResource {
     /**

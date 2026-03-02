@@ -146,24 +146,19 @@ __all__ = [
     'VirtualNetworkRuleArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessPolicyArgsDict(TypedDict):
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expiry time of the access policy
-        """
-        permission: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        List of abbreviated permissions.
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time of the access policy
-        """
-elif False:
-    AccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class AccessPolicyArgsDict(TypedDict):
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expiry time of the access policy
+    """
+    permission: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    List of abbreviated permissions.
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time of the access policy
+    """
 
 @pulumi.input_type
 class AccessPolicyArgs:
@@ -220,25 +215,22 @@ class AccessPolicyArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class AccountImmutabilityPolicyPropertiesArgsDict(TypedDict):
-        """
-        This defines account-level immutability policy properties.
-        """
-        allow_protected_append_writes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
-        """
-        immutability_period_since_creation_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The immutability period for the blobs in the container since the policy creation, in days.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]
-        """
-        The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
-        """
-elif False:
-    AccountImmutabilityPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AccountImmutabilityPolicyPropertiesArgsDict(TypedDict):
+    """
+    This defines account-level immutability policy properties.
+    """
+    allow_protected_append_writes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+    """
+    immutability_period_since_creation_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The immutability period for the blobs in the container since the policy creation, in days.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]]
+    """
+    The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+    """
 
 @pulumi.input_type
 class AccountImmutabilityPolicyPropertiesArgs:
@@ -248,6 +240,7 @@ class AccountImmutabilityPolicyPropertiesArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']]] = None):
         """
         This defines account-level immutability policy properties.
+
         :param pulumi.Input[_builtins.bool] allow_protected_append_writes: This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
         :param pulumi.Input[_builtins.int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[Union[_builtins.str, 'AccountImmutabilityPolicyState']] state: The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
@@ -296,45 +289,42 @@ class AccountImmutabilityPolicyPropertiesArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class ActiveDirectoryPropertiesArgsDict(TypedDict):
-        """
-        Settings properties for Active Directory (AD).
-        """
-        domain_guid: pulumi.Input[_builtins.str]
-        """
-        Specifies the domain GUID.
-        """
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        Specifies the primary domain that the AD DNS server is authoritative for.
-        """
-        account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountType']]]
-        """
-        Specifies the Active Directory account type for Azure Storage.
-        """
-        azure_storage_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the security identifier (SID) for Azure Storage.
-        """
-        domain_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the security identifier (SID).
-        """
-        forest_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the Active Directory forest to get.
-        """
-        net_bios_domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the NetBIOS domain name.
-        """
-        sam_account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the Active Directory SAMAccountName for Azure Storage.
-        """
-elif False:
-    ActiveDirectoryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ActiveDirectoryPropertiesArgsDict(TypedDict):
+    """
+    Settings properties for Active Directory (AD).
+    """
+    domain_guid: pulumi.Input[_builtins.str]
+    """
+    Specifies the domain GUID.
+    """
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the primary domain that the AD DNS server is authoritative for.
+    """
+    account_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AccountType']]]
+    """
+    Specifies the Active Directory account type for Azure Storage.
+    """
+    azure_storage_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the security identifier (SID) for Azure Storage.
+    """
+    domain_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the security identifier (SID).
+    """
+    forest_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Active Directory forest to get.
+    """
+    net_bios_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the NetBIOS domain name.
+    """
+    sam_account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the Active Directory SAMAccountName for Azure Storage.
+    """
 
 @pulumi.input_type
 class ActiveDirectoryPropertiesArgs:
@@ -349,6 +339,7 @@ class ActiveDirectoryPropertiesArgs:
                  sam_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Settings properties for Active Directory (AD).
+
         :param pulumi.Input[_builtins.str] domain_guid: Specifies the domain GUID.
         :param pulumi.Input[_builtins.str] domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
         :param pulumi.Input[Union[_builtins.str, 'AccountType']] account_type: Specifies the Active Directory account type for Azure Storage.
@@ -470,25 +461,22 @@ class ActiveDirectoryPropertiesArgs:
         pulumi.set(self, "sam_account_name", value)
 
 
-if not MYPY:
-    class AzureFilesIdentityBasedAuthenticationArgsDict(TypedDict):
-        """
-        Settings for Azure Files identity based authentication.
-        """
-        directory_service_options: pulumi.Input[Union[_builtins.str, 'DirectoryServiceOptions']]
-        """
-        Indicates the directory service used. Note that this enum may be extended in the future.
-        """
-        active_directory_properties: NotRequired[pulumi.Input['ActiveDirectoryPropertiesArgsDict']]
-        """
-        Required if directoryServiceOptions are AD, optional if they are AADKERB.
-        """
-        default_share_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]]
-        """
-        Default share permission for users using Kerberos authentication if RBAC role is not assigned.
-        """
-elif False:
-    AzureFilesIdentityBasedAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AzureFilesIdentityBasedAuthenticationArgsDict(TypedDict):
+    """
+    Settings for Azure Files identity based authentication.
+    """
+    directory_service_options: pulumi.Input[Union[_builtins.str, 'DirectoryServiceOptions']]
+    """
+    Indicates the directory service used. Note that this enum may be extended in the future.
+    """
+    active_directory_properties: NotRequired[pulumi.Input['ActiveDirectoryPropertiesArgsDict']]
+    """
+    Required if directoryServiceOptions are AD, optional if they are AADKERB.
+    """
+    default_share_permission: NotRequired[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]]
+    """
+    Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+    """
 
 @pulumi.input_type
 class AzureFilesIdentityBasedAuthenticationArgs:
@@ -498,6 +486,7 @@ class AzureFilesIdentityBasedAuthenticationArgs:
                  default_share_permission: Optional[pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']]] = None):
         """
         Settings for Azure Files identity based authentication.
+
         :param pulumi.Input[Union[_builtins.str, 'DirectoryServiceOptions']] directory_service_options: Indicates the directory service used. Note that this enum may be extended in the future.
         :param pulumi.Input['ActiveDirectoryPropertiesArgs'] active_directory_properties: Required if directoryServiceOptions are AD, optional if they are AADKERB.
         :param pulumi.Input[Union[_builtins.str, 'DefaultSharePermission']] default_share_permission: Default share permission for users using Kerberos authentication if RBAC role is not assigned.
@@ -545,17 +534,14 @@ class AzureFilesIdentityBasedAuthenticationArgs:
         pulumi.set(self, "default_share_permission", value)
 
 
-if not MYPY:
-    class BlobInventoryCreationTimeArgsDict(TypedDict):
-        """
-        This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
-        """
-        last_n_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
-        """
-elif False:
-    BlobInventoryCreationTimeArgsDict: TypeAlias = Mapping[str, Any]
+class BlobInventoryCreationTimeArgsDict(TypedDict):
+    """
+    This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+    """
+    last_n_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
+    """
 
 @pulumi.input_type
 class BlobInventoryCreationTimeArgs:
@@ -563,6 +549,7 @@ class BlobInventoryCreationTimeArgs:
                  last_n_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+
         :param pulumi.Input[_builtins.int] last_n_days: When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
         """
         if last_n_days is not None:
@@ -581,33 +568,30 @@ class BlobInventoryCreationTimeArgs:
         pulumi.set(self, "last_n_days", value)
 
 
-if not MYPY:
-    class BlobInventoryPolicyDefinitionArgsDict(TypedDict):
-        """
-        An object that defines the blob inventory rule.
-        """
-        format: pulumi.Input[Union[_builtins.str, 'Format']]
-        """
-        This is a required field, it specifies the format for the inventory files.
-        """
-        object_type: pulumi.Input[Union[_builtins.str, 'ObjectType']]
-        """
-        This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
-        """
-        schedule: pulumi.Input[Union[_builtins.str, 'Schedule']]
-        """
-        This is a required field. This field is used to schedule an inventory formation.
-        """
-        schema_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
-        """
-        filters: NotRequired[pulumi.Input['BlobInventoryPolicyFilterArgsDict']]
-        """
-        An object that defines the filter set.
-        """
-elif False:
-    BlobInventoryPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BlobInventoryPolicyDefinitionArgsDict(TypedDict):
+    """
+    An object that defines the blob inventory rule.
+    """
+    format: pulumi.Input[Union[_builtins.str, 'Format']]
+    """
+    This is a required field, it specifies the format for the inventory files.
+    """
+    object_type: pulumi.Input[Union[_builtins.str, 'ObjectType']]
+    """
+    This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+    """
+    schedule: pulumi.Input[Union[_builtins.str, 'Schedule']]
+    """
+    This is a required field. This field is used to schedule an inventory formation.
+    """
+    schema_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    This is a required field. This field specifies the fields and properties of the object to be included in the inventory. The Schema field value 'Name' is always required. The valid values for this field for the 'Blob' definition.objectType include 'Name, Creation-Time, Last-Modified, Content-Length, Content-MD5, BlobType, AccessTier, AccessTierChangeTime, AccessTierInferred, Tags, Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, Snapshot, VersionId, IsCurrentVersion, Metadata, LastAccessTime, Tags, Etag, ContentType, ContentEncoding, ContentLanguage, ContentCRC64, CacheControl, ContentDisposition, LeaseStatus, LeaseState, LeaseDuration, ServerEncrypted, Deleted, DeletionId, DeletedTime, RemainingRetentionDays, ImmutabilityPolicyUntilDate, ImmutabilityPolicyMode, LegalHold, CopyId, CopyStatus, CopySource, CopyProgress, CopyCompletionTime, CopyStatusDescription, CustomerProvidedKeySha256, RehydratePriority, ArchiveStatus, XmsBlobSequenceNumber, EncryptionScope, IncrementalCopy, TagCount'. For Blob object type schema field value 'DeletedTime' is applicable only for Hns enabled accounts. The valid values for 'Container' definition.objectType include 'Name, Last-Modified, Metadata, LeaseStatus, LeaseState, LeaseDuration, PublicAccess, HasImmutabilityPolicy, HasLegalHold, Etag, DefaultEncryptionScope, DenyEncryptionScopeOverride, ImmutableStorageWithVersioningEnabled, Deleted, Version, DeletedTime, RemainingRetentionDays'. Schema field values 'Expiry-Time, hdi_isfolder, Owner, Group, Permissions, Acl, DeletionId' are valid only for Hns enabled accounts.Schema field values 'Tags, TagCount' are only valid for Non-Hns accounts.
+    """
+    filters: NotRequired[pulumi.Input['BlobInventoryPolicyFilterArgsDict']]
+    """
+    An object that defines the filter set.
+    """
 
 @pulumi.input_type
 class BlobInventoryPolicyDefinitionArgs:
@@ -619,6 +603,7 @@ class BlobInventoryPolicyDefinitionArgs:
                  filters: Optional[pulumi.Input['BlobInventoryPolicyFilterArgs']] = None):
         """
         An object that defines the blob inventory rule.
+
         :param pulumi.Input[Union[_builtins.str, 'Format']] format: This is a required field, it specifies the format for the inventory files.
         :param pulumi.Input[Union[_builtins.str, 'ObjectType']] object_type: This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
         :param pulumi.Input[Union[_builtins.str, 'Schedule']] schedule: This is a required field. This field is used to schedule an inventory formation.
@@ -693,41 +678,38 @@ class BlobInventoryPolicyDefinitionArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class BlobInventoryPolicyFilterArgsDict(TypedDict):
-        """
-        An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
-        """
-        blob_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
-        """
-        creation_time: NotRequired[pulumi.Input['BlobInventoryCreationTimeArgsDict']]
-        """
-        This property is used to filter objects based on the object creation time
-        """
-        exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
-        """
-        include_blob_versions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
-        """
-        include_deleted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
-        """
-        include_snapshots: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
-        """
-        prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of strings with maximum 10 blob prefixes to be included in the inventory.
-        """
-elif False:
-    BlobInventoryPolicyFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BlobInventoryPolicyFilterArgsDict(TypedDict):
+    """
+    An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+    """
+    blob_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+    """
+    creation_time: NotRequired[pulumi.Input['BlobInventoryCreationTimeArgsDict']]
+    """
+    This property is used to filter objects based on the object creation time
+    """
+    exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+    """
+    include_blob_versions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
+    """
+    include_deleted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+    """
+    include_snapshots: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
+    """
+    prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of strings with maximum 10 blob prefixes to be included in the inventory.
+    """
 
 @pulumi.input_type
 class BlobInventoryPolicyFilterArgs:
@@ -741,6 +723,7 @@ class BlobInventoryPolicyFilterArgs:
                  prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         :param pulumi.Input['BlobInventoryCreationTimeArgs'] creation_time: This property is used to filter objects based on the object creation time
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_prefix: An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
@@ -849,29 +832,26 @@ class BlobInventoryPolicyFilterArgs:
         pulumi.set(self, "prefix_match", value)
 
 
-if not MYPY:
-    class BlobInventoryPolicyRuleArgsDict(TypedDict):
-        """
-        An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
-        """
-        definition: pulumi.Input['BlobInventoryPolicyDefinitionArgsDict']
-        """
-        An object that defines the blob inventory policy rule.
-        """
-        destination: pulumi.Input[_builtins.str]
-        """
-        Container name where blob inventory files are stored. Must be pre-created.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Rule is enabled when set to true.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-        """
-elif False:
-    BlobInventoryPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BlobInventoryPolicyRuleArgsDict(TypedDict):
+    """
+    An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+    """
+    definition: pulumi.Input['BlobInventoryPolicyDefinitionArgsDict']
+    """
+    An object that defines the blob inventory policy rule.
+    """
+    destination: pulumi.Input[_builtins.str]
+    """
+    Container name where blob inventory files are stored. Must be pre-created.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Rule is enabled when set to true.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+    """
 
 @pulumi.input_type
 class BlobInventoryPolicyRuleArgs:
@@ -882,6 +862,7 @@ class BlobInventoryPolicyRuleArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+
         :param pulumi.Input['BlobInventoryPolicyDefinitionArgs'] definition: An object that defines the blob inventory policy rule.
         :param pulumi.Input[_builtins.str] destination: Container name where blob inventory files are stored. Must be pre-created.
         :param pulumi.Input[_builtins.bool] enabled: Rule is enabled when set to true.
@@ -941,25 +922,22 @@ class BlobInventoryPolicyRuleArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class BlobInventoryPolicySchemaArgsDict(TypedDict):
-        """
-        The storage account blob inventory policy rules.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Policy is enabled if set to true.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgsDict']]]
-        """
-        The storage account blob inventory policy rules. The rule is applied when it is enabled.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'InventoryRuleType']]
-        """
-        The valid value is Inventory
-        """
-elif False:
-    BlobInventoryPolicySchemaArgsDict: TypeAlias = Mapping[str, Any]
+class BlobInventoryPolicySchemaArgsDict(TypedDict):
+    """
+    The storage account blob inventory policy rules.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Policy is enabled if set to true.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgsDict']]]
+    """
+    The storage account blob inventory policy rules. The rule is applied when it is enabled.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'InventoryRuleType']]
+    """
+    The valid value is Inventory
+    """
 
 @pulumi.input_type
 class BlobInventoryPolicySchemaArgs:
@@ -969,6 +947,7 @@ class BlobInventoryPolicySchemaArgs:
                  type: pulumi.Input[Union[_builtins.str, 'InventoryRuleType']]):
         """
         The storage account blob inventory policy rules.
+
         :param pulumi.Input[_builtins.bool] enabled: Policy is enabled if set to true.
         :param pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
         :param pulumi.Input[Union[_builtins.str, 'InventoryRuleType']] type: The valid value is Inventory
@@ -1014,21 +993,18 @@ class BlobInventoryPolicySchemaArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ChangeFeedArgsDict(TypedDict):
-        """
-        The blob service properties for change feed events.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether change feed event logging is enabled for the Blob service.
-        """
-        retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
-        """
-elif False:
-    ChangeFeedArgsDict: TypeAlias = Mapping[str, Any]
+class ChangeFeedArgsDict(TypedDict):
+    """
+    The blob service properties for change feed events.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether change feed event logging is enabled for the Blob service.
+    """
+    retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
+    """
 
 @pulumi.input_type
 class ChangeFeedArgs:
@@ -1037,6 +1013,7 @@ class ChangeFeedArgs:
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The blob service properties for change feed events.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether change feed event logging is enabled for the Blob service.
         :param pulumi.Input[_builtins.int] retention_in_days: Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
         """
@@ -1070,17 +1047,14 @@ class ChangeFeedArgs:
         pulumi.set(self, "retention_in_days", value)
 
 
-if not MYPY:
-    class CorsRulesArgsDict(TypedDict):
-        """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgsDict']]]]
-        """
-        The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-elif False:
-    CorsRulesArgsDict: TypeAlias = Mapping[str, Any]
+class CorsRulesArgsDict(TypedDict):
+    """
+    Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+    """
+    cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgsDict']]]]
+    """
+    The List of CORS rules. You can include up to five CorsRule elements in the request. 
+    """
 
 @pulumi.input_type
 class CorsRulesArgs:
@@ -1088,6 +1062,7 @@ class CorsRulesArgs:
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+
         :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
@@ -1106,33 +1081,30 @@ class CorsRulesArgs:
         pulumi.set(self, "cors_rules", value)
 
 
-if not MYPY:
-    class CorsRuleArgsDict(TypedDict):
-        """
-        Specifies a CORS rule for the Blob service.
-        """
-        allowed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
-        """
-        allowed_methods: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedMethods']]]]
-        """
-        Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
-        """
-        allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
-        """
-        exposed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Required if CorsRule element is present. A list of response headers to expose to CORS clients.
-        """
-        max_age_in_seconds: pulumi.Input[_builtins.int]
-        """
-        Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
-        """
-elif False:
-    CorsRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CorsRuleArgsDict(TypedDict):
+    """
+    Specifies a CORS rule for the Blob service.
+    """
+    allowed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
+    """
+    allowed_methods: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedMethods']]]]
+    """
+    Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
+    """
+    allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
+    """
+    exposed_headers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Required if CorsRule element is present. A list of response headers to expose to CORS clients.
+    """
+    max_age_in_seconds: pulumi.Input[_builtins.int]
+    """
+    Required if CorsRule element is present. The number of seconds that the client/browser should cache a preflight response.
+    """
 
 @pulumi.input_type
 class CorsRuleArgs:
@@ -1144,6 +1116,7 @@ class CorsRuleArgs:
                  max_age_in_seconds: pulumi.Input[_builtins.int]):
         """
         Specifies a CORS rule for the Blob service.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AllowedMethods']]]] allowed_methods: Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
@@ -1217,21 +1190,18 @@ class CorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
-if not MYPY:
-    class CustomDomainArgsDict(TypedDict):
-        """
-        The custom domain assigned to this storage account. This can be set via Update.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-        """
-        use_sub_domain_name: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-        """
-elif False:
-    CustomDomainArgsDict: TypeAlias = Mapping[str, Any]
+class CustomDomainArgsDict(TypedDict):
+    """
+    The custom domain assigned to this storage account. This can be set via Update.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+    """
+    use_sub_domain_name: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+    """
 
 @pulumi.input_type
 class CustomDomainArgs:
@@ -1240,6 +1210,7 @@ class CustomDomainArgs:
                  use_sub_domain_name: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The custom domain assigned to this storage account. This can be set via Update.
+
         :param pulumi.Input[_builtins.str] name: Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
         :param pulumi.Input[_builtins.bool] use_sub_domain_name: Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
         """
@@ -1272,21 +1243,18 @@ class CustomDomainArgs:
         pulumi.set(self, "use_sub_domain_name", value)
 
 
-if not MYPY:
-    class DateAfterCreationArgsDict(TypedDict):
-        """
-        Object to define snapshot and version action conditions.
-        """
-        days_after_creation_greater_than: pulumi.Input[_builtins.float]
-        """
-        Value indicating the age in days after creation
-        """
-        days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
-        """
-elif False:
-    DateAfterCreationArgsDict: TypeAlias = Mapping[str, Any]
+class DateAfterCreationArgsDict(TypedDict):
+    """
+    Object to define snapshot and version action conditions.
+    """
+    days_after_creation_greater_than: pulumi.Input[_builtins.float]
+    """
+    Value indicating the age in days after creation
+    """
+    days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
+    """
 
 @pulumi.input_type
 class DateAfterCreationArgs:
@@ -1295,6 +1263,7 @@ class DateAfterCreationArgs:
                  days_after_last_tier_change_greater_than: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Object to define snapshot and version action conditions.
+
         :param pulumi.Input[_builtins.float] days_after_creation_greater_than: Value indicating the age in days after creation
         :param pulumi.Input[_builtins.float] days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
         """
@@ -1327,29 +1296,26 @@ class DateAfterCreationArgs:
         pulumi.set(self, "days_after_last_tier_change_greater_than", value)
 
 
-if not MYPY:
-    class DateAfterModificationArgsDict(TypedDict):
-        """
-        Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
-        """
-        days_after_creation_greater_than: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Value indicating the age in days after blob creation.
-        """
-        days_after_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
-        """
-        days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
-        """
-        days_after_modification_greater_than: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Value indicating the age in days after last modification
-        """
-elif False:
-    DateAfterModificationArgsDict: TypeAlias = Mapping[str, Any]
+class DateAfterModificationArgsDict(TypedDict):
+    """
+    Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
+    """
+    days_after_creation_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Value indicating the age in days after blob creation.
+    """
+    days_after_last_access_time_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
+    """
+    days_after_last_tier_change_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+    """
+    days_after_modification_greater_than: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Value indicating the age in days after last modification
+    """
 
 @pulumi.input_type
 class DateAfterModificationArgs:
@@ -1360,6 +1326,7 @@ class DateAfterModificationArgs:
                  days_after_modification_greater_than: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
+
         :param pulumi.Input[_builtins.float] days_after_creation_greater_than: Value indicating the age in days after blob creation.
         :param pulumi.Input[_builtins.float] days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         :param pulumi.Input[_builtins.float] days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
@@ -1423,25 +1390,22 @@ class DateAfterModificationArgs:
         pulumi.set(self, "days_after_modification_greater_than", value)
 
 
-if not MYPY:
-    class DeleteRetentionPolicyArgsDict(TypedDict):
-        """
-        The service properties for soft delete.
-        """
-        allow_permanent_delete: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
-        """
-        days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether DeleteRetentionPolicy is enabled.
-        """
-elif False:
-    DeleteRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class DeleteRetentionPolicyArgsDict(TypedDict):
+    """
+    The service properties for soft delete.
+    """
+    allow_permanent_delete: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
+    """
+    days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether DeleteRetentionPolicy is enabled.
+    """
 
 @pulumi.input_type
 class DeleteRetentionPolicyArgs:
@@ -1451,6 +1415,7 @@ class DeleteRetentionPolicyArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The service properties for soft delete.
+
         :param pulumi.Input[_builtins.bool] allow_permanent_delete: This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
         :param pulumi.Input[_builtins.int] days: Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether DeleteRetentionPolicy is enabled.
@@ -1499,21 +1464,18 @@ class DeleteRetentionPolicyArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class EncryptionIdentityArgsDict(TypedDict):
-        """
-        Encryption identity for the storage account.
-        """
-        encryption_federated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
-        """
-        encryption_user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
-        """
-elif False:
-    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionIdentityArgsDict(TypedDict):
+    """
+    Encryption identity for the storage account.
+    """
+    encryption_federated_identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
+    """
+    encryption_user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
+    """
 
 @pulumi.input_type
 class EncryptionIdentityArgs:
@@ -1522,6 +1484,7 @@ class EncryptionIdentityArgs:
                  encryption_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Encryption identity for the storage account.
+
         :param pulumi.Input[_builtins.str] encryption_federated_identity_client_id: ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param pulumi.Input[_builtins.str] encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
         """
@@ -1555,17 +1518,14 @@ class EncryptionIdentityArgs:
         pulumi.set(self, "encryption_user_assigned_identity", value)
 
 
-if not MYPY:
-    class EncryptionScopeKeyVaultPropertiesArgsDict(TypedDict):
-        """
-        The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
-        """
-        key_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
-        """
-elif False:
-    EncryptionScopeKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionScopeKeyVaultPropertiesArgsDict(TypedDict):
+    """
+    The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+    """
+    key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
+    """
 
 @pulumi.input_type
 class EncryptionScopeKeyVaultPropertiesArgs:
@@ -1573,6 +1533,7 @@ class EncryptionScopeKeyVaultPropertiesArgs:
                  key_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+
         :param pulumi.Input[_builtins.str] key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
         """
         if key_uri is not None:
@@ -1591,29 +1552,26 @@ class EncryptionScopeKeyVaultPropertiesArgs:
         pulumi.set(self, "key_uri", value)
 
 
-if not MYPY:
-    class EncryptionServicesArgsDict(TypedDict):
-        """
-        A list of services that support encryption.
-        """
-        blob: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-        """
-        The encryption function of the blob storage service.
-        """
-        file: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-        """
-        The encryption function of the file storage service.
-        """
-        queue: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-        """
-        The encryption function of the queue storage service.
-        """
-        table: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
-        """
-        The encryption function of the table storage service.
-        """
-elif False:
-    EncryptionServicesArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionServicesArgsDict(TypedDict):
+    """
+    A list of services that support encryption.
+    """
+    blob: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
+    """
+    The encryption function of the blob storage service.
+    """
+    file: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
+    """
+    The encryption function of the file storage service.
+    """
+    queue: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
+    """
+    The encryption function of the queue storage service.
+    """
+    table: NotRequired[pulumi.Input['EncryptionServiceArgsDict']]
+    """
+    The encryption function of the table storage service.
+    """
 
 @pulumi.input_type
 class EncryptionServicesArgs:
@@ -1624,6 +1582,7 @@ class EncryptionServicesArgs:
                  table: Optional[pulumi.Input['EncryptionServiceArgs']] = None):
         """
         A list of services that support encryption.
+
         :param pulumi.Input['EncryptionServiceArgs'] blob: The encryption function of the blob storage service.
         :param pulumi.Input['EncryptionServiceArgs'] file: The encryption function of the file storage service.
         :param pulumi.Input['EncryptionServiceArgs'] queue: The encryption function of the queue storage service.
@@ -1687,21 +1646,18 @@ class EncryptionServicesArgs:
         pulumi.set(self, "table", value)
 
 
-if not MYPY:
-    class EncryptionServiceArgsDict(TypedDict):
-        """
-        A service that allows server-side encryption to be used.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
-        """
-        key_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyType']]]
-        """
-        Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-        """
-elif False:
-    EncryptionServiceArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionServiceArgsDict(TypedDict):
+    """
+    A service that allows server-side encryption to be used.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
+    """
+    key_type: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyType']]]
+    """
+    Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+    """
 
 @pulumi.input_type
 class EncryptionServiceArgs:
@@ -1710,6 +1666,7 @@ class EncryptionServiceArgs:
                  key_type: Optional[pulumi.Input[Union[_builtins.str, 'KeyType']]] = None):
         """
         A service that allows server-side encryption to be used.
+
         :param pulumi.Input[_builtins.bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
         :param pulumi.Input[Union[_builtins.str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         """
@@ -1743,33 +1700,30 @@ class EncryptionServiceArgs:
         pulumi.set(self, "key_type", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        """
-        The encryption settings on the storage account.
-        """
-        encryption_identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
-        """
-        The identity to be used with service-side encryption at rest.
-        """
-        key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
-        """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        """
-        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
-        """
-        Properties provided by key vault.
-        """
-        require_infrastructure_encryption: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-        """
-        services: NotRequired[pulumi.Input['EncryptionServicesArgsDict']]
-        """
-        List of services which support encryption.
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    """
+    The encryption settings on the storage account.
+    """
+    encryption_identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+    """
+    The identity to be used with service-side encryption at rest.
+    """
+    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
+    """
+    The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+    """
+    key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    """
+    Properties provided by key vault.
+    """
+    require_infrastructure_encryption: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+    """
+    services: NotRequired[pulumi.Input['EncryptionServicesArgsDict']]
+    """
+    List of services which support encryption.
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -1781,6 +1735,7 @@ class EncryptionArgs:
                  services: Optional[pulumi.Input['EncryptionServicesArgs']] = None):
         """
         The encryption settings on the storage account.
+
         :param pulumi.Input['EncryptionIdentityArgs'] encryption_identity: The identity to be used with service-side encryption at rest.
         :param pulumi.Input[Union[_builtins.str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by key vault.
@@ -1861,21 +1816,18 @@ class EncryptionArgs:
         pulumi.set(self, "services", value)
 
 
-if not MYPY:
-    class ExecutionTargetArgsDict(TypedDict):
-        """
-        Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
-        """
-        exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
-        """
-        prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Required list of object prefixes to be included for task execution
-        """
-elif False:
-    ExecutionTargetArgsDict: TypeAlias = Mapping[str, Any]
+class ExecutionTargetArgsDict(TypedDict):
+    """
+    Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
+    """
+    exclude_prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+    """
+    prefix: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Required list of object prefixes to be included for task execution
+    """
 
 @pulumi.input_type
 class ExecutionTargetArgs:
@@ -1884,6 +1836,7 @@ class ExecutionTargetArgs:
                  prefix: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_prefix: List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix: Required list of object prefixes to be included for task execution
         """
@@ -1917,21 +1870,18 @@ class ExecutionTargetArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ExecutionTriggerArgsDict(TypedDict):
-        """
-        Execution trigger for storage task assignment
-        """
-        parameters: pulumi.Input['TriggerParametersArgsDict']
-        """
-        The trigger parameters of the storage task assignment execution
-        """
-        type: pulumi.Input['TriggerType']
-        """
-        The trigger type of the storage task assignment execution
-        """
-elif False:
-    ExecutionTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class ExecutionTriggerArgsDict(TypedDict):
+    """
+    Execution trigger for storage task assignment
+    """
+    parameters: pulumi.Input['TriggerParametersArgsDict']
+    """
+    The trigger parameters of the storage task assignment execution
+    """
+    type: pulumi.Input['TriggerType']
+    """
+    The trigger type of the storage task assignment execution
+    """
 
 @pulumi.input_type
 class ExecutionTriggerArgs:
@@ -1940,6 +1890,7 @@ class ExecutionTriggerArgs:
                  type: pulumi.Input['TriggerType']):
         """
         Execution trigger for storage task assignment
+
         :param pulumi.Input['TriggerParametersArgs'] parameters: The trigger parameters of the storage task assignment execution
         :param pulumi.Input['TriggerType'] type: The trigger type of the storage task assignment execution
         """
@@ -1971,21 +1922,18 @@ class ExecutionTriggerArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The complex type of the extended location.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the extended location.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
-        """
-        The type of the extended location.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    The complex type of the extended location.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the extended location.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]]
+    """
+    The type of the extended location.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -1994,6 +1942,7 @@ class ExtendedLocationArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']]] = None):
         """
         The complex type of the extended location.
+
         :param pulumi.Input[_builtins.str] name: The name of the extended location.
         :param pulumi.Input[Union[_builtins.str, 'ExtendedLocationTypes']] type: The type of the extended location.
         """
@@ -2027,25 +1976,22 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FileSharePropertiesFileSharePaidBurstingArgsDict(TypedDict):
-        """
-        File Share Paid Bursting properties.
-        """
-        paid_bursting_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
-        """
-        paid_bursting_max_bandwidth_mibps: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
-        """
-        paid_bursting_max_iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
-        """
-elif False:
-    FileSharePropertiesFileSharePaidBurstingArgsDict: TypeAlias = Mapping[str, Any]
+class FileSharePropertiesFileSharePaidBurstingArgsDict(TypedDict):
+    """
+    File Share Paid Bursting properties.
+    """
+    paid_bursting_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
+    """
+    paid_bursting_max_bandwidth_mibps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
+    """
+    paid_bursting_max_iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
+    """
 
 @pulumi.input_type
 class FileSharePropertiesFileSharePaidBurstingArgs:
@@ -2055,6 +2001,7 @@ class FileSharePropertiesFileSharePaidBurstingArgs:
                  paid_bursting_max_iops: Optional[pulumi.Input[_builtins.int]] = None):
         """
         File Share Paid Bursting properties.
+
         :param pulumi.Input[_builtins.bool] paid_bursting_enabled: Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
         :param pulumi.Input[_builtins.int] paid_bursting_max_bandwidth_mibps: The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
         :param pulumi.Input[_builtins.int] paid_bursting_max_iops: The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
@@ -2103,21 +2050,18 @@ class FileSharePropertiesFileSharePaidBurstingArgs:
         pulumi.set(self, "paid_bursting_max_iops", value)
 
 
-if not MYPY:
-    class IPRuleArgsDict(TypedDict):
-        """
-        IP rule with specific IP or IP range in CIDR format.
-        """
-        i_p_address_or_range: pulumi.Input[_builtins.str]
-        """
-        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-        """
-        action: NotRequired[pulumi.Input['Action']]
-        """
-        The action of IP ACL rule.
-        """
-elif False:
-    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IPRuleArgsDict(TypedDict):
+    """
+    IP rule with specific IP or IP range in CIDR format.
+    """
+    i_p_address_or_range: pulumi.Input[_builtins.str]
+    """
+    Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+    """
+    action: NotRequired[pulumi.Input['Action']]
+    """
+    The action of IP ACL rule.
+    """
 
 @pulumi.input_type
 class IPRuleArgs:
@@ -2126,6 +2070,7 @@ class IPRuleArgs:
                  action: Optional[pulumi.Input['Action']] = None):
         """
         IP rule with specific IP or IP range in CIDR format.
+
         :param pulumi.Input[_builtins.str] i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param pulumi.Input['Action'] action: The action of IP ACL rule.
         """
@@ -2160,21 +2105,18 @@ class IPRuleArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
-        """
-        The identity type.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
+    """
+    The identity type.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -2183,6 +2125,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input[Union[_builtins.str, 'IdentityType']] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
@@ -2215,21 +2158,18 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class ImmutableStorageAccountArgsDict(TypedDict):
-        """
-        This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
-        """
-        immutability_policy: NotRequired[pulumi.Input['AccountImmutabilityPolicyPropertiesArgsDict']]
-        """
-        Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
-        """
-elif False:
-    ImmutableStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+class ImmutableStorageAccountArgsDict(TypedDict):
+    """
+    This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
+    """
+    immutability_policy: NotRequired[pulumi.Input['AccountImmutabilityPolicyPropertiesArgsDict']]
+    """
+    Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
+    """
 
 @pulumi.input_type
 class ImmutableStorageAccountArgs:
@@ -2238,6 +2178,7 @@ class ImmutableStorageAccountArgs:
                  immutability_policy: Optional[pulumi.Input['AccountImmutabilityPolicyPropertiesArgs']] = None):
         """
         This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+
         :param pulumi.Input[_builtins.bool] enabled: A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
         :param pulumi.Input['AccountImmutabilityPolicyPropertiesArgs'] immutability_policy: Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
         """
@@ -2271,17 +2212,14 @@ class ImmutableStorageAccountArgs:
         pulumi.set(self, "immutability_policy", value)
 
 
-if not MYPY:
-    class ImmutableStorageWithVersioningArgsDict(TypedDict):
-        """
-        Object level immutability properties of the container.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This is an immutable property, when set to true it enables object level immutability at the container level.
-        """
-elif False:
-    ImmutableStorageWithVersioningArgsDict: TypeAlias = Mapping[str, Any]
+class ImmutableStorageWithVersioningArgsDict(TypedDict):
+    """
+    Object level immutability properties of the container.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This is an immutable property, when set to true it enables object level immutability at the container level.
+    """
 
 @pulumi.input_type
 class ImmutableStorageWithVersioningArgs:
@@ -2289,6 +2227,7 @@ class ImmutableStorageWithVersioningArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Object level immutability properties of the container.
+
         :param pulumi.Input[_builtins.bool] enabled: This is an immutable property, when set to true it enables object level immutability at the container level.
         """
         if enabled is not None:
@@ -2307,17 +2246,14 @@ class ImmutableStorageWithVersioningArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class KeyPolicyArgsDict(TypedDict):
-        """
-        KeyPolicy assigned to the storage account.
-        """
-        key_expiration_period_in_days: pulumi.Input[_builtins.int]
-        """
-        The key expiration period in days.
-        """
-elif False:
-    KeyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class KeyPolicyArgsDict(TypedDict):
+    """
+    KeyPolicy assigned to the storage account.
+    """
+    key_expiration_period_in_days: pulumi.Input[_builtins.int]
+    """
+    The key expiration period in days.
+    """
 
 @pulumi.input_type
 class KeyPolicyArgs:
@@ -2325,6 +2261,7 @@ class KeyPolicyArgs:
                  key_expiration_period_in_days: pulumi.Input[_builtins.int]):
         """
         KeyPolicy assigned to the storage account.
+
         :param pulumi.Input[_builtins.int] key_expiration_period_in_days: The key expiration period in days.
         """
         pulumi.set(__self__, "key_expiration_period_in_days", key_expiration_period_in_days)
@@ -2342,25 +2279,22 @@ class KeyPolicyArgs:
         pulumi.set(self, "key_expiration_period_in_days", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of key vault.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of KeyVault key.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Uri of KeyVault.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of KeyVault key.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of key vault.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of KeyVault key.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Uri of KeyVault.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of KeyVault key.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -2370,6 +2304,7 @@ class KeyVaultPropertiesArgs:
                  key_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of key vault.
+
         :param pulumi.Input[_builtins.str] key_name: The name of KeyVault key.
         :param pulumi.Input[_builtins.str] key_vault_uri: The Uri of KeyVault.
         :param pulumi.Input[_builtins.str] key_version: The version of KeyVault key.
@@ -2418,29 +2353,26 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "key_version", value)
 
 
-if not MYPY:
-    class LastAccessTimeTrackingPolicyArgsDict(TypedDict):
-        """
-        The blob service properties for Last access time based tracking policy.
-        """
-        enable: pulumi.Input[_builtins.bool]
-        """
-        When set to true last access time based tracking is enabled.
-        """
-        blob_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
-        """
-        name: NotRequired[pulumi.Input[Union[_builtins.str, 'Name']]]
-        """
-        Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
-        """
-        tracking_granularity_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
-        """
-elif False:
-    LastAccessTimeTrackingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class LastAccessTimeTrackingPolicyArgsDict(TypedDict):
+    """
+    The blob service properties for Last access time based tracking policy.
+    """
+    enable: pulumi.Input[_builtins.bool]
+    """
+    When set to true last access time based tracking is enabled.
+    """
+    blob_type: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
+    """
+    name: NotRequired[pulumi.Input[Union[_builtins.str, 'Name']]]
+    """
+    Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
+    """
+    tracking_granularity_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1
+    """
 
 @pulumi.input_type
 class LastAccessTimeTrackingPolicyArgs:
@@ -2451,6 +2383,7 @@ class LastAccessTimeTrackingPolicyArgs:
                  tracking_granularity_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The blob service properties for Last access time based tracking policy.
+
         :param pulumi.Input[_builtins.bool] enable: When set to true last access time based tracking is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_type: An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
         :param pulumi.Input[Union[_builtins.str, 'Name']] name: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
@@ -2513,25 +2446,22 @@ class LastAccessTimeTrackingPolicyArgs:
         pulumi.set(self, "tracking_granularity_in_days", value)
 
 
-if not MYPY:
-    class ManagementPolicyActionArgsDict(TypedDict):
-        """
-        Actions are applied to the filtered blobs when the execution condition is met.
-        """
-        base_blob: NotRequired[pulumi.Input['ManagementPolicyBaseBlobArgsDict']]
-        """
-        The management policy action for base blob
-        """
-        snapshot: NotRequired[pulumi.Input['ManagementPolicySnapShotArgsDict']]
-        """
-        The management policy action for snapshot
-        """
-        version: NotRequired[pulumi.Input['ManagementPolicyVersionArgsDict']]
-        """
-        The management policy action for version
-        """
-elif False:
-    ManagementPolicyActionArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicyActionArgsDict(TypedDict):
+    """
+    Actions are applied to the filtered blobs when the execution condition is met.
+    """
+    base_blob: NotRequired[pulumi.Input['ManagementPolicyBaseBlobArgsDict']]
+    """
+    The management policy action for base blob
+    """
+    snapshot: NotRequired[pulumi.Input['ManagementPolicySnapShotArgsDict']]
+    """
+    The management policy action for snapshot
+    """
+    version: NotRequired[pulumi.Input['ManagementPolicyVersionArgsDict']]
+    """
+    The management policy action for version
+    """
 
 @pulumi.input_type
 class ManagementPolicyActionArgs:
@@ -2541,6 +2471,7 @@ class ManagementPolicyActionArgs:
                  version: Optional[pulumi.Input['ManagementPolicyVersionArgs']] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
+
         :param pulumi.Input['ManagementPolicyBaseBlobArgs'] base_blob: The management policy action for base blob
         :param pulumi.Input['ManagementPolicySnapShotArgs'] snapshot: The management policy action for snapshot
         :param pulumi.Input['ManagementPolicyVersionArgs'] version: The management policy action for version
@@ -2589,37 +2520,34 @@ class ManagementPolicyActionArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class ManagementPolicyBaseBlobArgsDict(TypedDict):
-        """
-        Management policy action for base blob.
-        """
-        delete: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
-        """
-        The function to delete the blob
-        """
-        enable_auto_tier_to_hot_from_cool: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
-        """
-        tier_to_archive: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
-        """
-        The function to tier blobs to archive storage.
-        """
-        tier_to_cold: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
-        """
-        The function to tier blobs to cold storage.
-        """
-        tier_to_cool: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
-        """
-        The function to tier blobs to cool storage.
-        """
-        tier_to_hot: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
-        """
-        The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
-        """
-elif False:
-    ManagementPolicyBaseBlobArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicyBaseBlobArgsDict(TypedDict):
+    """
+    Management policy action for base blob.
+    """
+    delete: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    """
+    The function to delete the blob
+    """
+    enable_auto_tier_to_hot_from_cool: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
+    """
+    tier_to_archive: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    """
+    The function to tier blobs to archive storage.
+    """
+    tier_to_cold: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    """
+    The function to tier blobs to cold storage.
+    """
+    tier_to_cool: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    """
+    The function to tier blobs to cool storage.
+    """
+    tier_to_hot: NotRequired[pulumi.Input['DateAfterModificationArgsDict']]
+    """
+    The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+    """
 
 @pulumi.input_type
 class ManagementPolicyBaseBlobArgs:
@@ -2632,6 +2560,7 @@ class ManagementPolicyBaseBlobArgs:
                  tier_to_hot: Optional[pulumi.Input['DateAfterModificationArgs']] = None):
         """
         Management policy action for base blob.
+
         :param pulumi.Input['DateAfterModificationArgs'] delete: The function to delete the blob
         :param pulumi.Input[_builtins.bool] enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
         :param pulumi.Input['DateAfterModificationArgs'] tier_to_archive: The function to tier blobs to archive storage.
@@ -2725,21 +2654,18 @@ class ManagementPolicyBaseBlobArgs:
         pulumi.set(self, "tier_to_hot", value)
 
 
-if not MYPY:
-    class ManagementPolicyDefinitionArgsDict(TypedDict):
-        """
-        An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
-        """
-        actions: pulumi.Input['ManagementPolicyActionArgsDict']
-        """
-        An object that defines the action set.
-        """
-        filters: NotRequired[pulumi.Input['ManagementPolicyFilterArgsDict']]
-        """
-        An object that defines the filter set.
-        """
-elif False:
-    ManagementPolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicyDefinitionArgsDict(TypedDict):
+    """
+    An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
+    """
+    actions: pulumi.Input['ManagementPolicyActionArgsDict']
+    """
+    An object that defines the action set.
+    """
+    filters: NotRequired[pulumi.Input['ManagementPolicyFilterArgsDict']]
+    """
+    An object that defines the filter set.
+    """
 
 @pulumi.input_type
 class ManagementPolicyDefinitionArgs:
@@ -2748,6 +2674,7 @@ class ManagementPolicyDefinitionArgs:
                  filters: Optional[pulumi.Input['ManagementPolicyFilterArgs']] = None):
         """
         An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
+
         :param pulumi.Input['ManagementPolicyActionArgs'] actions: An object that defines the action set.
         :param pulumi.Input['ManagementPolicyFilterArgs'] filters: An object that defines the filter set.
         """
@@ -2780,25 +2707,22 @@ class ManagementPolicyDefinitionArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class ManagementPolicyFilterArgsDict(TypedDict):
-        """
-        Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
-        """
-        blob_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
-        """
-        blob_index_match: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagFilterArgsDict']]]]
-        """
-        An array of blob index tag based filters, there can be at most 10 tag filters
-        """
-        prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of strings for prefixes to be match.
-        """
-elif False:
-    ManagementPolicyFilterArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicyFilterArgsDict(TypedDict):
+    """
+    Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+    """
+    blob_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
+    """
+    blob_index_match: NotRequired[pulumi.Input[Sequence[pulumi.Input['TagFilterArgsDict']]]]
+    """
+    An array of blob index tag based filters, there can be at most 10 tag filters
+    """
+    prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of strings for prefixes to be match.
+    """
 
 @pulumi.input_type
 class ManagementPolicyFilterArgs:
@@ -2808,6 +2732,7 @@ class ManagementPolicyFilterArgs:
                  prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         :param pulumi.Input[Sequence[pulumi.Input['TagFilterArgs']]] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_match: An array of strings for prefixes to be match.
@@ -2855,29 +2780,26 @@ class ManagementPolicyFilterArgs:
         pulumi.set(self, "prefix_match", value)
 
 
-if not MYPY:
-    class ManagementPolicyRuleArgsDict(TypedDict):
-        """
-        An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
-        """
-        definition: pulumi.Input['ManagementPolicyDefinitionArgsDict']
-        """
-        An object that defines the Lifecycle rule.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'RuleType']]
-        """
-        The valid value is Lifecycle
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Rule is enabled if set to true.
-        """
-elif False:
-    ManagementPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicyRuleArgsDict(TypedDict):
+    """
+    An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
+    """
+    definition: pulumi.Input['ManagementPolicyDefinitionArgsDict']
+    """
+    An object that defines the Lifecycle rule.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'RuleType']]
+    """
+    The valid value is Lifecycle
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Rule is enabled if set to true.
+    """
 
 @pulumi.input_type
 class ManagementPolicyRuleArgs:
@@ -2888,6 +2810,7 @@ class ManagementPolicyRuleArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
+
         :param pulumi.Input['ManagementPolicyDefinitionArgs'] definition: An object that defines the Lifecycle rule.
         :param pulumi.Input[_builtins.str] name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         :param pulumi.Input[Union[_builtins.str, 'RuleType']] type: The valid value is Lifecycle
@@ -2948,17 +2871,14 @@ class ManagementPolicyRuleArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ManagementPolicySchemaArgsDict(TypedDict):
-        """
-        The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
-        """
-        rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgsDict']]]
-        """
-        The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
-        """
-elif False:
-    ManagementPolicySchemaArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicySchemaArgsDict(TypedDict):
+    """
+    The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgsDict']]]
+    """
+    The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
+    """
 
 @pulumi.input_type
 class ManagementPolicySchemaArgs:
@@ -2966,6 +2886,7 @@ class ManagementPolicySchemaArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
+
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         pulumi.set(__self__, "rules", rules)
@@ -2983,33 +2904,30 @@ class ManagementPolicySchemaArgs:
         pulumi.set(self, "rules", value)
 
 
-if not MYPY:
-    class ManagementPolicySnapShotArgsDict(TypedDict):
-        """
-        Management policy action for snapshot.
-        """
-        delete: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to delete the blob snapshot
-        """
-        tier_to_archive: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blob snapshot to archive storage.
-        """
-        tier_to_cold: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blobs to cold storage.
-        """
-        tier_to_cool: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blob snapshot to cool storage.
-        """
-        tier_to_hot: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
-        """
-elif False:
-    ManagementPolicySnapShotArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicySnapShotArgsDict(TypedDict):
+    """
+    Management policy action for snapshot.
+    """
+    delete: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to delete the blob snapshot
+    """
+    tier_to_archive: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blob snapshot to archive storage.
+    """
+    tier_to_cold: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blobs to cold storage.
+    """
+    tier_to_cool: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blob snapshot to cool storage.
+    """
+    tier_to_hot: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+    """
 
 @pulumi.input_type
 class ManagementPolicySnapShotArgs:
@@ -3021,6 +2939,7 @@ class ManagementPolicySnapShotArgs:
                  tier_to_hot: Optional[pulumi.Input['DateAfterCreationArgs']] = None):
         """
         Management policy action for snapshot.
+
         :param pulumi.Input['DateAfterCreationArgs'] delete: The function to delete the blob snapshot
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_archive: The function to tier blob snapshot to archive storage.
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_cold: The function to tier blobs to cold storage.
@@ -3099,33 +3018,30 @@ class ManagementPolicySnapShotArgs:
         pulumi.set(self, "tier_to_hot", value)
 
 
-if not MYPY:
-    class ManagementPolicyVersionArgsDict(TypedDict):
-        """
-        Management policy action for blob version.
-        """
-        delete: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to delete the blob version
-        """
-        tier_to_archive: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blob version to archive storage.
-        """
-        tier_to_cold: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blobs to cold storage.
-        """
-        tier_to_cool: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blob version to cool storage.
-        """
-        tier_to_hot: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
-        """
-        The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
-        """
-elif False:
-    ManagementPolicyVersionArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementPolicyVersionArgsDict(TypedDict):
+    """
+    Management policy action for blob version.
+    """
+    delete: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to delete the blob version
+    """
+    tier_to_archive: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blob version to archive storage.
+    """
+    tier_to_cold: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blobs to cold storage.
+    """
+    tier_to_cool: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blob version to cool storage.
+    """
+    tier_to_hot: NotRequired[pulumi.Input['DateAfterCreationArgsDict']]
+    """
+    The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+    """
 
 @pulumi.input_type
 class ManagementPolicyVersionArgs:
@@ -3137,6 +3053,7 @@ class ManagementPolicyVersionArgs:
                  tier_to_hot: Optional[pulumi.Input['DateAfterCreationArgs']] = None):
         """
         Management policy action for blob version.
+
         :param pulumi.Input['DateAfterCreationArgs'] delete: The function to delete the blob version
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_archive: The function to tier blob version to archive storage.
         :param pulumi.Input['DateAfterCreationArgs'] tier_to_cold: The function to tier blobs to cold storage.
@@ -3215,17 +3132,14 @@ class ManagementPolicyVersionArgs:
         pulumi.set(self, "tier_to_hot", value)
 
 
-if not MYPY:
-    class MultichannelArgsDict(TypedDict):
-        """
-        Multichannel setting. Applies to Premium FileStorage only.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether multichannel is enabled
-        """
-elif False:
-    MultichannelArgsDict: TypeAlias = Mapping[str, Any]
+class MultichannelArgsDict(TypedDict):
+    """
+    Multichannel setting. Applies to Premium FileStorage only.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether multichannel is enabled
+    """
 
 @pulumi.input_type
 class MultichannelArgs:
@@ -3233,6 +3147,7 @@ class MultichannelArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Multichannel setting. Applies to Premium FileStorage only.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether multichannel is enabled
         """
         if enabled is not None:
@@ -3251,33 +3166,30 @@ class MultichannelArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class NetworkRuleSetArgsDict(TypedDict):
-        """
-        Network rule set
-        """
-        default_action: pulumi.Input['DefaultAction']
-        """
-        Specifies the default action of allow or deny when no other rules match.
-        """
-        bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'Bypass']]]
-        """
-        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
-        """
-        Sets the IP ACL rules
-        """
-        resource_access_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgsDict']]]]
-        """
-        Sets the resource access rules
-        """
-        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
-        """
-        Sets the virtual network rules
-        """
-elif False:
-    NetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkRuleSetArgsDict(TypedDict):
+    """
+    Network rule set
+    """
+    default_action: pulumi.Input['DefaultAction']
+    """
+    Specifies the default action of allow or deny when no other rules match.
+    """
+    bypass: NotRequired[pulumi.Input[Union[_builtins.str, 'Bypass']]]
+    """
+    Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+    """
+    Sets the IP ACL rules
+    """
+    resource_access_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceAccessRuleArgsDict']]]]
+    """
+    Sets the resource access rules
+    """
+    virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgsDict']]]]
+    """
+    Sets the virtual network rules
+    """
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
@@ -3289,6 +3201,7 @@ class NetworkRuleSetArgs:
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Network rule set
+
         :param pulumi.Input['DefaultAction'] default_action: Specifies the default action of allow or deny when no other rules match.
         :param pulumi.Input[Union[_builtins.str, 'Bypass']] bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
@@ -3370,21 +3283,18 @@ class NetworkRuleSetArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
-if not MYPY:
-    class ObjectReplicationPolicyFilterArgsDict(TypedDict):
-        """
-        Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
-        """
-        min_creation_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-        """
-        prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
-        """
-elif False:
-    ObjectReplicationPolicyFilterArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectReplicationPolicyFilterArgsDict(TypedDict):
+    """
+    Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
+    """
+    min_creation_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
+    """
+    prefix_match: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
+    """
 
 @pulumi.input_type
 class ObjectReplicationPolicyFilterArgs:
@@ -3393,6 +3303,7 @@ class ObjectReplicationPolicyFilterArgs:
                  prefix_match: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
+
         :param pulumi.Input[_builtins.str] min_creation_time: Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
@@ -3426,17 +3337,14 @@ class ObjectReplicationPolicyFilterArgs:
         pulumi.set(self, "prefix_match", value)
 
 
-if not MYPY:
-    class ObjectReplicationPolicyPropertiesMetricsArgsDict(TypedDict):
-        """
-        Optional. The object replication policy metrics feature options.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether object replication metrics feature is enabled for the policy.
-        """
-elif False:
-    ObjectReplicationPolicyPropertiesMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectReplicationPolicyPropertiesMetricsArgsDict(TypedDict):
+    """
+    Optional. The object replication policy metrics feature options.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether object replication metrics feature is enabled for the policy.
+    """
 
 @pulumi.input_type
 class ObjectReplicationPolicyPropertiesMetricsArgs:
@@ -3444,6 +3352,7 @@ class ObjectReplicationPolicyPropertiesMetricsArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Optional. The object replication policy metrics feature options.
+
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether object replication metrics feature is enabled for the policy.
         """
         if enabled is not None:
@@ -3462,29 +3371,26 @@ class ObjectReplicationPolicyPropertiesMetricsArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ObjectReplicationPolicyRuleArgsDict(TypedDict):
-        """
-        The replication policy rule between two containers.
-        """
-        destination_container: pulumi.Input[_builtins.str]
-        """
-        Required. Destination container name.
-        """
-        source_container: pulumi.Input[_builtins.str]
-        """
-        Required. Source container name.
-        """
-        filters: NotRequired[pulumi.Input['ObjectReplicationPolicyFilterArgsDict']]
-        """
-        Optional. An object that defines the filter set.
-        """
-        rule_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-        """
-elif False:
-    ObjectReplicationPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectReplicationPolicyRuleArgsDict(TypedDict):
+    """
+    The replication policy rule between two containers.
+    """
+    destination_container: pulumi.Input[_builtins.str]
+    """
+    Required. Destination container name.
+    """
+    source_container: pulumi.Input[_builtins.str]
+    """
+    Required. Source container name.
+    """
+    filters: NotRequired[pulumi.Input['ObjectReplicationPolicyFilterArgsDict']]
+    """
+    Optional. An object that defines the filter set.
+    """
+    rule_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
+    """
 
 @pulumi.input_type
 class ObjectReplicationPolicyRuleArgs:
@@ -3495,6 +3401,7 @@ class ObjectReplicationPolicyRuleArgs:
                  rule_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The replication policy rule between two containers.
+
         :param pulumi.Input[_builtins.str] destination_container: Required. Destination container name.
         :param pulumi.Input[_builtins.str] source_container: Required. Source container name.
         :param pulumi.Input['ObjectReplicationPolicyFilterArgs'] filters: Optional. An object that defines the filter set.
@@ -3556,22 +3463,19 @@ class ObjectReplicationPolicyRuleArgs:
         pulumi.set(self, "rule_id", value)
 
 
-if not MYPY:
-    class PermissionScopeArgsDict(TypedDict):
-        permissions: pulumi.Input[_builtins.str]
-        """
-        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
-        """
-        resource_name: pulumi.Input[_builtins.str]
-        """
-        The name of resource, normally the container name or the file share name, used by the local user.
-        """
-        service: pulumi.Input[_builtins.str]
-        """
-        The service used by the local user, e.g. blob, file.
-        """
-elif False:
-    PermissionScopeArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionScopeArgsDict(TypedDict):
+    permissions: pulumi.Input[_builtins.str]
+    """
+    The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
+    """
+    resource_name: pulumi.Input[_builtins.str]
+    """
+    The name of resource, normally the container name or the file share name, used by the local user.
+    """
+    service: pulumi.Input[_builtins.str]
+    """
+    The service used by the local user, e.g. blob, file.
+    """
 
 @pulumi.input_type
 class PermissionScopeArgs:
@@ -3625,25 +3529,22 @@ class PermissionScopeArgs:
         pulumi.set(self, "service", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        action_required: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason for approval/rejection of the connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-elif False:
-    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    action_required: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A message indicating if changes on the service provider require any updates on the consumer.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason for approval/rejection of the connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
@@ -3653,6 +3554,7 @@ class PrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param pulumi.Input[_builtins.str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -3701,17 +3603,14 @@ class PrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ProtocolSettingsArgsDict(TypedDict):
-        """
-        Protocol settings for file service
-        """
-        smb: NotRequired[pulumi.Input['SmbSettingArgsDict']]
-        """
-        Setting for SMB protocol
-        """
-elif False:
-    ProtocolSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ProtocolSettingsArgsDict(TypedDict):
+    """
+    Protocol settings for file service
+    """
+    smb: NotRequired[pulumi.Input['SmbSettingArgsDict']]
+    """
+    Setting for SMB protocol
+    """
 
 @pulumi.input_type
 class ProtocolSettingsArgs:
@@ -3719,6 +3618,7 @@ class ProtocolSettingsArgs:
                  smb: Optional[pulumi.Input['SmbSettingArgs']] = None):
         """
         Protocol settings for file service
+
         :param pulumi.Input['SmbSettingArgs'] smb: Setting for SMB protocol
         """
         if smb is not None:
@@ -3737,21 +3637,18 @@ class ProtocolSettingsArgs:
         pulumi.set(self, "smb", value)
 
 
-if not MYPY:
-    class ResourceAccessRuleArgsDict(TypedDict):
-        """
-        Resource Access Rule.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource Id
-        """
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Tenant Id
-        """
-elif False:
-    ResourceAccessRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceAccessRuleArgsDict(TypedDict):
+    """
+    Resource Access Rule.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id
+    """
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Tenant Id
+    """
 
 @pulumi.input_type
 class ResourceAccessRuleArgs:
@@ -3760,6 +3657,7 @@ class ResourceAccessRuleArgs:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Resource Access Rule.
+
         :param pulumi.Input[_builtins.str] resource_id: Resource Id
         :param pulumi.Input[_builtins.str] tenant_id: Tenant Id
         """
@@ -3793,21 +3691,18 @@ class ResourceAccessRuleArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class RestorePolicyPropertiesArgsDict(TypedDict):
-        """
-        The blob service properties for blob restore policy
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Blob restore is enabled if set to true.
-        """
-        days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
-        """
-elif False:
-    RestorePolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class RestorePolicyPropertiesArgsDict(TypedDict):
+    """
+    The blob service properties for blob restore policy
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Blob restore is enabled if set to true.
+    """
+    days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
+    """
 
 @pulumi.input_type
 class RestorePolicyPropertiesArgs:
@@ -3816,6 +3711,7 @@ class RestorePolicyPropertiesArgs:
                  days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The blob service properties for blob restore policy
+
         :param pulumi.Input[_builtins.bool] enabled: Blob restore is enabled if set to true.
         :param pulumi.Input[_builtins.int] days: how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.
         """
@@ -3848,25 +3744,22 @@ class RestorePolicyPropertiesArgs:
         pulumi.set(self, "days", value)
 
 
-if not MYPY:
-    class RoutingPreferenceArgsDict(TypedDict):
-        """
-        Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
-        """
-        publish_internet_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean flag which indicates whether internet routing storage endpoints are to be published
-        """
-        publish_microsoft_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-        """
-        routing_choice: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]]
-        """
-        Routing Choice defines the kind of network routing opted by the user.
-        """
-elif False:
-    RoutingPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingPreferenceArgsDict(TypedDict):
+    """
+    Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
+    """
+    publish_internet_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean flag which indicates whether internet routing storage endpoints are to be published
+    """
+    publish_microsoft_endpoints: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean flag which indicates whether microsoft routing storage endpoints are to be published
+    """
+    routing_choice: NotRequired[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]]
+    """
+    Routing Choice defines the kind of network routing opted by the user.
+    """
 
 @pulumi.input_type
 class RoutingPreferenceArgs:
@@ -3876,6 +3769,7 @@ class RoutingPreferenceArgs:
                  routing_choice: Optional[pulumi.Input[Union[_builtins.str, 'RoutingChoice']]] = None):
         """
         Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
+
         :param pulumi.Input[_builtins.bool] publish_internet_endpoints: A boolean flag which indicates whether internet routing storage endpoints are to be published
         :param pulumi.Input[_builtins.bool] publish_microsoft_endpoints: A boolean flag which indicates whether microsoft routing storage endpoints are to be published
         :param pulumi.Input[Union[_builtins.str, 'RoutingChoice']] routing_choice: Routing Choice defines the kind of network routing opted by the user.
@@ -3924,21 +3818,18 @@ class RoutingPreferenceArgs:
         pulumi.set(self, "routing_choice", value)
 
 
-if not MYPY:
-    class SasPolicyArgsDict(TypedDict):
-        """
-        SasPolicy assigned to the storage account.
-        """
-        expiration_action: pulumi.Input[Union[_builtins.str, 'ExpirationAction']]
-        """
-        The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
-        """
-        sas_expiration_period: pulumi.Input[_builtins.str]
-        """
-        The SAS expiration period, DD.HH:MM:SS.
-        """
-elif False:
-    SasPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class SasPolicyArgsDict(TypedDict):
+    """
+    SasPolicy assigned to the storage account.
+    """
+    expiration_action: pulumi.Input[Union[_builtins.str, 'ExpirationAction']]
+    """
+    The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
+    """
+    sas_expiration_period: pulumi.Input[_builtins.str]
+    """
+    The SAS expiration period, DD.HH:MM:SS.
+    """
 
 @pulumi.input_type
 class SasPolicyArgs:
@@ -3947,6 +3838,7 @@ class SasPolicyArgs:
                  sas_expiration_period: pulumi.Input[_builtins.str]):
         """
         SasPolicy assigned to the storage account.
+
         :param pulumi.Input[Union[_builtins.str, 'ExpirationAction']] expiration_action: The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         :param pulumi.Input[_builtins.str] sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
         """
@@ -3980,18 +3872,15 @@ class SasPolicyArgs:
         pulumi.set(self, "sas_expiration_period", value)
 
 
-if not MYPY:
-    class SignedIdentifierArgsDict(TypedDict):
-        access_policy: NotRequired[pulumi.Input['AccessPolicyArgsDict']]
-        """
-        Access policy
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An unique identifier of the stored access policy.
-        """
-elif False:
-    SignedIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class SignedIdentifierArgsDict(TypedDict):
+    access_policy: NotRequired[pulumi.Input['AccessPolicyArgsDict']]
+    """
+    Access policy
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An unique identifier of the stored access policy.
+    """
 
 @pulumi.input_type
 class SignedIdentifierArgs:
@@ -4032,17 +3921,14 @@ class SignedIdentifierArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The SKU of the storage account.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The SKU of the storage account.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -4050,6 +3936,7 @@ class SkuArgs:
                  name: pulumi.Input[Union[_builtins.str, 'SkuName']]):
         """
         The SKU of the storage account.
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         """
         pulumi.set(__self__, "name", name)
@@ -4067,33 +3954,30 @@ class SkuArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class SmbSettingArgsDict(TypedDict):
-        """
-        Setting for SMB protocol
-        """
-        authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
-        """
-        channel_encryption: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
-        """
-        kerberos_ticket_encryption: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
-        """
-        multichannel: NotRequired[pulumi.Input['MultichannelArgsDict']]
-        """
-        Multichannel setting. Applies to Premium FileStorage only.
-        """
-        versions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
-        """
-elif False:
-    SmbSettingArgsDict: TypeAlias = Mapping[str, Any]
+class SmbSettingArgsDict(TypedDict):
+    """
+    Setting for SMB protocol
+    """
+    authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
+    """
+    channel_encryption: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
+    """
+    kerberos_ticket_encryption: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
+    """
+    multichannel: NotRequired[pulumi.Input['MultichannelArgsDict']]
+    """
+    Multichannel setting. Applies to Premium FileStorage only.
+    """
+    versions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    SMB protocol versions supported by server. Valid values are SMB2.1, SMB3.0, SMB3.1.1. Should be passed as a string with delimiter ';'.
+    """
 
 @pulumi.input_type
 class SmbSettingArgs:
@@ -4105,6 +3989,7 @@ class SmbSettingArgs:
                  versions: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Setting for SMB protocol
+
         :param pulumi.Input[_builtins.str] authentication_methods: SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
         :param pulumi.Input[_builtins.str] channel_encryption: SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
         :param pulumi.Input[_builtins.str] kerberos_ticket_encryption: Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
@@ -4183,18 +4068,15 @@ class SmbSettingArgs:
         pulumi.set(self, "versions", value)
 
 
-if not MYPY:
-    class SshPublicKeyArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional. It is used to store the function/usage of the key
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
-        """
-elif False:
-    SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SshPublicKeyArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional. It is used to store the function/usage of the key
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ssh public key base64 encoded. The format should be: '<keyType> <keyData>', e.g. ssh-rsa AAAABBBB
+    """
 
 @pulumi.input_type
 class SshPublicKeyArgs:
@@ -4235,21 +4117,18 @@ class SshPublicKeyArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class StorageTaskAssignmentExecutionContextArgsDict(TypedDict):
-        """
-        Execution context of the storage task assignment.
-        """
-        trigger: pulumi.Input['ExecutionTriggerArgsDict']
-        """
-        Execution trigger of the storage task assignment
-        """
-        target: NotRequired[pulumi.Input['ExecutionTargetArgsDict']]
-        """
-        Execution target of the storage task assignment
-        """
-elif False:
-    StorageTaskAssignmentExecutionContextArgsDict: TypeAlias = Mapping[str, Any]
+class StorageTaskAssignmentExecutionContextArgsDict(TypedDict):
+    """
+    Execution context of the storage task assignment.
+    """
+    trigger: pulumi.Input['ExecutionTriggerArgsDict']
+    """
+    Execution trigger of the storage task assignment
+    """
+    target: NotRequired[pulumi.Input['ExecutionTargetArgsDict']]
+    """
+    Execution target of the storage task assignment
+    """
 
 @pulumi.input_type
 class StorageTaskAssignmentExecutionContextArgs:
@@ -4258,6 +4137,7 @@ class StorageTaskAssignmentExecutionContextArgs:
                  target: Optional[pulumi.Input['ExecutionTargetArgs']] = None):
         """
         Execution context of the storage task assignment.
+
         :param pulumi.Input['ExecutionTriggerArgs'] trigger: Execution trigger of the storage task assignment
         :param pulumi.Input['ExecutionTargetArgs'] target: Execution target of the storage task assignment
         """
@@ -4290,33 +4170,30 @@ class StorageTaskAssignmentExecutionContextArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class StorageTaskAssignmentPropertiesArgsDict(TypedDict):
-        """
-        Properties of the storage task assignment.
-        """
-        description: pulumi.Input[_builtins.str]
-        """
-        Text that describes the purpose of the storage task assignment
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether the storage task assignment is enabled or not
-        """
-        execution_context: pulumi.Input['StorageTaskAssignmentExecutionContextArgsDict']
-        """
-        The storage task assignment execution context
-        """
-        report: pulumi.Input['StorageTaskAssignmentReportArgsDict']
-        """
-        The storage task assignment report
-        """
-        task_id: pulumi.Input[_builtins.str]
-        """
-        Id of the corresponding storage task
-        """
-elif False:
-    StorageTaskAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StorageTaskAssignmentPropertiesArgsDict(TypedDict):
+    """
+    Properties of the storage task assignment.
+    """
+    description: pulumi.Input[_builtins.str]
+    """
+    Text that describes the purpose of the storage task assignment
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the storage task assignment is enabled or not
+    """
+    execution_context: pulumi.Input['StorageTaskAssignmentExecutionContextArgsDict']
+    """
+    The storage task assignment execution context
+    """
+    report: pulumi.Input['StorageTaskAssignmentReportArgsDict']
+    """
+    The storage task assignment report
+    """
+    task_id: pulumi.Input[_builtins.str]
+    """
+    Id of the corresponding storage task
+    """
 
 @pulumi.input_type
 class StorageTaskAssignmentPropertiesArgs:
@@ -4328,6 +4205,7 @@ class StorageTaskAssignmentPropertiesArgs:
                  task_id: pulumi.Input[_builtins.str]):
         """
         Properties of the storage task assignment.
+
         :param pulumi.Input[_builtins.str] description: Text that describes the purpose of the storage task assignment
         :param pulumi.Input[_builtins.bool] enabled: Whether the storage task assignment is enabled or not
         :param pulumi.Input['StorageTaskAssignmentExecutionContextArgs'] execution_context: The storage task assignment execution context
@@ -4401,17 +4279,14 @@ class StorageTaskAssignmentPropertiesArgs:
         pulumi.set(self, "task_id", value)
 
 
-if not MYPY:
-    class StorageTaskAssignmentReportArgsDict(TypedDict):
-        """
-        The storage task assignment report
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        The container prefix for the location of storage task assignment report
-        """
-elif False:
-    StorageTaskAssignmentReportArgsDict: TypeAlias = Mapping[str, Any]
+class StorageTaskAssignmentReportArgsDict(TypedDict):
+    """
+    The storage task assignment report
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    The container prefix for the location of storage task assignment report
+    """
 
 @pulumi.input_type
 class StorageTaskAssignmentReportArgs:
@@ -4419,6 +4294,7 @@ class StorageTaskAssignmentReportArgs:
                  prefix: pulumi.Input[_builtins.str]):
         """
         The storage task assignment report
+
         :param pulumi.Input[_builtins.str] prefix: The container prefix for the location of storage task assignment report
         """
         pulumi.set(__self__, "prefix", prefix)
@@ -4436,25 +4312,22 @@ class StorageTaskAssignmentReportArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class TableAccessPolicyArgsDict(TypedDict):
-        """
-        Table Access Policy Properties Object.
-        """
-        permission: pulumi.Input[_builtins.str]
-        """
-        Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
-        """
-        expiry_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expiry time of the access policy
-        """
-        start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Start time of the access policy
-        """
-elif False:
-    TableAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class TableAccessPolicyArgsDict(TypedDict):
+    """
+    Table Access Policy Properties Object.
+    """
+    permission: pulumi.Input[_builtins.str]
+    """
+    Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
+    """
+    expiry_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expiry time of the access policy
+    """
+    start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Start time of the access policy
+    """
 
 @pulumi.input_type
 class TableAccessPolicyArgs:
@@ -4464,6 +4337,7 @@ class TableAccessPolicyArgs:
                  start_time: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Table Access Policy Properties Object.
+
         :param pulumi.Input[_builtins.str] permission: Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
         :param pulumi.Input[_builtins.str] expiry_time: Expiry time of the access policy
         :param pulumi.Input[_builtins.str] start_time: Start time of the access policy
@@ -4511,21 +4385,18 @@ class TableAccessPolicyArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class TableSignedIdentifierArgsDict(TypedDict):
-        """
-        Object to set Table Access Policy.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        unique-64-character-value of the stored access policy.
-        """
-        access_policy: NotRequired[pulumi.Input['TableAccessPolicyArgsDict']]
-        """
-        Access policy
-        """
-elif False:
-    TableSignedIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class TableSignedIdentifierArgsDict(TypedDict):
+    """
+    Object to set Table Access Policy.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    unique-64-character-value of the stored access policy.
+    """
+    access_policy: NotRequired[pulumi.Input['TableAccessPolicyArgsDict']]
+    """
+    Access policy
+    """
 
 @pulumi.input_type
 class TableSignedIdentifierArgs:
@@ -4534,6 +4405,7 @@ class TableSignedIdentifierArgs:
                  access_policy: Optional[pulumi.Input['TableAccessPolicyArgs']] = None):
         """
         Object to set Table Access Policy.
+
         :param pulumi.Input[_builtins.str] id: unique-64-character-value of the stored access policy.
         :param pulumi.Input['TableAccessPolicyArgs'] access_policy: Access policy
         """
@@ -4566,25 +4438,22 @@ class TableSignedIdentifierArgs:
         pulumi.set(self, "access_policy", value)
 
 
-if not MYPY:
-    class TagFilterArgsDict(TypedDict):
-        """
-        Blob index tag based filtering for blob objects
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        This is the filter tag name, it can have 1 - 128 characters
-        """
-        op: pulumi.Input[_builtins.str]
-        """
-        This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
-        """
-elif False:
-    TagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class TagFilterArgsDict(TypedDict):
+    """
+    Blob index tag based filtering for blob objects
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    This is the filter tag name, it can have 1 - 128 characters
+    """
+    op: pulumi.Input[_builtins.str]
+    """
+    This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
+    """
 
 @pulumi.input_type
 class TagFilterArgs:
@@ -4594,6 +4463,7 @@ class TagFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Blob index tag based filtering for blob objects
+
         :param pulumi.Input[_builtins.str] name: This is the filter tag name, it can have 1 - 128 characters
         :param pulumi.Input[_builtins.str] op: This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
         :param pulumi.Input[_builtins.str] value: This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
@@ -4639,33 +4509,30 @@ class TagFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TriggerParametersArgsDict(TypedDict):
-        """
-        The trigger parameters update for the storage task assignment execution
-        """
-        end_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
-        """
-        interval_unit: NotRequired[pulumi.Input['IntervalUnit']]
-        """
-        Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
-        """
-        start_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
-        """
-        start_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
-        """
-elif False:
-    TriggerParametersArgsDict: TypeAlias = Mapping[str, Any]
+class TriggerParametersArgsDict(TypedDict):
+    """
+    The trigger parameters update for the storage task assignment execution
+    """
+    end_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+    """
+    interval_unit: NotRequired[pulumi.Input['IntervalUnit']]
+    """
+    Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+    """
+    start_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+    """
+    start_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+    """
 
 @pulumi.input_type
 class TriggerParametersArgs:
@@ -4677,6 +4544,7 @@ class TriggerParametersArgs:
                  start_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The trigger parameters update for the storage task assignment execution
+
         :param pulumi.Input[_builtins.str] end_by: When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         :param pulumi.Input[_builtins.int] interval: Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         :param pulumi.Input['IntervalUnit'] interval_unit: Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
@@ -4755,25 +4623,22 @@ class TriggerParametersArgs:
         pulumi.set(self, "start_on", value)
 
 
-if not MYPY:
-    class VirtualNetworkRuleArgsDict(TypedDict):
-        """
-        Virtual Network rule.
-        """
-        virtual_network_resource_id: pulumi.Input[_builtins.str]
-        """
-        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        """
-        action: NotRequired[pulumi.Input['Action']]
-        """
-        The action of virtual network rule.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
-        """
-        Gets the state of virtual network rule.
-        """
-elif False:
-    VirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkRuleArgsDict(TypedDict):
+    """
+    Virtual Network rule.
+    """
+    virtual_network_resource_id: pulumi.Input[_builtins.str]
+    """
+    Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+    """
+    action: NotRequired[pulumi.Input['Action']]
+    """
+    The action of virtual network rule.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    """
+    Gets the state of virtual network rule.
+    """
 
 @pulumi.input_type
 class VirtualNetworkRuleArgs:
@@ -4783,6 +4648,7 @@ class VirtualNetworkRuleArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
         """
         Virtual Network rule.
+
         :param pulumi.Input[_builtins.str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param pulumi.Input['Action'] action: The action of virtual network rule.
         :param pulumi.Input[Union[_builtins.str, 'State']] state: Gets the state of virtual network rule.

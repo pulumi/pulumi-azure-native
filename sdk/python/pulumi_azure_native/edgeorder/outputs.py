@@ -98,6 +98,7 @@ class AdditionalConfigurationResponse(dict):
                  provisioning_details: Optional[Sequence['outputs.ProvisioningDetailsResponse']] = None):
         """
         Additional Configuration details.
+
         :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy of the product which uniquely identifies the configuration.
         :param _builtins.int quantity: Quantity of the product.
         :param Sequence['ProvisioningDetailsResponse'] provisioning_details: List Provisioning Details for Devices in Additional Config.
@@ -161,6 +162,7 @@ class AddressDetailsResponse(dict):
                  return_address: 'outputs.AddressPropertiesResponse'):
         """
         Address details for an order item.
+
         :param 'AddressPropertiesResponse' forward_address: Customer address and contact details.
         :param 'AddressPropertiesResponse' return_address: Return shipping address.
         """
@@ -222,6 +224,7 @@ class AddressPropertiesResponse(dict):
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Address Properties.
+
         :param _builtins.str address_validation_status: Status of address validation.
         :param _builtins.str provisioning_state: Provisioning state
         :param _builtins.str address_classification: Type of address based on its usage context.
@@ -289,6 +292,7 @@ class AvailabilityInformationResponse(dict):
                  disabled_reason_message: _builtins.str):
         """
         Availability information of a product system.
+
         :param _builtins.str availability_stage: Current availability stage of the product.
         :param _builtins.str disabled_reason: Reason why the product is disabled.
         :param _builtins.str disabled_reason_message: Message for why the product is disabled.
@@ -335,6 +339,7 @@ class BillingMeterDetailsResponse(dict):
                  term_type_details: 'outputs.TermTypeDetailsResponse'):
         """
         Holds billing meter details for each type of billing.
+
         :param _builtins.str frequency: Frequency of recurrence.
         :param Union['Pav2MeterDetailsResponse', 'PurchaseMeterDetailsResponse'] meter_details: Represents MeterDetails.
         :param _builtins.str metering_type: Represents Metering type (eg one-time or recurrent).
@@ -400,6 +405,7 @@ class CategoryInformationResponse(dict):
                  links: Optional[Sequence['outputs.LinkResponse']] = None):
         """
         Category related properties of a child configuration.
+
         :param _builtins.str category_display_name: Category display name of the child configuration.
         :param _builtins.str category_name: Category name of the child configuration.
         :param _builtins.str description: Description text for the category.
@@ -473,6 +479,7 @@ class ChildConfigurationResponse(dict):
                  supported_term_commitment_durations: Sequence[_builtins.str]):
         """
         Child configuration object.
+
         :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
         :param _builtins.str child_configuration_type: Child configuration type.
         :param Sequence[_builtins.str] child_configuration_types: Different types of child configurations which exist for this configuration, these can be used to populate the child configuration filter.
@@ -695,6 +702,7 @@ class ConfigurationDeviceDetailsResponse(dict):
                  display_info: Optional['outputs.DisplayInfoResponse'] = None):
         """
         Device details for configuration.
+
         :param Sequence['DeviceDetailsResponse'] device_details: List of device details.
         :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy of the product which uniquely identifies the configuration.
         :param _builtins.str identification_type: Identification type of the configuration.
@@ -781,6 +789,7 @@ class ConfigurationResponse(dict):
                  supported_term_commitment_durations: Sequence[_builtins.str]):
         """
         Configuration object.
+
         :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
         :param Sequence[_builtins.str] child_configuration_types: Different types of child configurations which exist for this configuration, these can be used to populate the child configuration filter.
         :param 'CostInformationResponse' cost_information: Cost information for the product system.
@@ -958,6 +967,7 @@ class ContactDetailsResponse(dict):
                  phone_extension: Optional[_builtins.str] = None):
         """
         Contact Details.
+
         :param _builtins.str contact_name: Contact name of the person.
         :param Sequence[_builtins.str] email_list: List of Email-ids to be notified about job progress.
         :param _builtins.str mobile: Mobile number of the contact person.
@@ -1026,6 +1036,7 @@ class CostInformationResponse(dict):
                  billing_meter_details: Sequence['outputs.BillingMeterDetailsResponse']):
         """
         Cost information for the product system.
+
         :param _builtins.str billing_info_url: Default url to display billing information.
         :param Sequence['BillingMeterDetailsResponse'] billing_meter_details: Details on the various billing aspects for the product system.
         """
@@ -1063,6 +1074,7 @@ class DescriptionResponse(dict):
                  short_description: _builtins.str):
         """
         Description related properties of a product system.
+
         :param Sequence[_builtins.str] attributes: Attributes for the product system.
         :param _builtins.str description_type: Type of description.
         :param Sequence[_builtins.str] keywords: Keywords for the product system.
@@ -1167,6 +1179,7 @@ class DeviceDetailsResponse(dict):
                  serial_number: _builtins.str):
         """
         Device details.
+
         :param _builtins.str display_serial_number: Device serial number to be displayed.
         :param _builtins.str management_resource_id: Management Resource Id.
         :param _builtins.str management_resource_tenant_id: Management Resource Tenant ID.
@@ -1240,6 +1253,7 @@ class DevicePresenceVerificationDetailsResponse(dict):
                  status: _builtins.str):
         """
         Proof of possession details.
+
         :param _builtins.str message: Insights on current status.
         :param _builtins.str status: Proof of possession status.
         """
@@ -1278,6 +1292,7 @@ class DimensionsResponse(dict):
                  width: _builtins.float):
         """
         Dimensions of a configuration.
+
         :param _builtins.float depth: Depth of the device.
         :param _builtins.float height: Height of the device.
         :param _builtins.float length: Length of the device.
@@ -1380,6 +1395,7 @@ class DisplayInfoResponse(dict):
                  product_family_display_name: _builtins.str):
         """
         Describes product display information.
+
         :param _builtins.str configuration_display_name: Configuration display name.
         :param _builtins.str product_family_display_name: Product family display name.
         """
@@ -1429,6 +1445,7 @@ class EncryptionPreferencesResponse(dict):
                  double_encryption_status: Optional[_builtins.str] = None):
         """
         Preferences related to the double encryption.
+
         :param _builtins.str double_encryption_status: Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         """
         if double_encryption_status is not None:
@@ -1453,6 +1470,7 @@ class ErrorAdditionalInfoResponse(dict):
                  type: _builtins.str):
         """
         The resource management error additional info.
+
         :param Any info: The additional info.
         :param _builtins.str type: The additional info type.
         """
@@ -1506,6 +1524,7 @@ class ErrorDetailResponse(dict):
                  target: _builtins.str):
         """
         The error detail.
+
         :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
         :param _builtins.str code: The error code.
         :param Sequence['ErrorDetailResponse'] details: The error details.
@@ -1569,6 +1588,7 @@ class FilterablePropertyResponse(dict):
                  type: _builtins.str):
         """
         Different types of filters supported and its values.
+
         :param Sequence[_builtins.str] supported_values: Values to be filtered.
         :param _builtins.str type: Type of product filter.
         """
@@ -1627,6 +1647,7 @@ class ForwardShippingDetailsResponse(dict):
                  tracking_url: _builtins.str):
         """
         Forward shipment details.
+
         :param _builtins.str carrier_display_name: Carrier Name for display purpose. Not to be used for any processing.
         :param _builtins.str carrier_name: Name of the carrier.
         :param _builtins.str tracking_id: TrackingId of the package.
@@ -1680,6 +1701,7 @@ class GroupedChildConfigurationsResponse(dict):
                  child_configurations: Sequence['outputs.ChildConfigurationResponse']):
         """
         Grouped child configuration object.
+
         :param 'CategoryInformationResponse' category_information: Category information.
         :param Sequence['ChildConfigurationResponse'] child_configurations: List of child configurations.
         """
@@ -1741,6 +1763,7 @@ class HierarchyInformationResponse(dict):
                  product_name: Optional[_builtins.str] = None):
         """
         Holds details about product hierarchy information.
+
         :param _builtins.str configuration_id_display_name: Represents Model Display Name.
         :param _builtins.str configuration_name: Represents configuration name that uniquely identifies configuration.
         :param _builtins.str product_family_name: Represents product family name that uniquely identifies product family.
@@ -1809,6 +1832,7 @@ class ImageInformationResponse(dict):
                  image_url: _builtins.str):
         """
         Image for the product.
+
         :param _builtins.str image_type: Type of the image.
         :param _builtins.str image_url: Url of the image.
         """
@@ -1842,6 +1866,7 @@ class LinkResponse(dict):
                  link_url: _builtins.str):
         """
         Returns link related to the product.
+
         :param _builtins.str link_type: Type of link.
         :param _builtins.str link_url: Url of the link.
         """
@@ -1891,6 +1916,7 @@ class ManagementResourcePreferencesResponse(dict):
                  preferred_management_resource_id: Optional[_builtins.str] = None):
         """
         Management resource preference to link device.
+
         :param _builtins.str preferred_management_resource_id: Customer preferred Management resource ARM ID.
         """
         if preferred_management_resource_id is not None:
@@ -1934,6 +1960,7 @@ class NotificationPreferenceResponse(dict):
                  stage_name: _builtins.str):
         """
         Notification preference for a job stage.
+
         :param _builtins.bool send_notification: Notification is required or not.
         :param _builtins.str stage_name: Name of the stage.
         """
@@ -2027,6 +2054,7 @@ class OrderItemDetailsResponse(dict):
                  site_details: Optional['outputs.SiteDetailsResponse'] = None):
         """
         Order item details.
+
         :param _builtins.str cancellation_reason: Cancellation reason.
         :param _builtins.str cancellation_status: Describes whether the order item is cancellable or not.
         :param 'StageDetailsResponse' current_stage: Current Order item Status.
@@ -2216,6 +2244,7 @@ class Pav2MeterDetailsResponse(dict):
                  multiplier: _builtins.float):
         """
         Billing type PAV2 meter details.
+
         :param _builtins.str billing_type: Represents billing type.
                Expected value is 'Pav2'.
         :param _builtins.str charging_type: Charging type.
@@ -2299,6 +2328,7 @@ class PreferencesResponse(dict):
                  transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None):
         """
         Preferences related to the order.
+
         :param 'EncryptionPreferencesResponse' encryption_preferences: Preferences related to the Encryption.
         :param 'ManagementResourcePreferencesResponse' management_resource_preferences: Preferences related to the Management resource.
         :param Sequence['NotificationPreferenceResponse'] notification_preferences: Notification preferences.
@@ -2407,6 +2437,7 @@ class ProductDetailsResponse(dict):
                  parent_provisioning_details: Optional['outputs.ProvisioningDetailsResponse'] = None):
         """
         Represents product details.
+
         :param Sequence['ConfigurationDeviceDetailsResponse'] child_configuration_device_details: Details of all child configurations that are part of the order item.
         :param 'HierarchyInformationResponse' hierarchy_information: Hierarchy of the product which uniquely identifies the product.
         :param _builtins.str identification_type: Identification type of the configuration.
@@ -2521,6 +2552,7 @@ class ProductFamilyResponse(dict):
                  resource_provider_details: Optional[Sequence['outputs.ResourceProviderDetailsResponse']] = None):
         """
         Product Family.
+
         :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
         :param 'CostInformationResponse' cost_information: Cost information for the product system.
         :param 'DescriptionResponse' description: Description related to the product system.
@@ -2642,6 +2674,7 @@ class ProductLineResponse(dict):
                  products: Sequence['outputs.ProductResponse']):
         """
         Product line.
+
         :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
         :param 'CostInformationResponse' cost_information: Cost information for the product system.
         :param 'DescriptionResponse' description: Description related to the product system.
@@ -2752,6 +2785,7 @@ class ProductResponse(dict):
                  image_information: Sequence['outputs.ImageInformationResponse']):
         """
         Represents a product.
+
         :param 'AvailabilityInformationResponse' availability_information: Availability information of the product system.
         :param Sequence['ConfigurationResponse'] configurations: List of configurations for the product.
         :param 'CostInformationResponse' cost_information: Cost information for the product system.
@@ -2896,6 +2930,7 @@ class ProvisioningDetailsResponse(dict):
                  vendor_name: Optional[_builtins.str] = None):
         """
         Details Related To Provision Resource.
+
         :param _builtins.str unique_device_identifier: Unique Identity for a Device.
         :param _builtins.str auto_provisioning_status: Auto Provisioning Details.
         :param 'DevicePresenceVerificationDetailsResponse' device_presence_verification: Proof of possession details.
@@ -3024,6 +3059,7 @@ class PurchaseMeterDetailsResponse(dict):
                  term_id: _builtins.str):
         """
         Billing type Purchase meter details.
+
         :param _builtins.str billing_type: Represents billing type.
                Expected value is 'Purchase'.
         :param _builtins.str charging_type: Charging type.
@@ -3122,6 +3158,7 @@ class ResourceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Msi identity details of the resource
+
         :param _builtins.str principal_id: Service Principal Id backing the Msi
         :param _builtins.str tenant_id: Home Tenant Id
         :param _builtins.str type: Identity type
@@ -3195,6 +3232,7 @@ class ResourceProviderDetailsResponse(dict):
                  resource_provider_namespace: _builtins.str):
         """
         Management RP details.
+
         :param _builtins.str resource_provider_namespace: Resource provider namespace.
         """
         pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
@@ -3246,6 +3284,7 @@ class ReverseShippingDetailsResponse(dict):
                  tracking_url: _builtins.str):
         """
         Reverse shipment details.
+
         :param _builtins.str carrier_display_name: Carrier Name for display purpose. Not to be used for any processing.
         :param _builtins.str carrier_name: Name of the carrier.
         :param _builtins.str sas_key_for_label: SAS key to download the reverse shipment label of the package.
@@ -3348,6 +3387,7 @@ class ShippingAddressResponse(dict):
                  zip_extended_code: Optional[_builtins.str] = None):
         """
         Shipping address where customer wishes to receive the device.
+
         :param _builtins.str country: Name of the Country.
         :param _builtins.str address_type: Type of address.
         :param _builtins.str city: Name of the City.
@@ -3486,6 +3526,7 @@ class SiteDetailsResponse(dict):
                  site_id: _builtins.str):
         """
         Represents Site Related Details.
+
         :param _builtins.str site_id: Unique Id, Identifying A Site.
         """
         pulumi.set(__self__, "site_id", site_id)
@@ -3509,6 +3550,7 @@ class SpecificationResponse(dict):
                  value: _builtins.str):
         """
         Specification of the configurations.
+
         :param _builtins.str name: Name of the specification.
         :param _builtins.str value: Value of the specification.
         """
@@ -3567,6 +3609,7 @@ class StageDetailsResponse(dict):
                  start_time: _builtins.str):
         """
         Resource stage details.
+
         :param _builtins.str display_name: Display name of the resource stage.
         :param _builtins.str stage_name: Stage name.
         :param _builtins.str stage_status: Stage status.
@@ -3651,6 +3694,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3752,6 +3796,7 @@ class TermCommitmentInformationResponse(dict):
                  term_commitment_type_duration: _builtins.str):
         """
         Term Commitment Information.
+
         :param _builtins.int pending_days_for_term: Number of Days Pending for Term Commitment
         :param _builtins.str term_commitment_type: Term Commitment Type
         :param _builtins.str term_commitment_type_duration: Term Commitment Duration. Currently Supporting P365D, P1095D
@@ -3816,6 +3861,7 @@ class TermCommitmentPreferencesResponse(dict):
                  preferred_term_commitment_duration: Optional[_builtins.str] = None):
         """
         Term Commitment preference received from customer.
+
         :param _builtins.str preferred_term_commitment_type: Term Commitment Type
         :param _builtins.str preferred_term_commitment_duration: Customer preferred Term Duration.
         """
@@ -3850,6 +3896,7 @@ class TermTypeDetailsResponse(dict):
                  term_type_duration: _builtins.str):
         """
         Holds details about term type and duration.
+
         :param _builtins.str term_type: Term Commitment Type
         :param _builtins.str term_type_duration: Duration for the term type.
         """
@@ -3899,6 +3946,7 @@ class TransportPreferencesResponse(dict):
                  preferred_shipment_type: _builtins.str):
         """
         Preferences related to the shipment logistics of the sku.
+
         :param _builtins.str preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
         pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
@@ -3941,6 +3989,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

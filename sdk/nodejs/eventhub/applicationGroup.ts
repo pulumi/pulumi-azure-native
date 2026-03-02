@@ -13,6 +13,51 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
  * Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ApplicationGroupCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationGroup = new azure_native.eventhub.ApplicationGroup("applicationGroup", {
+ *     applicationGroupName: "appGroup1",
+ *     clientAppGroupIdentifier: "SASKeyName=KeyName",
+ *     isEnabled: true,
+ *     namespaceName: "contoso-ua-test-eh-system-1",
+ *     policies: [
+ *         {
+ *             metricId: azure_native.eventhub.MetricId.IncomingMessages,
+ *             name: "ThrottlingPolicy1",
+ *             rateLimitThreshold: 7912,
+ *             type: "ThrottlingPolicy",
+ *         },
+ *         {
+ *             metricId: azure_native.eventhub.MetricId.IncomingBytes,
+ *             name: "ThrottlingPolicy2",
+ *             rateLimitThreshold: 3951729,
+ *             type: "ThrottlingPolicy",
+ *         },
+ *         {
+ *             metricId: azure_native.eventhub.MetricId.OutgoingBytes,
+ *             name: "ThrottlingPolicy3",
+ *             rateLimitThreshold: 245175,
+ *             type: "ThrottlingPolicy",
+ *         },
+ *     ],
+ *     resourceGroupName: "contosotest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:ApplicationGroup appGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/applicationGroups/{applicationGroupName} 
+ * ```
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**

@@ -28,6 +28,7 @@ class DatasetArgs:
                  dataset_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dataset resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['AmazonMWSObjectDatasetArgs', 'AmazonRdsForOracleTableDatasetArgs', 'AmazonRdsForSqlServerTableDatasetArgs', 'AmazonRedshiftTableDatasetArgs', 'AmazonS3DatasetArgs', 'AvroDatasetArgs', 'AzureBlobDatasetArgs', 'AzureBlobFSDatasetArgs', 'AzureDataExplorerTableDatasetArgs', 'AzureDataLakeStoreDatasetArgs', 'AzureDatabricksDeltaLakeDatasetArgs', 'AzureMariaDBTableDatasetArgs', 'AzureMySqlTableDatasetArgs', 'AzurePostgreSqlTableDatasetArgs', 'AzureSearchIndexDatasetArgs', 'AzureSqlDWTableDatasetArgs', 'AzureSqlMITableDatasetArgs', 'AzureSqlTableDatasetArgs', 'AzureTableDatasetArgs', 'BinaryDatasetArgs', 'CassandraTableDatasetArgs', 'CommonDataServiceForAppsEntityDatasetArgs', 'ConcurObjectDatasetArgs', 'CosmosDbMongoDbApiCollectionDatasetArgs', 'CosmosDbSqlApiCollectionDatasetArgs', 'CouchbaseTableDatasetArgs', 'CustomDatasetArgs', 'Db2TableDatasetArgs', 'DelimitedTextDatasetArgs', 'DocumentDbCollectionDatasetArgs', 'DrillTableDatasetArgs', 'DynamicsAXResourceDatasetArgs', 'DynamicsCrmEntityDatasetArgs', 'DynamicsEntityDatasetArgs', 'EloquaObjectDatasetArgs', 'ExcelDatasetArgs', 'FileShareDatasetArgs', 'GoogleAdWordsObjectDatasetArgs', 'GoogleBigQueryObjectDatasetArgs', 'GoogleBigQueryV2ObjectDatasetArgs', 'GreenplumTableDatasetArgs', 'HBaseObjectDatasetArgs', 'HiveObjectDatasetArgs', 'HttpDatasetArgs', 'HubspotObjectDatasetArgs', 'IcebergDatasetArgs', 'ImpalaObjectDatasetArgs', 'InformixTableDatasetArgs', 'JiraObjectDatasetArgs', 'JsonDatasetArgs', 'LakeHouseTableDatasetArgs', 'MagentoObjectDatasetArgs', 'MariaDBTableDatasetArgs', 'MarketoObjectDatasetArgs', 'MicrosoftAccessTableDatasetArgs', 'MongoDbAtlasCollectionDatasetArgs', 'MongoDbCollectionDatasetArgs', 'MongoDbV2CollectionDatasetArgs', 'MySqlTableDatasetArgs', 'NetezzaTableDatasetArgs', 'ODataResourceDatasetArgs', 'OdbcTableDatasetArgs', 'Office365DatasetArgs', 'OracleServiceCloudObjectDatasetArgs', 'OracleTableDatasetArgs', 'OrcDatasetArgs', 'ParquetDatasetArgs', 'PaypalObjectDatasetArgs', 'PhoenixObjectDatasetArgs', 'PostgreSqlTableDatasetArgs', 'PostgreSqlV2TableDatasetArgs', 'PrestoObjectDatasetArgs', 'QuickBooksObjectDatasetArgs', 'RelationalTableDatasetArgs', 'ResponsysObjectDatasetArgs', 'RestResourceDatasetArgs', 'SalesforceMarketingCloudObjectDatasetArgs', 'SalesforceObjectDatasetArgs', 'SalesforceServiceCloudObjectDatasetArgs', 'SalesforceServiceCloudV2ObjectDatasetArgs', 'SalesforceV2ObjectDatasetArgs', 'SapBwCubeDatasetArgs', 'SapCloudForCustomerResourceDatasetArgs', 'SapEccResourceDatasetArgs', 'SapHanaTableDatasetArgs', 'SapOdpResourceDatasetArgs', 'SapOpenHubTableDatasetArgs', 'SapTableResourceDatasetArgs', 'ServiceNowObjectDatasetArgs', 'ServiceNowV2ObjectDatasetArgs', 'SharePointOnlineListResourceDatasetArgs', 'ShopifyObjectDatasetArgs', 'SnowflakeDatasetArgs', 'SnowflakeV2DatasetArgs', 'SparkObjectDatasetArgs', 'SqlServerTableDatasetArgs', 'SquareObjectDatasetArgs', 'SybaseTableDatasetArgs', 'TeradataTableDatasetArgs', 'VerticaTableDatasetArgs', 'WarehouseTableDatasetArgs', 'WebTableDatasetArgs', 'XeroObjectDatasetArgs', 'XmlDatasetArgs', 'ZohoObjectDatasetArgs']] properties: Dataset properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -104,6 +105,94 @@ class Dataset(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+        ## Example Usage
+        ### Datasets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties={
+                "file_name": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                "folder_path": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                "format": {
+                    "type": "TextFormat",
+                },
+                "linked_service_name": {
+                    "reference_name": "exampleLinkedService",
+                    "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                },
+                "parameters": {
+                    "MyFileName": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                    "MyFolderPath": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                },
+                "type": "AzureBlob",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### Datasets_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties={
+                "description": "Example description",
+                "file_name": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                "folder_path": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                "format": {
+                    "type": "TextFormat",
+                },
+                "linked_service_name": {
+                    "reference_name": "exampleLinkedService",
+                    "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                },
+                "parameters": {
+                    "MyFileName": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                    "MyFolderPath": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                },
+                "type": "AzureBlob",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:Dataset exampleDataset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/datasets/{datasetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_name: The dataset name.
@@ -121,6 +210,94 @@ class Dataset(pulumi.CustomResource):
         Dataset resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
+        ## Example Usage
+        ### Datasets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties={
+                "file_name": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                "folder_path": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                "format": {
+                    "type": "TextFormat",
+                },
+                "linked_service_name": {
+                    "reference_name": "exampleLinkedService",
+                    "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                },
+                "parameters": {
+                    "MyFileName": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                    "MyFolderPath": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                },
+                "type": "AzureBlob",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### Datasets_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties={
+                "description": "Example description",
+                "file_name": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                "folder_path": {
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                "format": {
+                    "type": "TextFormat",
+                },
+                "linked_service_name": {
+                    "reference_name": "exampleLinkedService",
+                    "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                },
+                "parameters": {
+                    "MyFileName": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                    "MyFolderPath": {
+                        "type": azure_native.datafactory.ParameterType.STRING,
+                    },
+                },
+                "type": "AzureBlob",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:Dataset exampleDataset /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/datasets/{datasetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

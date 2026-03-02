@@ -13,6 +13,116 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
  *
  * Other available API versions: 2019-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a security automation for all assessments (including all severities)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const automation = new azure_native.security.Automation("automation", {
+ *     actions: [{
+ *         actionType: "LogicApp",
+ *         logicAppResourceId: "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+ *         uri: "https://exampleTriggerUri1.com",
+ *     }],
+ *     automationName: "exampleAutomation",
+ *     description: "An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment",
+ *     isEnabled: true,
+ *     location: "Central US",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     scopes: [{
+ *         description: "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+ *         scopePath: "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+ *     }],
+ *     sources: [{
+ *         eventSource: azure_native.security.EventSource.Assessments,
+ *     }],
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update a security automation for all high severity assessments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const automation = new azure_native.security.Automation("automation", {
+ *     actions: [{
+ *         actionType: "LogicApp",
+ *         logicAppResourceId: "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+ *         uri: "https://exampleTriggerUri1.com",
+ *     }],
+ *     automationName: "exampleAutomation",
+ *     description: "An example of a security automation that triggers one LogicApp resource (myTest1) on any high severity security assessment",
+ *     isEnabled: true,
+ *     location: "Central US",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     scopes: [{
+ *         description: "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+ *         scopePath: "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+ *     }],
+ *     sources: [{
+ *         eventSource: azure_native.security.EventSource.Assessments,
+ *         ruleSets: [{
+ *             rules: [{
+ *                 expectedValue: "High",
+ *                 operator: azure_native.security.Operator.Equals,
+ *                 propertyJPath: "properties.metadata.severity",
+ *                 propertyType: azure_native.security.PropertyType.String,
+ *             }],
+ *         }],
+ *     }],
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Disable or enable a security automation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const automation = new azure_native.security.Automation("automation", {
+ *     actions: [{
+ *         actionType: "LogicApp",
+ *         logicAppResourceId: "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+ *         uri: "https://exampleTriggerUri1.com",
+ *     }],
+ *     automationName: "exampleAutomation",
+ *     description: "An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment of type customAssessment",
+ *     isEnabled: false,
+ *     location: "Central US",
+ *     resourceGroupName: "exampleResourceGroup",
+ *     scopes: [{
+ *         description: "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+ *         scopePath: "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+ *     }],
+ *     sources: [{
+ *         eventSource: azure_native.security.EventSource.Assessments,
+ *         ruleSets: [{
+ *             rules: [{
+ *                 expectedValue: "customAssessment",
+ *                 operator: azure_native.security.Operator.Equals,
+ *                 propertyJPath: "$.Entity.AssessmentType",
+ *                 propertyType: azure_native.security.PropertyType.String,
+ *             }],
+ *         }],
+ *     }],
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:Automation exampleAutomation /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/automations/{automationName} 
+ * ```
  */
 export class Automation extends pulumi.CustomResource {
     /**

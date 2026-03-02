@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### VMwareCollectors_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vMwareCollector = new AzureNative.Migrate.VMwareCollector("vMwareCollector", new()
+    ///     {
+    ///         ETag = "\"01003d32-0000-0d00-0000-5d74d2e50000\"",
+    ///         ProjectName = "abgoyalWEselfhostb72bproject",
+    ///         Properties = new AzureNative.Migrate.Inputs.CollectorPropertiesArgs
+    ///         {
+    ///             AgentProperties = new AzureNative.Migrate.Inputs.CollectorAgentPropertiesArgs
+    ///             {
+    ///                 SpnDetails = new AzureNative.Migrate.Inputs.CollectorBodyAgentSpnPropertiesArgs
+    ///                 {
+    ///                     ApplicationId = "fc717575-8173-4b21-92a5-658b655e613e",
+    ///                     Audience = "https://72f988bf-86f1-41af-91ab-2d7cd011db47/PortalvCenterbc2fagentauthaadapp",
+    ///                     Authority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                     ObjectId = "29d94f38-db94-4980-aec0-0cfd55ab1cd0",
+    ///                     TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                 },
+    ///             },
+    ///             DiscoverySiteId = "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westEurope/providers/Microsoft.OffAzure/VMwareSites/PortalvCenterbc2fsite",
+    ///         },
+    ///         ResourceGroupName = "abgoyal-westEurope",
+    ///         VmWareCollectorName = "PortalvCenterbc2fcollector",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:VMwareCollector PortalvCenterbc2fcollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:VMwareCollector")]
     public partial class VMwareCollector : global::Pulumi.CustomResource

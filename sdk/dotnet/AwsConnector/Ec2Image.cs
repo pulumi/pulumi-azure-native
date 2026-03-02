@@ -13,6 +13,163 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2Images_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2Image = new AzureNative.AwsConnector.Ec2Image("ec2Image", new()
+    ///     {
+    ///         Location = "rskzngterhbdzpdgzthkwkfsim",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2ImagePropertiesArgs
+    ///         {
+    ///             Arn = "qaahwnaabcqlufiiwhkwhv",
+    ///             AwsAccountId = "yvwtilsspffh",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2ImagePropertiesArgs
+    ///             {
+    ///                 Architecture = new AzureNative.AwsConnector.Inputs.ArchitectureValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ArchitectureValues.Arm64,
+    ///                 },
+    ///                 BlockDeviceMappings = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.BlockDeviceMappingArgs
+    ///                     {
+    ///                         DeviceName = "foqeiqkjrwirhz",
+    ///                         Ebs = new AzureNative.AwsConnector.Inputs.EbsBlockDeviceArgs
+    ///                         {
+    ///                             DeleteOnTermination = true,
+    ///                             Encrypted = true,
+    ///                             Iops = 6,
+    ///                             KmsKeyId = "ilegn",
+    ///                             OutpostArn = "yzyqckzzbmbeimvwrvckybpdil",
+    ///                             SnapshotId = "yjsctqicabclgsmtr",
+    ///                             Throughput = 29,
+    ///                             VolumeSize = 15,
+    ///                             VolumeType = new AzureNative.AwsConnector.Inputs.VolumeTypeEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.VolumeType.Gp2,
+    ///                             },
+    ///                         },
+    ///                         NoDevice = "rs",
+    ///                         VirtualName = "lgrpmrjfdvrwmfghttgcdgqsfum",
+    ///                     },
+    ///                 },
+    ///                 BootMode = new AzureNative.AwsConnector.Inputs.BootModeValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.BootModeValues.LegacyBios,
+    ///                 },
+    ///                 CreationDate = "iri",
+    ///                 DeprecationTime = "rjbfczermuljog",
+    ///                 DeregistrationProtection = "qgzillhrsaoasehpuum",
+    ///                 Description = "xcucajel",
+    ///                 EnaSupport = true,
+    ///                 Hypervisor = new AzureNative.AwsConnector.Inputs.HypervisorTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.HypervisorType.Ovm,
+    ///                 },
+    ///                 ImageId = "abwaglkivomqynfncjesal",
+    ///                 ImageLocation = "pgjapgkiakctxcpfpmvk",
+    ///                 ImageOwnerAlias = "sqvaqlxrlzhlzbczv",
+    ///                 ImageType = new AzureNative.AwsConnector.Inputs.ImageTypeValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ImageTypeValues.Kernel,
+    ///                 },
+    ///                 ImdsSupport = new AzureNative.AwsConnector.Inputs.ImdsSupportValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ImdsSupportValues.V20,
+    ///                 },
+    ///                 KernelId = "mfsmykrvrtbosarfpfuwahchz",
+    ///                 LastLaunchedTime = "syfznkavvtio",
+    ///                 Name = "secemuogxgahtxnpthro",
+    ///                 OwnerId = "nhuhifhzxvkdxxvaiaibzihkyvbrwh",
+    ///                 Platform = new AzureNative.AwsConnector.Inputs.PlatformValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.PlatformValues.Windows,
+    ///                 },
+    ///                 PlatformDetails = "lisborjwdvhfnwsziqhfnxiqdmdynp",
+    ///                 ProductCodes = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.ProductCodeArgs
+    ///                     {
+    ///                         ProductCodeId = "gkdidapdrunawxoaa",
+    ///                         ProductCodeType = new AzureNative.AwsConnector.Inputs.ProductCodeValuesEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.ProductCodeValues.Devpay,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Public = true,
+    ///                 RamdiskId = "xrcwfszijxclkazpcletlaoca",
+    ///                 RootDeviceName = "jjgzjpjxtlhvqyvdrnqelzasdmn",
+    ///                 RootDeviceType = new AzureNative.AwsConnector.Inputs.DeviceTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.DeviceType.Ebs,
+    ///                 },
+    ///                 SourceInstanceId = "g",
+    ///                 SriovNetSupport = "sbnokjesjjkngdixqtiijn",
+    ///                 State = new AzureNative.AwsConnector.Inputs.ImageStateEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ImageState.Available,
+    ///                 },
+    ///                 StateReason = new AzureNative.AwsConnector.Inputs.StateReasonArgs
+    ///                 {
+    ///                     Code = "xyfxvbpxwvorfincngvphetvrkhajy",
+    ///                     Message = "qgjrouiqrxyqi",
+    ///                 },
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "mcszeusqtxavdhmwinblzyofkns",
+    ///                         Value = "ehismpwetbakkwkjtngdrofhipjlko",
+    ///                     },
+    ///                 },
+    ///                 TpmSupport = new AzureNative.AwsConnector.Inputs.TpmSupportValuesEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.TpmSupportValues.V20,
+    ///                 },
+    ///                 UsageOperation = "gdlrmqiw",
+    ///                 VirtualizationType = new AzureNative.AwsConnector.Inputs.VirtualizationTypeEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.VirtualizationType.Hvm,
+    ///                 },
+    ///             },
+    ///             AwsRegion = "chnagdbgxpnwsklnknirzcmbyhif",
+    ///             AwsSourceSchema = "zpslskfplbejouiomrfkp",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key3097", "osnwzuconxacmfwdhcxu" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "dth",
+    ///             PublicCloudResourceName = "iwvkviywiipsmvxpemnivpyqwnp",
+    ///         },
+    ///         ResourceGroupName = "rgec2Image",
+    ///         Tags = 
+    ///         {
+    ///             { "key733", "rcinsnkdjolysslzbnmptbwfoxc" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2Image pzwam /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Images/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2Image")]
     public partial class Ec2Image : global::Pulumi.CustomResource

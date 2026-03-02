@@ -11,6 +11,13 @@ import * as utilities from "../utilities";
  * A report resource.
  *
  * Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement:Report TestReport /subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/reports/{reportName} 
+ * ```
  */
 export class Report extends pulumi.CustomResource {
     /**

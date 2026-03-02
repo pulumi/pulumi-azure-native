@@ -28,6 +28,7 @@ class EventHubAuthorizationRuleArgs:
                  authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHubAuthorizationRule resource.
+
         :param pulumi.Input[_builtins.str] event_hub_name: The Event Hub name
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
@@ -121,6 +122,34 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### EventHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_authorization_rule = azure_native.eventhub.EventHubAuthorizationRule("eventHubAuthorizationRule",
+            authorization_rule_name="sdk-Authrules-2513",
+            event_hub_name="sdk-EventHub-532",
+            namespace_name="sdk-Namespace-960",
+            resource_group_name="ArunMonocle",
+            rights=[
+                azure_native.eventhub.AccessRights.LISTEN,
+                azure_native.eventhub.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:EventHubAuthorizationRule sdk-Authrules-2513 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_rule_name: The authorization rule name.
@@ -141,6 +170,34 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
         Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### EventHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_authorization_rule = azure_native.eventhub.EventHubAuthorizationRule("eventHubAuthorizationRule",
+            authorization_rule_name="sdk-Authrules-2513",
+            event_hub_name="sdk-EventHub-532",
+            namespace_name="sdk-Namespace-960",
+            resource_group_name="ArunMonocle",
+            rights=[
+                azure_native.eventhub.AccessRights.LISTEN,
+                azure_native.eventhub.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:EventHubAuthorizationRule sdk-Authrules-2513 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param EventHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

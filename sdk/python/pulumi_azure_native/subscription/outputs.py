@@ -76,6 +76,7 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
                  workload: Optional[_builtins.str] = None):
         """
         Put subscription creation result properties.
+
         :param _builtins.str accept_ownership_state: The accept ownership state of the resource.
         :param _builtins.str accept_ownership_url: Url to accept ownership of the subscription.
         :param _builtins.str provisioning_state: The provisioning state of the resource.
@@ -254,6 +255,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -356,6 +358,7 @@ class TargetDirectoryResultPropertiesResponse(dict):
                  status: _builtins.str):
         """
         Properties of subscription Response for Changed Target Directory.
+
         :param _builtins.str destination_owner_id: Destination Owner Id where Subscription will be accepted.
         :param _builtins.str destination_tenant_id: Destination Tenant Id where Subscription will be accepted.
         :param _builtins.str expires_on: Subscription Initiate Request Expiry time

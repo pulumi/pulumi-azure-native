@@ -13,6 +13,34 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-02-preview.
  *
  * Other available API versions: 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ManagedEnvironmentMaintenanceConfigurationsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.app.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     configName: "default",
+ *     environmentName: "managedEnv",
+ *     resourceGroupName: "rg1",
+ *     scheduledEntries: [{
+ *         durationHours: 9,
+ *         startHourUtc: 12,
+ *         weekDay: azure_native.app.WeekDay.Sunday,
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:MaintenanceConfiguration default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/maintenanceConfigurations/{configName} 
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

@@ -69,6 +69,7 @@ class AuthorizedGroundstationResponse(dict):
                  ground_station: _builtins.str):
         """
         Authorized groundstation.
+
         :param _builtins.str expiration_date: Date of authorization expiration.
         :param _builtins.str ground_station: Groundstation name.
         """
@@ -111,6 +112,7 @@ class AvailableContactsResponse(dict):
                  spacecraft: Optional['outputs.AvailableContactsResponseSpacecraft'] = None):
         """
         Customer retrieves list of Available Contacts for a spacecraft resource. Later, one of the available contact can be selected to create a contact.
+
         :param _builtins.float end_azimuth_degrees: Azimuth of the antenna at the end of the contact in decimal degrees.
         :param _builtins.float end_elevation_degrees: Spacecraft elevation above the horizon at contact end.
         :param _builtins.str ground_station_name: Name of Azure Ground Station.
@@ -234,6 +236,7 @@ class AvailableContactsResponseSpacecraft(dict):
                  id: _builtins.str):
         """
         The reference to the spacecraft resource.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -292,6 +295,7 @@ class ContactProfileLinkChannelResponse(dict):
                  modulation_configuration: Optional[_builtins.str] = None):
         """
         Contact Profile Link Channel.
+
         :param _builtins.float bandwidth_m_hz: Bandwidth in MHz.
         :param _builtins.float center_frequency_m_hz: Center Frequency in MHz.
         :param 'EndPointResponse' end_point: Customer end point to store and retrieve data during a contact with the spacecraft.
@@ -412,6 +416,7 @@ class ContactProfileLinkResponse(dict):
                  gain_over_temperature: Optional[_builtins.float] = None):
         """
         Contact Profile Link.
+
         :param Sequence['ContactProfileLinkChannelResponse'] channels: Contact Profile Link Channel.
         :param _builtins.str direction: Direction (Uplink or Downlink).
         :param _builtins.str name: Link name.
@@ -506,6 +511,7 @@ class ContactProfileThirdPartyConfigurationResponse(dict):
                  provider_name: _builtins.str):
         """
         Contact Profile third-party partner configuration.
+
         :param _builtins.str mission_configuration: Name of string referencing the configuration describing contact set-up for a particular mission. Expected values are those which have been created in collaboration with the partner network.
         :param _builtins.str provider_name: Name of the third-party provider.
         """
@@ -555,6 +561,7 @@ class ContactProfilesPropertiesResponseNetworkConfiguration(dict):
                  subnet_id: _builtins.str):
         """
         Network configuration of customer virtual network.
+
         :param _builtins.str subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -597,6 +604,7 @@ class ContactsPropertiesResponseAntennaConfiguration(dict):
                  source_ips: Optional[Sequence[_builtins.str]] = None):
         """
         The configuration associated with the allocated antenna.
+
         :param _builtins.str destination_ip: The destination IP a packet can be sent to. This would for example be the TCP endpoint you would send data to.
         :param Sequence[_builtins.str] source_ips: List of Source IP
         """
@@ -631,6 +639,7 @@ class ContactsPropertiesResponseContactProfile(dict):
                  id: _builtins.str):
         """
         The reference to the contact profile resource.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -653,6 +662,7 @@ class EdgeSitesPropertiesResponseGlobalCommunicationsSite(dict):
                  id: _builtins.str):
         """
         A reference to global communications site.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -697,6 +707,7 @@ class EndPointResponse(dict):
                  protocol: _builtins.str):
         """
         Customer end point to store and retrieve data during a contact with the spacecraft.
+
         :param _builtins.str end_point_name: Name of an end point.
         :param _builtins.str ip_address: IP Address (IPv4).
         :param _builtins.str port: TCP port to listen on to receive data.
@@ -773,6 +784,7 @@ class GeoCatalogPropertiesResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The details of the Microsoft Planetary Computer Pro GeoCatalog.
+
         :param _builtins.str catalog_uri: The URI of the catalog management UI.
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.str auto_generated_domain_name_label_scope: The scope of the auto-generated domain name label. If not provided, defaults to TenantReuse.
@@ -831,6 +843,7 @@ class GroundStationsPropertiesResponseGlobalCommunicationsSite(dict):
                  id: _builtins.str):
         """
         A reference to global communications site.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -853,6 +866,7 @@ class L2ConnectionsPropertiesResponseEdgeSite(dict):
                  id: _builtins.str):
         """
         A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -875,6 +889,7 @@ class L2ConnectionsPropertiesResponseGroundStation(dict):
                  id: _builtins.str):
         """
         A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+
         :param _builtins.str id: Resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -897,6 +912,7 @@ class L2ConnectionsPropertiesResponseGroundStationPartnerRouter(dict):
                  name: _builtins.str):
         """
         The name of the partner router to establish a connection to within the ground station.
+
         :param _builtins.str name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
         """
         pulumi.set(__self__, "name", name)
@@ -943,6 +959,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1039,6 +1056,7 @@ class SpacecraftLinkResponse(dict):
                  polarization: _builtins.str):
         """
         List of authorized spacecraft links per ground station and the expiration date of the authorization.
+
         :param Sequence['AuthorizedGroundstationResponse'] authorizations: Authorized Ground Stations
         :param _builtins.float bandwidth_m_hz: Bandwidth in MHz.
         :param _builtins.float center_frequency_m_hz: Center Frequency in MHz.
@@ -1143,6 +1161,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1241,6 +1260,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

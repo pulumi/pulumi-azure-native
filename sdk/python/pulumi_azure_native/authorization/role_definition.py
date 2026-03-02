@@ -30,6 +30,7 @@ class RoleDefinitionArgs:
                  role_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleDefinition resource.
+
         :param pulumi.Input[_builtins.str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: Role definition assignable scopes.
         :param pulumi.Input[_builtins.str] description: The role definition description.
@@ -158,6 +159,28 @@ class RoleDefinition(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create role definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_definition = azure_native.authorization.RoleDefinition("roleDefinition",
+            role_definition_id="roleDefinitionId",
+            scope="scope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:RoleDefinition roleDefinitionId /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: Role definition assignable scopes.
@@ -180,6 +203,28 @@ class RoleDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
         Other available API versions: 2022-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create role definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_definition = azure_native.authorization.RoleDefinition("roleDefinition",
+            role_definition_id="roleDefinitionId",
+            scope="scope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:RoleDefinition roleDefinitionId /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleDefinitionArgs args: The arguments to use to populate this resource's properties.

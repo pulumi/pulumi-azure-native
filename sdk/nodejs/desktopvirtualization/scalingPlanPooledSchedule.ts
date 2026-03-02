@@ -13,6 +13,63 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
  *
  * Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ScalingPlanPooledSchedules_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scalingPlanPooledSchedule = new azure_native.desktopvirtualization.ScalingPlanPooledSchedule("scalingPlanPooledSchedule", {
+ *     daysOfWeek: [
+ *         azure_native.desktopvirtualization.DayOfWeek.Monday,
+ *         azure_native.desktopvirtualization.DayOfWeek.Tuesday,
+ *         azure_native.desktopvirtualization.DayOfWeek.Wednesday,
+ *         azure_native.desktopvirtualization.DayOfWeek.Thursday,
+ *         azure_native.desktopvirtualization.DayOfWeek.Friday,
+ *     ],
+ *     offPeakLoadBalancingAlgorithm: azure_native.desktopvirtualization.SessionHostLoadBalancingAlgorithm.DepthFirst,
+ *     offPeakStartTime: {
+ *         hour: 20,
+ *         minute: 0,
+ *     },
+ *     peakLoadBalancingAlgorithm: azure_native.desktopvirtualization.SessionHostLoadBalancingAlgorithm.BreadthFirst,
+ *     peakStartTime: {
+ *         hour: 8,
+ *         minute: 0,
+ *     },
+ *     rampDownCapacityThresholdPct: 50,
+ *     rampDownForceLogoffUsers: true,
+ *     rampDownLoadBalancingAlgorithm: azure_native.desktopvirtualization.SessionHostLoadBalancingAlgorithm.DepthFirst,
+ *     rampDownMinimumHostsPct: 20,
+ *     rampDownNotificationMessage: "message",
+ *     rampDownStartTime: {
+ *         hour: 18,
+ *         minute: 0,
+ *     },
+ *     rampDownWaitTimeMinutes: 30,
+ *     rampUpCapacityThresholdPct: 80,
+ *     rampUpLoadBalancingAlgorithm: azure_native.desktopvirtualization.SessionHostLoadBalancingAlgorithm.DepthFirst,
+ *     rampUpMinimumHostsPct: 20,
+ *     rampUpStartTime: {
+ *         hour: 6,
+ *         minute: 0,
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     scalingPlanName: "scalingPlan1",
+ *     scalingPlanScheduleName: "scalingPlanScheduleWeekdays1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization:ScalingPlanPooledSchedule scalingPlanScheduleWeekdays1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/pooledSchedules/{scalingPlanScheduleName} 
+ * ```
  */
 export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     /**

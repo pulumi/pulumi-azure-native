@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Security
     /// An API collection as represented by Microsoft Defender for APIs.
     /// 
     /// Uses Azure REST API version 2023-11-15. In version 2.x of the Azure Native provider, it used API version 2023-11-15.
+    /// 
+    /// ## Example Usage
+    /// ### Onboard an Azure API Management API to Microsoft Defender for APIs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiCollectionByAzureApiManagementService = new AzureNative.Security.APICollectionByAzureApiManagementService("apiCollectionByAzureApiManagementService", new()
+    ///     {
+    ///         ApiId = "echo-api",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:APICollectionByAzureApiManagementService echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:APICollectionByAzureApiManagementService")]
     public partial class APICollectionByAzureApiManagementService : global::Pulumi.CustomResource

@@ -15,6 +15,110 @@ namespace Pulumi.AzureNative.Logic
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
     /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a workflow
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflow = new AzureNative.Logic.Workflow("workflow", new()
+    ///     {
+    ///         Definition = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["$schema"] = "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    ///             ["actions"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Find_pet_by_ID"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["inputs"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["host"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["connection"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["name"] = "@parameters('$connections')['test-custom-connector']['connectionId']",
+    ///                             },
+    ///                         },
+    ///                         ["method"] = "get",
+    ///                         ["path"] = "/pet/@{encodeURIComponent('1')}",
+    ///                     },
+    ///                     ["runAfter"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                     ["type"] = "ApiConnection",
+    ///                 },
+    ///             },
+    ///             ["contentVersion"] = "1.0.0.0",
+    ///             ["outputs"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///             },
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["$connections"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["defaultValue"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                     },
+    ///                     ["type"] = "Object",
+    ///                 },
+    ///             },
+    ///             ["triggers"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["manual"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["inputs"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["schema"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                         },
+    ///                     },
+    ///                     ["kind"] = "Http",
+    ///                     ["type"] = "Request",
+    ///                 },
+    ///             },
+    ///         },
+    ///         IntegrationAccount = new AzureNative.Logic.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Logic/integrationAccounts/test-integration-account",
+    ///         },
+    ///         Location = "brazilsouth",
+    ///         Parameters = 
+    ///         {
+    ///             { "$connections", new AzureNative.Logic.Inputs.WorkflowParameterArgs
+    ///             {
+    ///                 Value = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["test-custom-connector"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["connectionId"] = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Web/connections/test-custom-connector",
+    ///                         ["connectionName"] = "test-custom-connector",
+    ///                         ["id"] = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/brazilsouth/managedApis/test-custom-connector",
+    ///                     },
+    ///                 },
+    ///             } },
+    ///         },
+    ///         ResourceGroupName = "test-resource-group",
+    ///         Tags = null,
+    ///         WorkflowName = "test-workflow",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:Workflow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource

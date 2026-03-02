@@ -30,6 +30,7 @@ class SaasSubscriptionLevelArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SaasSubscriptionLevel resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] location: Resource location. Only value allowed for SaaS is 'global'
         :param pulumi.Input[_builtins.str] name: The resource name
@@ -140,6 +141,41 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-03-01-beta. In version 2.x of the Azure Native provider, it used API version 2018-03-01-beta.
 
+        ## Example Usage
+        ### Create subscription level SaaS resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        saas_subscription_level = azure_native.saas.SaasSubscriptionLevel("saasSubscriptionLevel",
+            location="global",
+            name="MyContosoSubscription",
+            properties={
+                "offer_id": "contosoOffer",
+                "payment_channel_metadata": {
+                    "AzureSubscriptionId": "155af98a-3205-47e7-883b-a2ab9db9f88d",
+                },
+                "payment_channel_type": azure_native.saas.PaymentChannelType.SUBSCRIPTION_DELEGATED,
+                "publisher_id": "microsoft-contoso",
+                "saas_resource_name": "MyContosoSubscription",
+                "sku_id": "free",
+                "term_id": "hjdtn7tfnxcy",
+            },
+            resource_group_name="my-saas-rg",
+            resource_name_="MyContosoSubscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:saas:SaasSubscriptionLevel MyContosoSubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SaaS/resources/{resourceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: Resource location. Only value allowed for SaaS is 'global'
@@ -159,6 +195,41 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
         SaaS REST API resource definition.
 
         Uses Azure REST API version 2018-03-01-beta. In version 2.x of the Azure Native provider, it used API version 2018-03-01-beta.
+
+        ## Example Usage
+        ### Create subscription level SaaS resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        saas_subscription_level = azure_native.saas.SaasSubscriptionLevel("saasSubscriptionLevel",
+            location="global",
+            name="MyContosoSubscription",
+            properties={
+                "offer_id": "contosoOffer",
+                "payment_channel_metadata": {
+                    "AzureSubscriptionId": "155af98a-3205-47e7-883b-a2ab9db9f88d",
+                },
+                "payment_channel_type": azure_native.saas.PaymentChannelType.SUBSCRIPTION_DELEGATED,
+                "publisher_id": "microsoft-contoso",
+                "saas_resource_name": "MyContosoSubscription",
+                "sku_id": "free",
+                "term_id": "hjdtn7tfnxcy",
+            },
+            resource_group_name="my-saas-rg",
+            resource_name_="MyContosoSubscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:saas:SaasSubscriptionLevel MyContosoSubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SaaS/resources/{resourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SaasSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

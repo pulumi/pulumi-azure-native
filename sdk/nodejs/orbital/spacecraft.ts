@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * Customer creates a spacecraft resource to schedule a contact.
  *
  * Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
+ *
+ * ## Example Usage
+ * ### Create a spacecraft
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const spacecraft = new azure_native.orbital.Spacecraft("spacecraft", {
+ *     links: [
+ *         {
+ *             bandwidthMHz: 2,
+ *             centerFrequencyMHz: 2250,
+ *             direction: azure_native.orbital.Direction.Uplink,
+ *             name: "uplink_lhcp1",
+ *             polarization: azure_native.orbital.Polarization.LHCP,
+ *         },
+ *         {
+ *             bandwidthMHz: 15,
+ *             centerFrequencyMHz: 8160,
+ *             direction: azure_native.orbital.Direction.Downlink,
+ *             name: "downlink_rhcp1",
+ *             polarization: azure_native.orbital.Polarization.RHCP,
+ *         },
+ *     ],
+ *     location: "eastus2",
+ *     noradId: "36411",
+ *     resourceGroupName: "contoso-Rgp",
+ *     spacecraftName: "CONTOSO_SAT",
+ *     titleLine: "CONTOSO_SAT",
+ *     tleLine1: "1 27424U 02022A   22167.05119303  .00000638  00000+0  15103-3 0  9994",
+ *     tleLine2: "2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:orbital:Spacecraft CONTOSO_SAT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/spacecrafts/{spacecraftName} 
+ * ```
  */
 export class Spacecraft extends pulumi.CustomResource {
     /**

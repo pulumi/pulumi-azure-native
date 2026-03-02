@@ -15,6 +15,99 @@ namespace Pulumi.AzureNative.Sql
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create failover group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var failoverGroup = new AzureNative.Sql.FailoverGroup("failoverGroup", new()
+    ///     {
+    ///         Databases = new[]
+    ///         {
+    ///             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+    ///             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+    ///         },
+    ///         FailoverGroupName = "failover-group-test-3",
+    ///         PartnerServers = new[]
+    ///         {
+    ///             new AzureNative.Sql.Inputs.PartnerInfoArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+    ///             },
+    ///         },
+    ///         ReadOnlyEndpoint = new AzureNative.Sql.Inputs.FailoverGroupReadOnlyEndpointArgs
+    ///         {
+    ///             FailoverPolicy = AzureNative.Sql.ReadOnlyEndpointFailoverPolicy.Disabled,
+    ///         },
+    ///         ReadWriteEndpoint = new AzureNative.Sql.Inputs.FailoverGroupReadWriteEndpointArgs
+    ///         {
+    ///             FailoverPolicy = AzureNative.Sql.ReadWriteEndpointFailoverPolicy.Automatic,
+    ///             FailoverWithDataLossGracePeriodMinutes = 480,
+    ///         },
+    ///         ResourceGroupName = "Default",
+    ///         ServerName = "failover-group-primary-server",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create failover group with standby secondary database on partner server.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var failoverGroup = new AzureNative.Sql.FailoverGroup("failoverGroup", new()
+    ///     {
+    ///         Databases = new[]
+    ///         {
+    ///             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+    ///             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+    ///         },
+    ///         FailoverGroupName = "failover-group-test-3",
+    ///         PartnerServers = new[]
+    ///         {
+    ///             new AzureNative.Sql.Inputs.PartnerInfoArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+    ///             },
+    ///         },
+    ///         ReadOnlyEndpoint = new AzureNative.Sql.Inputs.FailoverGroupReadOnlyEndpointArgs
+    ///         {
+    ///             FailoverPolicy = AzureNative.Sql.ReadOnlyEndpointFailoverPolicy.Disabled,
+    ///         },
+    ///         ReadWriteEndpoint = new AzureNative.Sql.Inputs.FailoverGroupReadWriteEndpointArgs
+    ///         {
+    ///             FailoverPolicy = AzureNative.Sql.ReadWriteEndpointFailoverPolicy.Automatic,
+    ///             FailoverWithDataLossGracePeriodMinutes = 480,
+    ///         },
+    ///         ResourceGroupName = "Default",
+    ///         SecondaryType = AzureNative.Sql.FailoverGroupDatabasesSecondaryType.Standby,
+    ///         ServerName = "failover-group-primary-server",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:FailoverGroup failover-group-test-3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/failoverGroups/{failoverGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:FailoverGroup")]
     public partial class FailoverGroup : global::Pulumi.CustomResource

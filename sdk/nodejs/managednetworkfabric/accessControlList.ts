@@ -13,6 +13,86 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
  *
  * Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### AccessControlLists_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessControlList = new azure_native.managednetworkfabric.AccessControlList("accessControlList", {
+ *     accessControlListName: "example-acl",
+ *     aclsUrl: "https://ACL-Storage-URL",
+ *     annotation: "annotation",
+ *     configurationType: azure_native.managednetworkfabric.ConfigurationType.File,
+ *     defaultAction: azure_native.managednetworkfabric.CommunityActionTypes.Permit,
+ *     dynamicMatchConfigurations: [{
+ *         ipGroups: [{
+ *             ipAddressType: azure_native.managednetworkfabric.IPAddressType.IPv4,
+ *             ipPrefixes: ["10.20.3.1/20"],
+ *             name: "example-ipGroup",
+ *         }],
+ *         portGroups: [{
+ *             name: "example-portGroup",
+ *             ports: ["100-200"],
+ *         }],
+ *         vlanGroups: [{
+ *             name: "example-vlanGroup",
+ *             vlans: ["20-30"],
+ *         }],
+ *     }],
+ *     location: "eastUs",
+ *     matchConfigurations: [{
+ *         actions: [{
+ *             counterName: "example-counter",
+ *             type: azure_native.managednetworkfabric.AclActionType.Count,
+ *         }],
+ *         ipAddressType: azure_native.managednetworkfabric.IPAddressType.IPv4,
+ *         matchConditions: [{
+ *             dscpMarkings: ["32"],
+ *             etherTypes: ["0x1"],
+ *             fragments: ["0xff00-0xffff"],
+ *             ipCondition: {
+ *                 ipGroupNames: ["example-ipGroup"],
+ *                 ipPrefixValues: ["10.20.20.20/12"],
+ *                 prefixType: azure_native.managednetworkfabric.PrefixType.Prefix,
+ *                 type: azure_native.managednetworkfabric.SourceDestinationType.SourceIP,
+ *             },
+ *             ipLengths: ["4094-9214"],
+ *             portCondition: {
+ *                 flags: ["established"],
+ *                 layer4Protocol: azure_native.managednetworkfabric.Layer4Protocol.TCP,
+ *                 portGroupNames: ["example-portGroup"],
+ *                 portType: azure_native.managednetworkfabric.PortType.SourcePort,
+ *                 ports: ["1-20"],
+ *             },
+ *             protocolTypes: ["TCP"],
+ *             ttlValues: ["23"],
+ *             vlanMatchCondition: {
+ *                 innerVlans: ["30"],
+ *                 vlanGroupNames: ["example-vlanGroup"],
+ *                 vlans: ["20-30"],
+ *             },
+ *         }],
+ *         matchConfigurationName: "example-match",
+ *         sequenceNumber: 123,
+ *     }],
+ *     resourceGroupName: "example-rg",
+ *     tags: {
+ *         keyID: "KeyValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:AccessControlList example-acl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/accessControlLists/{accessControlListName} 
+ * ```
  */
 export class AccessControlList extends pulumi.CustomResource {
     /**

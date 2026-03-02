@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### SchemaVersions_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schemaVersion = new AzureNative.Edge.SchemaVersion("schemaVersion", new()
+    ///     {
+    ///         Properties = new AzureNative.Edge.Inputs.SchemaVersionPropertiesArgs
+    ///         {
+    ///             Value = "uiaqdwsi",
+    ///         },
+    ///         ResourceGroupName = "rgconfigurationmanager",
+    ///         SchemaName = "testname",
+    ///         SchemaVersionName = "1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edge:SchemaVersion elshkjfnkjyyrexkhe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}/versions/{schemaVersionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:SchemaVersion")]
     public partial class SchemaVersion : global::Pulumi.CustomResource

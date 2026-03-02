@@ -15,6 +15,70 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### BuildService_CreateOrUpdateBuild
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var buildServiceBuild = new AzureNative.AppPlatform.BuildServiceBuild("buildServiceBuild", new()
+    ///     {
+    ///         BuildName = "mybuild",
+    ///         BuildServiceName = "default",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.BuildPropertiesArgs
+    ///         {
+    ///             AgentPool = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
+    ///             Apms = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.ApmReferenceArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+    ///                 },
+    ///             },
+    ///             Builder = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default",
+    ///             Certificates = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.CertificateReferenceArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+    ///                 },
+    ///                 new AzureNative.AppPlatform.Inputs.CertificateReferenceArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+    ///                 },
+    ///             },
+    ///             Env = 
+    ///             {
+    ///                 { "environmentVariable", "test" },
+    ///             },
+    ///             RelativePath = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855-20210601-3ed9f4a2-986b-4bbd-b833-a42dccb2f777",
+    ///             ResourceRequests = new AzureNative.AppPlatform.Inputs.BuildResourceRequestsArgs
+    ///             {
+    ///                 Cpu = "1",
+    ///                 Memory = "2Gi",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:BuildServiceBuild mybuild /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/buildServices/{buildServiceName}/builds/{buildName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildServiceBuild")]
     public partial class BuildServiceBuild : global::Pulumi.CustomResource

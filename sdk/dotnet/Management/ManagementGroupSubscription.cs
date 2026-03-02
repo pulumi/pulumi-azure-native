@@ -15,6 +15,34 @@ namespace Pulumi.AzureNative.Management
     /// Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
     /// 
     /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### AddSubscriptionToManagementGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementGroupSubscription = new AzureNative.Management.ManagementGroupSubscription("managementGroupSubscription", new()
+    ///     {
+    ///         GroupId = "Group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:management:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc /providers/Microsoft.Management/managementGroups/{groupId}/subscriptions/{subscriptionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : global::Pulumi.CustomResource

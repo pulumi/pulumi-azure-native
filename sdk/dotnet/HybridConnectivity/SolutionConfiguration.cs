@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.HybridConnectivity
     /// Solution Configuration
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### SolutionConfigurations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var solutionConfiguration = new AzureNative.HybridConnectivity.SolutionConfiguration("solutionConfiguration", new()
+    ///     {
+    ///         ResourceUri = "ymuj",
+    ///         SolutionConfiguration = "keebwujt",
+    ///         SolutionSettings = null,
+    ///         SolutionType = "nmtqllkyohwtsthxaimsye",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridconnectivity:SolutionConfiguration qpwubemzmootxmtlxaerir /{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:SolutionConfiguration")]
     public partial class SolutionConfiguration : global::Pulumi.CustomResource

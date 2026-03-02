@@ -28,6 +28,7 @@ class FunctionInitArgs:
                  properties: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Function resource.
+
         :param pulumi.Input[_builtins.str] job_name: The name of the streaming job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] function_name: The name of the function.
@@ -123,6 +124,81 @@ class Function(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create a JavaScript function
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        function = azure_native.streamanalytics.Function("function",
+            function_name="function8197",
+            job_name="sj8653",
+            properties={
+                "binding": {
+                    "script": "function (x, y) { return x + y; }",
+                    "type": "Microsoft.StreamAnalytics/JavascriptUdf",
+                },
+                "inputs": [{
+                    "data_type": "Any",
+                }],
+                "output": {
+                    "data_type": "Any",
+                },
+                "type": "Scalar",
+            },
+            resource_group_name="sjrg1637")
+
+        ```
+        ### Create an Azure ML function
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        function = azure_native.streamanalytics.Function("function",
+            function_name="function588",
+            job_name="sj9093",
+            properties={
+                "binding": {
+                    "api_key": "someApiKey==",
+                    "batch_size": 1000,
+                    "endpoint": "someAzureMLEndpointURL",
+                    "inputs": {
+                        "column_names": [{
+                            "data_type": "string",
+                            "map_to": 0,
+                            "name": "tweet",
+                        }],
+                        "name": "input1",
+                    },
+                    "outputs": [{
+                        "data_type": "string",
+                        "name": "Sentiment",
+                    }],
+                    "type": "Microsoft.MachineLearning/WebService",
+                },
+                "inputs": [{
+                    "data_type": "nvarchar(max)",
+                }],
+                "output": {
+                    "data_type": "nvarchar(max)",
+                },
+                "type": "Scalar",
+            },
+            resource_group_name="sjrg7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics:Function function588 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobName}/functions/{functionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] function_name: The name of the function.
@@ -143,6 +219,81 @@ class Function(pulumi.CustomResource):
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
 
         Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native streamanalytics [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create a JavaScript function
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        function = azure_native.streamanalytics.Function("function",
+            function_name="function8197",
+            job_name="sj8653",
+            properties={
+                "binding": {
+                    "script": "function (x, y) { return x + y; }",
+                    "type": "Microsoft.StreamAnalytics/JavascriptUdf",
+                },
+                "inputs": [{
+                    "data_type": "Any",
+                }],
+                "output": {
+                    "data_type": "Any",
+                },
+                "type": "Scalar",
+            },
+            resource_group_name="sjrg1637")
+
+        ```
+        ### Create an Azure ML function
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        function = azure_native.streamanalytics.Function("function",
+            function_name="function588",
+            job_name="sj9093",
+            properties={
+                "binding": {
+                    "api_key": "someApiKey==",
+                    "batch_size": 1000,
+                    "endpoint": "someAzureMLEndpointURL",
+                    "inputs": {
+                        "column_names": [{
+                            "data_type": "string",
+                            "map_to": 0,
+                            "name": "tweet",
+                        }],
+                        "name": "input1",
+                    },
+                    "outputs": [{
+                        "data_type": "string",
+                        "name": "Sentiment",
+                    }],
+                    "type": "Microsoft.MachineLearning/WebService",
+                },
+                "inputs": [{
+                    "data_type": "nvarchar(max)",
+                }],
+                "output": {
+                    "data_type": "nvarchar(max)",
+                },
+                "type": "Scalar",
+            },
+            resource_group_name="sjrg7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics:Function function588 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobName}/functions/{functionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FunctionInitArgs args: The arguments to use to populate this resource's properties.

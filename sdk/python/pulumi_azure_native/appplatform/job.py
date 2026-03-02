@@ -27,6 +27,7 @@ class JobArgs:
                  properties: Optional[pulumi.Input['JobResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Job resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
         :param pulumi.Input[_builtins.str] job_name: The name of the Job resource.
@@ -104,6 +105,58 @@ class Job(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
+        ## Example Usage
+        ### Job_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.appplatform.Job("job",
+            job_name="test-job",
+            properties={
+                "source": {
+                    "build_result_id": "<default>",
+                    "type": "BuildResult",
+                },
+                "template": {
+                    "args": [
+                        "arg1",
+                        "arg2",
+                    ],
+                    "environment_variables": [
+                        {
+                            "name": "key1",
+                            "value": "value1",
+                        },
+                        {
+                            "name": "env2",
+                            "value": "value2",
+                        },
+                        {
+                            "name": "secretKey1",
+                            "secret_value": "secretValue1",
+                        },
+                    ],
+                },
+                "trigger_config": {
+                    "trigger_type": "Manual",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Job test-job /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/jobs/{jobName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_name: The name of the Job resource.
@@ -121,6 +174,58 @@ class Job(pulumi.CustomResource):
         Job resource payload
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
+
+        ## Example Usage
+        ### Job_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.appplatform.Job("job",
+            job_name="test-job",
+            properties={
+                "source": {
+                    "build_result_id": "<default>",
+                    "type": "BuildResult",
+                },
+                "template": {
+                    "args": [
+                        "arg1",
+                        "arg2",
+                    ],
+                    "environment_variables": [
+                        {
+                            "name": "key1",
+                            "value": "value1",
+                        },
+                        {
+                            "name": "env2",
+                            "value": "value2",
+                        },
+                        {
+                            "name": "secretKey1",
+                            "secret_value": "secretValue1",
+                        },
+                    ],
+                },
+                "trigger_config": {
+                    "trigger_type": "Manual",
+                },
+            },
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Job test-job /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/jobs/{jobName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

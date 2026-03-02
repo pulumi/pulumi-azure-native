@@ -31,6 +31,7 @@ class ChannelTypeDescriptionResponse(dict):
                  channel_type: Optional[_builtins.str] = None):
         """
         EngagementFabric channel description
+
         :param _builtins.str channel_description: Text description for the channel
         :param Sequence[_builtins.str] channel_functions: All the available functions for the channel
         :param _builtins.str channel_type: Channel type
@@ -78,6 +79,7 @@ class KeyDescriptionResponse(dict):
                  value: _builtins.str):
         """
         The description of the EngagementFabric account key
+
         :param _builtins.str name: The name of the key
         :param _builtins.str rank: The rank of the key
         :param _builtins.str value: The value of the key
@@ -121,6 +123,7 @@ class SKUResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The EngagementFabric SKU
+
         :param _builtins.str name: The name of the SKU
         :param _builtins.str tier: The price tier of the SKU
         """

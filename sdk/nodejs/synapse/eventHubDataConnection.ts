@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Class representing an event hub data connection.
  *
  * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+ *
+ * ## Example Usage
+ * ### KustoPoolDataConnectionsCreateOrUpdate.json
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHubDataConnection = new azure_native.synapse.EventHubDataConnection("eventHubDataConnection", {
+ *     consumerGroup: "testConsumerGroup1",
+ *     dataConnectionName: "DataConnections8",
+ *     databaseName: "KustoDatabase8",
+ *     eventHubResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+ *     kind: "EventHub",
+ *     kustoPoolName: "kustoclusterrptest4",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     workspaceName: "synapseWorkspaceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:EventHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
+ * ```
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**

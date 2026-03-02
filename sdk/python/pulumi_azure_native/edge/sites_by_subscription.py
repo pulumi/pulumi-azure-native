@@ -25,6 +25,7 @@ class SitesBySubscriptionArgs:
                  site_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SitesBySubscription resource.
+
         :param pulumi.Input['SitePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] site_name: The name of the Site
         """
@@ -74,6 +75,32 @@ class SitesBySubscription(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Site Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sites_by_subscription = azure_native.edge.SitesBySubscription("sitesBySubscription",
+            properties={
+                "address_resource_id": "/subscriptions/680d0dad-59aa-4464-3df3-b34b2b42738c/resourceGroups/us-site-rg/providers/Microsoft.EdgeOrder/addresses/12343213",
+                "description": "string",
+                "display_name": "string",
+            },
+            site_name="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:SitesBySubscription myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']] properties: The resource-specific properties for this resource.
@@ -91,6 +118,32 @@ class SitesBySubscription(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
 
         Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Site Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sites_by_subscription = azure_native.edge.SitesBySubscription("sitesBySubscription",
+            properties={
+                "address_resource_id": "/subscriptions/680d0dad-59aa-4464-3df3-b34b2b42738c/resourceGroups/us-site-rg/providers/Microsoft.EdgeOrder/addresses/12343213",
+                "description": "string",
+                "display_name": "string",
+            },
+            site_name="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edge:SitesBySubscription myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SitesBySubscriptionArgs args: The arguments to use to populate this resource's properties.

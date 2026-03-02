@@ -13,6 +13,38 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01.
  *
  * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### SolutionTemplates_CreateOrUpdate_MaximumSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const solutionTemplate = new azure_native.edge.SolutionTemplate("solutionTemplate", {
+ *     location: "zheaaqvadewftnctxzpinrgeproqs",
+ *     properties: {
+ *         capabilities: ["dfoyxbbknrhvlunhmuyyt"],
+ *         description: "psrftehgzngcdlccivhjmwsmiz",
+ *         enableExternalValidation: true,
+ *         state: azure_native.edge.ResourceState.Active,
+ *     },
+ *     resourceGroupName: "rgconfigurationmanager",
+ *     solutionTemplateName: "testname",
+ *     tags: {
+ *         key5091: "dov",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:edge:SolutionTemplate hhmslfrwpuvrjr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/solutionTemplates/{solutionTemplateName} 
+ * ```
  */
 export class SolutionTemplate extends pulumi.CustomResource {
     /**

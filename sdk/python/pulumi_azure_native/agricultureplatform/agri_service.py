@@ -31,6 +31,7 @@ class AgriServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AgriService resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] agri_service_resource_name: The name of the AgriService resource.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
@@ -156,6 +157,14 @@ class AgriService(pulumi.CustomResource):
         Schema of the AgriService resource from Microsoft.AgriculturePlatform resource provider.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agricultureplatform:AgriService mnvxvlitiwbndijhbmgiejz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgriculturePlatform/agriServices/{agriServiceResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,6 +186,14 @@ class AgriService(pulumi.CustomResource):
         Schema of the AgriService resource from Microsoft.AgriculturePlatform resource provider.
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agricultureplatform:AgriService mnvxvlitiwbndijhbmgiejz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgriculturePlatform/agriServices/{agriServiceResourceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AgriServiceArgs args: The arguments to use to populate this resource's properties.

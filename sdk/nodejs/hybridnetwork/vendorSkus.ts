@@ -11,6 +11,101 @@ import * as utilities from "../utilities";
  * Sku sub resource.
  *
  * Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
+ *
+ * ## Example Usage
+ * ### Create or update the sku of vendor resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vendorSkus = new azure_native.hybridnetwork.VendorSkus("vendorSkus", {
+ *     deploymentMode: azure_native.hybridnetwork.SkuDeploymentMode.PrivateEdgeZone,
+ *     managedApplicationTemplate: {},
+ *     networkFunctionTemplate: {
+ *         networkFunctionRoleConfigurations: [{
+ *             customProfile: {
+ *                 metadataConfigurationPath: "/var/logs/network.cfg",
+ *             },
+ *             networkInterfaces: [
+ *                 {
+ *                     ipConfigurations: [{
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAllocationMethod: azure_native.hybridnetwork.IPAllocationMethod.Dynamic,
+ *                         ipVersion: azure_native.hybridnetwork.IPVersion.IPv4,
+ *                         subnet: "",
+ *                     }],
+ *                     macAddress: "",
+ *                     networkInterfaceName: "nic1",
+ *                     vmSwitchType: azure_native.hybridnetwork.VMSwitchType.Wan,
+ *                 },
+ *                 {
+ *                     ipConfigurations: [{
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAllocationMethod: azure_native.hybridnetwork.IPAllocationMethod.Dynamic,
+ *                         ipVersion: azure_native.hybridnetwork.IPVersion.IPv4,
+ *                         subnet: "",
+ *                     }],
+ *                     macAddress: "",
+ *                     networkInterfaceName: "nic2",
+ *                     vmSwitchType: azure_native.hybridnetwork.VMSwitchType.Management,
+ *                 },
+ *             ],
+ *             osProfile: {
+ *                 adminUsername: "dummyuser",
+ *                 customData: "base-64 encoded string of custom data",
+ *                 linuxConfiguration: {
+ *                     ssh: {
+ *                         publicKeys: [{
+ *                             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAgEAwrr66r8n6B8Y0zMF3dOpXEapIQD9DiYQ6D6/zwor9o39jSkHNiMMER/GETBbzP83LOcekm02aRjo55ArO7gPPVvCXbrirJu9pkm4AC4BBre5xSLS= user@constoso-DSH",
+ *                             path: "home/user/.ssh/authorized_keys",
+ *                         }],
+ *                     },
+ *                 },
+ *             },
+ *             roleName: "test",
+ *             roleType: azure_native.hybridnetwork.NetworkFunctionRoleConfigurationType.VirtualMachine,
+ *             storageProfile: {
+ *                 dataDisks: [{
+ *                     createOption: azure_native.hybridnetwork.DiskCreateOptionTypes.Empty,
+ *                     diskSizeGB: 10,
+ *                     name: "DataDisk1",
+ *                 }],
+ *                 imageReference: {
+ *                     offer: "UbuntuServer",
+ *                     publisher: "Canonical",
+ *                     sku: "18.04-LTS",
+ *                     version: "18.04.201804262",
+ *                 },
+ *                 osDisk: {
+ *                     diskSizeGB: 30,
+ *                     name: "vhdName",
+ *                     osType: azure_native.hybridnetwork.OperatingSystemTypes.Linux,
+ *                     vhd: {
+ *                         uri: "https://contoso.net/link/vnd.vhd?sp=rl&st=2020-10-08T20:38:19Z&se=2020-12-09T19:38:00Z&sv=2019-12-12&sr=b&sig=7BM2f4yOw%3D",
+ *                     },
+ *                 },
+ *             },
+ *             virtualMachineSize: azure_native.hybridnetwork.VirtualMachineSizeTypes.Standard_D3_v2,
+ *         }],
+ *     },
+ *     networkFunctionType: azure_native.hybridnetwork.NetworkFunctionType.VirtualNetworkFunction,
+ *     preview: true,
+ *     skuName: "TestSku",
+ *     vendorName: "TestVendor",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork:VendorSkus TestSku /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName}/vendorSkus/{skuName} 
+ * ```
  */
 export class VendorSkus extends pulumi.CustomResource {
     /**

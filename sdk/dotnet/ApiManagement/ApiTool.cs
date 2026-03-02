@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Tool details.
     /// 
     /// Uses Azure REST API version 2025-03-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiTool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiTool = new AzureNative.ApiManagement.ApiTool("apiTool", new()
+    ///     {
+    ///         ApiId = "github-mcp-api",
+    ///         Description = "This is a MCP tool to create an issue in a github repository",
+    ///         DisplayName = "createIssue",
+    ///         OperationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/github-rest-api/operations/createIssue",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ToolId = "createIssue",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ApiTool createIssue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tools/{toolId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiTool")]
     public partial class ApiTool : global::Pulumi.CustomResource

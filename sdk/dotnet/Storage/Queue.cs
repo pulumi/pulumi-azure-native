@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### QueueOperationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.Storage.Queue("queue", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         QueueName = "queue6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### QueueOperationPutWithMetadata
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.Storage.Queue("queue", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         Metadata = 
+    ///         {
+    ///             { "sample1", "meta1" },
+    ///             { "sample2", "meta2" },
+    ///         },
+    ///         QueueName = "queue6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:Queue queue6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/queueServices/default/queues/{queueName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Queue")]
     public partial class Queue : global::Pulumi.CustomResource

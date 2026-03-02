@@ -35,6 +35,7 @@ class PolicyDefinitionAtManagementGroupArgs:
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
+
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the management group.
         :param pulumi.Input[_builtins.str] description: The policy definition description.
         :param pulumi.Input[_builtins.str] display_name: The display name of the policy definition.
@@ -229,6 +230,61 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
 
         Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update a policy definition at management group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_definition_at_management_group = azure_native.authorization.PolicyDefinitionAtManagementGroup("policyDefinitionAtManagementGroup",
+            description="Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+            display_name="Enforce resource naming convention",
+            management_group_id="MyManagementGroup",
+            metadata={
+                "category": "Naming",
+            },
+            mode="All",
+            parameters={
+                "prefix": {
+                    "metadata": {
+                        "description": "Resource name prefix",
+                        "display_name": "Prefix",
+                    },
+                    "type": azure_native.authorization.ParameterType.STRING,
+                },
+                "suffix": {
+                    "metadata": {
+                        "description": "Resource name suffix",
+                        "display_name": "Suffix",
+                    },
+                    "type": azure_native.authorization.ParameterType.STRING,
+                },
+            },
+            policy_definition_name="ResourceNaming",
+            policy_rule={
+                "if": {
+                    "not": {
+                        "field": "name",
+                        "like": "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+                    },
+                },
+                "then": {
+                    "effect": "deny",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:PolicyDefinitionAtManagementGroup ResourceNaming /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The policy definition description.
@@ -255,6 +311,61 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update a policy definition at management group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_definition_at_management_group = azure_native.authorization.PolicyDefinitionAtManagementGroup("policyDefinitionAtManagementGroup",
+            description="Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+            display_name="Enforce resource naming convention",
+            management_group_id="MyManagementGroup",
+            metadata={
+                "category": "Naming",
+            },
+            mode="All",
+            parameters={
+                "prefix": {
+                    "metadata": {
+                        "description": "Resource name prefix",
+                        "display_name": "Prefix",
+                    },
+                    "type": azure_native.authorization.ParameterType.STRING,
+                },
+                "suffix": {
+                    "metadata": {
+                        "description": "Resource name suffix",
+                        "display_name": "Suffix",
+                    },
+                    "type": azure_native.authorization.ParameterType.STRING,
+                },
+            },
+            policy_definition_name="ResourceNaming",
+            policy_rule={
+                "if": {
+                    "not": {
+                        "field": "name",
+                        "like": "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+                    },
+                },
+                "then": {
+                    "effect": "deny",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:PolicyDefinitionAtManagementGroup ResourceNaming /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionAtManagementGroupArgs args: The arguments to use to populate this resource's properties.

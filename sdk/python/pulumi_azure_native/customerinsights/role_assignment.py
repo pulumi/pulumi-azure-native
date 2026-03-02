@@ -44,6 +44,7 @@ class RoleAssignmentArgs:
                  widget_types: Optional[pulumi.Input['ResourceSetDescriptionArgs']] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
         :param pulumi.Input[Sequence[pulumi.Input['AssignmentPrincipalArgs']]] principals: The principals being assigned to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -375,6 +376,40 @@ class RoleAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
+        ## Example Usage
+        ### RoleAssignments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment = azure_native.customerinsights.RoleAssignment("roleAssignment",
+            assignment_name="assignmentName8976",
+            hub_name="sdkTestHub",
+            principals=[
+                {
+                    "principal_id": "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+                    "principal_type": "User",
+                },
+                {
+                    "principal_id": "93061d15a5054f2b9948ae25724cf9d5",
+                    "principal_type": "User",
+                },
+            ],
+            resource_group_name="TestHubRG",
+            role=azure_native.customerinsights.RoleTypes.ADMIN)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:RoleAssignment azSdkTestHub/assignmentName8976 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/roleAssignments/{assignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assignment_name: The assignment name
@@ -408,6 +443,40 @@ class RoleAssignment(pulumi.CustomResource):
         The Role Assignment resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+
+        ## Example Usage
+        ### RoleAssignments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment = azure_native.customerinsights.RoleAssignment("roleAssignment",
+            assignment_name="assignmentName8976",
+            hub_name="sdkTestHub",
+            principals=[
+                {
+                    "principal_id": "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+                    "principal_type": "User",
+                },
+                {
+                    "principal_id": "93061d15a5054f2b9948ae25724cf9d5",
+                    "principal_type": "User",
+                },
+            ],
+            resource_group_name="TestHubRG",
+            role=azure_native.customerinsights.RoleTypes.ADMIN)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:RoleAssignment azSdkTestHub/assignmentName8976 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/roleAssignments/{assignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

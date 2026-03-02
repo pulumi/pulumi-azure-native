@@ -15,6 +15,47 @@ namespace Pulumi.AzureNative.HybridCompute
     /// Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2022-12-27.
     /// 
     /// Other available API versions: 2020-08-15-preview, 2021-01-28-preview, 2021-03-25-preview, 2021-04-22-preview, 2021-05-17-preview, 2021-05-20, 2021-06-10-preview, 2021-12-10-preview, 2022-03-10, 2022-05-10-preview, 2022-08-11-preview, 2022-11-10, 2022-12-27, 2022-12-27-preview, 2023-03-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine Extension
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineExtension = new AzureNative.HybridCompute.MachineExtension("machineExtension", new()
+    ///     {
+    ///         ExtensionName = "CustomScriptExtension",
+    ///         Location = "eastus2euap",
+    ///         MachineName = "myMachine",
+    ///         Properties = new AzureNative.HybridCompute.Inputs.MachineExtensionPropertiesArgs
+    ///         {
+    ///             Publisher = "Microsoft.Compute",
+    ///             Settings = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["commandToExecute"] = "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
+    ///             },
+    ///             Type = "CustomScriptExtension",
+    ///             TypeHandlerVersion = "1.10",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/extensions/{extensionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

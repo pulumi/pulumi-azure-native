@@ -55,6 +55,7 @@ class ThreatIntelligenceIndicatorArgs:
                  valid_until: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThreatIntelligenceIndicator resource.
+
         :param pulumi.Input[_builtins.str] kind: The kind of the threat intelligence entity
                Expected value is 'indicator'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -583,6 +584,47 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Update a threat Intelligence indicator
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        threat_intelligence_indicator = azure_native.securityinsights.ThreatIntelligenceIndicator("threatIntelligenceIndicator",
+            confidence=78,
+            created_by_ref="contoso@contoso.com",
+            description="debugging indicators",
+            display_name="new schema",
+            external_references=[],
+            granular_markings=[],
+            kill_chain_phases=[],
+            kind="indicator",
+            labels=[],
+            modified="",
+            name="d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+            pattern="[url:value = 'https://www.contoso.com']",
+            pattern_type="url",
+            resource_group_name="myRg",
+            revoked=False,
+            source="Azure Sentinel",
+            threat_intelligence_tags=["new schema"],
+            threat_types=["compromised"],
+            valid_from="2020-04-15T17:44:00.114052Z",
+            valid_until="",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:ThreatIntelligenceIndicator 180105c7-a28d-b1a2-4a78-234f6ec80fd6 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] confidence: Confidence of threat intelligence entity
@@ -631,6 +673,47 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Update a threat Intelligence indicator
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        threat_intelligence_indicator = azure_native.securityinsights.ThreatIntelligenceIndicator("threatIntelligenceIndicator",
+            confidence=78,
+            created_by_ref="contoso@contoso.com",
+            description="debugging indicators",
+            display_name="new schema",
+            external_references=[],
+            granular_markings=[],
+            kill_chain_phases=[],
+            kind="indicator",
+            labels=[],
+            modified="",
+            name="d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+            pattern="[url:value = 'https://www.contoso.com']",
+            pattern_type="url",
+            resource_group_name="myRg",
+            revoked=False,
+            source="Azure Sentinel",
+            threat_intelligence_tags=["new schema"],
+            threat_types=["compromised"],
+            valid_from="2020-04-15T17:44:00.114052Z",
+            valid_until="",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:ThreatIntelligenceIndicator 180105c7-a28d-b1a2-4a78-234f6ec80fd6 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ThreatIntelligenceIndicatorArgs args: The arguments to use to populate this resource's properties.

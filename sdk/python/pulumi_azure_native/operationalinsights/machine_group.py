@@ -32,6 +32,7 @@ class MachineGroupArgs:
                  machines: Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None):
         """
         The set of arguments for constructing a MachineGroup resource.
+
         :param pulumi.Input[_builtins.str] display_name: User defined name for the group
         :param pulumi.Input[_builtins.str] kind: Additional resource type qualifier.
                Expected value is 'machineGroup'.
@@ -173,6 +174,36 @@ class MachineGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
+        ## Example Usage
+        ### SMMachineGroupsUpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_group = azure_native.operationalinsights.MachineGroup("machineGroup",
+            count=1,
+            display_name="Foo",
+            kind="machineGroup",
+            machine_group_name="ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
+            machines=[{
+                "id": "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519",
+                "kind": "ref:machinewithhints",
+            }],
+            resource_group_name="rg-sm",
+            workspace_name="D6F79F14-E563-469B-84B5-9286D2803B2F")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:MachineGroup ccfbf4bf-dc08-4371-9e9b-00a8d875d45a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machineGroups/{machineGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
@@ -195,6 +226,36 @@ class MachineGroup(pulumi.CustomResource):
         A user-defined logical grouping of machines.
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
+
+        ## Example Usage
+        ### SMMachineGroupsUpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_group = azure_native.operationalinsights.MachineGroup("machineGroup",
+            count=1,
+            display_name="Foo",
+            kind="machineGroup",
+            machine_group_name="ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
+            machines=[{
+                "id": "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519",
+                "kind": "ref:machinewithhints",
+            }],
+            resource_group_name="rg-sm",
+            workspace_name="D6F79F14-E563-469B-84B5-9286D2803B2F")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:MachineGroup ccfbf4bf-dc08-4371-9e9b-00a8d875d45a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machineGroups/{machineGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MachineGroupArgs args: The arguments to use to populate this resource's properties.

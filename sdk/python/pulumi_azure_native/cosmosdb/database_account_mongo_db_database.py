@@ -28,6 +28,7 @@ class DatabaseAccountMongoDBDatabaseArgs:
                  database_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountMongoDBDatabase resource.
+
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input['MongoDBDatabaseResourceArgs'] resource: The standard JSON format of a MongoDB database
@@ -121,6 +122,33 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_mongo_db_database = azure_native.cosmosdb.DatabaseAccountMongoDBDatabase("databaseAccountMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            options={},
+            resource={
+                "id": "updatedDatabaseName",
+            },
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:DatabaseAccountMongoDBDatabase updatedDatabaseName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/mongodb/databases/{databaseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
@@ -141,6 +169,33 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
         Uses Azure REST API version 2016-03-31.
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_mongo_db_database = azure_native.cosmosdb.DatabaseAccountMongoDBDatabase("databaseAccountMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            options={},
+            resource={
+                "id": "updatedDatabaseName",
+            },
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:DatabaseAccountMongoDBDatabase updatedDatabaseName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/mongodb/databases/{databaseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountMongoDBDatabaseArgs args: The arguments to use to populate this resource's properties.

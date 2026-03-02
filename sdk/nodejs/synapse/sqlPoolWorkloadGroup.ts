@@ -10,6 +10,53 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a workload group with all properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPoolWorkloadGroup = new azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup", {
+ *     importance: "normal",
+ *     maxResourcePercent: 100,
+ *     maxResourcePercentPerRequest: 3,
+ *     minResourcePercent: 0,
+ *     minResourcePercentPerRequest: 3,
+ *     queryExecutionTimeout: 0,
+ *     resourceGroupName: "sqlcrudtest-6852",
+ *     sqlPoolName: "sqlcrudtest-9187",
+ *     workloadGroupName: "smallrc",
+ *     workspaceName: "sqlcrudtest-2080",
+ * });
+ *
+ * ```
+ * ### Create a workload group with the required properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPoolWorkloadGroup = new azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup", {
+ *     maxResourcePercent: 100,
+ *     minResourcePercent: 0,
+ *     minResourcePercentPerRequest: 3,
+ *     resourceGroupName: "sqlcrudtest-6852",
+ *     sqlPoolName: "sqlcrudtest-9187",
+ *     workloadGroupName: "smallrc",
+ *     workspaceName: "sqlcrudtest-2080",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:SqlPoolWorkloadGroup smallrc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/workloadGroups/{workloadGroupName} 
+ * ```
  */
 export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
     /**

@@ -31,6 +31,7 @@ class ReferenceDataSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReferenceDataSet resource.
+
         :param pulumi.Input[_builtins.str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[Sequence[pulumi.Input['ReferenceDataSetKeyPropertyArgs']]] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
@@ -157,6 +158,40 @@ class ReferenceDataSet(pulumi.CustomResource):
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ReferenceDataSetsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        reference_data_set = azure_native.timeseriesinsights.ReferenceDataSet("referenceDataSet",
+            environment_name="env1",
+            key_properties=[
+                {
+                    "name": "DeviceId1",
+                    "type": azure_native.timeseriesinsights.ReferenceDataKeyPropertyType.STRING,
+                },
+                {
+                    "name": "DeviceFloor",
+                    "type": azure_native.timeseriesinsights.ReferenceDataKeyPropertyType.DOUBLE,
+                },
+            ],
+            location="West US",
+            reference_data_set_name="rds1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights:ReferenceDataSet rds1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'DataStringComparisonBehavior']] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
@@ -179,6 +214,40 @@ class ReferenceDataSet(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ReferenceDataSetsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        reference_data_set = azure_native.timeseriesinsights.ReferenceDataSet("referenceDataSet",
+            environment_name="env1",
+            key_properties=[
+                {
+                    "name": "DeviceId1",
+                    "type": azure_native.timeseriesinsights.ReferenceDataKeyPropertyType.STRING,
+                },
+                {
+                    "name": "DeviceFloor",
+                    "type": azure_native.timeseriesinsights.ReferenceDataKeyPropertyType.DOUBLE,
+                },
+            ],
+            location="West US",
+            reference_data_set_name="rds1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights:ReferenceDataSet rds1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ReferenceDataSetArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class PrivateStoreCollectionArgs:
                  subscriptions_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateStoreCollection resource.
+
         :param pulumi.Input[_builtins.str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[_builtins.bool] all_subscriptions: Indicating whether all subscriptions are selected (=true) or not (=false).
         :param pulumi.Input[_builtins.str] claim: Gets or sets the association with Commercial's Billing Account.
@@ -157,6 +158,35 @@ class PrivateStoreCollection(pulumi.CustomResource):
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreatePrivateStoreCollection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_store_collection = azure_native.marketplace.PrivateStoreCollection("privateStoreCollection",
+            all_subscriptions=False,
+            claim="",
+            collection_id="d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1",
+            collection_name="Test Collection",
+            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+            subscriptions_list=[
+                "b340914e-353d-453a-85fb-8f9b65b51f91",
+                "f2baa04d-5bfc-461b-b6d8-61b403c9ec48",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:marketplace:PrivateStoreCollection d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1 /providers/Microsoft.Marketplace/privateStores/{privateStoreId}/collections/{collectionId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] all_subscriptions: Indicating whether all subscriptions are selected (=true) or not (=false).
@@ -179,6 +209,35 @@ class PrivateStoreCollection(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreatePrivateStoreCollection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_store_collection = azure_native.marketplace.PrivateStoreCollection("privateStoreCollection",
+            all_subscriptions=False,
+            claim="",
+            collection_id="d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1",
+            collection_name="Test Collection",
+            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+            subscriptions_list=[
+                "b340914e-353d-453a-85fb-8f9b65b51f91",
+                "f2baa04d-5bfc-461b-b6d8-61b403c9ec48",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:marketplace:PrivateStoreCollection d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1 /providers/Microsoft.Marketplace/privateStores/{privateStoreId}/collections/{collectionId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionArgs args: The arguments to use to populate this resource's properties.

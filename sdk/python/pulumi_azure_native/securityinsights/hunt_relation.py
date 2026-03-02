@@ -28,6 +28,7 @@ class HuntRelationArgs:
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HuntRelation resource.
+
         :param pulumi.Input[_builtins.str] hunt_id: The hunt id (GUID)
         :param pulumi.Input[_builtins.str] related_resource_id: The id of the related resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -137,6 +138,32 @@ class HuntRelation(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates or updates a hunt relation.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt_relation = azure_native.securityinsights.HuntRelation("huntRelation",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            hunt_relation_id="2216d0e1-91e3-4902-89fd-d2df8c535096",
+            labels=["Test Label"],
+            related_resource_id="/subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/Bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:HuntRelation 2216d0e1-91e3-4902-89fd-d2df8c535096 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/hunts/{huntId}/relations/{huntRelationId} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hunt_id: The hunt id (GUID)
@@ -158,6 +185,32 @@ class HuntRelation(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates or updates a hunt relation.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt_relation = azure_native.securityinsights.HuntRelation("huntRelation",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            hunt_relation_id="2216d0e1-91e3-4902-89fd-d2df8c535096",
+            labels=["Test Label"],
+            related_resource_id="/subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/Bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:HuntRelation 2216d0e1-91e3-4902-89fd-d2df8c535096 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/hunts/{huntId}/relations/{huntRelationId} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param HuntRelationArgs args: The arguments to use to populate this resource's properties.

@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/azure-native",
-    "version": "3.0.0-alpha.0+dev",
+    "version": "${VERSION}",
     "keywords": [
         "pulumi",
         "azure",
@@ -23,7 +23,6 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "azure-native",
-        "version": "3.0.0-alpha.0+dev"
+        "name": "azure-native"
     }
 }

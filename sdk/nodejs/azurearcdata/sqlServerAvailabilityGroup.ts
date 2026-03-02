@@ -13,6 +13,65 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-01.
  *
  * Other available API versions: 2024-01-01, 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create a Arc Sql Server availability group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerAvailabilityGroup = new azure_native.azurearcdata.SqlServerAvailabilityGroup("sqlServerAvailabilityGroup", {
+ *     availabilityGroupName: "testAG",
+ *     location: "southeastasia",
+ *     properties: {
+ *         databases: {
+ *             value: [
+ *                 {
+ *                     databaseName: "db1",
+ *                 },
+ *                 {
+ *                     databaseName: "db2",
+ *                 },
+ *             ],
+ *         },
+ *         info: {
+ *             basicFeatures: false,
+ *             dbFailover: true,
+ *             dtcSupport: false,
+ *             failureConditionLevel: 3,
+ *             healthCheckTimeout: 30000,
+ *             isContained: false,
+ *             isDistributed: false,
+ *             requiredSynchronizedSecondariesToCommit: 0,
+ *         },
+ *         replicas: {
+ *             value: [{
+ *                 configure: {
+ *                     backupPriority: 50,
+ *                     endpointUrl: "TCP://mytest60-0.mytest60-svc:5022",
+ *                     sessionTimeout: 10,
+ *                 },
+ *                 replicaName: "testSqlServer\\INST1",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlServerInstanceName: "testSqlServer_INST1",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata:SqlServerAvailabilityGroup testAG /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName} 
+ * ```
  */
 export class SqlServerAvailabilityGroup extends pulumi.CustomResource {
     /**

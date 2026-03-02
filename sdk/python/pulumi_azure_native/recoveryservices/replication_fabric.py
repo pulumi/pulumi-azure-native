@@ -27,6 +27,7 @@ class ReplicationFabricArgs:
                  properties: Optional[pulumi.Input['FabricCreationInputPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationFabric resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
         :param pulumi.Input[_builtins.str] fabric_name: Name of the ASR fabric.
@@ -106,6 +107,34 @@ class ReplicationFabric(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates an Azure Site Recovery fabric.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_fabric = azure_native.recoveryservices.ReplicationFabric("replicationFabric",
+            fabric_name="cloud1",
+            properties={
+                "custom_details": {
+                    "instance_type": "FabricSpecificCreationInput",
+                },
+            },
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationFabric cloud1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fabric_name: Name of the ASR fabric.
@@ -125,6 +154,34 @@ class ReplicationFabric(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates an Azure Site Recovery fabric.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_fabric = azure_native.recoveryservices.ReplicationFabric("replicationFabric",
+            fabric_name="cloud1",
+            properties={
+                "custom_details": {
+                    "instance_type": "FabricSpecificCreationInput",
+                },
+            },
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationFabric cloud1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ReplicationFabricArgs args: The arguments to use to populate this resource's properties.

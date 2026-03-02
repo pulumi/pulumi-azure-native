@@ -29,6 +29,7 @@ class IntegrationFabricArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationFabric resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The workspace name of Azure Managed Grafana.
         :param pulumi.Input[_builtins.str] integration_fabric_name: The integration fabric name of Azure Managed Grafana.
@@ -136,6 +137,38 @@ class IntegrationFabric(pulumi.CustomResource):
 
         Other available API versions: 2023-10-01-preview, 2024-11-01-preview, 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### IntegrationFabrics_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_fabric = azure_native.dashboard.IntegrationFabric("integrationFabric",
+            integration_fabric_name="sampleIntegration",
+            location="West US",
+            properties={
+                "data_source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/myAmw",
+                "scenarios": [
+                    "scenario1",
+                    "scenario2",
+                ],
+                "target_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAks",
+            },
+            resource_group_name="myResourceGroup",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dashboard:IntegrationFabric sampleIntegration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{workspaceName}/integrationFabrics/{integrationFabricName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_fabric_name: The integration fabric name of Azure Managed Grafana.
@@ -156,6 +189,38 @@ class IntegrationFabric(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2023-10-01-preview, 2024-11-01-preview, 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### IntegrationFabrics_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_fabric = azure_native.dashboard.IntegrationFabric("integrationFabric",
+            integration_fabric_name="sampleIntegration",
+            location="West US",
+            properties={
+                "data_source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/myAmw",
+                "scenarios": [
+                    "scenario1",
+                    "scenario2",
+                ],
+                "target_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAks",
+            },
+            resource_group_name="myResourceGroup",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dashboard:IntegrationFabric sampleIntegration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/grafana/{workspaceName}/integrationFabrics/{integrationFabricName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IntegrationFabricArgs args: The arguments to use to populate this resource's properties.

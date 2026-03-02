@@ -29,6 +29,7 @@ class AgentApplicationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentApplication resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input['AgenticApplicationArgs'] properties: [Required] Additional attributes of the entity.
@@ -120,6 +121,38 @@ class AgentApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
+        ## Example Usage
+        ### Create or Update Account Agent Application.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_application = azure_native.cognitiveservices.AgentApplication("agentApplication",
+            account_name="my-cognitive-services-account",
+            name="agent-app-1",
+            project_name="my-project",
+            properties={
+                "description": "Sample agent application for customer support",
+                "display_name": "Customer Support Agent",
+                "tags": {
+                    "environment": "production",
+                    "team": "ai-platform",
+                },
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AgentApplication agent-app-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
@@ -138,6 +171,38 @@ class AgentApplication(pulumi.CustomResource):
         Agent Application resource
 
         Uses Azure REST API version 2025-10-01-preview.
+
+        ## Example Usage
+        ### Create or Update Account Agent Application.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_application = azure_native.cognitiveservices.AgentApplication("agentApplication",
+            account_name="my-cognitive-services-account",
+            name="agent-app-1",
+            project_name="my-project",
+            properties={
+                "description": "Sample agent application for customer support",
+                "display_name": "Customer Support Agent",
+                "tags": {
+                    "environment": "production",
+                    "team": "ai-platform",
+                },
+            },
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:AgentApplication agent-app-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentApplicationArgs args: The arguments to use to populate this resource's properties.

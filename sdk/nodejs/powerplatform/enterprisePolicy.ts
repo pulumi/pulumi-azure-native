@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Definition of the EnterprisePolicy.
  *
  * Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
+ *
+ * ## Example Usage
+ * ### Create or update EnterprisePolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const enterprisePolicy = new azure_native.powerplatform.EnterprisePolicy("enterprisePolicy", {
+ *     enterprisePolicyName: "enterprisePolicy",
+ *     identity: {
+ *         type: azure_native.powerplatform.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     kind: azure_native.powerplatform.EnterprisePolicyKind.Lockbox,
+ *     location: "East US",
+ *     resourceGroupName: "resourceGroup",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerplatform:EnterprisePolicy enterprisePolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName} 
+ * ```
  */
 export class EnterprisePolicy extends pulumi.CustomResource {
     /**

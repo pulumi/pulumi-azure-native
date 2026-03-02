@@ -30,6 +30,7 @@ class WorkloadInstanceArgs:
                  workload_instance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadInstance resource.
+
         :param pulumi.Input[_builtins.str] modernize_project_name: ModernizeProject name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input['WorkloadInstanceModelPropertiesArgs'] properties: Workload instance model properties.
@@ -139,6 +140,57 @@ class WorkloadInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
+        ## Example Usage
+        ### WorkloadInstance_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.WorkloadInstance("workloadInstance",
+            modernize_project_name="mx8",
+            properties={
+                "custom_properties": {
+                    "instance_type": "IISWorkload",
+                    "web_app_arm_id": "xseseqsrzdiga",
+                    "web_app_site_name": "mirgzmy",
+                },
+                "display_name": "juoorbubchvk",
+                "master_site_name": "ubks",
+                "migrate_agent_id": "aqgzsxqbk",
+                "name": "wonkuhgsafzviuwqerzdmme",
+                "source_name": "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                "source_platform": "eh",
+            },
+            resource_group_name="rgmigrateEngine",
+            tags={
+                "key2836": "biqip",
+            },
+            workload_instance_name="m")
+
+        ```
+        ### WorkloadInstance_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.WorkloadInstance("workloadInstance",
+            modernize_project_name="tv39",
+            resource_group_name="rgmigrateEngine",
+            workload_instance_name="io")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:WorkloadInstance piu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] modernize_project_name: ModernizeProject name.
@@ -158,6 +210,57 @@ class WorkloadInstance(pulumi.CustomResource):
         Workload instance model.
 
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+
+        ## Example Usage
+        ### WorkloadInstance_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.WorkloadInstance("workloadInstance",
+            modernize_project_name="mx8",
+            properties={
+                "custom_properties": {
+                    "instance_type": "IISWorkload",
+                    "web_app_arm_id": "xseseqsrzdiga",
+                    "web_app_site_name": "mirgzmy",
+                },
+                "display_name": "juoorbubchvk",
+                "master_site_name": "ubks",
+                "migrate_agent_id": "aqgzsxqbk",
+                "name": "wonkuhgsafzviuwqerzdmme",
+                "source_name": "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                "source_platform": "eh",
+            },
+            resource_group_name="rgmigrateEngine",
+            tags={
+                "key2836": "biqip",
+            },
+            workload_instance_name="m")
+
+        ```
+        ### WorkloadInstance_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.WorkloadInstance("workloadInstance",
+            modernize_project_name="tv39",
+            resource_group_name="rgmigrateEngine",
+            workload_instance_name="io")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:WorkloadInstance piu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/workloadInstances/{workloadInstanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkloadInstanceArgs args: The arguments to use to populate this resource's properties.

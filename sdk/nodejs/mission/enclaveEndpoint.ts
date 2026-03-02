@@ -13,6 +13,39 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### EnclaveEndpoints_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const enclaveEndpoint = new azure_native.mission.EnclaveEndpoint("enclaveEndpoint", {
+ *     enclaveEndpointName: "TestMyEnclaveEndpoint",
+ *     location: "West US",
+ *     resourceGroupName: "rgopenapi",
+ *     ruleCollection: [{
+ *         destination: "10.0.0.0/24",
+ *         endpointRuleName: "54CEECEF-2C30-488E-946F-D20F414D99BA",
+ *         ports: "443",
+ *         protocols: [azure_native.mission.EnclaveEndpointProtocol.TCP],
+ *     }],
+ *     tags: {
+ *         sampletag: "samplevalue",
+ *     },
+ *     virtualEnclaveName: "TestMyEnclave",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mission:EnclaveEndpoint TestMyEnclaveEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName} 
+ * ```
  */
 export class EnclaveEndpoint extends pulumi.CustomResource {
     /**

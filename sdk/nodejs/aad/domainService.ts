@@ -13,6 +13,53 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
  *
  * Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create Domain Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domainService = new azure_native.aad.DomainService("domainService", {
+ *     domainName: "TestDomainService.com",
+ *     domainSecuritySettings: {
+ *         ntlmV1: azure_native.aad.NtlmV1.Enabled,
+ *         syncNtlmPasswords: azure_native.aad.SyncNtlmPasswords.Enabled,
+ *         tlsV1: azure_native.aad.TlsV1.Disabled,
+ *     },
+ *     domainServiceName: "TestDomainService.com",
+ *     filteredSync: azure_native.aad.FilteredSync.Enabled,
+ *     ldapsSettings: {
+ *         externalAccess: azure_native.aad.ExternalAccess.Enabled,
+ *         ldaps: azure_native.aad.Ldaps.Enabled,
+ *         pfxCertificate: "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+ *         pfxCertificatePassword: "<pfxCertificatePassword>",
+ *     },
+ *     notificationSettings: {
+ *         additionalRecipients: [
+ *             "jicha@microsoft.com",
+ *             "caalmont@microsoft.com",
+ *         ],
+ *         notifyDcAdmins: azure_native.aad.NotifyDcAdmins.Enabled,
+ *         notifyGlobalAdmins: azure_native.aad.NotifyGlobalAdmins.Enabled,
+ *     },
+ *     replicaSets: [{
+ *         location: "West US",
+ *         subnetId: "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+ *     }],
+ *     resourceGroupName: "TestResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:aad:DomainService TestDomainService.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AAD/domainServices/{domainServiceName} 
+ * ```
  */
 export class DomainService extends pulumi.CustomResource {
     /**

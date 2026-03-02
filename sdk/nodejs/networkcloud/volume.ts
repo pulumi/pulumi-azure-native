@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update volume
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.networkcloud.Volume("volume", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     sizeMiB: 10000,
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ *     volumeName: "volumeName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:Volume volumeName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName} 
+ * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

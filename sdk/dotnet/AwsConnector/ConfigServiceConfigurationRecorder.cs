@@ -13,6 +13,103 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigServiceConfigurationRecorders_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configServiceConfigurationRecorder = new AzureNative.AwsConnector.ConfigServiceConfigurationRecorder("configServiceConfigurationRecorder", new()
+    ///     {
+    ///         Location = "uhzzvapzjrmbzxfxdqyczgmcq",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.ConfigServiceConfigurationRecorderPropertiesArgs
+    ///         {
+    ///             Arn = "jdsihdzklcqjurvrxp",
+    ///             AwsAccountId = "pxxfgnveimxacjnvjtionuq",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsConfigServiceConfigurationRecorderPropertiesArgs
+    ///             {
+    ///                 Name = "umkcdjmciwgorjwxtm",
+    ///                 RecordingGroup = new AzureNative.AwsConnector.Inputs.RecordingGroupArgs
+    ///                 {
+    ///                     AllSupported = true,
+    ///                     ExclusionByResourceTypes = new AzureNative.AwsConnector.Inputs.ExclusionByResourceTypesArgs
+    ///                     {
+    ///                         ResourceTypes = new[]
+    ///                         {
+    ///                             "AWS::ACM::Certificate",
+    ///                         },
+    ///                     },
+    ///                     IncludeGlobalResourceTypes = true,
+    ///                     RecordingStrategy = new AzureNative.AwsConnector.Inputs.RecordingStrategyArgs
+    ///                     {
+    ///                         UseOnly = new AzureNative.AwsConnector.Inputs.RecordingStrategyTypeEnumValueArgs
+    ///                         {
+    ///                             Value = AzureNative.AwsConnector.RecordingStrategyType.ALL_SUPPORTED_RESOURCE_TYPES,
+    ///                         },
+    ///                     },
+    ///                     ResourceTypes = new[]
+    ///                     {
+    ///                         "AWS::ACM::Certificate",
+    ///                     },
+    ///                 },
+    ///                 RecordingMode = new AzureNative.AwsConnector.Inputs.RecordingModeArgs
+    ///                 {
+    ///                     RecordingFrequency = new AzureNative.AwsConnector.Inputs.RecordingFrequencyEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.RecordingFrequency.CONTINUOUS,
+    ///                     },
+    ///                     RecordingModeOverrides = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.RecordingModeOverrideArgs
+    ///                         {
+    ///                             Description = "fxclcxlsumaur",
+    ///                             RecordingFrequency = new AzureNative.AwsConnector.Inputs.RecordingFrequencyEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.RecordingFrequency.CONTINUOUS,
+    ///                             },
+    ///                             ResourceTypes = new[]
+    ///                             {
+    ///                                 "AWS::ACM::Certificate",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RoleARN = "alfppyafyrtgacngfxckcioci",
+    ///             },
+    ///             AwsRegion = "xvzbwkxfmww",
+    ///             AwsSourceSchema = "eolodykekuepfruwphifvo",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key7810", "iwpldfrgnzxhqb" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "ofuen",
+    ///             PublicCloudResourceName = "sieljn",
+    ///         },
+    ///         ResourceGroupName = "rgconfigServiceConfigurationRecorder",
+    ///         Tags = 
+    ///         {
+    ///             { "key1719", "adugjzkmxmgtjz" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:ConfigServiceConfigurationRecorder ppfewmfyzkwdrh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceConfigurationRecorders/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ConfigServiceConfigurationRecorder")]
     public partial class ConfigServiceConfigurationRecorder : global::Pulumi.CustomResource

@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * MQ diagnostic services resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+ *
+ * ## Example Usage
+ * ### DiagnosticService_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diagnosticService = new azure_native.iotoperationsmq.DiagnosticService("diagnosticService", {
+ *     dataExportFrequencySeconds: 26084,
+ *     diagnosticServiceName: "73-1El3-1",
+ *     extendedLocation: {
+ *         name: "an",
+ *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
+ *     },
+ *     image: {
+ *         pullPolicy: "imfuzvqxgbdwliqnn",
+ *         pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+ *         repository: "m",
+ *         tag: "jygfdiamhhm",
+ *     },
+ *     location: "sbhavoiabxjpuq",
+ *     logFormat: "i",
+ *     logLevel: "aomqhmpa",
+ *     maxDataStorageSize: 3757017229,
+ *     metricsPort: 37109,
+ *     mqName: "6RCAgs-XQ-Y2HsUF2",
+ *     openTelemetryTracesCollectorAddr: "ggqmprmjlmmkfdpb",
+ *     resourceGroupName: "rgiotoperationsmq",
+ *     staleDataTimeoutSeconds: 51616,
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperationsmq:DiagnosticService kdpnnlr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/diagnosticService/{diagnosticServiceName} 
+ * ```
  */
 export class DiagnosticService extends pulumi.CustomResource {
     /**

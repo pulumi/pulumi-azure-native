@@ -13,6 +13,578 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Azure Storage Vault Standard Protection Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "newPolicyV2",
+ *     properties: {
+ *         backupManagementType: "AzureStorage",
+ *         schedulePolicy: {
+ *             schedulePolicyType: "SimpleSchedulePolicy",
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Daily,
+ *             scheduleRunTimes: ["2023-07-18T09:30:00.000Z"],
+ *         },
+ *         timeZone: "UTC",
+ *         vaultRetentionPolicy: {
+ *             snapshotRetentionInDays: 5,
+ *             vaultRetention: {
+ *                 dailySchedule: {
+ *                     retentionDuration: {
+ *                         count: 30,
+ *                         durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                     },
+ *                     retentionTimes: ["2023-07-18T09:30:00.000Z"],
+ *                 },
+ *                 monthlySchedule: {
+ *                     retentionDuration: {
+ *                         count: 60,
+ *                         durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                     },
+ *                     retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                     retentionScheduleWeekly: {
+ *                         daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                         weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                     },
+ *                     retentionTimes: ["2023-07-18T09:30:00.000Z"],
+ *                 },
+ *                 retentionPolicyType: "LongTermRetentionPolicy",
+ *                 weeklySchedule: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     retentionDuration: {
+ *                         count: 12,
+ *                         durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                     },
+ *                     retentionTimes: ["2023-07-18T09:30:00.000Z"],
+ *                 },
+ *                 yearlySchedule: {
+ *                     monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+ *                     retentionDuration: {
+ *                         count: 10,
+ *                         durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                     },
+ *                     retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                     retentionScheduleWeekly: {
+ *                         daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                         weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                     },
+ *                     retentionTimes: ["2023-07-18T09:30:00.000Z"],
+ *                 },
+ *             },
+ *         },
+ *         workLoadType: azure_native.recoveryservices.WorkloadType.AzureFileShare,
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "swaggertestvault",
+ * });
+ *
+ * ```
+ * ### Create or Update Daily Azure Storage Protection Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "dailyPolicy2",
+ *     properties: {
+ *         backupManagementType: "AzureStorage",
+ *         retentionPolicy: {
+ *             dailySchedule: {
+ *                 retentionDuration: {
+ *                     count: 5,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                 },
+ *                 retentionTimes: ["2021-09-29T08:00:00.000Z"],
+ *             },
+ *             monthlySchedule: {
+ *                 retentionDuration: {
+ *                     count: 60,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *                 retentionTimes: ["2021-09-29T08:00:00.000Z"],
+ *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *             weeklySchedule: {
+ *                 daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                 retentionDuration: {
+ *                     count: 12,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                 },
+ *                 retentionTimes: ["2021-09-29T08:00:00.000Z"],
+ *             },
+ *             yearlySchedule: {
+ *                 monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+ *                 retentionDuration: {
+ *                     count: 10,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *                 retentionTimes: ["2021-09-29T08:00:00.000Z"],
+ *             },
+ *         },
+ *         schedulePolicy: {
+ *             schedulePolicyType: "SimpleSchedulePolicy",
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Daily,
+ *             scheduleRunTimes: ["2021-09-29T08:00:00.000Z"],
+ *         },
+ *         timeZone: "UTC",
+ *         workLoadType: azure_native.recoveryservices.WorkloadType.AzureFileShare,
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "swaggertestvault",
+ * });
+ *
+ * ```
+ * ### Create or Update Enhanced Azure Vm Protection Policy with Hourly backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "v2-daily-sample",
+ *     properties: {
+ *         backupManagementType: "AzureIaasVM",
+ *         instantRpRetentionRangeInDays: 30,
+ *         policyType: azure_native.recoveryservices.IAASVMPolicyType.V2,
+ *         retentionPolicy: {
+ *             dailySchedule: {
+ *                 retentionDuration: {
+ *                     count: 180,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *             monthlySchedule: {
+ *                 retentionDuration: {
+ *                     count: 60,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *             weeklySchedule: {
+ *                 daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                 retentionDuration: {
+ *                     count: 12,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *             yearlySchedule: {
+ *                 monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+ *                 retentionDuration: {
+ *                     count: 10,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *         },
+ *         schedulePolicy: {
+ *             hourlySchedule: {
+ *                 interval: 4,
+ *                 scheduleWindowDuration: 16,
+ *                 scheduleWindowStartTime: "2021-12-17T08:00:00Z",
+ *             },
+ *             schedulePolicyType: "SimpleSchedulePolicyV2",
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Hourly,
+ *         },
+ *         snapshotConsistencyType: azure_native.recoveryservices.IaasVMSnapshotConsistencyType.OnlyCrashConsistent,
+ *         timeZone: "India Standard Time",
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ * ### Create or Update Enhanced Azure Vm Protection Policy with daily backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "v2-daily-sample",
+ *     properties: {
+ *         backupManagementType: "AzureIaasVM",
+ *         instantRpRetentionRangeInDays: 30,
+ *         policyType: azure_native.recoveryservices.IAASVMPolicyType.V2,
+ *         retentionPolicy: {
+ *             dailySchedule: {
+ *                 retentionDuration: {
+ *                     count: 180,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *             monthlySchedule: {
+ *                 retentionDuration: {
+ *                     count: 60,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *             weeklySchedule: {
+ *                 daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                 retentionDuration: {
+ *                     count: 12,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *             yearlySchedule: {
+ *                 monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+ *                 retentionDuration: {
+ *                     count: 10,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *                 retentionTimes: ["2021-12-17T08:00:00+00:00"],
+ *             },
+ *         },
+ *         schedulePolicy: {
+ *             dailySchedule: {
+ *                 scheduleRunTimes: ["2018-01-24T10:00:00Z"],
+ *             },
+ *             schedulePolicyType: "SimpleSchedulePolicyV2",
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Daily,
+ *         },
+ *         snapshotConsistencyType: azure_native.recoveryservices.IaasVMSnapshotConsistencyType.OnlyCrashConsistent,
+ *         timeZone: "India Standard Time",
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ * ### Create or Update Full Azure Vm Protection Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "testPolicy1",
+ *     properties: {
+ *         backupManagementType: "AzureIaasVM",
+ *         retentionPolicy: {
+ *             monthlySchedule: {
+ *                 retentionDuration: {
+ *                     count: 2,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [
+ *                         azure_native.recoveryservices.DayOfWeek.Wednesday,
+ *                         azure_native.recoveryservices.DayOfWeek.Thursday,
+ *                     ],
+ *                     weeksOfTheMonth: [
+ *                         azure_native.recoveryservices.WeekOfMonth.First,
+ *                         azure_native.recoveryservices.WeekOfMonth.Third,
+ *                     ],
+ *                 },
+ *                 retentionTimes: ["2018-01-24T10:00:00Z"],
+ *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *             weeklySchedule: {
+ *                 daysOfTheWeek: [
+ *                     azure_native.recoveryservices.DayOfWeek.Monday,
+ *                     azure_native.recoveryservices.DayOfWeek.Wednesday,
+ *                     azure_native.recoveryservices.DayOfWeek.Thursday,
+ *                 ],
+ *                 retentionDuration: {
+ *                     count: 1,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                 },
+ *                 retentionTimes: ["2018-01-24T10:00:00Z"],
+ *             },
+ *             yearlySchedule: {
+ *                 monthsOfYear: [
+ *                     azure_native.recoveryservices.MonthOfYear.February,
+ *                     azure_native.recoveryservices.MonthOfYear.November,
+ *                 ],
+ *                 retentionDuration: {
+ *                     count: 4,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [
+ *                         azure_native.recoveryservices.DayOfWeek.Monday,
+ *                         azure_native.recoveryservices.DayOfWeek.Thursday,
+ *                     ],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.Fourth],
+ *                 },
+ *                 retentionTimes: ["2018-01-24T10:00:00Z"],
+ *             },
+ *         },
+ *         schedulePolicy: {
+ *             schedulePolicyType: "SimpleSchedulePolicy",
+ *             scheduleRunDays: [
+ *                 azure_native.recoveryservices.DayOfWeek.Monday,
+ *                 azure_native.recoveryservices.DayOfWeek.Wednesday,
+ *                 azure_native.recoveryservices.DayOfWeek.Thursday,
+ *             ],
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Weekly,
+ *             scheduleRunTimes: ["2018-01-24T10:00:00Z"],
+ *         },
+ *         timeZone: "Pacific Standard Time",
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ * ### Create or Update Full Azure Workload Protection Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "testPolicy1",
+ *     properties: {
+ *         backupManagementType: "AzureWorkload",
+ *         settings: {
+ *             issqlcompression: false,
+ *             timeZone: "Pacific Standard Time",
+ *         },
+ *         subProtectionPolicy: [
+ *             {
+ *                 policyType: azure_native.recoveryservices.PolicyType.Full,
+ *                 retentionPolicy: {
+ *                     monthlySchedule: {
+ *                         retentionDuration: {
+ *                             count: 1,
+ *                             durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                         },
+ *                         retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                         retentionScheduleWeekly: {
+ *                             daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                             weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.Second],
+ *                         },
+ *                         retentionTimes: ["2018-01-24T10:00:00Z"],
+ *                     },
+ *                     retentionPolicyType: "LongTermRetentionPolicy",
+ *                     weeklySchedule: {
+ *                         daysOfTheWeek: [
+ *                             azure_native.recoveryservices.DayOfWeek.Sunday,
+ *                             azure_native.recoveryservices.DayOfWeek.Tuesday,
+ *                         ],
+ *                         retentionDuration: {
+ *                             count: 2,
+ *                             durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                         },
+ *                         retentionTimes: ["2018-01-24T10:00:00Z"],
+ *                     },
+ *                     yearlySchedule: {
+ *                         monthsOfYear: [
+ *                             azure_native.recoveryservices.MonthOfYear.January,
+ *                             azure_native.recoveryservices.MonthOfYear.June,
+ *                             azure_native.recoveryservices.MonthOfYear.December,
+ *                         ],
+ *                         retentionDuration: {
+ *                             count: 1,
+ *                             durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                         },
+ *                         retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                         retentionScheduleWeekly: {
+ *                             daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                             weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.Last],
+ *                         },
+ *                         retentionTimes: ["2018-01-24T10:00:00Z"],
+ *                     },
+ *                 },
+ *                 schedulePolicy: {
+ *                     schedulePolicyType: "SimpleSchedulePolicy",
+ *                     scheduleRunDays: [
+ *                         azure_native.recoveryservices.DayOfWeek.Sunday,
+ *                         azure_native.recoveryservices.DayOfWeek.Tuesday,
+ *                     ],
+ *                     scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Weekly,
+ *                     scheduleRunTimes: ["2018-01-24T10:00:00Z"],
+ *                 },
+ *             },
+ *             {
+ *                 policyType: azure_native.recoveryservices.PolicyType.Differential,
+ *                 retentionPolicy: {
+ *                     retentionDuration: {
+ *                         count: 8,
+ *                         durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                     },
+ *                     retentionPolicyType: "SimpleRetentionPolicy",
+ *                 },
+ *                 schedulePolicy: {
+ *                     schedulePolicyType: "SimpleSchedulePolicy",
+ *                     scheduleRunDays: [azure_native.recoveryservices.DayOfWeek.Friday],
+ *                     scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Weekly,
+ *                     scheduleRunTimes: ["2018-01-24T10:00:00Z"],
+ *                 },
+ *             },
+ *             {
+ *                 policyType: azure_native.recoveryservices.PolicyType.Log,
+ *                 retentionPolicy: {
+ *                     retentionDuration: {
+ *                         count: 7,
+ *                         durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                     },
+ *                     retentionPolicyType: "SimpleRetentionPolicy",
+ *                 },
+ *                 schedulePolicy: {
+ *                     scheduleFrequencyInMins: 60,
+ *                     schedulePolicyType: "LogSchedulePolicy",
+ *                 },
+ *             },
+ *         ],
+ *         workLoadType: azure_native.recoveryservices.WorkloadType.SQLDataBase,
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ * ### Create or Update Hourly Azure Storage Protection Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "newPolicy2",
+ *     properties: {
+ *         backupManagementType: "AzureStorage",
+ *         retentionPolicy: {
+ *             dailySchedule: {
+ *                 retentionDuration: {
+ *                     count: 5,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                 },
+ *             },
+ *             monthlySchedule: {
+ *                 retentionDuration: {
+ *                     count: 60,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Months,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *             weeklySchedule: {
+ *                 daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                 retentionDuration: {
+ *                     count: 12,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Weeks,
+ *                 },
+ *             },
+ *             yearlySchedule: {
+ *                 monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+ *                 retentionDuration: {
+ *                     count: 10,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Years,
+ *                 },
+ *                 retentionScheduleFormatType: azure_native.recoveryservices.RetentionScheduleFormat.Weekly,
+ *                 retentionScheduleWeekly: {
+ *                     daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+ *                     weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+ *                 },
+ *             },
+ *         },
+ *         schedulePolicy: {
+ *             hourlySchedule: {
+ *                 interval: 4,
+ *                 scheduleWindowDuration: 12,
+ *                 scheduleWindowStartTime: "2021-09-29T08:00:00.000Z",
+ *             },
+ *             schedulePolicyType: "SimpleSchedulePolicy",
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Hourly,
+ *         },
+ *         timeZone: "UTC",
+ *         workLoadType: azure_native.recoveryservices.WorkloadType.AzureFileShare,
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "swaggertestvault",
+ * });
+ *
+ * ```
+ * ### Create or Update Simple Azure Vm Protection Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+ *     policyName: "testPolicy1",
+ *     properties: {
+ *         backupManagementType: "AzureIaasVM",
+ *         retentionPolicy: {
+ *             dailySchedule: {
+ *                 retentionDuration: {
+ *                     count: 1,
+ *                     durationType: azure_native.recoveryservices.RetentionDurationType.Days,
+ *                 },
+ *                 retentionTimes: ["2018-01-24T02:00:00Z"],
+ *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
+ *         },
+ *         schedulePolicy: {
+ *             schedulePolicyType: "SimpleSchedulePolicy",
+ *             scheduleRunFrequency: azure_native.recoveryservices.ScheduleRunType.Daily,
+ *             scheduleRunTimes: ["2018-01-24T02:00:00Z"],
+ *         },
+ *         timeZone: "Pacific Standard Time",
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ProtectionPolicy testPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName} 
+ * ```
  */
 export class ProtectionPolicy extends pulumi.CustomResource {
     /**

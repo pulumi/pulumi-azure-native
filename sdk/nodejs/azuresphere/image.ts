@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * An image resource belonging to a catalog resource.
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+ *
+ * ## Example Usage
+ * ### Image_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const image = new azure_native.azuresphere.Image("image", {
+ *     catalogName: "MyCatalog1",
+ *     image: "bXliYXNlNjRzdHJpbmc=",
+ *     imageName: "00000000-0000-0000-0000-000000000000",
+ *     resourceGroupName: "MyResourceGroup1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azuresphere:Image MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/images/{imageName} 
+ * ```
  */
 export class Image extends pulumi.CustomResource {
     /**

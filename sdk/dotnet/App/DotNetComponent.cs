@@ -15,6 +15,82 @@ namespace Pulumi.AzureNative.App
     /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-02-preview.
     /// 
     /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update .NET Component
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dotNetComponent = new AzureNative.App.DotNetComponent("dotNetComponent", new()
+    ///     {
+    ///         ComponentType = AzureNative.App.DotNetComponentType.AspireDashboard,
+    ///         Configurations = new[]
+    ///         {
+    ///             new AzureNative.App.Inputs.DotNetComponentConfigurationPropertyArgs
+    ///             {
+    ///                 PropertyName = "dashboard-theme",
+    ///                 Value = "dark",
+    ///             },
+    ///         },
+    ///         EnvironmentName = "myenvironment",
+    ///         Name = "mydotnetcomponent",
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update .NET Component with ServiceBinds
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dotNetComponent = new AzureNative.App.DotNetComponent("dotNetComponent", new()
+    ///     {
+    ///         ComponentType = AzureNative.App.DotNetComponentType.AspireDashboard,
+    ///         Configurations = new[]
+    ///         {
+    ///             new AzureNative.App.Inputs.DotNetComponentConfigurationPropertyArgs
+    ///             {
+    ///                 PropertyName = "dashboard-theme",
+    ///                 Value = "dark",
+    ///             },
+    ///         },
+    ///         EnvironmentName = "myenvironment",
+    ///         Name = "mydotnetcomponent",
+    ///         ResourceGroupName = "examplerg",
+    ///         ServiceBinds = new[]
+    ///         {
+    ///             new AzureNative.App.Inputs.DotNetComponentServiceBindArgs
+    ///             {
+    ///                 Name = "yellowcat",
+    ///                 ServiceId = "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/dotNetComponents/yellowcat",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app:DotNetComponent mydotnetcomponent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/dotNetComponents/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DotNetComponent")]
     public partial class DotNetComponent : global::Pulumi.CustomResource

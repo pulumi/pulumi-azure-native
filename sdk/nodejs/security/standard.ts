@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * Security Standard on a resource
  *
  * Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
+ *
+ * ## Example Usage
+ * ### Create a security standard on a specified scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const standard = new azure_native.security.Standard("standard", {
+ *     category: "SecurityCenter",
+ *     components: [
+ *         {
+ *             key: "1195afff-c881-495e-9bc5-1486211ae03f",
+ *         },
+ *         {
+ *             key: "dbd0cb49-b563-45e7-9724-889e799fa648",
+ *         },
+ *     ],
+ *     description: "description of Azure Test Security Standard 1",
+ *     displayName: "Azure Test Security Standard 1",
+ *     resourceGroupName: "myResourceGroup",
+ *     standardId: "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+ *     supportedClouds: [azure_native.security.StandardSupportedClouds.GCP],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:Standard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/standards/{standardId} 
+ * ```
  */
 export class Standard extends pulumi.CustomResource {
     /**

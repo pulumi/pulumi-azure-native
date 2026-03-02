@@ -18,6 +18,62 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
     /// Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update cloud services network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudServicesNetwork = new AzureNative.NetworkCloud.CloudServicesNetwork("cloudServicesNetwork", new()
+    ///     {
+    ///         AdditionalEgressEndpoints = new[]
+    ///         {
+    ///             new AzureNative.NetworkCloud.Inputs.EgressEndpointArgs
+    ///             {
+    ///                 Category = "azure-resource-management",
+    ///                 Endpoints = new[]
+    ///                 {
+    ///                     new AzureNative.NetworkCloud.Inputs.EndpointDependencyArgs
+    ///                     {
+    ///                         DomainName = "storageaccountex.blob.core.windows.net",
+    ///                         Port = 443,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CloudServicesNetworkName = "cloudServicesNetworkName",
+    ///         EnableDefaultEgressEndpoints = AzureNative.NetworkCloud.CloudServicesNetworkEnableDefaultEgressEndpoints.False,
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:CloudServicesNetwork cloudServicesNetworkName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/cloudServicesNetworks/{cloudServicesNetworkName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource

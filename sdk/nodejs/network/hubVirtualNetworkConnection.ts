@@ -13,6 +13,76 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### HubVirtualNetworkConnectionPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hubVirtualNetworkConnection = new azure_native.network.HubVirtualNetworkConnection("hubVirtualNetworkConnection", {
+ *     connectionName: "connection1",
+ *     enableInternetSecurity: false,
+ *     remoteVirtualNetwork: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     routingConfiguration: {
+ *         associatedRouteTable: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+ *         },
+ *         inboundRouteMap: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+ *         },
+ *         outboundRouteMap: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+ *         },
+ *         propagatedRouteTables: {
+ *             ids: [{
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+ *             }],
+ *             labels: [
+ *                 "label1",
+ *                 "label2",
+ *             ],
+ *         },
+ *         vnetRoutes: {
+ *             staticRoutes: [
+ *                 {
+ *                     addressPrefixes: [
+ *                         "10.1.0.0/16",
+ *                         "10.2.0.0/16",
+ *                     ],
+ *                     name: "route1",
+ *                     nextHopIpAddress: "10.0.0.68",
+ *                 },
+ *                 {
+ *                     addressPrefixes: [
+ *                         "10.3.0.0/16",
+ *                         "10.4.0.0/16",
+ *                     ],
+ *                     name: "route2",
+ *                     nextHopIpAddress: "10.0.0.65",
+ *                 },
+ *             ],
+ *             staticRoutesConfig: {
+ *                 vnetLocalRouteOverrideCriteria: azure_native.network.VnetLocalRouteOverrideCriteria.Equal,
+ *             },
+ *         },
+ *     },
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:HubVirtualNetworkConnection connection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections/{connectionName} 
+ * ```
  */
 export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**

@@ -70,6 +70,7 @@ class AgentUpdatePropertiesResponse(dict):
                  use_session_host_local_time: Optional[_builtins.bool] = None):
         """
         The session host configuration for updating agent, monitoring agent, and stack component.
+
         :param _builtins.str maintenance_window_time_zone: Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
         :param Sequence['MaintenanceWindowPropertiesResponse'] maintenance_windows: List of maintenance windows. Maintenance windows are 2 hours long.
         :param _builtins.str type: The type of maintenance for session host components.
@@ -186,6 +187,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Schema for Import Package Information properties.
+
         :param _builtins.str certificate_expiry: Date certificate expires, found in the appxmanifest.xml. 
         :param _builtins.str certificate_name: Certificate name found in the appxmanifest.xml. 
         :param _builtins.str display_name: User friendly Name to be displayed in the portal. 
@@ -401,6 +403,7 @@ class AppAttachPackagePropertiesResponse(dict):
                  key_vault_url: Optional[_builtins.str] = None):
         """
         Schema for App Attach Package properties.
+
         :param _builtins.str provisioning_state: The provisioning state of the App Attach Package.
         :param _builtins.str fail_health_check_on_staging_failure: Parameter indicating how the health check should behave if this package fails staging
         :param Sequence[_builtins.str] host_pool_references: List of Hostpool resource Ids.
@@ -485,6 +488,7 @@ class MaintenanceWindowPropertiesResponse(dict):
                  hour: Optional[_builtins.int] = None):
         """
         Maintenance window starting hour and day of week.
+
         :param _builtins.str day_of_week: Day of the week.
         :param _builtins.int hour: The update start hour of the day. (0 - 23)
         """
@@ -552,6 +556,7 @@ class MsixPackageApplicationsResponse(dict):
                  raw_png: Optional[_builtins.str] = None):
         """
         Schema for MSIX Package Application properties.
+
         :param _builtins.str app_id: Package Application Id, found in appxmanifest.xml.
         :param _builtins.str app_user_model_id: Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
         :param _builtins.str description: Description of Package Application.
@@ -662,6 +667,7 @@ class MsixPackageDependenciesResponse(dict):
                  publisher: Optional[_builtins.str] = None):
         """
         Schema for MSIX Package Dependencies properties.
+
         :param _builtins.str dependency_name: Name of package dependency.
         :param _builtins.str min_version: Dependency version required.
         :param _builtins.str publisher: Name of dependency publisher.
@@ -739,6 +745,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The private endpoint connection resource.
+
         :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
@@ -832,6 +839,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint resource.
+
         :param _builtins.str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
@@ -873,6 +881,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -939,6 +948,7 @@ class RegistrationInfoResponse(dict):
                  token: Optional[_builtins.str] = None):
         """
         Represents a RegistrationInfo definition.
+
         :param _builtins.str expiration_time: Expiration time of registration token.
         :param _builtins.str registration_token_operation: The type of resetting the token.
         :param _builtins.str token: The registration token base64 encoded string.
@@ -985,6 +995,7 @@ class RegistrationTokenMinimalResponse(dict):
                  token: Optional[_builtins.str] = None):
         """
         Represents a Minimal set of properties for RegistrationToken definition.
+
         :param _builtins.str expiration_time: Expiration time of registration token.
         :param _builtins.str token: The registration token base64 encoded string.
         """
@@ -1246,6 +1257,7 @@ class ScalingHostPoolReferenceResponse(dict):
                  scaling_plan_enabled: Optional[_builtins.bool] = None):
         """
         Scaling plan reference to hostpool.
+
         :param _builtins.str host_pool_arm_path: Arm path of referenced hostpool.
         :param _builtins.bool scaling_plan_enabled: Is the scaling plan enabled for this hostpool.
         """
@@ -1346,6 +1358,7 @@ class ScalingScheduleResponse(dict):
                  ramp_up_start_time: Optional['outputs.TimeResponse'] = None):
         """
         A ScalingPlanPooledSchedule.
+
         :param Sequence[_builtins.str] days_of_week: Set of days of the week on which this schedule is active.
         :param _builtins.str name: Name of the ScalingPlanPooledSchedule.
         :param _builtins.str off_peak_load_balancing_algorithm: Load balancing algorithm for off-peak period.
@@ -1588,6 +1601,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1667,6 +1681,7 @@ class TimeResponse(dict):
                  minute: _builtins.int):
         """
         The time for a scaling action to occur.
+
         :param _builtins.int hour: The hour.
         :param _builtins.int minute: The minute.
         """

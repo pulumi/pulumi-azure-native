@@ -15,6 +15,70 @@ namespace Pulumi.AzureNative.DevHub
     /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
     /// 
     /// Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create IacProfile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iacProfile = new AzureNative.DevHub.IacProfile("iacProfile", new()
+    ///     {
+    ///         IacProfileName = "profile1",
+    ///         Location = "eastus",
+    ///         RepositoryName = "localtest",
+    ///         RepositoryOwner = "qfai",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Stages = new[]
+    ///         {
+    ///             new AzureNative.DevHub.Inputs.StagePropertiesArgs
+    ///             {
+    ///                 Dependencies = new() { },
+    ///                 GitEnvironment = "Terraform",
+    ///                 StageName = "dev",
+    ///             },
+    ///             new AzureNative.DevHub.Inputs.StagePropertiesArgs
+    ///             {
+    ///                 Dependencies = new[]
+    ///                 {
+    ///                     "dev",
+    ///                 },
+    ///                 GitEnvironment = "Terraform",
+    ///                 StageName = "qa",
+    ///             },
+    ///         },
+    ///         StorageAccountName = "iacbackend",
+    ///         StorageAccountResourceGroup = "test",
+    ///         StorageAccountSubscription = "586c20df-c465-4f10-8673-65aa4859e7ca",
+    ///         StorageContainerName = "tfbackend",
+    ///         Templates = new[]
+    ///         {
+    ///             new AzureNative.DevHub.Inputs.IacTemplatePropertiesArgs
+    ///             {
+    ///                 InstanceName = "quickinstance",
+    ///                 InstanceStage = "dev",
+    ///                 QuickStartTemplateType = AzureNative.DevHub.QuickStartTemplateType.HCIAKS,
+    ///                 TemplateName = "hciaksss",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devhub:IacProfile profile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub:IacProfile")]
     public partial class IacProfile : global::Pulumi.CustomResource

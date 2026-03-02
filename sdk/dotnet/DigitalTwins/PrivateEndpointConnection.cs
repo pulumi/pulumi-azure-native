@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.DigitalTwins
     /// The private endpoint connection of a Digital Twin.
     /// 
     /// Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
+    /// 
+    /// ## Example Usage
+    /// ### Update the status of a private endpoint connection with the given name
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.DigitalTwins.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "myPrivateConnection",
+    ///         Properties = new AzureNative.DigitalTwins.Inputs.ConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.DigitalTwins.Inputs.ConnectionPropertiesPrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@company.com.",
+    ///                 Status = AzureNative.DigitalTwins.PrivateLinkServiceConnectionStatus.Approved,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins:PrivateEndpointConnection myPrivateConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

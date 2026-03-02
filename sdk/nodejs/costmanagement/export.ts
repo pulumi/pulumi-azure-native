@@ -13,6 +13,304 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2019-01-01, 2019-09-01, 2019-10-01, 2019-11-01, 2020-06-01, 2020-12-01-preview, 2021-01-01, 2021-10-01, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### ExportCreateOrUpdateByBillingAccount
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _export = new azure_native.costmanagement.Export("export", {
+ *     definition: {
+ *         dataSet: {
+ *             configuration: {
+ *                 columns: [
+ *                     "Date",
+ *                     "MeterId",
+ *                     "ResourceId",
+ *                     "ResourceLocation",
+ *                     "Quantity",
+ *                 ],
+ *             },
+ *             granularity: azure_native.costmanagement.GranularityType.Daily,
+ *         },
+ *         timeframe: azure_native.costmanagement.TimeframeType.MonthToDate,
+ *         type: azure_native.costmanagement.ExportType.ActualCost,
+ *     },
+ *     deliveryInfo: {
+ *         destination: {
+ *             container: "exports",
+ *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+ *             rootFolderPath: "ad-hoc",
+ *         },
+ *     },
+ *     exportName: "TestExport",
+ *     format: azure_native.costmanagement.FormatType.Csv,
+ *     identity: {
+ *         type: azure_native.costmanagement.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "centralus",
+ *     schedule: {
+ *         recurrence: azure_native.costmanagement.RecurrenceType.Weekly,
+ *         recurrencePeriod: {
+ *             from: "2020-06-01T00:00:00Z",
+ *             to: "2020-10-31T00:00:00Z",
+ *         },
+ *         status: azure_native.costmanagement.StatusType.Active,
+ *     },
+ *     scope: "providers/Microsoft.Billing/billingAccounts/123456",
+ * });
+ *
+ * ```
+ * ### ExportCreateOrUpdateByDepartment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _export = new azure_native.costmanagement.Export("export", {
+ *     definition: {
+ *         dataSet: {
+ *             configuration: {
+ *                 columns: [
+ *                     "Date",
+ *                     "MeterId",
+ *                     "ResourceId",
+ *                     "ResourceLocation",
+ *                     "Quantity",
+ *                 ],
+ *             },
+ *             granularity: azure_native.costmanagement.GranularityType.Daily,
+ *         },
+ *         timeframe: azure_native.costmanagement.TimeframeType.MonthToDate,
+ *         type: azure_native.costmanagement.ExportType.ActualCost,
+ *     },
+ *     deliveryInfo: {
+ *         destination: {
+ *             container: "exports",
+ *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+ *             rootFolderPath: "ad-hoc",
+ *         },
+ *     },
+ *     exportName: "TestExport",
+ *     format: azure_native.costmanagement.FormatType.Csv,
+ *     identity: {
+ *         type: azure_native.costmanagement.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "centralus",
+ *     schedule: {
+ *         recurrence: azure_native.costmanagement.RecurrenceType.Weekly,
+ *         recurrencePeriod: {
+ *             from: "2020-06-01T00:00:00Z",
+ *             to: "2020-10-31T00:00:00Z",
+ *         },
+ *         status: azure_native.costmanagement.StatusType.Active,
+ *     },
+ *     scope: "providers/Microsoft.Billing/billingAccounts/12/departments/1234",
+ * });
+ *
+ * ```
+ * ### ExportCreateOrUpdateByEnrollmentAccount
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _export = new azure_native.costmanagement.Export("export", {
+ *     definition: {
+ *         dataSet: {
+ *             configuration: {
+ *                 columns: [
+ *                     "Date",
+ *                     "MeterId",
+ *                     "ResourceId",
+ *                     "ResourceLocation",
+ *                     "Quantity",
+ *                 ],
+ *             },
+ *             granularity: azure_native.costmanagement.GranularityType.Daily,
+ *         },
+ *         timeframe: azure_native.costmanagement.TimeframeType.MonthToDate,
+ *         type: azure_native.costmanagement.ExportType.ActualCost,
+ *     },
+ *     deliveryInfo: {
+ *         destination: {
+ *             container: "exports",
+ *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+ *             rootFolderPath: "ad-hoc",
+ *         },
+ *     },
+ *     exportName: "TestExport",
+ *     format: azure_native.costmanagement.FormatType.Csv,
+ *     identity: {
+ *         type: azure_native.costmanagement.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "centralus",
+ *     schedule: {
+ *         recurrence: azure_native.costmanagement.RecurrenceType.Weekly,
+ *         recurrencePeriod: {
+ *             from: "2020-06-01T00:00:00Z",
+ *             to: "2020-10-31T00:00:00Z",
+ *         },
+ *         status: azure_native.costmanagement.StatusType.Active,
+ *     },
+ *     scope: "providers/Microsoft.Billing/billingAccounts/100/enrollmentAccounts/456",
+ * });
+ *
+ * ```
+ * ### ExportCreateOrUpdateByManagementGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _export = new azure_native.costmanagement.Export("export", {
+ *     definition: {
+ *         dataSet: {
+ *             configuration: {
+ *                 columns: [
+ *                     "Date",
+ *                     "MeterId",
+ *                     "ResourceId",
+ *                     "ResourceLocation",
+ *                     "Quantity",
+ *                 ],
+ *             },
+ *             granularity: azure_native.costmanagement.GranularityType.Daily,
+ *         },
+ *         timeframe: azure_native.costmanagement.TimeframeType.MonthToDate,
+ *         type: azure_native.costmanagement.ExportType.ActualCost,
+ *     },
+ *     deliveryInfo: {
+ *         destination: {
+ *             container: "exports",
+ *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+ *             rootFolderPath: "ad-hoc",
+ *         },
+ *     },
+ *     exportName: "TestExport",
+ *     format: azure_native.costmanagement.FormatType.Csv,
+ *     identity: {
+ *         type: azure_native.costmanagement.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "centralus",
+ *     schedule: {
+ *         recurrence: azure_native.costmanagement.RecurrenceType.Weekly,
+ *         recurrencePeriod: {
+ *             from: "2020-06-01T00:00:00Z",
+ *             to: "2020-10-31T00:00:00Z",
+ *         },
+ *         status: azure_native.costmanagement.StatusType.Active,
+ *     },
+ *     scope: "providers/Microsoft.Management/managementGroups/TestMG",
+ * });
+ *
+ * ```
+ * ### ExportCreateOrUpdateByResourceGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _export = new azure_native.costmanagement.Export("export", {
+ *     definition: {
+ *         dataSet: {
+ *             configuration: {
+ *                 columns: [
+ *                     "Date",
+ *                     "MeterId",
+ *                     "ResourceId",
+ *                     "ResourceLocation",
+ *                     "Quantity",
+ *                 ],
+ *             },
+ *             granularity: azure_native.costmanagement.GranularityType.Daily,
+ *         },
+ *         timeframe: azure_native.costmanagement.TimeframeType.MonthToDate,
+ *         type: azure_native.costmanagement.ExportType.ActualCost,
+ *     },
+ *     deliveryInfo: {
+ *         destination: {
+ *             container: "exports",
+ *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+ *             rootFolderPath: "ad-hoc",
+ *         },
+ *     },
+ *     exportName: "TestExport",
+ *     format: azure_native.costmanagement.FormatType.Csv,
+ *     identity: {
+ *         type: azure_native.costmanagement.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "centralus",
+ *     schedule: {
+ *         recurrence: azure_native.costmanagement.RecurrenceType.Weekly,
+ *         recurrencePeriod: {
+ *             from: "2020-06-01T00:00:00Z",
+ *             to: "2020-10-31T00:00:00Z",
+ *         },
+ *         status: azure_native.costmanagement.StatusType.Active,
+ *     },
+ *     scope: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG",
+ * });
+ *
+ * ```
+ * ### ExportCreateOrUpdateBySubscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _export = new azure_native.costmanagement.Export("export", {
+ *     definition: {
+ *         dataSet: {
+ *             configuration: {
+ *                 columns: [
+ *                     "Date",
+ *                     "MeterId",
+ *                     "ResourceId",
+ *                     "ResourceLocation",
+ *                     "Quantity",
+ *                 ],
+ *             },
+ *             granularity: azure_native.costmanagement.GranularityType.Daily,
+ *         },
+ *         timeframe: azure_native.costmanagement.TimeframeType.MonthToDate,
+ *         type: azure_native.costmanagement.ExportType.ActualCost,
+ *     },
+ *     deliveryInfo: {
+ *         destination: {
+ *             container: "exports",
+ *             resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+ *             rootFolderPath: "ad-hoc",
+ *         },
+ *     },
+ *     exportName: "TestExport",
+ *     format: azure_native.costmanagement.FormatType.Csv,
+ *     identity: {
+ *         type: azure_native.costmanagement.SystemAssignedServiceIdentityType.SystemAssigned,
+ *     },
+ *     location: "centralus",
+ *     schedule: {
+ *         recurrence: azure_native.costmanagement.RecurrenceType.Weekly,
+ *         recurrencePeriod: {
+ *             from: "2020-06-01T00:00:00Z",
+ *             to: "2020-10-31T00:00:00Z",
+ *         },
+ *         status: azure_native.costmanagement.StatusType.Active,
+ *     },
+ *     scope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement:Export TestExport /{scope}/providers/Microsoft.CostManagement/exports/{exportName} 
+ * ```
  */
 export class Export extends pulumi.CustomResource {
     /**

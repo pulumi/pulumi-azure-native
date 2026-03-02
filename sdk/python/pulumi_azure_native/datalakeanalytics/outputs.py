@@ -63,6 +63,7 @@ class ComputePolicyResponse(dict):
                  type: _builtins.str):
         """
         Data Lake Analytics compute policy information.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.int max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs.
         :param _builtins.int min_priority_per_job: The minimum priority per job this user can use to submit jobs.
@@ -148,6 +149,7 @@ class DataLakeStoreAccountInformationResponse(dict):
                  type: _builtins.str):
         """
         Data Lake Store account information.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param _builtins.str suffix: The optional suffix for the Data Lake Store account.
@@ -223,6 +225,7 @@ class FirewallRuleResponse(dict):
                  type: _builtins.str):
         """
         Data Lake Analytics firewall rule information.
+
         :param _builtins.str end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
@@ -416,6 +419,7 @@ class SasTokenInformationResponse(dict):
                  access_token: _builtins.str):
         """
         SAS token information.
+
         :param _builtins.str access_token: The access token for the associated Azure Storage Container.
         """
         pulumi.set(__self__, "access_token", access_token)
@@ -441,6 +445,7 @@ class StorageAccountInformationResponse(dict):
                  type: _builtins.str):
         """
         Azure Storage account information.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param _builtins.str suffix: The optional suffix for the storage account.
@@ -516,6 +521,7 @@ class VirtualNetworkRuleResponse(dict):
                  virtual_network_rule_state: _builtins.str):
         """
         Data Lake Analytics  VirtualNetwork Rule information.
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param _builtins.str subnet_id: The resource identifier for the subnet

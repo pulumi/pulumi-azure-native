@@ -26,27 +26,22 @@ __all__ = [
     'ResourceIdentityArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
-        """
-        Configuration properties of an Azure Monitor workspace that receives change notifications.
-        """
-        include_change_details: NotRequired[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]
-        """
-        The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
-        """
-        workspace_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
-        """
-        workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
-        """
-elif False:
-    AzureMonitorWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
+    """
+    Configuration properties of an Azure Monitor workspace that receives change notifications.
+    """
+    include_change_details: NotRequired[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]
+    """
+    The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+    """
+    workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+    """
+    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+    """
 
 @pulumi.input_type
 class AzureMonitorWorkspacePropertiesArgs:
@@ -56,6 +51,7 @@ class AzureMonitorWorkspacePropertiesArgs:
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Configuration properties of an Azure Monitor workspace that receives change notifications.
+
         :param pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']] include_change_details: The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
         :param pulumi.Input[_builtins.str] workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         :param pulumi.Input[_builtins.str] workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
@@ -104,17 +100,14 @@ class AzureMonitorWorkspacePropertiesArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
-if not MYPY:
-    class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
-        """
-        The properties of a configuration profile.
-        """
-        notifications: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
-        """
-        Settings of change notification configuration for a subscription.
-        """
-elif False:
-    ConfigurationProfileResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
+    """
+    The properties of a configuration profile.
+    """
+    notifications: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
+    """
+    Settings of change notification configuration for a subscription.
+    """
 
 @pulumi.input_type
 class ConfigurationProfileResourcePropertiesArgs:
@@ -122,6 +115,7 @@ class ConfigurationProfileResourcePropertiesArgs:
                  notifications: Optional[pulumi.Input['NotificationSettingsArgs']] = None):
         """
         The properties of a configuration profile.
+
         :param pulumi.Input['NotificationSettingsArgs'] notifications: Settings of change notification configuration for a subscription.
         """
         if notifications is not None:
@@ -140,21 +134,18 @@ class ConfigurationProfileResourcePropertiesArgs:
         pulumi.set(self, "notifications", value)
 
 
-if not MYPY:
-    class NotificationSettingsArgsDict(TypedDict):
-        """
-        Settings of change notification configuration for a subscription.
-        """
-        activation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]
-        """
-        The state of notifications feature.
-        """
-        azure_monitor_workspace_properties: NotRequired[pulumi.Input['AzureMonitorWorkspacePropertiesArgsDict']]
-        """
-        Configuration properties of an Azure Monitor workspace that receives change notifications.
-        """
-elif False:
-    NotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class NotificationSettingsArgsDict(TypedDict):
+    """
+    Settings of change notification configuration for a subscription.
+    """
+    activation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]
+    """
+    The state of notifications feature.
+    """
+    azure_monitor_workspace_properties: NotRequired[pulumi.Input['AzureMonitorWorkspacePropertiesArgsDict']]
+    """
+    Configuration properties of an Azure Monitor workspace that receives change notifications.
+    """
 
 @pulumi.input_type
 class NotificationSettingsArgs:
@@ -163,6 +154,7 @@ class NotificationSettingsArgs:
                  azure_monitor_workspace_properties: Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']] = None):
         """
         Settings of change notification configuration for a subscription.
+
         :param pulumi.Input[Union[_builtins.str, 'NotificationsState']] activation_state: The state of notifications feature.
         :param pulumi.Input['AzureMonitorWorkspacePropertiesArgs'] azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
@@ -196,17 +188,14 @@ class NotificationSettingsArgs:
         pulumi.set(self, "azure_monitor_workspace_properties", value)
 
 
-if not MYPY:
-    class ResourceIdentityArgsDict(TypedDict):
-        """
-        The identity block returned by ARM resource that supports managed identity.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
-        """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        """
-elif False:
-    ResourceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceIdentityArgsDict(TypedDict):
+    """
+    The identity block returned by ARM resource that supports managed identity.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+    """
 
 @pulumi.input_type
 class ResourceIdentityArgs:
@@ -214,6 +203,7 @@ class ResourceIdentityArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
         """
         The identity block returned by ARM resource that supports managed identity.
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
         if type is not None:

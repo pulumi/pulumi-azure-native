@@ -38,6 +38,7 @@ class IacProfileArgs:
                  templates: Optional[pulumi.Input[Sequence[pulumi.Input['IacTemplatePropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a IacProfile resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] branch_name: Repository Branch Name
         :param pulumi.Input[_builtins.str] iac_profile_name: The name of the IacProfile.
@@ -270,6 +271,53 @@ class IacProfile(pulumi.CustomResource):
 
         Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create IacProfile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iac_profile = azure_native.devhub.IacProfile("iacProfile",
+            iac_profile_name="profile1",
+            location="eastus",
+            repository_name="localtest",
+            repository_owner="qfai",
+            resource_group_name="resourceGroup1",
+            stages=[
+                {
+                    "dependencies": [],
+                    "git_environment": "Terraform",
+                    "stage_name": "dev",
+                },
+                {
+                    "dependencies": ["dev"],
+                    "git_environment": "Terraform",
+                    "stage_name": "qa",
+                },
+            ],
+            storage_account_name="iacbackend",
+            storage_account_resource_group="test",
+            storage_account_subscription="586c20df-c465-4f10-8673-65aa4859e7ca",
+            storage_container_name="tfbackend",
+            templates=[{
+                "instance_name": "quickinstance",
+                "instance_stage": "dev",
+                "quick_start_template_type": azure_native.devhub.QuickStartTemplateType.HCIAKS,
+                "template_name": "hciaksss",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devhub:IacProfile profile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch_name: Repository Branch Name
@@ -297,6 +345,53 @@ class IacProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create IacProfile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iac_profile = azure_native.devhub.IacProfile("iacProfile",
+            iac_profile_name="profile1",
+            location="eastus",
+            repository_name="localtest",
+            repository_owner="qfai",
+            resource_group_name="resourceGroup1",
+            stages=[
+                {
+                    "dependencies": [],
+                    "git_environment": "Terraform",
+                    "stage_name": "dev",
+                },
+                {
+                    "dependencies": ["dev"],
+                    "git_environment": "Terraform",
+                    "stage_name": "qa",
+                },
+            ],
+            storage_account_name="iacbackend",
+            storage_account_resource_group="test",
+            storage_account_subscription="586c20df-c465-4f10-8673-65aa4859e7ca",
+            storage_container_name="tfbackend",
+            templates=[{
+                "instance_name": "quickinstance",
+                "instance_stage": "dev",
+                "quick_start_template_type": azure_native.devhub.QuickStartTemplateType.HCIAKS,
+                "template_name": "hciaksss",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devhub:IacProfile profile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IacProfileArgs args: The arguments to use to populate this resource's properties.

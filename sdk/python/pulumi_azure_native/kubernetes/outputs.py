@@ -59,6 +59,7 @@ class AadProfileResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         AAD Profile specifies attributes for Azure Active Directory integration.
+
         :param Sequence[_builtins.str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
         :param _builtins.bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
         :param _builtins.str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
@@ -107,6 +108,7 @@ class AgentErrorResponse(dict):
                  time: _builtins.str):
         """
         Agent Errors if any during agent or system component upgrade.
+
         :param _builtins.str component: Agent component where error message occured.
         :param _builtins.str message: Agent error message.
         :param _builtins.str severity: Severity of the error message.
@@ -185,6 +187,7 @@ class ArcAgentProfileResponse(dict):
                  system_components: Optional[Sequence['outputs.SystemComponentResponse']] = None):
         """
         Defines the Arc Agent properties for the clusters.
+
         :param _builtins.str agent_auto_upgrade: Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
         :param Sequence['AgentErrorResponse'] agent_errors: List of system extensions can be installed on the cluster resource.
         :param _builtins.str desired_agent_version: Version of the Arc agents to be installed on the cluster resource
@@ -264,6 +267,7 @@ class ConnectedClusterIdentityResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Identity for the connected cluster.
+
         :param _builtins.str principal_id: The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
         :param _builtins.str type: The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
@@ -309,6 +313,7 @@ class CredentialResultResponse(dict):
                  value: _builtins.str):
         """
         The credential result response.
+
         :param _builtins.str name: The name of the credential.
         :param _builtins.str value: Base64-encoded Kubernetes configuration file.
         """
@@ -344,6 +349,7 @@ class HybridConnectionConfigResponse(dict):
                  token: _builtins.str):
         """
         Contains the REP (rendezvous endpoint) and “Sender” access token.
+
         :param _builtins.float expiration_time: Timestamp when this token will be expired.
         :param _builtins.str hybrid_connection_name: Name of the connection
         :param _builtins.str relay: Name of the relay.
@@ -420,6 +426,7 @@ class SystemComponentResponse(dict):
                  user_specified_version: Optional[_builtins.str] = None):
         """
         System Extension and its desired versions to be installed on the cluster resource.
+
         :param _builtins.str current_version: Version of the system extension is currently installed on the cluster resource.
         :param _builtins.int major_version: Major Version of the system extension to be installed on the cluster resource.
         :param _builtins.str type: Type of the system extension
@@ -507,6 +514,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

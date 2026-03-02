@@ -28,6 +28,7 @@ class LabelingJobInitArgs:
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LabelingJob resource.
+
         :param pulumi.Input['LabelingJobArgs'] labeling_job_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
@@ -106,6 +107,84 @@ class LabelingJob(pulumi.CustomResource):
 
         Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2022-06-01-preview, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateOrUpdate Labeling Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        labeling_job = azure_native.machinelearningservices.LabelingJob("labelingJob",
+            id="testLabelingJob",
+            labeling_job_properties={
+                "description": "string",
+                "job_instructions": {
+                    "uri": "link/to/instructions",
+                },
+                "job_type": "Labeling",
+                "label_categories": {
+                    "myCategory1": {
+                        "classes": {
+                            "myLabelClass1": {
+                                "display_name": "myLabelClass1",
+                                "subclasses": {},
+                            },
+                            "myLabelClass2": {
+                                "display_name": "myLabelClass2",
+                                "subclasses": {},
+                            },
+                        },
+                        "display_name": "myCategory1Title",
+                        "multi_select": azure_native.machinelearningservices.MultiSelect.DISABLED,
+                    },
+                    "myCategory2": {
+                        "classes": {
+                            "myLabelClass1": {
+                                "display_name": "myLabelClass1",
+                                "subclasses": {},
+                            },
+                            "myLabelClass2": {
+                                "display_name": "myLabelClass2",
+                                "subclasses": {},
+                            },
+                        },
+                        "display_name": "myCategory2Title",
+                        "multi_select": azure_native.machinelearningservices.MultiSelect.DISABLED,
+                    },
+                },
+                "labeling_job_media_properties": {
+                    "media_type": "Image",
+                },
+                "ml_assist_configuration": {
+                    "inferencing_compute_binding": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+                    "ml_assist": "Enabled",
+                    "training_compute_binding": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+                },
+                "properties": {
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                "tags": {
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            },
+            resource_group_name="workspace-1234",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:LabelingJob testLabelingJob /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/labelingJobs/{id} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] id: The name and identifier for the LabelingJob.
@@ -125,6 +204,84 @@ class LabelingJob(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
         Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2022-06-01-preview, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateOrUpdate Labeling Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        labeling_job = azure_native.machinelearningservices.LabelingJob("labelingJob",
+            id="testLabelingJob",
+            labeling_job_properties={
+                "description": "string",
+                "job_instructions": {
+                    "uri": "link/to/instructions",
+                },
+                "job_type": "Labeling",
+                "label_categories": {
+                    "myCategory1": {
+                        "classes": {
+                            "myLabelClass1": {
+                                "display_name": "myLabelClass1",
+                                "subclasses": {},
+                            },
+                            "myLabelClass2": {
+                                "display_name": "myLabelClass2",
+                                "subclasses": {},
+                            },
+                        },
+                        "display_name": "myCategory1Title",
+                        "multi_select": azure_native.machinelearningservices.MultiSelect.DISABLED,
+                    },
+                    "myCategory2": {
+                        "classes": {
+                            "myLabelClass1": {
+                                "display_name": "myLabelClass1",
+                                "subclasses": {},
+                            },
+                            "myLabelClass2": {
+                                "display_name": "myLabelClass2",
+                                "subclasses": {},
+                            },
+                        },
+                        "display_name": "myCategory2Title",
+                        "multi_select": azure_native.machinelearningservices.MultiSelect.DISABLED,
+                    },
+                },
+                "labeling_job_media_properties": {
+                    "media_type": "Image",
+                },
+                "ml_assist_configuration": {
+                    "inferencing_compute_binding": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+                    "ml_assist": "Enabled",
+                    "training_compute_binding": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+                },
+                "properties": {
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                "tags": {
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            },
+            resource_group_name="workspace-1234",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:LabelingJob testLabelingJob /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/labelingJobs/{id} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LabelingJobInitArgs args: The arguments to use to populate this resource's properties.

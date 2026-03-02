@@ -24,19 +24,14 @@ __all__ = [
     'ProcessNameFilterDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DependencyProcessFilterDict(TypedDict):
-        """
-        DependencyProcessFilter model
-        """
-        process_name_filter: NotRequired['ProcessNameFilterDict']
-        """
-        Process name filter
-        """
-elif False:
-    DependencyProcessFilterDict: TypeAlias = Mapping[str, Any]
+class DependencyProcessFilterDict(TypedDict):
+    """
+    DependencyProcessFilter model
+    """
+    process_name_filter: NotRequired['ProcessNameFilterDict']
+    """
+    Process name filter
+    """
 
 @pulumi.input_type
 class DependencyProcessFilter:
@@ -44,6 +39,7 @@ class DependencyProcessFilter:
                  process_name_filter: Optional['ProcessNameFilter'] = None):
         """
         DependencyProcessFilter model
+
         :param 'ProcessNameFilter' process_name_filter: Process name filter
         """
         if process_name_filter is not None:
@@ -62,22 +58,19 @@ class DependencyProcessFilter:
         pulumi.set(self, "process_name_filter", value)
 
 
-if not MYPY:
-    class OffAzureDiscoverySourceResourcePropertiesArgsDict(TypedDict):
-        """
-        OffAzure discovery source resource properties
-        """
-        source_id: pulumi.Input[_builtins.str]
-        """
-        Source ArmId of Discovery Source resource
-        """
-        source_type: pulumi.Input[_builtins.str]
-        """
-        Source type of the discoverySource
-        Expected value is 'OffAzure'.
-        """
-elif False:
-    OffAzureDiscoverySourceResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class OffAzureDiscoverySourceResourcePropertiesArgsDict(TypedDict):
+    """
+    OffAzure discovery source resource properties
+    """
+    source_id: pulumi.Input[_builtins.str]
+    """
+    Source ArmId of Discovery Source resource
+    """
+    source_type: pulumi.Input[_builtins.str]
+    """
+    Source type of the discoverySource
+    Expected value is 'OffAzure'.
+    """
 
 @pulumi.input_type
 class OffAzureDiscoverySourceResourcePropertiesArgs:
@@ -86,6 +79,7 @@ class OffAzureDiscoverySourceResourcePropertiesArgs:
                  source_type: pulumi.Input[_builtins.str]):
         """
         OffAzure discovery source resource properties
+
         :param pulumi.Input[_builtins.str] source_id: Source ArmId of Discovery Source resource
         :param pulumi.Input[_builtins.str] source_type: Source type of the discoverySource
                Expected value is 'OffAzure'.
@@ -119,21 +113,18 @@ class OffAzureDiscoverySourceResourcePropertiesArgs:
         pulumi.set(self, "source_type", value)
 
 
-if not MYPY:
-    class ProcessNameFilterDict(TypedDict):
-        """
-        Process name filter for dependency map visualization apis
-        """
-        operator: Union[_builtins.str, 'ProcessNameFilterOperator']
-        """
-        Operator for process name filter
-        """
-        process_names: Sequence[_builtins.str]
-        """
-        List of process names on which the operator should be applied
-        """
-elif False:
-    ProcessNameFilterDict: TypeAlias = Mapping[str, Any]
+class ProcessNameFilterDict(TypedDict):
+    """
+    Process name filter for dependency map visualization apis
+    """
+    operator: Union[_builtins.str, 'ProcessNameFilterOperator']
+    """
+    Operator for process name filter
+    """
+    process_names: Sequence[_builtins.str]
+    """
+    List of process names on which the operator should be applied
+    """
 
 @pulumi.input_type
 class ProcessNameFilter:
@@ -142,6 +133,7 @@ class ProcessNameFilter:
                  process_names: Sequence[_builtins.str]):
         """
         Process name filter for dependency map visualization apis
+
         :param Union[_builtins.str, 'ProcessNameFilterOperator'] operator: Operator for process name filter
         :param Sequence[_builtins.str] process_names: List of process names on which the operator should be applied
         """

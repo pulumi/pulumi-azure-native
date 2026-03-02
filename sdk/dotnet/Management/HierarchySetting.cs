@@ -15,6 +15,36 @@ namespace Pulumi.AzureNative.Management
     /// Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
     /// 
     /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### GetGroupSettings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hierarchySetting = new AzureNative.Management.HierarchySetting("hierarchySetting", new()
+    ///     {
+    ///         DefaultManagementGroup = "/providers/Microsoft.Management/managementGroups/DefaultGroup",
+    ///         GroupId = "root",
+    ///         RequireAuthorizationForGroupCreation = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:management:HierarchySetting root /providers/Microsoft.Management/managementGroups/{groupId}/settings/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management:HierarchySetting")]
     public partial class HierarchySetting : global::Pulumi.CustomResource

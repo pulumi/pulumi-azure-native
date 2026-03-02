@@ -27,6 +27,7 @@ class PolicyArgs:
                  policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input['PolicyModelPropertiesArgs'] properties: Policy model properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The vault name.
@@ -105,6 +106,34 @@ class Policy(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Policy_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.datareplication.Policy("policy",
+            policy_name="fafqwc",
+            properties={
+                "custom_properties": {
+                    "instance_type": "PolicyModelCustomProperties",
+                },
+            },
+            resource_group_name="rgrecoveryservicesdatareplication",
+            vault_name="4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datareplication:Policy ocmty /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/replicationPolicies/{policyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_name: The policy name.
@@ -124,6 +153,34 @@ class Policy(pulumi.CustomResource):
         Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
 
         Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Policy_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.datareplication.Policy("policy",
+            policy_name="fafqwc",
+            properties={
+                "custom_properties": {
+                    "instance_type": "PolicyModelCustomProperties",
+                },
+            },
+            resource_group_name="rgrecoveryservicesdatareplication",
+            vault_name="4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datareplication:Policy ocmty /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/replicationPolicies/{policyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

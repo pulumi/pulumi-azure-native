@@ -30,6 +30,7 @@ class NetworkFunctionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFunction resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the network function.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -142,6 +143,144 @@ class NetworkFunction(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create first party network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"releaseName\\":\\"testReleaseName\\",\\"namespace\\":\\"testNamespace\\"}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Secret",
+                },
+                "nfvi_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_ARC_KUBERNETES,
+                "role_override_values": [
+                    "{\\"name\\":\\"testRoleOne\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"helmPackageVersion\\":\\"2.1.3\\",\\"values\\":\\"{\\\\\\"roleOneParam\\\\\\":\\\\\\"roleOneOverrideValue\\\\\\"}\\"}}}",
+                    "{\\"name\\":\\"testRoleTwo\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"releaseName\\":\\"overrideReleaseName\\",\\"releaseNamespace\\":\\"overrideNamespace\\",\\"values\\":\\"{\\\\\\"roleTwoParam\\\\\\":\\\\\\"roleTwoOverrideValue\\\\\\"}\\"}}}",
+                ],
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"releaseName\\":\\"testReleaseName\\",\\"namespace\\":\\"testNamespace\\"}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_ARC_KUBERNETES,
+                "role_override_values": [
+                    "{\\"name\\":\\"testRoleOne\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"helmPackageVersion\\":\\"2.1.3\\",\\"values\\":\\"{\\\\\\"roleOneParam\\\\\\":\\\\\\"roleOneOverrideValue\\\\\\"}\\"}}}",
+                    "{\\"name\\":\\"testRoleTwo\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"releaseName\\":\\"overrideReleaseName\\",\\"releaseNamespace\\":\\"overrideNamespace\\",\\"values\\":\\"{\\\\\\"roleTwoParam\\\\\\":\\\\\\"roleTwoOverrideValue\\\\\\"}\\"}}}",
+                ],
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create network function resource with secrets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Secret",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_ARC_KUBERNETES,
+                "role_override_values": [
+                    "{\\"name\\":\\"testRoleOne\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"helmPackageVersion\\":\\"2.1.3\\",\\"values\\":\\"{\\\\\\"roleOneParam\\\\\\":\\\\\\"roleOneOverrideValue\\\\\\"}\\"}}}",
+                    "{\\"name\\":\\"testRoleTwo\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"releaseName\\":\\"overrideReleaseName\\",\\"releaseNamespace\\":\\"overrideNamespace\\",\\"values\\":\\"{\\\\\\"roleTwoParam\\\\\\":\\\\\\"roleTwoOverrideValue\\\\\\"}\\"}}}",
+                ],
+                "secret_deployment_values": "{\\"adminPassword\\":\\"password1\\",\\"userPassword\\":\\"password2\\"}",
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create virtual network function resource on AzureCore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"virtualMachineName\\":\\"test-VM\\",\\"cpuCores\\":4,\\"memorySizeGB\\":8,\\"cloudServicesNetworkAttachment\\":{\\"attachedNetworkId\\":\\"test-csnet\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-cs-vlan\\"},\\"networkAttachments\\":[{\\"attachedNetworkId\\":\\"test-l3vlan\\",\\"defaultGateway\\":\\"True\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-vlan\\"}],\\"sshPublicKeys\\":[{\\"keyData\\":\\"ssh-rsa CMIIIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0TqlveKKlc2MFvEmuXJiLGBsY1t4ML4uiRADGSZlnc+7Ugv3h+MCjkkwOKiOdsNo8k4KSBIG5GcQfKYOOd17AJvqCL6cGQbaLuqv0a64jeDm8oO8/xN/IM0oKw7rMr/2oAJOgIsfeXPkRxWWic9AVIS++H5Qi2r7bUFX+cqFsyUCAwEBBQ==\\"}],\\"storageProfile\\":{\\"osDisk\\":{\\"createOption\\":\\"Ephemeral\\",\\"deleteOption\\":\\"Delete\\",\\"diskSizeGB\\":10}},\\"userData\\":\\"testUserData\\",\\"adminUsername\\":\\"testUser\\",\\"virtioInterface\\":\\"Transitional\\",\\"isolateEmulatorThread\\":\\"False\\",\\"bootMethod\\":\\"BIOS\\",\\"placementHints\\":[]}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/subid/resourceGroups/testResourceGroup",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_CORE,
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create virtual network function resource on AzureOperatorNexus
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"virtualMachineName\\":\\"test-VM\\",\\"extendedLocationName\\":\\"test-cluster\\",\\"cpuCores\\":4,\\"memorySizeGB\\":8,\\"cloudServicesNetworkAttachment\\":{\\"attachedNetworkId\\":\\"test-csnet\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-cs-vlan\\"},\\"networkAttachments\\":[{\\"attachedNetworkId\\":\\"test-l3vlan\\",\\"defaultGateway\\":\\"True\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-vlan\\"}],\\"sshPublicKeys\\":[{\\"keyData\\":\\"ssh-rsa CMIIIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0TqlveKKlc2MFvEmuXJiLGBsY1t4ML4uiRADGSZlnc+7Ugv3h+MCjkkwOKiOdsNo8k4KSBIG5GcQfKYOOd17AJvqCL6cGQbaLuqv0a64jeDm8oO8/xN/IM0oKw7rMr/2oAJOgIsfeXPkRxWWic9AVIS++H5Qi2r7bUFX+cqFsyUCAwEBBQ==\\"}],\\"storageProfile\\":{\\"osDisk\\":{\\"createOption\\":\\"Ephemeral\\",\\"deleteOption\\":\\"Delete\\",\\"diskSizeGB\\":10}},\\"userData\\":\\"testUserData\\",\\"adminUsername\\":\\"testUser\\",\\"virtioInterface\\":\\"Transitional\\",\\"isolateEmulatorThread\\":\\"False\\",\\"bootMethod\\":\\"BIOS\\",\\"placementHints\\":[]}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_OPERATOR_NEXUS,
+            },
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:NetworkFunction testNf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/networkFunctions/{networkFunctionName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identity of the network function.
@@ -163,6 +302,144 @@ class NetworkFunction(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
         Other available API versions: 2022-01-01-preview, 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create first party network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"releaseName\\":\\"testReleaseName\\",\\"namespace\\":\\"testNamespace\\"}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Secret",
+                },
+                "nfvi_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_ARC_KUBERNETES,
+                "role_override_values": [
+                    "{\\"name\\":\\"testRoleOne\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"helmPackageVersion\\":\\"2.1.3\\",\\"values\\":\\"{\\\\\\"roleOneParam\\\\\\":\\\\\\"roleOneOverrideValue\\\\\\"}\\"}}}",
+                    "{\\"name\\":\\"testRoleTwo\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"releaseName\\":\\"overrideReleaseName\\",\\"releaseNamespace\\":\\"overrideNamespace\\",\\"values\\":\\"{\\\\\\"roleTwoParam\\\\\\":\\\\\\"roleTwoOverrideValue\\\\\\"}\\"}}}",
+                ],
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"releaseName\\":\\"testReleaseName\\",\\"namespace\\":\\"testNamespace\\"}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_ARC_KUBERNETES,
+                "role_override_values": [
+                    "{\\"name\\":\\"testRoleOne\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"helmPackageVersion\\":\\"2.1.3\\",\\"values\\":\\"{\\\\\\"roleOneParam\\\\\\":\\\\\\"roleOneOverrideValue\\\\\\"}\\"}}}",
+                    "{\\"name\\":\\"testRoleTwo\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"releaseName\\":\\"overrideReleaseName\\",\\"releaseNamespace\\":\\"overrideNamespace\\",\\"values\\":\\"{\\\\\\"roleTwoParam\\\\\\":\\\\\\"roleTwoOverrideValue\\\\\\"}\\"}}}",
+                ],
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create network function resource with secrets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Secret",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_ARC_KUBERNETES,
+                "role_override_values": [
+                    "{\\"name\\":\\"testRoleOne\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"helmPackageVersion\\":\\"2.1.3\\",\\"values\\":\\"{\\\\\\"roleOneParam\\\\\\":\\\\\\"roleOneOverrideValue\\\\\\"}\\"}}}",
+                    "{\\"name\\":\\"testRoleTwo\\",\\"deployParametersMappingRuleProfile\\":{\\"helmMappingRuleProfile\\":{\\"releaseName\\":\\"overrideReleaseName\\",\\"releaseNamespace\\":\\"overrideNamespace\\",\\"values\\":\\"{\\\\\\"roleTwoParam\\\\\\":\\\\\\"roleTwoOverrideValue\\\\\\"}\\"}}}",
+                ],
+                "secret_deployment_values": "{\\"adminPassword\\":\\"password1\\",\\"userPassword\\":\\"password2\\"}",
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create virtual network function resource on AzureCore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"virtualMachineName\\":\\"test-VM\\",\\"cpuCores\\":4,\\"memorySizeGB\\":8,\\"cloudServicesNetworkAttachment\\":{\\"attachedNetworkId\\":\\"test-csnet\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-cs-vlan\\"},\\"networkAttachments\\":[{\\"attachedNetworkId\\":\\"test-l3vlan\\",\\"defaultGateway\\":\\"True\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-vlan\\"}],\\"sshPublicKeys\\":[{\\"keyData\\":\\"ssh-rsa CMIIIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0TqlveKKlc2MFvEmuXJiLGBsY1t4ML4uiRADGSZlnc+7Ugv3h+MCjkkwOKiOdsNo8k4KSBIG5GcQfKYOOd17AJvqCL6cGQbaLuqv0a64jeDm8oO8/xN/IM0oKw7rMr/2oAJOgIsfeXPkRxWWic9AVIS++H5Qi2r7bUFX+cqFsyUCAwEBBQ==\\"}],\\"storageProfile\\":{\\"osDisk\\":{\\"createOption\\":\\"Ephemeral\\",\\"deleteOption\\":\\"Delete\\",\\"diskSizeGB\\":10}},\\"userData\\":\\"testUserData\\",\\"adminUsername\\":\\"testUser\\",\\"virtioInterface\\":\\"Transitional\\",\\"isolateEmulatorThread\\":\\"False\\",\\"bootMethod\\":\\"BIOS\\",\\"placementHints\\":[]}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/subid/resourceGroups/testResourceGroup",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_CORE,
+            },
+            resource_group_name="rg")
+
+        ```
+        ### Create virtual network function resource on AzureOperatorNexus
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            location="eastus",
+            network_function_name="testNf",
+            properties={
+                "allow_software_update": False,
+                "configuration_type": "Open",
+                "deployment_values": "{\\"virtualMachineName\\":\\"test-VM\\",\\"extendedLocationName\\":\\"test-cluster\\",\\"cpuCores\\":4,\\"memorySizeGB\\":8,\\"cloudServicesNetworkAttachment\\":{\\"attachedNetworkId\\":\\"test-csnet\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-cs-vlan\\"},\\"networkAttachments\\":[{\\"attachedNetworkId\\":\\"test-l3vlan\\",\\"defaultGateway\\":\\"True\\",\\"ipAllocationMethod\\":\\"Dynamic\\",\\"networkAttachmentName\\":\\"test-vlan\\"}],\\"sshPublicKeys\\":[{\\"keyData\\":\\"ssh-rsa CMIIIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA0TqlveKKlc2MFvEmuXJiLGBsY1t4ML4uiRADGSZlnc+7Ugv3h+MCjkkwOKiOdsNo8k4KSBIG5GcQfKYOOd17AJvqCL6cGQbaLuqv0a64jeDm8oO8/xN/IM0oKw7rMr/2oAJOgIsfeXPkRxWWic9AVIS++H5Qi2r7bUFX+cqFsyUCAwEBBQ==\\"}],\\"storageProfile\\":{\\"osDisk\\":{\\"createOption\\":\\"Ephemeral\\",\\"deleteOption\\":\\"Delete\\",\\"diskSizeGB\\":10}},\\"userData\\":\\"testUserData\\",\\"adminUsername\\":\\"testUser\\",\\"virtioInterface\\":\\"Transitional\\",\\"isolateEmulatorThread\\":\\"False\\",\\"bootMethod\\":\\"BIOS\\",\\"placementHints\\":[]}",
+                "network_function_definition_version_resource_reference": {
+                    "id": "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/testVendor/networkFunctionDefinitionGroups/testnetworkFunctionDefinitionGroupName/networkFunctionDefinitionVersions/1.0.1",
+                    "id_type": "Open",
+                },
+                "nfvi_id": "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation",
+                "nfvi_type": azure_native.hybridnetwork.NFVIType.AZURE_OPERATOR_NEXUS,
+            },
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:NetworkFunction testNf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/networkFunctions/{networkFunctionName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkFunctionArgs args: The arguments to use to populate this resource's properties.

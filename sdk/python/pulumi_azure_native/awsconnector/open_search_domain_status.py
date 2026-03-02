@@ -29,6 +29,7 @@ class OpenSearchDomainStatusArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OpenSearchDomainStatus resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of OpenSearchDomainStatus
@@ -123,6 +124,205 @@ class OpenSearchDomainStatus(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### OpenSearchDomainStatuses_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_search_domain_status = azure_native.awsconnector.OpenSearchDomainStatus("openSearchDomainStatus",
+            location="cjnfjucekzuxbrhfzskptnxmy",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "xxoyruemlfezddeqgvpfvbvqrmmhzk",
+                "aws_account_id": "l",
+                "aws_properties": {
+                    "access_policies": "zmizapetmvhfuhnuevg",
+                    "advanced_options": {
+                        "key5855": "vqbdzcigjhn",
+                    },
+                    "advanced_security_options": {
+                        "anonymous_auth_disable_date": "2024-10-08T03:49:18.317Z",
+                        "anonymous_auth_enabled": True,
+                        "enabled": True,
+                        "internal_user_database_enabled": True,
+                        "saml_options": {
+                            "enabled": True,
+                            "idp": {
+                                "entity_id": "ujb",
+                                "metadata_content": "ncvlnvyvuwdkmspvvynhbjwzzerkl",
+                            },
+                            "roles_key": "pphcuihmcksjghguam",
+                            "session_timeout_minutes": 22,
+                            "subject_key": "pnnavlixxrzg",
+                        },
+                    },
+                    "arn": "svblrdkqxeghxc",
+                    "auto_tune_options": {
+                        "error_message": "gdouqrr",
+                        "state": {
+                            "value": azure_native.awsconnector.AutoTuneState.DISABLED,
+                        },
+                        "use_off_peak_window": True,
+                    },
+                    "change_progress_details": {
+                        "change_id": "acuqzpomrpdxccssgsjtftt",
+                        "config_change_status": {
+                            "value": azure_native.awsconnector.ConfigChangeStatus.APPLYING_CHANGES,
+                        },
+                        "initiated_by": {
+                            "value": azure_native.awsconnector.InitiatedBy.CUSTOMER,
+                        },
+                        "last_updated_time": "2024-10-08T03:49:18.319Z",
+                        "message": "netweglaakukislhan",
+                        "start_time": "2024-10-08T03:49:18.319Z",
+                    },
+                    "cluster_config": {
+                        "cold_storage_options": {
+                            "enabled": True,
+                        },
+                        "dedicated_master_count": 15,
+                        "dedicated_master_enabled": True,
+                        "dedicated_master_type": {
+                            "value": azure_native.awsconnector.OpenSearchPartitionInstanceType.C42XLARGE_SEARCH,
+                        },
+                        "instance_count": 6,
+                        "instance_type": {
+                            "value": azure_native.awsconnector.OpenSearchPartitionInstanceType.C42XLARGE_SEARCH,
+                        },
+                        "multi_az_with_standby_enabled": True,
+                        "warm_count": 29,
+                        "warm_enabled": True,
+                        "warm_type": {
+                            "value": azure_native.awsconnector.OpenSearchWarmPartitionInstanceType.ULTRAWARM1_LARGE_SEARCH,
+                        },
+                        "zone_awareness_config": {
+                            "availability_zone_count": 20,
+                        },
+                        "zone_awareness_enabled": True,
+                    },
+                    "cognito_options": {
+                        "enabled": True,
+                        "identity_pool_id": "dcpqrbpnpihpqvibpysnhi",
+                        "role_arn": "wdpsbg",
+                        "user_pool_id": "oeiqtnpxt",
+                    },
+                    "created": True,
+                    "deleted": True,
+                    "domain_endpoint_options": {
+                        "custom_endpoint": "pkalvbtpzxwdwtzlhet",
+                        "custom_endpoint_certificate_arn": "bmcnynq",
+                        "custom_endpoint_enabled": True,
+                        "enforce_https": True,
+                        "tls_security_policy": {
+                            "value": azure_native.awsconnector.TLSSecurityPolicy.POLICY_MIN_TLS10201907,
+                        },
+                    },
+                    "domain_id": "vdvjabmtsxndtepulmirzlkxjc",
+                    "domain_name": "zmweyexy",
+                    "domain_processing_status": {
+                        "value": azure_native.awsconnector.DomainProcessingStatusType.ACTIVE,
+                    },
+                    "ebs_options": {
+                        "ebs_enabled": True,
+                        "iops": 1,
+                        "throughput": 6,
+                        "volume_size": 16,
+                        "volume_type": {
+                            "value": azure_native.awsconnector.VolumeType.GP2,
+                        },
+                    },
+                    "encryption_at_rest_options": {
+                        "enabled": True,
+                        "kms_key_id": "vfmtoghzhlyifmzgt",
+                    },
+                    "endpoint": "y",
+                    "endpoint_v2": "lnmdhcvptzovtjrggoqef",
+                    "endpoints": {
+                        "key7016": "mnbnwxhmvteoxgmcif",
+                    },
+                    "engine_version": "nafwkgnvpagjlvctspjtgg",
+                    "ip_address_type": {
+                        "value": azure_native.awsconnector.IPAddressType.DUALSTACK,
+                    },
+                    "log_publishing_options": {
+                        "key1257": {
+                            "cloud_watch_logs_log_group_arn": "yflaoiiuhbxlodpwh",
+                            "enabled": True,
+                        },
+                    },
+                    "modifying_properties": [{
+                        "active_value": "igvntcixfgeammklivfvtjjxfka",
+                        "name": "wbfqxsudlhdpidezy",
+                        "pending_value": "n",
+                        "value_type": {
+                            "value": azure_native.awsconnector.PropertyValueType.PLAI_N_TEXT,
+                        },
+                    }],
+                    "node_to_node_encryption_options": {
+                        "enabled": True,
+                    },
+                    "off_peak_window_options": {
+                        "enabled": True,
+                        "off_peak_window": {
+                            "window_start_time": {
+                                "hours": 19,
+                                "minutes": 7,
+                            },
+                        },
+                    },
+                    "processing": True,
+                    "service_software_options": {
+                        "automated_update_date": "2024-10-08T03:49:18.320Z",
+                        "cancellable": True,
+                        "current_version": "ugdoxim",
+                        "description": "moodysfsdplowtykjopgnlgeodxt",
+                        "new_version": "awqdkyicwktzdn",
+                        "optional_deployment": True,
+                        "update_available": True,
+                        "update_status": {
+                            "value": azure_native.awsconnector.DeploymentStatus.COMPLETED,
+                        },
+                    },
+                    "snapshot_options": {
+                        "automated_snapshot_start_hour": 9,
+                    },
+                    "software_update_options": {
+                        "auto_software_update_enabled": True,
+                    },
+                    "upgrade_processing": True,
+                    "vpc_options": {
+                        "availability_zones": ["laxoeorkeojjhcnoji"],
+                        "security_group_ids": ["ap"],
+                        "subnet_ids": ["oric"],
+                        "vpc_id": "jffbtwxjojtqphtd",
+                    },
+                },
+                "aws_region": "mpszpnxbznm",
+                "aws_source_schema": "qrkamtxqjfb",
+                "aws_tags": {
+                    "key5895": "bosxipjwti",
+                },
+                "public_cloud_connectors_resource_id": "g",
+                "public_cloud_resource_name": "sntfjznnaylmvehihglcoyqpcyacz",
+            },
+            resource_group_name="rgopenSearchDomainStatus",
+            tags={
+                "key9493": "seimlf",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:OpenSearchDomainStatus yuwkzpllpffeycwynrymxayw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/openSearchDomainStatuses/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +341,205 @@ class OpenSearchDomainStatus(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### OpenSearchDomainStatuses_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_search_domain_status = azure_native.awsconnector.OpenSearchDomainStatus("openSearchDomainStatus",
+            location="cjnfjucekzuxbrhfzskptnxmy",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "xxoyruemlfezddeqgvpfvbvqrmmhzk",
+                "aws_account_id": "l",
+                "aws_properties": {
+                    "access_policies": "zmizapetmvhfuhnuevg",
+                    "advanced_options": {
+                        "key5855": "vqbdzcigjhn",
+                    },
+                    "advanced_security_options": {
+                        "anonymous_auth_disable_date": "2024-10-08T03:49:18.317Z",
+                        "anonymous_auth_enabled": True,
+                        "enabled": True,
+                        "internal_user_database_enabled": True,
+                        "saml_options": {
+                            "enabled": True,
+                            "idp": {
+                                "entity_id": "ujb",
+                                "metadata_content": "ncvlnvyvuwdkmspvvynhbjwzzerkl",
+                            },
+                            "roles_key": "pphcuihmcksjghguam",
+                            "session_timeout_minutes": 22,
+                            "subject_key": "pnnavlixxrzg",
+                        },
+                    },
+                    "arn": "svblrdkqxeghxc",
+                    "auto_tune_options": {
+                        "error_message": "gdouqrr",
+                        "state": {
+                            "value": azure_native.awsconnector.AutoTuneState.DISABLED,
+                        },
+                        "use_off_peak_window": True,
+                    },
+                    "change_progress_details": {
+                        "change_id": "acuqzpomrpdxccssgsjtftt",
+                        "config_change_status": {
+                            "value": azure_native.awsconnector.ConfigChangeStatus.APPLYING_CHANGES,
+                        },
+                        "initiated_by": {
+                            "value": azure_native.awsconnector.InitiatedBy.CUSTOMER,
+                        },
+                        "last_updated_time": "2024-10-08T03:49:18.319Z",
+                        "message": "netweglaakukislhan",
+                        "start_time": "2024-10-08T03:49:18.319Z",
+                    },
+                    "cluster_config": {
+                        "cold_storage_options": {
+                            "enabled": True,
+                        },
+                        "dedicated_master_count": 15,
+                        "dedicated_master_enabled": True,
+                        "dedicated_master_type": {
+                            "value": azure_native.awsconnector.OpenSearchPartitionInstanceType.C42XLARGE_SEARCH,
+                        },
+                        "instance_count": 6,
+                        "instance_type": {
+                            "value": azure_native.awsconnector.OpenSearchPartitionInstanceType.C42XLARGE_SEARCH,
+                        },
+                        "multi_az_with_standby_enabled": True,
+                        "warm_count": 29,
+                        "warm_enabled": True,
+                        "warm_type": {
+                            "value": azure_native.awsconnector.OpenSearchWarmPartitionInstanceType.ULTRAWARM1_LARGE_SEARCH,
+                        },
+                        "zone_awareness_config": {
+                            "availability_zone_count": 20,
+                        },
+                        "zone_awareness_enabled": True,
+                    },
+                    "cognito_options": {
+                        "enabled": True,
+                        "identity_pool_id": "dcpqrbpnpihpqvibpysnhi",
+                        "role_arn": "wdpsbg",
+                        "user_pool_id": "oeiqtnpxt",
+                    },
+                    "created": True,
+                    "deleted": True,
+                    "domain_endpoint_options": {
+                        "custom_endpoint": "pkalvbtpzxwdwtzlhet",
+                        "custom_endpoint_certificate_arn": "bmcnynq",
+                        "custom_endpoint_enabled": True,
+                        "enforce_https": True,
+                        "tls_security_policy": {
+                            "value": azure_native.awsconnector.TLSSecurityPolicy.POLICY_MIN_TLS10201907,
+                        },
+                    },
+                    "domain_id": "vdvjabmtsxndtepulmirzlkxjc",
+                    "domain_name": "zmweyexy",
+                    "domain_processing_status": {
+                        "value": azure_native.awsconnector.DomainProcessingStatusType.ACTIVE,
+                    },
+                    "ebs_options": {
+                        "ebs_enabled": True,
+                        "iops": 1,
+                        "throughput": 6,
+                        "volume_size": 16,
+                        "volume_type": {
+                            "value": azure_native.awsconnector.VolumeType.GP2,
+                        },
+                    },
+                    "encryption_at_rest_options": {
+                        "enabled": True,
+                        "kms_key_id": "vfmtoghzhlyifmzgt",
+                    },
+                    "endpoint": "y",
+                    "endpoint_v2": "lnmdhcvptzovtjrggoqef",
+                    "endpoints": {
+                        "key7016": "mnbnwxhmvteoxgmcif",
+                    },
+                    "engine_version": "nafwkgnvpagjlvctspjtgg",
+                    "ip_address_type": {
+                        "value": azure_native.awsconnector.IPAddressType.DUALSTACK,
+                    },
+                    "log_publishing_options": {
+                        "key1257": {
+                            "cloud_watch_logs_log_group_arn": "yflaoiiuhbxlodpwh",
+                            "enabled": True,
+                        },
+                    },
+                    "modifying_properties": [{
+                        "active_value": "igvntcixfgeammklivfvtjjxfka",
+                        "name": "wbfqxsudlhdpidezy",
+                        "pending_value": "n",
+                        "value_type": {
+                            "value": azure_native.awsconnector.PropertyValueType.PLAI_N_TEXT,
+                        },
+                    }],
+                    "node_to_node_encryption_options": {
+                        "enabled": True,
+                    },
+                    "off_peak_window_options": {
+                        "enabled": True,
+                        "off_peak_window": {
+                            "window_start_time": {
+                                "hours": 19,
+                                "minutes": 7,
+                            },
+                        },
+                    },
+                    "processing": True,
+                    "service_software_options": {
+                        "automated_update_date": "2024-10-08T03:49:18.320Z",
+                        "cancellable": True,
+                        "current_version": "ugdoxim",
+                        "description": "moodysfsdplowtykjopgnlgeodxt",
+                        "new_version": "awqdkyicwktzdn",
+                        "optional_deployment": True,
+                        "update_available": True,
+                        "update_status": {
+                            "value": azure_native.awsconnector.DeploymentStatus.COMPLETED,
+                        },
+                    },
+                    "snapshot_options": {
+                        "automated_snapshot_start_hour": 9,
+                    },
+                    "software_update_options": {
+                        "auto_software_update_enabled": True,
+                    },
+                    "upgrade_processing": True,
+                    "vpc_options": {
+                        "availability_zones": ["laxoeorkeojjhcnoji"],
+                        "security_group_ids": ["ap"],
+                        "subnet_ids": ["oric"],
+                        "vpc_id": "jffbtwxjojtqphtd",
+                    },
+                },
+                "aws_region": "mpszpnxbznm",
+                "aws_source_schema": "qrkamtxqjfb",
+                "aws_tags": {
+                    "key5895": "bosxipjwti",
+                },
+                "public_cloud_connectors_resource_id": "g",
+                "public_cloud_resource_name": "sntfjznnaylmvehihglcoyqpcyacz",
+            },
+            resource_group_name="rgopenSearchDomainStatus",
+            tags={
+                "key9493": "seimlf",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:OpenSearchDomainStatus yuwkzpllpffeycwynrymxayw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/openSearchDomainStatuses/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param OpenSearchDomainStatusArgs args: The arguments to use to populate this resource's properties.

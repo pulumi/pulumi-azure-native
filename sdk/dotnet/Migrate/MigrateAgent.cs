@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.Migrate
     /// MigrateAgent model.
     /// 
     /// Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### MigrateAgent_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migrateAgent = new AzureNative.Migrate.MigrateAgent("migrateAgent", new()
+    ///     {
+    ///         AgentName = "l",
+    ///         ModernizeProjectName = "rq1yec",
+    ///         Properties = new AzureNative.Migrate.Inputs.MigrateAgentModelPropertiesArgs
+    ///         {
+    ///             AuthenticationIdentity = new AzureNative.Migrate.Inputs.IdentityModelArgs
+    ///             {
+    ///                 AadAuthority = "isbicanvfefdaci",
+    ///                 ApplicationId = "dibfqwjrnzikktkwe",
+    ///                 Audience = "yrfxszjhkczoyfi",
+    ///                 ObjectId = "xfhhdosr",
+    ///                 TenantId = "uwceuawplakwjswbvllffbsz",
+    ///             },
+    ///             CustomProperties = null,
+    ///             MachineId = "sihoniqzqfz",
+    ///             MachineName = "glhejppirkiamgxxro",
+    ///         },
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///         Tags = 
+    ///         {
+    ///             { "key5560", "jgffrfcgjrm" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MigrateAgent_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migrateAgent = new AzureNative.Migrate.MigrateAgent("migrateAgent", new()
+    ///     {
+    ///         AgentName = "e85v",
+    ///         ModernizeProjectName = "l77ak",
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:MigrateAgent icysfvhjjgwhxx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/migrateAgents/{agentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateAgent")]
     public partial class MigrateAgent : global::Pulumi.CustomResource

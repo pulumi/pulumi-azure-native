@@ -15,6 +15,78 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateWorkspaceApiOperation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceApiOperation = new AzureNative.ApiManagement.WorkspaceApiOperation("workspaceApiOperation", new()
+    ///     {
+    ///         ApiId = "PetStoreTemplate2",
+    ///         Description = "This can only be done by the logged in user.",
+    ///         DisplayName = "createUser2",
+    ///         Method = "POST",
+    ///         OperationId = "newoperations",
+    ///         Request = new AzureNative.ApiManagement.Inputs.RequestContractArgs
+    ///         {
+    ///             Description = "Created user object",
+    ///             Headers = new() { },
+    ///             QueryParameters = new() { },
+    ///             Representations = new[]
+    ///             {
+    ///                 new AzureNative.ApiManagement.Inputs.RepresentationContractArgs
+    ///                 {
+    ///                     ContentType = "application/json",
+    ///                     SchemaId = "592f6c1d0af5840ca8897f0c",
+    ///                     TypeName = "User",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Responses = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.Inputs.ResponseContractArgs
+    ///             {
+    ///                 Description = "successful operation",
+    ///                 Headers = new() { },
+    ///                 Representations = new[]
+    ///                 {
+    ///                     new AzureNative.ApiManagement.Inputs.RepresentationContractArgs
+    ///                     {
+    ///                         ContentType = "application/xml",
+    ///                     },
+    ///                     new AzureNative.ApiManagement.Inputs.RepresentationContractArgs
+    ///                     {
+    ///                         ContentType = "application/json",
+    ///                     },
+    ///                 },
+    ///                 StatusCode = 200,
+    ///             },
+    ///         },
+    ///         ServiceName = "apimService1",
+    ///         TemplateParameters = new[] {},
+    ///         UrlTemplate = "/user1",
+    ///         WorkspaceId = "wks1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:WorkspaceApiOperation newoperations /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApiOperation")]
     public partial class WorkspaceApiOperation : global::Pulumi.CustomResource

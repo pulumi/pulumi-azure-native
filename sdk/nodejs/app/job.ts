@@ -13,6 +13,75 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
  * Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or Update Container Apps Job On A Connected Environment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.app.Job("job", {
+ *     configuration: {
+ *         manualTriggerConfig: {
+ *             parallelism: 4,
+ *             replicaCompletionCount: 1,
+ *         },
+ *         replicaRetryLimit: 10,
+ *         replicaTimeout: 10,
+ *         triggerType: azure_native.app.TriggerType.Manual,
+ *     },
+ *     environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/connectedEnvironments/demokube",
+ *     extendedLocation: {
+ *         name: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+ *         type: azure_native.app.ExtendedLocationTypes.CustomLocation,
+ *     },
+ *     jobName: "testcontainerAppsJob0",
+ *     location: "East US",
+ *     resourceGroupName: "rg",
+ *     template: {
+ *         containers: [{
+ *             image: "repo/testcontainerAppsJob0:v1",
+ *             name: "testcontainerAppsJob0",
+ *             probes: [{
+ *                 httpGet: {
+ *                     httpHeaders: [{
+ *                         name: "Custom-Header",
+ *                         value: "Awesome",
+ *                     }],
+ *                     path: "/health",
+ *                     port: 8080,
+ *                 },
+ *                 initialDelaySeconds: 5,
+ *                 periodSeconds: 3,
+ *                 type: azure_native.app.Type.Liveness,
+ *             }],
+ *         }],
+ *         initContainers: [{
+ *             args: [
+ *                 "-c",
+ *                 "while true; do echo hello; sleep 10;done",
+ *             ],
+ *             command: ["/bin/sh"],
+ *             image: "repo/testcontainerAppsJob0:v4",
+ *             name: "testinitcontainerAppsJob0",
+ *             resources: {
+ *                 cpu: 0.2,
+ *                 memory: "100Mi",
+ *             },
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:Job testcontainerAppsJob0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/jobs/{jobName} 
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

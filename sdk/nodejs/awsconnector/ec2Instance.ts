@@ -11,6 +11,289 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### Ec2Instances_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ec2Instance = new azure_native.awsconnector.Ec2Instance("ec2Instance", {
+ *     properties: {
+ *         arn: "noxwkahrsrcnrpz",
+ *         awsAccountId: "hhrjjrfopsrebnklxmr",
+ *         awsProperties: {
+ *             amiLaunchIndex: 27,
+ *             architecture: {
+ *                 value: azure_native.awsconnector.ArchitectureValues.Arm64,
+ *             },
+ *             blockDeviceMappings: [{
+ *                 deviceName: "tfaglaaaklzilxzmk",
+ *                 ebs: {
+ *                     associatedResource: "pgkczdagxihtrkzzaiuzennp",
+ *                     attachTime: "2024-10-08T03:49:10.616Z",
+ *                     deleteOnTermination: true,
+ *                     status: {
+ *                         value: azure_native.awsconnector.AttachmentStatus.Attached,
+ *                     },
+ *                     volumeId: "ilihhdgfhpylwqnaglcmj",
+ *                     volumeOwnerId: "ruylzxnmlundujqdqkqocknldkttka",
+ *                 },
+ *             }],
+ *             bootMode: {
+ *                 value: azure_native.awsconnector.BootModeValues.LegacyBios,
+ *             },
+ *             capacityReservationId: "rgxeywdieyjfmp",
+ *             capacityReservationSpecification: {
+ *                 capacityReservationPreference: {
+ *                     value: azure_native.awsconnector.CapacityReservationPreference.None,
+ *                 },
+ *                 capacityReservationTarget: {
+ *                     capacityReservationId: "dvdusvbgjrkkuqrelloyysinnzpjb",
+ *                     capacityReservationResourceGroupArn: "itnyqqrlujfkasgzbrvljlbh",
+ *                 },
+ *             },
+ *             clientToken: "zgimjubyev",
+ *             cpuOptions: {
+ *                 amdSevSnp: {
+ *                     value: azure_native.awsconnector.AmdSevSnpSpecification.Disabled,
+ *                 },
+ *                 coreCount: 27,
+ *                 threadsPerCore: 11,
+ *             },
+ *             currentInstanceBootMode: {
+ *                 value: azure_native.awsconnector.InstanceBootModeValues.LegacyBios,
+ *             },
+ *             ebsOptimized: true,
+ *             elasticGpuAssociations: [{
+ *                 elasticGpuAssociationId: "jmxqiqiyocefwrivbcumzx",
+ *                 elasticGpuAssociationState: "mkteimwlzs",
+ *                 elasticGpuAssociationTime: "sosasrnqg",
+ *                 elasticGpuId: "dnpmhib",
+ *             }],
+ *             elasticInferenceAcceleratorAssociations: [{
+ *                 elasticInferenceAcceleratorArn: "pnbrdzuzjxuwrtpdc",
+ *                 elasticInferenceAcceleratorAssociationId: "uoout",
+ *                 elasticInferenceAcceleratorAssociationState: "bwbmjkusisjrxxdonwtxkbgbaxk",
+ *                 elasticInferenceAcceleratorAssociationTime: "2024-10-08T03:49:10.617Z",
+ *             }],
+ *             enaSupport: true,
+ *             enclaveOptions: {
+ *                 enabled: true,
+ *             },
+ *             hibernationOptions: {
+ *                 configured: true,
+ *             },
+ *             hypervisor: {
+ *                 value: azure_native.awsconnector.HypervisorType.Ovm,
+ *             },
+ *             iamInstanceProfile: {
+ *                 arn: "jvju",
+ *                 id: "kdzthqdiqjcknesajpbplmkynzokr",
+ *             },
+ *             imageId: "oemhjwhbzkbcwocprtn",
+ *             instanceId: "czyyyovcqwce",
+ *             instanceLifecycle: {
+ *                 value: azure_native.awsconnector.InstanceLifecycleType.CapacityBlock,
+ *             },
+ *             instanceType: {
+ *                 value: "a1.2xlarge",
+ *             },
+ *             ipv6Address: "kuzwkpvttqtjxowkisga",
+ *             kernelId: "qqehgoolsvuh",
+ *             keyName: "bxxdzmyclfgrwqwnjajhs",
+ *             launchTime: "2024-10-08T03:49:10.618Z",
+ *             licenses: [{
+ *                 licenseConfigurationArn: "q",
+ *             }],
+ *             maintenanceOptions: {
+ *                 autoRecovery: {
+ *                     value: azure_native.awsconnector.InstanceAutoRecoveryState.Default,
+ *                 },
+ *             },
+ *             metadataOptions: {
+ *                 httpEndpoint: {
+ *                     value: azure_native.awsconnector.InstanceMetadataEndpointState.Disabled,
+ *                 },
+ *                 httpProtocolIpv6: {
+ *                     value: azure_native.awsconnector.InstanceMetadataProtocolState.Disabled,
+ *                 },
+ *                 httpPutResponseHopLimit: 3,
+ *                 httpTokens: {
+ *                     value: azure_native.awsconnector.HttpTokensState.Optional,
+ *                 },
+ *                 instanceMetadataTags: {
+ *                     value: azure_native.awsconnector.InstanceMetadataTagsState.Disabled,
+ *                 },
+ *                 state: {
+ *                     value: azure_native.awsconnector.InstanceMetadataOptionsState.Applied,
+ *                 },
+ *             },
+ *             monitoring: {
+ *                 state: {
+ *                     value: azure_native.awsconnector.MonitoringState.Disabled,
+ *                 },
+ *             },
+ *             networkInterfaces: [{
+ *                 association: {
+ *                     carrierIp: "gyqfkluecfuwebntnygczb",
+ *                     customerOwnedIp: "sw",
+ *                     ipOwnerId: "fbrkixipyqjnao",
+ *                     publicDnsName: "oivnzjavxqmctzvhgmsavgwesabny",
+ *                     publicIp: "tojjymqqjmschjp",
+ *                 },
+ *                 attachment: {
+ *                     attachTime: "2024-10-08T03:49:10.618Z",
+ *                     attachmentId: "lsqnlzd",
+ *                     deleteOnTermination: true,
+ *                     deviceIndex: 11,
+ *                     enaSrdSpecification: {
+ *                         enaSrdEnabled: true,
+ *                         enaSrdUdpSpecification: {
+ *                             enaSrdUdpEnabled: true,
+ *                         },
+ *                     },
+ *                     networkCardIndex: 9,
+ *                     status: {
+ *                         value: azure_native.awsconnector.AttachmentStatus.Attached,
+ *                     },
+ *                 },
+ *                 connectionTrackingConfiguration: {
+ *                     tcpEstablishedTimeout: 23,
+ *                     udpStreamTimeout: 24,
+ *                     udpTimeout: 30,
+ *                 },
+ *                 description: "wcdguczvqhelvbuhnx",
+ *                 groups: [{
+ *                     groupId: "nwupmxpxrzdroizfewqupyddewi",
+ *                     groupName: "gvsaaqihzfcwdmeocclatfqm",
+ *                 }],
+ *                 interfaceType: "mphomintds",
+ *                 ipv4Prefixes: [{
+ *                     ipv4Prefix: "ortyghjrffqjz",
+ *                 }],
+ *                 ipv6Addresses: [{
+ *                     ipv6Address: "z",
+ *                 }],
+ *                 ipv6Prefixes: [{
+ *                     ipv6Prefix: "cstrptdpvmberviuvuqfd",
+ *                 }],
+ *                 macAddress: "k",
+ *                 networkInterfaceId: "qythf",
+ *                 ownerId: "fvjysbetbyrzccspcenkpvi",
+ *                 privateDnsName: "yvorusnuuigavdcqqdxecrkmjmhrf",
+ *                 privateIpAddress: "m",
+ *                 privateIpAddresses: [{
+ *                     association: {
+ *                         carrierIp: "gyqfkluecfuwebntnygczb",
+ *                         customerOwnedIp: "sw",
+ *                         ipOwnerId: "fbrkixipyqjnao",
+ *                         publicDnsName: "oivnzjavxqmctzvhgmsavgwesabny",
+ *                         publicIp: "tojjymqqjmschjp",
+ *                     },
+ *                     primary: true,
+ *                     privateDnsName: "bdezhkhwoerivtfwgqelrsyiphf",
+ *                     privateIpAddress: "xcqnyrs",
+ *                 }],
+ *                 sourceDestCheck: true,
+ *                 status: {
+ *                     value: azure_native.awsconnector.NetworkInterfaceStatus.Associated,
+ *                 },
+ *                 subnetId: "euocsemlw",
+ *                 vpcId: "grahbrhjelkewder",
+ *             }],
+ *             outpostArn: "godjddxeidxe",
+ *             placement: {
+ *                 affinity: "xzseileq",
+ *                 availabilityZone: "vsfvyosolmnchbavxfvtizqptgmeg",
+ *                 groupId: "davwvkjoij",
+ *                 groupName: "txqgn",
+ *                 hostId: "mvbshbhxclztfwffsu",
+ *                 hostResourceGroupArn: "zl",
+ *                 partitionNumber: 24,
+ *                 spreadDomain: "t",
+ *                 tenancy: {
+ *                     value: azure_native.awsconnector.Tenancy.Dedicated,
+ *                 },
+ *             },
+ *             platform: {
+ *                 value: azure_native.awsconnector.PlatformValues.Windows,
+ *             },
+ *             platformDetails: "rcwqyqgcruqjcvzcto",
+ *             privateDnsName: "ieuhntvllhoojakokyt",
+ *             privateDnsNameOptions: {
+ *                 enableResourceNameDnsAAAARecord: true,
+ *                 enableResourceNameDnsARecord: true,
+ *                 hostnameType: {
+ *                     value: azure_native.awsconnector.HostnameType.IpName,
+ *                 },
+ *             },
+ *             privateIpAddress: "uosximzwwopktgyzlathmorgqah",
+ *             productCodes: [{
+ *                 productCodeId: "sexxutnmcfhkamhmvjrggoscatni",
+ *                 productCodeType: {
+ *                     value: azure_native.awsconnector.ProductCodeValues.Devpay,
+ *                 },
+ *             }],
+ *             publicDnsName: "qkucqmeldgiumuzribitahwft",
+ *             publicIpAddress: "ialohsszgtpuycimtqi",
+ *             ramdiskId: "ggkfkl",
+ *             rootDeviceName: "dbfwarbazrbzcjnh",
+ *             rootDeviceType: {
+ *                 value: azure_native.awsconnector.DeviceType.Ebs,
+ *             },
+ *             securityGroups: [{
+ *                 groupId: "nwupmxpxrzdroizfewqupyddewi",
+ *                 groupName: "gvsaaqihzfcwdmeocclatfqm",
+ *             }],
+ *             sourceDestCheck: true,
+ *             spotInstanceRequestId: "qiylxsuuinwyq",
+ *             sriovNetSupport: "kiffwvajczdtzwcfeefqespn",
+ *             state: {
+ *                 code: 18,
+ *                 name: {
+ *                     value: azure_native.awsconnector.InstanceStateName.Pending,
+ *                 },
+ *             },
+ *             stateReason: {
+ *                 code: "kdnlidwcsckwbplroijtjciufgg",
+ *                 message: "dvgendvpuuzx",
+ *             },
+ *             stateTransitionReason: "arenmfmnvv",
+ *             subnetId: "mgnibedayjllwaidbjh",
+ *             tags: [{
+ *                 key: "pbvbjvyuqibbevydlslmfple",
+ *                 value: "zztbwjxzwgmnjqhegktznmdrqferd",
+ *             }],
+ *             tpmSupport: "fvxtckturm",
+ *             usageOperation: "xrctwrcgpcrhlfjzhdvhiovdlcqafq",
+ *             usageOperationUpdateTime: "2024-10-08T03:49:10.619Z",
+ *             virtualizationType: {
+ *                 value: azure_native.awsconnector.VirtualizationType.Hvm,
+ *             },
+ *             vpcId: "g",
+ *         },
+ *         awsRegion: "tcaqttnhykcej",
+ *         awsSourceSchema: "tncjfmwlkponefezhigbyno",
+ *         awsTags: {
+ *             key2934: "wyx",
+ *         },
+ *         publicCloudConnectorsResourceId: "shnvqmmslrarjuzdpyhlnfxxp",
+ *         publicCloudResourceName: "sffqiavopmcwltotrpubudq",
+ *     },
+ *     resourceUri: "c",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:Ec2Instance jjhsvqaguzzovfqofv /{resourceUri}/providers/Microsoft.AwsConnector/ec2Instances/default 
+ * ```
  */
 export class Ec2Instance extends pulumi.CustomResource {
     /**

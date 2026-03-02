@@ -15,6 +15,56 @@ namespace Pulumi.AzureNative.Cdn
     /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### OriginGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var originGroup = new AzureNative.Cdn.OriginGroup("originGroup", new()
+    ///     {
+    ///         EndpointName = "endpoint1",
+    ///         HealthProbeSettings = new AzureNative.Cdn.Inputs.HealthProbeParametersArgs
+    ///         {
+    ///             ProbeIntervalInSeconds = 120,
+    ///             ProbePath = "/health.aspx",
+    ///             ProbeProtocol = AzureNative.Cdn.ProbeProtocol.Http,
+    ///             ProbeRequestType = AzureNative.Cdn.HealthProbeRequestType.GET,
+    ///         },
+    ///         OriginGroupName = "origingroup1",
+    ///         Origins = new[]
+    ///         {
+    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+    ///             },
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         ResponseBasedOriginErrorDetectionSettings = new AzureNative.Cdn.Inputs.ResponseBasedOriginErrorDetectionParametersArgs
+    ///         {
+    ///             ResponseBasedDetectedErrorTypes = AzureNative.Cdn.ResponseBasedDetectedErrorTypes.TcpErrorsOnly,
+    ///             ResponseBasedFailoverThresholdPercentage = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:OriginGroup origingroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/originGroups/{originGroupName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:OriginGroup")]
     public partial class OriginGroup : global::Pulumi.CustomResource

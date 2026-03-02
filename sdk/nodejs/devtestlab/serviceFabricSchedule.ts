@@ -11,6 +11,64 @@ import * as utilities from "../utilities";
  * A schedule.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+ *
+ * ## Example Usage
+ * ### ServiceFabricSchedules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceFabricSchedule = new azure_native.devtestlab.ServiceFabricSchedule("serviceFabricSchedule", {
+ *     dailyRecurrence: {
+ *         time: "19:00",
+ *     },
+ *     hourlyRecurrence: {
+ *         minute: 0,
+ *     },
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "{scheduleName}",
+ *     notificationSettings: {
+ *         emailRecipient: "{email}",
+ *         notificationLocale: "EN",
+ *         status: "{Enabled|Disabled}",
+ *         timeInMinutes: 15,
+ *         webhookUrl: "{webhoolUrl}",
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ *     serviceFabricName: "{serviceFrabicName}",
+ *     status: "{Enabled|Disabled}",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     targetResourceId: "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+ *     taskType: "{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+ *     timeZoneId: "Pacific Standard Time",
+ *     userName: "@me",
+ *     weeklyRecurrence: {
+ *         time: "19:00",
+ *         weekdays: [
+ *             "Monday",
+ *             "Tuesday",
+ *             "Wednesday",
+ *             "Thursday",
+ *             "Friday",
+ *             "Saturday",
+ *             "Sunday",
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab:ServiceFabricSchedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/servicefabrics/{serviceFabricName}/schedules/{name} 
+ * ```
  */
 export class ServiceFabricSchedule extends pulumi.CustomResource {
     /**

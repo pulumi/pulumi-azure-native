@@ -40,6 +40,7 @@ class EnvironmentStateDetailsResponse(dict):
                  message: Optional[_builtins.str] = None):
         """
         An object that contains the details about an environment's state.
+
         :param _builtins.str code: Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
         :param _builtins.str message: A message that describes the state in detail.
         """
@@ -92,6 +93,7 @@ class EnvironmentStatusResponse(dict):
                  warm_storage: 'outputs.WarmStorageEnvironmentStatusResponse'):
         """
         An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+
         :param 'IngressEnvironmentStatusResponse' ingress: An object that represents the status of ingress on an environment.
         :param 'WarmStorageEnvironmentStatusResponse' warm_storage: An object that represents the status of warm storage on an environment.
         """
@@ -141,6 +143,7 @@ class Gen2StorageConfigurationOutputResponse(dict):
                  account_name: _builtins.str):
         """
         The storage configuration provides the non-secret connection details about the customer storage account that is used to store the environment's data.
+
         :param _builtins.str account_name: The name of the storage account that will hold the environment's Gen2 data.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -181,6 +184,7 @@ class IngressEnvironmentStatusResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         An object that represents the status of ingress on an environment.
+
         :param 'EnvironmentStateDetailsResponse' state_details: An object that contains the details about an environment's state.
         :param _builtins.str state: This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
         """
@@ -232,6 +236,7 @@ class LocalTimestampResponse(dict):
                  time_zone_offset: Optional['outputs.LocalTimestampResponseTimeZoneOffset'] = None):
         """
         An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+
         :param _builtins.str format: An enum that represents the format of the local timestamp property that needs to be set.
         :param 'LocalTimestampResponseTimeZoneOffset' time_zone_offset: An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
         """
@@ -283,6 +288,7 @@ class LocalTimestampResponseTimeZoneOffset(dict):
                  property_name: Optional[_builtins.str] = None):
         """
         An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+
         :param _builtins.str property_name: The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
         """
         if property_name is not None:
@@ -307,6 +313,7 @@ class ReferenceDataSetKeyPropertyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         A key property for the reference data set. A reference data set can have multiple key properties.
+
         :param _builtins.str name: The name of the key property.
         :param _builtins.str type: The type of the key property.
         """
@@ -342,6 +349,7 @@ class SkuResponse(dict):
                  name: _builtins.str):
         """
         The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+
         :param _builtins.int capacity: The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         :param _builtins.str name: The name of this SKU.
         """
@@ -375,6 +383,7 @@ class TimeSeriesIdPropertyResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The structure of the property that a time series id can have. An environment can have multiple such properties.
+
         :param _builtins.str name: The name of the property.
         :param _builtins.str type: The type of the property.
         """
@@ -430,6 +439,7 @@ class WarmStorageEnvironmentStatusResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         An object that represents the status of warm storage on an environment.
+
         :param _builtins.int current_count: A value that represents the number of properties used by the environment for S1/S2 SKU and number of properties used by Warm Store for PAYG SKU
         :param _builtins.int max_count: A value that represents the maximum number of properties used allowed by the environment for S1/S2 SKU and maximum number of properties allowed by Warm Store for PAYG SKU.
         :param _builtins.str state: This string represents the state of warm storage properties usage. It can be "Ok", "Error", "Unknown".
@@ -492,6 +502,7 @@ class WarmStoreConfigurationPropertiesResponse(dict):
                  data_retention: _builtins.str):
         """
         The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+
         :param _builtins.str data_retention: ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
         """
         pulumi.set(__self__, "data_retention", data_retention)

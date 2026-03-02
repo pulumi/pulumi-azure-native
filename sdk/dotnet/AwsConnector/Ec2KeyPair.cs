@@ -13,6 +13,70 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### Ec2KeyPairs_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2KeyPair = new AzureNative.AwsConnector.Ec2KeyPair("ec2KeyPair", new()
+    ///     {
+    ///         Location = "okgykmqgdqfktczzwnisgblxjor",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2KeyPairPropertiesArgs
+    ///         {
+    ///             Arn = "hbplblilwwscgwiaifygy",
+    ///             AwsAccountId = "iamyich",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2KeyPairPropertiesArgs
+    ///             {
+    ///                 KeyFingerprint = "xamuanffyhal",
+    ///                 KeyFormat = AzureNative.AwsConnector.KeyFormat.Pem,
+    ///                 KeyName = "jsltsdchgdrtwidgfy",
+    ///                 KeyPairId = "tqtfcaqdmookxfgpvbzkyzzgstwqh",
+    ///                 KeyType = AzureNative.AwsConnector.KeyType.Ed25519,
+    ///                 PublicKeyMaterial = "wewhsgvwdbsygwbukotmsiu",
+    ///                 Tags = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.TagArgs
+    ///                     {
+    ///                         Key = "tthjjmap",
+    ///                         Value = "fcqkvmxnvgkszsjglbmc",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             AwsRegion = "zkxhveyqnzcmihgmancphtwumisld",
+    ///             AwsSourceSchema = "qbl",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key6629", "qrszxqxtlbgttasepkymnkamqvw" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "dtqfffijdvwrjascztihbhcjfo",
+    ///             PublicCloudResourceName = "nyywppatxodspls",
+    ///         },
+    ///         ResourceGroupName = "rgec2KeyPair",
+    ///         Tags = 
+    ///         {
+    ///             { "key7076", "hevuyqs" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:Ec2KeyPair cu /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2KeyPairs/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2KeyPair")]
     public partial class Ec2KeyPair : global::Pulumi.CustomResource

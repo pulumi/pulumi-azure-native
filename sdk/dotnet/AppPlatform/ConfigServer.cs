@@ -15,6 +15,85 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigServers_UpdatePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configServer = new AzureNative.AppPlatform.ConfigServer("configServer", new()
+    ///     {
+    ///         Properties = new AzureNative.AppPlatform.Inputs.ConfigServerPropertiesArgs
+    ///         {
+    ///             ConfigServer = new AzureNative.AppPlatform.Inputs.ConfigServerSettingsArgs
+    ///             {
+    ///                 GitProperty = new AzureNative.AppPlatform.Inputs.ConfigServerGitPropertyArgs
+    ///                 {
+    ///                     Label = "master",
+    ///                     SearchPaths = new[]
+    ///                     {
+    ///                         "/",
+    ///                     },
+    ///                     Uri = "https://github.com/fake-user/fake-repository.git",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConfigServers_UpdatePut_Consumption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configServer = new AzureNative.AppPlatform.ConfigServer("configServer", new()
+    ///     {
+    ///         Properties = new AzureNative.AppPlatform.Inputs.ConfigServerPropertiesArgs
+    ///         {
+    ///             ConfigServer = new AzureNative.AppPlatform.Inputs.ConfigServerSettingsArgs
+    ///             {
+    ///                 GitProperty = new AzureNative.AppPlatform.Inputs.ConfigServerGitPropertyArgs
+    ///                 {
+    ///                     Label = "master",
+    ///                     SearchPaths = new[]
+    ///                     {
+    ///                         "/",
+    ///                     },
+    ///                     Uri = "https://github.com/fake-user/fake-repository.git",
+    ///                 },
+    ///             },
+    ///             EnabledState = AzureNative.AppPlatform.ConfigServerEnabledState.Enabled,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:ConfigServer default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/configServers/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ConfigServer")]
     public partial class ConfigServer : global::Pulumi.CustomResource

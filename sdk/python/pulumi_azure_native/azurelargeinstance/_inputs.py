@@ -36,23 +36,18 @@ __all__ = [
     'StoragePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DiskArgsDict(TypedDict):
-        """
-        Specifies the disk information fo the Azure Large Instance
-        """
-        disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the size of an empty data disk in gigabytes.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The disk name.
-        """
-elif False:
-    DiskArgsDict: TypeAlias = Mapping[str, Any]
+class DiskArgsDict(TypedDict):
+    """
+    Specifies the disk information fo the Azure Large Instance
+    """
+    disk_size_gb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the size of an empty data disk in gigabytes.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The disk name.
+    """
 
 @pulumi.input_type
 class DiskArgs:
@@ -61,6 +56,7 @@ class DiskArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the disk information fo the Azure Large Instance
+
         :param pulumi.Input[_builtins.int] disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param pulumi.Input[_builtins.str] name: The disk name.
         """
@@ -94,21 +90,18 @@ class DiskArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class HardwareProfileArgsDict(TypedDict):
-        """
-        Specifies the hardware settings for the Azure Large Instance.
-        """
-        azure_large_instance_size: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceSizeNamesEnum']]]
-        """
-        Specifies the Azure Large Instance SKU.
-        """
-        hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']]]
-        """
-        Name of the hardware type (vendor and/or their product name)
-        """
-elif False:
-    HardwareProfileArgsDict: TypeAlias = Mapping[str, Any]
+class HardwareProfileArgsDict(TypedDict):
+    """
+    Specifies the hardware settings for the Azure Large Instance.
+    """
+    azure_large_instance_size: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceSizeNamesEnum']]]
+    """
+    Specifies the Azure Large Instance SKU.
+    """
+    hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']]]
+    """
+    Name of the hardware type (vendor and/or their product name)
+    """
 
 @pulumi.input_type
 class HardwareProfileArgs:
@@ -117,6 +110,7 @@ class HardwareProfileArgs:
                  hardware_type: Optional[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']]] = None):
         """
         Specifies the hardware settings for the Azure Large Instance.
+
         :param pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceSizeNamesEnum']] azure_large_instance_size: Specifies the Azure Large Instance SKU.
         :param pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']] hardware_type: Name of the hardware type (vendor and/or their product name)
         """
@@ -150,17 +144,14 @@ class HardwareProfileArgs:
         pulumi.set(self, "hardware_type", value)
 
 
-if not MYPY:
-    class IpAddressArgsDict(TypedDict):
-        """
-        Specifies the IP address of the network interface.
-        """
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the IP address of the network interface.
-        """
-elif False:
-    IpAddressArgsDict: TypeAlias = Mapping[str, Any]
+class IpAddressArgsDict(TypedDict):
+    """
+    Specifies the IP address of the network interface.
+    """
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the IP address of the network interface.
+    """
 
 @pulumi.input_type
 class IpAddressArgs:
@@ -168,6 +159,7 @@ class IpAddressArgs:
                  ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the IP address of the network interface.
+
         :param pulumi.Input[_builtins.str] ip_address: Specifies the IP address of the network interface.
         """
         if ip_address is not None:
@@ -186,21 +178,18 @@ class IpAddressArgs:
         pulumi.set(self, "ip_address", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -209,6 +198,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -241,21 +231,18 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        Specifies the network settings for the Azure Large Instance disks.
-        """
-        circuit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the circuit id for connecting to express route.
-        """
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressArgsDict']]]]
-        """
-        Specifies the network interfaces for the Azure Large Instance.
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkProfileArgsDict(TypedDict):
+    """
+    Specifies the network settings for the Azure Large Instance disks.
+    """
+    circuit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the circuit id for connecting to express route.
+    """
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpAddressArgsDict']]]]
+    """
+    Specifies the network interfaces for the Azure Large Instance.
+    """
 
 @pulumi.input_type
 class NetworkProfileArgs:
@@ -264,6 +251,7 @@ class NetworkProfileArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]] = None):
         """
         Specifies the network settings for the Azure Large Instance disks.
+
         :param pulumi.Input[_builtins.str] circuit_id: Specifies the circuit id for connecting to express route.
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]] network_interfaces: Specifies the network interfaces for the Azure Large Instance.
         """
@@ -297,29 +285,26 @@ class NetworkProfileArgs:
         pulumi.set(self, "network_interfaces", value)
 
 
-if not MYPY:
-    class OsProfileArgsDict(TypedDict):
-        """
-        Specifies the operating system settings for the Azure Large Instance.
-        """
-        computer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the host OS name of the Azure Large Instance.
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This property allows you to specify the type of the OS.
-        """
-        ssh_public_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the SSH public key used to access the operating system.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies version of operating system.
-        """
-elif False:
-    OsProfileArgsDict: TypeAlias = Mapping[str, Any]
+class OsProfileArgsDict(TypedDict):
+    """
+    Specifies the operating system settings for the Azure Large Instance.
+    """
+    computer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the host OS name of the Azure Large Instance.
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This property allows you to specify the type of the OS.
+    """
+    ssh_public_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the SSH public key used to access the operating system.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies version of operating system.
+    """
 
 @pulumi.input_type
 class OsProfileArgs:
@@ -330,6 +315,7 @@ class OsProfileArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the operating system settings for the Azure Large Instance.
+
         :param pulumi.Input[_builtins.str] computer_name: Specifies the host OS name of the Azure Large Instance.
         :param pulumi.Input[_builtins.str] os_type: This property allows you to specify the type of the OS.
         :param pulumi.Input[_builtins.str] ssh_public_key: Specifies the SSH public key used to access the operating system.
@@ -393,21 +379,18 @@ class OsProfileArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class StorageBillingPropertiesArgsDict(TypedDict):
-        """
-        Describes the billing related details of the AzureLargeStorageInstance.
-        """
-        billing_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the billing mode for the storage instance
-        """
-        sku: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the SKU type that is provisioned
-        """
-elif False:
-    StorageBillingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StorageBillingPropertiesArgsDict(TypedDict):
+    """
+    Describes the billing related details of the AzureLargeStorageInstance.
+    """
+    billing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the billing mode for the storage instance
+    """
+    sku: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the SKU type that is provisioned
+    """
 
 @pulumi.input_type
 class StorageBillingPropertiesArgs:
@@ -416,6 +399,7 @@ class StorageBillingPropertiesArgs:
                  sku: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the billing related details of the AzureLargeStorageInstance.
+
         :param pulumi.Input[_builtins.str] billing_mode: the billing mode for the storage instance
         :param pulumi.Input[_builtins.str] sku: the SKU type that is provisioned
         """
@@ -449,22 +433,19 @@ class StorageBillingPropertiesArgs:
         pulumi.set(self, "sku", value)
 
 
-if not MYPY:
-    class StorageProfileArgsDict(TypedDict):
-        """
-        Specifies the storage settings for the Azure Large Instance disks.
-        """
-        nfs_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP Address to connect to storage.
-        """
-        os_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
-        """
-        Specifies information about the operating system disk used by Azure Large
-        Instance.
-        """
-elif False:
-    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+class StorageProfileArgsDict(TypedDict):
+    """
+    Specifies the storage settings for the Azure Large Instance disks.
+    """
+    nfs_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP Address to connect to storage.
+    """
+    os_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    """
+    Specifies information about the operating system disk used by Azure Large
+    Instance.
+    """
 
 @pulumi.input_type
 class StorageProfileArgs:
@@ -473,6 +454,7 @@ class StorageProfileArgs:
                  os_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None):
         """
         Specifies the storage settings for the Azure Large Instance disks.
+
         :param pulumi.Input[_builtins.str] nfs_ip_address: IP Address to connect to storage.
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] os_disks: Specifies information about the operating system disk used by Azure Large
                Instance.
@@ -508,37 +490,34 @@ class StorageProfileArgs:
         pulumi.set(self, "os_disks", value)
 
 
-if not MYPY:
-    class StoragePropertiesArgsDict(TypedDict):
-        """
-        described the storage properties of the azure large storage instance
-        """
-        generation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the kind of storage instance
-        """
-        hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']]]
-        """
-        the hardware type of the storage instance
-        """
-        offering_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the offering type for which the resource is getting provisioned
-        """
-        storage_billing_properties: NotRequired[pulumi.Input['StorageBillingPropertiesArgsDict']]
-        """
-        the billing related information for the resource
-        """
-        storage_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the storage protocol for which the resource is getting provisioned
-        """
-        workload_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        the workload for which the resource is getting provisioned
-        """
-elif False:
-    StoragePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class StoragePropertiesArgsDict(TypedDict):
+    """
+    described the storage properties of the azure large storage instance
+    """
+    generation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the kind of storage instance
+    """
+    hardware_type: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']]]
+    """
+    the hardware type of the storage instance
+    """
+    offering_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the offering type for which the resource is getting provisioned
+    """
+    storage_billing_properties: NotRequired[pulumi.Input['StorageBillingPropertiesArgsDict']]
+    """
+    the billing related information for the resource
+    """
+    storage_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the storage protocol for which the resource is getting provisioned
+    """
+    workload_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    the workload for which the resource is getting provisioned
+    """
 
 @pulumi.input_type
 class StoragePropertiesArgs:
@@ -551,6 +530,7 @@ class StoragePropertiesArgs:
                  workload_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         described the storage properties of the azure large storage instance
+
         :param pulumi.Input[_builtins.str] generation: the kind of storage instance
         :param pulumi.Input[Union[_builtins.str, 'AzureLargeInstanceHardwareTypeNamesEnum']] hardware_type: the hardware type of the storage instance
         :param pulumi.Input[_builtins.str] offering_type: the offering type for which the resource is getting provisioned

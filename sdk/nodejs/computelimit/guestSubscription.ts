@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * Guest subscription that consumes shared compute limits.
  *
  * Uses Azure REST API version 2025-08-15.
+ *
+ * ## Example Usage
+ * ### Create a guest subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestSubscription = new azure_native.computelimit.GuestSubscription("guestSubscription", {
+ *     guestSubscriptionId: "11111111-1111-1111-1111-111111111111",
+ *     location: "eastus",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:computelimit:GuestSubscription 11111111-1111-1111-1111-111111111111 /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/guestSubscriptions/{guestSubscriptionId} 
+ * ```
  */
 export class GuestSubscription extends pulumi.CustomResource {
     /**

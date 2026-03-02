@@ -13,6 +13,53 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
  * Other available API versions: 2024-08-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create IacProfile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iacProfile = new azure_native.devhub.IacProfile("iacProfile", {
+ *     iacProfileName: "profile1",
+ *     location: "eastus",
+ *     repositoryName: "localtest",
+ *     repositoryOwner: "qfai",
+ *     resourceGroupName: "resourceGroup1",
+ *     stages: [
+ *         {
+ *             dependencies: [],
+ *             gitEnvironment: "Terraform",
+ *             stageName: "dev",
+ *         },
+ *         {
+ *             dependencies: ["dev"],
+ *             gitEnvironment: "Terraform",
+ *             stageName: "qa",
+ *         },
+ *     ],
+ *     storageAccountName: "iacbackend",
+ *     storageAccountResourceGroup: "test",
+ *     storageAccountSubscription: "586c20df-c465-4f10-8673-65aa4859e7ca",
+ *     storageContainerName: "tfbackend",
+ *     templates: [{
+ *         instanceName: "quickinstance",
+ *         instanceStage: "dev",
+ *         quickStartTemplateType: azure_native.devhub.QuickStartTemplateType.HCIAKS,
+ *         templateName: "hciaksss",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devhub:IacProfile profile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevHub/iacProfiles/{iacProfileName} 
+ * ```
  */
 export class IacProfile extends pulumi.CustomResource {
     /**

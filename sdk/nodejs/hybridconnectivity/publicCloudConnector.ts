@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Public Cloud Connector
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### PublicCloudConnectors_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicCloudConnector = new azure_native.hybridconnectivity.PublicCloudConnector("publicCloudConnector", {
+ *     awsCloudProfile: {
+ *         accountId: "snbnuxckevyqpm",
+ *         excludedAccounts: ["rwgqpukglvbqmogqcliqolucp"],
+ *         isOrganizationalAccount: true,
+ *     },
+ *     hostType: azure_native.hybridconnectivity.HostType.AWS,
+ *     location: "jpiglusfxynfcewcjwvvnn",
+ *     publicCloudConnector: "advjwoakdusalamomg",
+ *     resourceGroupName: "rgpublicCloud",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridconnectivity:PublicCloudConnector esixipkbydb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridConnectivity/publicCloudConnectors/{publicCloudConnector} 
+ * ```
  */
 export class PublicCloudConnector extends pulumi.CustomResource {
     /**

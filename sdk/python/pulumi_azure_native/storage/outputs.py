@@ -195,6 +195,7 @@ class AccountImmutabilityPolicyPropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         This defines account-level immutability policy properties.
+
         :param _builtins.bool allow_protected_append_writes: This property can only be changed for disabled and unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
         :param _builtins.int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param _builtins.str state: The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
@@ -278,6 +279,7 @@ class ActiveDirectoryPropertiesResponse(dict):
                  sam_account_name: Optional[_builtins.str] = None):
         """
         Settings properties for Active Directory (AD).
+
         :param _builtins.str domain_guid: Specifies the domain GUID.
         :param _builtins.str domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
         :param _builtins.str account_type: Specifies the Active Directory account type for Azure Storage.
@@ -399,6 +401,7 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
                  default_share_permission: Optional[_builtins.str] = None):
         """
         Settings for Azure Files identity based authentication.
+
         :param _builtins.str directory_service_options: Indicates the directory service used. Note that this enum may be extended in the future.
         :param 'ActiveDirectoryPropertiesResponse' active_directory_properties: Required if directoryServiceOptions are AD, optional if they are AADKERB.
         :param _builtins.str default_share_permission: Default share permission for users using Kerberos authentication if RBAC role is not assigned.
@@ -460,6 +463,7 @@ class BlobInventoryCreationTimeResponse(dict):
                  last_n_days: Optional[_builtins.int] = None):
         """
         This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+
         :param _builtins.int last_n_days: When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
         """
         if last_n_days is not None:
@@ -506,6 +510,7 @@ class BlobInventoryPolicyDefinitionResponse(dict):
                  filters: Optional['outputs.BlobInventoryPolicyFilterResponse'] = None):
         """
         An object that defines the blob inventory rule.
+
         :param _builtins.str format: This is a required field, it specifies the format for the inventory files.
         :param _builtins.str object_type: This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
         :param _builtins.str schedule: This is a required field. This field is used to schedule an inventory formation.
@@ -604,6 +609,7 @@ class BlobInventoryPolicyFilterResponse(dict):
                  prefix_match: Optional[Sequence[_builtins.str]] = None):
         """
         An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
+
         :param Sequence[_builtins.str] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         :param 'BlobInventoryCreationTimeResponse' creation_time: This property is used to filter objects based on the object creation time
         :param Sequence[_builtins.str] exclude_prefix: An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
@@ -696,6 +702,7 @@ class BlobInventoryPolicyRuleResponse(dict):
                  name: _builtins.str):
         """
         An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+
         :param 'BlobInventoryPolicyDefinitionResponse' definition: An object that defines the blob inventory policy rule.
         :param _builtins.str destination: Container name where blob inventory files are stored. Must be pre-created.
         :param _builtins.bool enabled: Rule is enabled when set to true.
@@ -751,6 +758,7 @@ class BlobInventoryPolicySchemaResponse(dict):
                  type: _builtins.str):
         """
         The storage account blob inventory policy rules.
+
         :param _builtins.str destination: Deprecated Property from API version 2021-04-01 onwards, the required destination container name must be specified at the rule level 'policy.rule.destination'
         :param _builtins.bool enabled: Policy is enabled if set to true.
         :param Sequence['BlobInventoryPolicyRuleResponse'] rules: The storage account blob inventory policy rules. The rule is applied when it is enabled.
@@ -823,6 +831,7 @@ class BlobRestoreParametersResponse(dict):
                  time_to_restore: _builtins.str):
         """
         Blob restore parameters
+
         :param Sequence['BlobRestoreRangeResponse'] blob_ranges: Blob ranges to restore.
         :param _builtins.str time_to_restore: Restore blob to the specified time.
         """
@@ -875,6 +884,7 @@ class BlobRestoreRangeResponse(dict):
                  start_range: _builtins.str):
         """
         Blob range
+
         :param _builtins.str end_range: Blob end range. This is exclusive. Empty means account end.
         :param _builtins.str start_range: Blob start range. This is inclusive. Empty means account start.
         """
@@ -929,6 +939,7 @@ class BlobRestoreStatusResponse(dict):
                  status: _builtins.str):
         """
         Blob restore status.
+
         :param _builtins.str failure_reason: Failure reason when blob restore is failed.
         :param 'BlobRestoreParametersResponse' parameters: Blob restore request parameters.
         :param _builtins.str restore_id: Id for tracking blob restore request.
@@ -999,6 +1010,7 @@ class ChangeFeedResponse(dict):
                  retention_in_days: Optional[_builtins.int] = None):
         """
         The blob service properties for change feed events.
+
         :param _builtins.bool enabled: Indicates whether change feed event logging is enabled for the Blob service.
         :param _builtins.int retention_in_days: Indicates the duration of changeFeed retention in days. Minimum value is 1 day and maximum value is 146000 days (400 years). A null value indicates an infinite retention of the change feed.
         """
@@ -1062,6 +1074,7 @@ class CorsRuleResponse(dict):
                  max_age_in_seconds: _builtins.int):
         """
         Specifies a CORS rule for the Blob service.
+
         :param Sequence[_builtins.str] allowed_headers: Required if CorsRule element is present. A list of headers allowed to be part of the cross-origin request.
         :param Sequence[_builtins.str] allowed_methods: Required if CorsRule element is present. A list of HTTP methods that are allowed to be executed by the origin.
         :param Sequence[_builtins.str] allowed_origins: Required if CorsRule element is present. A list of origin domains that will be allowed via CORS, or "*" to allow all domains
@@ -1141,6 +1154,7 @@ class CorsRulesResponse(dict):
                  cors_rules: Optional[Sequence['outputs.CorsRuleResponse']] = None):
         """
         Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+
         :param Sequence['CorsRuleResponse'] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
         """
         if cors_rules is not None:
@@ -1182,6 +1196,7 @@ class CustomDomainResponse(dict):
                  use_sub_domain_name: Optional[_builtins.bool] = None):
         """
         The custom domain assigned to this storage account. This can be set via Update.
+
         :param _builtins.str name: Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
         :param _builtins.bool use_sub_domain_name: Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
         """
@@ -1235,6 +1250,7 @@ class DateAfterCreationResponse(dict):
                  days_after_last_tier_change_greater_than: Optional[_builtins.float] = None):
         """
         Object to define snapshot and version action conditions.
+
         :param _builtins.float days_after_creation_greater_than: Value indicating the age in days after creation
         :param _builtins.float days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterCreationGreaterThan to be set for snapshots and blob version based actions. The blob will be archived if both the conditions are satisfied.
         """
@@ -1294,6 +1310,7 @@ class DateAfterModificationResponse(dict):
                  days_after_modification_greater_than: Optional[_builtins.float] = None):
         """
         Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
+
         :param _builtins.float days_after_creation_greater_than: Value indicating the age in days after blob creation.
         :param _builtins.float days_after_last_access_time_greater_than: Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         :param _builtins.float days_after_last_tier_change_greater_than: Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
@@ -1369,6 +1386,7 @@ class DeleteRetentionPolicyResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The service properties for soft delete.
+
         :param _builtins.bool allow_permanent_delete: This property when set to true allows deletion of the soft deleted blob versions and snapshots. This property cannot be used blob restore policy. This property only applies to blob service and does not apply to containers or file share.
         :param _builtins.int days: Indicates the number of days that the deleted item should be retained. The minimum specified value can be 1 and the maximum value can be 365.
         :param _builtins.bool enabled: Indicates whether DeleteRetentionPolicy is enabled.
@@ -1434,6 +1452,7 @@ class EncryptionIdentityResponse(dict):
                  encryption_user_assigned_identity: Optional[_builtins.str] = None):
         """
         Encryption identity for the storage account.
+
         :param _builtins.str encryption_federated_identity_client_id: ClientId of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
         :param _builtins.str encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the storage account.
         """
@@ -1495,6 +1514,7 @@ class EncryptionResponse(dict):
                  services: Optional['outputs.EncryptionServicesResponse'] = None):
         """
         The encryption settings on the storage account.
+
         :param 'EncryptionIdentityResponse' encryption_identity: The identity to be used with service-side encryption at rest.
         :param _builtins.str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
@@ -1587,6 +1607,7 @@ class EncryptionScopeKeyVaultPropertiesResponse(dict):
                  key_uri: Optional[_builtins.str] = None):
         """
         The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+
         :param _builtins.str current_versioned_key_identifier: The object identifier of the current versioned Key Vault Key in use.
         :param _builtins.str last_key_rotation_timestamp: Timestamp of last rotation of the Key Vault Key.
         :param _builtins.str key_uri: The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.
@@ -1651,6 +1672,7 @@ class EncryptionServiceResponse(dict):
                  key_type: Optional[_builtins.str] = None):
         """
         A service that allows server-side encryption to be used.
+
         :param _builtins.str last_enabled_time: Gets a rough estimate of the date/time when the encryption was last enabled by the user. Data is encrypted at rest by default today and cannot be disabled.
         :param _builtins.bool enabled: A boolean indicating whether or not the service encrypts the data as it is stored. Encryption at rest is enabled by default today and cannot be disabled.
         :param _builtins.str key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
@@ -1698,6 +1720,7 @@ class EncryptionServicesResponse(dict):
                  table: Optional['outputs.EncryptionServiceResponse'] = None):
         """
         A list of services that support encryption.
+
         :param 'EncryptionServiceResponse' blob: The encryption function of the blob storage service.
         :param 'EncryptionServiceResponse' file: The encryption function of the file storage service.
         :param 'EncryptionServiceResponse' queue: The encryption function of the queue storage service.
@@ -1780,6 +1803,7 @@ class EndpointsResponse(dict):
                  microsoft_endpoints: Optional['outputs.StorageAccountMicrosoftEndpointsResponse'] = None):
         """
         The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object.
+
         :param _builtins.str blob: Gets the blob endpoint.
         :param _builtins.str dfs: Gets the dfs endpoint.
         :param _builtins.str file: Gets the file endpoint.
@@ -1892,6 +1916,7 @@ class ExecutionTargetResponse(dict):
                  prefix: Optional[Sequence[_builtins.str]] = None):
         """
         Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
+
         :param Sequence[_builtins.str] exclude_prefix: List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
         :param Sequence[_builtins.str] prefix: Required list of object prefixes to be included for task execution
         """
@@ -1927,6 +1952,7 @@ class ExecutionTriggerResponse(dict):
                  type: _builtins.str):
         """
         Execution trigger for storage task assignment
+
         :param 'TriggerParametersResponse' parameters: The trigger parameters of the storage task assignment execution
         :param _builtins.str type: The trigger type of the storage task assignment execution
         """
@@ -1960,6 +1986,7 @@ class ExtendedLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The complex type of the extended location.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -2017,6 +2044,7 @@ class FileSharePropertiesResponseFileSharePaidBursting(dict):
                  paid_bursting_max_iops: Optional[_builtins.int] = None):
         """
         File Share Paid Bursting properties.
+
         :param _builtins.bool paid_bursting_enabled: Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
         :param _builtins.int paid_bursting_max_bandwidth_mibps: The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
         :param _builtins.int paid_bursting_max_iops: The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
@@ -2092,6 +2120,7 @@ class GeoReplicationStatsResponse(dict):
                  status: _builtins.str):
         """
         Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
+
         :param _builtins.bool can_failover: A boolean flag which indicates whether or not account failover is supported for the account.
         :param _builtins.bool can_planned_failover: A boolean flag which indicates whether or not planned account failover is supported for the account.
         :param _builtins.str last_sync_time: All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
@@ -2182,6 +2211,7 @@ class IPRuleResponse(dict):
                  action: Optional[_builtins.str] = None):
         """
         IP rule with specific IP or IP range in CIDR format.
+
         :param _builtins.str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param _builtins.str action: The action of IP ACL rule.
         """
@@ -2241,6 +2271,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -2322,6 +2353,7 @@ class ImmutabilityPolicyPropertiesResponse(dict):
                  immutability_period_since_creation_in_days: Optional[_builtins.int] = None):
         """
         The properties of an ImmutabilityPolicy of a blob container.
+
         :param _builtins.str etag: ImmutabilityPolicy Etag.
         :param _builtins.str state: The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
         :param Sequence['UpdateHistoryPropertyResponse'] update_history: The ImmutabilityPolicy update history of the blob container.
@@ -2415,6 +2447,7 @@ class ImmutableStorageAccountResponse(dict):
                  immutability_policy: Optional['outputs.AccountImmutabilityPolicyPropertiesResponse'] = None):
         """
         This property enables and defines account-level immutability. Enabling the feature auto-enables Blob Versioning.
+
         :param _builtins.bool enabled: A boolean flag which enables account-level immutability. All the containers under such an account have object-level immutability enabled by default.
         :param 'AccountImmutabilityPolicyPropertiesResponse' immutability_policy: Specifies the default account-level immutability policy which is inherited and applied to objects that do not possess an explicit immutability policy at the object level. The object-level immutability policy has higher precedence than the container-level immutability policy, which has a higher precedence than the account-level immutability policy.
         """
@@ -2470,6 +2503,7 @@ class ImmutableStorageWithVersioningResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Object level immutability properties of the container.
+
         :param _builtins.str migration_state: This property denotes the container level immutability to object level immutability migration state.
         :param _builtins.str time_stamp: Returns the date and time the object level immutability was enabled.
         :param _builtins.bool enabled: This is an immutable property, when set to true it enables object level immutability at the container level.
@@ -2557,6 +2591,7 @@ class KeyPolicyResponse(dict):
                  key_expiration_period_in_days: _builtins.int):
         """
         KeyPolicy assigned to the storage account.
+
         :param _builtins.int key_expiration_period_in_days: The key expiration period in days.
         """
         pulumi.set(__self__, "key_expiration_period_in_days", key_expiration_period_in_days)
@@ -2611,6 +2646,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Properties of key vault.
+
         :param _builtins.str current_versioned_key_expiration_timestamp: This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
         :param _builtins.str current_versioned_key_identifier: The object identifier of the current versioned Key Vault Key in use.
         :param _builtins.str last_key_rotation_timestamp: Timestamp of last rotation of the Key Vault Key.
@@ -2708,6 +2744,7 @@ class LastAccessTimeTrackingPolicyResponse(dict):
                  tracking_granularity_in_days: Optional[_builtins.int] = None):
         """
         The blob service properties for Last access time based tracking policy.
+
         :param _builtins.bool enable: When set to true last access time based tracking is enabled.
         :param Sequence[_builtins.str] blob_type: An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only
         :param _builtins.str name: Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
@@ -2784,6 +2821,7 @@ class LegalHoldPropertiesResponse(dict):
                  tags: Optional[Sequence['outputs.TagPropertyResponse']] = None):
         """
         The LegalHold property of a blob container.
+
         :param _builtins.bool has_legal_hold: The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
         :param 'ProtectedAppendWritesHistoryResponse' protected_append_writes_history: Protected append blob writes history.
         :param Sequence['TagPropertyResponse'] tags: The list of LegalHold tags of a blob container.
@@ -2847,6 +2885,7 @@ class ManagementPolicyActionResponse(dict):
                  version: Optional['outputs.ManagementPolicyVersionResponse'] = None):
         """
         Actions are applied to the filtered blobs when the execution condition is met.
+
         :param 'ManagementPolicyBaseBlobResponse' base_blob: The management policy action for base blob
         :param 'ManagementPolicySnapShotResponse' snapshot: The management policy action for snapshot
         :param 'ManagementPolicyVersionResponse' version: The management policy action for version
@@ -2922,6 +2961,7 @@ class ManagementPolicyBaseBlobResponse(dict):
                  tier_to_hot: Optional['outputs.DateAfterModificationResponse'] = None):
         """
         Management policy action for base blob.
+
         :param 'DateAfterModificationResponse' delete: The function to delete the blob
         :param _builtins.bool enable_auto_tier_to_hot_from_cool: This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan.
         :param 'DateAfterModificationResponse' tier_to_archive: The function to tier blobs to archive storage.
@@ -3001,6 +3041,7 @@ class ManagementPolicyDefinitionResponse(dict):
                  filters: Optional['outputs.ManagementPolicyFilterResponse'] = None):
         """
         An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
+
         :param 'ManagementPolicyActionResponse' actions: An object that defines the action set.
         :param 'ManagementPolicyFilterResponse' filters: An object that defines the filter set.
         """
@@ -3057,6 +3098,7 @@ class ManagementPolicyFilterResponse(dict):
                  prefix_match: Optional[Sequence[_builtins.str]] = None):
         """
         Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+
         :param Sequence[_builtins.str] blob_types: An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.
         :param Sequence['TagFilterResponse'] blob_index_match: An array of blob index tag based filters, there can be at most 10 tag filters
         :param Sequence[_builtins.str] prefix_match: An array of strings for prefixes to be match.
@@ -3104,6 +3146,7 @@ class ManagementPolicyRuleResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
+
         :param 'ManagementPolicyDefinitionResponse' definition: An object that defines the Lifecycle rule.
         :param _builtins.str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
         :param _builtins.str type: The valid value is Lifecycle
@@ -3157,6 +3200,7 @@ class ManagementPolicySchemaResponse(dict):
                  rules: Sequence['outputs.ManagementPolicyRuleResponse']):
         """
         The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
+
         :param Sequence['ManagementPolicyRuleResponse'] rules: The Storage Account ManagementPolicies Rules. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
         """
         pulumi.set(__self__, "rules", rules)
@@ -3206,6 +3250,7 @@ class ManagementPolicySnapShotResponse(dict):
                  tier_to_hot: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for snapshot.
+
         :param 'DateAfterCreationResponse' delete: The function to delete the blob snapshot
         :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob snapshot to archive storage.
         :param 'DateAfterCreationResponse' tier_to_cold: The function to tier blobs to cold storage.
@@ -3300,6 +3345,7 @@ class ManagementPolicyVersionResponse(dict):
                  tier_to_hot: Optional['outputs.DateAfterCreationResponse'] = None):
         """
         Management policy action for blob version.
+
         :param 'DateAfterCreationResponse' delete: The function to delete the blob version
         :param 'DateAfterCreationResponse' tier_to_archive: The function to tier blob version to archive storage.
         :param 'DateAfterCreationResponse' tier_to_cold: The function to tier blobs to cold storage.
@@ -3367,6 +3413,7 @@ class MultichannelResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Multichannel setting. Applies to Premium FileStorage only.
+
         :param _builtins.bool enabled: Indicates whether multichannel is enabled
         """
         if enabled is not None:
@@ -3417,6 +3464,7 @@ class NetworkRuleSetResponse(dict):
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         Network rule set
+
         :param _builtins.str default_action: Specifies the default action of allow or deny when no other rules match.
         :param _builtins.str bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         :param Sequence['IPRuleResponse'] ip_rules: Sets the IP ACL rules
@@ -3507,6 +3555,7 @@ class ObjectReplicationPolicyFilterResponse(dict):
                  prefix_match: Optional[Sequence[_builtins.str]] = None):
         """
         Filters limit replication to a subset of blobs within the storage account. A logical OR is performed on values in the filter. If multiple filters are defined, a logical AND is performed on all filters.
+
         :param _builtins.str min_creation_time: Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
         :param Sequence[_builtins.str] prefix_match: Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
         """
@@ -3541,6 +3590,7 @@ class ObjectReplicationPolicyPropertiesResponseMetrics(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         Optional. The object replication policy metrics feature options.
+
         :param _builtins.bool enabled: Indicates whether object replication metrics feature is enabled for the policy.
         """
         if enabled is not None:
@@ -3588,6 +3638,7 @@ class ObjectReplicationPolicyRuleResponse(dict):
                  rule_id: Optional[_builtins.str] = None):
         """
         The replication policy rule between two containers.
+
         :param _builtins.str destination_container: Required. Destination container name.
         :param _builtins.str source_container: Required. Source container name.
         :param 'ObjectReplicationPolicyFilterResponse' filters: Optional. An object that defines the filter set.
@@ -3725,6 +3776,7 @@ class PrivateEndpointConnectionResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -3798,6 +3850,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -3839,6 +3892,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -3902,6 +3956,7 @@ class ProtectedAppendWritesHistoryResponse(dict):
                  allow_protected_append_writes_all: Optional[_builtins.bool] = None):
         """
         Protected append writes history setting for the blob container with Legal holds.
+
         :param _builtins.str timestamp: Returns the date and time the tag was added.
         :param _builtins.bool allow_protected_append_writes_all: When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
         """
@@ -3935,6 +3990,7 @@ class ProtocolSettingsResponse(dict):
                  smb: Optional['outputs.SmbSettingResponse'] = None):
         """
         Protocol settings for file service
+
         :param 'SmbSettingResponse' smb: Setting for SMB protocol
         """
         if smb is not None:
@@ -3978,6 +4034,7 @@ class ResourceAccessRuleResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Resource Access Rule.
+
         :param _builtins.str resource_id: Resource Id
         :param _builtins.str tenant_id: Tenant Id
         """
@@ -4034,6 +4091,7 @@ class RestorePolicyPropertiesResponse(dict):
                  days: Optional[_builtins.int] = None):
         """
         The blob service properties for blob restore policy
+
         :param _builtins.bool enabled: Blob restore is enabled if set to true.
         :param _builtins.str last_enabled_time: Deprecated in favor of minRestoreTime property.
         :param _builtins.str min_restore_time: Returns the minimum date and time that the restore can be started.
@@ -4110,6 +4168,7 @@ class RoutingPreferenceResponse(dict):
                  routing_choice: Optional[_builtins.str] = None):
         """
         Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
+
         :param _builtins.bool publish_internet_endpoints: A boolean flag which indicates whether internet routing storage endpoints are to be published
         :param _builtins.bool publish_microsoft_endpoints: A boolean flag which indicates whether microsoft routing storage endpoints are to be published
         :param _builtins.str routing_choice: Routing Choice defines the kind of network routing opted by the user.
@@ -4175,6 +4234,7 @@ class SasPolicyResponse(dict):
                  sas_expiration_period: _builtins.str):
         """
         SasPolicy assigned to the storage account.
+
         :param _builtins.str expiration_action: The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         :param _builtins.str sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
         """
@@ -4258,6 +4318,7 @@ class SkuResponse(dict):
                  tier: _builtins.str):
         """
         The SKU of the storage account.
+
         :param _builtins.str name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         :param _builtins.str tier: The SKU tier. This is based on the SKU name.
         """
@@ -4315,6 +4376,7 @@ class SmbSettingResponse(dict):
                  versions: Optional[_builtins.str] = None):
         """
         Setting for SMB protocol
+
         :param _builtins.str authentication_methods: SMB authentication methods supported by server. Valid values are NTLMv2, Kerberos. Should be passed as a string with delimiter ';'.
         :param _builtins.str channel_encryption: SMB channel encryption supported by server. Valid values are AES-128-CCM, AES-128-GCM, AES-256-GCM. Should be passed as a string with delimiter ';'.
         :param _builtins.str kerberos_ticket_encryption: Kerberos ticket encryption supported by server. Valid values are RC4-HMAC, AES-256. Should be passed as a string with delimiter ';'
@@ -4416,6 +4478,7 @@ class StorageAccountInternetEndpointsResponse(dict):
                  web: _builtins.str):
         """
         The URIs that are used to perform a retrieval of a public blob, file, web or dfs object via a internet routing endpoint.
+
         :param _builtins.str blob: Gets the blob endpoint.
         :param _builtins.str dfs: Gets the dfs endpoint.
         :param _builtins.str file: Gets the file endpoint.
@@ -4471,6 +4534,7 @@ class StorageAccountKeyResponse(dict):
                  value: _builtins.str):
         """
         An access key for the storage account.
+
         :param _builtins.str creation_time: Creation time of the key, in round trip date format.
         :param _builtins.str key_name: Name of the key.
         :param _builtins.str permissions: Permissions for the key -- read-only or full permissions.
@@ -4528,6 +4592,7 @@ class StorageAccountMicrosoftEndpointsResponse(dict):
                  web: _builtins.str):
         """
         The URIs that are used to perform a retrieval of a public blob, queue, table, web or dfs object via a microsoft routing endpoint.
+
         :param _builtins.str blob: Gets the blob endpoint.
         :param _builtins.str dfs: Gets the dfs endpoint.
         :param _builtins.str file: Gets the file endpoint.
@@ -4626,6 +4691,7 @@ class StorageAccountSkuConversionStatusResponse(dict):
                  target_sku_name: Optional[_builtins.str] = None):
         """
         This defines the sku conversion status object for asynchronous sku conversions.
+
         :param _builtins.str end_time: This property represents the sku conversion end time.
         :param _builtins.str sku_conversion_status: This property indicates the current sku conversion status.
         :param _builtins.str start_time: This property represents the sku conversion start time.
@@ -4680,6 +4746,7 @@ class StorageTaskAssignmentExecutionContextResponse(dict):
                  target: Optional['outputs.ExecutionTargetResponse'] = None):
         """
         Execution context of the storage task assignment.
+
         :param 'ExecutionTriggerResponse' trigger: Execution trigger of the storage task assignment
         :param 'ExecutionTargetResponse' target: Execution target of the storage task assignment
         """
@@ -4742,6 +4809,7 @@ class StorageTaskAssignmentPropertiesResponse(dict):
                  run_status: Optional['outputs.StorageTaskReportPropertiesResponse'] = None):
         """
         Properties of the storage task assignment.
+
         :param _builtins.str description: Text that describes the purpose of the storage task assignment
         :param _builtins.bool enabled: Whether the storage task assignment is enabled or not
         :param 'StorageTaskAssignmentExecutionContextResponse' execution_context: The storage task assignment execution context
@@ -4825,6 +4893,7 @@ class StorageTaskAssignmentReportResponse(dict):
                  prefix: _builtins.str):
         """
         The storage task assignment report
+
         :param _builtins.str prefix: The container prefix for the location of storage task assignment report
         """
         pulumi.set(__self__, "prefix", prefix)
@@ -4903,6 +4972,7 @@ class StorageTaskReportPropertiesResponse(dict):
                  task_version: _builtins.str):
         """
         Storage task execution report for a run instance.
+
         :param _builtins.str finish_time: End time of the run instance. Filter options such as startTime gt '2023-06-26T20:51:24.4494016Z' and other comparison operators can be used as described for DateTime properties in https://learn.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
         :param _builtins.str object_failed_count: Total number of objects where task operation failed when was attempted. Filter options such as objectFailedCount eq 0 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
         :param _builtins.str objects_operated_on_count: Total number of objects that meet the storage tasks condition and were operated upon. Filter options such as objectsOperatedOnCount ge 100 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
@@ -5087,6 +5157,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -5186,6 +5257,7 @@ class TableAccessPolicyResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Table Access Policy Properties Object.
+
         :param _builtins.str permission: Required. List of abbreviated permissions. Supported permission values include 'r','a','u','d'
         :param _builtins.str expiry_time: Expiry time of the access policy
         :param _builtins.str start_time: Start time of the access policy
@@ -5248,6 +5320,7 @@ class TableSignedIdentifierResponse(dict):
                  access_policy: Optional['outputs.TableAccessPolicyResponse'] = None):
         """
         Object to set Table Access Policy.
+
         :param _builtins.str id: unique-64-character-value of the stored access policy.
         :param 'TableAccessPolicyResponse' access_policy: Access policy
         """
@@ -5283,6 +5356,7 @@ class TagFilterResponse(dict):
                  value: _builtins.str):
         """
         Blob index tag based filtering for blob objects
+
         :param _builtins.str name: This is the filter tag name, it can have 1 - 128 characters
         :param _builtins.str op: This is the comparison operator which is used for object comparison and filtering. Only == (equality operator) is currently supported
         :param _builtins.str value: This is the filter tag value field used for tag based filtering, it can have 0 - 256 characters
@@ -5348,6 +5422,7 @@ class TagPropertyResponse(dict):
                  upn: _builtins.str):
         """
         A tag of the LegalHold of a blob container.
+
         :param _builtins.str object_identifier: Returns the Object ID of the user who added the tag.
         :param _builtins.str tag: The tag value.
         :param _builtins.str tenant_id: Returns the Tenant ID that issued the token for the user who added the tag.
@@ -5437,6 +5512,7 @@ class TriggerParametersResponse(dict):
                  start_on: Optional[_builtins.str] = None):
         """
         The trigger parameters update for the storage task assignment execution
+
         :param _builtins.str end_by: When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         :param _builtins.int interval: Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
         :param _builtins.str interval_unit: Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
@@ -5536,6 +5612,7 @@ class UpdateHistoryPropertyResponse(dict):
                  allow_protected_append_writes_all: Optional[_builtins.bool] = None):
         """
         An update history of the ImmutabilityPolicy of a blob container.
+
         :param _builtins.int immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param _builtins.str object_identifier: Returns the Object ID of the user who updated the ImmutabilityPolicy.
         :param _builtins.str tenant_id: Returns the Tenant ID that issued the token for the user who updated the ImmutabilityPolicy.
@@ -5650,6 +5727,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         UserAssignedIdentity for the resource.
+
         :param _builtins.str client_id: The client ID of the identity.
         :param _builtins.str principal_id: The principal ID of the identity.
         """
@@ -5701,6 +5779,7 @@ class VirtualNetworkRuleResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Virtual Network rule.
+
         :param _builtins.str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param _builtins.str action: The action of virtual network rule.
         :param _builtins.str state: Gets the state of virtual network rule.

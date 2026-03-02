@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Synapse
     /// Class representing a read only following database.
     /// 
     /// Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolDatabasesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readOnlyFollowingDatabase = new AzureNative.Synapse.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase", new()
+    ///     {
+    ///         DatabaseName = "KustoDatabase8",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         ResourceGroupName = "kustorptest",
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:ReadOnlyFollowingDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource

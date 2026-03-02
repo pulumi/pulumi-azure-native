@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Resource Sync Rules definition.
  *
  * Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-31-preview.
+ *
+ * ## Example Usage
+ * ### Create/Update Resource Sync Rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceSyncRule = new azure_native.extendedlocation.ResourceSyncRule("resourceSyncRule", {
+ *     childResourceName: "resourceSyncRule01",
+ *     location: "West US",
+ *     priority: 999,
+ *     resourceGroupName: "testresourcegroup",
+ *     resourceName: "customLocation01",
+ *     selector: {
+ *         matchLabels: {
+ *             key1: "value1",
+ *         },
+ *     },
+ *     targetResourceGroup: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:extendedlocation:ResourceSyncRule resourceSyncRule01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName}/resourceSyncRules/{childResourceName} 
+ * ```
  */
 export class ResourceSyncRule extends pulumi.CustomResource {
     /**

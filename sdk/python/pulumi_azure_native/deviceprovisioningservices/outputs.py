@@ -64,6 +64,7 @@ class CertificatePropertiesResponse(dict):
                  is_verified: Optional[_builtins.bool] = None):
         """
         The description of an X509 CA Certificate.
+
         :param _builtins.str created: The certificate's creation date and time.
         :param _builtins.str expiry: The certificate's expiration date and time.
         :param _builtins.str subject: The certificate's subject name.
@@ -199,6 +200,7 @@ class IotDpsPropertiesDescriptionResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+
         :param _builtins.str device_provisioning_host_name: Device endpoint for this provisioning service.
         :param _builtins.str id_scope: Unique identifier of this provisioning service.
         :param _builtins.str service_operations_host_name: Service endpoint for provisioning service.
@@ -355,6 +357,7 @@ class IotDpsSkuInfoResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         List of possible provisioning service SKUs.
+
         :param _builtins.str tier: Pricing tier name of the provisioning service.
         :param _builtins.float capacity: The number of units to provision
         :param _builtins.str name: Sku name.
@@ -424,6 +427,7 @@ class IotHubDefinitionDescriptionResponse(dict):
                  apply_allocation_policy: Optional[_builtins.bool] = None):
         """
         Description of the IoT hub.
+
         :param _builtins.str connection_string: Connection string of the IoT hub.
         :param _builtins.str location: ARM region of the IoT hub.
         :param _builtins.str name: Host name of the IoT hub.
@@ -510,6 +514,7 @@ class IpFilterRuleResponse(dict):
                  target: Optional[_builtins.str] = None):
         """
         The IP filter rules for a provisioning Service.
+
         :param _builtins.str action: The desired action for requests captured by this rule.
         :param _builtins.str filter_name: The name of the IP filter rule.
         :param _builtins.str ip_mask: A string that contains the IP address range in CIDR notation for the rule.
@@ -587,6 +592,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -660,6 +666,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The properties of a private endpoint connection
+
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The current state of a private endpoint connection
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint property of a private endpoint connection
         """
@@ -714,6 +721,7 @@ class PrivateEndpointConnectionResponse(dict):
                  type: _builtins.str):
         """
         The private endpoint connection of a provisioning service
+
         :param _builtins.str id: The resource identifier.
         :param _builtins.str name: The resource name.
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: The properties of a private endpoint connection
@@ -776,6 +784,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The private endpoint property of a private endpoint connection
+
         :param _builtins.str id: The resource identifier.
         """
         pulumi.set(__self__, "id", id)
@@ -817,6 +826,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  actions_required: Optional[_builtins.str] = None):
         """
         The current state of a private endpoint connection
+
         :param _builtins.str description: The description for the current state of a private endpoint connection
         :param _builtins.str status: The status of a private endpoint connection
         :param _builtins.str actions_required: Actions required for a private endpoint connection
@@ -884,6 +894,7 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse(dict
                  secondary_key: Optional[_builtins.str] = None):
         """
         Description of the shared access key.
+
         :param _builtins.str key_name: Name of the key.
         :param _builtins.str rights: Rights that this key has.
         :param _builtins.str primary_key: Primary SAS key value.
@@ -970,6 +981,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1068,6 +1080,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

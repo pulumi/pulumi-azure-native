@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A Disk.
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
+    /// 
+    /// ## Example Usage
+    /// ### Disks_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.DevTestLab.Disk("disk", new()
+    ///     {
+    ///         DiskSizeGiB = 1023,
+    ///         DiskType = AzureNative.DevTestLab.StorageType.Standard,
+    ///         LabName = "{labName}",
+    ///         LeasedByLabVmId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/vmName",
+    ///         Name = "{diskName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         UserName = "{userId}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:Disk {diskName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/disks/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Disk")]
     public partial class Disk : global::Pulumi.CustomResource

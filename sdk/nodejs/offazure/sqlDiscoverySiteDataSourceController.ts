@@ -13,6 +13,31 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
  * Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### SqlDiscoverySiteDataSourceController_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDiscoverySiteDataSourceController = new azure_native.offazure.SqlDiscoverySiteDataSourceController("sqlDiscoverySiteDataSourceController", {
+ *     discoverySiteDataSourceName: "jN--823UiQ",
+ *     discoverySiteId: "ndmdh",
+ *     resourceGroupName: "rgmigrate",
+ *     siteName: "v-MwBCpvV-",
+ *     sqlSiteName: "NO-8-W75XK5-4Xfs54I-n",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazure:SqlDiscoverySiteDataSourceController ogoambuklhacaucjkaxgzyvfm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/sqlSites/{sqlSiteName}/discoverySiteDataSources/{discoverySiteDataSourceName} 
+ * ```
  */
 export class SqlDiscoverySiteDataSourceController extends pulumi.CustomResource {
     /**

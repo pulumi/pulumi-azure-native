@@ -42,19 +42,14 @@ __all__ = [
     'VirtualNetworkConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AcceptedAudiencesArgsDict(TypedDict):
-        """
-        Represents an accepted audience trusted by the cluster.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GUID or valid URL representing an accepted audience.
-        """
-elif False:
-    AcceptedAudiencesArgsDict: TypeAlias = Mapping[str, Any]
+class AcceptedAudiencesArgsDict(TypedDict):
+    """
+    Represents an accepted audience trusted by the cluster.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GUID or valid URL representing an accepted audience.
+    """
 
 @pulumi.input_type
 class AcceptedAudiencesArgs:
@@ -62,6 +57,7 @@ class AcceptedAudiencesArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents an accepted audience trusted by the cluster.
+
         :param pulumi.Input[_builtins.str] value: GUID or valid URL representing an accepted audience.
         """
         if value is not None:
@@ -80,25 +76,22 @@ class AcceptedAudiencesArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class AzureSkuArgsDict(TypedDict):
-        """
-        Azure SKU definition.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'AzureSkuName']]
-        """
-        SKU name.
-        """
-        tier: pulumi.Input[Union[_builtins.str, 'AzureSkuTier']]
-        """
-        SKU tier.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of instances of the cluster.
-        """
-elif False:
-    AzureSkuArgsDict: TypeAlias = Mapping[str, Any]
+class AzureSkuArgsDict(TypedDict):
+    """
+    Azure SKU definition.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'AzureSkuName']]
+    """
+    SKU name.
+    """
+    tier: pulumi.Input[Union[_builtins.str, 'AzureSkuTier']]
+    """
+    SKU tier.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of instances of the cluster.
+    """
 
 @pulumi.input_type
 class AzureSkuArgs:
@@ -108,6 +101,7 @@ class AzureSkuArgs:
                  capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Azure SKU definition.
+
         :param pulumi.Input[Union[_builtins.str, 'AzureSkuName']] name: SKU name.
         :param pulumi.Input[Union[_builtins.str, 'AzureSkuTier']] tier: SKU tier.
         :param pulumi.Input[_builtins.int] capacity: The number of instances of the cluster.
@@ -154,25 +148,22 @@ class AzureSkuArgs:
         pulumi.set(self, "capacity", value)
 
 
-if not MYPY:
-    class CalloutPolicyArgsDict(TypedDict):
-        """
-        Configuration for external callout policies, including URI patterns, access types, and service types.
-        """
-        callout_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CalloutType']]]
-        """
-        Type of the callout service, specifying the kind of external resource or service being accessed.
-        """
-        callout_uri_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression or FQDN pattern for the callout URI.
-        """
-        outbound_access: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]]
-        """
-        Indicates whether outbound access is permitted for the specified URI pattern.
-        """
-elif False:
-    CalloutPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class CalloutPolicyArgsDict(TypedDict):
+    """
+    Configuration for external callout policies, including URI patterns, access types, and service types.
+    """
+    callout_type: NotRequired[pulumi.Input[Union[_builtins.str, 'CalloutType']]]
+    """
+    Type of the callout service, specifying the kind of external resource or service being accessed.
+    """
+    callout_uri_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression or FQDN pattern for the callout URI.
+    """
+    outbound_access: NotRequired[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]]
+    """
+    Indicates whether outbound access is permitted for the specified URI pattern.
+    """
 
 @pulumi.input_type
 class CalloutPolicyArgs:
@@ -182,6 +173,7 @@ class CalloutPolicyArgs:
                  outbound_access: Optional[pulumi.Input[Union[_builtins.str, 'OutboundAccess']]] = None):
         """
         Configuration for external callout policies, including URI patterns, access types, and service types.
+
         :param pulumi.Input[Union[_builtins.str, 'CalloutType']] callout_type: Type of the callout service, specifying the kind of external resource or service being accessed.
         :param pulumi.Input[_builtins.str] callout_uri_regex: Regular expression or FQDN pattern for the callout URI.
         :param pulumi.Input[Union[_builtins.str, 'OutboundAccess']] outbound_access: Indicates whether outbound access is permitted for the specified URI pattern.
@@ -230,21 +222,18 @@ class CalloutPolicyArgs:
         pulumi.set(self, "outbound_access", value)
 
 
-if not MYPY:
-    class IdentityArgsDict(TypedDict):
-        """
-        Identity for the resource.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
-        """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        """
-elif False:
-    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+class IdentityArgsDict(TypedDict):
+    """
+    Identity for the resource.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
 
 @pulumi.input_type
 class IdentityArgs:
@@ -253,6 +242,7 @@ class IdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Identity for the resource.
+
         :param pulumi.Input[Union[_builtins.str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -285,29 +275,26 @@ class IdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class KeyVaultPropertiesArgsDict(TypedDict):
-        """
-        Properties of the key vault.
-        """
-        key_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the key vault key.
-        """
-        key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Uri of the key vault.
-        """
-        key_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the key vault key.
-        """
-        user_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user assigned identity (ARM resource id) that has access to the key.
-        """
-elif False:
-    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Properties of the key vault.
+    """
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the key vault key.
+    """
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Uri of the key vault.
+    """
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the key vault key.
+    """
+    user_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user assigned identity (ARM resource id) that has access to the key.
+    """
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
@@ -318,6 +305,7 @@ class KeyVaultPropertiesArgs:
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Properties of the key vault.
+
         :param pulumi.Input[_builtins.str] key_name: The name of the key vault key.
         :param pulumi.Input[_builtins.str] key_vault_uri: The Uri of the key vault.
         :param pulumi.Input[_builtins.str] key_version: The version of the key vault key.
@@ -381,17 +369,14 @@ class KeyVaultPropertiesArgs:
         pulumi.set(self, "user_identity", value)
 
 
-if not MYPY:
-    class LanguageExtensionsListArgsDict(TypedDict):
-        """
-        The list of language extension objects.
-        """
-        value: NotRequired[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgsDict']]]]
-        """
-        The list of language extensions.
-        """
-elif False:
-    LanguageExtensionsListArgsDict: TypeAlias = Mapping[str, Any]
+class LanguageExtensionsListArgsDict(TypedDict):
+    """
+    The list of language extension objects.
+    """
+    value: NotRequired[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgsDict']]]]
+    """
+    The list of language extensions.
+    """
 
 @pulumi.input_type
 class LanguageExtensionsListArgs:
@@ -399,6 +384,7 @@ class LanguageExtensionsListArgs:
                  value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None):
         """
         The list of language extension objects.
+
         :param pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
         """
         if value is not None:
@@ -417,25 +403,22 @@ class LanguageExtensionsListArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LanguageExtensionArgsDict(TypedDict):
-        """
-        The language extension object.
-        """
-        language_extension_custom_image_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The language extension custom image name.
-        """
-        language_extension_image_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']]]
-        """
-        The language extension image name.
-        """
-        language_extension_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]]
-        """
-        The language extension name.
-        """
-elif False:
-    LanguageExtensionArgsDict: TypeAlias = Mapping[str, Any]
+class LanguageExtensionArgsDict(TypedDict):
+    """
+    The language extension object.
+    """
+    language_extension_custom_image_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The language extension custom image name.
+    """
+    language_extension_image_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']]]
+    """
+    The language extension image name.
+    """
+    language_extension_name: NotRequired[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]]
+    """
+    The language extension name.
+    """
 
 @pulumi.input_type
 class LanguageExtensionArgs:
@@ -445,6 +428,7 @@ class LanguageExtensionArgs:
                  language_extension_name: Optional[pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']]] = None):
         """
         The language extension object.
+
         :param pulumi.Input[_builtins.str] language_extension_custom_image_name: The language extension custom image name.
         :param pulumi.Input[Union[_builtins.str, 'LanguageExtensionImageName']] language_extension_image_name: The language extension image name.
         :param pulumi.Input[Union[_builtins.str, 'LanguageExtensionName']] language_extension_name: The language extension name.
@@ -493,29 +477,26 @@ class LanguageExtensionArgs:
         pulumi.set(self, "language_extension_name", value)
 
 
-if not MYPY:
-    class OptimizedAutoscaleArgsDict(TypedDict):
-        """
-        A class that contains the optimized auto scale definition.
-        """
-        is_enabled: pulumi.Input[_builtins.bool]
-        """
-        A boolean value that indicate if the optimized autoscale feature is enabled or not.
-        """
-        maximum: pulumi.Input[_builtins.int]
-        """
-        Maximum allowed instances count.
-        """
-        minimum: pulumi.Input[_builtins.int]
-        """
-        Minimum allowed instances count.
-        """
-        version: pulumi.Input[_builtins.int]
-        """
-        The version of the template defined, for instance 1.
-        """
-elif False:
-    OptimizedAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+class OptimizedAutoscaleArgsDict(TypedDict):
+    """
+    A class that contains the optimized auto scale definition.
+    """
+    is_enabled: pulumi.Input[_builtins.bool]
+    """
+    A boolean value that indicate if the optimized autoscale feature is enabled or not.
+    """
+    maximum: pulumi.Input[_builtins.int]
+    """
+    Maximum allowed instances count.
+    """
+    minimum: pulumi.Input[_builtins.int]
+    """
+    Minimum allowed instances count.
+    """
+    version: pulumi.Input[_builtins.int]
+    """
+    The version of the template defined, for instance 1.
+    """
 
 @pulumi.input_type
 class OptimizedAutoscaleArgs:
@@ -526,6 +507,7 @@ class OptimizedAutoscaleArgs:
                  version: pulumi.Input[_builtins.int]):
         """
         A class that contains the optimized auto scale definition.
+
         :param pulumi.Input[_builtins.bool] is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
         :param pulumi.Input[_builtins.int] maximum: Maximum allowed instances count.
         :param pulumi.Input[_builtins.int] minimum: Minimum allowed instances count.
@@ -585,21 +567,18 @@ class OptimizedAutoscaleArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
-        """
-        Connection State of the Private Endpoint Connection.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection description.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private link service connection status.
-        """
-elif False:
-    PrivateLinkServiceConnectionStatePropertyArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateLinkServiceConnectionStatePropertyArgsDict(TypedDict):
+    """
+    Connection State of the Private Endpoint Connection.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection description.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private link service connection status.
+    """
 
 @pulumi.input_type
 class PrivateLinkServiceConnectionStatePropertyArgs:
@@ -608,6 +587,7 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Connection State of the Private Endpoint Connection.
+
         :param pulumi.Input[_builtins.str] description: The private link service connection description.
         :param pulumi.Input[_builtins.str] status: The private link service connection status.
         """
@@ -641,45 +621,42 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class TableLevelSharingPropertiesArgsDict(TypedDict):
-        """
-        Tables that will be included and excluded in the follower database
-        """
-        external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of external tables to exclude from the follower database
-        """
-        external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of external tables to include in the follower database
-        """
-        functions_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of functions to exclude from the follower database
-        """
-        functions_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of functions to include in the follower database
-        """
-        materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of materialized views to exclude from the follower database
-        """
-        materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of materialized views to include in the follower database
-        """
-        tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of tables to exclude from the follower database
-        """
-        tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of tables to include in the follower database
-        """
-elif False:
-    TableLevelSharingPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class TableLevelSharingPropertiesArgsDict(TypedDict):
+    """
+    Tables that will be included and excluded in the follower database
+    """
+    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of external tables to exclude from the follower database
+    """
+    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of external tables to include in the follower database
+    """
+    functions_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of functions to exclude from the follower database
+    """
+    functions_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of functions to include in the follower database
+    """
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of materialized views to exclude from the follower database
+    """
+    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of materialized views to include in the follower database
+    """
+    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of tables to exclude from the follower database
+    """
+    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of tables to include in the follower database
+    """
 
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
@@ -694,6 +671,7 @@ class TableLevelSharingPropertiesArgs:
                  tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Tables that will be included and excluded in the follower database
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_exclude: List of external tables to exclude from the follower database
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_tables_to_include: List of external tables to include in the follower database
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] functions_to_exclude: List of functions to exclude from the follower database
@@ -817,17 +795,14 @@ class TableLevelSharingPropertiesArgs:
         pulumi.set(self, "tables_to_include", value)
 
 
-if not MYPY:
-    class TrustedExternalTenantArgsDict(TypedDict):
-        """
-        Represents a tenant ID that is trusted by the cluster.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        GUID representing an external tenant.
-        """
-elif False:
-    TrustedExternalTenantArgsDict: TypeAlias = Mapping[str, Any]
+class TrustedExternalTenantArgsDict(TypedDict):
+    """
+    Represents a tenant ID that is trusted by the cluster.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    GUID representing an external tenant.
+    """
 
 @pulumi.input_type
 class TrustedExternalTenantArgs:
@@ -835,6 +810,7 @@ class TrustedExternalTenantArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Represents a tenant ID that is trusted by the cluster.
+
         :param pulumi.Input[_builtins.str] value: GUID representing an external tenant.
         """
         if value is not None:
@@ -853,29 +829,26 @@ class TrustedExternalTenantArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNetworkConfigurationArgsDict(TypedDict):
-        """
-        A class that contains virtual network definition.
-        """
-        data_management_public_ip_id: pulumi.Input[_builtins.str]
-        """
-        Data management's service public IP address resource id.
-        """
-        engine_public_ip_id: pulumi.Input[_builtins.str]
-        """
-        Engine service's public IP address resource id.
-        """
-        subnet_id: pulumi.Input[_builtins.str]
-        """
-        The subnet resource id.
-        """
-        state: NotRequired[pulumi.Input[Union[_builtins.str, 'VnetState']]]
-        """
-        When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
-        """
-elif False:
-    VirtualNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNetworkConfigurationArgsDict(TypedDict):
+    """
+    A class that contains virtual network definition.
+    """
+    data_management_public_ip_id: pulumi.Input[_builtins.str]
+    """
+    Data management's service public IP address resource id.
+    """
+    engine_public_ip_id: pulumi.Input[_builtins.str]
+    """
+    Engine service's public IP address resource id.
+    """
+    subnet_id: pulumi.Input[_builtins.str]
+    """
+    The subnet resource id.
+    """
+    state: NotRequired[pulumi.Input[Union[_builtins.str, 'VnetState']]]
+    """
+    When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+    """
 
 @pulumi.input_type
 class VirtualNetworkConfigurationArgs:
@@ -886,6 +859,7 @@ class VirtualNetworkConfigurationArgs:
                  state: Optional[pulumi.Input[Union[_builtins.str, 'VnetState']]] = None):
         """
         A class that contains virtual network definition.
+
         :param pulumi.Input[_builtins.str] data_management_public_ip_id: Data management's service public IP address resource id.
         :param pulumi.Input[_builtins.str] engine_public_ip_id: Engine service's public IP address resource id.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet resource id.

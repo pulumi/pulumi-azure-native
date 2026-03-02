@@ -30,6 +30,7 @@ class CertificateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] certificate_name: Name of the Certificate.
@@ -141,6 +142,55 @@ class Certificate(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.app.Certificate("certificate",
+            certificate_name="certificate-firendly-name",
+            environment_name="testcontainerenv",
+            location="East US",
+            properties={
+                "certificate_type": azure_native.app.CertificateType.IMAGE_PULL_TRUSTED_CA,
+                "password": "private key password",
+                "value": "Y2VydA==",
+            },
+            resource_group_name="examplerg")
+
+        ```
+        ### Create or Update Certificate using Managed Identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.app.Certificate("certificate",
+            certificate_name="certificate-firendly-name",
+            environment_name="testcontainerenv",
+            location="East US",
+            properties={
+                "certificate_key_vault_properties": {
+                    "identity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+                    "key_vault_url": "https://xxxxxxxx.vault.azure.net/certificates/certName",
+                },
+                "certificate_type": azure_native.app.CertificateType.SERVER_SSL_CERTIFICATE,
+            },
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:Certificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/certificates/{certificateName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_name: Name of the Certificate.
@@ -162,6 +212,55 @@ class Certificate(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.app.Certificate("certificate",
+            certificate_name="certificate-firendly-name",
+            environment_name="testcontainerenv",
+            location="East US",
+            properties={
+                "certificate_type": azure_native.app.CertificateType.IMAGE_PULL_TRUSTED_CA,
+                "password": "private key password",
+                "value": "Y2VydA==",
+            },
+            resource_group_name="examplerg")
+
+        ```
+        ### Create or Update Certificate using Managed Identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.app.Certificate("certificate",
+            certificate_name="certificate-firendly-name",
+            environment_name="testcontainerenv",
+            location="East US",
+            properties={
+                "certificate_key_vault_properties": {
+                    "identity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+                    "key_vault_url": "https://xxxxxxxx.vault.azure.net/certificates/certName",
+                },
+                "certificate_type": azure_native.app.CertificateType.SERVER_SSL_CERTIFICATE,
+            },
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:Certificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/certificates/{certificateName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

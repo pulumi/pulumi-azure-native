@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Sql
     /// Represents a disaster recovery configuration.
     /// 
     /// Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
+    /// 
+    /// ## Example Usage
+    /// ### Update a disaster recovery configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disasterRecoveryConfiguration = new AzureNative.Sql.DisasterRecoveryConfiguration("disasterRecoveryConfiguration", new()
+    ///     {
+    ///         DisasterRecoveryConfigurationName = "Default",
+    ///         ResourceGroupName = "sqlcrudtest-4799",
+    ///         ServerName = "sqlcrudtest-5961",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:DisasterRecoveryConfiguration Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/disasterRecoveryConfiguration/{disasterRecoveryConfigurationName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DisasterRecoveryConfiguration")]
     public partial class DisasterRecoveryConfiguration : global::Pulumi.CustomResource

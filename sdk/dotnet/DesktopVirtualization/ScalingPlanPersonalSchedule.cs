@@ -15,6 +15,85 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
     /// 
     /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ScalingPlanPersonalSchedules_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scalingPlanPersonalSchedule = new AzureNative.DesktopVirtualization.ScalingPlanPersonalSchedule("scalingPlanPersonalSchedule", new()
+    ///     {
+    ///         DaysOfWeek = new[]
+    ///         {
+    ///             AzureNative.DesktopVirtualization.DayOfWeek.Monday,
+    ///             AzureNative.DesktopVirtualization.DayOfWeek.Tuesday,
+    ///             AzureNative.DesktopVirtualization.DayOfWeek.Wednesday,
+    ///             AzureNative.DesktopVirtualization.DayOfWeek.Thursday,
+    ///             AzureNative.DesktopVirtualization.DayOfWeek.Friday,
+    ///         },
+    ///         OffPeakActionOnDisconnect = AzureNative.DesktopVirtualization.SessionHandlingOperation.None,
+    ///         OffPeakActionOnLogoff = AzureNative.DesktopVirtualization.SessionHandlingOperation.Deallocate,
+    ///         OffPeakMinutesToWaitOnDisconnect = 10,
+    ///         OffPeakMinutesToWaitOnLogoff = 10,
+    ///         OffPeakStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 20,
+    ///             Minute = 0,
+    ///         },
+    ///         OffPeakStartVMOnConnect = AzureNative.DesktopVirtualization.SetStartVMOnConnect.Enable,
+    ///         PeakActionOnDisconnect = AzureNative.DesktopVirtualization.SessionHandlingOperation.None,
+    ///         PeakActionOnLogoff = AzureNative.DesktopVirtualization.SessionHandlingOperation.Deallocate,
+    ///         PeakMinutesToWaitOnDisconnect = 10,
+    ///         PeakMinutesToWaitOnLogoff = 10,
+    ///         PeakStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 8,
+    ///             Minute = 0,
+    ///         },
+    ///         PeakStartVMOnConnect = AzureNative.DesktopVirtualization.SetStartVMOnConnect.Enable,
+    ///         RampDownActionOnDisconnect = AzureNative.DesktopVirtualization.SessionHandlingOperation.None,
+    ///         RampDownActionOnLogoff = AzureNative.DesktopVirtualization.SessionHandlingOperation.Deallocate,
+    ///         RampDownMinutesToWaitOnDisconnect = 10,
+    ///         RampDownMinutesToWaitOnLogoff = 10,
+    ///         RampDownStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 18,
+    ///             Minute = 0,
+    ///         },
+    ///         RampDownStartVMOnConnect = AzureNative.DesktopVirtualization.SetStartVMOnConnect.Enable,
+    ///         RampUpActionOnDisconnect = AzureNative.DesktopVirtualization.SessionHandlingOperation.None,
+    ///         RampUpActionOnLogoff = AzureNative.DesktopVirtualization.SessionHandlingOperation.None,
+    ///         RampUpAutoStartHosts = AzureNative.DesktopVirtualization.StartupBehavior.All,
+    ///         RampUpMinutesToWaitOnDisconnect = 10,
+    ///         RampUpMinutesToWaitOnLogoff = 10,
+    ///         RampUpStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 6,
+    ///             Minute = 0,
+    ///         },
+    ///         RampUpStartVMOnConnect = AzureNative.DesktopVirtualization.SetStartVMOnConnect.Enable,
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         ScalingPlanName = "scalingPlan1",
+    ///         ScalingPlanScheduleName = "scalingPlanScheduleWeekdays1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization:ScalingPlanPersonalSchedule scalingPlanScheduleWeekdays1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/scalingPlans/{scalingPlanName}/personalSchedules/{scalingPlanScheduleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ScalingPlanPersonalSchedule")]
     public partial class ScalingPlanPersonalSchedule : global::Pulumi.CustomResource

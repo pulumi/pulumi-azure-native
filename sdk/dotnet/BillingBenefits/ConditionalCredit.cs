@@ -15,6 +15,74 @@ namespace Pulumi.AzureNative.BillingBenefits
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConditionalCreditCreateContributor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var conditionalCredit = new AzureNative.BillingBenefits.ConditionalCredit("conditionalCredit", new()
+    ///     {
+    ///         ConditionalCreditName = "conditionalCredit_contributor_20250801",
+    ///         DisplayName = "Contributor Conditional Credit 20250801",
+    ///         EntityType = AzureNative.BillingBenefits.ConditionalCreditEntityType.Contributor,
+    ///         Location = "global",
+    ///         ProductCode = "000187f7-0000-0260-ab43-b8473ce57f1d",
+    ///         ResourceGroupName = "resource_group_name_02",
+    ///         StartAt = "2025-09-01T00:00:00Z",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "dev" },
+    ///             { "team", "finance" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConditionalCreditCreatePrimary
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var conditionalCredit = new AzureNative.BillingBenefits.ConditionalCredit("conditionalCredit", new()
+    ///     {
+    ///         ConditionalCreditName = "conditionalCredit_20250801",
+    ///         DisplayName = "Conditional Credit 20250801",
+    ///         EntityType = AzureNative.BillingBenefits.ConditionalCreditEntityType.Primary,
+    ///         Location = "global",
+    ///         ProductCode = "000187f7-0000-0260-ab43-b8473ce57f1d",
+    ///         ResourceGroupName = "resource_group_name_01",
+    ///         StartAt = "2025-07-01T00:00:00Z",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billingbenefits:ConditionalCredit conditionalCredit_20250801 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/conditionalCredits/{conditionalCreditName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billingbenefits:ConditionalCredit")]
     public partial class ConditionalCredit : global::Pulumi.CustomResource

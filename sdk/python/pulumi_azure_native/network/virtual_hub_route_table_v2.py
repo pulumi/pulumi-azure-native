@@ -30,6 +30,7 @@ class VirtualHubRouteTableV2InitArgs:
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteV2Args']]]] = None):
         """
         The set of arguments for constructing a VirtualHubRouteTableV2 resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_connections: List of all connections attached to this route table v2.
@@ -157,6 +158,47 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
 
         Other available API versions: 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_route_table_v2 = azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2",
+            attached_connections=["All_Vnets"],
+            resource_group_name="rg1",
+            route_table_name="virtualHubRouteTable1a",
+            routes=[
+                {
+                    "destination_type": "CIDR",
+                    "destinations": [
+                        "20.10.0.0/16",
+                        "20.20.0.0/16",
+                    ],
+                    "next_hop_type": "IPAddress",
+                    "next_hops": ["10.0.0.68"],
+                },
+                {
+                    "destination_type": "CIDR",
+                    "destinations": ["0.0.0.0/0"],
+                    "next_hop_type": "IPAddress",
+                    "next_hops": ["10.0.0.68"],
+                },
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubRouteTableV2 virtualHubRouteTable1a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables/{routeTableName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attached_connections: List of all connections attached to this route table v2.
@@ -179,6 +221,47 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_route_table_v2 = azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2",
+            attached_connections=["All_Vnets"],
+            resource_group_name="rg1",
+            route_table_name="virtualHubRouteTable1a",
+            routes=[
+                {
+                    "destination_type": "CIDR",
+                    "destinations": [
+                        "20.10.0.0/16",
+                        "20.20.0.0/16",
+                    ],
+                    "next_hop_type": "IPAddress",
+                    "next_hops": ["10.0.0.68"],
+                },
+                {
+                    "destination_type": "CIDR",
+                    "destinations": ["0.0.0.0/0"],
+                    "next_hop_type": "IPAddress",
+                    "next_hops": ["10.0.0.68"],
+                },
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubRouteTableV2 virtualHubRouteTable1a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables/{routeTableName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualHubRouteTableV2InitArgs args: The arguments to use to populate this resource's properties.

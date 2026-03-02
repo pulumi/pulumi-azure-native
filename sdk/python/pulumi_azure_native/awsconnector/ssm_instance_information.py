@@ -29,6 +29,7 @@ class SsmInstanceInformationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SsmInstanceInformation resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of SsmInstanceInformation
@@ -123,6 +124,79 @@ class SsmInstanceInformation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### SsmInstanceInformations_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ssm_instance_information = azure_native.awsconnector.SsmInstanceInformation("ssmInstanceInformation",
+            location="ermywoyxbvekjsddbgxzdiqctiy",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "oxfqehraraycsdhslhhkjdu",
+                "aws_account_id": "pjfy",
+                "aws_properties": {
+                    "activation_id": "wqzon",
+                    "agent_version": "bnfjsoeipnlc",
+                    "association_overview": {
+                        "detailed_status": "cbudhnfwcqmapsmzmdvjbnobfp",
+                        "instance_association_status_aggregated_count": {
+                            "key8401": 17,
+                        },
+                    },
+                    "association_status": "elhplvmlvhpwuyovunmrlynmhejdw",
+                    "computer_name": "wweceaymirkelywqbxapvxzr",
+                    "iam_role": "izwdzmlugehvtmnssak",
+                    "instance_id": "iubqpfcejhxieuegbecgpkzanri",
+                    "ip_address": "httjvosg",
+                    "is_latest_version": True,
+                    "last_association_execution_date": "2024-10-08T03:53:10.068Z",
+                    "last_ping_date_time": "2024-10-08T03:53:10.068Z",
+                    "last_successful_association_execution_date": "2024-10-08T03:53:10.068Z",
+                    "name": "iubm",
+                    "ping_status": {
+                        "value": azure_native.awsconnector.PingStatus.CONNECTION_LOST,
+                    },
+                    "platform_name": "cbiheizlbfmmcdrsntrldk",
+                    "platform_type": {
+                        "value": azure_native.awsconnector.PlatformType.LINUX,
+                    },
+                    "platform_version": "eiopeklxdbhzvyxg",
+                    "registration_date": "2024-10-08T03:53:10.069Z",
+                    "resource_type": {
+                        "value": azure_native.awsconnector.ResourceType.EC2_INSTANCE,
+                    },
+                    "source_id": "mfupyczzkgmebrayfgrmxcdouve",
+                    "source_type": {
+                        "value": azure_native.awsconnector.SourceType.AWSEC2_INSTANCE,
+                    },
+                },
+                "aws_region": "mzethaciakqyywjomklr",
+                "aws_source_schema": "wetpdek",
+                "aws_tags": {
+                    "key8309": "mwxaauusamykdmepqrzjjlpozpflmk",
+                },
+                "public_cloud_connectors_resource_id": "hsdju",
+                "public_cloud_resource_name": "nmnanlhecnocoemxsevyl",
+            },
+            resource_group_name="rgssmInstanceInformation",
+            tags={
+                "key678": "gnrhg",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SsmInstanceInformation xuo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ssmInstanceInformations/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +215,79 @@ class SsmInstanceInformation(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### SsmInstanceInformations_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ssm_instance_information = azure_native.awsconnector.SsmInstanceInformation("ssmInstanceInformation",
+            location="ermywoyxbvekjsddbgxzdiqctiy",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "oxfqehraraycsdhslhhkjdu",
+                "aws_account_id": "pjfy",
+                "aws_properties": {
+                    "activation_id": "wqzon",
+                    "agent_version": "bnfjsoeipnlc",
+                    "association_overview": {
+                        "detailed_status": "cbudhnfwcqmapsmzmdvjbnobfp",
+                        "instance_association_status_aggregated_count": {
+                            "key8401": 17,
+                        },
+                    },
+                    "association_status": "elhplvmlvhpwuyovunmrlynmhejdw",
+                    "computer_name": "wweceaymirkelywqbxapvxzr",
+                    "iam_role": "izwdzmlugehvtmnssak",
+                    "instance_id": "iubqpfcejhxieuegbecgpkzanri",
+                    "ip_address": "httjvosg",
+                    "is_latest_version": True,
+                    "last_association_execution_date": "2024-10-08T03:53:10.068Z",
+                    "last_ping_date_time": "2024-10-08T03:53:10.068Z",
+                    "last_successful_association_execution_date": "2024-10-08T03:53:10.068Z",
+                    "name": "iubm",
+                    "ping_status": {
+                        "value": azure_native.awsconnector.PingStatus.CONNECTION_LOST,
+                    },
+                    "platform_name": "cbiheizlbfmmcdrsntrldk",
+                    "platform_type": {
+                        "value": azure_native.awsconnector.PlatformType.LINUX,
+                    },
+                    "platform_version": "eiopeklxdbhzvyxg",
+                    "registration_date": "2024-10-08T03:53:10.069Z",
+                    "resource_type": {
+                        "value": azure_native.awsconnector.ResourceType.EC2_INSTANCE,
+                    },
+                    "source_id": "mfupyczzkgmebrayfgrmxcdouve",
+                    "source_type": {
+                        "value": azure_native.awsconnector.SourceType.AWSEC2_INSTANCE,
+                    },
+                },
+                "aws_region": "mzethaciakqyywjomklr",
+                "aws_source_schema": "wetpdek",
+                "aws_tags": {
+                    "key8309": "mwxaauusamykdmepqrzjjlpozpflmk",
+                },
+                "public_cloud_connectors_resource_id": "hsdju",
+                "public_cloud_resource_name": "nmnanlhecnocoemxsevyl",
+            },
+            resource_group_name="rgssmInstanceInformation",
+            tags={
+                "key678": "gnrhg",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SsmInstanceInformation xuo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ssmInstanceInformations/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SsmInstanceInformationArgs args: The arguments to use to populate this resource's properties.

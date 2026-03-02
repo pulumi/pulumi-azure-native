@@ -33,6 +33,7 @@ class ManagedNetworkGroupArgs:
                  virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         The set of arguments for constructing a ManagedNetworkGroup resource.
+
         :param pulumi.Input[_builtins.str] managed_network_name: The name of the Managed Network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Responsibility role under which this Managed Network Group will be created
@@ -190,6 +191,42 @@ class ManagedNetworkGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
+        ## Example Usage
+        ### ManagementNetworkGroupsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_group = azure_native.managednetwork.ManagedNetworkGroup("managedNetworkGroup",
+            managed_network_group_name="myManagedNetworkGroup1",
+            managed_network_name="myManagedNetwork",
+            management_groups=[],
+            resource_group_name="myResourceGroup",
+            subnets=[{
+                "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+            }],
+            subscriptions=[],
+            virtual_networks=[
+                {
+                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+                },
+                {
+                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork:ManagedNetworkGroup myManagedNetworkGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}/managedNetworkGroups/{managedNetworkGroupName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Responsibility role under which this Managed Network Group will be created
@@ -212,6 +249,42 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         The Managed Network Group resource
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
+
+        ## Example Usage
+        ### ManagementNetworkGroupsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_group = azure_native.managednetwork.ManagedNetworkGroup("managedNetworkGroup",
+            managed_network_group_name="myManagedNetworkGroup1",
+            managed_network_name="myManagedNetwork",
+            management_groups=[],
+            resource_group_name="myResourceGroup",
+            subnets=[{
+                "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+            }],
+            subscriptions=[],
+            virtual_networks=[
+                {
+                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+                },
+                {
+                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork:ManagedNetworkGroup myManagedNetworkGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}/managedNetworkGroups/{managedNetworkGroupName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedNetworkGroupArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class UserSettingsArgs:
                  user_settings_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserSettings resource.
+
         :param pulumi.Input['UserPropertiesArgs'] properties: The cloud shell user settings properties.
         :param pulumi.Input[_builtins.str] user_settings_name: The name of the user settings
         """
@@ -72,6 +73,41 @@ class UserSettings(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
 
+        ## Example Usage
+        ### PutUserSettings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_settings = azure_native.portal.UserSettings("userSettings",
+            properties={
+                "preferred_location": "eastus",
+                "preferred_os_type": azure_native.portal.OsType.LINUX,
+                "preferred_shell_type": azure_native.portal.ShellType.BASH,
+                "storage_profile": {
+                    "disk_size_in_gb": 5,
+                    "file_share_name": "string",
+                    "storage_account_resource_id": "string",
+                },
+                "terminal_settings": {
+                    "font_size": azure_native.portal.FontSize.MEDIUM,
+                    "font_style": azure_native.portal.FontStyle.MONOSPACE,
+                },
+            },
+            user_settings_name="cloudconsole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:UserSettings myresource1 /providers/Microsoft.Portal/userSettings/{userSettingsName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPropertiesArgs', 'UserPropertiesArgsDict']] properties: The cloud shell user settings properties.
@@ -87,6 +123,41 @@ class UserSettings(pulumi.CustomResource):
         Response to get user settings
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
+
+        ## Example Usage
+        ### PutUserSettings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_settings = azure_native.portal.UserSettings("userSettings",
+            properties={
+                "preferred_location": "eastus",
+                "preferred_os_type": azure_native.portal.OsType.LINUX,
+                "preferred_shell_type": azure_native.portal.ShellType.BASH,
+                "storage_profile": {
+                    "disk_size_in_gb": 5,
+                    "file_share_name": "string",
+                    "storage_account_resource_id": "string",
+                },
+                "terminal_settings": {
+                    "font_size": azure_native.portal.FontSize.MEDIUM,
+                    "font_style": azure_native.portal.FontStyle.MONOSPACE,
+                },
+            },
+            user_settings_name="cloudconsole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:UserSettings myresource1 /providers/Microsoft.Portal/userSettings/{userSettingsName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.

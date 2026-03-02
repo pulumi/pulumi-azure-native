@@ -27,6 +27,7 @@ class SapApplicationServerInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapApplicationServerInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[_builtins.str] application_instance_name: The name of SAP Application Server instance resource.
@@ -120,6 +121,45 @@ class SapApplicationServerInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
+        ## Example Usage
+        ### Create SAP Application Server Instances for HA System with Availability Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SapApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+        ### SAPApplicationServerInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SapApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapApplicationServerInstance app01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/applicationInstances/{applicationInstanceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_instance_name: The name of SAP Application Server instance resource.
@@ -138,6 +178,45 @@ class SapApplicationServerInstance(pulumi.CustomResource):
         Define the SAP Application Server Instance resource.
 
         Uses Azure REST API version 2024-09-01.
+
+        ## Example Usage
+        ### Create SAP Application Server Instances for HA System with Availability Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SapApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+        ### SAPApplicationServerInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SapApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapApplicationServerInstance app01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/applicationInstances/{applicationInstanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SapApplicationServerInstanceArgs args: The arguments to use to populate this resource's properties.

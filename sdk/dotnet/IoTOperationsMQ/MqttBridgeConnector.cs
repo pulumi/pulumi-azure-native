@@ -13,6 +13,122 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ mqttBridgeConnector resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+    /// 
+    /// ## Example Usage
+    /// ### MqttBridgeConnector_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mqttBridgeConnector = new AzureNative.IoTOperationsMQ.MqttBridgeConnector("mqttBridgeConnector", new()
+    ///     {
+    ///         BridgeInstances = 4528,
+    ///         ClientIdPrefix = "yqipejvabahsexbnttiegjnh",
+    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+    ///         {
+    ///             Name = "an",
+    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
+    ///         },
+    ///         Image = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+    ///         {
+    ///             PullPolicy = "imfuzvqxgbdwliqnn",
+    ///             PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+    ///             Repository = "m",
+    ///             Tag = "jygfdiamhhm",
+    ///         },
+    ///         LocalBrokerConnection = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionSpecArgs
+    ///         {
+    ///             Authentication = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerAuthenticationMethodsArgs
+    ///             {
+    ///                 Kubernetes = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerKubernetesAuthenticationArgs
+    ///                 {
+    ///                     SecretPath = "soukzfkouir",
+    ///                     ServiceAccountTokenName = "suwetviuhmhorhvsidlznnufe",
+    ///                 },
+    ///             },
+    ///             Endpoint = "xc",
+    ///             Tls = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionTlsArgs
+    ///             {
+    ///                 TlsEnabled = true,
+    ///                 TrustedCaCertificateConfigMap = "rinkomfeznsfedbmllxlbmmhc",
+    ///             },
+    ///         },
+    ///         Location = "frztvxzhskx",
+    ///         LogLevel = "gpgijsotipdtvvkpnckuziqqv",
+    ///         MqName = "R8-6x-Y-L-F-21RP5-XVv",
+    ///         MqttBridgeConnectorName = "k1v-U4P2440C1b7T8y-G",
+    ///         NodeTolerations = new AzureNative.IoTOperationsMQ.Inputs.NodeTolerationsArgs
+    ///         {
+    ///             Effect = "eeswvciblqmmaeesjoflyvxqbz",
+    ///             Key = "wbrstdwxgm",
+    ///             Operator = "lbegegneekwnyodtzraarivtwhmzep",
+    ///             Value = "sfafsjdcezdmkwibxeluukxgl",
+    ///         },
+    ///         Protocol = AzureNative.IoTOperationsMQ.MqttProtocol.V3,
+    ///         RemoteBrokerConnection = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerConnectionSpecArgs
+    ///         {
+    ///             Authentication = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerAuthenticationMethodsArgs
+    ///             {
+    ///                 SystemAssignedManagedIdentity = new AzureNative.IoTOperationsMQ.Inputs.ManagedIdentityAuthenticationArgs
+    ///                 {
+    ///                     Audience = "kjderojhpehosgfcrxxbh",
+    ///                     ExtensionName = "cyckjqqzspleajbtkniwrfsqygjfhe",
+    ///                 },
+    ///                 X509 = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerX509AuthenticationArgs
+    ///                 {
+    ///                     KeyVault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCertificatePropertiesArgs
+    ///                     {
+    ///                         Vault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultConnectionPropertiesArgs
+    ///                         {
+    ///                             Credentials = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCredentialsPropertiesArgs
+    ///                             {
+    ///                                 ServicePrincipalLocalSecretName = "wuimjwpbhoglbsxxa",
+    ///                             },
+    ///                             DirectoryId = "eyjniptiykzcgbzok",
+    ///                             Name = "lxmwfan",
+    ///                         },
+    ///                         VaultCaChainSecret = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+    ///                         {
+    ///                             Name = "bmectskddmpjxnsogwooexj",
+    ///                             Version = "unjfbf",
+    ///                         },
+    ///                         VaultCert = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+    ///                         {
+    ///                             Name = "bmectskddmpjxnsogwooexj",
+    ///                             Version = "unjfbf",
+    ///                         },
+    ///                     },
+    ///                     SecretName = "x",
+    ///                 },
+    ///             },
+    ///             Endpoint = "bshzrukafmxjgnrlhzlxbbzjdbqh",
+    ///             Protocol = AzureNative.IoTOperationsMQ.MqttBridgeRemoteBrokerProtocol.Mqtt,
+    ///             Tls = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerConnectionTlsArgs
+    ///             {
+    ///                 TlsEnabled = true,
+    ///                 TrustedCaCertificateConfigMap = "ivtebqmclgfjx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgiotoperationsmq",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotoperationsmq:MqttBridgeConnector pjcjtrthj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:MqttBridgeConnector")]
     public partial class MqttBridgeConnector : global::Pulumi.CustomResource

@@ -11,6 +11,77 @@ import * as utilities from "../utilities";
  * DigitalTwinsInstance endpoint resource.
  *
  * Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
+ *
+ * ## Example Usage
+ * ### Put a DigitalTwinsEndpoint resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwinsEndpoint = new azure_native.digitaltwins.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+ *     endpointName: "myServiceBus",
+ *     properties: {
+ *         authenticationType: azure_native.digitaltwins.AuthenticationType.KeyBased,
+ *         endpointType: "ServiceBus",
+ *         primaryConnectionString: "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+ *         secondaryConnectionString: "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ * ### Put a DigitalTwinsEndpoint resource with identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwinsEndpoint = new azure_native.digitaltwins.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+ *     endpointName: "myServiceBus",
+ *     properties: {
+ *         authenticationType: azure_native.digitaltwins.AuthenticationType.IdentityBased,
+ *         endpointType: "ServiceBus",
+ *         endpointUri: "sb://mysb.servicebus.windows.net/",
+ *         entityPath: "mysbtopic",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ * ### Put a DigitalTwinsEndpoint resource with user assigned identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwinsEndpoint = new azure_native.digitaltwins.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+ *     endpointName: "myServiceBus",
+ *     properties: {
+ *         authenticationType: azure_native.digitaltwins.AuthenticationType.IdentityBased,
+ *         endpointType: "ServiceBus",
+ *         endpointUri: "sb://mysb.servicebus.windows.net/",
+ *         entityPath: "mysbtopic",
+ *         identity: {
+ *             type: azure_native.digitaltwins.IdentityType.UserAssigned,
+ *             userAssignedIdentity: "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+ *         },
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins:DigitalTwinsEndpoint myServiceBus /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/endpoints/{endpointName} 
+ * ```
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**

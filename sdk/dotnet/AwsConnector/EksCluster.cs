@@ -13,6 +13,169 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### EksClusters_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eksCluster = new AzureNative.AwsConnector.EksCluster("eksCluster", new()
+    ///     {
+    ///         Properties = new AzureNative.AwsConnector.Inputs.EksClusterPropertiesArgs
+    ///         {
+    ///             Arn = "xhoylvamhuqnvruh",
+    ///             AwsAccountId = "sebsvgbgzb",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEksClusterPropertiesArgs
+    ///             {
+    ///                 AccessConfig = new AzureNative.AwsConnector.Inputs.AccessConfigResponseArgs
+    ///                 {
+    ///                     AuthenticationMode = new AzureNative.AwsConnector.Inputs.AuthenticationModeEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.AuthenticationMode.API,
+    ///                     },
+    ///                     BootstrapClusterCreatorAdminPermissions = true,
+    ///                 },
+    ///                 Arn = "hcepxlffwylmwulxcktedclqczlia",
+    ///                 CertificateAuthority = null,
+    ///                 ClientRequestToken = "zatyvyitnzgzpclfoxmzocvpc",
+    ///                 ConnectorConfig = new AzureNative.AwsConnector.Inputs.ConnectorConfigResponseArgs
+    ///                 {
+    ///                     ActivationCode = "pay",
+    ///                     ActivationExpiry = "2024-10-08T03:50:52.459Z",
+    ///                     ActivationId = "vmvmutvfuygzczgtsutkls",
+    ///                     Provider = "ngrakrrq",
+    ///                     RoleArn = "jcu",
+    ///                 },
+    ///                 CreatedAt = "2024-10-08T03:50:52.460Z",
+    ///                 EncryptionConfig = new[]
+    ///                 {
+    ///                     new AzureNative.AwsConnector.Inputs.EncryptionConfigArgs
+    ///                     {
+    ///                         Provider = new AzureNative.AwsConnector.Inputs.ProviderArgs
+    ///                         {
+    ///                             KeyArn = "ynvyktdadcoepkg",
+    ///                         },
+    ///                         Resources = new[]
+    ///                         {
+    ///                             "luiywwdjzfsrozikidayeump",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Endpoint = "bvdvtunxiggcpmncdeflirifck",
+    ///                 Health = new AzureNative.AwsConnector.Inputs.ClusterHealthArgs
+    ///                 {
+    ///                     Issues = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.ClusterIssueArgs
+    ///                         {
+    ///                             Code = new AzureNative.AwsConnector.Inputs.ClusterIssueCodeEnumValueArgs
+    ///                             {
+    ///                                 Value = AzureNative.AwsConnector.ClusterIssueCode.AccessDenied,
+    ///                             },
+    ///                             Message = "mwtvogjihbqys",
+    ///                             ResourceIds = new[]
+    ///                             {
+    ///                                 "gnfkewljeibgooftzbraahnxysx",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Id = "zmnyjrmqynglvrhpkkqkpazfyv",
+    ///                 Identity = new AzureNative.AwsConnector.Inputs.IdentityArgs
+    ///                 {
+    ///                     Oidc = new AzureNative.AwsConnector.Inputs.OIDCArgs
+    ///                     {
+    ///                         Issuer = "otiqmbvjucermteuonkxgdftf",
+    ///                     },
+    ///                 },
+    ///                 KubernetesNetworkConfig = new AzureNative.AwsConnector.Inputs.KubernetesNetworkConfigResponseArgs
+    ///                 {
+    ///                     IpFamily = new AzureNative.AwsConnector.Inputs.IpFamilyEnumValueArgs
+    ///                     {
+    ///                         Value = AzureNative.AwsConnector.IpFamily.Ipv4,
+    ///                     },
+    ///                     ServiceIpv4Cidr = "llpoqidqkuhvzzwbkiynhrucvgglk",
+    ///                     ServiceIpv6Cidr = "nfdslge",
+    ///                 },
+    ///                 Logging = new AzureNative.AwsConnector.Inputs.LoggingArgs
+    ///                 {
+    ///                     ClusterLogging = new[]
+    ///                     {
+    ///                         new AzureNative.AwsConnector.Inputs.LogSetupArgs
+    ///                         {
+    ///                             Enabled = true,
+    ///                             Types = new[]
+    ///                             {
+    ///                                 AzureNative.AwsConnector.LogType.Api,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "fjvxhqvmvbshnltkuozc",
+    ///                 OutpostConfig = new AzureNative.AwsConnector.Inputs.OutpostConfigResponseArgs
+    ///                 {
+    ///                     ControlPlaneInstanceType = "dbqfhwaxdzegqxqopkhaevcs",
+    ///                     ControlPlanePlacement = new AzureNative.AwsConnector.Inputs.ControlPlanePlacementResponseArgs
+    ///                     {
+    ///                         GroupName = "qrpyvhb",
+    ///                     },
+    ///                     OutpostArns = new[]
+    ///                     {
+    ///                         "lkvzvf",
+    ///                     },
+    ///                 },
+    ///                 PlatformVersion = "ezmalzlqyiuhsxxdribckieg",
+    ///                 ResourcesVpcConfig = new AzureNative.AwsConnector.Inputs.VpcConfigResponseArgs
+    ///                 {
+    ///                     SecurityGroupIds = new[]
+    ///                     {
+    ///                         "ljodkq",
+    ///                     },
+    ///                     SubnetIds = new[]
+    ///                     {
+    ///                         "pmazpgqowrfoi",
+    ///                     },
+    ///                 },
+    ///                 RoleArn = "uvceqehkmdtkxgakuckm",
+    ///                 Status = new AzureNative.AwsConnector.Inputs.ClusterStatusEnumValueArgs
+    ///                 {
+    ///                     Value = AzureNative.AwsConnector.ClusterStatus.ACTIVE,
+    ///                 },
+    ///                 Tags = 
+    ///                 {
+    ///                     { "key783", "hullzzbjeblerbopmncvydtkpcd" },
+    ///                 },
+    ///                 Version = "ngoffoetqqgv",
+    ///             },
+    ///             AwsRegion = "urhi",
+    ///             AwsSourceSchema = "gkfmtslfbglu",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key7789", "hxv" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "uadwidkemgzwde",
+    ///             PublicCloudResourceName = "kqeiozkswbnhscn",
+    ///         },
+    ///         ResourceUri = "vutdhhavszx",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:EksCluster wlhloozwhakfmmafcdu /{resourceUri}/providers/Microsoft.AwsConnector/eksClusters/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:EksCluster")]
     public partial class EksCluster : global::Pulumi.CustomResource

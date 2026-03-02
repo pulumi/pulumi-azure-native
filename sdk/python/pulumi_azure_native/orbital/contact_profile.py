@@ -35,6 +35,7 @@ class ContactProfileArgs:
                  third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileThirdPartyConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a ContactProfile resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         :param pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -223,6 +224,84 @@ class ContactProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
+        ## Example Usage
+        ### Create a contact profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        contact_profile = azure_native.orbital.ContactProfile("contactProfile",
+            auto_tracking_configuration=azure_native.orbital.AutoTrackingConfiguration.DISABLED,
+            contact_profile_name="CONTOSO-CP",
+            event_hub_uri="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+            links=[
+                {
+                    "channels": [{
+                        "bandwidth_m_hz": 2,
+                        "center_frequency_m_hz": 2250,
+                        "end_point": {
+                            "end_point_name": "ContosoTest_Uplink",
+                            "ip_address": "10.1.0.4",
+                            "port": "50000",
+                            "protocol": azure_native.orbital.Protocol.TCP,
+                        },
+                        "name": "contoso-uplink-channel",
+                    }],
+                    "direction": azure_native.orbital.Direction.UPLINK,
+                    "eirpd_bw": 45,
+                    "gain_over_temperature": 0,
+                    "name": "contoso-uplink",
+                    "polarization": azure_native.orbital.Polarization.LHCP,
+                },
+                {
+                    "channels": [{
+                        "bandwidth_m_hz": 15,
+                        "center_frequency_m_hz": 8160,
+                        "end_point": {
+                            "end_point_name": "ContosoTest_Downlink",
+                            "ip_address": "10.1.0.5",
+                            "port": "50001",
+                            "protocol": azure_native.orbital.Protocol.UDP,
+                        },
+                        "name": "contoso-downlink-channel",
+                    }],
+                    "direction": azure_native.orbital.Direction.DOWNLINK,
+                    "eirpd_bw": 0,
+                    "gain_over_temperature": 25,
+                    "name": "contoso-downlink",
+                    "polarization": azure_native.orbital.Polarization.RHCP,
+                },
+            ],
+            location="eastus2",
+            minimum_elevation_degrees=5,
+            minimum_viable_contact_duration="PT1M",
+            network_configuration={
+                "subnet_id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet",
+            },
+            resource_group_name="contoso-Rgp",
+            third_party_configurations=[
+                {
+                    "mission_configuration": "Ksat_MissionConfiguration",
+                    "provider_name": "KSAT",
+                },
+                {
+                    "mission_configuration": "Viasat_Configuration",
+                    "provider_name": "VIASAT",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital:ContactProfile CONTOSO-CP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/contactProfiles/{contactProfileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
@@ -247,6 +326,84 @@ class ContactProfile(pulumi.CustomResource):
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
+
+        ## Example Usage
+        ### Create a contact profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        contact_profile = azure_native.orbital.ContactProfile("contactProfile",
+            auto_tracking_configuration=azure_native.orbital.AutoTrackingConfiguration.DISABLED,
+            contact_profile_name="CONTOSO-CP",
+            event_hub_uri="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+            links=[
+                {
+                    "channels": [{
+                        "bandwidth_m_hz": 2,
+                        "center_frequency_m_hz": 2250,
+                        "end_point": {
+                            "end_point_name": "ContosoTest_Uplink",
+                            "ip_address": "10.1.0.4",
+                            "port": "50000",
+                            "protocol": azure_native.orbital.Protocol.TCP,
+                        },
+                        "name": "contoso-uplink-channel",
+                    }],
+                    "direction": azure_native.orbital.Direction.UPLINK,
+                    "eirpd_bw": 45,
+                    "gain_over_temperature": 0,
+                    "name": "contoso-uplink",
+                    "polarization": azure_native.orbital.Polarization.LHCP,
+                },
+                {
+                    "channels": [{
+                        "bandwidth_m_hz": 15,
+                        "center_frequency_m_hz": 8160,
+                        "end_point": {
+                            "end_point_name": "ContosoTest_Downlink",
+                            "ip_address": "10.1.0.5",
+                            "port": "50001",
+                            "protocol": azure_native.orbital.Protocol.UDP,
+                        },
+                        "name": "contoso-downlink-channel",
+                    }],
+                    "direction": azure_native.orbital.Direction.DOWNLINK,
+                    "eirpd_bw": 0,
+                    "gain_over_temperature": 25,
+                    "name": "contoso-downlink",
+                    "polarization": azure_native.orbital.Polarization.RHCP,
+                },
+            ],
+            location="eastus2",
+            minimum_elevation_degrees=5,
+            minimum_viable_contact_duration="PT1M",
+            network_configuration={
+                "subnet_id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet",
+            },
+            resource_group_name="contoso-Rgp",
+            third_party_configurations=[
+                {
+                    "mission_configuration": "Ksat_MissionConfiguration",
+                    "provider_name": "KSAT",
+                },
+                {
+                    "mission_configuration": "Viasat_Configuration",
+                    "provider_name": "VIASAT",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital:ContactProfile CONTOSO-CP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/contactProfiles/{contactProfileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.

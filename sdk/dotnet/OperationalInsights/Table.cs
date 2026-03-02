@@ -15,6 +15,50 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
     /// Other available API versions: 2021-12-01-preview, 2022-10-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### TablesUpsert
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var table = new AzureNative.OperationalInsights.Table("table", new()
+    ///     {
+    ///         ResourceGroupName = "oiautorest6685",
+    ///         RetentionInDays = 45,
+    ///         Schema = new AzureNative.OperationalInsights.Inputs.SchemaArgs
+    ///         {
+    ///             Columns = new[]
+    ///             {
+    ///                 new AzureNative.OperationalInsights.Inputs.ColumnArgs
+    ///                 {
+    ///                     Name = "MyNewColumn",
+    ///                     Type = AzureNative.OperationalInsights.ColumnTypeEnum.Guid,
+    ///                 },
+    ///             },
+    ///             Name = "AzureNetworkFlow",
+    ///         },
+    ///         TableName = "AzureNetworkFlow",
+    ///         TotalRetentionInDays = 70,
+    ///         WorkspaceName = "oiautorest6685",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights:Table AzureNetworkFlow /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Table")]
     public partial class Table : global::Pulumi.CustomResource

@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.RedisEnterprise
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### RedisEnterpriseAccessPolicyAssignmentCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessPolicyAssignment = new AzureNative.RedisEnterprise.AccessPolicyAssignment("accessPolicyAssignment", new()
+    ///     {
+    ///         AccessPolicyAssignmentName = "defaultTestEntraApp1",
+    ///         AccessPolicyName = "default",
+    ///         ClusterName = "cache1",
+    ///         DatabaseName = "default",
+    ///         ResourceGroupName = "rg1",
+    ///         User = new AzureNative.RedisEnterprise.Inputs.AccessPolicyAssignmentPropertiesUserArgs
+    ///         {
+    ///             ObjectId = "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:redisenterprise:AccessPolicyAssignment defaultTestEntraApp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redisenterprise:AccessPolicyAssignment")]
     public partial class AccessPolicyAssignment : global::Pulumi.CustomResource

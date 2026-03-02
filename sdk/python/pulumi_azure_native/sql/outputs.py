@@ -96,6 +96,7 @@ class CertificateInfoResponse(dict):
                  expiry_date: _builtins.str):
         """
         Certificate information
+
         :param _builtins.str certificate_name: The certificate name
         :param _builtins.str expiry_date: The certificate expiry date
         """
@@ -149,6 +150,7 @@ class DatabaseIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.DatabaseUserIdentityResponse']] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
         :param _builtins.str type: The identity type
         :param Mapping[str, 'DatabaseUserIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
@@ -213,6 +215,7 @@ class DatabaseKeyResponse(dict):
                  type: _builtins.str):
         """
         Database level key used for encryption at rest.
+
         :param _builtins.str creation_date: The database key creation date.
         :param _builtins.str subregion: Subregion of the server key.
         :param _builtins.str thumbprint: Thumbprint of the database key.
@@ -285,6 +288,7 @@ class DatabaseUserIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str client_id: The Azure Active Directory client id.
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         """
@@ -317,6 +321,7 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
                  result: Sequence[_builtins.str]):
         """
         Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+
         :param Sequence[_builtins.str] result: The rule baseline result
         """
         pulumi.set(__self__, "result", result)
@@ -416,6 +421,7 @@ class DistributedAvailabilityGroupDatabaseResponse(dict):
                  database_name: Optional[_builtins.str] = None):
         """
         Database specific information
+
         :param _builtins.str connected_state: Link connected state
         :param _builtins.int instance_redo_replication_lag_seconds: Redo lag when Managed Instance link side is primary
         :param _builtins.str instance_replica_id: Managed instance replica id
@@ -662,6 +668,7 @@ class ElasticPoolPerDatabaseSettingsResponse(dict):
                  min_capacity: Optional[_builtins.float] = None):
         """
         Per database settings of an elastic pool.
+
         :param _builtins.int auto_pause_delay: Auto Pause Delay for per database within pool
         :param _builtins.float max_capacity: The maximum capacity any one database can consume.
         :param _builtins.float min_capacity: The minimum capacity all databases are guaranteed.
@@ -727,6 +734,7 @@ class FailoverGroupReadOnlyEndpointResponse(dict):
                  target_server: Optional[_builtins.str] = None):
         """
         Read-only endpoint of the failover group instance.
+
         :param _builtins.str failover_policy: Failover policy of the read-only endpoint for the failover group.
         :param _builtins.str target_server: The target partner server where the read-only endpoint points to.
         """
@@ -781,6 +789,7 @@ class FailoverGroupReadWriteEndpointResponse(dict):
                  failover_with_data_loss_grace_period_minutes: Optional[_builtins.int] = None):
         """
         Read-write endpoint of the failover group instance.
+
         :param _builtins.str failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param _builtins.int failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
@@ -831,6 +840,7 @@ class InstanceFailoverGroupReadOnlyEndpointResponse(dict):
                  failover_policy: Optional[_builtins.str] = None):
         """
         Read-only endpoint of the failover group instance.
+
         :param _builtins.str failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
         if failover_policy is not None:
@@ -874,6 +884,7 @@ class InstanceFailoverGroupReadWriteEndpointResponse(dict):
                  failover_with_data_loss_grace_period_minutes: Optional[_builtins.int] = None):
         """
         Read-write endpoint of the failover group instance.
+
         :param _builtins.str failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param _builtins.int failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
@@ -928,6 +939,7 @@ class JobAgentIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.JobAgentUserAssignedIdentityResponse']] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str type: The job agent identity type
         :param _builtins.str tenant_id: The job agent identity tenant id
         :param Mapping[str, 'JobAgentUserAssignedIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
@@ -992,6 +1004,7 @@ class JobAgentUserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str client_id: The Azure Active Directory client id.
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         """
@@ -1047,6 +1060,7 @@ class JobScheduleResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Scheduling properties of a job.
+
         :param _builtins.bool enabled: Whether or not the schedule is enabled.
         :param _builtins.str end_time: Schedule end time.
         :param _builtins.str interval: Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
@@ -1122,6 +1136,7 @@ class JobStepActionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The action to be executed by a job step.
+
         :param _builtins.str value: The action value, for example the text of the T-SQL script to execute.
         :param _builtins.str source: The source of the action to execute.
         :param _builtins.str type: Type of action being executed by the job step.
@@ -1199,6 +1214,7 @@ class JobStepExecutionOptionsResponse(dict):
                  timeout_seconds: Optional[_builtins.int] = None):
         """
         The execution options of a job step.
+
         :param _builtins.int initial_retry_interval_seconds: Initial delay between retries for job step execution.
         :param _builtins.int maximum_retry_interval_seconds: The maximum amount of time to wait between retries for job step execution.
         :param _builtins.int retry_attempts: Maximum number of times the job step will be reattempted if the first attempt fails.
@@ -1310,6 +1326,7 @@ class JobStepOutputResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The output configuration of a job step.
+
         :param _builtins.str database_name: The output destination database.
         :param _builtins.str server_name: The output destination server name.
         :param _builtins.str table_name: The output destination table.
@@ -1444,6 +1461,7 @@ class JobTargetResponse(dict):
                  shard_map_name: Optional[_builtins.str] = None):
         """
         A job target, for example a specific database or a container of databases that is evaluated during job execution.
+
         :param _builtins.str type: The target type.
         :param _builtins.str database_name: The target database name.
         :param _builtins.str elastic_pool_name: The target elastic pool name.
@@ -1562,6 +1580,7 @@ class ManagedInstanceExternalAdministratorResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Properties of a active directory administrator.
+
         :param _builtins.str administrator_type: Type of the sever administrator.
         :param _builtins.bool azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
         :param _builtins.str login: Login name of the server administrator.
@@ -1660,6 +1679,7 @@ class ManagedInstancePairInfoResponse(dict):
                  primary_managed_instance_id: Optional[_builtins.str] = None):
         """
         Pairs of Managed Instances in the failover group.
+
         :param _builtins.str partner_managed_instance_id: Id of Partner Managed Instance in pair.
         :param _builtins.str primary_managed_instance_id: Id of Primary Managed Instance in pair.
         """
@@ -1695,6 +1715,7 @@ class ManagedInstancePecPropertyResponse(dict):
                  properties: 'outputs.ManagedInstancePrivateEndpointConnectionPropertiesResponse'):
         """
         A private endpoint connection under a managed instance
+
         :param _builtins.str id: Resource ID.
         :param 'ManagedInstancePrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
@@ -1750,6 +1771,7 @@ class ManagedInstancePrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+
         :param _builtins.str provisioning_state: State of the Private Endpoint Connection.
         :param 'ManagedInstancePrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
@@ -1889,6 +1911,7 @@ class PartnerInfoResponse(dict):
                  replication_role: _builtins.str):
         """
         Partner server information for the failover group.
+
         :param _builtins.str id: Resource identifier of the partner server.
         :param _builtins.str location: Geo location of the partner server.
         :param _builtins.str replication_role: Replication role of the partner server.
@@ -1949,6 +1972,7 @@ class PartnerRegionInfoResponse(dict):
                  location: Optional[_builtins.str] = None):
         """
         Partner region information for the failover group.
+
         :param _builtins.str replication_role: Replication role of the partner managed instances.
         :param _builtins.str location: Geo location of the partner managed instances.
         """
@@ -2008,6 +2032,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+
         :param Sequence[_builtins.str] group_ids: Group IDs.
         :param _builtins.str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
@@ -2158,6 +2183,7 @@ class RecommendedActionErrorInfoResponse(dict):
                  is_retryable: _builtins.str):
         """
         Contains error information for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+
         :param _builtins.str error_code: Gets the reason why the recommended action was put to error state. e.g., DatabaseHasQdsOff, IndexAlreadyExists
         :param _builtins.str is_retryable: Gets whether the error could be ignored and recommended action could be retried. Possible values are: Yes/No
         """
@@ -2217,6 +2243,7 @@ class RecommendedActionImpactRecordResponse(dict):
                  unit: _builtins.str):
         """
         Contains information of estimated or observed impact on various metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+
         :param _builtins.float absolute_value: Gets the absolute value of this dimension if applicable. e.g., Number of Queries affected
         :param _builtins.float change_value_absolute: Gets the absolute change in the value of this dimension. e.g., Absolute Disk space change in Megabytes
         :param _builtins.float change_value_relative: Gets the relative change in the value of this dimension. e.g., Relative Disk space change in Percentage
@@ -2280,6 +2307,7 @@ class RecommendedActionImplementationInfoResponse(dict):
                  script: _builtins.str):
         """
         Contains information for manual implementation for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+
         :param _builtins.str method: Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.
         :param _builtins.str script: Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.
         """
@@ -2337,6 +2365,7 @@ class RecommendedActionMetricInfoResponse(dict):
                  value: _builtins.float):
         """
         Contains time series of various impacted metrics for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+
         :param _builtins.str metric_name: Gets the name of the metric. e.g., CPU, Number of Queries.
         :param _builtins.str start_time: Gets the start time of time interval given by this MetricInfo.
         :param _builtins.str time_grain: Gets the duration of time interval for the value given by this MetricInfo. e.g., PT1H (1 hour)
@@ -2481,6 +2510,7 @@ class RecommendedActionResponse(dict):
                  valid_since: _builtins.str):
         """
         Database, Server or Elastic Pool Recommended Action.
+
         :param Mapping[str, _builtins.str] details: Gets additional details specific to this recommended action.
         :param 'RecommendedActionErrorInfoResponse' error_details: Gets the error details if and why this recommended action is put to error state.
         :param Sequence['RecommendedActionImpactRecordResponse'] estimated_impact: Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change
@@ -2796,6 +2826,7 @@ class RecommendedActionStateInfoResponse(dict):
                  last_modified: _builtins.str):
         """
         Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+
         :param _builtins.str action_initiated_by: Gets who initiated the execution of this recommended action. Possible Value are: User    -> When user explicity notified system to apply the recommended action. System  -> When auto-execute status of this advisor was set to 'Enabled', in which case the system applied it.
         :param _builtins.str current_value: Current state the recommended action is in. Some commonly used states are: Active      -> recommended action is active and no action has been taken yet. Pending     -> recommended action is approved for and is awaiting execution. Executing   -> recommended action is being applied on the user database. Verifying   -> recommended action was applied and is being verified of its usefulness by the system. Success     -> recommended action was applied and improvement found during verification. Pending Revert  -> verification found little or no improvement so recommended action is queued for revert or user has manually reverted. Reverting   -> changes made while applying recommended action are being reverted on the user database. Reverted    -> successfully reverted the changes made by recommended action on user database. Ignored     -> user explicitly ignored/discarded the recommended action. 
         :param _builtins.str last_modified: Gets the time when the state was last modified
@@ -2862,6 +2893,7 @@ class ResourceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
         :param _builtins.str type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -2942,6 +2974,7 @@ class ScheduleItemResponse(dict):
                  stop_time: _builtins.str):
         """
         Schedule info describing when the server should be started or stopped.
+
         :param _builtins.str start_day: Start day.
         :param _builtins.str start_time: Start time.
         :param _builtins.str stop_day: Stop day.
@@ -3022,6 +3055,7 @@ class ServerExternalAdministratorResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Properties of a active directory administrator.
+
         :param _builtins.str administrator_type: Type of the sever administrator.
         :param _builtins.bool azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
         :param _builtins.str login: Login name of the server administrator.
@@ -3117,6 +3151,7 @@ class ServerInfoResponse(dict):
                  server_id: _builtins.str):
         """
         Server info for the server trust group.
+
         :param _builtins.str server_id: Server Id.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -3140,6 +3175,7 @@ class ServerPrivateEndpointConnectionResponse(dict):
                  properties: 'outputs.PrivateEndpointConnectionPropertiesResponse'):
         """
         A private endpoint connection under a server
+
         :param _builtins.str id: Resource ID.
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
         """
@@ -3196,6 +3232,7 @@ class ServicePrincipalResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The managed instance's service principal configuration for a resource.
+
         :param _builtins.str client_id: The Azure Active Directory application client id.
         :param _builtins.str principal_id: The Azure Active Directory application object id.
         :param _builtins.str tenant_id: The Azure Active Directory tenant id.
@@ -3253,6 +3290,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         An ARM Resource SKU.
+
         :param _builtins.str name: The name of the SKU, typically, a letter + Number code, e.g. P3.
         :param _builtins.int capacity: Capacity of the particular SKU.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -3337,6 +3375,7 @@ class SyncGroupSchemaResponse(dict):
                  tables: Optional[Sequence['outputs.SyncGroupSchemaTableResponse']] = None):
         """
         Properties of sync group schema.
+
         :param _builtins.str master_sync_member_name: Name of master sync member where the schema is from.
         :param Sequence['SyncGroupSchemaTableResponse'] tables: List of tables in sync group schema.
         """
@@ -3394,6 +3433,7 @@ class SyncGroupSchemaTableColumnResponse(dict):
                  quoted_name: Optional[_builtins.str] = None):
         """
         Properties of column in sync group table.
+
         :param _builtins.str data_size: Data size of the column.
         :param _builtins.str data_type: Data type of the column.
         :param _builtins.str quoted_name: Quoted name of sync group table column.
@@ -3457,6 +3497,7 @@ class SyncGroupSchemaTableResponse(dict):
                  quoted_name: Optional[_builtins.str] = None):
         """
         Properties of table in sync group schema.
+
         :param Sequence['SyncGroupSchemaTableColumnResponse'] columns: List of columns in sync group schema.
         :param _builtins.str quoted_name: Quoted name of sync group schema table.
         """
@@ -3523,6 +3564,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -3621,6 +3663,7 @@ class UserIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         Azure Active Directory identity configuration for a resource.
+
         :param _builtins.str client_id: The Azure Active Directory client id.
         :param _builtins.str principal_id: The Azure Active Directory principal id.
         """
@@ -3674,6 +3717,7 @@ class VulnerabilityAssessmentRecurringScansPropertiesResponse(dict):
                  is_enabled: Optional[_builtins.bool] = None):
         """
         Properties of a Vulnerability Assessment recurring scans.
+
         :param _builtins.bool email_subscription_admins: Specifies that the schedule scan notification will be is sent to the subscription administrators.
         :param Sequence[_builtins.str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param _builtins.bool is_enabled: Recurring scans state.

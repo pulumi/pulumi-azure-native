@@ -33,6 +33,7 @@ class CassandraResourceCassandraViewArgs:
                  view_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CassandraResourceCassandraView resource.
+
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[_builtins.str] keyspace_name: Cosmos DB keyspace name.
         :param pulumi.Input['CassandraViewResourceArgs'] resource: The standard JSON format of a Cassandra view
@@ -190,6 +191,36 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15-preview, 2022-08-15-preview, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CosmosDBCassandraViewCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_view = azure_native.cosmosdb.CassandraResourceCassandraView("cassandraResourceCassandraView",
+            account_name="ddb1",
+            keyspace_name="keyspacename",
+            options={},
+            resource={
+                "id": "viewname",
+                "view_definition": "SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY (columnc, columna)",
+            },
+            resource_group_name="rg1",
+            tags={},
+            view_name="viewname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:CassandraResourceCassandraView viewname /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/views/{viewName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
@@ -214,6 +245,36 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01-preview.
 
         Other available API versions: 2021-07-01-preview, 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15-preview, 2022-08-15-preview, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CosmosDBCassandraViewCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_view = azure_native.cosmosdb.CassandraResourceCassandraView("cassandraResourceCassandraView",
+            account_name="ddb1",
+            keyspace_name="keyspacename",
+            options={},
+            resource={
+                "id": "viewname",
+                "view_definition": "SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY (columnc, columna)",
+            },
+            resource_group_name="rg1",
+            tags={},
+            view_name="viewname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cosmosdb:CassandraResourceCassandraView viewname /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraKeyspaces/{keyspaceName}/views/{viewName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param CassandraResourceCassandraViewArgs args: The arguments to use to populate this resource's properties.

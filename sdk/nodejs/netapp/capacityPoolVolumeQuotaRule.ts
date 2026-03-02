@@ -13,6 +13,35 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01.
  *
  * Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### VolumeQuotaRules_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const capacityPoolVolumeQuotaRule = new azure_native.netapp.CapacityPoolVolumeQuotaRule("capacityPoolVolumeQuotaRule", {
+ *     accountName: "account-9957",
+ *     location: "westus",
+ *     poolName: "pool-5210",
+ *     quotaSizeInKiBs: 100005,
+ *     quotaTarget: "1821",
+ *     quotaType: azure_native.netapp.Type.IndividualUserQuota,
+ *     resourceGroupName: "myRG",
+ *     volumeName: "volume-6387",
+ *     volumeQuotaRuleName: "rule-0004",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:CapacityPoolVolumeQuotaRule account-9957/pool-5210/volume-6387/rule-0004 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName} 
+ * ```
  */
 export class CapacityPoolVolumeQuotaRule extends pulumi.CustomResource {
     /**

@@ -27,6 +27,7 @@ class MonitoringConfigArgs:
                  role_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a MonitoringConfig resource.
+
         :param pulumi.Input[_builtins.str] device_name: The device name.
         :param pulumi.Input[Sequence[pulumi.Input['MetricConfigurationArgs']]] metric_configurations: The metrics configuration details
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -104,6 +105,39 @@ class MonitoringConfig(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PutMonitoringConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_config = azure_native.databoxedge.MonitoringConfig("monitoringConfig",
+            device_name="testedgedevice",
+            metric_configurations=[{
+                "counter_sets": [{
+                    "counters": [{
+                        "name": "test",
+                    }],
+                }],
+                "mdm_account": "test",
+                "metric_name_space": "test",
+                "resource_id": "test",
+            }],
+            resource_group_name="GroupForEdgeAutomation",
+            role_name="testrole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:MonitoringConfig myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/monitoringConfig/default 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_name: The device name.
@@ -123,6 +157,39 @@ class MonitoringConfig(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PutMonitoringConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_config = azure_native.databoxedge.MonitoringConfig("monitoringConfig",
+            device_name="testedgedevice",
+            metric_configurations=[{
+                "counter_sets": [{
+                    "counters": [{
+                        "name": "test",
+                    }],
+                }],
+                "mdm_account": "test",
+                "metric_name_space": "test",
+                "resource_id": "test",
+            }],
+            resource_group_name="GroupForEdgeAutomation",
+            role_name="testrole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:MonitoringConfig myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/monitoringConfig/default 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitoringConfigArgs args: The arguments to use to populate this resource's properties.

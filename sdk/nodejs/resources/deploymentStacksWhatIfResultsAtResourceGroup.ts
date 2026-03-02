@@ -11,6 +11,56 @@ import * as utilities from "../utilities";
  * Deployment stack object.
  *
  * Uses Azure REST API version 2025-07-01.
+ *
+ * ## Example Usage
+ * ### Create or update a resource group scoped Deployment stack what-if result
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentStacksWhatIfResultsAtResourceGroup = new azure_native.resources.DeploymentStacksWhatIfResultsAtResourceGroup("deploymentStacksWhatIfResultsAtResourceGroup", {
+ *     deploymentStacksWhatIfResultName: "simpleDeploymentStackWhatIfResult",
+ *     location: "eastus",
+ *     properties: {
+ *         actionOnUnmanage: {
+ *             managementGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Detach,
+ *             resourceGroups: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
+ *             resources: azure_native.resources.DeploymentStacksDeleteDetachEnum.Delete,
+ *         },
+ *         denySettings: {
+ *             applyToChildScopes: false,
+ *             mode: azure_native.resources.DenySettingsMode.None,
+ *         },
+ *         deploymentStackResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack",
+ *         extensionConfigs: {
+ *             contoso: {
+ *                 configOne: {
+ *                     value: "config1Value",
+ *                 },
+ *                 configTwo: {
+ *                     value: true,
+ *                 },
+ *             },
+ *         },
+ *         parameters: {},
+ *         retentionInterval: "P7D",
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:DeploymentStacksWhatIfResultsAtResourceGroup simpleDeploymentStackWhatIfResult /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName} 
+ * ```
  */
 export class DeploymentStacksWhatIfResultsAtResourceGroup extends pulumi.CustomResource {
     /**

@@ -15,6 +15,161 @@ namespace Pulumi.AzureNative.StorageMover
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
     /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Agents_CreateOrUpdate_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agent = new AzureNative.StorageMover.Agent("agent", new()
+    ///     {
+    ///         AgentName = "examples-agentName",
+    ///         ArcResourceId = "/subscriptions/60bcfc77-6589-4da2-b7fd-f9ec9322cf95/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+    ///         ArcVmUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+    ///         Description = "Example Agent Description",
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///         UploadLimitSchedule = new AzureNative.StorageMover.Inputs.UploadLimitScheduleArgs
+    ///         {
+    ///             WeeklyRecurrences = new[]
+    ///             {
+    ///                 new AzureNative.StorageMover.Inputs.UploadLimitWeeklyRecurrenceArgs
+    ///                 {
+    ///                     Days = new[]
+    ///                     {
+    ///                         AzureNative.StorageMover.DayOfWeek.Monday,
+    ///                     },
+    ///                     EndTime = new AzureNative.StorageMover.Inputs.TimeArgs
+    ///                     {
+    ///                         Hour = 18,
+    ///                         Minute = 30,
+    ///                     },
+    ///                     LimitInMbps = 2000,
+    ///                     StartTime = new AzureNative.StorageMover.Inputs.TimeArgs
+    ///                     {
+    ///                         Hour = 9,
+    ///                         Minute = 0,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Agents_CreateOrUpdate_MinimumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agent = new AzureNative.StorageMover.Agent("agent", new()
+    ///     {
+    ///         AgentName = "examples-agentName",
+    ///         ArcResourceId = "/subscriptions/60bcfc77-6589-4da2-b7fd-f9ec9322cf95/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+    ///         ArcVmUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Agents_CreateOrUpdate_WithOvernightUploadLimitSchedule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agent = new AzureNative.StorageMover.Agent("agent", new()
+    ///     {
+    ///         AgentName = "examples-agentName",
+    ///         ArcResourceId = "/subscriptions/60bcfc77-6589-4da2-b7fd-f9ec9322cf95/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+    ///         ArcVmUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///         UploadLimitSchedule = new AzureNative.StorageMover.Inputs.UploadLimitScheduleArgs
+    ///         {
+    ///             WeeklyRecurrences = new[]
+    ///             {
+    ///                 new AzureNative.StorageMover.Inputs.UploadLimitWeeklyRecurrenceArgs
+    ///                 {
+    ///                     Days = new[]
+    ///                     {
+    ///                         AzureNative.StorageMover.DayOfWeek.Monday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Tuesday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Wednesday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Thursday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Friday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Saturday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Sunday,
+    ///                     },
+    ///                     EndTime = new AzureNative.StorageMover.Inputs.TimeArgs
+    ///                     {
+    ///                         Hour = 24,
+    ///                         Minute = 0,
+    ///                     },
+    ///                     LimitInMbps = 2000,
+    ///                     StartTime = new AzureNative.StorageMover.Inputs.TimeArgs
+    ///                     {
+    ///                         Hour = 18,
+    ///                         Minute = 0,
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.StorageMover.Inputs.UploadLimitWeeklyRecurrenceArgs
+    ///                 {
+    ///                     Days = new[]
+    ///                     {
+    ///                         AzureNative.StorageMover.DayOfWeek.Monday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Tuesday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Wednesday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Thursday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Friday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Saturday,
+    ///                         AzureNative.StorageMover.DayOfWeek.Sunday,
+    ///                     },
+    ///                     EndTime = new AzureNative.StorageMover.Inputs.TimeArgs
+    ///                     {
+    ///                         Hour = 9,
+    ///                         Minute = 0,
+    ///                     },
+    ///                     LimitInMbps = 2000,
+    ///                     StartTime = new AzureNative.StorageMover.Inputs.TimeArgs
+    ///                     {
+    ///                         Hour = 0,
+    ///                         Minute = 0,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover:Agent examples-agentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageMover/storageMovers/{storageMoverName}/agents/{agentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:Agent")]
     public partial class Agent : global::Pulumi.CustomResource

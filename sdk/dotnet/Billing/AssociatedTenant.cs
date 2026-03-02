@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Billing
     /// An associated tenant.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
+    /// 
+    /// ## Example Usage
+    /// ### AssociatedTenantsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var associatedTenant = new AzureNative.Billing.AssociatedTenant("associatedTenant", new()
+    ///     {
+    ///         AssociatedTenantName = "11111111-1111-1111-1111-111111111111",
+    ///         BillingAccountName = "00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
+    ///         Properties = new AzureNative.Billing.Inputs.AssociatedTenantPropertiesArgs
+    ///         {
+    ///             BillingManagementState = AzureNative.Billing.BillingManagementTenantState.Active,
+    ///             DisplayName = "Contoso Finance",
+    ///             ProvisioningManagementState = AzureNative.Billing.ProvisioningTenantState.Pending,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billing:AssociatedTenant 11111111-1111-1111-1111-111111111111 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/associatedTenants/{associatedTenantName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:AssociatedTenant")]
     public partial class AssociatedTenant : global::Pulumi.CustomResource

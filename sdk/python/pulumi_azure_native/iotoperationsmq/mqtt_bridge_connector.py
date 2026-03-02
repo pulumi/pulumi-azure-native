@@ -38,6 +38,7 @@ class MqttBridgeConnectorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MqttBridgeConnector resource.
+
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] image: The details of MqttBridge Docker Image.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
@@ -271,6 +272,98 @@ class MqttBridgeConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
+        ## Example Usage
+        ### MqttBridgeConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mqtt_bridge_connector = azure_native.iotoperationsmq.MqttBridgeConnector("mqttBridgeConnector",
+            bridge_instances=4528,
+            client_id_prefix="yqipejvabahsexbnttiegjnh",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            image={
+                "pull_policy": "imfuzvqxgbdwliqnn",
+                "pull_secrets": "klnqimxqsrdwhcqldjvdtsrs",
+                "repository": "m",
+                "tag": "jygfdiamhhm",
+            },
+            local_broker_connection={
+                "authentication": {
+                    "kubernetes": {
+                        "secret_path": "soukzfkouir",
+                        "service_account_token_name": "suwetviuhmhorhvsidlznnufe",
+                    },
+                },
+                "endpoint": "xc",
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "rinkomfeznsfedbmllxlbmmhc",
+                },
+            },
+            location="frztvxzhskx",
+            log_level="gpgijsotipdtvvkpnckuziqqv",
+            mq_name="R8-6x-Y-L-F-21RP5-XVv",
+            mqtt_bridge_connector_name="k1v-U4P2440C1b7T8y-G",
+            node_tolerations={
+                "effect": "eeswvciblqmmaeesjoflyvxqbz",
+                "key": "wbrstdwxgm",
+                "operator": "lbegegneekwnyodtzraarivtwhmzep",
+                "value": "sfafsjdcezdmkwibxeluukxgl",
+            },
+            protocol=azure_native.iotoperationsmq.MqttProtocol.V3,
+            remote_broker_connection={
+                "authentication": {
+                    "system_assigned_managed_identity": {
+                        "audience": "kjderojhpehosgfcrxxbh",
+                        "extension_name": "cyckjqqzspleajbtkniwrfsqygjfhe",
+                    },
+                    "x509": {
+                        "key_vault": {
+                            "vault": {
+                                "credentials": {
+                                    "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                },
+                                "directory_id": "eyjniptiykzcgbzok",
+                                "name": "lxmwfan",
+                            },
+                            "vault_ca_chain_secret": {
+                                "name": "bmectskddmpjxnsogwooexj",
+                                "version": "unjfbf",
+                            },
+                            "vault_cert": {
+                                "name": "bmectskddmpjxnsogwooexj",
+                                "version": "unjfbf",
+                            },
+                        },
+                        "secret_name": "x",
+                    },
+                },
+                "endpoint": "bshzrukafmxjgnrlhzlxbbzjdbqh",
+                "protocol": azure_native.iotoperationsmq.MqttBridgeRemoteBrokerProtocol.MQTT,
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "ivtebqmclgfjx",
+                },
+            },
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:MqttBridgeConnector pjcjtrthj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] bridge_instances: The number of instances to deploy for a bridge rollout.
@@ -298,6 +391,98 @@ class MqttBridgeConnector(pulumi.CustomResource):
         MQ mqttBridgeConnector resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
+
+        ## Example Usage
+        ### MqttBridgeConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mqtt_bridge_connector = azure_native.iotoperationsmq.MqttBridgeConnector("mqttBridgeConnector",
+            bridge_instances=4528,
+            client_id_prefix="yqipejvabahsexbnttiegjnh",
+            extended_location={
+                "name": "an",
+                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            image={
+                "pull_policy": "imfuzvqxgbdwliqnn",
+                "pull_secrets": "klnqimxqsrdwhcqldjvdtsrs",
+                "repository": "m",
+                "tag": "jygfdiamhhm",
+            },
+            local_broker_connection={
+                "authentication": {
+                    "kubernetes": {
+                        "secret_path": "soukzfkouir",
+                        "service_account_token_name": "suwetviuhmhorhvsidlznnufe",
+                    },
+                },
+                "endpoint": "xc",
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "rinkomfeznsfedbmllxlbmmhc",
+                },
+            },
+            location="frztvxzhskx",
+            log_level="gpgijsotipdtvvkpnckuziqqv",
+            mq_name="R8-6x-Y-L-F-21RP5-XVv",
+            mqtt_bridge_connector_name="k1v-U4P2440C1b7T8y-G",
+            node_tolerations={
+                "effect": "eeswvciblqmmaeesjoflyvxqbz",
+                "key": "wbrstdwxgm",
+                "operator": "lbegegneekwnyodtzraarivtwhmzep",
+                "value": "sfafsjdcezdmkwibxeluukxgl",
+            },
+            protocol=azure_native.iotoperationsmq.MqttProtocol.V3,
+            remote_broker_connection={
+                "authentication": {
+                    "system_assigned_managed_identity": {
+                        "audience": "kjderojhpehosgfcrxxbh",
+                        "extension_name": "cyckjqqzspleajbtkniwrfsqygjfhe",
+                    },
+                    "x509": {
+                        "key_vault": {
+                            "vault": {
+                                "credentials": {
+                                    "service_principal_local_secret_name": "wuimjwpbhoglbsxxa",
+                                },
+                                "directory_id": "eyjniptiykzcgbzok",
+                                "name": "lxmwfan",
+                            },
+                            "vault_ca_chain_secret": {
+                                "name": "bmectskddmpjxnsogwooexj",
+                                "version": "unjfbf",
+                            },
+                            "vault_cert": {
+                                "name": "bmectskddmpjxnsogwooexj",
+                                "version": "unjfbf",
+                            },
+                        },
+                        "secret_name": "x",
+                    },
+                },
+                "endpoint": "bshzrukafmxjgnrlhzlxbbzjdbqh",
+                "protocol": azure_native.iotoperationsmq.MqttBridgeRemoteBrokerProtocol.MQTT,
+                "tls": {
+                    "tls_enabled": True,
+                    "trusted_ca_certificate_config_map": "ivtebqmclgfjx",
+                },
+            },
+            resource_group_name="rgiotoperationsmq",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperationsmq:MqttBridgeConnector pjcjtrthj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MqttBridgeConnectorArgs args: The arguments to use to populate this resource's properties.

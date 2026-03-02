@@ -28,6 +28,7 @@ class LandingZoneConfigurationOperationArgs:
                  properties: Optional[pulumi.Input['LandingZoneConfigurationResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a LandingZoneConfigurationOperation resource.
+
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] landing_zone_configuration_name: The landing zone configuration name
@@ -105,6 +106,175 @@ class LandingZoneConfigurationOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
 
+        ## Example Usage
+        ### LandingZoneConfigurationOperations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        landing_zone_configuration_operation = azure_native.sovereign.LandingZoneConfigurationOperation("landingZoneConfigurationOperation",
+            landing_zone_account_name="lza-RemApiExample",
+            landing_zone_configuration_name="lzc-RemApiExample",
+            properties={
+                "azure_bastion_creation_option": azure_native.sovereign.ResourceCreationOptions.USE_EXISTING,
+                "custom_naming_convention": [{
+                    "formula": "{ResourceTypeAbbreviation}-{DeploymentPrefix}-Contoso-{DeploymentSuffix}",
+                    "resource_type": azure_native.sovereign.ResourceType.DDOS_PROTECTION_PLANS,
+                }],
+                "ddos_protection_creation_option": azure_native.sovereign.ResourceCreationOptions.USE_EXISTING,
+                "decommissioned_mg_metadata": {
+                    "create": True,
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "existing_azure_bastion_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Network/bastionHosts/bas-RemApiExample",
+                "existing_ddos_protection_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Network/ddosProtectionPlans/ddos-RemApiExample",
+                "existing_log_analytics_workspace_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.OperationalInsights/workspaces/log-RemApiExample",
+                "firewall_creation_option": azure_native.sovereign.FirewallCreationOptions.PREMIUM,
+                "firewall_subnet_cidr_block": "10.20.254.0/24",
+                "gateway_subnet_cidr_block": "10.20.252.0/24",
+                "hub_network_cidr_block": "10.20.0.0/16",
+                "landing_zones_mg_children": [
+                    {
+                        "name": "Corp",
+                        "policy_initiatives_assignment_properties": [],
+                    },
+                    {
+                        "name": "Online",
+                        "policy_initiatives_assignment_properties": [],
+                    },
+                    {
+                        "name": "Confidential Corp",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {},
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/03de05a4-c324-4ccd-882f-a814ea8ab9ea",
+                        }],
+                    },
+                    {
+                        "name": "Confidential Online",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {},
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/03de05a4-c324-4ccd-882f-a814ea8ab9ea",
+                        }],
+                    },
+                ],
+                "landing_zones_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "log_analytics_workspace_creation_option": azure_native.sovereign.ResourceCreationOptions.USE_EXISTING,
+                "log_retention_in_days": 540,
+                "managed_identity": {
+                    "type": azure_native.sovereign.ManagedIdentityResourceType.USER_ASSIGNED,
+                    "user_assigned_identity_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+                },
+                "naming_convention_formula": "{ResourceTypeAbbreviation}-{DeploymentPrefix}-Contoso-{DeploymentSuffix}-{Environment}",
+                "platform_connectivity_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "platform_identity_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "platform_management_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "platform_mg_children": [
+                    {
+                        "name": "Telemetry",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {
+                                "listOfAllowedLocations": ["swedencentral"],
+                            },
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                        }],
+                    },
+                    {
+                        "name": "Security",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {
+                                "listOfAllowedLocations": ["swedencentral"],
+                            },
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                        }],
+                    },
+                ],
+                "platform_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "sandbox_mg_metadata": {
+                    "create": True,
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "tags": [
+                    {
+                        "name": "tag1",
+                        "value": "Lorem",
+                    },
+                    {
+                        "name": "tag2",
+                        "value": "Ipsum",
+                    },
+                ],
+                "top_level_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": [
+                                "swedencentral",
+                                "eastus2",
+                                "uksouth",
+                            ],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+            },
+            resource_group_name="rg-RemApiExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sovereign:LandingZoneConfigurationOperation lzc-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneConfigurations/{landingZoneConfigurationName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
@@ -122,6 +292,175 @@ class LandingZoneConfigurationOperation(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
+
+        ## Example Usage
+        ### LandingZoneConfigurationOperations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        landing_zone_configuration_operation = azure_native.sovereign.LandingZoneConfigurationOperation("landingZoneConfigurationOperation",
+            landing_zone_account_name="lza-RemApiExample",
+            landing_zone_configuration_name="lzc-RemApiExample",
+            properties={
+                "azure_bastion_creation_option": azure_native.sovereign.ResourceCreationOptions.USE_EXISTING,
+                "custom_naming_convention": [{
+                    "formula": "{ResourceTypeAbbreviation}-{DeploymentPrefix}-Contoso-{DeploymentSuffix}",
+                    "resource_type": azure_native.sovereign.ResourceType.DDOS_PROTECTION_PLANS,
+                }],
+                "ddos_protection_creation_option": azure_native.sovereign.ResourceCreationOptions.USE_EXISTING,
+                "decommissioned_mg_metadata": {
+                    "create": True,
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "existing_azure_bastion_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Network/bastionHosts/bas-RemApiExample",
+                "existing_ddos_protection_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.Network/ddosProtectionPlans/ddos-RemApiExample",
+                "existing_log_analytics_workspace_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.OperationalInsights/workspaces/log-RemApiExample",
+                "firewall_creation_option": azure_native.sovereign.FirewallCreationOptions.PREMIUM,
+                "firewall_subnet_cidr_block": "10.20.254.0/24",
+                "gateway_subnet_cidr_block": "10.20.252.0/24",
+                "hub_network_cidr_block": "10.20.0.0/16",
+                "landing_zones_mg_children": [
+                    {
+                        "name": "Corp",
+                        "policy_initiatives_assignment_properties": [],
+                    },
+                    {
+                        "name": "Online",
+                        "policy_initiatives_assignment_properties": [],
+                    },
+                    {
+                        "name": "Confidential Corp",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {},
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/03de05a4-c324-4ccd-882f-a814ea8ab9ea",
+                        }],
+                    },
+                    {
+                        "name": "Confidential Online",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {},
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/03de05a4-c324-4ccd-882f-a814ea8ab9ea",
+                        }],
+                    },
+                ],
+                "landing_zones_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "log_analytics_workspace_creation_option": azure_native.sovereign.ResourceCreationOptions.USE_EXISTING,
+                "log_retention_in_days": 540,
+                "managed_identity": {
+                    "type": azure_native.sovereign.ManagedIdentityResourceType.USER_ASSIGNED,
+                    "user_assigned_identity_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-RemApiExample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mi-RemApiExample",
+                },
+                "naming_convention_formula": "{ResourceTypeAbbreviation}-{DeploymentPrefix}-Contoso-{DeploymentSuffix}-{Environment}",
+                "platform_connectivity_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "platform_identity_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "platform_management_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "platform_mg_children": [
+                    {
+                        "name": "Telemetry",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {
+                                "listOfAllowedLocations": ["swedencentral"],
+                            },
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                        }],
+                    },
+                    {
+                        "name": "Security",
+                        "policy_initiatives_assignment_properties": [{
+                            "assignment_parameters": {
+                                "listOfAllowedLocations": ["swedencentral"],
+                            },
+                            "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                        }],
+                    },
+                ],
+                "platform_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "sandbox_mg_metadata": {
+                    "create": True,
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": ["swedencentral"],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+                "tags": [
+                    {
+                        "name": "tag1",
+                        "value": "Lorem",
+                    },
+                    {
+                        "name": "tag2",
+                        "value": "Ipsum",
+                    },
+                ],
+                "top_level_mg_metadata": {
+                    "policy_initiatives_assignment_properties": [{
+                        "assignment_parameters": {
+                            "listOfAllowedLocations": [
+                                "swedencentral",
+                                "eastus2",
+                                "uksouth",
+                            ],
+                        },
+                        "policy_initiative_id": "/providers/Microsoft.Authorization/policySetDefinitions/c1cbff38-87c0-4b9f-9f70-035c7a3b5523",
+                    }],
+                },
+            },
+            resource_group_name="rg-RemApiExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sovereign:LandingZoneConfigurationOperation lzc-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName}/landingZoneConfigurations/{landingZoneConfigurationName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LandingZoneConfigurationOperationArgs args: The arguments to use to populate this resource's properties.

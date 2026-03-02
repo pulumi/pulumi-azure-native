@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.ScVmm
     /// Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
     /// 
     /// Other available API versions: 2022-05-21-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateHybridIdentityMetadata
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hybridIdentityMetadata = new AzureNative.ScVmm.HybridIdentityMetadata("hybridIdentityMetadata", new()
+    ///     {
+    ///         MetadataName = "default",
+    ///         PublicKey = "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+    ///         ResourceGroupName = "testrg",
+    ///         ResourceUid = "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
+    ///         VirtualMachineName = "ContosoVm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm:HybridIdentityMetadata default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:HybridIdentityMetadata")]
     public partial class HybridIdentityMetadata : global::Pulumi.CustomResource

@@ -29,6 +29,7 @@ class DynamoDbContinuousBackupsDescriptionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DynamoDbContinuousBackupsDescription resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of DynamoDBContinuousBackupsDescription
@@ -123,6 +124,55 @@ class DynamoDbContinuousBackupsDescription(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### DynamoDbContinuousBackupsDescriptions_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dynamo_db_continuous_backups_description = azure_native.awsconnector.DynamoDbContinuousBackupsDescription("dynamoDbContinuousBackupsDescription",
+            location="zlepfxe",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ftscqdgahea",
+                "aws_account_id": "mf",
+                "aws_properties": {
+                    "continuous_backups_status": {
+                        "value": azure_native.awsconnector.ContinuousBackupsStatus.DISABLED,
+                    },
+                    "point_in_time_recovery_description": {
+                        "earliest_restorable_date_time": "2024-10-08T03:52:00.281Z",
+                        "latest_restorable_date_time": "2024-10-08T03:52:00.281Z",
+                        "point_in_time_recovery_status": {
+                            "value": azure_native.awsconnector.PointInTimeRecoveryStatus.DISABLED,
+                        },
+                    },
+                },
+                "aws_region": "vvdgggbbnkqfqlawtbkkxhtn",
+                "aws_source_schema": "qdkzzibfkzzsphoguehj",
+                "aws_tags": {
+                    "key4982": "etujkpssxnluswfrmpfxwbkvvrbrj",
+                },
+                "public_cloud_connectors_resource_id": "cmxfprcuzlfsuapudqgzmyrz",
+                "public_cloud_resource_name": "y",
+            },
+            resource_group_name="rgdynamoDBContinuousBackupsDescription",
+            tags={
+                "key6182": "vfhpsiualsgltchem",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:DynamoDbContinuousBackupsDescription ybhxjyoab /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/dynamoDBContinuousBackupsDescriptions/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +191,55 @@ class DynamoDbContinuousBackupsDescription(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### DynamoDbContinuousBackupsDescriptions_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dynamo_db_continuous_backups_description = azure_native.awsconnector.DynamoDbContinuousBackupsDescription("dynamoDbContinuousBackupsDescription",
+            location="zlepfxe",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "ftscqdgahea",
+                "aws_account_id": "mf",
+                "aws_properties": {
+                    "continuous_backups_status": {
+                        "value": azure_native.awsconnector.ContinuousBackupsStatus.DISABLED,
+                    },
+                    "point_in_time_recovery_description": {
+                        "earliest_restorable_date_time": "2024-10-08T03:52:00.281Z",
+                        "latest_restorable_date_time": "2024-10-08T03:52:00.281Z",
+                        "point_in_time_recovery_status": {
+                            "value": azure_native.awsconnector.PointInTimeRecoveryStatus.DISABLED,
+                        },
+                    },
+                },
+                "aws_region": "vvdgggbbnkqfqlawtbkkxhtn",
+                "aws_source_schema": "qdkzzibfkzzsphoguehj",
+                "aws_tags": {
+                    "key4982": "etujkpssxnluswfrmpfxwbkvvrbrj",
+                },
+                "public_cloud_connectors_resource_id": "cmxfprcuzlfsuapudqgzmyrz",
+                "public_cloud_resource_name": "y",
+            },
+            resource_group_name="rgdynamoDBContinuousBackupsDescription",
+            tags={
+                "key6182": "vfhpsiualsgltchem",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:DynamoDbContinuousBackupsDescription ybhxjyoab /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/dynamoDBContinuousBackupsDescriptions/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DynamoDbContinuousBackupsDescriptionArgs args: The arguments to use to populate this resource's properties.

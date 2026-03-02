@@ -64,7 +64,6 @@ __all__ = [
     'ManagedAgentDeploymentResponse',
     'ManagedIdentityAuthTypeConnectionPropertiesResponse',
     'MultiRegionSettingsResponse',
-    'NetworkInjectionResponse',
     'NetworkRuleSetResponse',
     'NoneAuthTypeConnectionPropertiesResponse',
     'OAuth2AuthTypeConnectionPropertiesResponse',
@@ -159,15 +158,12 @@ class AADAuthTypeConnectionPropertiesResponse(dict):
                  use_workspace_managed_identity: Optional[_builtins.bool] = None):
         """
         This connection type covers the AAD auth for any applicable Azure service
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'AAD'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'AAD')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -226,9 +222,6 @@ class AADAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -252,17 +245,11 @@ class AADAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -273,9 +260,6 @@ class AADAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -312,6 +296,7 @@ class AbusePenaltyResponse(dict):
                  rate_limit_percentage: Optional[_builtins.float] = None):
         """
         The abuse penalty.
+
         :param _builtins.str action: The action of AbusePenalty.
         :param _builtins.str expiration: The datetime of expiration of the AbusePenalty.
         :param _builtins.float rate_limit_percentage: The percentage of rate limit.
@@ -401,11 +386,7 @@ class AccessKeyAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'AccessKey'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'AccessKey')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -471,9 +452,6 @@ class AccessKeyAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -497,17 +475,11 @@ class AccessKeyAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -518,9 +490,6 @@ class AccessKeyAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -582,16 +551,13 @@ class AccountKeyAuthTypeConnectionPropertiesResponse(dict):
                  use_workspace_managed_identity: Optional[_builtins.bool] = None):
         """
         This connection type covers the account key connection for Azure storage
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'AccountKey'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
         :param 'ConnectionAccountKeyResponse' credentials: Account key object for connection credential.
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'AccountKey')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -660,9 +626,6 @@ class AccountKeyAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -686,17 +649,11 @@ class AccountKeyAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -707,9 +664,6 @@ class AccountKeyAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -750,20 +704,14 @@ class AccountPropertiesResponse(dict):
             suggest = "scheduled_purge_date"
         elif key == "skuChangeInfo":
             suggest = "sku_change_info"
-        elif key == "allowProjectManagement":
-            suggest = "allow_project_management"
         elif key == "allowedFqdnList":
             suggest = "allowed_fqdn_list"
         elif key == "amlWorkspace":
             suggest = "aml_workspace"
         elif key == "apiProperties":
             suggest = "api_properties"
-        elif key == "associatedProjects":
-            suggest = "associated_projects"
         elif key == "customSubDomainName":
             suggest = "custom_sub_domain_name"
-        elif key == "defaultProject":
-            suggest = "default_project"
         elif key == "disableLocalAuth":
             suggest = "disable_local_auth"
         elif key == "dynamicThrottlingEnabled":
@@ -772,8 +720,6 @@ class AccountPropertiesResponse(dict):
             suggest = "migration_token"
         elif key == "networkAcls":
             suggest = "network_acls"
-        elif key == "networkInjections":
-            suggest = "network_injections"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
         elif key == "raiMonitorConfig":
@@ -810,26 +756,23 @@ class AccountPropertiesResponse(dict):
                  quota_limit: 'outputs.QuotaLimitResponse',
                  scheduled_purge_date: _builtins.str,
                  sku_change_info: 'outputs.SkuChangeInfoResponse',
-                 allow_project_management: Optional[_builtins.bool] = None,
                  allowed_fqdn_list: Optional[Sequence[_builtins.str]] = None,
                  aml_workspace: Optional['outputs.UserOwnedAmlWorkspaceResponse'] = None,
                  api_properties: Optional['outputs.ApiPropertiesResponse'] = None,
-                 associated_projects: Optional[Sequence[_builtins.str]] = None,
                  custom_sub_domain_name: Optional[_builtins.str] = None,
-                 default_project: Optional[_builtins.str] = None,
                  disable_local_auth: Optional[_builtins.bool] = None,
                  dynamic_throttling_enabled: Optional[_builtins.bool] = None,
                  encryption: Optional['outputs.EncryptionResponse'] = None,
                  locations: Optional['outputs.MultiRegionSettingsResponse'] = None,
                  migration_token: Optional[_builtins.str] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
-                 network_injections: Optional[Sequence['outputs.NetworkInjectionResponse']] = None,
                  public_network_access: Optional[_builtins.str] = None,
                  rai_monitor_config: Optional['outputs.RaiMonitorConfigResponse'] = None,
                  restrict_outbound_network_access: Optional[_builtins.bool] = None,
                  user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
         Properties of Cognitive Services account.
+
         :param 'AbusePenaltyResponse' abuse_penalty: The abuse penalty.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param Sequence['SkuCapabilityResponse'] capabilities: Gets the capabilities of the cognitive services account. Each item indicates the capability of a specific feature. The values are read-only and for reference only.
@@ -843,12 +786,9 @@ class AccountPropertiesResponse(dict):
         :param _builtins.str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
         :param _builtins.str scheduled_purge_date: The scheduled purge date, only available for deleted account.
         :param 'SkuChangeInfoResponse' sku_change_info: Sku change info of account.
-        :param _builtins.bool allow_project_management: Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
-        :param 'UserOwnedAmlWorkspaceResponse' aml_workspace: The user owned AML account properties.
+        :param 'UserOwnedAmlWorkspaceResponse' aml_workspace: The user owned AML workspace properties.
         :param 'ApiPropertiesResponse' api_properties: The api properties for special APIs.
-        :param Sequence[_builtins.str] associated_projects: Specifies the projects, by project name, that are associated with this resource.
         :param _builtins.str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
-        :param _builtins.str default_project: Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
         :param _builtins.bool dynamic_throttling_enabled: The flag to enable dynamic throttling.
         :param 'EncryptionResponse' encryption: The encryption properties for this resource.
         :param 'MultiRegionSettingsResponse' locations: The multiregion settings of Cognitive Services account.
@@ -873,20 +813,14 @@ class AccountPropertiesResponse(dict):
         pulumi.set(__self__, "quota_limit", quota_limit)
         pulumi.set(__self__, "scheduled_purge_date", scheduled_purge_date)
         pulumi.set(__self__, "sku_change_info", sku_change_info)
-        if allow_project_management is not None:
-            pulumi.set(__self__, "allow_project_management", allow_project_management)
         if allowed_fqdn_list is not None:
             pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
         if aml_workspace is not None:
             pulumi.set(__self__, "aml_workspace", aml_workspace)
         if api_properties is not None:
             pulumi.set(__self__, "api_properties", api_properties)
-        if associated_projects is not None:
-            pulumi.set(__self__, "associated_projects", associated_projects)
         if custom_sub_domain_name is not None:
             pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
-        if default_project is not None:
-            pulumi.set(__self__, "default_project", default_project)
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if dynamic_throttling_enabled is not None:
@@ -899,8 +833,6 @@ class AccountPropertiesResponse(dict):
             pulumi.set(__self__, "migration_token", migration_token)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
-        if network_injections is not None:
-            pulumi.set(__self__, "network_injections", network_injections)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if rai_monitor_config is not None:
@@ -1025,14 +957,6 @@ class AccountPropertiesResponse(dict):
         return pulumi.get(self, "sku_change_info")
 
     @_builtins.property
-    @pulumi.getter(name="allowProjectManagement")
-    def allow_project_management(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
-        """
-        return pulumi.get(self, "allow_project_management")
-
-    @_builtins.property
     @pulumi.getter(name="allowedFqdnList")
     def allowed_fqdn_list(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "allowed_fqdn_list")
@@ -1041,7 +965,7 @@ class AccountPropertiesResponse(dict):
     @pulumi.getter(name="amlWorkspace")
     def aml_workspace(self) -> Optional['outputs.UserOwnedAmlWorkspaceResponse']:
         """
-        The user owned AML account properties.
+        The user owned AML workspace properties.
         """
         return pulumi.get(self, "aml_workspace")
 
@@ -1054,28 +978,12 @@ class AccountPropertiesResponse(dict):
         return pulumi.get(self, "api_properties")
 
     @_builtins.property
-    @pulumi.getter(name="associatedProjects")
-    def associated_projects(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        Specifies the projects, by project name, that are associated with this resource.
-        """
-        return pulumi.get(self, "associated_projects")
-
-    @_builtins.property
     @pulumi.getter(name="customSubDomainName")
     def custom_sub_domain_name(self) -> Optional[_builtins.str]:
         """
         Optional subdomain name used for token-based authentication.
         """
         return pulumi.get(self, "custom_sub_domain_name")
-
-    @_builtins.property
-    @pulumi.getter(name="defaultProject")
-    def default_project(self) -> Optional[_builtins.str]:
-        """
-        Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
-        """
-        return pulumi.get(self, "default_project")
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
@@ -1123,11 +1031,6 @@ class AccountPropertiesResponse(dict):
         return pulumi.get(self, "network_acls")
 
     @_builtins.property
-    @pulumi.getter(name="networkInjections")
-    def network_injections(self) -> Optional[Sequence['outputs.NetworkInjectionResponse']]:
-        return pulumi.get(self, "network_injections")
-
-    @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[_builtins.str]:
         """
@@ -1167,6 +1070,7 @@ class AgentProtocolVersionResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Type modeling the protocol and version used by an agent/exposed by a deployment.
+
         :param _builtins.str protocol: The protocol used by the agent/exposed by a deployment.
         :param _builtins.str version: The version of the protocol.
         """
@@ -1205,6 +1109,7 @@ class AgentReferenceResourceResponse(dict):
                  type: _builtins.str):
         """
         Agent Reference resource
+
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
         :param 'AgentReferenceResponse' properties: [Required] Additional attributes of the entity.
@@ -1287,6 +1192,7 @@ class AgentReferenceResponse(dict):
                  agent_name: Optional[_builtins.str] = None):
         """
         Type modeling a reference to a version of an agent definition.
+
         :param _builtins.str agent_id: Gets the agent's unique identifier within the organization (subscription).
         :param _builtins.str agent_name: Gets the agent's name (unique within the project/app).
         """
@@ -1362,6 +1268,7 @@ class AgenticApplicationResponse(dict):
                  traffic_routing_policy: Optional['outputs.ApplicationTrafficRoutingPolicyResponse'] = None):
         """
         Resource type representing an agentic application as a management construct.
+
         :param _builtins.bool is_enabled: Enabledstate of the application.
         :param _builtins.str provisioning_state: Provisioning state of the application.
         :param 'AssignedIdentityResponse' agent_identity_blueprint: The EntraId Agentic Blueprint of the application.
@@ -1575,16 +1482,13 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
             Target:= {Endpoint}
                     
         Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'ApiKey'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
         :param 'ConnectionApiKeyResponse' credentials: Api key object for connection credential.
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'ApiKey')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -1653,9 +1557,6 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -1679,17 +1580,11 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -1700,9 +1595,6 @@ class ApiKeyAuthConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -1764,6 +1656,7 @@ class ApiPropertiesResponse(dict):
                  website_name: Optional[_builtins.str] = None):
         """
         The api properties for special APIs.
+
         :param _builtins.str aad_client_id: (Metrics Advisor Only) The Azure AD Client Id (Application Id).
         :param _builtins.str aad_tenant_id: (Metrics Advisor Only) The Azure AD Tenant Id.
         :param _builtins.str event_hub_connection_string: (Personalization Only) The flag to enable statistics of Bing Search.
@@ -1887,6 +1780,7 @@ class ApplicationTrafficRoutingPolicyResponse(dict):
                  rules: Optional[Sequence['outputs.TrafficRoutingRuleResponse']] = None):
         """
         Type representing an application traffic policy as a property of an agentic application.
+
         :param _builtins.str protocol: Methodology used to route traffic to the application's deployments.
         :param Sequence['TrafficRoutingRuleResponse'] rules: Gets or sets the collection of traffic routing rules.
         """
@@ -1950,6 +1844,7 @@ class AssignedIdentityResponse(dict):
                  subject: Optional[_builtins.str] = None):
         """
         Type representing an identity assignment
+
         :param _builtins.str client_id: The client ID of the identity.
         :param _builtins.str kind: Specifies the kind of Entra identity described by this object.
         :param _builtins.str principal_id: The principal ID of the identity.
@@ -2052,6 +1947,7 @@ class CallRateLimitResponse(dict):
                  rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
         """
         The call rate limit Cognitive Services account.
+
         :param _builtins.float count: The count value of Call Rate Limit.
         :param _builtins.float renewal_period: The renewal period in seconds of Call Rate Limit.
         """
@@ -2131,14 +2027,16 @@ class CapabilityHostResponse(dict):
         :param _builtins.str capability_host_kind: Kind of this capability host.
         :param _builtins.str customer_subnet: Customer subnet info to help set up this capability host.
         :param _builtins.str description: The asset description text.
-        :param Sequence[_builtins.str] storage_connections: List of connection names from those available in the account or project to be used as a storage resource.
+        :param Sequence[_builtins.str] storage_connections: List of Storage connections.
         :param Mapping[str, _builtins.str] tags: Tag dictionary. Tags can be added, removed, and updated.
-        :param Sequence[_builtins.str] thread_storage_connections: List of connection names from those available in the account or project to be used for Thread storage.
-        :param Sequence[_builtins.str] vector_store_connections: List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+        :param Sequence[_builtins.str] thread_storage_connections: List of Thread storage connections.
+        :param Sequence[_builtins.str] vector_store_connections: List of VectorStore connections.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if ai_services_connections is not None:
             pulumi.set(__self__, "ai_services_connections", ai_services_connections)
+        if capability_host_kind is None:
+            capability_host_kind = 'Agents'
         if capability_host_kind is not None:
             pulumi.set(__self__, "capability_host_kind", capability_host_kind)
         if customer_subnet is not None:
@@ -2198,7 +2096,7 @@ class CapabilityHostResponse(dict):
     @pulumi.getter(name="storageConnections")
     def storage_connections(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of connection names from those available in the account or project to be used as a storage resource.
+        List of Storage connections.
         """
         return pulumi.get(self, "storage_connections")
 
@@ -2214,7 +2112,7 @@ class CapabilityHostResponse(dict):
     @pulumi.getter(name="threadStorageConnections")
     def thread_storage_connections(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of connection names from those available in the account or project to be used for Thread storage.
+        List of Thread storage connections.
         """
         return pulumi.get(self, "thread_storage_connections")
 
@@ -2222,7 +2120,7 @@ class CapabilityHostResponse(dict):
     @pulumi.getter(name="vectorStoreConnections")
     def vector_store_connections(self) -> Optional[Sequence[_builtins.str]]:
         """
-        List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+        List of VectorStore connections.
         """
         return pulumi.get(self, "vector_store_connections")
 
@@ -2236,6 +2134,7 @@ class ChannelsBuiltInAuthorizationPolicyResponse(dict):
                  type: _builtins.str):
         """
         Represents a built-in authorization policy specific to Azure Bot Service/Channels authentication.
+
         :param _builtins.str type: Authorization scheme type.
                Expected value is 'Channels'.
         """
@@ -2283,6 +2182,7 @@ class CommitmentPeriodResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         Cognitive Services account commitment period.
+
         :param _builtins.str end_date: Commitment period end date.
         :param 'CommitmentQuotaResponse' quota: Cognitive Services account commitment quota.
         :param _builtins.str start_date: Commitment period start date.
@@ -2367,6 +2267,7 @@ class CommitmentPlanAssociationResponse(dict):
                  commitment_plan_location: Optional[_builtins.str] = None):
         """
         The commitment plan association.
+
         :param _builtins.str commitment_plan_id: The Azure resource id of the commitment plan.
         :param _builtins.str commitment_plan_location: The location of of the commitment plan.
         """
@@ -2436,6 +2337,7 @@ class CommitmentPlanPropertiesResponse(dict):
                  plan_type: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account commitment plan.
+
         :param 'CommitmentPeriodResponse' last: Cognitive Services account commitment period.
         :param Sequence[_builtins.str] provisioning_issues: The list of ProvisioningIssue.
         :param _builtins.str provisioning_state: Gets the status of the resource at the time the operation was called.
@@ -2545,6 +2447,7 @@ class CommitmentQuotaResponse(dict):
                  unit: Optional[_builtins.str] = None):
         """
         Cognitive Services account commitment quota.
+
         :param _builtins.float quantity: Commitment quota quantity.
         :param _builtins.str unit: Commitment quota unit.
         """
@@ -2733,6 +2636,7 @@ class ConnectionOAuth2Response(dict):
         """
         ClientId and ClientSecret are required. Other properties are optional
         depending on each OAuth2 provider's implementation.
+
         :param _builtins.str auth_url: Required by Concur connection category
         :param _builtins.str client_id: Client id in the format of UUID
         :param _builtins.str developer_token: Required by GoogleAdWords connection category
@@ -2976,6 +2880,7 @@ class CustomBlocklistConfigResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Gets or sets the source to which filter applies.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str blocklist_name: Name of ContentFilter.
         :param _builtins.str source: Content source to apply the Content Filters.
@@ -3073,16 +2978,13 @@ class CustomKeysConnectionPropertiesResponse(dict):
         Credentials:= {CustomKeys} as CustomKeys
         Target:= {any value}
         Use Metadata property bag for ApiVersion and other metadata fields
+
         :param _builtins.str auth_type: Authentication type of the connection target
                Expected value is 'CustomKeys'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
         :param 'CustomKeysResponse' credentials: Custom Keys credential object
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'CustomKeys')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -3151,9 +3053,6 @@ class CustomKeysConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -3177,17 +3076,11 @@ class CustomKeysConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -3198,9 +3091,6 @@ class CustomKeysConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -3256,6 +3146,7 @@ class CustomTopicConfigResponse(dict):
                  topic_name: Optional[_builtins.str] = None):
         """
         Gets or sets the source to which filter applies.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str source: Content source to apply the Content Filters.
         :param _builtins.str topic_name: Name of RAI topic.
@@ -3319,6 +3210,7 @@ class DeploymentCapacitySettingsResponse(dict):
                  priority: Optional[_builtins.int] = None):
         """
         Internal use only.
+
         :param _builtins.int designated_capacity: The designated capacity.
         :param _builtins.int priority: The priority of this capacity setting.
         """
@@ -3378,6 +3270,7 @@ class DeploymentModelResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account deployment model.
+
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param _builtins.str format: Deployment model format.
         :param _builtins.str name: Deployment model name.
@@ -3483,8 +3376,6 @@ class DeploymentPropertiesResponse(dict):
             suggest = "rai_policy_name"
         elif key == "scaleSettings":
             suggest = "scale_settings"
-        elif key == "spilloverDeploymentName":
-            suggest = "spillover_deployment_name"
         elif key == "versionUpgradeOption":
             suggest = "version_upgrade_option"
 
@@ -3511,10 +3402,10 @@ class DeploymentPropertiesResponse(dict):
                  parent_deployment_name: Optional[_builtins.str] = None,
                  rai_policy_name: Optional[_builtins.str] = None,
                  scale_settings: Optional['outputs.DeploymentScaleSettingsResponse'] = None,
-                 spillover_deployment_name: Optional[_builtins.str] = None,
                  version_upgrade_option: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account deployment.
+
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param Mapping[str, _builtins.str] capabilities: The capabilities.
         :param _builtins.bool dynamic_throttling_enabled: If the dynamic throttling is enabled.
@@ -3525,7 +3416,6 @@ class DeploymentPropertiesResponse(dict):
         :param _builtins.str parent_deployment_name: The name of parent deployment.
         :param _builtins.str rai_policy_name: The name of RAI policy.
         :param 'DeploymentScaleSettingsResponse' scale_settings: Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
-        :param _builtins.str spillover_deployment_name: Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
         :param _builtins.str version_upgrade_option: Deployment model version upgrade option.
         """
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
@@ -3545,8 +3435,6 @@ class DeploymentPropertiesResponse(dict):
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
-        if spillover_deployment_name is not None:
-            pulumi.set(__self__, "spillover_deployment_name", spillover_deployment_name)
         if version_upgrade_option is not None:
             pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
@@ -3636,14 +3524,6 @@ class DeploymentPropertiesResponse(dict):
         return pulumi.get(self, "scale_settings")
 
     @_builtins.property
-    @pulumi.getter(name="spilloverDeploymentName")
-    def spillover_deployment_name(self) -> Optional[_builtins.str]:
-        """
-        Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
-        """
-        return pulumi.get(self, "spillover_deployment_name")
-
-    @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")
     def version_upgrade_option(self) -> Optional[_builtins.str]:
         """
@@ -3682,6 +3562,7 @@ class DeploymentScaleSettingsResponse(dict):
                  scale_type: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+
         :param _builtins.int active_capacity: Deployment active capacity. This value might be different from `capacity` if customer recently updated `capacity`.
         :param _builtins.int capacity: Deployment capacity.
         :param _builtins.str scale_type: Deployment scale type.
@@ -3746,6 +3627,7 @@ class EncryptionResponse(dict):
                  key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
         """
         Properties to configure Encryption
+
         :param _builtins.str key_source: Enumerates the possible value of keySource for Encryption
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
         """
@@ -3806,6 +3688,7 @@ class EncryptionScopePropertiesResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         Properties to EncryptionScope
+
         :param _builtins.str provisioning_state: Gets the status of the resource at the time the operation was called.
         :param _builtins.str key_source: Enumerates the possible value of keySource for Encryption
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties of KeyVault
@@ -3887,6 +3770,7 @@ class FqdnOutboundRuleResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         FQDN Outbound Rule for the managed network of a cognitive services account.
+
         :param _builtins.str error_information: Error information about an outbound rule of a cognitive services account if RuleStatus is failed.
         :param _builtins.str type: Type of a managed network Outbound Rule of a cognitive services account.
                Expected value is 'FQDN'.
@@ -3993,6 +3877,7 @@ class HostedAgentDeploymentResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+
         :param _builtins.str deployment_type: Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
                Expected value is 'Hosted'.
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the agent deployment.
@@ -4150,6 +4035,7 @@ class IdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Identity for the resource.
+
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
@@ -4204,6 +4090,7 @@ class IpRuleResponse(dict):
                  value: _builtins.str):
         """
         A rule governing the accessibility from a specific ip address or ip range.
+
         :param _builtins.str value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         pulumi.set(__self__, "value", value)
@@ -4252,6 +4139,7 @@ class KeyVaultPropertiesResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Properties to configure keyVault Properties
+
         :param _builtins.str key_name: Name of the Key from KeyVault
         :param _builtins.str key_vault_uri: Uri of KeyVault
         :param _builtins.str key_version: Version of the Key from KeyVault
@@ -4335,6 +4223,7 @@ class ManagedAgentDeploymentResponse(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+
         :param _builtins.str deployment_type: Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
                Expected value is 'Managed'.
         :param _builtins.str provisioning_state: Gets or sets the provisioning state of the agent deployment.
@@ -4490,11 +4379,7 @@ class ManagedIdentityAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'ManagedIdentity'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'ManagedIdentity')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -4560,9 +4445,6 @@ class ManagedIdentityAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -4586,17 +4468,11 @@ class ManagedIdentityAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -4607,9 +4483,6 @@ class ManagedIdentityAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -4645,6 +4518,7 @@ class MultiRegionSettingsResponse(dict):
                  routing_method: Optional[_builtins.str] = None):
         """
         The multiregion settings Cognitive Services account.
+
         :param _builtins.str routing_method: Multiregion routing methods.
         """
         if regions is not None:
@@ -4664,72 +4538,6 @@ class MultiRegionSettingsResponse(dict):
         Multiregion routing methods.
         """
         return pulumi.get(self, "routing_method")
-
-
-@pulumi.output_type
-class NetworkInjectionResponse(dict):
-    """
-    Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "subnetArmId":
-            suggest = "subnet_arm_id"
-        elif key == "useMicrosoftManagedNetwork":
-            suggest = "use_microsoft_managed_network"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkInjectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkInjectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkInjectionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 scenario: Optional[_builtins.str] = None,
-                 subnet_arm_id: Optional[_builtins.str] = None,
-                 use_microsoft_managed_network: Optional[_builtins.bool] = None):
-        """
-        Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
-        :param _builtins.str scenario: Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
-        :param _builtins.str subnet_arm_id: Specify the subnet for which your Agent Client is injected into.
-        :param _builtins.bool use_microsoft_managed_network: Boolean to enable Microsoft Managed Network for subnet delegation
-        """
-        if scenario is not None:
-            pulumi.set(__self__, "scenario", scenario)
-        if subnet_arm_id is not None:
-            pulumi.set(__self__, "subnet_arm_id", subnet_arm_id)
-        if use_microsoft_managed_network is not None:
-            pulumi.set(__self__, "use_microsoft_managed_network", use_microsoft_managed_network)
-
-    @_builtins.property
-    @pulumi.getter
-    def scenario(self) -> Optional[_builtins.str]:
-        """
-        Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
-        """
-        return pulumi.get(self, "scenario")
-
-    @_builtins.property
-    @pulumi.getter(name="subnetArmId")
-    def subnet_arm_id(self) -> Optional[_builtins.str]:
-        """
-        Specify the subnet for which your Agent Client is injected into.
-        """
-        return pulumi.get(self, "subnet_arm_id")
-
-    @_builtins.property
-    @pulumi.getter(name="useMicrosoftManagedNetwork")
-    def use_microsoft_managed_network(self) -> Optional[_builtins.bool]:
-        """
-        Boolean to enable Microsoft Managed Network for subnet delegation
-        """
-        return pulumi.get(self, "use_microsoft_managed_network")
 
 
 @pulumi.output_type
@@ -4765,6 +4573,7 @@ class NetworkRuleSetResponse(dict):
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility.
+
         :param _builtins.str bypass: Setting for trusted services.
         :param _builtins.str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param Sequence['IpRuleResponse'] ip_rules: The list of IP address rules.
@@ -4864,11 +4673,7 @@ class NoneAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'None'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'None')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -4927,9 +4732,6 @@ class NoneAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -4953,17 +4755,11 @@ class NoneAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -4974,9 +4770,6 @@ class NoneAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -5040,11 +4833,7 @@ class OAuth2AuthTypeConnectionPropertiesResponse(dict):
         :param _builtins.str category: Category of the connection
         :param 'ConnectionOAuth2Response' credentials: ClientId and ClientSecret are required. Other properties are optional
                depending on each OAuth2 provider's implementation.
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'OAuth2')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -5114,9 +4903,6 @@ class OAuth2AuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -5140,17 +4926,11 @@ class OAuth2AuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -5161,9 +4941,6 @@ class OAuth2AuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -5181,6 +4958,7 @@ class OrganizationSharedBuiltInAuthorizationPolicyResponse(dict):
                  type: _builtins.str):
         """
         Built-in authorization policy scoped to organization/tenant.
+
         :param _builtins.str type: Authorization scheme type.
                Expected value is 'OrganizationScope'.
         """
@@ -5249,11 +5027,7 @@ class PATAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'PAT'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'PAT')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -5319,9 +5093,6 @@ class PATAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -5345,17 +5116,11 @@ class PATAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -5366,9 +5131,6 @@ class PATAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -5412,6 +5174,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         Properties of the PrivateEndpointConnectProperties.
+
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param Sequence[_builtins.str] group_ids: The private link resource group ids.
@@ -5489,6 +5252,7 @@ class PrivateEndpointConnectionResponse(dict):
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
         The Private Endpoint Connection resource.
+
         :param _builtins.str etag: Resource Etag.
         :param _builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param _builtins.str name: The name of the resource
@@ -5573,6 +5337,7 @@ class PrivateEndpointResponse(dict):
                  id: _builtins.str):
         """
         The Private Endpoint resource.
+
         :param _builtins.str id: The ARM identifier for Private Endpoint
         """
         pulumi.set(__self__, "id", id)
@@ -5614,6 +5379,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
+
         :param _builtins.str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param _builtins.str description: The reason for approval/rejection of the connection.
         :param _builtins.str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -5775,6 +5541,7 @@ class ProjectPropertiesResponse(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         Properties of Cognitive Services Project'.
+
         :param Mapping[str, _builtins.str] endpoints: The list of endpoint for this Cognitive Services Project.
         :param _builtins.bool is_default: Indicates whether the project is the default project for the account.
         :param _builtins.str provisioning_state: Gets the status of the cognitive services project at the time the operation was called.
@@ -5903,6 +5670,7 @@ class RaiBlocklistItemPropertiesResponse(dict):
                  pattern: Optional[_builtins.str] = None):
         """
         RAI Custom Blocklist Item properties.
+
         :param _builtins.bool is_regex: If the pattern is a regex pattern.
         :param _builtins.str pattern: Pattern to match against.
         """
@@ -5937,6 +5705,7 @@ class RaiBlocklistPropertiesResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         RAI Custom Blocklist properties.
+
         :param _builtins.str description: Description of the block list.
         """
         if description is not None:
@@ -5997,6 +5766,7 @@ class RaiExternalSafetyProviderSchemaPropertiesResponse(dict):
                  url: Optional[_builtins.str] = None):
         """
         RAI External SafetyProvider schema properties.
+
         :param _builtins.str created_at: Creation time of the safety provider.
         :param _builtins.str last_modified_at: Last modified time of the safety provider.
         :param _builtins.str key_vault_uri: The Key Vault URI that contains the api key for safety provider urls.
@@ -6126,6 +5896,7 @@ class RaiMonitorConfigResponse(dict):
                  identity_client_id: Optional[_builtins.str] = None):
         """
         Cognitive Services Rai Monitor Config.
+
         :param _builtins.str adx_storage_resource_id: The storage resource Id.
         :param _builtins.str identity_client_id: The identity client Id to access the storage.
         """
@@ -6182,6 +5953,7 @@ class RaiPolicyContentFilterResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Azure OpenAI Content Filter.
+
         :param _builtins.str action: The action types to apply to the content filters
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.bool enabled: If the ContentFilter is enabled.
@@ -6291,6 +6063,7 @@ class RaiPolicyPropertiesResponse(dict):
                  safety_providers: Optional[Sequence['outputs.SafetyProviderConfigResponse']] = None):
         """
         Azure OpenAI Content Filters properties.
+
         :param _builtins.str type: Content Filters policy type.
         :param _builtins.str base_policy_name: Name of Rai policy.
         :param Sequence['RaiPolicyContentFilterResponse'] content_filters: The list of Content Filters.
@@ -6402,6 +6175,7 @@ class RaiToolLabelPropertiesResponse(dict):
                  project_scopes: Optional[Sequence['outputs.RaiToolLabelPropertiesResponseProjectScopes']] = None):
         """
         RAI Tool Label properties.
+
         :param _builtins.str tool_connection_name: The unique tool connection name, e.g., 'Web_Search'.
         :param 'RaiToolLabelPropertiesResponseAccountScope' account_scope: Account-level tool label definition.
         :param Sequence['RaiToolLabelPropertiesResponseProjectScopes'] project_scopes: List of project-level tool label definitions.
@@ -6463,6 +6237,7 @@ class RaiToolLabelPropertiesResponseAccountScope(dict):
                  label_values: Optional[Mapping[str, _builtins.str]] = None):
         """
         Account-level tool label definition.
+
         :param Mapping[str, _builtins.str] label_values: Dictionary of label key-value pairs for the account scope.
         """
         if label_values is not None:
@@ -6566,6 +6341,7 @@ class RaiTopicPropertiesResponse(dict):
                  topic_name: Optional[_builtins.str] = None):
         """
         RAI Custom Topic properties.
+
         :param _builtins.str created_at: Creation time of the custom topic.
         :param _builtins.str description: Description of the custom topic.
         :param _builtins.str failed_reason: Failed reason if the status is Failed.
@@ -6668,6 +6444,7 @@ class RegionSettingResponse(dict):
                  value: Optional[_builtins.float] = None):
         """
         The call rate limit Cognitive Services account.
+
         :param _builtins.str customsubdomain: Maps the region to the regional custom subdomain.
         :param _builtins.str name: Name of the region.
         :param _builtins.float value: A value for priority or weighted routing methods.
@@ -6734,6 +6511,7 @@ class RoleBasedBuiltInAuthorizationPolicyResponse(dict):
                  type: _builtins.str):
         """
         Built-in role-based authorization policy.
+
         :param _builtins.str type: Authorization scheme type.
                Expected value is 'Default'.
         """
@@ -6802,11 +6580,7 @@ class SASAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'SAS'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'SAS')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -6872,9 +6646,6 @@ class SASAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -6898,17 +6669,11 @@ class SASAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -6919,9 +6684,6 @@ class SASAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -6958,6 +6720,7 @@ class SafetyProviderConfigResponse(dict):
                  source: Optional[_builtins.str] = None):
         """
         Gets or sets the source to which safety providers applies.
+
         :param _builtins.bool blocking: If blocking would occur.
         :param _builtins.str safety_provider_name: Name of RAI Safety Provider.
         :param _builtins.str source: Content source to apply the Content Filters.
@@ -7047,11 +6810,7 @@ class ServicePrincipalAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'ServicePrincipal'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'ServicePrincipal')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -7117,9 +6876,6 @@ class ServicePrincipalAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -7143,17 +6899,11 @@ class ServicePrincipalAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -7164,9 +6914,6 @@ class ServicePrincipalAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -7185,6 +6932,7 @@ class SkuCapabilityResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         SkuCapability indicates the capability of a certain feature.
+
         :param _builtins.str name: The name of the SkuCapability.
         :param _builtins.str value: The value of the SkuCapability.
         """
@@ -7242,6 +6990,7 @@ class SkuChangeInfoResponse(dict):
                  last_change_date: Optional[_builtins.str] = None):
         """
         Sku change info of account.
+
         :param _builtins.float count_of_downgrades: Gets the count of downgrades.
         :param _builtins.float count_of_upgrades_after_downgrades: Gets the count of upgrades after downgrades.
         :param _builtins.str last_change_date: Gets the last change date.
@@ -7291,6 +7040,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The resource model definition representing SKU
+
         :param _builtins.str name: The name of the SKU. Ex - P3. It is typically a letter+number code
         :param _builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param _builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
@@ -7389,6 +7139,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -7567,6 +7318,7 @@ class TrafficRoutingRuleResponse(dict):
                  traffic_percentage: Optional[_builtins.int] = None):
         """
         Represents a rule for routing traffic to a specific deployment.
+
         :param _builtins.str deployment_id: The unique identifier of the deployment to which traffic is routed by this rule.
         :param _builtins.str description: A user-provided description for this traffic routing rule.
         :param _builtins.str rule_id: The identifier of this traffic routing rule.
@@ -7643,6 +7395,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User-assigned managed identity.
+
         :param _builtins.str client_id: Client App Id associated with this identity.
         :param _builtins.str principal_id: Azure Active Directory principal ID associated with this Identity.
         """
@@ -7669,7 +7422,7 @@ class UserAssignedIdentityResponse(dict):
 @pulumi.output_type
 class UserOwnedAmlWorkspaceResponse(dict):
     """
-    The user owned AML account for Cognitive Services account.
+    The user owned AML workspace for Cognitive Services account.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -7694,9 +7447,10 @@ class UserOwnedAmlWorkspaceResponse(dict):
                  identity_client_id: Optional[_builtins.str] = None,
                  resource_id: Optional[_builtins.str] = None):
         """
-        The user owned AML account for Cognitive Services account.
-        :param _builtins.str identity_client_id: Identity Client id of a AML account resource.
-        :param _builtins.str resource_id: Full resource id of a AML account resource.
+        The user owned AML workspace for Cognitive Services account.
+
+        :param _builtins.str identity_client_id: Identity Client id of a AML workspace resource.
+        :param _builtins.str resource_id: Full resource id of a AML workspace resource.
         """
         if identity_client_id is not None:
             pulumi.set(__self__, "identity_client_id", identity_client_id)
@@ -7707,7 +7461,7 @@ class UserOwnedAmlWorkspaceResponse(dict):
     @pulumi.getter(name="identityClientId")
     def identity_client_id(self) -> Optional[_builtins.str]:
         """
-        Identity Client id of a AML account resource.
+        Identity Client id of a AML workspace resource.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -7715,7 +7469,7 @@ class UserOwnedAmlWorkspaceResponse(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[_builtins.str]:
         """
-        Full resource id of a AML account resource.
+        Full resource id of a AML workspace resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -7749,6 +7503,7 @@ class UserOwnedStorageResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         The user owned storage for Cognitive Services account.
+
         :param _builtins.str resource_id: Full resource id of a Microsoft.Storage resource.
         """
         if identity_client_id is not None:
@@ -7823,11 +7578,7 @@ class UsernamePasswordAuthTypeConnectionPropertiesResponse(dict):
                Expected value is 'UsernamePassword'.
         :param _builtins.str group: Group based on connection category
         :param _builtins.str category: Category of the connection
-        :param _builtins.str error: Provides the error message if the connection fails
         :param Mapping[str, _builtins.str] metadata: Store user metadata for this connection
-        :param _builtins.str pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        :param _builtins.str pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        :param _builtins.str target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'UsernamePassword')
         pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
@@ -7893,9 +7644,6 @@ class UsernamePasswordAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[_builtins.str]:
-        """
-        Provides the error message if the connection fails
-        """
         return pulumi.get(self, "error")
 
     @_builtins.property
@@ -7919,17 +7667,11 @@ class UsernamePasswordAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[_builtins.str]:
-        """
-        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_requirement")
 
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[_builtins.str]:
-        """
-        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
-        """
         return pulumi.get(self, "pe_status")
 
     @_builtins.property
@@ -7940,9 +7682,6 @@ class UsernamePasswordAuthTypeConnectionPropertiesResponse(dict):
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[_builtins.str]:
-        """
-        The connection URL to be used.
-        """
         return pulumi.get(self, "target")
 
     @_builtins.property
@@ -7983,6 +7722,7 @@ class VersionedAgentReferenceResponse(dict):
                  agent_version: Optional[_builtins.str] = None):
         """
         Type modeling a reference to a version of an agent definition.
+
         :param _builtins.str agent_id: Gets the agent's unique identifier within the organization (subscription).
         :param _builtins.str agent_name: Gets the agent's name (unique within the project/app).
         :param _builtins.str agent_version: Gets the agent's version (unique for each agent lineage).
@@ -8047,6 +7787,7 @@ class VirtualNetworkRuleResponse(dict):
                  state: Optional[_builtins.str] = None):
         """
         A rule governing the accessibility from a specific virtual network.
+
         :param _builtins.str id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         :param _builtins.bool ignore_missing_vnet_service_endpoint: Ignore missing vnet service endpoint or not.
         :param _builtins.str state: Gets the state of virtual network rule.

@@ -19,19 +19,14 @@ __all__ = [
     'DFPInstanceAdministratorsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DFPInstanceAdministratorsArgsDict(TypedDict):
-        """
-        An array of administrator user identities
-        """
-        members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of administrator user identities.
-        """
-elif False:
-    DFPInstanceAdministratorsArgsDict: TypeAlias = Mapping[str, Any]
+class DFPInstanceAdministratorsArgsDict(TypedDict):
+    """
+    An array of administrator user identities
+    """
+    members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of administrator user identities.
+    """
 
 @pulumi.input_type
 class DFPInstanceAdministratorsArgs:
@@ -39,6 +34,7 @@ class DFPInstanceAdministratorsArgs:
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of administrator user identities
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: An array of administrator user identities.
         """
         if members is not None:

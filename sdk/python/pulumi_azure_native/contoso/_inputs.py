@@ -19,27 +19,22 @@ __all__ = [
     'EmployeePropertiesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EmployeePropertiesArgsDict(TypedDict):
-        """
-        Employee properties
-        """
-        age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Age of employee
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        City of employee
-        """
-        profile: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Profile of employee
-        """
-elif False:
-    EmployeePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EmployeePropertiesArgsDict(TypedDict):
+    """
+    Employee properties
+    """
+    age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Age of employee
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    City of employee
+    """
+    profile: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Profile of employee
+    """
 
 @pulumi.input_type
 class EmployeePropertiesArgs:
@@ -49,6 +44,7 @@ class EmployeePropertiesArgs:
                  profile: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Employee properties
+
         :param pulumi.Input[_builtins.int] age: Age of employee
         :param pulumi.Input[_builtins.str] city: City of employee
         :param pulumi.Input[_builtins.str] profile: Profile of employee

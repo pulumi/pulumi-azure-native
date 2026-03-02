@@ -11,6 +11,330 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### S3Buckets_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const s3Bucket = new azure_native.awsconnector.S3Bucket("s3Bucket", {
+ *     location: "pesmjbocvf",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "qoufjwcexyvk",
+ *         awsAccountId: "rfckvyuni",
+ *         awsProperties: {
+ *             accelerateConfiguration: {
+ *                 accelerationStatus: azure_native.awsconnector.AccelerateConfigurationAccelerationStatus.Enabled,
+ *             },
+ *             accessControl: azure_native.awsconnector.AccessControl.AuthenticatedRead,
+ *             analyticsConfigurations: [{
+ *                 id: "ioxkjkuclx",
+ *                 prefix: "errquicjtmxuidndown",
+ *                 storageClassAnalysis: {
+ *                     dataExport: {
+ *                         destination: {
+ *                             bucketAccountId: "sfgcxqtuacvejulm",
+ *                             bucketArn: "iuwuakbkkh",
+ *                             format: azure_native.awsconnector.DestinationFormat.CSV,
+ *                             prefix: "bnbqkueiiffpl",
+ *                         },
+ *                         outputSchemaVersion: "ojzzqnkekust",
+ *                     },
+ *                 },
+ *                 tagFilters: [{
+ *                     key: "ffmzaifhmkmsljsm",
+ *                     value: "fsby",
+ *                 }],
+ *             }],
+ *             arn: "wdn",
+ *             bucketEncryption: {
+ *                 serverSideEncryptionConfiguration: [{
+ *                     bucketKeyEnabled: true,
+ *                     serverSideEncryptionByDefault: {
+ *                         kmsMasterKeyID: "mledejya",
+ *                         sseAlgorithm: azure_native.awsconnector.ServerSideEncryptionByDefaultSSEAlgorithm.AES256,
+ *                     },
+ *                 }],
+ *             },
+ *             bucketName: "qapantghvzujpa",
+ *             corsConfiguration: {
+ *                 corsRules: [{
+ *                     allowedHeaders: ["zzooekoypz"],
+ *                     allowedMethods: [azure_native.awsconnector.CorsRuleAllowedMethods.DELETE],
+ *                     allowedOrigins: ["tqldxbbws"],
+ *                     exposedHeaders: ["wjlikohhmisfgumcfzrnvg"],
+ *                     id: "zvasxfnbnbpftihvtosdnlmskv",
+ *                     maxAge: 9,
+ *                 }],
+ *             },
+ *             domainName: "vbhotuxputambztq",
+ *             dualStackDomainName: "sryuphsbzszrwamvrcsihe",
+ *             intelligentTieringConfigurations: [{
+ *                 id: "dbqsgaw",
+ *                 prefix: "lhizynvczgfiqwaiyuqpvnd",
+ *                 status: azure_native.awsconnector.IntelligentTieringConfigurationStatus.Disabled,
+ *                 tagFilters: [{
+ *                     key: "ffmzaifhmkmsljsm",
+ *                     value: "fsby",
+ *                 }],
+ *                 tierings: [{
+ *                     accessTier: azure_native.awsconnector.TieringAccessTier.ARCHIVE_ACCESS,
+ *                     days: 6,
+ *                 }],
+ *             }],
+ *             inventoryConfigurations: [{
+ *                 destination: {
+ *                     bucketAccountId: "sfgcxqtuacvejulm",
+ *                     bucketArn: "iuwuakbkkh",
+ *                     format: azure_native.awsconnector.DestinationFormat.CSV,
+ *                     prefix: "bnbqkueiiffpl",
+ *                 },
+ *                 enabled: true,
+ *                 id: "yqyorzlpsfzzycfeqmdgtsstdze",
+ *                 includedObjectVersions: azure_native.awsconnector.InventoryConfigurationIncludedObjectVersions.All,
+ *                 optionalFields: [azure_native.awsconnector.InventoryConfigurationOptionalFields.BucketKeyStatus],
+ *                 prefix: "tuzwyujzrv",
+ *                 scheduleFrequency: azure_native.awsconnector.InventoryConfigurationScheduleFrequency.Daily,
+ *             }],
+ *             lifecycleConfiguration: {
+ *                 rules: [{
+ *                     abortIncompleteMultipartUpload: {
+ *                         daysAfterInitiation: 20,
+ *                     },
+ *                     expirationDate: "ruijzosqnherfgwbgzbiwau",
+ *                     expirationInDays: 8,
+ *                     expiredObjectDeleteMarker: true,
+ *                     id: "aofbidgki",
+ *                     noncurrentVersionExpiration: {
+ *                         newerNoncurrentVersions: 4,
+ *                         noncurrentDays: 17,
+ *                     },
+ *                     noncurrentVersionExpirationInDays: 4,
+ *                     noncurrentVersionTransition: {
+ *                         newerNoncurrentVersions: 6,
+ *                         storageClass: azure_native.awsconnector.NoncurrentVersionTransitionStorageClass.DEEP_ARCHIVE,
+ *                         transitionInDays: 8,
+ *                     },
+ *                     noncurrentVersionTransitions: [{
+ *                         newerNoncurrentVersions: 6,
+ *                         storageClass: azure_native.awsconnector.NoncurrentVersionTransitionStorageClass.DEEP_ARCHIVE,
+ *                         transitionInDays: 8,
+ *                     }],
+ *                     objectSizeGreaterThan: "hfifjfbqvmtatza",
+ *                     objectSizeLessThan: "ew",
+ *                     prefix: "kbsmshvpardhxehfjgszomvekk",
+ *                     status: azure_native.awsconnector.RuleStatus.Disabled,
+ *                     tagFilters: [{
+ *                         key: "ffmzaifhmkmsljsm",
+ *                         value: "fsby",
+ *                     }],
+ *                     transition: {
+ *                         storageClass: azure_native.awsconnector.TransitionStorageClass.DEEP_ARCHIVE,
+ *                         transitionDate: "cqdrkqznucygxbnccuvxqbtnm",
+ *                         transitionInDays: 14,
+ *                     },
+ *                     transitions: [{
+ *                         storageClass: azure_native.awsconnector.TransitionStorageClass.DEEP_ARCHIVE,
+ *                         transitionDate: "cqdrkqznucygxbnccuvxqbtnm",
+ *                         transitionInDays: 14,
+ *                     }],
+ *                 }],
+ *             },
+ *             loggingConfiguration: {
+ *                 destinationBucketName: "aujj",
+ *                 logFilePrefix: "vdmmbfnvymowpvmhbsagekbokzvp",
+ *                 targetObjectKeyFormat: {
+ *                     partitionedPrefix: {
+ *                         partitionDateSource: azure_native.awsconnector.PartitionedPrefixPartitionDateSource.DeliveryTime,
+ *                     },
+ *                 },
+ *             },
+ *             metricsConfigurations: [{
+ *                 accessPointArn: "tkhjqpjfplj",
+ *                 id: "ggheleujxadbvbjogd",
+ *                 prefix: "zg",
+ *                 tagFilters: [{
+ *                     key: "ffmzaifhmkmsljsm",
+ *                     value: "fsby",
+ *                 }],
+ *             }],
+ *             notificationConfiguration: {
+ *                 eventBridgeConfiguration: {
+ *                     eventBridgeEnabled: true,
+ *                 },
+ *                 lambdaConfigurations: [{
+ *                     event: "zpvewswtoarduycggotzdneptucwix",
+ *                     filter: {
+ *                         s3Key: {
+ *                             rules: [{
+ *                                 name: "ohgjzuamjncbifvbkldogxjuxvhvz",
+ *                                 value: "dauvnhzxpkpqutnrl",
+ *                             }],
+ *                         },
+ *                     },
+ *                     "function": "zmyzygfaojliiryslfyuyme",
+ *                 }],
+ *                 queueConfigurations: [{
+ *                     event: "qgcdpcvmkvjivvpvmmaeqrictlznb",
+ *                     filter: {
+ *                         s3Key: {
+ *                             rules: [{
+ *                                 name: "ohgjzuamjncbifvbkldogxjuxvhvz",
+ *                                 value: "dauvnhzxpkpqutnrl",
+ *                             }],
+ *                         },
+ *                     },
+ *                     queue: "qwlbvlgmwiaegulyybqggopf",
+ *                 }],
+ *                 topicConfigurations: [{
+ *                     event: "kxl",
+ *                     filter: {
+ *                         s3Key: {
+ *                             rules: [{
+ *                                 name: "ohgjzuamjncbifvbkldogxjuxvhvz",
+ *                                 value: "dauvnhzxpkpqutnrl",
+ *                             }],
+ *                         },
+ *                     },
+ *                     topic: "cj",
+ *                 }],
+ *             },
+ *             objectLockConfiguration: {
+ *                 objectLockEnabled: "aiocf",
+ *                 rule: {
+ *                     defaultRetention: {
+ *                         days: 22,
+ *                         mode: azure_native.awsconnector.DefaultRetentionMode.COMPLIANCE,
+ *                         years: 11,
+ *                     },
+ *                 },
+ *             },
+ *             objectLockEnabled: true,
+ *             ownershipControls: {
+ *                 rules: [{
+ *                     objectOwnership: azure_native.awsconnector.OwnershipControlsRuleObjectOwnership.BucketOwnerEnforced,
+ *                 }],
+ *             },
+ *             publicAccessBlockConfiguration: {
+ *                 blockPublicAcls: true,
+ *                 blockPublicPolicy: true,
+ *                 ignorePublicAcls: true,
+ *                 restrictPublicBuckets: true,
+ *             },
+ *             regionalDomainName: "xdbzcoemgixrqq",
+ *             replicationConfiguration: {
+ *                 role: "rqafufwtmuflkqet",
+ *                 rules: [{
+ *                     deleteMarkerReplication: {
+ *                         status: azure_native.awsconnector.DeleteMarkerReplicationStatus.Disabled,
+ *                     },
+ *                     destination: {
+ *                         accessControlTranslation: {
+ *                             owner: "smyptov",
+ *                         },
+ *                         account: "hwqiekzz",
+ *                         bucket: "prjlsmdhkwrputvpdavgn",
+ *                         encryptionConfiguration: {
+ *                             replicaKmsKeyID: "uodgudyknqizofykjokpv",
+ *                         },
+ *                         metrics: {
+ *                             eventThreshold: {
+ *                                 minutes: 18,
+ *                             },
+ *                             status: azure_native.awsconnector.MetricsStatus.Disabled,
+ *                         },
+ *                         replicationTime: {
+ *                             status: azure_native.awsconnector.ReplicationTimeStatus.Disabled,
+ *                             time: {
+ *                                 minutes: 18,
+ *                             },
+ *                         },
+ *                         storageClass: azure_native.awsconnector.ReplicationDestinationStorageClass.DEEP_ARCHIVE,
+ *                     },
+ *                     filter: {
+ *                         and: {
+ *                             prefix: "rlralilpznxqfpcseysvvxmfaor",
+ *                             tagFilters: [{
+ *                                 key: "ffmzaifhmkmsljsm",
+ *                                 value: "fsby",
+ *                             }],
+ *                         },
+ *                         prefix: "etzfeufdxmcvjzpvxbjmzikok",
+ *                         tagFilter: {
+ *                             key: "ffmzaifhmkmsljsm",
+ *                             value: "fsby",
+ *                         },
+ *                     },
+ *                     id: "fjcfzahlddm",
+ *                     prefix: "agykvphwwnfevfucrxugxejv",
+ *                     priority: 20,
+ *                     sourceSelectionCriteria: {
+ *                         replicaModifications: {
+ *                             status: azure_native.awsconnector.ReplicaModificationsStatus.Disabled,
+ *                         },
+ *                         sseKmsEncryptedObjects: {
+ *                             status: azure_native.awsconnector.SseKmsEncryptedObjectsStatus.Disabled,
+ *                         },
+ *                     },
+ *                     status: azure_native.awsconnector.ReplicationRuleStatus.Disabled,
+ *                 }],
+ *             },
+ *             tags: [{
+ *                 key: "dxpeasomkyhulmxegodswwuhn",
+ *                 value: "otwjdamxqdydqwujwyfh",
+ *             }],
+ *             versioningConfiguration: {
+ *                 status: azure_native.awsconnector.VersioningConfigurationStatus.Enabled,
+ *             },
+ *             websiteConfiguration: {
+ *                 errorDocument: "zxifnrlbyapkasrrhamdkdsqk",
+ *                 indexDocument: "umbhsxlihqldbh",
+ *                 redirectAllRequestsTo: {
+ *                     hostName: "sxmd",
+ *                     protocol: azure_native.awsconnector.RedirectAllRequestsToProtocol.Http,
+ *                 },
+ *                 routingRules: [{
+ *                     redirectRule: {
+ *                         hostName: "odmugwc",
+ *                         httpRedirectCode: "vfvnluyewsuhlybwzwsc",
+ *                         protocol: azure_native.awsconnector.RedirectRuleProtocol.Http,
+ *                         replaceKeyPrefixWith: "khrrcydzrtwzttnlqrlvdqdj",
+ *                         replaceKeyWith: "axcwbdxqktfrrivec",
+ *                     },
+ *                     routingRuleCondition: {
+ *                         httpErrorCodeReturnedEquals: "rajjyyktkunsenpficiiq",
+ *                         keyPrefixEquals: "tgzmwymptfxjolynmpwx",
+ *                     },
+ *                 }],
+ *             },
+ *             websiteURL: "vtlwozcgstjkkmgfywinjoreomvw",
+ *         },
+ *         awsRegion: "kckriyydtrwdlelcuztzfeptvcbwj",
+ *         awsSourceSchema: "kywnqkadqm",
+ *         awsTags: {
+ *             key1337: "xopsufyohwwvrxsp",
+ *         },
+ *         publicCloudConnectorsResourceId: "i",
+ *         publicCloudResourceName: "fmugqeeykklaccblyqplo",
+ *     },
+ *     resourceGroupName: "rgs3Bucket",
+ *     tags: {
+ *         key8605: "s",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:S3Bucket xbupettah /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3Buckets/{name} 
+ * ```
  */
 export class S3Bucket extends pulumi.CustomResource {
     /**

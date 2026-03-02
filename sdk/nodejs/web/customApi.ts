@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * A custom API
  *
  * Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
+ *
+ * ## Example Usage
+ * ### Replace a custom API
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customApi = new azure_native.web.CustomApi("customApi", {
+ *     apiName: "testCustomApi",
+ *     properties: {
+ *         apiDefinitions: {
+ *             originalSwaggerUrl: "https://tempuri.org/swagger.json",
+ *         },
+ *         apiType: azure_native.web.ApiType.Rest,
+ *         capabilities: [],
+ *         description: "",
+ *         displayName: "testCustomApi",
+ *         iconUri: "/testIcon.svg",
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:CustomApi testCustomApi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName} 
+ * ```
  */
 export class CustomApi extends pulumi.CustomResource {
     /**

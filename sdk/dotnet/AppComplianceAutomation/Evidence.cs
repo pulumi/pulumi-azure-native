@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     /// A class represent an AppComplianceAutomation evidence resource.
     /// 
     /// Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
+    /// 
+    /// ## Example Usage
+    /// ### Evidence_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var evidence = new AzureNative.AppComplianceAutomation.Evidence("evidence", new()
+    ///     {
+    ///         ControlId = "Operational_Security_10",
+    ///         EvidenceName = "evidence1",
+    ///         EvidenceType = AzureNative.AppComplianceAutomation.EvidenceType.File,
+    ///         FilePath = "/test-byos/evidence1.png",
+    ///         ReportName = "testReportName",
+    ///         ResponsibilityId = "authorized_ip_ranges_should_be_defined_on_kubernetes_services",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appcomplianceautomation:Evidence evidence1 /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/evidences/{evidenceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:Evidence")]
     public partial class Evidence : global::Pulumi.CustomResource

@@ -15,6 +15,45 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateGuestAgent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vmInstanceGuestAgent = new AzureNative.ConnectedVMwarevSphere.VMInstanceGuestAgent("vmInstanceGuestAgent", new()
+    ///     {
+    ///         Credentials = new AzureNative.ConnectedVMwarevSphere.Inputs.GuestCredentialArgs
+    ///         {
+    ///             Password = "&lt;password&gt;",
+    ///             Username = "tempuser",
+    ///         },
+    ///         HttpProxyConfig = new AzureNative.ConnectedVMwarevSphere.Inputs.HttpProxyConfigurationArgs
+    ///         {
+    ///             HttpsProxy = "http://192.1.2.3:8080",
+    ///         },
+    ///         PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    ///         ProvisioningAction = AzureNative.ConnectedVMwarevSphere.ProvisioningAction.Install,
+    ///         ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default/guestAgents/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VMInstanceGuestAgent")]
     public partial class VMInstanceGuestAgent : global::Pulumi.CustomResource

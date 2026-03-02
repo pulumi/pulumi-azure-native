@@ -15,6 +15,52 @@ namespace Pulumi.AzureNative.DurableTask
     /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
     /// Other available API versions: 2025-04-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Schedulers_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduler = new AzureNative.DurableTask.Scheduler("scheduler", new()
+    ///     {
+    ///         Location = "northcentralus",
+    ///         Properties = new AzureNative.DurableTask.Inputs.SchedulerPropertiesArgs
+    ///         {
+    ///             IpAllowlist = new[]
+    ///             {
+    ///                 "10.0.0.0/8",
+    ///             },
+    ///             Sku = new AzureNative.DurableTask.Inputs.SchedulerSkuArgs
+    ///             {
+    ///                 Name = "Dedicated",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgopenapi",
+    ///         SchedulerName = "testscheduler",
+    ///         Tags = 
+    ///         {
+    ///             { "key2138", "fjaeecgnvqd" },
+    ///             { "key7131", "ryohwcoiccwsnewjigfmijz" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:durabletask:Scheduler fwxpolhofploqzwdooyg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:durabletask:Scheduler")]
     public partial class Scheduler : global::Pulumi.CustomResource

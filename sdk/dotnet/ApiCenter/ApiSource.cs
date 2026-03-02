@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.ApiCenter
     /// API source entity.
     /// 
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ApiSources_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiSource = new AzureNative.ApiCenter.ApiSource("apiSource", new()
+    ///     {
+    ///         ApiSourceName = "contoso-api-management",
+    ///         AzureApiManagementSource = new AzureNative.ApiCenter.Inputs.AzureApiManagementSourceArgs
+    ///         {
+    ///             MsiResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity",
+    ///             ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso",
+    ///         },
+    ///         ImportSpecification = AzureNative.ApiCenter.ImportSpecificationOptions.OnDemand,
+    ///         ResourceGroupName = "contoso-resources",
+    ///         ServiceName = "contoso",
+    ///         TargetEnvironmentId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiCenter/services/contoso/workspaces/default/environments/azure-api-management",
+    ///         TargetLifecycleStage = AzureNative.ApiCenter.LifecycleStage.Design,
+    ///         WorkspaceName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apicenter:ApiSource contoso-api-management /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apiSources/{apiSourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:ApiSource")]
     public partial class ApiSource : global::Pulumi.CustomResource

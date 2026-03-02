@@ -31,6 +31,7 @@ class ManagedClusterServiceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedClusterService resource.
+
         :param pulumi.Input[_builtins.str] application_name: The name of the application resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
@@ -157,6 +158,97 @@ class ManagedClusterService(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Put a service with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_service = azure_native.servicefabric.ManagedClusterService("managedClusterService",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties={
+                "correlation_scheme": [{
+                    "scheme": azure_native.servicefabric.ServiceCorrelationScheme.ALIGNED_AFFINITY,
+                    "service_name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+                }],
+                "default_move_cost": azure_native.servicefabric.MoveCost.MEDIUM,
+                "instance_count": 5,
+                "min_instance_count": 3,
+                "min_instance_percentage": 30,
+                "partition_description": {
+                    "partition_scheme": "Singleton",
+                },
+                "placement_constraints": "NodeType==frontend",
+                "scaling_policies": [{
+                    "scaling_mechanism": {
+                        "kind": "ScalePartitionInstanceCount",
+                        "max_instance_count": 9,
+                        "min_instance_count": 3,
+                        "scale_increment": 2,
+                    },
+                    "scaling_trigger": {
+                        "kind": "AveragePartitionLoadTrigger",
+                        "lower_load_threshold": 2,
+                        "metric_name": "metricName",
+                        "scale_interval": "00:01:00",
+                        "upper_load_threshold": 8,
+                    },
+                }],
+                "service_dns_name": "myservicednsname.myApp",
+                "service_kind": "Stateless",
+                "service_load_metrics": [{
+                    "default_load": 3,
+                    "name": "metric1",
+                    "weight": azure_native.servicefabric.ServiceLoadMetricWeight.LOW,
+                }],
+                "service_package_activation_mode": azure_native.servicefabric.ServicePackageActivationMode.SHARED_PROCESS,
+                "service_placement_policies": [{
+                    "type": "NonPartiallyPlaceService",
+                }],
+                "service_type_name": "myServiceType",
+            },
+            resource_group_name="resRg",
+            service_name="myService",
+            tags={
+                "a": "b",
+            })
+
+        ```
+        ### Put a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_service = azure_native.servicefabric.ManagedClusterService("managedClusterService",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties={
+                "instance_count": 1,
+                "partition_description": {
+                    "partition_scheme": "Singleton",
+                },
+                "service_kind": "Stateless",
+                "service_type_name": "myServiceType",
+            },
+            resource_group_name="resRg",
+            service_name="myService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedClusterService myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the application resource.
@@ -179,6 +271,97 @@ class ManagedClusterService(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicefabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Put a service with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_service = azure_native.servicefabric.ManagedClusterService("managedClusterService",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties={
+                "correlation_scheme": [{
+                    "scheme": azure_native.servicefabric.ServiceCorrelationScheme.ALIGNED_AFFINITY,
+                    "service_name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+                }],
+                "default_move_cost": azure_native.servicefabric.MoveCost.MEDIUM,
+                "instance_count": 5,
+                "min_instance_count": 3,
+                "min_instance_percentage": 30,
+                "partition_description": {
+                    "partition_scheme": "Singleton",
+                },
+                "placement_constraints": "NodeType==frontend",
+                "scaling_policies": [{
+                    "scaling_mechanism": {
+                        "kind": "ScalePartitionInstanceCount",
+                        "max_instance_count": 9,
+                        "min_instance_count": 3,
+                        "scale_increment": 2,
+                    },
+                    "scaling_trigger": {
+                        "kind": "AveragePartitionLoadTrigger",
+                        "lower_load_threshold": 2,
+                        "metric_name": "metricName",
+                        "scale_interval": "00:01:00",
+                        "upper_load_threshold": 8,
+                    },
+                }],
+                "service_dns_name": "myservicednsname.myApp",
+                "service_kind": "Stateless",
+                "service_load_metrics": [{
+                    "default_load": 3,
+                    "name": "metric1",
+                    "weight": azure_native.servicefabric.ServiceLoadMetricWeight.LOW,
+                }],
+                "service_package_activation_mode": azure_native.servicefabric.ServicePackageActivationMode.SHARED_PROCESS,
+                "service_placement_policies": [{
+                    "type": "NonPartiallyPlaceService",
+                }],
+                "service_type_name": "myServiceType",
+            },
+            resource_group_name="resRg",
+            service_name="myService",
+            tags={
+                "a": "b",
+            })
+
+        ```
+        ### Put a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_service = azure_native.servicefabric.ManagedClusterService("managedClusterService",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties={
+                "instance_count": 1,
+                "partition_description": {
+                    "partition_scheme": "Singleton",
+                },
+                "service_kind": "Stateless",
+                "service_type_name": "myServiceType",
+            },
+            resource_group_name="resRg",
+            service_name="myService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedClusterService myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterServiceArgs args: The arguments to use to populate this resource's properties.

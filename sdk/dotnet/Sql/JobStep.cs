@@ -15,6 +15,93 @@ namespace Pulumi.AzureNative.Sql
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a job step with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobStep = new AzureNative.Sql.JobStep("jobStep", new()
+    ///     {
+    ///         Action = new AzureNative.Sql.Inputs.JobStepActionArgs
+    ///         {
+    ///             Source = AzureNative.Sql.JobStepActionSource.Inline,
+    ///             Type = AzureNative.Sql.JobStepActionType.TSql,
+    ///             Value = "select 2",
+    ///         },
+    ///         Credential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred1",
+    ///         ExecutionOptions = new AzureNative.Sql.Inputs.JobStepExecutionOptionsArgs
+    ///         {
+    ///             InitialRetryIntervalSeconds = 11,
+    ///             MaximumRetryIntervalSeconds = 222,
+    ///             RetryAttempts = 42,
+    ///             RetryIntervalBackoffMultiplier = 3,
+    ///             TimeoutSeconds = 1234,
+    ///         },
+    ///         JobAgentName = "agent1",
+    ///         JobName = "job1",
+    ///         Output = new AzureNative.Sql.Inputs.JobStepOutputArgs
+    ///         {
+    ///             Credential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+    ///             DatabaseName = "database3",
+    ///             ResourceGroupName = "group3",
+    ///             SchemaName = "myschema1234",
+    ///             ServerName = "server3",
+    ///             SubscriptionId = "3501b905-a848-4b5d-96e8-b253f62d735a",
+    ///             TableName = "mytable5678",
+    ///             Type = AzureNative.Sql.JobStepOutputType.SqlDatabase,
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         StepId = 1,
+    ///         StepName = "step1",
+    ///         TargetGroup = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a job step with minimal properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobStep = new AzureNative.Sql.JobStep("jobStep", new()
+    ///     {
+    ///         Action = new AzureNative.Sql.Inputs.JobStepActionArgs
+    ///         {
+    ///             Value = "select 1",
+    ///         },
+    ///         JobAgentName = "agent1",
+    ///         JobName = "job1",
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         StepName = "step1",
+    ///         TargetGroup = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:JobStep step1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/jobs/{jobName}/steps/{stepName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobStep")]
     public partial class JobStep : global::Pulumi.CustomResource

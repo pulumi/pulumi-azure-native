@@ -13,6 +13,52 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-10. In version 2.x of the Azure Native provider, it used API version 2023-02-08-preview.
  *
  * Other available API versions: 2023-02-08-preview, 2025-04-01-preview, 2025-08-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotfirmwaredefense [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Firmwares_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firmware = new azure_native.iotfirmwaredefense.Firmware("firmware", {
+ *     description: "uz",
+ *     fileName: "wresexxulcdsdd",
+ *     fileSize: 17,
+ *     firmwareId: "umrkdttp",
+ *     model: "f",
+ *     resourceGroupName: "rgworkspaces-firmwares",
+ *     status: azure_native.iotfirmwaredefense.Status.Pending,
+ *     statusMessages: [{
+ *         message: "ulvhmhokezathzzauiitu",
+ *     }],
+ *     vendor: "vycmdhgtmepcptyoubztiuudpkcpd",
+ *     version: "s",
+ *     workspaceName: "A7",
+ * });
+ *
+ * ```
+ * ### Firmwares_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firmware = new azure_native.iotfirmwaredefense.Firmware("firmware", {
+ *     firmwareId: "umrkdttp",
+ *     resourceGroupName: "rgworkspaces-firmwares",
+ *     workspaceName: "A7",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotfirmwaredefense:Firmware brmvnojpmxsgckdviynhxhftvcvbw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTFirmwareDefense/workspaces/{workspaceName}/firmwares/{firmwareId} 
+ * ```
  */
 export class Firmware extends pulumi.CustomResource {
     /**

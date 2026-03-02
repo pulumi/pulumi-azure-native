@@ -120,27 +120,22 @@ __all__ = [
     'X509CredentialsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AuthenticationArgsDict(TypedDict):
-        """
-        Definition of the client authentication mechanism to the server.
-        """
-        method: pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]
-        """
-        Defines the method to authenticate the user of the client at the server.
-        """
-        username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        """
-        x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-elif False:
-    AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class AuthenticationArgsDict(TypedDict):
+    """
+    Definition of the client authentication mechanism to the server.
+    """
+    method: pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]
+    """
+    Defines the method to authenticate the user of the client at the server.
+    """
+    username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
+    """
+    Defines the username and password references when UsernamePassword user authentication mode is selected.
+    """
+    x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
+    """
+    Defines the certificate reference when Certificate user authentication mode is selected.
+    """
 
 @pulumi.input_type
 class AuthenticationArgs:
@@ -150,6 +145,7 @@ class AuthenticationArgs:
                  x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
         """
         Definition of the client authentication mechanism to the server.
+
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']] method: Defines the method to authenticate the user of the client at the server.
         :param pulumi.Input['UsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param pulumi.Input['X509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
@@ -199,17 +195,14 @@ class AuthenticationArgs:
         pulumi.set(self, "x509_credentials", value)
 
 
-if not MYPY:
-    class BrokerStateStoreDestinationConfigurationArgsDict(TypedDict):
-        """
-        The configuration for a MQTT broker state store destination.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The MQTT broker state store destination key.
-        """
-elif False:
-    BrokerStateStoreDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class BrokerStateStoreDestinationConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a MQTT broker state store destination.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The MQTT broker state store destination key.
+    """
 
 @pulumi.input_type
 class BrokerStateStoreDestinationConfigurationArgs:
@@ -217,6 +210,7 @@ class BrokerStateStoreDestinationConfigurationArgs:
                  key: pulumi.Input[_builtins.str]):
         """
         The configuration for a MQTT broker state store destination.
+
         :param pulumi.Input[_builtins.str] key: The MQTT broker state store destination key.
         """
         pulumi.set(__self__, "key", key)
@@ -234,17 +228,14 @@ class BrokerStateStoreDestinationConfigurationArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class CertificateAuthorityConfigurationArgsDict(TypedDict):
-        """
-        The configuration to set up an ICA.
-        """
-        key_type: pulumi.Input[Union[_builtins.str, 'SupportedKeyType']]
-        """
-        Crypto type: ECC.
-        """
-elif False:
-    CertificateAuthorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateAuthorityConfigurationArgsDict(TypedDict):
+    """
+    The configuration to set up an ICA.
+    """
+    key_type: pulumi.Input[Union[_builtins.str, 'SupportedKeyType']]
+    """
+    Crypto type: ECC.
+    """
 
 @pulumi.input_type
 class CertificateAuthorityConfigurationArgs:
@@ -252,6 +243,7 @@ class CertificateAuthorityConfigurationArgs:
                  key_type: pulumi.Input[Union[_builtins.str, 'SupportedKeyType']]):
         """
         The configuration to set up an ICA.
+
         :param pulumi.Input[Union[_builtins.str, 'SupportedKeyType']] key_type: Crypto type: ECC.
         """
         pulumi.set(__self__, "key_type", key_type)
@@ -269,21 +261,18 @@ class CertificateAuthorityConfigurationArgs:
         pulumi.set(self, "key_type", value)
 
 
-if not MYPY:
-    class CertificateConfigurationArgsDict(TypedDict):
-        """
-        The certificate configuration.
-        """
-        certificate_authority_configuration: pulumi.Input['CertificateAuthorityConfigurationArgsDict']
-        """
-        The configuration to set up an ICA.
-        """
-        leaf_certificate_configuration: pulumi.Input['LeafCertificateConfigurationArgsDict']
-        """
-        The leaf certificate configuration.
-        """
-elif False:
-    CertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateConfigurationArgsDict(TypedDict):
+    """
+    The certificate configuration.
+    """
+    certificate_authority_configuration: pulumi.Input['CertificateAuthorityConfigurationArgsDict']
+    """
+    The configuration to set up an ICA.
+    """
+    leaf_certificate_configuration: pulumi.Input['LeafCertificateConfigurationArgsDict']
+    """
+    The leaf certificate configuration.
+    """
 
 @pulumi.input_type
 class CertificateConfigurationArgs:
@@ -292,6 +281,7 @@ class CertificateConfigurationArgs:
                  leaf_certificate_configuration: pulumi.Input['LeafCertificateConfigurationArgs']):
         """
         The certificate configuration.
+
         :param pulumi.Input['CertificateAuthorityConfigurationArgs'] certificate_authority_configuration: The configuration to set up an ICA.
         :param pulumi.Input['LeafCertificateConfigurationArgs'] leaf_certificate_configuration: The leaf certificate configuration.
         """
@@ -323,29 +313,26 @@ class CertificateConfigurationArgs:
         pulumi.set(self, "leaf_certificate_configuration", value)
 
 
-if not MYPY:
-    class DataPointArgsDict(TypedDict):
-        """
-        Defines the data point properties.
-        """
-        data_source: pulumi.Input[_builtins.str]
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data point.
-        """
-        data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        observability_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]]
-        """
-        An indication of how the data point should be mapped to OpenTelemetry.
-        """
-elif False:
-    DataPointArgsDict: TypeAlias = Mapping[str, Any]
+class DataPointArgsDict(TypedDict):
+    """
+    Defines the data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    observability_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]]
+    """
+    An indication of how the data point should be mapped to OpenTelemetry.
+    """
 
 @pulumi.input_type
 class DataPointArgs:
@@ -356,6 +343,7 @@ class DataPointArgs:
                  observability_mode: Optional[pulumi.Input[Union[_builtins.str, 'DataPointObservabilityMode']]] = None):
         """
         Defines the data point properties.
+
         :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the data point.
         :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -419,22 +407,19 @@ class DataPointArgs:
         pulumi.set(self, "observability_mode", value)
 
 
-if not MYPY:
-    class DatasetBrokerStateStoreDestinationArgsDict(TypedDict):
-        """
-        The type for a MQTT broker state store destination.
-        """
-        configuration: pulumi.Input['BrokerStateStoreDestinationConfigurationArgsDict']
-        """
-        The MQTT broker state store destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported dataset destinations for an asset.
-        Expected value is 'BrokerStateStore'.
-        """
-elif False:
-    DatasetBrokerStateStoreDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetBrokerStateStoreDestinationArgsDict(TypedDict):
+    """
+    The type for a MQTT broker state store destination.
+    """
+    configuration: pulumi.Input['BrokerStateStoreDestinationConfigurationArgsDict']
+    """
+    The MQTT broker state store destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported dataset destinations for an asset.
+    Expected value is 'BrokerStateStore'.
+    """
 
 @pulumi.input_type
 class DatasetBrokerStateStoreDestinationArgs:
@@ -443,6 +428,7 @@ class DatasetBrokerStateStoreDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a MQTT broker state store destination.
+
         :param pulumi.Input['BrokerStateStoreDestinationConfigurationArgs'] configuration: The MQTT broker state store destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported dataset destinations for an asset.
                Expected value is 'BrokerStateStore'.
@@ -476,22 +462,19 @@ class DatasetBrokerStateStoreDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class DatasetMqttDestinationArgsDict(TypedDict):
-        """
-        The type for a MQTT destination.
-        """
-        configuration: pulumi.Input['MqttDestinationConfigurationArgsDict']
-        """
-        The MQTT destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported dataset destinations for an asset.
-        Expected value is 'Mqtt'.
-        """
-elif False:
-    DatasetMqttDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetMqttDestinationArgsDict(TypedDict):
+    """
+    The type for a MQTT destination.
+    """
+    configuration: pulumi.Input['MqttDestinationConfigurationArgsDict']
+    """
+    The MQTT destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported dataset destinations for an asset.
+    Expected value is 'Mqtt'.
+    """
 
 @pulumi.input_type
 class DatasetMqttDestinationArgs:
@@ -500,6 +483,7 @@ class DatasetMqttDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a MQTT destination.
+
         :param pulumi.Input['MqttDestinationConfigurationArgs'] configuration: The MQTT destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported dataset destinations for an asset.
                Expected value is 'Mqtt'.
@@ -533,22 +517,19 @@ class DatasetMqttDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class DatasetStorageDestinationArgsDict(TypedDict):
-        """
-        The type for a storage destination.
-        """
-        configuration: pulumi.Input['StorageDestinationConfigurationArgsDict']
-        """
-        The storage destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported dataset destinations for an asset.
-        Expected value is 'Storage'.
-        """
-elif False:
-    DatasetStorageDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetStorageDestinationArgsDict(TypedDict):
+    """
+    The type for a storage destination.
+    """
+    configuration: pulumi.Input['StorageDestinationConfigurationArgsDict']
+    """
+    The storage destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported dataset destinations for an asset.
+    Expected value is 'Storage'.
+    """
 
 @pulumi.input_type
 class DatasetStorageDestinationArgs:
@@ -557,6 +538,7 @@ class DatasetStorageDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a storage destination.
+
         :param pulumi.Input['StorageDestinationConfigurationArgs'] configuration: The storage destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported dataset destinations for an asset.
                Expected value is 'Storage'.
@@ -590,29 +572,26 @@ class DatasetStorageDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class DatasetArgsDict(TypedDict):
-        """
-        Defines the dataset properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the dataset.
-        """
-        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPointArgsDict']]]]
-        """
-        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        """
-        dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
-        """
-        topic: NotRequired[pulumi.Input['TopicArgsDict']]
-        """
-        Object that describes the topic information for the specific dataset.
-        """
-elif False:
-    DatasetArgsDict: TypeAlias = Mapping[str, Any]
+class DatasetArgsDict(TypedDict):
+    """
+    Defines the dataset properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dataset.
+    """
+    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPointArgsDict']]]]
+    """
+    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+    """
+    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+    """
+    topic: NotRequired[pulumi.Input['TopicArgsDict']]
+    """
+    Object that describes the topic information for the specific dataset.
+    """
 
 @pulumi.input_type
 class DatasetArgs:
@@ -623,6 +602,7 @@ class DatasetArgs:
                  topic: Optional[pulumi.Input['TopicArgs']] = None):
         """
         Defines the dataset properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
@@ -685,21 +665,18 @@ class DatasetArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class DeviceMessagingEndpointArgsDict(TypedDict):
-        """
-        Device messaging endpoint model.
-        """
-        address: pulumi.Input[_builtins.str]
-        """
-        The endpoint address to connect to.
-        """
-        endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of connection used for the messaging endpoint.
-        """
-elif False:
-    DeviceMessagingEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceMessagingEndpointArgsDict(TypedDict):
+    """
+    Device messaging endpoint model.
+    """
+    address: pulumi.Input[_builtins.str]
+    """
+    The endpoint address to connect to.
+    """
+    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of connection used for the messaging endpoint.
+    """
 
 @pulumi.input_type
 class DeviceMessagingEndpointArgs:
@@ -708,6 +685,7 @@ class DeviceMessagingEndpointArgs:
                  endpoint_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Device messaging endpoint model.
+
         :param pulumi.Input[_builtins.str] address: The endpoint address to connect to.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of connection used for the messaging endpoint.
         """
@@ -740,21 +718,18 @@ class DeviceMessagingEndpointArgs:
         pulumi.set(self, "endpoint_type", value)
 
 
-if not MYPY:
-    class DeviceRefArgsDict(TypedDict):
-        """
-        Defines which device and endpoint to use for this asset
-        """
-        device_name: pulumi.Input[_builtins.str]
-        """
-        Name of the device resource
-        """
-        endpoint_name: pulumi.Input[_builtins.str]
-        """
-        The name of endpoint to use
-        """
-elif False:
-    DeviceRefArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceRefArgsDict(TypedDict):
+    """
+    Defines which device and endpoint to use for this asset
+    """
+    device_name: pulumi.Input[_builtins.str]
+    """
+    Name of the device resource
+    """
+    endpoint_name: pulumi.Input[_builtins.str]
+    """
+    The name of endpoint to use
+    """
 
 @pulumi.input_type
 class DeviceRefArgs:
@@ -763,6 +738,7 @@ class DeviceRefArgs:
                  endpoint_name: pulumi.Input[_builtins.str]):
         """
         Defines which device and endpoint to use for this asset
+
         :param pulumi.Input[_builtins.str] device_name: Name of the device resource
         :param pulumi.Input[_builtins.str] endpoint_name: The name of endpoint to use
         """
@@ -794,29 +770,26 @@ class DeviceRefArgs:
         pulumi.set(self, "endpoint_name", value)
 
 
-if not MYPY:
-    class DiscoveredDataPointArgsDict(TypedDict):
-        """
-        Defines the data point properties.
-        """
-        data_source: pulumi.Input[_builtins.str]
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data point.
-        """
-        data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UTC timestamp indicating when the data point was added or modified.
-        """
-elif False:
-    DiscoveredDataPointArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveredDataPointArgsDict(TypedDict):
+    """
+    Defines the data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UTC timestamp indicating when the data point was added or modified.
+    """
 
 @pulumi.input_type
 class DiscoveredDataPointArgs:
@@ -827,6 +800,7 @@ class DiscoveredDataPointArgs:
                  last_updated_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the data point properties.
+
         :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the data point.
         :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -888,29 +862,26 @@ class DiscoveredDataPointArgs:
         pulumi.set(self, "last_updated_on", value)
 
 
-if not MYPY:
-    class DiscoveredDatasetArgsDict(TypedDict):
-        """
-        Defines the dataset properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the dataset.
-        """
-        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgsDict']]]]
-        """
-        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        """
-        dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
-        """
-        topic: NotRequired[pulumi.Input['TopicArgsDict']]
-        """
-        Object that describes the topic information for the specific dataset.
-        """
-elif False:
-    DiscoveredDatasetArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveredDatasetArgsDict(TypedDict):
+    """
+    Defines the dataset properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dataset.
+    """
+    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgsDict']]]]
+    """
+    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+    """
+    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
+    """
+    topic: NotRequired[pulumi.Input['TopicArgsDict']]
+    """
+    Object that describes the topic information for the specific dataset.
+    """
 
 @pulumi.input_type
 class DiscoveredDatasetArgs:
@@ -921,6 +892,7 @@ class DiscoveredDatasetArgs:
                  topic: Optional[pulumi.Input['TopicArgs']] = None):
         """
         Defines the dataset properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DiscoveredDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param pulumi.Input[_builtins.str] dataset_configuration: Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
@@ -983,33 +955,30 @@ class DiscoveredDatasetArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class DiscoveredEventArgsDict(TypedDict):
-        """
-        Defines the event properties.
-        """
-        event_notifier: pulumi.Input[_builtins.str]
-        """
-        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the event.
-        """
-        event_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UTC timestamp indicating when the event was added or modified.
-        """
-        topic: NotRequired[pulumi.Input['TopicArgsDict']]
-        """
-        Object that describes the topic information for the specific event.
-        """
-elif False:
-    DiscoveredEventArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveredEventArgsDict(TypedDict):
+    """
+    Defines the event properties.
+    """
+    event_notifier: pulumi.Input[_builtins.str]
+    """
+    The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the event.
+    """
+    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UTC timestamp indicating when the event was added or modified.
+    """
+    topic: NotRequired[pulumi.Input['TopicArgsDict']]
+    """
+    Object that describes the topic information for the specific event.
+    """
 
 @pulumi.input_type
 class DiscoveredEventArgs:
@@ -1021,6 +990,7 @@ class DiscoveredEventArgs:
                  topic: Optional[pulumi.Input['TopicArgs']] = None):
         """
         Defines the event properties.
+
         :param pulumi.Input[_builtins.str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the event.
         :param pulumi.Input[_builtins.str] event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -1097,37 +1067,34 @@ class DiscoveredEventArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class DiscoveredInboundEndpointsArgsDict(TypedDict):
-        """
-        An endpoint to connect to the device.
-        """
-        address: pulumi.Input[_builtins.str]
-        """
-        The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
-        """
-        endpoint_type: pulumi.Input[_builtins.str]
-        """
-        Type of connection endpoint.
-        """
-        additional_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp (in UTC) when the endpoint was discovered.
-        """
-        supported_authentication_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]
-        """
-        List of supported authentication methods supported by device for Inbound connections.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
-        """
-elif False:
-    DiscoveredInboundEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveredInboundEndpointsArgsDict(TypedDict):
+    """
+    An endpoint to connect to the device.
+    """
+    address: pulumi.Input[_builtins.str]
+    """
+    The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    Type of connection endpoint.
+    """
+    additional_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp (in UTC) when the endpoint was discovered.
+    """
+    supported_authentication_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]]]]
+    """
+    List of supported authentication methods supported by device for Inbound connections.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
+    """
 
 @pulumi.input_type
 class DiscoveredInboundEndpointsArgs:
@@ -1140,6 +1107,7 @@ class DiscoveredInboundEndpointsArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An endpoint to connect to the device.
+
         :param pulumi.Input[_builtins.str] address: The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
         :param pulumi.Input[_builtins.str] endpoint_type: Type of connection endpoint.
         :param pulumi.Input[_builtins.str] additional_configuration: Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
@@ -1231,21 +1199,18 @@ class DiscoveredInboundEndpointsArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class DiscoveredMessagingEndpointsArgsDict(TypedDict):
-        """
-        Connection endpoint URL a device can use to connect to a service.
-        """
-        inbound: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgsDict']]]]
-        """
-        Set of endpoints to connect to the device.
-        """
-        outbound: NotRequired[pulumi.Input['DiscoveredOutboundEndpointsArgsDict']]
-        """
-        Set of endpoints a device can connect to.
-        """
-elif False:
-    DiscoveredMessagingEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveredMessagingEndpointsArgsDict(TypedDict):
+    """
+    Connection endpoint URL a device can use to connect to a service.
+    """
+    inbound: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgsDict']]]]
+    """
+    Set of endpoints to connect to the device.
+    """
+    outbound: NotRequired[pulumi.Input['DiscoveredOutboundEndpointsArgsDict']]
+    """
+    Set of endpoints a device can connect to.
+    """
 
 @pulumi.input_type
 class DiscoveredMessagingEndpointsArgs:
@@ -1254,6 +1219,7 @@ class DiscoveredMessagingEndpointsArgs:
                  outbound: Optional[pulumi.Input['DiscoveredOutboundEndpointsArgs']] = None):
         """
         Connection endpoint URL a device can use to connect to a service.
+
         :param pulumi.Input[Mapping[str, pulumi.Input['DiscoveredInboundEndpointsArgs']]] inbound: Set of endpoints to connect to the device.
         :param pulumi.Input['DiscoveredOutboundEndpointsArgs'] outbound: Set of endpoints a device can connect to.
         """
@@ -1287,17 +1253,14 @@ class DiscoveredMessagingEndpointsArgs:
         pulumi.set(self, "outbound", value)
 
 
-if not MYPY:
-    class DiscoveredOutboundEndpointsArgsDict(TypedDict):
-        """
-        Property bag contains the device's outbound endpoints
-        """
-        assigned: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]
-        """
-        Endpoints the device can connect to.
-        """
-elif False:
-    DiscoveredOutboundEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class DiscoveredOutboundEndpointsArgsDict(TypedDict):
+    """
+    Property bag contains the device's outbound endpoints
+    """
+    assigned: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]
+    """
+    Endpoints the device can connect to.
+    """
 
 @pulumi.input_type
 class DiscoveredOutboundEndpointsArgs:
@@ -1305,6 +1268,7 @@ class DiscoveredOutboundEndpointsArgs:
                  assigned: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]):
         """
         Property bag contains the device's outbound endpoints
+
         :param pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]] assigned: Endpoints the device can connect to.
         """
         pulumi.set(__self__, "assigned", assigned)
@@ -1322,22 +1286,19 @@ class DiscoveredOutboundEndpointsArgs:
         pulumi.set(self, "assigned", value)
 
 
-if not MYPY:
-    class EventMqttDestinationArgsDict(TypedDict):
-        """
-        The type for a MQTT destination.
-        """
-        configuration: pulumi.Input['MqttDestinationConfigurationArgsDict']
-        """
-        The MQTT destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported event destinations for an asset.
-        Expected value is 'Mqtt'.
-        """
-elif False:
-    EventMqttDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class EventMqttDestinationArgsDict(TypedDict):
+    """
+    The type for a MQTT destination.
+    """
+    configuration: pulumi.Input['MqttDestinationConfigurationArgsDict']
+    """
+    The MQTT destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported event destinations for an asset.
+    Expected value is 'Mqtt'.
+    """
 
 @pulumi.input_type
 class EventMqttDestinationArgs:
@@ -1346,6 +1307,7 @@ class EventMqttDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a MQTT destination.
+
         :param pulumi.Input['MqttDestinationConfigurationArgs'] configuration: The MQTT destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported event destinations for an asset.
                Expected value is 'Mqtt'.
@@ -1379,22 +1341,19 @@ class EventMqttDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class EventStorageDestinationArgsDict(TypedDict):
-        """
-        The type for a storage destination.
-        """
-        configuration: pulumi.Input['StorageDestinationConfigurationArgsDict']
-        """
-        The storage destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported event destinations for an asset.
-        Expected value is 'Storage'.
-        """
-elif False:
-    EventStorageDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class EventStorageDestinationArgsDict(TypedDict):
+    """
+    The type for a storage destination.
+    """
+    configuration: pulumi.Input['StorageDestinationConfigurationArgsDict']
+    """
+    The storage destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported event destinations for an asset.
+    Expected value is 'Storage'.
+    """
 
 @pulumi.input_type
 class EventStorageDestinationArgs:
@@ -1403,6 +1362,7 @@ class EventStorageDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a storage destination.
+
         :param pulumi.Input['StorageDestinationConfigurationArgs'] configuration: The storage destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported event destinations for an asset.
                Expected value is 'Storage'.
@@ -1436,33 +1396,30 @@ class EventStorageDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class EventArgsDict(TypedDict):
-        """
-        Defines the event properties.
-        """
-        event_notifier: pulumi.Input[_builtins.str]
-        """
-        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the event.
-        """
-        event_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        observability_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']]]
-        """
-        An indication of how the event should be mapped to OpenTelemetry.
-        """
-        topic: NotRequired[pulumi.Input['TopicArgsDict']]
-        """
-        Object that describes the topic information for the specific event.
-        """
-elif False:
-    EventArgsDict: TypeAlias = Mapping[str, Any]
+class EventArgsDict(TypedDict):
+    """
+    Defines the event properties.
+    """
+    event_notifier: pulumi.Input[_builtins.str]
+    """
+    The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the event.
+    """
+    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    observability_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'EventObservabilityMode']]]
+    """
+    An indication of how the event should be mapped to OpenTelemetry.
+    """
+    topic: NotRequired[pulumi.Input['TopicArgsDict']]
+    """
+    Object that describes the topic information for the specific event.
+    """
 
 @pulumi.input_type
 class EventArgs:
@@ -1474,6 +1431,7 @@ class EventArgs:
                  topic: Optional[pulumi.Input['TopicArgs']] = None):
         """
         Defines the event properties.
+
         :param pulumi.Input[_builtins.str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the event.
         :param pulumi.Input[_builtins.str] event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -1552,21 +1510,18 @@ class EventArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class ExtendedLocationArgsDict(TypedDict):
-        """
-        The extended location.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The extended location name.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The extended location type.
-        """
-elif False:
-    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ExtendedLocationArgsDict(TypedDict):
+    """
+    The extended location.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The extended location name.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The extended location type.
+    """
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -1575,6 +1530,7 @@ class ExtendedLocationArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The extended location.
+
         :param pulumi.Input[_builtins.str] name: The extended location name.
         :param pulumi.Input[_builtins.str] type: The extended location type.
         """
@@ -1606,25 +1562,22 @@ class ExtendedLocationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class HostAuthenticationArgsDict(TypedDict):
-        """
-        Definition of the client authentication mechanism to the host.
-        """
-        method: pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]
-        """
-        Defines the method to authenticate the user of the client at the server.
-        """
-        username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        """
-        x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-elif False:
-    HostAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class HostAuthenticationArgsDict(TypedDict):
+    """
+    Definition of the client authentication mechanism to the host.
+    """
+    method: pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']]
+    """
+    Defines the method to authenticate the user of the client at the server.
+    """
+    username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
+    """
+    Defines the username and password references when UsernamePassword user authentication mode is selected.
+    """
+    x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
+    """
+    Defines the certificate reference when Certificate user authentication mode is selected.
+    """
 
 @pulumi.input_type
 class HostAuthenticationArgs:
@@ -1634,6 +1587,7 @@ class HostAuthenticationArgs:
                  x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
         """
         Definition of the client authentication mechanism to the host.
+
         :param pulumi.Input[Union[_builtins.str, 'AuthenticationMethod']] method: Defines the method to authenticate the user of the client at the server.
         :param pulumi.Input['UsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param pulumi.Input['X509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
@@ -1683,37 +1637,34 @@ class HostAuthenticationArgs:
         pulumi.set(self, "x509_credentials", value)
 
 
-if not MYPY:
-    class InboundEndpointsArgsDict(TypedDict):
-        """
-        An endpoint to connect to the device.
-        """
-        address: pulumi.Input[_builtins.str]
-        """
-        The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
-        """
-        endpoint_type: pulumi.Input[_builtins.str]
-        """
-        Type of connection endpoint.
-        """
-        additional_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
-        """
-        authentication: NotRequired[pulumi.Input['HostAuthenticationArgsDict']]
-        """
-        Defines the client authentication mechanism to the server.
-        """
-        trust_settings: NotRequired[pulumi.Input['TrustSettingsArgsDict']]
-        """
-        Defines server trust settings for the endpoint.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
-        """
-elif False:
-    InboundEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class InboundEndpointsArgsDict(TypedDict):
+    """
+    An endpoint to connect to the device.
+    """
+    address: pulumi.Input[_builtins.str]
+    """
+    The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    Type of connection endpoint.
+    """
+    additional_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
+    """
+    authentication: NotRequired[pulumi.Input['HostAuthenticationArgsDict']]
+    """
+    Defines the client authentication mechanism to the server.
+    """
+    trust_settings: NotRequired[pulumi.Input['TrustSettingsArgsDict']]
+    """
+    Defines server trust settings for the endpoint.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
+    """
 
 @pulumi.input_type
 class InboundEndpointsArgs:
@@ -1726,6 +1677,7 @@ class InboundEndpointsArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         An endpoint to connect to the device.
+
         :param pulumi.Input[_builtins.str] address: The endpoint address & port. This can be either an IP address (e.g., 192.168.1.1) or a fully qualified domain name (FQDN, e.g., server.example.com).
         :param pulumi.Input[_builtins.str] endpoint_type: Type of connection endpoint.
         :param pulumi.Input[_builtins.str] additional_configuration: Stringified JSON that contains configuration to be used by the connector (e.g., OPC UA, ONVIF).
@@ -1817,17 +1769,14 @@ class InboundEndpointsArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class LeafCertificateConfigurationArgsDict(TypedDict):
-        """
-        The leaf certificate configuration.
-        """
-        validity_period_in_days: pulumi.Input[_builtins.int]
-        """
-        The validity period in days.
-        """
-elif False:
-    LeafCertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LeafCertificateConfigurationArgsDict(TypedDict):
+    """
+    The leaf certificate configuration.
+    """
+    validity_period_in_days: pulumi.Input[_builtins.int]
+    """
+    The validity period in days.
+    """
 
 @pulumi.input_type
 class LeafCertificateConfigurationArgs:
@@ -1835,6 +1784,7 @@ class LeafCertificateConfigurationArgs:
                  validity_period_in_days: pulumi.Input[_builtins.int]):
         """
         The leaf certificate configuration.
+
         :param pulumi.Input[_builtins.int] validity_period_in_days: The validity period in days.
         """
         pulumi.set(__self__, "validity_period_in_days", validity_period_in_days)
@@ -1852,41 +1802,38 @@ class LeafCertificateConfigurationArgs:
         pulumi.set(self, "validity_period_in_days", value)
 
 
-if not MYPY:
-    class ManagementActionArgsDict(TypedDict):
-        """
-        Defines the action properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the action.
-        """
-        target_uri: pulumi.Input[_builtins.str]
-        """
-        The target URI on which a client can invoke the specific action.
-        """
-        action_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the action.
-        """
-        action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagementActionType']]]
-        """
-        The type of the action.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Response timeout for the action.
-        """
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MQTT topic path on which a client will receive the request for the action.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    ManagementActionArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementActionArgsDict(TypedDict):
+    """
+    Defines the action properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the action.
+    """
+    target_uri: pulumi.Input[_builtins.str]
+    """
+    The target URI on which a client can invoke the specific action.
+    """
+    action_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the action.
+    """
+    action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagementActionType']]]
+    """
+    The type of the action.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Response timeout for the action.
+    """
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MQTT topic path on which a client will receive the request for the action.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class ManagementActionArgs:
@@ -1900,6 +1847,7 @@ class ManagementActionArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the action properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the action.
         :param pulumi.Input[_builtins.str] target_uri: The target URI on which a client can invoke the specific action.
         :param pulumi.Input[_builtins.str] action_configuration: Stringified JSON that contains connector-specific configuration for the action.
@@ -2008,37 +1956,34 @@ class ManagementActionArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class ManagementGroupArgsDict(TypedDict):
-        """
-        Defines the management group properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the management group.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagementActionArgsDict']]]]
-        """
-        Array of actions that are part of the management group. Each action can have an individual configuration.
-        """
-        default_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Default response timeout for all actions that are part of the management group.
-        """
-        default_topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
-        """
-        management_group_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the management group.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    ManagementGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ManagementGroupArgsDict(TypedDict):
+    """
+    Defines the management group properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the management group.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagementActionArgsDict']]]]
+    """
+    Array of actions that are part of the management group. Each action can have an individual configuration.
+    """
+    default_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Default response timeout for all actions that are part of the management group.
+    """
+    default_topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
+    """
+    management_group_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the management group.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class ManagementGroupArgs:
@@ -2051,6 +1996,7 @@ class ManagementGroupArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the management group properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the management group.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementActionArgs']]] actions: Array of actions that are part of the management group. Each action can have an individual configuration.
         :param pulumi.Input[_builtins.int] default_timeout_in_seconds: Default response timeout for all actions that are part of the management group.
@@ -2145,21 +2091,18 @@ class ManagementGroupArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class MessagingEndpointsArgsDict(TypedDict):
-        """
-        Connection endpoint URL a device can use to connect to a service.
-        """
-        inbound: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgsDict']]]]
-        """
-        Set of endpoints to connect to the device.
-        """
-        outbound: NotRequired[pulumi.Input['OutboundEndpointsArgsDict']]
-        """
-        Set of endpoints a device can connect to.
-        """
-elif False:
-    MessagingEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class MessagingEndpointsArgsDict(TypedDict):
+    """
+    Connection endpoint URL a device can use to connect to a service.
+    """
+    inbound: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgsDict']]]]
+    """
+    Set of endpoints to connect to the device.
+    """
+    outbound: NotRequired[pulumi.Input['OutboundEndpointsArgsDict']]
+    """
+    Set of endpoints a device can connect to.
+    """
 
 @pulumi.input_type
 class MessagingEndpointsArgs:
@@ -2168,6 +2111,7 @@ class MessagingEndpointsArgs:
                  outbound: Optional[pulumi.Input['OutboundEndpointsArgs']] = None):
         """
         Connection endpoint URL a device can use to connect to a service.
+
         :param pulumi.Input[Mapping[str, pulumi.Input['InboundEndpointsArgs']]] inbound: Set of endpoints to connect to the device.
         :param pulumi.Input['OutboundEndpointsArgs'] outbound: Set of endpoints a device can connect to.
         """
@@ -2201,25 +2145,22 @@ class MessagingEndpointsArgs:
         pulumi.set(self, "outbound", value)
 
 
-if not MYPY:
-    class MessagingEndpointArgsDict(TypedDict):
-        """
-        Namespace messaging endpoint model used by a device to connect to a service.
-        """
-        address: pulumi.Input[_builtins.str]
-        """
-        The endpoint address to connect to.
-        """
-        endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of connection used for messaging endpoint.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The messaging endpoint Azure resource Id.
-        """
-elif False:
-    MessagingEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class MessagingEndpointArgsDict(TypedDict):
+    """
+    Namespace messaging endpoint model used by a device to connect to a service.
+    """
+    address: pulumi.Input[_builtins.str]
+    """
+    The endpoint address to connect to.
+    """
+    endpoint_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of connection used for messaging endpoint.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The messaging endpoint Azure resource Id.
+    """
 
 @pulumi.input_type
 class MessagingEndpointArgs:
@@ -2229,6 +2170,7 @@ class MessagingEndpointArgs:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Namespace messaging endpoint model used by a device to connect to a service.
+
         :param pulumi.Input[_builtins.str] address: The endpoint address to connect to.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of connection used for messaging endpoint.
         :param pulumi.Input[_builtins.str] resource_id: The messaging endpoint Azure resource Id.
@@ -2276,17 +2218,14 @@ class MessagingEndpointArgs:
         pulumi.set(self, "resource_id", value)
 
 
-if not MYPY:
-    class MessagingArgsDict(TypedDict):
-        """
-        The namespace messaging endpoints model.
-        """
-        endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgsDict']]]]
-        """
-        Dictionary of messaging endpoints.
-        """
-elif False:
-    MessagingArgsDict: TypeAlias = Mapping[str, Any]
+class MessagingArgsDict(TypedDict):
+    """
+    The namespace messaging endpoints model.
+    """
+    endpoints: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgsDict']]]]
+    """
+    Dictionary of messaging endpoints.
+    """
 
 @pulumi.input_type
 class MessagingArgs:
@@ -2294,6 +2233,7 @@ class MessagingArgs:
                  endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]]] = None):
         """
         The namespace messaging endpoints model.
+
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointArgs']]] endpoints: Dictionary of messaging endpoints.
         """
         if endpoints is not None:
@@ -2312,29 +2252,26 @@ class MessagingArgs:
         pulumi.set(self, "endpoints", value)
 
 
-if not MYPY:
-    class MqttDestinationConfigurationArgsDict(TypedDict):
-        """
-        The configuration for a MQTT destination.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The MQTT topic.
-        """
-        qos: NotRequired[pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']]]
-        """
-        The MQTT QoS setting. Defaults to QoS 1.
-        """
-        retain: NotRequired[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]
-        """
-        When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
-        """
-        ttl: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The MQTT TTL setting.
-        """
-elif False:
-    MqttDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MqttDestinationConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a MQTT destination.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The MQTT topic.
+    """
+    qos: NotRequired[pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']]]
+    """
+    The MQTT QoS setting. Defaults to QoS 1.
+    """
+    retain: NotRequired[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]
+    """
+    When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
+    """
+    ttl: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The MQTT TTL setting.
+    """
 
 @pulumi.input_type
 class MqttDestinationConfigurationArgs:
@@ -2345,6 +2282,7 @@ class MqttDestinationConfigurationArgs:
                  ttl: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The configuration for a MQTT destination.
+
         :param pulumi.Input[_builtins.str] topic: The MQTT topic.
         :param pulumi.Input[Union[_builtins.str, 'MqttDestinationQos']] qos: The MQTT QoS setting. Defaults to QoS 1.
         :param pulumi.Input[Union[_builtins.str, 'TopicRetainType']] retain: When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
@@ -2411,29 +2349,26 @@ class MqttDestinationConfigurationArgs:
         pulumi.set(self, "ttl", value)
 
 
-if not MYPY:
-    class NamespaceDatasetDataPointArgsDict(TypedDict):
-        """
-        Defines the dataset data point properties.
-        """
-        data_source: pulumi.Input[_builtins.str]
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data point.
-        """
-        data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDatasetDataPointArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDatasetDataPointArgsDict(TypedDict):
+    """
+    Defines the dataset data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDatasetDataPointArgs:
@@ -2444,6 +2379,7 @@ class NamespaceDatasetDataPointArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the dataset data point properties.
+
         :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the data point.
         :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -2505,37 +2441,34 @@ class NamespaceDatasetDataPointArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDatasetArgsDict(TypedDict):
-        """
-        Defines the dataset properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the dataset.
-        """
-        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgsDict']]]]
-        """
-        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        """
-        data_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reference to a data source for a given dataset.
-        """
-        dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]
-        """
-        Destinations for a dataset.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDatasetArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDatasetArgsDict(TypedDict):
+    """
+    Defines the dataset properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dataset.
+    """
+    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgsDict']]]]
+    """
+    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+    """
+    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reference to a data source for a given dataset.
+    """
+    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]
+    """
+    Destinations for a dataset.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDatasetArgs:
@@ -2548,6 +2481,7 @@ class NamespaceDatasetArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the dataset properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceDatasetDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param pulumi.Input[_builtins.str] data_source: Reference to a data source for a given dataset.
@@ -2640,33 +2574,30 @@ class NamespaceDatasetArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredDatasetDataPointArgsDict(TypedDict):
-        """
-        Defines the discovered dataset data point properties.
-        """
-        data_source: pulumi.Input[_builtins.str]
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data point.
-        """
-        data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UTC timestamp indicating when the data point was added or modified.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDiscoveredDatasetDataPointArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredDatasetDataPointArgsDict(TypedDict):
+    """
+    Defines the discovered dataset data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UTC timestamp indicating when the data point was added or modified.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredDatasetDataPointArgs:
@@ -2678,6 +2609,7 @@ class NamespaceDiscoveredDatasetDataPointArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the discovered dataset data point properties.
+
         :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the data point.
         :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -2754,41 +2686,38 @@ class NamespaceDiscoveredDatasetDataPointArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredDatasetArgsDict(TypedDict):
-        """
-        Defines the dataset properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the dataset.
-        """
-        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgsDict']]]]
-        """
-        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
-        """
-        data_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Reference to a data source for a given dataset.
-        """
-        dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]
-        """
-        Destinations for a dataset.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp (in UTC) indicating when the dataset was added or modified.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDiscoveredDatasetArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredDatasetArgsDict(TypedDict):
+    """
+    Defines the dataset properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the dataset.
+    """
+    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgsDict']]]]
+    """
+    Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+    """
+    data_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Reference to a data source for a given dataset.
+    """
+    dataset_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific properties that describes configuration for the specific dataset.
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['DatasetBrokerStateStoreDestinationArgsDict', 'DatasetMqttDestinationArgsDict', 'DatasetStorageDestinationArgsDict']]]]]
+    """
+    Destinations for a dataset.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp (in UTC) indicating when the dataset was added or modified.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredDatasetArgs:
@@ -2802,6 +2731,7 @@ class NamespaceDiscoveredDatasetArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the dataset properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredDatasetDataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
         :param pulumi.Input[_builtins.str] data_source: Reference to a data source for a given dataset.
@@ -2909,29 +2839,26 @@ class NamespaceDiscoveredDatasetArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredEventDataPointArgsDict(TypedDict):
-        """
-        Defines the discovered event data point properties.
-        """
-        data_source: pulumi.Input[_builtins.str]
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data point.
-        """
-        data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UTC timestamp indicating when the data point was added or modified.
-        """
-elif False:
-    NamespaceDiscoveredEventDataPointArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredEventDataPointArgsDict(TypedDict):
+    """
+    Defines the discovered event data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UTC timestamp indicating when the data point was added or modified.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredEventDataPointArgs:
@@ -2942,6 +2869,7 @@ class NamespaceDiscoveredEventDataPointArgs:
                  last_updated_on: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the discovered event data point properties.
+
         :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the data point.
         :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -3003,41 +2931,38 @@ class NamespaceDiscoveredEventDataPointArgs:
         pulumi.set(self, "last_updated_on", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredEventArgsDict(TypedDict):
-        """
-        Defines the event properties.
-        """
-        event_notifier: pulumi.Input[_builtins.str]
-        """
-        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the event.
-        """
-        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgsDict']]]]
-        """
-        Array of data points that are part of the event. Each data point can have a per-data point configuration.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]
-        """
-        Destinations for an event.
-        """
-        event_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        UTC timestamp indicating when the event was added or modified.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDiscoveredEventArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredEventArgsDict(TypedDict):
+    """
+    Defines the event properties.
+    """
+    event_notifier: pulumi.Input[_builtins.str]
+    """
+    The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the event.
+    """
+    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgsDict']]]]
+    """
+    Array of data points that are part of the event. Each data point can have a per-data point configuration.
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]
+    """
+    Destinations for an event.
+    """
+    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    UTC timestamp indicating when the event was added or modified.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredEventArgs:
@@ -3051,6 +2976,7 @@ class NamespaceDiscoveredEventArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the event properties.
+
         :param pulumi.Input[_builtins.str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the event.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredEventDataPointArgs']]] data_points: Array of data points that are part of the event. Each data point can have a per-data point configuration.
@@ -3157,45 +3083,42 @@ class NamespaceDiscoveredEventArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredManagementActionArgsDict(TypedDict):
-        """
-        Defines the action properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the action.
-        """
-        target_uri: pulumi.Input[_builtins.str]
-        """
-        The target URI on which a client can invoke the specific action.
-        """
-        action_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the action.
-        """
-        action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]
-        """
-        The type of the action.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp (in UTC) indicating when the management action was added or modified.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Response timeout for the action.
-        """
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The MQTT topic path on which a client will receive the request for the action.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDiscoveredManagementActionArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredManagementActionArgsDict(TypedDict):
+    """
+    Defines the action properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the action.
+    """
+    target_uri: pulumi.Input[_builtins.str]
+    """
+    The target URI on which a client can invoke the specific action.
+    """
+    action_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the action.
+    """
+    action_type: NotRequired[pulumi.Input[Union[_builtins.str, 'NamespaceDiscoveredManagementActionType']]]
+    """
+    The type of the action.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp (in UTC) indicating when the management action was added or modified.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Response timeout for the action.
+    """
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The MQTT topic path on which a client will receive the request for the action.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredManagementActionArgs:
@@ -3210,6 +3133,7 @@ class NamespaceDiscoveredManagementActionArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the action properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the action.
         :param pulumi.Input[_builtins.str] target_uri: The target URI on which a client can invoke the specific action.
         :param pulumi.Input[_builtins.str] action_configuration: Stringified JSON that contains connector-specific configuration for the action.
@@ -3333,41 +3257,38 @@ class NamespaceDiscoveredManagementActionArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredManagementGroupArgsDict(TypedDict):
-        """
-        Defines the management group properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the management group.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgsDict']]]]
-        """
-        Array of actions that are part of the management group. Each action can have an individual configuration.
-        """
-        default_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Default response timeout for all actions that are part of the management group.
-        """
-        default_topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp (in UTC) indicating when the management group was added or modified.
-        """
-        management_group_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the management group.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDiscoveredManagementGroupArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredManagementGroupArgsDict(TypedDict):
+    """
+    Defines the management group properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the management group.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgsDict']]]]
+    """
+    Array of actions that are part of the management group. Each action can have an individual configuration.
+    """
+    default_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Default response timeout for all actions that are part of the management group.
+    """
+    default_topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default MQTT topic path on which a client will receive the request for all actions that are part of the management group.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp (in UTC) indicating when the management group was added or modified.
+    """
+    management_group_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the management group.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredManagementGroupArgs:
@@ -3381,6 +3302,7 @@ class NamespaceDiscoveredManagementGroupArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the management group properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the management group.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceDiscoveredManagementActionArgs']]] actions: Array of actions that are part of the management group. Each action can have an individual configuration.
         :param pulumi.Input[_builtins.int] default_timeout_in_seconds: Default response timeout for all actions that are part of the management group.
@@ -3490,33 +3412,30 @@ class NamespaceDiscoveredManagementGroupArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceDiscoveredStreamArgsDict(TypedDict):
-        """
-        Defines the stream properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the stream definition.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]
-        """
-        Destinations for a stream.
-        """
-        last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp (in UTC) indicating when the stream was added or modified.
-        """
-        stream_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the specific stream.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceDiscoveredStreamArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceDiscoveredStreamArgsDict(TypedDict):
+    """
+    Defines the stream properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the stream definition.
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]
+    """
+    Destinations for a stream.
+    """
+    last_updated_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp (in UTC) indicating when the stream was added or modified.
+    """
+    stream_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the specific stream.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceDiscoveredStreamArgs:
@@ -3528,6 +3447,7 @@ class NamespaceDiscoveredStreamArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the stream properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the stream definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]] destinations: Destinations for a stream.
         :param pulumi.Input[_builtins.str] last_updated_on: Timestamp (in UTC) indicating when the stream was added or modified.
@@ -3605,25 +3525,22 @@ class NamespaceDiscoveredStreamArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceEventDataPointArgsDict(TypedDict):
-        """
-        Defines the event data point properties.
-        """
-        data_source: pulumi.Input[_builtins.str]
-        """
-        The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data point.
-        """
-        data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-elif False:
-    NamespaceEventDataPointArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceEventDataPointArgsDict(TypedDict):
+    """
+    Defines the event data point properties.
+    """
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data point.
+    """
+    data_point_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
 
 @pulumi.input_type
 class NamespaceEventDataPointArgs:
@@ -3633,6 +3550,7 @@ class NamespaceEventDataPointArgs:
                  data_point_configuration: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the event data point properties.
+
         :param pulumi.Input[_builtins.str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the data point.
         :param pulumi.Input[_builtins.str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -3679,37 +3597,34 @@ class NamespaceEventDataPointArgs:
         pulumi.set(self, "data_point_configuration", value)
 
 
-if not MYPY:
-    class NamespaceEventArgsDict(TypedDict):
-        """
-        Defines the event properties.
-        """
-        event_notifier: pulumi.Input[_builtins.str]
-        """
-        The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the event.
-        """
-        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgsDict']]]]
-        """
-        Array of data points that are part of the event. Each data point can have a per-data point configuration.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]
-        """
-        Destinations for an event.
-        """
-        event_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceEventArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceEventArgsDict(TypedDict):
+    """
+    Defines the event properties.
+    """
+    event_notifier: pulumi.Input[_builtins.str]
+    """
+    The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the event.
+    """
+    data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgsDict']]]]
+    """
+    Array of data points that are part of the event. Each data point can have a per-data point configuration.
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['EventMqttDestinationArgsDict', 'EventStorageDestinationArgsDict']]]]]
+    """
+    Destinations for an event.
+    """
+    event_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceEventArgs:
@@ -3722,6 +3637,7 @@ class NamespaceEventArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the event properties.
+
         :param pulumi.Input[_builtins.str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param pulumi.Input[_builtins.str] name: The name of the event.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceEventDataPointArgs']]] data_points: Array of data points that are part of the event. Each data point can have a per-data point configuration.
@@ -3813,29 +3729,26 @@ class NamespaceEventArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class NamespaceStreamArgsDict(TypedDict):
-        """
-        Defines the stream properties.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the stream definition.
-        """
-        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]
-        """
-        Destinations for a stream.
-        """
-        stream_configuration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stringified JSON that contains connector-specific configuration for the specific stream.
-        """
-        type_ref: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URI or type definition ID.
-        """
-elif False:
-    NamespaceStreamArgsDict: TypeAlias = Mapping[str, Any]
+class NamespaceStreamArgsDict(TypedDict):
+    """
+    Defines the stream properties.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the stream definition.
+    """
+    destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgsDict', 'StreamStorageDestinationArgsDict']]]]]
+    """
+    Destinations for a stream.
+    """
+    stream_configuration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stringified JSON that contains connector-specific configuration for the specific stream.
+    """
+    type_ref: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URI or type definition ID.
+    """
 
 @pulumi.input_type
 class NamespaceStreamArgs:
@@ -3846,6 +3759,7 @@ class NamespaceStreamArgs:
                  type_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the stream properties.
+
         :param pulumi.Input[_builtins.str] name: Name of the stream definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamMqttDestinationArgs', 'StreamStorageDestinationArgs']]]] destinations: Destinations for a stream.
         :param pulumi.Input[_builtins.str] stream_configuration: Stringified JSON that contains connector-specific configuration for the specific stream.
@@ -3908,21 +3822,18 @@ class NamespaceStreamArgs:
         pulumi.set(self, "type_ref", value)
 
 
-if not MYPY:
-    class OutboundEndpointsArgsDict(TypedDict):
-        """
-        Property bag contains the device's outbound endpoints
-        """
-        assigned: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]
-        """
-        Endpoints the device can connect to.
-        """
-        unassigned: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]]
-        """
-        Set of most recently removed endpoints.
-        """
-elif False:
-    OutboundEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class OutboundEndpointsArgsDict(TypedDict):
+    """
+    Property bag contains the device's outbound endpoints
+    """
+    assigned: pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]
+    """
+    Endpoints the device can connect to.
+    """
+    unassigned: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgsDict']]]]
+    """
+    Set of most recently removed endpoints.
+    """
 
 @pulumi.input_type
 class OutboundEndpointsArgs:
@@ -3931,6 +3842,7 @@ class OutboundEndpointsArgs:
                  unassigned: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]]] = None):
         """
         Property bag contains the device's outbound endpoints
+
         :param pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]] assigned: Endpoints the device can connect to.
         :param pulumi.Input[Mapping[str, pulumi.Input['DeviceMessagingEndpointArgs']]] unassigned: Set of most recently removed endpoints.
         """
@@ -3963,17 +3875,14 @@ class OutboundEndpointsArgs:
         pulumi.set(self, "unassigned", value)
 
 
-if not MYPY:
-    class StorageDestinationConfigurationArgsDict(TypedDict):
-        """
-        The configuration for a storage destination.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The storage destination path.
-        """
-elif False:
-    StorageDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageDestinationConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a storage destination.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The storage destination path.
+    """
 
 @pulumi.input_type
 class StorageDestinationConfigurationArgs:
@@ -3981,6 +3890,7 @@ class StorageDestinationConfigurationArgs:
                  path: pulumi.Input[_builtins.str]):
         """
         The configuration for a storage destination.
+
         :param pulumi.Input[_builtins.str] path: The storage destination path.
         """
         pulumi.set(__self__, "path", path)
@@ -3998,22 +3908,19 @@ class StorageDestinationConfigurationArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class StreamMqttDestinationArgsDict(TypedDict):
-        """
-        The type for a MQTT destination.
-        """
-        configuration: pulumi.Input['MqttDestinationConfigurationArgsDict']
-        """
-        The MQTT destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported stream destinations for an asset.
-        Expected value is 'Mqtt'.
-        """
-elif False:
-    StreamMqttDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamMqttDestinationArgsDict(TypedDict):
+    """
+    The type for a MQTT destination.
+    """
+    configuration: pulumi.Input['MqttDestinationConfigurationArgsDict']
+    """
+    The MQTT destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported stream destinations for an asset.
+    Expected value is 'Mqtt'.
+    """
 
 @pulumi.input_type
 class StreamMqttDestinationArgs:
@@ -4022,6 +3929,7 @@ class StreamMqttDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a MQTT destination.
+
         :param pulumi.Input['MqttDestinationConfigurationArgs'] configuration: The MQTT destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported stream destinations for an asset.
                Expected value is 'Mqtt'.
@@ -4055,22 +3963,19 @@ class StreamMqttDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class StreamStorageDestinationArgsDict(TypedDict):
-        """
-        The type for a storage destination.
-        """
-        configuration: pulumi.Input['StorageDestinationConfigurationArgsDict']
-        """
-        The storage destination configuration.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        The set of supported stream destinations for an asset.
-        Expected value is 'Storage'.
-        """
-elif False:
-    StreamStorageDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamStorageDestinationArgsDict(TypedDict):
+    """
+    The type for a storage destination.
+    """
+    configuration: pulumi.Input['StorageDestinationConfigurationArgsDict']
+    """
+    The storage destination configuration.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    The set of supported stream destinations for an asset.
+    Expected value is 'Storage'.
+    """
 
 @pulumi.input_type
 class StreamStorageDestinationArgs:
@@ -4079,6 +3984,7 @@ class StreamStorageDestinationArgs:
                  target: pulumi.Input[_builtins.str]):
         """
         The type for a storage destination.
+
         :param pulumi.Input['StorageDestinationConfigurationArgs'] configuration: The storage destination configuration.
         :param pulumi.Input[_builtins.str] target: The set of supported stream destinations for an asset.
                Expected value is 'Storage'.
@@ -4112,17 +4018,14 @@ class StreamStorageDestinationArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class SystemAssignedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (either system assigned, or none)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]
-        """
-        Type of managed service identity (either system assigned, or none).
-        """
-elif False:
-    SystemAssignedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class SystemAssignedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (either system assigned, or none)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
 
 @pulumi.input_type
 class SystemAssignedServiceIdentityArgs:
@@ -4130,6 +4033,7 @@ class SystemAssignedServiceIdentityArgs:
                  type: pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']]):
         """
         Managed service identity (either system assigned, or none)
+
         :param pulumi.Input[Union[_builtins.str, 'SystemAssignedServiceIdentityType']] type: Type of managed service identity (either system assigned, or none).
         """
         pulumi.set(__self__, "type", type)
@@ -4147,21 +4051,18 @@ class SystemAssignedServiceIdentityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TopicArgsDict(TypedDict):
-        """
-        Object that describes the topic information.
-        """
-        path: pulumi.Input[_builtins.str]
-        """
-        The topic path for messages published to an MQTT broker.
-        """
-        retain: NotRequired[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]
-        """
-        When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
-        """
-elif False:
-    TopicArgsDict: TypeAlias = Mapping[str, Any]
+class TopicArgsDict(TypedDict):
+    """
+    Object that describes the topic information.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The topic path for messages published to an MQTT broker.
+    """
+    retain: NotRequired[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]]
+    """
+    When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
+    """
 
 @pulumi.input_type
 class TopicArgs:
@@ -4170,6 +4071,7 @@ class TopicArgs:
                  retain: Optional[pulumi.Input[Union[_builtins.str, 'TopicRetainType']]] = None):
         """
         Object that describes the topic information.
+
         :param pulumi.Input[_builtins.str] path: The topic path for messages published to an MQTT broker.
         :param pulumi.Input[Union[_builtins.str, 'TopicRetainType']] retain: When set to 'Keep', messages published to an MQTT broker will have the retain flag set. Default: 'Never'.
         """
@@ -4204,17 +4106,14 @@ class TopicArgs:
         pulumi.set(self, "retain", value)
 
 
-if not MYPY:
-    class TrustSettingsArgsDict(TypedDict):
-        """
-        Defines server trust settings for an endpoint.
-        """
-        trust_list: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines a secret reference for certificates to trust.
-        """
-elif False:
-    TrustSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class TrustSettingsArgsDict(TypedDict):
+    """
+    Defines server trust settings for an endpoint.
+    """
+    trust_list: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines a secret reference for certificates to trust.
+    """
 
 @pulumi.input_type
 class TrustSettingsArgs:
@@ -4222,6 +4121,7 @@ class TrustSettingsArgs:
                  trust_list: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines server trust settings for an endpoint.
+
         :param pulumi.Input[_builtins.str] trust_list: Defines a secret reference for certificates to trust.
         """
         if trust_list is not None:
@@ -4240,21 +4140,18 @@ class TrustSettingsArgs:
         pulumi.set(self, "trust_list", value)
 
 
-if not MYPY:
-    class UsernamePasswordCredentialsArgsDict(TypedDict):
-        """
-        The credentials for authentication mode UsernamePassword.
-        """
-        password_secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the secret containing the password.
-        """
-        username_secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the secret containing the username.
-        """
-elif False:
-    UsernamePasswordCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class UsernamePasswordCredentialsArgsDict(TypedDict):
+    """
+    The credentials for authentication mode UsernamePassword.
+    """
+    password_secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the secret containing the password.
+    """
+    username_secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the secret containing the username.
+    """
 
 @pulumi.input_type
 class UsernamePasswordCredentialsArgs:
@@ -4263,6 +4160,7 @@ class UsernamePasswordCredentialsArgs:
                  username_secret_name: pulumi.Input[_builtins.str]):
         """
         The credentials for authentication mode UsernamePassword.
+
         :param pulumi.Input[_builtins.str] password_secret_name: The name of the secret containing the password.
         :param pulumi.Input[_builtins.str] username_secret_name: The name of the secret containing the username.
         """
@@ -4294,17 +4192,14 @@ class UsernamePasswordCredentialsArgs:
         pulumi.set(self, "username_secret_name", value)
 
 
-if not MYPY:
-    class X509CredentialsArgsDict(TypedDict):
-        """
-        The x509 certificate for authentication mode Certificate.
-        """
-        certificate_secret_name: pulumi.Input[_builtins.str]
-        """
-        The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
-        """
-elif False:
-    X509CredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class X509CredentialsArgsDict(TypedDict):
+    """
+    The x509 certificate for authentication mode Certificate.
+    """
+    certificate_secret_name: pulumi.Input[_builtins.str]
+    """
+    The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+    """
 
 @pulumi.input_type
 class X509CredentialsArgs:
@@ -4312,6 +4207,7 @@ class X509CredentialsArgs:
                  certificate_secret_name: pulumi.Input[_builtins.str]):
         """
         The x509 certificate for authentication mode Certificate.
+
         :param pulumi.Input[_builtins.str] certificate_secret_name: The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
         pulumi.set(__self__, "certificate_secret_name", certificate_secret_name)

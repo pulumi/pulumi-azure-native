@@ -41,6 +41,7 @@ class AssignmentInfoResponse(dict):
                  configuration: Optional['outputs.ConfigurationInfoResponse'] = None):
         """
         Information about the guest configuration assignment.
+
         :param _builtins.str name: Name of the guest configuration assignment.
         :param 'ConfigurationInfoResponse' configuration: Information about the configuration.
         """
@@ -75,6 +76,7 @@ class AssignmentReportResourceComplianceReasonResponse(dict):
                  phrase: _builtins.str):
         """
         Reason and code for the compliance of the guest configuration assignment resource.
+
         :param _builtins.str code: Code for the compliance of the guest configuration assignment resource.
         :param _builtins.str phrase: Reason for the compliance of the guest configuration assignment resource.
         """
@@ -129,6 +131,7 @@ class AssignmentReportResourceResponse(dict):
                  reasons: Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']] = None):
         """
         The guest configuration assignment resource.
+
         :param _builtins.str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param Any properties: Properties of a guest configuration assignment resource.
         :param _builtins.str resource_id: Name of the guest configuration assignment resource setting.
@@ -317,6 +320,7 @@ class ConfigurationInfoResponse(dict):
                  version: _builtins.str):
         """
         Information about the configuration.
+
         :param _builtins.str name: Name of the configuration.
         :param _builtins.str version: Version of the configuration.
         """
@@ -350,6 +354,7 @@ class ConfigurationParameterResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Represents a configuration parameter.
+
         :param _builtins.str name: Name of the configuration parameter.
         :param _builtins.str value: Value of the configuration parameter.
         """
@@ -416,6 +421,7 @@ class ConfigurationSettingResponse(dict):
                  refresh_frequency_mins: Optional[_builtins.float] = None):
         """
         Configuration setting of LCM (Local Configuration Manager).
+
         :param _builtins.str action_after_reboot: Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
         :param _builtins.bool allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         :param _builtins.str configuration_mode: Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
@@ -540,6 +546,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
                  vmss_vm_list: Optional[Sequence['outputs.VMSSVMInfoResponse']] = None):
         """
         Guest configuration assignment properties.
+
         :param _builtins.str assignment_hash: Combined hash of the configuration package and parameters.
         :param _builtins.str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param _builtins.str last_compliance_status_checked: Date and time when last compliance status was checked.
@@ -720,6 +727,7 @@ class GuestConfigurationNavigationResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+
         :param _builtins.str assignment_source: Specifies the origin of the configuration.
         :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param _builtins.str content_type: Specifies the content type of the configuration. Possible values could be Builtin or Custom.
@@ -893,6 +901,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -972,6 +981,7 @@ class VMInfoResponse(dict):
                  uuid: _builtins.str):
         """
         Information about the VM.
+
         :param _builtins.str id: Azure resource Id of the VM.
         :param _builtins.str uuid: UUID(Universally Unique Identifier) of the VM.
         """
@@ -1033,6 +1043,7 @@ class VMSSVMInfoResponse(dict):
                  vm_resource_id: _builtins.str):
         """
         Information about VMSS VM
+
         :param _builtins.str compliance_status: A value indicating compliance status of the machine for the assigned guest configuration.
         :param _builtins.str last_compliance_checked: Date and time when last compliance status was checked.
         :param _builtins.str latest_report_id: Id of the latest report for the guest configuration assignment.

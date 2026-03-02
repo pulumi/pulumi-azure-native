@@ -50,27 +50,22 @@ __all__ = [
     'XiaomiCredentialArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AdmCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        auth_token_url: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the URL of the authorization token.
-        """
-        client_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the client identifier.
-        """
-        client_secret: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the credential secret access key.
-        """
-elif False:
-    AdmCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class AdmCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub AdmCredential.
+    """
+    auth_token_url: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the URL of the authorization token.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the client identifier.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the credential secret access key.
+    """
 
 @pulumi.input_type
 class AdmCredentialArgs:
@@ -80,6 +75,7 @@ class AdmCredentialArgs:
                  client_secret: pulumi.Input[_builtins.str]):
         """
         Description of a NotificationHub AdmCredential.
+
         :param pulumi.Input[_builtins.str] auth_token_url: Gets or sets the URL of the authorization token.
         :param pulumi.Input[_builtins.str] client_id: Gets or sets the client identifier.
         :param pulumi.Input[_builtins.str] client_secret: Gets or sets the credential secret access key.
@@ -125,48 +121,45 @@ class AdmCredentialArgs:
         pulumi.set(self, "client_secret", value)
 
 
-if not MYPY:
-    class ApnsCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the endpoint of this credential.
-        """
-        apns_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the APNS certificate.
-        """
-        app_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the issuer (iss) registered claim key, whose value is
-        your 10-character Team ID, obtained from your developer account
-        """
-        app_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the name of the application
-        """
-        certificate_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the certificate key.
-        """
-        key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets a 10-character key identifier (kid) key, obtained from
-        your developer account
-        """
-        thumbprint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the APNS certificate Thumbprint
-        """
-        token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets provider Authentication Token, obtained through your
-        developer account
-        """
-elif False:
-    ApnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class ApnsCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub ApnsCredential.
+    """
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the endpoint of this credential.
+    """
+    apns_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the APNS certificate.
+    """
+    app_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the issuer (iss) registered claim key, whose value is
+    your 10-character Team ID, obtained from your developer account
+    """
+    app_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the name of the application
+    """
+    certificate_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the certificate key.
+    """
+    key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets a 10-character key identifier (kid) key, obtained from
+    your developer account
+    """
+    thumbprint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the APNS certificate Thumbprint
+    """
+    token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets provider Authentication Token, obtained through your
+    developer account
+    """
 
 @pulumi.input_type
 class ApnsCredentialArgs:
@@ -181,6 +174,7 @@ class ApnsCredentialArgs:
                  token: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Description of a NotificationHub ApnsCredential.
+
         :param pulumi.Input[_builtins.str] endpoint: Gets or sets the endpoint of this credential.
         :param pulumi.Input[_builtins.str] apns_certificate: Gets or sets the APNS certificate.
         :param pulumi.Input[_builtins.str] app_id: Gets or sets the issuer (iss) registered claim key, whose value is
@@ -309,25 +303,22 @@ class ApnsCredentialArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class BaiduCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        baidu_api_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets baidu Api Key.
-        """
-        baidu_end_point: pulumi.Input[_builtins.str]
-        """
-        Gets or sets baidu Endpoint.
-        """
-        baidu_secret_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets baidu Secret Key
-        """
-elif False:
-    BaiduCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class BaiduCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub BaiduCredential.
+    """
+    baidu_api_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets baidu Api Key.
+    """
+    baidu_end_point: pulumi.Input[_builtins.str]
+    """
+    Gets or sets baidu Endpoint.
+    """
+    baidu_secret_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets baidu Secret Key
+    """
 
 @pulumi.input_type
 class BaiduCredentialArgs:
@@ -337,6 +328,7 @@ class BaiduCredentialArgs:
                  baidu_secret_key: pulumi.Input[_builtins.str]):
         """
         Description of a NotificationHub BaiduCredential.
+
         :param pulumi.Input[_builtins.str] baidu_api_key: Gets or sets baidu Api Key.
         :param pulumi.Input[_builtins.str] baidu_end_point: Gets or sets baidu Endpoint.
         :param pulumi.Input[_builtins.str] baidu_secret_key: Gets or sets baidu Secret Key
@@ -382,25 +374,22 @@ class BaiduCredentialArgs:
         pulumi.set(self, "baidu_secret_key", value)
 
 
-if not MYPY:
-    class BrowserCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub BrowserCredential.
-        """
-        subject: pulumi.Input[_builtins.str]
-        """
-        Gets or sets web push subject.
-        """
-        vapid_private_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets VAPID private key.
-        """
-        vapid_public_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets VAPID public key.
-        """
-elif False:
-    BrowserCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class BrowserCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub BrowserCredential.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    Gets or sets web push subject.
+    """
+    vapid_private_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets VAPID private key.
+    """
+    vapid_public_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets VAPID public key.
+    """
 
 @pulumi.input_type
 class BrowserCredentialArgs:
@@ -410,6 +399,7 @@ class BrowserCredentialArgs:
                  vapid_public_key: pulumi.Input[_builtins.str]):
         """
         Description of a NotificationHub BrowserCredential.
+
         :param pulumi.Input[_builtins.str] subject: Gets or sets web push subject.
         :param pulumi.Input[_builtins.str] vapid_private_key: Gets or sets VAPID private key.
         :param pulumi.Input[_builtins.str] vapid_public_key: Gets or sets VAPID public key.
@@ -455,25 +445,22 @@ class BrowserCredentialArgs:
         pulumi.set(self, "vapid_public_key", value)
 
 
-if not MYPY:
-    class FcmV1CredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub FcmV1Credential.
-        """
-        client_email: pulumi.Input[_builtins.str]
-        """
-        Gets or sets client email.
-        """
-        private_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets private key.
-        """
-        project_id: pulumi.Input[_builtins.str]
-        """
-        Gets or sets project id.
-        """
-elif False:
-    FcmV1CredentialArgsDict: TypeAlias = Mapping[str, Any]
+class FcmV1CredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub FcmV1Credential.
+    """
+    client_email: pulumi.Input[_builtins.str]
+    """
+    Gets or sets client email.
+    """
+    private_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets private key.
+    """
+    project_id: pulumi.Input[_builtins.str]
+    """
+    Gets or sets project id.
+    """
 
 @pulumi.input_type
 class FcmV1CredentialArgs:
@@ -483,6 +470,7 @@ class FcmV1CredentialArgs:
                  project_id: pulumi.Input[_builtins.str]):
         """
         Description of a NotificationHub FcmV1Credential.
+
         :param pulumi.Input[_builtins.str] client_email: Gets or sets client email.
         :param pulumi.Input[_builtins.str] private_key: Gets or sets private key.
         :param pulumi.Input[_builtins.str] project_id: Gets or sets project id.
@@ -528,21 +516,18 @@ class FcmV1CredentialArgs:
         pulumi.set(self, "project_id", value)
 
 
-if not MYPY:
-    class GcmCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        google_api_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the Google API key.
-        """
-        gcm_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the GCM endpoint.
-        """
-elif False:
-    GcmCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class GcmCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub GcmCredential.
+    """
+    google_api_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the Google API key.
+    """
+    gcm_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the GCM endpoint.
+    """
 
 @pulumi.input_type
 class GcmCredentialArgs:
@@ -551,6 +536,7 @@ class GcmCredentialArgs:
                  gcm_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Description of a NotificationHub GcmCredential.
+
         :param pulumi.Input[_builtins.str] google_api_key: Gets or sets the Google API key.
         :param pulumi.Input[_builtins.str] gcm_endpoint: Gets or sets the GCM endpoint.
         """
@@ -583,21 +569,18 @@ class GcmCredentialArgs:
         pulumi.set(self, "gcm_endpoint", value)
 
 
-if not MYPY:
-    class IpRuleArgsDict(TypedDict):
-        """
-        A network authorization rule that filters traffic based on IP address.
-        """
-        ip_mask: pulumi.Input[_builtins.str]
-        """
-        IP mask.
-        """
-        rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]
-        """
-        List of access rights.
-        """
-elif False:
-    IpRuleArgsDict: TypeAlias = Mapping[str, Any]
+class IpRuleArgsDict(TypedDict):
+    """
+    A network authorization rule that filters traffic based on IP address.
+    """
+    ip_mask: pulumi.Input[_builtins.str]
+    """
+    IP mask.
+    """
+    rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]
+    """
+    List of access rights.
+    """
 
 @pulumi.input_type
 class IpRuleArgs:
@@ -606,6 +589,7 @@ class IpRuleArgs:
                  rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
         """
         A network authorization rule that filters traffic based on IP address.
+
         :param pulumi.Input[_builtins.str] ip_mask: IP mask.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]] rights: List of access rights.
         """
@@ -637,25 +621,22 @@ class IpRuleArgs:
         pulumi.set(self, "rights", value)
 
 
-if not MYPY:
-    class MpnsCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        certificate_key: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the certificate key for this credential.
-        """
-        mpns_certificate: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the MPNS certificate.
-        """
-        thumbprint: pulumi.Input[_builtins.str]
-        """
-        Gets or sets the MPNS certificate Thumbprint
-        """
-elif False:
-    MpnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class MpnsCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub MpnsCredential.
+    """
+    certificate_key: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the certificate key for this credential.
+    """
+    mpns_certificate: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the MPNS certificate.
+    """
+    thumbprint: pulumi.Input[_builtins.str]
+    """
+    Gets or sets the MPNS certificate Thumbprint
+    """
 
 @pulumi.input_type
 class MpnsCredentialArgs:
@@ -665,6 +646,7 @@ class MpnsCredentialArgs:
                  thumbprint: pulumi.Input[_builtins.str]):
         """
         Description of a NotificationHub MpnsCredential.
+
         :param pulumi.Input[_builtins.str] certificate_key: Gets or sets the certificate key for this credential.
         :param pulumi.Input[_builtins.str] mpns_certificate: Gets or sets the MPNS certificate.
         :param pulumi.Input[_builtins.str] thumbprint: Gets or sets the MPNS certificate Thumbprint
@@ -710,21 +692,18 @@ class MpnsCredentialArgs:
         pulumi.set(self, "thumbprint", value)
 
 
-if not MYPY:
-    class NetworkAclsArgsDict(TypedDict):
-        """
-        A collection of network authorization rules.
-        """
-        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
-        """
-        List of IP rules.
-        """
-        public_network_rule: NotRequired[pulumi.Input['PublicInternetAuthorizationRuleArgsDict']]
-        """
-        A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
-        """
-elif False:
-    NetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkAclsArgsDict(TypedDict):
+    """
+    A collection of network authorization rules.
+    """
+    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpRuleArgsDict']]]]
+    """
+    List of IP rules.
+    """
+    public_network_rule: NotRequired[pulumi.Input['PublicInternetAuthorizationRuleArgsDict']]
+    """
+    A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
+    """
 
 @pulumi.input_type
 class NetworkAclsArgs:
@@ -733,6 +712,7 @@ class NetworkAclsArgs:
                  public_network_rule: Optional[pulumi.Input['PublicInternetAuthorizationRuleArgs']] = None):
         """
         A collection of network authorization rules.
+
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: List of IP rules.
         :param pulumi.Input['PublicInternetAuthorizationRuleArgs'] public_network_rule: A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
         """
@@ -766,49 +746,46 @@ class NetworkAclsArgs:
         pulumi.set(self, "public_network_rule", value)
 
 
-if not MYPY:
-    class PnsCredentialsArgsDict(TypedDict):
-        """
-        Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        """
-        adm_credential: NotRequired[pulumi.Input['AdmCredentialArgsDict']]
-        """
-        Description of a NotificationHub AdmCredential.
-        """
-        apns_credential: NotRequired[pulumi.Input['ApnsCredentialArgsDict']]
-        """
-        Description of a NotificationHub ApnsCredential.
-        """
-        baidu_credential: NotRequired[pulumi.Input['BaiduCredentialArgsDict']]
-        """
-        Description of a NotificationHub BaiduCredential.
-        """
-        browser_credential: NotRequired[pulumi.Input['BrowserCredentialArgsDict']]
-        """
-        Description of a NotificationHub BrowserCredential.
-        """
-        fcm_v1_credential: NotRequired[pulumi.Input['FcmV1CredentialArgsDict']]
-        """
-        Description of a NotificationHub FcmV1Credential.
-        """
-        gcm_credential: NotRequired[pulumi.Input['GcmCredentialArgsDict']]
-        """
-        Description of a NotificationHub GcmCredential.
-        """
-        mpns_credential: NotRequired[pulumi.Input['MpnsCredentialArgsDict']]
-        """
-        Description of a NotificationHub MpnsCredential.
-        """
-        wns_credential: NotRequired[pulumi.Input['WnsCredentialArgsDict']]
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        xiaomi_credential: NotRequired[pulumi.Input['XiaomiCredentialArgsDict']]
-        """
-        Description of a NotificationHub XiaomiCredential.
-        """
-elif False:
-    PnsCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class PnsCredentialsArgsDict(TypedDict):
+    """
+    Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+    """
+    adm_credential: NotRequired[pulumi.Input['AdmCredentialArgsDict']]
+    """
+    Description of a NotificationHub AdmCredential.
+    """
+    apns_credential: NotRequired[pulumi.Input['ApnsCredentialArgsDict']]
+    """
+    Description of a NotificationHub ApnsCredential.
+    """
+    baidu_credential: NotRequired[pulumi.Input['BaiduCredentialArgsDict']]
+    """
+    Description of a NotificationHub BaiduCredential.
+    """
+    browser_credential: NotRequired[pulumi.Input['BrowserCredentialArgsDict']]
+    """
+    Description of a NotificationHub BrowserCredential.
+    """
+    fcm_v1_credential: NotRequired[pulumi.Input['FcmV1CredentialArgsDict']]
+    """
+    Description of a NotificationHub FcmV1Credential.
+    """
+    gcm_credential: NotRequired[pulumi.Input['GcmCredentialArgsDict']]
+    """
+    Description of a NotificationHub GcmCredential.
+    """
+    mpns_credential: NotRequired[pulumi.Input['MpnsCredentialArgsDict']]
+    """
+    Description of a NotificationHub MpnsCredential.
+    """
+    wns_credential: NotRequired[pulumi.Input['WnsCredentialArgsDict']]
+    """
+    Description of a NotificationHub WnsCredential.
+    """
+    xiaomi_credential: NotRequired[pulumi.Input['XiaomiCredentialArgsDict']]
+    """
+    Description of a NotificationHub XiaomiCredential.
+    """
 
 @pulumi.input_type
 class PnsCredentialsArgs:
@@ -824,6 +801,7 @@ class PnsCredentialsArgs:
                  xiaomi_credential: Optional[pulumi.Input['XiaomiCredentialArgs']] = None):
         """
         Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+
         :param pulumi.Input['AdmCredentialArgs'] adm_credential: Description of a NotificationHub AdmCredential.
         :param pulumi.Input['ApnsCredentialArgs'] apns_credential: Description of a NotificationHub ApnsCredential.
         :param pulumi.Input['BaiduCredentialArgs'] baidu_credential: Description of a NotificationHub BaiduCredential.
@@ -962,21 +940,18 @@ class PnsCredentialsArgs:
         pulumi.set(self, "xiaomi_credential", value)
 
 
-if not MYPY:
-    class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
-        """
-        Private Endpoint Connection properties.
-        """
-        private_link_service_connection_state: NotRequired[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgsDict']]
-        """
-        State of the Private Link Service connection.
-        """
-        provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionProvisioningState']]]
-        """
-        State of Private Endpoint Connection.
-        """
-elif False:
-    PrivateEndpointConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+    """
+    Private Endpoint Connection properties.
+    """
+    private_link_service_connection_state: NotRequired[pulumi.Input['RemotePrivateLinkServiceConnectionStateArgsDict']]
+    """
+    State of the Private Link Service connection.
+    """
+    provisioning_state: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionProvisioningState']]]
+    """
+    State of Private Endpoint Connection.
+    """
 
 @pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
@@ -985,6 +960,7 @@ class PrivateEndpointConnectionPropertiesArgs:
                  provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionProvisioningState']]] = None):
         """
         Private Endpoint Connection properties.
+
         :param pulumi.Input['RemotePrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: State of the Private Link Service connection.
         :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointConnectionProvisioningState']] provisioning_state: State of Private Endpoint Connection.
         """
@@ -1018,17 +994,14 @@ class PrivateEndpointConnectionPropertiesArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-if not MYPY:
-    class PublicInternetAuthorizationRuleArgsDict(TypedDict):
-        """
-        A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
-        """
-        rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]
-        """
-        List of access rights.
-        """
-elif False:
-    PublicInternetAuthorizationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class PublicInternetAuthorizationRuleArgsDict(TypedDict):
+    """
+    A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
+    """
+    rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]
+    """
+    List of access rights.
+    """
 
 @pulumi.input_type
 class PublicInternetAuthorizationRuleArgs:
@@ -1036,6 +1009,7 @@ class PublicInternetAuthorizationRuleArgs:
                  rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
         """
         A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
+
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]] rights: List of access rights.
         """
         pulumi.set(__self__, "rights", rights)
@@ -1053,17 +1027,14 @@ class PublicInternetAuthorizationRuleArgs:
         pulumi.set(self, "rights", value)
 
 
-if not MYPY:
-    class RemotePrivateLinkServiceConnectionStateArgsDict(TypedDict):
-        """
-        State of the Private Link Service connection.
-        """
-        status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]
-        """
-        State of Private Link Connection.
-        """
-elif False:
-    RemotePrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+class RemotePrivateLinkServiceConnectionStateArgsDict(TypedDict):
+    """
+    State of the Private Link Service connection.
+    """
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]]
+    """
+    State of Private Link Connection.
+    """
 
 @pulumi.input_type
 class RemotePrivateLinkServiceConnectionStateArgs:
@@ -1071,6 +1042,7 @@ class RemotePrivateLinkServiceConnectionStateArgs:
                  status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']]] = None):
         """
         State of the Private Link Service connection.
+
         :param pulumi.Input[Union[_builtins.str, 'PrivateLinkConnectionStatus']] status: State of Private Link Connection.
         """
         if status is not None:
@@ -1089,33 +1061,30 @@ class RemotePrivateLinkServiceConnectionStateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class SkuArgsDict(TypedDict):
-        """
-        The Sku description for a namespace
-        """
-        name: pulumi.Input[Union[_builtins.str, 'SkuName']]
-        """
-        Namespace SKU name.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Gets or sets the capacity of the resource
-        """
-        family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Sku Family
-        """
-        size: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Sku size
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the tier of particular sku
-        """
-elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+class SkuArgsDict(TypedDict):
+    """
+    The Sku description for a namespace
+    """
+    name: pulumi.Input[Union[_builtins.str, 'SkuName']]
+    """
+    Namespace SKU name.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Gets or sets the capacity of the resource
+    """
+    family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Sku Family
+    """
+    size: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Sku size
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the tier of particular sku
+    """
 
 @pulumi.input_type
 class SkuArgs:
@@ -1127,6 +1096,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The Sku description for a namespace
+
         :param pulumi.Input[Union[_builtins.str, 'SkuName']] name: Namespace SKU name.
         :param pulumi.Input[_builtins.int] capacity: Gets or sets the capacity of the resource
         :param pulumi.Input[_builtins.str] family: Gets or sets the Sku Family
@@ -1204,33 +1174,30 @@ class SkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class WnsCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub WnsCredential.
-        """
-        certificate_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Ges or sets the WNS Certificate Key.
-        """
-        package_sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the package ID for this credential.
-        """
-        secret_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the secret key.
-        """
-        windows_live_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the Windows Live endpoint.
-        """
-        wns_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets the WNS Certificate.
-        """
-elif False:
-    WnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class WnsCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub WnsCredential.
+    """
+    certificate_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Ges or sets the WNS Certificate Key.
+    """
+    package_sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the package ID for this credential.
+    """
+    secret_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the secret key.
+    """
+    windows_live_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the Windows Live endpoint.
+    """
+    wns_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets the WNS Certificate.
+    """
 
 @pulumi.input_type
 class WnsCredentialArgs:
@@ -1242,6 +1209,7 @@ class WnsCredentialArgs:
                  wns_certificate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Description of a NotificationHub WnsCredential.
+
         :param pulumi.Input[_builtins.str] certificate_key: Ges or sets the WNS Certificate Key.
         :param pulumi.Input[_builtins.str] package_sid: Gets or sets the package ID for this credential.
         :param pulumi.Input[_builtins.str] secret_key: Gets or sets the secret key.
@@ -1320,21 +1288,18 @@ class WnsCredentialArgs:
         pulumi.set(self, "wns_certificate", value)
 
 
-if not MYPY:
-    class XiaomiCredentialArgsDict(TypedDict):
-        """
-        Description of a NotificationHub XiaomiCredential.
-        """
-        app_secret: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets app secret.
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Gets or sets xiaomi service endpoint.
-        """
-elif False:
-    XiaomiCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class XiaomiCredentialArgsDict(TypedDict):
+    """
+    Description of a NotificationHub XiaomiCredential.
+    """
+    app_secret: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets app secret.
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Gets or sets xiaomi service endpoint.
+    """
 
 @pulumi.input_type
 class XiaomiCredentialArgs:
@@ -1343,6 +1308,7 @@ class XiaomiCredentialArgs:
                  endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Description of a NotificationHub XiaomiCredential.
+
         :param pulumi.Input[_builtins.str] app_secret: Gets or sets app secret.
         :param pulumi.Input[_builtins.str] endpoint: Gets or sets xiaomi service endpoint.
         """

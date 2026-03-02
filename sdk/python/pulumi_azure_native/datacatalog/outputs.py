@@ -46,6 +46,7 @@ class PrincipalsResponse(dict):
                  upn: Optional[_builtins.str] = None):
         """
         User principals.
+
         :param _builtins.str object_id: Object Id for the user
         :param _builtins.str upn: UPN of the user.
         """

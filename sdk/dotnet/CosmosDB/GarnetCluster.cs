@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Representation of a Garnet cache cluster.
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGarnetClusterCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var garnetCluster = new AzureNative.CosmosDB.GarnetCluster("garnetCluster", new()
+    ///     {
+    ///         ClusterName = "garnet-prod",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.CosmosDB.Inputs.ClusterResourcePropertiesArgs
+    ///         {
+    ///             NodeCount = 4,
+    ///             NodeSku = "Standard_DS13_v2",
+    ///             ReplicationFactor = 2,
+    ///             SubnetId = "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+    ///         },
+    ///         ResourceGroupName = "garnet-prod-rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:GarnetCluster garnet-prod /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/garnetClusters/{clusterName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:GarnetCluster")]
     public partial class GarnetCluster : global::Pulumi.CustomResource

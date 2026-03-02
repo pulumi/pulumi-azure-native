@@ -50,6 +50,7 @@ class DraftPackageArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DraftPackage resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[_builtins.str] app_file_name: The name of the app file.
@@ -483,6 +484,34 @@ class DraftPackage(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
+        ## Example Usage
+        ### DraftPackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        draft_package = azure_native.testbase.DraftPackage("draftPackage",
+            app_file_name="TestBaseM365DigitalClock.msi",
+            application_name="contoso-package",
+            draft_package_name="61d99543-14ff-47ae-bf03-8a8b8445502e",
+            resource_group_name="contoso-rg1",
+            source_type=azure_native.testbase.DraftPackageSourceType.NATIVE,
+            test_base_account_name="contoso-testBaseAccount1",
+            use_sample=False,
+            version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase:DraftPackage 61d99543-14ff-47ae-bf03-8a8b8445502e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/draftPackages/{draftPackageName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_file_name: The name of the app file.
@@ -522,6 +551,34 @@ class DraftPackage(pulumi.CustomResource):
         The Test Base Draft Package resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
+
+        ## Example Usage
+        ### DraftPackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        draft_package = azure_native.testbase.DraftPackage("draftPackage",
+            app_file_name="TestBaseM365DigitalClock.msi",
+            application_name="contoso-package",
+            draft_package_name="61d99543-14ff-47ae-bf03-8a8b8445502e",
+            resource_group_name="contoso-rg1",
+            source_type=azure_native.testbase.DraftPackageSourceType.NATIVE,
+            test_base_account_name="contoso-testBaseAccount1",
+            use_sample=False,
+            version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase:DraftPackage 61d99543-14ff-47ae-bf03-8a8b8445502e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/draftPackages/{draftPackageName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DraftPackageArgs args: The arguments to use to populate this resource's properties.

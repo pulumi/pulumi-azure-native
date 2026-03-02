@@ -28,6 +28,7 @@ class LinkedServiceArgs:
                  linked_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedService resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input[Union['AmazonMWSLinkedServiceArgs', 'AmazonRdsForOracleLinkedServiceArgs', 'AmazonRdsForSqlServerLinkedServiceArgs', 'AmazonRedshiftLinkedServiceArgs', 'AmazonS3CompatibleLinkedServiceArgs', 'AmazonS3LinkedServiceArgs', 'AppFiguresLinkedServiceArgs', 'AsanaLinkedServiceArgs', 'AzureBatchLinkedServiceArgs', 'AzureBlobFSLinkedServiceArgs', 'AzureBlobStorageLinkedServiceArgs', 'AzureDataExplorerLinkedServiceArgs', 'AzureDataLakeAnalyticsLinkedServiceArgs', 'AzureDataLakeStoreLinkedServiceArgs', 'AzureDatabricksDeltaLakeLinkedServiceArgs', 'AzureDatabricksLinkedServiceArgs', 'AzureFileStorageLinkedServiceArgs', 'AzureFunctionLinkedServiceArgs', 'AzureKeyVaultLinkedServiceArgs', 'AzureMLLinkedServiceArgs', 'AzureMLServiceLinkedServiceArgs', 'AzureMariaDBLinkedServiceArgs', 'AzureMySqlLinkedServiceArgs', 'AzurePostgreSqlLinkedServiceArgs', 'AzureSearchLinkedServiceArgs', 'AzureSqlDWLinkedServiceArgs', 'AzureSqlDatabaseLinkedServiceArgs', 'AzureSqlMILinkedServiceArgs', 'AzureStorageLinkedServiceArgs', 'AzureSynapseArtifactsLinkedServiceArgs', 'AzureTableStorageLinkedServiceArgs', 'CassandraLinkedServiceArgs', 'CommonDataServiceForAppsLinkedServiceArgs', 'ConcurLinkedServiceArgs', 'CosmosDbLinkedServiceArgs', 'CosmosDbMongoDbApiLinkedServiceArgs', 'CouchbaseLinkedServiceArgs', 'CustomDataSourceLinkedServiceArgs', 'DataworldLinkedServiceArgs', 'Db2LinkedServiceArgs', 'DrillLinkedServiceArgs', 'DynamicsAXLinkedServiceArgs', 'DynamicsCrmLinkedServiceArgs', 'DynamicsLinkedServiceArgs', 'EloquaLinkedServiceArgs', 'FileServerLinkedServiceArgs', 'FtpServerLinkedServiceArgs', 'GoogleAdWordsLinkedServiceArgs', 'GoogleBigQueryLinkedServiceArgs', 'GoogleBigQueryV2LinkedServiceArgs', 'GoogleCloudStorageLinkedServiceArgs', 'GoogleSheetsLinkedServiceArgs', 'GreenplumLinkedServiceArgs', 'HBaseLinkedServiceArgs', 'HDInsightLinkedServiceArgs', 'HDInsightOnDemandLinkedServiceArgs', 'HdfsLinkedServiceArgs', 'HiveLinkedServiceArgs', 'HttpLinkedServiceArgs', 'HubspotLinkedServiceArgs', 'ImpalaLinkedServiceArgs', 'InformixLinkedServiceArgs', 'JiraLinkedServiceArgs', 'LakeHouseLinkedServiceArgs', 'MagentoLinkedServiceArgs', 'MariaDBLinkedServiceArgs', 'MarketoLinkedServiceArgs', 'MicrosoftAccessLinkedServiceArgs', 'MongoDbAtlasLinkedServiceArgs', 'MongoDbLinkedServiceArgs', 'MongoDbV2LinkedServiceArgs', 'MySqlLinkedServiceArgs', 'NetezzaLinkedServiceArgs', 'ODataLinkedServiceArgs', 'OdbcLinkedServiceArgs', 'Office365LinkedServiceArgs', 'OracleCloudStorageLinkedServiceArgs', 'OracleLinkedServiceArgs', 'OracleServiceCloudLinkedServiceArgs', 'PaypalLinkedServiceArgs', 'PhoenixLinkedServiceArgs', 'PostgreSqlLinkedServiceArgs', 'PostgreSqlV2LinkedServiceArgs', 'PrestoLinkedServiceArgs', 'QuickBooksLinkedServiceArgs', 'QuickbaseLinkedServiceArgs', 'ResponsysLinkedServiceArgs', 'RestServiceLinkedServiceArgs', 'SalesforceLinkedServiceArgs', 'SalesforceMarketingCloudLinkedServiceArgs', 'SalesforceServiceCloudLinkedServiceArgs', 'SalesforceServiceCloudV2LinkedServiceArgs', 'SalesforceV2LinkedServiceArgs', 'SapBWLinkedServiceArgs', 'SapCloudForCustomerLinkedServiceArgs', 'SapEccLinkedServiceArgs', 'SapHanaLinkedServiceArgs', 'SapOdpLinkedServiceArgs', 'SapOpenHubLinkedServiceArgs', 'SapTableLinkedServiceArgs', 'ServiceNowLinkedServiceArgs', 'ServiceNowV2LinkedServiceArgs', 'SftpServerLinkedServiceArgs', 'SharePointOnlineListLinkedServiceArgs', 'ShopifyLinkedServiceArgs', 'SmartsheetLinkedServiceArgs', 'SnowflakeLinkedServiceArgs', 'SnowflakeV2LinkedServiceArgs', 'SparkLinkedServiceArgs', 'SqlServerLinkedServiceArgs', 'SquareLinkedServiceArgs', 'SybaseLinkedServiceArgs', 'TeamDeskLinkedServiceArgs', 'TeradataLinkedServiceArgs', 'TwilioLinkedServiceArgs', 'VerticaLinkedServiceArgs', 'WarehouseLinkedServiceArgs', 'WebLinkedServiceArgs', 'XeroLinkedServiceArgs', 'ZendeskLinkedServiceArgs', 'ZohoLinkedServiceArgs']] properties: Properties of linked service.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -104,6 +105,56 @@ class LinkedService(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+        ## Example Usage
+        ### LinkedServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_service = azure_native.datafactory.LinkedService("linkedService",
+            factory_name="exampleFactoryName",
+            linked_service_name="exampleLinkedService",
+            properties={
+                "connection_string": {
+                    "type": "SecureString",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+                },
+                "type": "AzureStorage",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### LinkedServices_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_service = azure_native.datafactory.LinkedService("linkedService",
+            factory_name="exampleFactoryName",
+            linked_service_name="exampleLinkedService",
+            properties={
+                "connection_string": {
+                    "type": "SecureString",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+                },
+                "description": "Example description",
+                "type": "AzureStorage",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
@@ -121,6 +172,56 @@ class LinkedService(pulumi.CustomResource):
         Linked service resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
+        ## Example Usage
+        ### LinkedServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_service = azure_native.datafactory.LinkedService("linkedService",
+            factory_name="exampleFactoryName",
+            linked_service_name="exampleLinkedService",
+            properties={
+                "connection_string": {
+                    "type": "SecureString",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+                },
+                "type": "AzureStorage",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### LinkedServices_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_service = azure_native.datafactory.LinkedService("linkedService",
+            factory_name="exampleFactoryName",
+            linked_service_name="exampleLinkedService",
+            properties={
+                "connection_string": {
+                    "type": "SecureString",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+                },
+                "description": "Example description",
+                "type": "AzureStorage",
+            },
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceArgs args: The arguments to use to populate this resource's properties.

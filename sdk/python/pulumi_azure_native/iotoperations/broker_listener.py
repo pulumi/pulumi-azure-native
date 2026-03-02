@@ -30,6 +30,7 @@ class BrokerListenerArgs:
                  properties: Optional[pulumi.Input['BrokerListenerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BrokerListener resource.
+
         :param pulumi.Input[_builtins.str] broker_name: Name of broker.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
@@ -139,6 +140,147 @@ class BrokerListener(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### BrokerListener_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_listener = azure_native.iotoperations.BrokerListener("brokerListener",
+            broker_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            listener_name="resource-name123",
+            properties={
+                "ports": [{
+                    "authentication_ref": "tjvdroaqqy",
+                    "authorization_ref": "inxhvxnwswyrvt",
+                    "node_port": 7281,
+                    "port": 1268,
+                    "protocol": azure_native.iotoperations.BrokerProtocolType.MQTT,
+                    "tls": {
+                        "cert_manager_certificate_spec": {
+                            "duration": "qmpeffoksron",
+                            "issuer_ref": {
+                                "group": "jtmuladdkpasfpoyvewekmiy",
+                                "kind": azure_native.iotoperations.CertManagerIssuerKind.ISSUER,
+                                "name": "ocwoqpgucvjrsuudtjhb",
+                            },
+                            "private_key": {
+                                "algorithm": azure_native.iotoperations.PrivateKeyAlgorithm.EC256,
+                                "rotation_policy": azure_native.iotoperations.PrivateKeyRotationPolicy.ALWAYS,
+                            },
+                            "renew_before": "hutno",
+                            "san": {
+                                "dns": ["xhvmhrrhgfsapocjeebqtnzarlj"],
+                                "ip": ["zbgugfzcgsmegevzktsnibyuyp"],
+                            },
+                            "secret_name": "oagi",
+                        },
+                        "manual": {
+                            "secret_ref": "secret-name",
+                        },
+                        "mode": azure_native.iotoperations.TlsCertMethodMode.AUTOMATIC,
+                    },
+                }],
+                "service_name": "tpfiszlapdpxktx",
+                "service_type": azure_native.iotoperations.ServiceType.CLUSTER_IP,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### BrokerListener_CreateOrUpdate_Complex
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_listener = azure_native.iotoperations.BrokerListener("brokerListener",
+            broker_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            listener_name="resource-name123",
+            properties={
+                "ports": [
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 8080,
+                        "protocol": azure_native.iotoperations.BrokerProtocolType.WEB_SOCKETS,
+                    },
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 8443,
+                        "protocol": azure_native.iotoperations.BrokerProtocolType.WEB_SOCKETS,
+                        "tls": {
+                            "cert_manager_certificate_spec": {
+                                "issuer_ref": {
+                                    "group": "jtmuladdkpasfpoyvewekmiy",
+                                    "kind": azure_native.iotoperations.CertManagerIssuerKind.ISSUER,
+                                    "name": "example-issuer",
+                                },
+                            },
+                            "mode": azure_native.iotoperations.TlsCertMethodMode.AUTOMATIC,
+                        },
+                    },
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 1883,
+                    },
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 8883,
+                        "tls": {
+                            "manual": {
+                                "secret_ref": "example-secret",
+                            },
+                            "mode": azure_native.iotoperations.TlsCertMethodMode.MANUAL,
+                        },
+                    },
+                ],
+                "service_type": azure_native.iotoperations.ServiceType.LOAD_BALANCER,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### BrokerListener_CreateOrUpdate_Simple
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_listener = azure_native.iotoperations.BrokerListener("brokerListener",
+            broker_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            listener_name="resource-name123",
+            properties={
+                "ports": [{
+                    "port": 1883,
+                }],
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:BrokerListener hoqjaachratt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/brokers/{brokerName}/listeners/{listenerName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] broker_name: Name of broker.
@@ -160,6 +302,147 @@ class BrokerListener(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
 
         Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### BrokerListener_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_listener = azure_native.iotoperations.BrokerListener("brokerListener",
+            broker_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            listener_name="resource-name123",
+            properties={
+                "ports": [{
+                    "authentication_ref": "tjvdroaqqy",
+                    "authorization_ref": "inxhvxnwswyrvt",
+                    "node_port": 7281,
+                    "port": 1268,
+                    "protocol": azure_native.iotoperations.BrokerProtocolType.MQTT,
+                    "tls": {
+                        "cert_manager_certificate_spec": {
+                            "duration": "qmpeffoksron",
+                            "issuer_ref": {
+                                "group": "jtmuladdkpasfpoyvewekmiy",
+                                "kind": azure_native.iotoperations.CertManagerIssuerKind.ISSUER,
+                                "name": "ocwoqpgucvjrsuudtjhb",
+                            },
+                            "private_key": {
+                                "algorithm": azure_native.iotoperations.PrivateKeyAlgorithm.EC256,
+                                "rotation_policy": azure_native.iotoperations.PrivateKeyRotationPolicy.ALWAYS,
+                            },
+                            "renew_before": "hutno",
+                            "san": {
+                                "dns": ["xhvmhrrhgfsapocjeebqtnzarlj"],
+                                "ip": ["zbgugfzcgsmegevzktsnibyuyp"],
+                            },
+                            "secret_name": "oagi",
+                        },
+                        "manual": {
+                            "secret_ref": "secret-name",
+                        },
+                        "mode": azure_native.iotoperations.TlsCertMethodMode.AUTOMATIC,
+                    },
+                }],
+                "service_name": "tpfiszlapdpxktx",
+                "service_type": azure_native.iotoperations.ServiceType.CLUSTER_IP,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### BrokerListener_CreateOrUpdate_Complex
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_listener = azure_native.iotoperations.BrokerListener("brokerListener",
+            broker_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            listener_name="resource-name123",
+            properties={
+                "ports": [
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 8080,
+                        "protocol": azure_native.iotoperations.BrokerProtocolType.WEB_SOCKETS,
+                    },
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 8443,
+                        "protocol": azure_native.iotoperations.BrokerProtocolType.WEB_SOCKETS,
+                        "tls": {
+                            "cert_manager_certificate_spec": {
+                                "issuer_ref": {
+                                    "group": "jtmuladdkpasfpoyvewekmiy",
+                                    "kind": azure_native.iotoperations.CertManagerIssuerKind.ISSUER,
+                                    "name": "example-issuer",
+                                },
+                            },
+                            "mode": azure_native.iotoperations.TlsCertMethodMode.AUTOMATIC,
+                        },
+                    },
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 1883,
+                    },
+                    {
+                        "authentication_ref": "example-authentication",
+                        "port": 8883,
+                        "tls": {
+                            "manual": {
+                                "secret_ref": "example-secret",
+                            },
+                            "mode": azure_native.iotoperations.TlsCertMethodMode.MANUAL,
+                        },
+                    },
+                ],
+                "service_type": azure_native.iotoperations.ServiceType.LOAD_BALANCER,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### BrokerListener_CreateOrUpdate_Simple
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        broker_listener = azure_native.iotoperations.BrokerListener("brokerListener",
+            broker_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            listener_name="resource-name123",
+            properties={
+                "ports": [{
+                    "port": 1883,
+                }],
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:BrokerListener hoqjaachratt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/brokers/{brokerName}/listeners/{listenerName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BrokerListenerArgs args: The arguments to use to populate this resource's properties.

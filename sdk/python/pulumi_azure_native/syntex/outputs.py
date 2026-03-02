@@ -51,6 +51,7 @@ class DocumentProcessorPropertiesResponse(dict):
                  spo_tenant_url: _builtins.str):
         """
         Document processor properties
+
         :param _builtins.str provisioning_state: The managed resource provisioning state.
         :param _builtins.str spo_tenant_id: The ID (GUID) of an SharePoint Online (SPO) tenant associated with this document processor resource
         :param _builtins.str spo_tenant_url: The URL of an SharePoint Online (SPO) tenant associated with this document processor resource
@@ -125,6 +126,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

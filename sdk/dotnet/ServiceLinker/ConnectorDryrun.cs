@@ -15,6 +15,55 @@ namespace Pulumi.AzureNative.ServiceLinker
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
     /// 
     /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### ConnectorDryrunCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectorDryrun = new AzureNative.ServiceLinker.ConnectorDryrun("connectorDryrun", new()
+    ///     {
+    ///         DryrunName = "dryrunName",
+    ///         Location = "westus",
+    ///         Parameters = new AzureNative.ServiceLinker.Inputs.CreateOrUpdateDryrunParametersArgs
+    ///         {
+    ///             ActionName = "createOrUpdate",
+    ///             AuthInfo = new AzureNative.ServiceLinker.Inputs.SecretAuthInfoArgs
+    ///             {
+    ///                 AuthType = "secret",
+    ///                 Name = "name",
+    ///                 SecretInfo = new AzureNative.ServiceLinker.Inputs.ValueSecretInfoArgs
+    ///                 {
+    ///                     SecretType = "rawValue",
+    ///                     Value = "secret",
+    ///                 },
+    ///             },
+    ///             TargetService = new AzureNative.ServiceLinker.Inputs.AzureResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+    ///                 Type = "AzureResource",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicelinker:ConnectorDryrun dryrunName /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.ServiceLinker/locations/{location}/dryruns/{dryrunName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:ConnectorDryrun")]
     public partial class ConnectorDryrun : global::Pulumi.CustomResource

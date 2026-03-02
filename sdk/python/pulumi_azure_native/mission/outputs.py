@@ -108,6 +108,7 @@ class ApprovalSettingsResponse(dict):
                  service_catalog_deployment: Optional[_builtins.str] = None):
         """
         ApprovalSettings Properties
+
         :param _builtins.str connection_creation: Approval required for enclave connection creation (Required or NotRequired).
         :param _builtins.str connection_deletion: Approval required for enclave connection deletion (Required or NotRequired).
         :param _builtins.str connection_update: Approval required for enclave connection update (Required or NotRequired).
@@ -308,6 +309,7 @@ class ApproverResponse(dict):
                  action_performed: Optional[_builtins.str] = None):
         """
         Approver Metadata for approvals request.
+
         :param _builtins.str approver_entra_id: Entra ObjectID of the approver
         :param _builtins.str last_updated_at: approval request last updated at
         :param _builtins.str action_performed: Action Performed by approver
@@ -377,6 +379,7 @@ class CommunityEndpointDestinationRuleResponse(dict):
                  transit_hub_resource_id: Optional[_builtins.str] = None):
         """
         Base type for destination rules.
+
         :param _builtins.str destination: Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
         :param _builtins.str destination_type: Destination Type.
         :param _builtins.str endpoint_rule_name: Endpoint Rule Name.
@@ -475,6 +478,7 @@ class EnclaveAddressSpacesModelResponse(dict):
                  managed_address_space: Optional[_builtins.str] = None):
         """
         Enclave Address Spaces
+
         :param _builtins.str enclave_address_space: Enclave Address Space
         :param _builtins.str managed_address_space: Managed Address Space
         """
@@ -535,6 +539,7 @@ class EnclaveDefaultSettingsModelResponse(dict):
                  diagnostic_destination: Optional[_builtins.str] = None):
         """
         Virtual Enclave Default Settings
+
         :param _builtins.str key_vault_resource_id: Key Vault Resource Id.
         :param Sequence[_builtins.str] log_analytics_resource_id_collection: Log Analytics Resource Ids.
         :param _builtins.str storage_account_resource_id: Storage Account Resource Id.
@@ -610,6 +615,7 @@ class EnclaveEndpointDestinationRuleResponse(dict):
                  protocols: Optional[Sequence[_builtins.str]] = None):
         """
         Enclave Endpoint Rule Properties
+
         :param _builtins.str destination: Destination address. Can include multiple CIDR/IP Addresses or fqdn tags or fqdns (for community endpoint) separated by commas.
         :param _builtins.str endpoint_rule_name: Endpoint Rule Name.
         :param _builtins.str ports: Port. Can include multiple ports separated by commas or a range indicated by a hyphen.
@@ -695,6 +701,7 @@ class EnclaveVirtualNetworkModelResponse(dict):
                  subnet_configurations: Optional[Sequence['outputs.SubnetConfigurationResponse']] = None):
         """
         Enclave Virtual Network Properties
+
         :param _builtins.bool allow_subnet_communication: Allow Subnet Communication.
         :param _builtins.str custom_cidr_range: Custom CIDR Range.
         :param _builtins.str network_name: Network Name.
@@ -790,6 +797,7 @@ class GovernedServiceItemResponse(dict):
                  policy_action: Optional[_builtins.str] = None):
         """
         GovernedServiceItem Properties
+
         :param Sequence[_builtins.str] initiatives: Initiatives associated with this service.
         :param _builtins.str service_id: Service ID
         :param _builtins.str service_name: Service name.
@@ -867,6 +875,7 @@ class MaintenanceModeConfigurationModelResponse(dict):
                  principals: Optional[Sequence['outputs.PrincipalResponse']] = None):
         """
         Maintenance Mode
+
         :param _builtins.str mode: Current mode of Maintenance Mode Configuration
         :param _builtins.str justification: Justification for entering or exiting Maintenance Mode
         :param Sequence['PrincipalResponse'] principals: The user, group or service principal object affected by Maintenance Mode
@@ -932,6 +941,7 @@ class ManagedOnBehalfOfConfigurationResponse(dict):
                  mobo_broker_resources: Optional[Sequence['outputs.MoboBrokerResourceResponse']] = None):
         """
         Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
+
         :param Sequence['MoboBrokerResourceResponse'] mobo_broker_resources: Managed-On-Behalf-Of broker resources
         """
         if mobo_broker_resources is not None:
@@ -979,6 +989,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -1049,6 +1060,7 @@ class MandatoryApproverResponse(dict):
                  approver_entra_id: _builtins.str):
         """
         Approver Metadata for approvals request.
+
         :param _builtins.str approver_entra_id: EntraId of the approver
         """
         pulumi.set(__self__, "approver_entra_id", approver_entra_id)
@@ -1071,6 +1083,7 @@ class MoboBrokerResourceResponse(dict):
                  id: Optional[_builtins.str] = None):
         """
         Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
+
         :param _builtins.str id: Resource identifier of a Managed-On-Behalf-Of broker resource
         """
         if id is not None:
@@ -1095,6 +1108,7 @@ class PrincipalResponse(dict):
                  type: _builtins.str):
         """
         Principal for maintenance mode or role assignments
+
         :param _builtins.str id: The object id associated with the principal
         :param _builtins.str type: The type of the object id. We currently allow users, groups, and service principals
         """
@@ -1153,6 +1167,7 @@ class RequestMetadataResponse(dict):
                  approval_status: Optional[_builtins.str] = None):
         """
         Request Metadata for approvals request.
+
         :param _builtins.str resource_action: Resource Action of the item being approved or declined.
         :param _builtins.str approval_callback_payload: Payload to be sent upon any action on approval request
         :param _builtins.str approval_callback_route: Route name for the approval callback
@@ -1228,6 +1243,7 @@ class RoleAssignmentItemResponse(dict):
                  principals: Optional[Sequence['outputs.PrincipalResponse']] = None):
         """
         Role assignment item that indicates which principals should be assigned this role definition
+
         :param _builtins.str role_definition_id: Role definition identifier
         :param Sequence['PrincipalResponse'] principals: List of principal IDs to which to assign this role definition
         """
@@ -1293,6 +1309,7 @@ class SubnetConfigurationResponse(dict):
                  subnet_delegation: Optional[_builtins.str] = None):
         """
         Subnet Configuration
+
         :param _builtins.str address_prefix: Address prefix.
         :param _builtins.int network_prefix_size: Network prefix size.
         :param _builtins.str network_security_group_resource_id: Network security group ID.
@@ -1398,6 +1415,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1496,6 +1514,7 @@ class TransitOptionParamsResponse(dict):
                  scale_units: Optional[_builtins.float] = None):
         """
         TransitOptionParams Properties
+
         :param _builtins.str remote_virtual_network_id: Transit Option Params remoteVirtualNetworkId.
         :param _builtins.float scale_units: Transit Option Params scaleUnits.
         """
@@ -1531,6 +1550,7 @@ class TransitOptionResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         TransitOption Properties
+
         :param 'TransitOptionParamsResponse' params: Transit Option Params
         :param _builtins.str type: Transit Option Type.
         """
@@ -1585,6 +1605,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """

@@ -13,6 +13,149 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01-preview.
  *
  * Other available API versions: 2024-07-01-preview, 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### BrokerListener_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerListener = new azure_native.iotoperations.BrokerListener("brokerListener", {
+ *     brokerName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "qmbrfwcpwwhggszhrdjv",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     listenerName: "resource-name123",
+ *     properties: {
+ *         ports: [{
+ *             authenticationRef: "tjvdroaqqy",
+ *             authorizationRef: "inxhvxnwswyrvt",
+ *             nodePort: 7281,
+ *             port: 1268,
+ *             protocol: azure_native.iotoperations.BrokerProtocolType.Mqtt,
+ *             tls: {
+ *                 certManagerCertificateSpec: {
+ *                     duration: "qmpeffoksron",
+ *                     issuerRef: {
+ *                         group: "jtmuladdkpasfpoyvewekmiy",
+ *                         kind: azure_native.iotoperations.CertManagerIssuerKind.Issuer,
+ *                         name: "ocwoqpgucvjrsuudtjhb",
+ *                     },
+ *                     privateKey: {
+ *                         algorithm: azure_native.iotoperations.PrivateKeyAlgorithm.Ec256,
+ *                         rotationPolicy: azure_native.iotoperations.PrivateKeyRotationPolicy.Always,
+ *                     },
+ *                     renewBefore: "hutno",
+ *                     san: {
+ *                         dns: ["xhvmhrrhgfsapocjeebqtnzarlj"],
+ *                         ip: ["zbgugfzcgsmegevzktsnibyuyp"],
+ *                     },
+ *                     secretName: "oagi",
+ *                 },
+ *                 manual: {
+ *                     secretRef: "secret-name",
+ *                 },
+ *                 mode: azure_native.iotoperations.TlsCertMethodMode.Automatic,
+ *             },
+ *         }],
+ *         serviceName: "tpfiszlapdpxktx",
+ *         serviceType: azure_native.iotoperations.ServiceType.ClusterIp,
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ * ### BrokerListener_CreateOrUpdate_Complex
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerListener = new azure_native.iotoperations.BrokerListener("brokerListener", {
+ *     brokerName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "qmbrfwcpwwhggszhrdjv",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     listenerName: "resource-name123",
+ *     properties: {
+ *         ports: [
+ *             {
+ *                 authenticationRef: "example-authentication",
+ *                 port: 8080,
+ *                 protocol: azure_native.iotoperations.BrokerProtocolType.WebSockets,
+ *             },
+ *             {
+ *                 authenticationRef: "example-authentication",
+ *                 port: 8443,
+ *                 protocol: azure_native.iotoperations.BrokerProtocolType.WebSockets,
+ *                 tls: {
+ *                     certManagerCertificateSpec: {
+ *                         issuerRef: {
+ *                             group: "jtmuladdkpasfpoyvewekmiy",
+ *                             kind: azure_native.iotoperations.CertManagerIssuerKind.Issuer,
+ *                             name: "example-issuer",
+ *                         },
+ *                     },
+ *                     mode: azure_native.iotoperations.TlsCertMethodMode.Automatic,
+ *                 },
+ *             },
+ *             {
+ *                 authenticationRef: "example-authentication",
+ *                 port: 1883,
+ *             },
+ *             {
+ *                 authenticationRef: "example-authentication",
+ *                 port: 8883,
+ *                 tls: {
+ *                     manual: {
+ *                         secretRef: "example-secret",
+ *                     },
+ *                     mode: azure_native.iotoperations.TlsCertMethodMode.Manual,
+ *                 },
+ *             },
+ *         ],
+ *         serviceType: azure_native.iotoperations.ServiceType.LoadBalancer,
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ * ### BrokerListener_CreateOrUpdate_Simple
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const brokerListener = new azure_native.iotoperations.BrokerListener("brokerListener", {
+ *     brokerName: "resource-name123",
+ *     extendedLocation: {
+ *         name: "qmbrfwcpwwhggszhrdjv",
+ *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
+ *     },
+ *     instanceName: "resource-name123",
+ *     listenerName: "resource-name123",
+ *     properties: {
+ *         ports: [{
+ *             port: 1883,
+ *         }],
+ *     },
+ *     resourceGroupName: "rgiotoperations",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotoperations:BrokerListener hoqjaachratt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/brokers/{brokerName}/listeners/{listenerName} 
+ * ```
  */
 export class BrokerListener extends pulumi.CustomResource {
     /**

@@ -13,6 +13,211 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-08-08. In version 2.x of the Azure Native provider, it used API version 2021-08-08.
  *
  * Other available API versions: 2021-08-08-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create or update a rule that adds an action group to all alerts in a subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+ *     alertProcessingRuleName: "AddActionGroupToSubscription",
+ *     location: "Global",
+ *     properties: {
+ *         actions: [{
+ *             actionGroupIds: ["/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/ActionGroup1"],
+ *             actionType: "AddActionGroups",
+ *         }],
+ *         description: "Add ActionGroup1 to all alerts in the subscription",
+ *         enabled: true,
+ *         scopes: ["/subscriptions/subId1"],
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update a rule that adds two action groups to all Sev0 and Sev1 alerts in two resource groups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+ *     alertProcessingRuleName: "AddActionGroupsBySeverity",
+ *     location: "Global",
+ *     properties: {
+ *         actions: [{
+ *             actionGroupIds: [
+ *                 "/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/AGId1",
+ *                 "/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/AGId2",
+ *             ],
+ *             actionType: "AddActionGroups",
+ *         }],
+ *         conditions: [{
+ *             field: azure_native.alertsmanagement.Field.Severity,
+ *             operator: azure_native.alertsmanagement.Operator.Equals,
+ *             values: [
+ *                 "sev0",
+ *                 "sev1",
+ *             ],
+ *         }],
+ *         description: "Add AGId1 and AGId2 to all Sev0 and Sev1 alerts in these resourceGroups",
+ *         enabled: true,
+ *         scopes: [
+ *             "/subscriptions/subId1/resourceGroups/RGId1",
+ *             "/subscriptions/subId1/resourceGroups/RGId2",
+ *         ],
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update a rule that removes all action groups from alerts on a specific VM during a one-off maintenance window (1800-2000 at a specific date, Pacific Standard Time)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+ *     alertProcessingRuleName: "RemoveActionGroupsMaintenanceWindow",
+ *     location: "Global",
+ *     properties: {
+ *         actions: [{
+ *             actionType: "RemoveAllActionGroups",
+ *         }],
+ *         description: "Removes all ActionGroups from all Alerts on VMName during the maintenance window",
+ *         enabled: true,
+ *         schedule: {
+ *             effectiveFrom: "2021-04-15T18:00:00",
+ *             effectiveUntil: "2021-04-15T20:00:00",
+ *             timeZone: "Pacific Standard Time",
+ *         },
+ *         scopes: ["/subscriptions/subId1/resourceGroups/RGId1/providers/Microsoft.Compute/virtualMachines/VMName"],
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update a rule that removes all action groups from all alerts in a subscription coming from a specific alert rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+ *     alertProcessingRuleName: "RemoveActionGroupsSpecificAlertRule",
+ *     location: "Global",
+ *     properties: {
+ *         actions: [{
+ *             actionType: "RemoveAllActionGroups",
+ *         }],
+ *         conditions: [{
+ *             field: azure_native.alertsmanagement.Field.AlertRuleId,
+ *             operator: azure_native.alertsmanagement.Operator.Equals,
+ *             values: ["/subscriptions/suubId1/resourceGroups/Rgid2/providers/microsoft.insights/activityLogAlerts/RuleName"],
+ *         }],
+ *         description: "Removes all ActionGroups from all Alerts that fire on above AlertRule",
+ *         enabled: true,
+ *         scopes: ["/subscriptions/subId1"],
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update a rule that removes all action groups from all alerts on any VM in two resource groups during a recurring maintenance window (2200-0400 every Sat and Sun, India Standard Time)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+ *     alertProcessingRuleName: "RemoveActionGroupsRecurringMaintenance",
+ *     location: "Global",
+ *     properties: {
+ *         actions: [{
+ *             actionType: "RemoveAllActionGroups",
+ *         }],
+ *         conditions: [{
+ *             field: azure_native.alertsmanagement.Field.TargetResourceType,
+ *             operator: azure_native.alertsmanagement.Operator.Equals,
+ *             values: ["microsoft.compute/virtualmachines"],
+ *         }],
+ *         description: "Remove all ActionGroups from all Vitual machine Alerts during the recurring maintenance",
+ *         enabled: true,
+ *         schedule: {
+ *             recurrences: [{
+ *                 daysOfWeek: [
+ *                     azure_native.alertsmanagement.DaysOfWeek.Saturday,
+ *                     azure_native.alertsmanagement.DaysOfWeek.Sunday,
+ *                 ],
+ *                 endTime: "04:00:00",
+ *                 recurrenceType: "Weekly",
+ *                 startTime: "22:00:00",
+ *             }],
+ *             timeZone: "India Standard Time",
+ *         },
+ *         scopes: [
+ *             "/subscriptions/subId1/resourceGroups/RGId1",
+ *             "/subscriptions/subId1/resourceGroups/RGId2",
+ *         ],
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update a rule that removes all action groups outside business hours (Mon-Fri 09:00-17:00, Eastern Standard Time)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+ *     alertProcessingRuleName: "RemoveActionGroupsOutsideBusinessHours",
+ *     location: "Global",
+ *     properties: {
+ *         actions: [{
+ *             actionType: "RemoveAllActionGroups",
+ *         }],
+ *         description: "Remove all ActionGroups outside business hours",
+ *         enabled: true,
+ *         schedule: {
+ *             recurrences: [
+ *                 {
+ *                     endTime: "09:00:00",
+ *                     recurrenceType: "Daily",
+ *                     startTime: "17:00:00",
+ *                 },
+ *                 {
+ *                     daysOfWeek: [
+ *                         azure_native.alertsmanagement.DaysOfWeek.Saturday,
+ *                         azure_native.alertsmanagement.DaysOfWeek.Sunday,
+ *                     ],
+ *                     recurrenceType: "Weekly",
+ *                 },
+ *             ],
+ *             timeZone: "Eastern Standard Time",
+ *         },
+ *         scopes: ["/subscriptions/subId1"],
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:alertsmanagement:AlertProcessingRuleByName RemoveActionGroupsOutsideBusinessHours /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AlertsManagement/actionRules/{alertProcessingRuleName} 
+ * ```
  */
 export class AlertProcessingRuleByName extends pulumi.CustomResource {
     /**

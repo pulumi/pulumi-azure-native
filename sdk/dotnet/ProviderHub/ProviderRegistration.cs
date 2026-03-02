@@ -15,6 +15,232 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
     /// 
     /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### DirectProviderRegistrations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerRegistration = new AzureNative.ProviderHub.ProviderRegistration("providerRegistration", new()
+    ///     {
+    ///         Kind = AzureNative.ProviderHub.ProviderRegistrationKind.Direct,
+    ///         Properties = new AzureNative.ProviderHub.Inputs.ProviderRegistrationPropertiesArgs
+    ///         {
+    ///             Capabilities = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderCapabilitiesArgs
+    ///                 {
+    ///                     Effect = AzureNative.ProviderHub.ResourceProviderCapabilitiesEffect.Allow,
+    ///                     QuotaId = "CSP_2015-05-01",
+    ///                 },
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderCapabilitiesArgs
+    ///                 {
+    ///                     Effect = AzureNative.ProviderHub.ResourceProviderCapabilitiesEffect.Allow,
+    ///                     QuotaId = "CSP_MG_2017-12-01",
+    ///                 },
+    ///             },
+    ///             CustomManifestVersion = "2.0",
+    ///             DstsConfiguration = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesDstsConfigurationArgs
+    ///             {
+    ///                 ServiceDnsName = "prds.sparta.azure.com",
+    ///                 ServiceName = "prds-shim",
+    ///             },
+    ///             LegacyNamespace = "legacyNamespace",
+    ///             LegacyRegistrations = new[]
+    ///             {
+    ///                 "legacyRegistration",
+    ///             },
+    ///             Management = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesManagementArgs
+    ///             {
+    ///                 IncidentContactEmail = "helpme@contoso.com",
+    ///                 IncidentRoutingService = "Contoso Resource Provider",
+    ///                 IncidentRoutingTeam = "Contoso Triage",
+    ///                 ServiceTreeInfos = new[]
+    ///                 {
+    ///                     new AzureNative.ProviderHub.Inputs.ServiceTreeInfoArgs
+    ///                     {
+    ///                         ComponentId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+    ///                         Readiness = AzureNative.ProviderHub.Readiness.InDevelopment,
+    ///                         ServiceId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ManagementGroupGlobalNotificationEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderEndpointArgs
+    ///                 {
+    ///                     EndpointUri = "{your_management_group_notification_endpoint}",
+    ///                 },
+    ///             },
+    ///             NotificationOptions = AzureNative.ProviderHub.NotificationOptions.EmitSpendingLimit,
+    ///             NotificationSettings = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesNotificationSettingsArgs
+    ///             {
+    ///                 SubscriberSettings = new[]
+    ///                 {
+    ///                     new AzureNative.ProviderHub.Inputs.SubscriberSettingArgs
+    ///                     {
+    ///                         FilterRules = new[]
+    ///                         {
+    ///                             new AzureNative.ProviderHub.Inputs.FilterRuleArgs
+    ///                             {
+    ///                                 EndpointInformation = new[]
+    ///                                 {
+    ///                                     new AzureNative.ProviderHub.Inputs.EndpointInformationArgs
+    ///                                     {
+    ///                                         Endpoint = "https://userrp.azure.com/arnnotify",
+    ///                                         EndpointType = AzureNative.ProviderHub.NotificationEndpointType.Webhook,
+    ///                                         SchemaVersion = "3.0",
+    ///                                     },
+    ///                                     new AzureNative.ProviderHub.Inputs.EndpointInformationArgs
+    ///                                     {
+    ///                                         Endpoint = "https://userrp.azure.com/arnnotify",
+    ///                                         EndpointType = AzureNative.ProviderHub.NotificationEndpointType.Eventhub,
+    ///                                         SchemaVersion = "3.0",
+    ///                                     },
+    ///                                 },
+    ///                                 FilterQuery = "Resources | where event.eventType in ('Microsoft.Network/IpAddresses/write', 'Microsoft.KeyVault/vaults/move/action')",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OptionalFeatures = new[]
+    ///             {
+    ///                 "Microsoft.Resources/PlatformSubscription",
+    ///             },
+    ///             ProviderType = AzureNative.ProviderHub.ResourceProviderType.Internal,
+    ///             ProviderVersion = "2.0",
+    ///             ResourceGroupLockOptionDuringMove = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesResourceGroupLockOptionDuringMoveArgs
+    ///             {
+    ///                 BlockActionVerb = AzureNative.ProviderHub.BlockActionVerb.Action,
+    ///             },
+    ///             ResourceHydrationAccounts = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceHydrationAccountArgs
+    ///                 {
+    ///                     AccountName = "classichydrationprodsn01",
+    ///                     SubscriptionId = "e4eae963-2d15-43e6-a097-98bd75b33edd",
+    ///                 },
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceHydrationAccountArgs
+    ///                 {
+    ///                     AccountName = "classichydrationprodch01",
+    ///                     SubscriptionId = "69e69ecb-e69c-41d4-99b8-87dd12781067",
+    ///                 },
+    ///             },
+    ///             ResponseOptions = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesResponseOptionsArgs
+    ///             {
+    ///                 ServiceClientOptionsType = AzureNative.ProviderHub.ServiceClientOptionsType.DisableAutomaticDecompression,
+    ///             },
+    ///             ServiceName = "root",
+    ///             Services = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderServiceArgs
+    ///                 {
+    ///                     ServiceName = "tags",
+    ///                     Status = AzureNative.ProviderHub.ServiceStatus.Inactive,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ProviderRegistrations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerRegistration = new AzureNative.ProviderHub.ProviderRegistration("providerRegistration", new()
+    ///     {
+    ///         Properties = new AzureNative.ProviderHub.Inputs.ProviderRegistrationPropertiesArgs
+    ///         {
+    ///             Capabilities = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderCapabilitiesArgs
+    ///                 {
+    ///                     Effect = AzureNative.ProviderHub.ResourceProviderCapabilitiesEffect.Allow,
+    ///                     QuotaId = "CSP_2015-05-01",
+    ///                 },
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderCapabilitiesArgs
+    ///                 {
+    ///                     Effect = AzureNative.ProviderHub.ResourceProviderCapabilitiesEffect.Allow,
+    ///                     QuotaId = "CSP_MG_2017-12-01",
+    ///                 },
+    ///             },
+    ///             CrossTenantTokenValidation = AzureNative.ProviderHub.CrossTenantTokenValidation.EnsureSecureValidation,
+    ///             Management = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesManagementArgs
+    ///             {
+    ///                 CanaryManifestOwners = new[]
+    ///                 {
+    ///                     "SPARTA-PlatformServiceAdmin",
+    ///                 },
+    ///                 ErrorResponseMessageOptions = new AzureNative.ProviderHub.Inputs.ResourceProviderManagementErrorResponseMessageOptionsArgs
+    ///                 {
+    ///                     ServerFailureResponseMessageType = AzureNative.ProviderHub.ServerFailureResponseMessageType.OutageReporting,
+    ///                 },
+    ///                 ExpeditedRolloutMetadata = new AzureNative.ProviderHub.Inputs.ResourceProviderManagementExpeditedRolloutMetadataArgs
+    ///                 {
+    ///                     Enabled = false,
+    ///                     ExpeditedRolloutIntent = AzureNative.ProviderHub.ExpeditedRolloutIntent.Hotfix,
+    ///                 },
+    ///                 ExpeditedRolloutSubmitters = new[]
+    ///                 {
+    ///                     "SPARTA-PlatformServiceOperator",
+    ///                 },
+    ///                 IncidentContactEmail = "helpme@contoso.com",
+    ///                 IncidentRoutingService = "Contoso Resource Provider",
+    ///                 IncidentRoutingTeam = "Contoso Triage",
+    ///                 PcCode = "P1234",
+    ///                 ProfitCenterProgramId = "1234",
+    ///                 ServiceTreeInfos = new[]
+    ///                 {
+    ///                     new AzureNative.ProviderHub.Inputs.ServiceTreeInfoArgs
+    ///                     {
+    ///                         ComponentId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+    ///                         Readiness = AzureNative.ProviderHub.Readiness.InDevelopment,
+    ///                         ServiceId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ProviderType = AzureNative.ProviderHub.ResourceProviderType.Internal,
+    ///             ProviderVersion = "2.0",
+    ///             ServiceName = "root",
+    ///             Services = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.Inputs.ResourceProviderServiceArgs
+    ///                 {
+    ///                     ServiceName = "tags",
+    ///                     Status = AzureNative.ProviderHub.ServiceStatus.Inactive,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub:ProviderRegistration Microsoft.Contoso /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:ProviderRegistration")]
     public partial class ProviderRegistration : global::Pulumi.CustomResource

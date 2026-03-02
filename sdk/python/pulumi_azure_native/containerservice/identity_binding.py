@@ -27,6 +27,7 @@ class IdentityBindingArgs:
                  properties: Optional[pulumi.Input['IdentityBindingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a IdentityBinding resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[_builtins.str] identity_binding_name: The name of the identity binding.
@@ -106,6 +107,34 @@ class IdentityBinding(pulumi.CustomResource):
 
         Other available API versions: 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update Identity Binding
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        identity_binding = azure_native.containerservice.IdentityBinding("identityBinding",
+            identity_binding_name="identitybinding1",
+            properties={
+                "managed_identity": {
+                    "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
+                },
+            },
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:IdentityBinding identitybinding1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/identityBindings/{identityBindingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_binding_name: The name of the identity binding.
@@ -125,6 +154,34 @@ class IdentityBinding(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-02-preview.
 
         Other available API versions: 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update Identity Binding
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        identity_binding = azure_native.containerservice.IdentityBinding("identityBinding",
+            identity_binding_name="identitybinding1",
+            properties={
+                "managed_identity": {
+                    "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
+                },
+            },
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:IdentityBinding identitybinding1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/identityBindings/{identityBindingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IdentityBindingArgs args: The arguments to use to populate this resource's properties.

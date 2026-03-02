@@ -28,6 +28,7 @@ class StorageTaskAssignmentArgs:
                  storage_task_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageTaskAssignment resource.
+
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input['StorageTaskAssignmentPropertiesArgs'] properties: Properties of the storage task assignment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -106,6 +107,80 @@ class StorageTaskAssignment(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### PutStorageTaskAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_task_assignment = azure_native.storage.StorageTaskAssignment("storageTaskAssignment",
+            account_name="sto4445",
+            properties={
+                "description": "My Storage task assignment",
+                "enabled": True,
+                "execution_context": {
+                    "target": {
+                        "exclude_prefix": [],
+                        "prefix": [
+                            "prefix1",
+                            "prefix2",
+                        ],
+                    },
+                    "trigger": {
+                        "parameters": {
+                            "start_on": "2022-11-15T21:52:47.8145095Z",
+                        },
+                        "type": azure_native.storage.TriggerType.RUN_ONCE,
+                    },
+                },
+                "report": {
+                    "prefix": "container1",
+                },
+                "task_id": "/subscriptions/1f31ba14-ce16-4281-b9b4-3e78da6e1616/resourceGroups/res4228/providers/Microsoft.StorageActions/storageTasks/mytask1",
+            },
+            resource_group_name="res4228",
+            storage_task_assignment_name="myassignment1")
+
+        ```
+        ### PutStorageTaskAssignmentRequiredProperties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_task_assignment = azure_native.storage.StorageTaskAssignment("storageTaskAssignment",
+            account_name="sto4445",
+            properties={
+                "description": "My Storage task assignment",
+                "enabled": True,
+                "execution_context": {
+                    "trigger": {
+                        "parameters": {
+                            "start_on": "2022-11-15T21:52:47.8145095Z",
+                        },
+                        "type": azure_native.storage.TriggerType.RUN_ONCE,
+                    },
+                },
+                "report": {
+                    "prefix": "container1",
+                },
+                "task_id": "/subscriptions/1f31ba14-ce16-4281-b9b4-3e78da6e1616/resourceGroups/res4228/providers/Microsoft.StorageActions/storageTasks/mytask1",
+            },
+            resource_group_name="res4228",
+            storage_task_assignment_name="myassignment1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:StorageTaskAssignment myassignment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/storageTaskAssignments/{storageTaskAssignmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -125,6 +200,80 @@ class StorageTaskAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### PutStorageTaskAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_task_assignment = azure_native.storage.StorageTaskAssignment("storageTaskAssignment",
+            account_name="sto4445",
+            properties={
+                "description": "My Storage task assignment",
+                "enabled": True,
+                "execution_context": {
+                    "target": {
+                        "exclude_prefix": [],
+                        "prefix": [
+                            "prefix1",
+                            "prefix2",
+                        ],
+                    },
+                    "trigger": {
+                        "parameters": {
+                            "start_on": "2022-11-15T21:52:47.8145095Z",
+                        },
+                        "type": azure_native.storage.TriggerType.RUN_ONCE,
+                    },
+                },
+                "report": {
+                    "prefix": "container1",
+                },
+                "task_id": "/subscriptions/1f31ba14-ce16-4281-b9b4-3e78da6e1616/resourceGroups/res4228/providers/Microsoft.StorageActions/storageTasks/mytask1",
+            },
+            resource_group_name="res4228",
+            storage_task_assignment_name="myassignment1")
+
+        ```
+        ### PutStorageTaskAssignmentRequiredProperties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_task_assignment = azure_native.storage.StorageTaskAssignment("storageTaskAssignment",
+            account_name="sto4445",
+            properties={
+                "description": "My Storage task assignment",
+                "enabled": True,
+                "execution_context": {
+                    "trigger": {
+                        "parameters": {
+                            "start_on": "2022-11-15T21:52:47.8145095Z",
+                        },
+                        "type": azure_native.storage.TriggerType.RUN_ONCE,
+                    },
+                },
+                "report": {
+                    "prefix": "container1",
+                },
+                "task_id": "/subscriptions/1f31ba14-ce16-4281-b9b4-3e78da6e1616/resourceGroups/res4228/providers/Microsoft.StorageActions/storageTasks/mytask1",
+            },
+            resource_group_name="res4228",
+            storage_task_assignment_name="myassignment1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:StorageTaskAssignment myassignment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/storageTaskAssignments/{storageTaskAssignmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageTaskAssignmentArgs args: The arguments to use to populate this resource's properties.

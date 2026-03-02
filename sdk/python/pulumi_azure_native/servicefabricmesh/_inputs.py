@@ -86,32 +86,27 @@ __all__ = [
     'VolumeReferenceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AddRemoveReplicaScalingMechanismArgsDict(TypedDict):
-        """
-        Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the mechanisms for auto scaling.
-        Expected value is 'AddRemoveReplica'.
-        """
-        max_count: pulumi.Input[_builtins.int]
-        """
-        Maximum number of containers (scale up won't be performed above this number).
-        """
-        min_count: pulumi.Input[_builtins.int]
-        """
-        Minimum number of containers (scale down won't be performed below this number).
-        """
-        scale_increment: pulumi.Input[_builtins.int]
-        """
-        Each time auto scaling is performed, this number of containers will be added or removed.
-        """
-elif False:
-    AddRemoveReplicaScalingMechanismArgsDict: TypeAlias = Mapping[str, Any]
+class AddRemoveReplicaScalingMechanismArgsDict(TypedDict):
+    """
+    Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the mechanisms for auto scaling.
+    Expected value is 'AddRemoveReplica'.
+    """
+    max_count: pulumi.Input[_builtins.int]
+    """
+    Maximum number of containers (scale up won't be performed above this number).
+    """
+    min_count: pulumi.Input[_builtins.int]
+    """
+    Minimum number of containers (scale down won't be performed below this number).
+    """
+    scale_increment: pulumi.Input[_builtins.int]
+    """
+    Each time auto scaling is performed, this number of containers will be added or removed.
+    """
 
 @pulumi.input_type
 class AddRemoveReplicaScalingMechanismArgs:
@@ -122,6 +117,7 @@ class AddRemoveReplicaScalingMechanismArgs:
                  scale_increment: pulumi.Input[_builtins.int]):
         """
         Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the mechanisms for auto scaling.
                Expected value is 'AddRemoveReplica'.
         :param pulumi.Input[_builtins.int] max_count: Maximum number of containers (scale up won't be performed above this number).
@@ -183,26 +179,23 @@ class AddRemoveReplicaScalingMechanismArgs:
         pulumi.set(self, "scale_increment", value)
 
 
-if not MYPY:
-    class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict(TypedDict):
-        """
-        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Specifies the application-scoped volume kind.
-        Expected value is 'ServiceFabricVolumeDisk'.
-        """
-        size_disk: pulumi.Input[Union[_builtins.str, 'SizeTypes']]
-        """
-        Volume size
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User readable description of the volume.
-        """
-elif False:
-    ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict(TypedDict):
+    """
+    Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Specifies the application-scoped volume kind.
+    Expected value is 'ServiceFabricVolumeDisk'.
+    """
+    size_disk: pulumi.Input[Union[_builtins.str, 'SizeTypes']]
+    """
+    Volume size
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User readable description of the volume.
+    """
 
 @pulumi.input_type
 class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
@@ -212,6 +205,7 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+
         :param pulumi.Input[_builtins.str] kind: Specifies the application-scoped volume kind.
                Expected value is 'ServiceFabricVolumeDisk'.
         :param pulumi.Input[Union[_builtins.str, 'SizeTypes']] size_disk: Volume size
@@ -260,29 +254,26 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ApplicationScopedVolumeArgsDict(TypedDict):
-        """
-        Describes a volume whose lifetime is scoped to the application's lifetime.
-        """
-        creation_parameters: pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict']
-        """
-        Describes parameters for creating application-scoped volumes.
-        """
-        destination_path: pulumi.Input[_builtins.str]
-        """
-        The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the volume being referenced.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag indicating whether the volume is read only. Default is 'false'.
-        """
-elif False:
-    ApplicationScopedVolumeArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationScopedVolumeArgsDict(TypedDict):
+    """
+    Describes a volume whose lifetime is scoped to the application's lifetime.
+    """
+    creation_parameters: pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgsDict']
+    """
+    Describes parameters for creating application-scoped volumes.
+    """
+    destination_path: pulumi.Input[_builtins.str]
+    """
+    The path within the container at which the volume should be mounted. Only valid path characters are allowed.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the volume being referenced.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag indicating whether the volume is read only. Default is 'false'.
+    """
 
 @pulumi.input_type
 class ApplicationScopedVolumeArgs:
@@ -293,6 +284,7 @@ class ApplicationScopedVolumeArgs:
                  read_only: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Describes a volume whose lifetime is scoped to the application's lifetime.
+
         :param pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs'] creation_parameters: Describes parameters for creating application-scoped volumes.
         :param pulumi.Input[_builtins.str] destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param pulumi.Input[_builtins.str] name: Name of the volume being referenced.
@@ -353,25 +345,22 @@ class ApplicationScopedVolumeArgs:
         pulumi.set(self, "read_only", value)
 
 
-if not MYPY:
-    class AutoScalingPolicyArgsDict(TypedDict):
-        """
-        Describes the auto scaling policy
-        """
-        mechanism: pulumi.Input['AddRemoveReplicaScalingMechanismArgsDict']
-        """
-        The mechanism that is used to scale when auto scaling operation is invoked.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the auto scaling policy.
-        """
-        trigger: pulumi.Input['AverageLoadScalingTriggerArgsDict']
-        """
-        Determines when auto scaling operation will be invoked.
-        """
-elif False:
-    AutoScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class AutoScalingPolicyArgsDict(TypedDict):
+    """
+    Describes the auto scaling policy
+    """
+    mechanism: pulumi.Input['AddRemoveReplicaScalingMechanismArgsDict']
+    """
+    The mechanism that is used to scale when auto scaling operation is invoked.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the auto scaling policy.
+    """
+    trigger: pulumi.Input['AverageLoadScalingTriggerArgsDict']
+    """
+    Determines when auto scaling operation will be invoked.
+    """
 
 @pulumi.input_type
 class AutoScalingPolicyArgs:
@@ -381,6 +370,7 @@ class AutoScalingPolicyArgs:
                  trigger: pulumi.Input['AverageLoadScalingTriggerArgs']):
         """
         Describes the auto scaling policy
+
         :param pulumi.Input['AddRemoveReplicaScalingMechanismArgs'] mechanism: The mechanism that is used to scale when auto scaling operation is invoked.
         :param pulumi.Input[_builtins.str] name: The name of the auto scaling policy.
         :param pulumi.Input['AverageLoadScalingTriggerArgs'] trigger: Determines when auto scaling operation will be invoked.
@@ -426,22 +416,19 @@ class AutoScalingPolicyArgs:
         pulumi.set(self, "trigger", value)
 
 
-if not MYPY:
-    class AutoScalingResourceMetricArgsDict(TypedDict):
-        """
-        Describes the resource that is used for triggering auto scaling.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the metrics that are used for triggering auto scaling.
-        Expected value is 'Resource'.
-        """
-        name: pulumi.Input[Union[_builtins.str, 'AutoScalingResourceMetricName']]
-        """
-        Name of the resource.
-        """
-elif False:
-    AutoScalingResourceMetricArgsDict: TypeAlias = Mapping[str, Any]
+class AutoScalingResourceMetricArgsDict(TypedDict):
+    """
+    Describes the resource that is used for triggering auto scaling.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the metrics that are used for triggering auto scaling.
+    Expected value is 'Resource'.
+    """
+    name: pulumi.Input[Union[_builtins.str, 'AutoScalingResourceMetricName']]
+    """
+    Name of the resource.
+    """
 
 @pulumi.input_type
 class AutoScalingResourceMetricArgs:
@@ -450,6 +437,7 @@ class AutoScalingResourceMetricArgs:
                  name: pulumi.Input[Union[_builtins.str, 'AutoScalingResourceMetricName']]):
         """
         Describes the resource that is used for triggering auto scaling.
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the metrics that are used for triggering auto scaling.
                Expected value is 'Resource'.
         :param pulumi.Input[Union[_builtins.str, 'AutoScalingResourceMetricName']] name: Name of the resource.
@@ -483,34 +471,31 @@ class AutoScalingResourceMetricArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class AverageLoadScalingTriggerArgsDict(TypedDict):
-        """
-        Describes the average load trigger used for auto scaling.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Enumerates the triggers for auto scaling.
-        Expected value is 'AverageLoad'.
-        """
-        lower_load_threshold: pulumi.Input[_builtins.float]
-        """
-        Lower load threshold (if average load is below this threshold, service will scale down).
-        """
-        metric: pulumi.Input['AutoScalingResourceMetricArgsDict']
-        """
-        Description of the metric that is used for scaling.
-        """
-        scale_interval_in_seconds: pulumi.Input[_builtins.int]
-        """
-        Scale interval that indicates how often will this trigger be checked.
-        """
-        upper_load_threshold: pulumi.Input[_builtins.float]
-        """
-        Upper load threshold (if average load is above this threshold, service will scale up).
-        """
-elif False:
-    AverageLoadScalingTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class AverageLoadScalingTriggerArgsDict(TypedDict):
+    """
+    Describes the average load trigger used for auto scaling.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Enumerates the triggers for auto scaling.
+    Expected value is 'AverageLoad'.
+    """
+    lower_load_threshold: pulumi.Input[_builtins.float]
+    """
+    Lower load threshold (if average load is below this threshold, service will scale down).
+    """
+    metric: pulumi.Input['AutoScalingResourceMetricArgsDict']
+    """
+    Description of the metric that is used for scaling.
+    """
+    scale_interval_in_seconds: pulumi.Input[_builtins.int]
+    """
+    Scale interval that indicates how often will this trigger be checked.
+    """
+    upper_load_threshold: pulumi.Input[_builtins.float]
+    """
+    Upper load threshold (if average load is above this threshold, service will scale up).
+    """
 
 @pulumi.input_type
 class AverageLoadScalingTriggerArgs:
@@ -522,6 +507,7 @@ class AverageLoadScalingTriggerArgs:
                  upper_load_threshold: pulumi.Input[_builtins.float]):
         """
         Describes the average load trigger used for auto scaling.
+
         :param pulumi.Input[_builtins.str] kind: Enumerates the triggers for auto scaling.
                Expected value is 'AverageLoad'.
         :param pulumi.Input[_builtins.float] lower_load_threshold: Lower load threshold (if average load is below this threshold, service will scale down).
@@ -597,46 +583,43 @@ class AverageLoadScalingTriggerArgs:
         pulumi.set(self, "upper_load_threshold", value)
 
 
-if not MYPY:
-    class AzureInternalMonitoringPipelineSinkDescriptionArgsDict(TypedDict):
-        """
-        Diagnostics settings for Geneva.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        The kind of DiagnosticsSink.
-        Expected value is 'AzureInternalMonitoringPipeline'.
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Internal monitoring pipeline account.
-        """
-        auto_key_config_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Internal monitoring pipeline autokey associated with the certificate.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the sink.
-        """
-        fluentd_config_url: NotRequired[Any]
-        """
-        Azure Internal monitoring agent fluentd configuration.
-        """
-        ma_config_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Internal monitoring agent configuration.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the sink. This value is referenced by DiagnosticsReferenceDescription
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Azure Internal monitoring pipeline account namespace.
-        """
-elif False:
-    AzureInternalMonitoringPipelineSinkDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class AzureInternalMonitoringPipelineSinkDescriptionArgsDict(TypedDict):
+    """
+    Diagnostics settings for Geneva.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    The kind of DiagnosticsSink.
+    Expected value is 'AzureInternalMonitoringPipeline'.
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Internal monitoring pipeline account.
+    """
+    auto_key_config_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Internal monitoring pipeline autokey associated with the certificate.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the sink.
+    """
+    fluentd_config_url: NotRequired[Any]
+    """
+    Azure Internal monitoring agent fluentd configuration.
+    """
+    ma_config_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Internal monitoring agent configuration.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the sink. This value is referenced by DiagnosticsReferenceDescription
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Azure Internal monitoring pipeline account namespace.
+    """
 
 @pulumi.input_type
 class AzureInternalMonitoringPipelineSinkDescriptionArgs:
@@ -651,6 +634,7 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Diagnostics settings for Geneva.
+
         :param pulumi.Input[_builtins.str] kind: The kind of DiagnosticsSink.
                Expected value is 'AzureInternalMonitoringPipeline'.
         :param pulumi.Input[_builtins.str] account_name: Azure Internal monitoring pipeline account.
@@ -775,69 +759,66 @@ class AzureInternalMonitoringPipelineSinkDescriptionArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class ContainerCodePackagePropertiesArgsDict(TypedDict):
-        """
-        Describes a container and its runtime properties.
-        """
-        image: pulumi.Input[_builtins.str]
-        """
-        The Container image to use.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the code package.
-        """
-        resources: pulumi.Input['ResourceRequirementsArgsDict']
-        """
-        The resources required by this container.
-        """
-        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Command array to execute within the container in exec form.
-        """
-        diagnostics: NotRequired[pulumi.Input['DiagnosticsRefArgsDict']]
-        """
-        Reference to sinks in DiagnosticsDescription.
-        """
-        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgsDict']]]]
-        """
-        The endpoints exposed by this container.
-        """
-        entrypoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Override for the default entry point in the container.
-        """
-        environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
-        """
-        The environment variables to set in this container
-        """
-        image_registry_credential: NotRequired[pulumi.Input['ImageRegistryCredentialArgsDict']]
-        """
-        Image registry credential.
-        """
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgsDict']]]]
-        """
-        The labels to set in this container.
-        """
-        reliable_collections_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgsDict']]]]
-        """
-        A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
-        """
-        settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SettingArgsDict']]]]
-        """
-        The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
-        """
-        volume_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgsDict']]]]
-        """
-        Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
-        """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgsDict']]]]
-        """
-        Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
-        """
-elif False:
-    ContainerCodePackagePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerCodePackagePropertiesArgsDict(TypedDict):
+    """
+    Describes a container and its runtime properties.
+    """
+    image: pulumi.Input[_builtins.str]
+    """
+    The Container image to use.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the code package.
+    """
+    resources: pulumi.Input['ResourceRequirementsArgsDict']
+    """
+    The resources required by this container.
+    """
+    commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Command array to execute within the container in exec form.
+    """
+    diagnostics: NotRequired[pulumi.Input['DiagnosticsRefArgsDict']]
+    """
+    Reference to sinks in DiagnosticsDescription.
+    """
+    endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesArgsDict']]]]
+    """
+    The endpoints exposed by this container.
+    """
+    entrypoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Override for the default entry point in the container.
+    """
+    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgsDict']]]]
+    """
+    The environment variables to set in this container
+    """
+    image_registry_credential: NotRequired[pulumi.Input['ImageRegistryCredentialArgsDict']]
+    """
+    Image registry credential.
+    """
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerLabelArgsDict']]]]
+    """
+    The labels to set in this container.
+    """
+    reliable_collections_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReliableCollectionsRefArgsDict']]]]
+    """
+    A list of ReliableCollection resources used by this particular code package. Please refer to ReliableCollectionsRef for more details.
+    """
+    settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['SettingArgsDict']]]]
+    """
+    The settings to set in this container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
+    """
+    volume_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeReferenceArgsDict']]]]
+    """
+    Volumes to be attached to the container. The lifetime of these volumes is independent of the application's lifetime.
+    """
+    volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgsDict']]]]
+    """
+    Volumes to be attached to the container. The lifetime of these volumes is scoped to the application's lifetime.
+    """
 
 @pulumi.input_type
 class ContainerCodePackagePropertiesArgs:
@@ -858,6 +839,7 @@ class ContainerCodePackagePropertiesArgs:
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationScopedVolumeArgs']]]] = None):
         """
         Describes a container and its runtime properties.
+
         :param pulumi.Input[_builtins.str] image: The Container image to use.
         :param pulumi.Input[_builtins.str] name: The name of the code package.
         :param pulumi.Input['ResourceRequirementsArgs'] resources: The resources required by this container.
@@ -1068,21 +1050,18 @@ class ContainerCodePackagePropertiesArgs:
         pulumi.set(self, "volumes", value)
 
 
-if not MYPY:
-    class ContainerLabelArgsDict(TypedDict):
-        """
-        Describes a container label.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the container label.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the container label.
-        """
-elif False:
-    ContainerLabelArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerLabelArgsDict(TypedDict):
+    """
+    Describes a container label.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the container label.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the container label.
+    """
 
 @pulumi.input_type
 class ContainerLabelArgs:
@@ -1091,6 +1070,7 @@ class ContainerLabelArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         Describes a container label.
+
         :param pulumi.Input[_builtins.str] name: The name of the container label.
         :param pulumi.Input[_builtins.str] value: The value of the container label.
         """
@@ -1122,25 +1102,22 @@ class ContainerLabelArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DiagnosticsDescriptionArgsDict(TypedDict):
-        """
-        Describes the diagnostics options available
-        """
-        default_sink_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Status of whether or not sinks are enabled.
-        """
-        sinks: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgsDict']]]]
-        """
-        List of supported sinks that can be referenced.
-        """
-elif False:
-    DiagnosticsDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class DiagnosticsDescriptionArgsDict(TypedDict):
+    """
+    Describes the diagnostics options available
+    """
+    default_sink_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Status of whether or not sinks are enabled.
+    """
+    sinks: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgsDict']]]]
+    """
+    List of supported sinks that can be referenced.
+    """
 
 @pulumi.input_type
 class DiagnosticsDescriptionArgs:
@@ -1150,6 +1127,7 @@ class DiagnosticsDescriptionArgs:
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]]] = None):
         """
         Describes the diagnostics options available
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_sink_refs: The sinks to be used if diagnostics is enabled. Sink choices can be overridden at the service and code package level.
         :param pulumi.Input[_builtins.bool] enabled: Status of whether or not sinks are enabled.
         :param pulumi.Input[Sequence[pulumi.Input['AzureInternalMonitoringPipelineSinkDescriptionArgs']]] sinks: List of supported sinks that can be referenced.
@@ -1198,21 +1176,18 @@ class DiagnosticsDescriptionArgs:
         pulumi.set(self, "sinks", value)
 
 
-if not MYPY:
-    class DiagnosticsRefArgsDict(TypedDict):
-        """
-        Reference to sinks in DiagnosticsDescription.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Status of whether or not sinks are enabled.
-        """
-        sink_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
-        """
-elif False:
-    DiagnosticsRefArgsDict: TypeAlias = Mapping[str, Any]
+class DiagnosticsRefArgsDict(TypedDict):
+    """
+    Reference to sinks in DiagnosticsDescription.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Status of whether or not sinks are enabled.
+    """
+    sink_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
+    """
 
 @pulumi.input_type
 class DiagnosticsRefArgs:
@@ -1221,6 +1196,7 @@ class DiagnosticsRefArgs:
                  sink_refs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Reference to sinks in DiagnosticsDescription.
+
         :param pulumi.Input[_builtins.bool] enabled: Status of whether or not sinks are enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sink_refs: List of sinks to be used if enabled. References the list of sinks in DiagnosticsDescription.
         """
@@ -1254,21 +1230,18 @@ class DiagnosticsRefArgs:
         pulumi.set(self, "sink_refs", value)
 
 
-if not MYPY:
-    class EndpointPropertiesArgsDict(TypedDict):
-        """
-        Describes a container endpoint.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the endpoint.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port used by the container.
-        """
-elif False:
-    EndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointPropertiesArgsDict(TypedDict):
+    """
+    Describes a container endpoint.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the endpoint.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port used by the container.
+    """
 
 @pulumi.input_type
 class EndpointPropertiesArgs:
@@ -1277,6 +1250,7 @@ class EndpointPropertiesArgs:
                  port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Describes a container endpoint.
+
         :param pulumi.Input[_builtins.str] name: The name of the endpoint.
         :param pulumi.Input[_builtins.int] port: Port used by the container.
         """
@@ -1309,17 +1283,14 @@ class EndpointPropertiesArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class EndpointRefArgsDict(TypedDict):
-        """
-        Describes a reference to a service endpoint.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the endpoint.
-        """
-elif False:
-    EndpointRefArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointRefArgsDict(TypedDict):
+    """
+    Describes a reference to a service endpoint.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the endpoint.
+    """
 
 @pulumi.input_type
 class EndpointRefArgs:
@@ -1327,6 +1298,7 @@ class EndpointRefArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a reference to a service endpoint.
+
         :param pulumi.Input[_builtins.str] name: Name of the endpoint.
         """
         if name is not None:
@@ -1345,21 +1317,18 @@ class EndpointRefArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class EnvironmentVariableArgsDict(TypedDict):
-        """
-        Describes an environment variable for the container.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the environment variable.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the environment variable.
-        """
-elif False:
-    EnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentVariableArgsDict(TypedDict):
+    """
+    Describes an environment variable for the container.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the environment variable.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the environment variable.
+    """
 
 @pulumi.input_type
 class EnvironmentVariableArgs:
@@ -1368,6 +1337,7 @@ class EnvironmentVariableArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes an environment variable for the container.
+
         :param pulumi.Input[_builtins.str] name: The name of the environment variable.
         :param pulumi.Input[_builtins.str] value: The value of the environment variable.
         """
@@ -1401,25 +1371,22 @@ class EnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GatewayDestinationArgsDict(TypedDict):
-        """
-        Describes destination endpoint for routing traffic.
-        """
-        application_name: pulumi.Input[_builtins.str]
-        """
-        Name of the service fabric Mesh application.
-        """
-        endpoint_name: pulumi.Input[_builtins.str]
-        """
-        name of the endpoint in the service.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        service that contains the endpoint.
-        """
-elif False:
-    GatewayDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayDestinationArgsDict(TypedDict):
+    """
+    Describes destination endpoint for routing traffic.
+    """
+    application_name: pulumi.Input[_builtins.str]
+    """
+    Name of the service fabric Mesh application.
+    """
+    endpoint_name: pulumi.Input[_builtins.str]
+    """
+    name of the endpoint in the service.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    service that contains the endpoint.
+    """
 
 @pulumi.input_type
 class GatewayDestinationArgs:
@@ -1429,6 +1396,7 @@ class GatewayDestinationArgs:
                  service_name: pulumi.Input[_builtins.str]):
         """
         Describes destination endpoint for routing traffic.
+
         :param pulumi.Input[_builtins.str] application_name: Name of the service fabric Mesh application.
         :param pulumi.Input[_builtins.str] endpoint_name: name of the endpoint in the service.
         :param pulumi.Input[_builtins.str] service_name: service that contains the endpoint.
@@ -1474,25 +1442,22 @@ class GatewayDestinationArgs:
         pulumi.set(self, "service_name", value)
 
 
-if not MYPY:
-    class HttpConfigArgsDict(TypedDict):
-        """
-        Describes the http configuration for external connectivity for this network.
-        """
-        hosts: pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgsDict']]]
-        """
-        description for routing.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        http gateway config name.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Specifies the port at which the service endpoint below needs to be exposed.
-        """
-elif False:
-    HttpConfigArgsDict: TypeAlias = Mapping[str, Any]
+class HttpConfigArgsDict(TypedDict):
+    """
+    Describes the http configuration for external connectivity for this network.
+    """
+    hosts: pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgsDict']]]
+    """
+    description for routing.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    http gateway config name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Specifies the port at which the service endpoint below needs to be exposed.
+    """
 
 @pulumi.input_type
 class HttpConfigArgs:
@@ -1502,6 +1467,7 @@ class HttpConfigArgs:
                  port: pulumi.Input[_builtins.int]):
         """
         Describes the http configuration for external connectivity for this network.
+
         :param pulumi.Input[Sequence[pulumi.Input['HttpHostConfigArgs']]] hosts: description for routing.
         :param pulumi.Input[_builtins.str] name: http gateway config name.
         :param pulumi.Input[_builtins.int] port: Specifies the port at which the service endpoint below needs to be exposed.
@@ -1547,21 +1513,18 @@ class HttpConfigArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class HttpHostConfigArgsDict(TypedDict):
-        """
-        Describes the hostname properties for http routing.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        http hostname config name.
-        """
-        routes: pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgsDict']]]
-        """
-        Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
-        """
-elif False:
-    HttpHostConfigArgsDict: TypeAlias = Mapping[str, Any]
+class HttpHostConfigArgsDict(TypedDict):
+    """
+    Describes the hostname properties for http routing.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    http hostname config name.
+    """
+    routes: pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgsDict']]]
+    """
+    Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
+    """
 
 @pulumi.input_type
 class HttpHostConfigArgs:
@@ -1570,6 +1533,7 @@ class HttpHostConfigArgs:
                  routes: pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgs']]]):
         """
         Describes the hostname properties for http routing.
+
         :param pulumi.Input[_builtins.str] name: http hostname config name.
         :param pulumi.Input[Sequence[pulumi.Input['HttpRouteConfigArgs']]] routes: Route information to use for routing. Routes are processed in the order they are specified. Specify routes that are more specific before routes that can handle general cases.
         """
@@ -1601,25 +1565,22 @@ class HttpHostConfigArgs:
         pulumi.set(self, "routes", value)
 
 
-if not MYPY:
-    class HttpRouteConfigArgsDict(TypedDict):
-        """
-        Describes the hostname properties for http routing.
-        """
-        destination: pulumi.Input['GatewayDestinationArgsDict']
-        """
-        Describes destination endpoint for routing traffic.
-        """
-        match: pulumi.Input['HttpRouteMatchRuleArgsDict']
-        """
-        Describes a rule for http route matching.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        http route name.
-        """
-elif False:
-    HttpRouteConfigArgsDict: TypeAlias = Mapping[str, Any]
+class HttpRouteConfigArgsDict(TypedDict):
+    """
+    Describes the hostname properties for http routing.
+    """
+    destination: pulumi.Input['GatewayDestinationArgsDict']
+    """
+    Describes destination endpoint for routing traffic.
+    """
+    match: pulumi.Input['HttpRouteMatchRuleArgsDict']
+    """
+    Describes a rule for http route matching.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    http route name.
+    """
 
 @pulumi.input_type
 class HttpRouteConfigArgs:
@@ -1629,6 +1590,7 @@ class HttpRouteConfigArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         Describes the hostname properties for http routing.
+
         :param pulumi.Input['GatewayDestinationArgs'] destination: Describes destination endpoint for routing traffic.
         :param pulumi.Input['HttpRouteMatchRuleArgs'] match: Describes a rule for http route matching.
         :param pulumi.Input[_builtins.str] name: http route name.
@@ -1674,25 +1636,22 @@ class HttpRouteConfigArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class HttpRouteMatchHeaderArgsDict(TypedDict):
-        """
-        Describes header information for http route matching.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of header to match in request.
-        """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'HeaderMatchType']]]
-        """
-        how to match header value
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of header to match in request.
-        """
-elif False:
-    HttpRouteMatchHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class HttpRouteMatchHeaderArgsDict(TypedDict):
+    """
+    Describes header information for http route matching.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of header to match in request.
+    """
+    type: NotRequired[pulumi.Input[Union[_builtins.str, 'HeaderMatchType']]]
+    """
+    how to match header value
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of header to match in request.
+    """
 
 @pulumi.input_type
 class HttpRouteMatchHeaderArgs:
@@ -1702,6 +1661,7 @@ class HttpRouteMatchHeaderArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes header information for http route matching.
+
         :param pulumi.Input[_builtins.str] name: Name of header to match in request.
         :param pulumi.Input[Union[_builtins.str, 'HeaderMatchType']] type: how to match header value
         :param pulumi.Input[_builtins.str] value: Value of header to match in request.
@@ -1749,25 +1709,22 @@ class HttpRouteMatchHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class HttpRouteMatchPathArgsDict(TypedDict):
-        """
-        Path to match for routing.
-        """
-        type: pulumi.Input[Union[_builtins.str, 'PathMatchType']]
-        """
-        how to match value in the Uri
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Uri path to match for request.
-        """
-        rewrite: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        replacement string for matched part of the Uri.
-        """
-elif False:
-    HttpRouteMatchPathArgsDict: TypeAlias = Mapping[str, Any]
+class HttpRouteMatchPathArgsDict(TypedDict):
+    """
+    Path to match for routing.
+    """
+    type: pulumi.Input[Union[_builtins.str, 'PathMatchType']]
+    """
+    how to match value in the Uri
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Uri path to match for request.
+    """
+    rewrite: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    replacement string for matched part of the Uri.
+    """
 
 @pulumi.input_type
 class HttpRouteMatchPathArgs:
@@ -1777,6 +1734,7 @@ class HttpRouteMatchPathArgs:
                  rewrite: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Path to match for routing.
+
         :param pulumi.Input[Union[_builtins.str, 'PathMatchType']] type: how to match value in the Uri
         :param pulumi.Input[_builtins.str] value: Uri path to match for request.
         :param pulumi.Input[_builtins.str] rewrite: replacement string for matched part of the Uri.
@@ -1823,21 +1781,18 @@ class HttpRouteMatchPathArgs:
         pulumi.set(self, "rewrite", value)
 
 
-if not MYPY:
-    class HttpRouteMatchRuleArgsDict(TypedDict):
-        """
-        Describes a rule for http route matching.
-        """
-        path: pulumi.Input['HttpRouteMatchPathArgsDict']
-        """
-        Path to match for routing.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgsDict']]]]
-        """
-        headers and their values to match in request.
-        """
-elif False:
-    HttpRouteMatchRuleArgsDict: TypeAlias = Mapping[str, Any]
+class HttpRouteMatchRuleArgsDict(TypedDict):
+    """
+    Describes a rule for http route matching.
+    """
+    path: pulumi.Input['HttpRouteMatchPathArgsDict']
+    """
+    Path to match for routing.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgsDict']]]]
+    """
+    headers and their values to match in request.
+    """
 
 @pulumi.input_type
 class HttpRouteMatchRuleArgs:
@@ -1846,6 +1801,7 @@ class HttpRouteMatchRuleArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]]] = None):
         """
         Describes a rule for http route matching.
+
         :param pulumi.Input['HttpRouteMatchPathArgs'] path: Path to match for routing.
         :param pulumi.Input[Sequence[pulumi.Input['HttpRouteMatchHeaderArgs']]] headers: headers and their values to match in request.
         """
@@ -1878,25 +1834,22 @@ class HttpRouteMatchRuleArgs:
         pulumi.set(self, "headers", value)
 
 
-if not MYPY:
-    class ImageRegistryCredentialArgsDict(TypedDict):
-        """
-        Image registry credential.
-        """
-        server: pulumi.Input[_builtins.str]
-        """
-        Docker image registry server, without protocol such as `http` and `https`.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        The username for the private registry.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
-        """
-elif False:
-    ImageRegistryCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRegistryCredentialArgsDict(TypedDict):
+    """
+    Image registry credential.
+    """
+    server: pulumi.Input[_builtins.str]
+    """
+    Docker image registry server, without protocol such as `http` and `https`.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    The username for the private registry.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
+    """
 
 @pulumi.input_type
 class ImageRegistryCredentialArgs:
@@ -1906,6 +1859,7 @@ class ImageRegistryCredentialArgs:
                  password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Image registry credential.
+
         :param pulumi.Input[_builtins.str] server: Docker image registry server, without protocol such as `http` and `https`.
         :param pulumi.Input[_builtins.str] username: The username for the private registry.
         :param pulumi.Input[_builtins.str] password: The password for the private registry. The password is required for create or update operations, however it is not returned in the get or list operations.
@@ -1952,21 +1906,18 @@ class ImageRegistryCredentialArgs:
         pulumi.set(self, "password", value)
 
 
-if not MYPY:
-    class NetworkRefArgsDict(TypedDict):
-        """
-        Describes a network reference in a service.
-        """
-        endpoint_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgsDict']]]]
-        """
-        A list of endpoints that are exposed on this network.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the network
-        """
-elif False:
-    NetworkRefArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkRefArgsDict(TypedDict):
+    """
+    Describes a network reference in a service.
+    """
+    endpoint_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointRefArgsDict']]]]
+    """
+    A list of endpoints that are exposed on this network.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the network
+    """
 
 @pulumi.input_type
 class NetworkRefArgs:
@@ -1975,6 +1926,7 @@ class NetworkRefArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a network reference in a service.
+
         :param pulumi.Input[Sequence[pulumi.Input['EndpointRefArgs']]] endpoint_refs: A list of endpoints that are exposed on this network.
         :param pulumi.Input[_builtins.str] name: Name of the network
         """
@@ -2008,22 +1960,19 @@ class NetworkRefArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class NetworkResourcePropertiesArgsDict(TypedDict):
-        """
-        Describes properties of a network resource.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        The type of a Service Fabric container network.
-        Expected value is 'NetworkResourceProperties'.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User readable description of the network.
-        """
-elif False:
-    NetworkResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class NetworkResourcePropertiesArgsDict(TypedDict):
+    """
+    Describes properties of a network resource.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    The type of a Service Fabric container network.
+    Expected value is 'NetworkResourceProperties'.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User readable description of the network.
+    """
 
 @pulumi.input_type
 class NetworkResourcePropertiesArgs:
@@ -2032,6 +1981,7 @@ class NetworkResourcePropertiesArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes properties of a network resource.
+
         :param pulumi.Input[_builtins.str] kind: The type of a Service Fabric container network.
                Expected value is 'NetworkResourceProperties'.
         :param pulumi.Input[_builtins.str] description: User readable description of the network.
@@ -2066,21 +2016,18 @@ class NetworkResourcePropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ReliableCollectionsRefArgsDict(TypedDict):
-        """
-        Specifying this parameter adds support for reliable collections
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of ReliableCollection resource. Right now it's not used and you can use any string.
-        """
-        do_not_persist_state: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
-        """
-elif False:
-    ReliableCollectionsRefArgsDict: TypeAlias = Mapping[str, Any]
+class ReliableCollectionsRefArgsDict(TypedDict):
+    """
+    Specifying this parameter adds support for reliable collections
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of ReliableCollection resource. Right now it's not used and you can use any string.
+    """
+    do_not_persist_state: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
+    """
 
 @pulumi.input_type
 class ReliableCollectionsRefArgs:
@@ -2089,6 +2036,7 @@ class ReliableCollectionsRefArgs:
                  do_not_persist_state: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Specifying this parameter adds support for reliable collections
+
         :param pulumi.Input[_builtins.str] name: Name of ReliableCollection resource. Right now it's not used and you can use any string.
         :param pulumi.Input[_builtins.bool] do_not_persist_state: False (the default) if ReliableCollections state is persisted to disk as usual. True if you do not want to persist state, in which case replication is still enabled and you can use ReliableCollections as distributed cache.
         """
@@ -2121,21 +2069,18 @@ class ReliableCollectionsRefArgs:
         pulumi.set(self, "do_not_persist_state", value)
 
 
-if not MYPY:
-    class ResourceLimitsArgsDict(TypedDict):
-        """
-        This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
-        """
-        cpu: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        CPU limits in cores. At present, only full cores are supported.
-        """
-        memory_in_gb: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The memory limit in GB.
-        """
-elif False:
-    ResourceLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLimitsArgsDict(TypedDict):
+    """
+    This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
+    """
+    cpu: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    CPU limits in cores. At present, only full cores are supported.
+    """
+    memory_in_gb: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The memory limit in GB.
+    """
 
 @pulumi.input_type
 class ResourceLimitsArgs:
@@ -2144,6 +2089,7 @@ class ResourceLimitsArgs:
                  memory_in_gb: Optional[pulumi.Input[_builtins.float]] = None):
         """
         This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
+
         :param pulumi.Input[_builtins.float] cpu: CPU limits in cores. At present, only full cores are supported.
         :param pulumi.Input[_builtins.float] memory_in_gb: The memory limit in GB.
         """
@@ -2177,21 +2123,18 @@ class ResourceLimitsArgs:
         pulumi.set(self, "memory_in_gb", value)
 
 
-if not MYPY:
-    class ResourceRequestsArgsDict(TypedDict):
-        """
-        This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
-        """
-        cpu: pulumi.Input[_builtins.float]
-        """
-        Requested number of CPU cores. At present, only full cores are supported.
-        """
-        memory_in_gb: pulumi.Input[_builtins.float]
-        """
-        The memory request in GB for this container.
-        """
-elif False:
-    ResourceRequestsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceRequestsArgsDict(TypedDict):
+    """
+    This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
+    """
+    cpu: pulumi.Input[_builtins.float]
+    """
+    Requested number of CPU cores. At present, only full cores are supported.
+    """
+    memory_in_gb: pulumi.Input[_builtins.float]
+    """
+    The memory request in GB for this container.
+    """
 
 @pulumi.input_type
 class ResourceRequestsArgs:
@@ -2200,6 +2143,7 @@ class ResourceRequestsArgs:
                  memory_in_gb: pulumi.Input[_builtins.float]):
         """
         This type describes the requested resources for a given container. It describes the least amount of resources required for the container. A container can consume more than requested resources up to the specified limits before being restarted. Currently, the requested resources are treated as limits.
+
         :param pulumi.Input[_builtins.float] cpu: Requested number of CPU cores. At present, only full cores are supported.
         :param pulumi.Input[_builtins.float] memory_in_gb: The memory request in GB for this container.
         """
@@ -2231,21 +2175,18 @@ class ResourceRequestsArgs:
         pulumi.set(self, "memory_in_gb", value)
 
 
-if not MYPY:
-    class ResourceRequirementsArgsDict(TypedDict):
-        """
-        This type describes the resource requirements for a container or a service.
-        """
-        requests: pulumi.Input['ResourceRequestsArgsDict']
-        """
-        Describes the requested resources for a given container.
-        """
-        limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
-        """
-        Describes the maximum limits on the resources for a given container.
-        """
-elif False:
-    ResourceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceRequirementsArgsDict(TypedDict):
+    """
+    This type describes the resource requirements for a container or a service.
+    """
+    requests: pulumi.Input['ResourceRequestsArgsDict']
+    """
+    Describes the requested resources for a given container.
+    """
+    limits: NotRequired[pulumi.Input['ResourceLimitsArgsDict']]
+    """
+    Describes the maximum limits on the resources for a given container.
+    """
 
 @pulumi.input_type
 class ResourceRequirementsArgs:
@@ -2254,6 +2195,7 @@ class ResourceRequirementsArgs:
                  limits: Optional[pulumi.Input['ResourceLimitsArgs']] = None):
         """
         This type describes the resource requirements for a container or a service.
+
         :param pulumi.Input['ResourceRequestsArgs'] requests: Describes the requested resources for a given container.
         :param pulumi.Input['ResourceLimitsArgs'] limits: Describes the maximum limits on the resources for a given container.
         """
@@ -2286,26 +2228,23 @@ class ResourceRequirementsArgs:
         pulumi.set(self, "limits", value)
 
 
-if not MYPY:
-    class SecretResourcePropertiesArgsDict(TypedDict):
-        """
-        Describes the properties of a secret resource.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Describes the kind of secret.
-        Expected value is 'SecretResourceProperties'.
-        """
-        content_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User readable description of the secret.
-        """
-elif False:
-    SecretResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class SecretResourcePropertiesArgsDict(TypedDict):
+    """
+    Describes the properties of a secret resource.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Describes the kind of secret.
+    Expected value is 'SecretResourceProperties'.
+    """
+    content_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User readable description of the secret.
+    """
 
 @pulumi.input_type
 class SecretResourcePropertiesArgs:
@@ -2315,6 +2254,7 @@ class SecretResourcePropertiesArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes the properties of a secret resource.
+
         :param pulumi.Input[_builtins.str] kind: Describes the kind of secret.
                Expected value is 'SecretResourceProperties'.
         :param pulumi.Input[_builtins.str] content_type: The type of the content stored in the secret value. The value of this property is opaque to Service Fabric. Once set, the value of this property cannot be changed.
@@ -2364,45 +2304,42 @@ class SecretResourcePropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ServiceResourceDescriptionArgsDict(TypedDict):
-        """
-        This type describes a service resource.
-        """
-        code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgsDict']]]
-        """
-        Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-        """
-        os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemType']]
-        """
-        The operation system required by the code in service.
-        """
-        auto_scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgsDict']]]]
-        """
-        Auto scaling policies
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        User readable description of the service.
-        """
-        diagnostics: NotRequired[pulumi.Input['DiagnosticsRefArgsDict']]
-        """
-        Reference to sinks in DiagnosticsDescription.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the resource
-        """
-        network_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgsDict']]]]
-        """
-        The names of the private networks that this service needs to be part of.
-        """
-        replica_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of replicas of the service to create. Defaults to 1 if not specified.
-        """
-elif False:
-    ServiceResourceDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceResourceDescriptionArgsDict(TypedDict):
+    """
+    This type describes a service resource.
+    """
+    code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgsDict']]]
+    """
+    Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
+    """
+    os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemType']]
+    """
+    The operation system required by the code in service.
+    """
+    auto_scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgsDict']]]]
+    """
+    Auto scaling policies
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    User readable description of the service.
+    """
+    diagnostics: NotRequired[pulumi.Input['DiagnosticsRefArgsDict']]
+    """
+    Reference to sinks in DiagnosticsDescription.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the resource
+    """
+    network_refs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgsDict']]]]
+    """
+    The names of the private networks that this service needs to be part of.
+    """
+    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of replicas of the service to create. Defaults to 1 if not specified.
+    """
 
 @pulumi.input_type
 class ServiceResourceDescriptionArgs:
@@ -2417,6 +2354,7 @@ class ServiceResourceDescriptionArgs:
                  replica_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         This type describes a service resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemType']] os_type: The operation system required by the code in service.
         :param pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]] auto_scaling_policies: Auto scaling policies
@@ -2538,21 +2476,18 @@ class ServiceResourceDescriptionArgs:
         pulumi.set(self, "replica_count", value)
 
 
-if not MYPY:
-    class SettingArgsDict(TypedDict):
-        """
-        Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the setting.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the setting.
-        """
-elif False:
-    SettingArgsDict: TypeAlias = Mapping[str, Any]
+class SettingArgsDict(TypedDict):
+    """
+    Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the setting.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the setting.
+    """
 
 @pulumi.input_type
 class SettingArgs:
@@ -2561,6 +2496,7 @@ class SettingArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Describes a setting for the container. The setting file path can be fetched from environment variable "Fabric_SettingPath". The path for Windows container is "C:\\\\secrets". The path for Linux container is "/var/secrets".
+
         :param pulumi.Input[_builtins.str] name: The name of the setting.
         :param pulumi.Input[_builtins.str] value: The value of the setting.
         """
@@ -2594,25 +2530,22 @@ class SettingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TcpConfigArgsDict(TypedDict):
-        """
-        Describes the tcp configuration for external connectivity for this network.
-        """
-        destination: pulumi.Input['GatewayDestinationArgsDict']
-        """
-        Describes destination endpoint for routing traffic.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        tcp gateway config name.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Specifies the port at which the service endpoint below needs to be exposed.
-        """
-elif False:
-    TcpConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TcpConfigArgsDict(TypedDict):
+    """
+    Describes the tcp configuration for external connectivity for this network.
+    """
+    destination: pulumi.Input['GatewayDestinationArgsDict']
+    """
+    Describes destination endpoint for routing traffic.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    tcp gateway config name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Specifies the port at which the service endpoint below needs to be exposed.
+    """
 
 @pulumi.input_type
 class TcpConfigArgs:
@@ -2622,6 +2555,7 @@ class TcpConfigArgs:
                  port: pulumi.Input[_builtins.int]):
         """
         Describes the tcp configuration for external connectivity for this network.
+
         :param pulumi.Input['GatewayDestinationArgs'] destination: Describes destination endpoint for routing traffic.
         :param pulumi.Input[_builtins.str] name: tcp gateway config name.
         :param pulumi.Input[_builtins.int] port: Specifies the port at which the service endpoint below needs to be exposed.
@@ -2667,25 +2601,22 @@ class TcpConfigArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class VolumeProviderParametersAzureFileArgsDict(TypedDict):
-        """
-        This type describes a volume provided by an Azure Files file share.
-        """
-        account_name: pulumi.Input[_builtins.str]
-        """
-        Name of the Azure storage account for the File Share.
-        """
-        share_name: pulumi.Input[_builtins.str]
-        """
-        Name of the Azure Files file share that provides storage for the volume.
-        """
-        account_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Access key of the Azure storage account for the File Share.
-        """
-elif False:
-    VolumeProviderParametersAzureFileArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeProviderParametersAzureFileArgsDict(TypedDict):
+    """
+    This type describes a volume provided by an Azure Files file share.
+    """
+    account_name: pulumi.Input[_builtins.str]
+    """
+    Name of the Azure storage account for the File Share.
+    """
+    share_name: pulumi.Input[_builtins.str]
+    """
+    Name of the Azure Files file share that provides storage for the volume.
+    """
+    account_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Access key of the Azure storage account for the File Share.
+    """
 
 @pulumi.input_type
 class VolumeProviderParametersAzureFileArgs:
@@ -2695,6 +2626,7 @@ class VolumeProviderParametersAzureFileArgs:
                  account_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         This type describes a volume provided by an Azure Files file share.
+
         :param pulumi.Input[_builtins.str] account_name: Name of the Azure storage account for the File Share.
         :param pulumi.Input[_builtins.str] share_name: Name of the Azure Files file share that provides storage for the volume.
         :param pulumi.Input[_builtins.str] account_key: Access key of the Azure storage account for the File Share.
@@ -2741,25 +2673,22 @@ class VolumeProviderParametersAzureFileArgs:
         pulumi.set(self, "account_key", value)
 
 
-if not MYPY:
-    class VolumeReferenceArgsDict(TypedDict):
-        """
-        Describes a reference to a volume resource.
-        """
-        destination_path: pulumi.Input[_builtins.str]
-        """
-        The path within the container at which the volume should be mounted. Only valid path characters are allowed.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the volume being referenced.
-        """
-        read_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The flag indicating whether the volume is read only. Default is 'false'.
-        """
-elif False:
-    VolumeReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class VolumeReferenceArgsDict(TypedDict):
+    """
+    Describes a reference to a volume resource.
+    """
+    destination_path: pulumi.Input[_builtins.str]
+    """
+    The path within the container at which the volume should be mounted. Only valid path characters are allowed.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the volume being referenced.
+    """
+    read_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag indicating whether the volume is read only. Default is 'false'.
+    """
 
 @pulumi.input_type
 class VolumeReferenceArgs:
@@ -2769,6 +2698,7 @@ class VolumeReferenceArgs:
                  read_only: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Describes a reference to a volume resource.
+
         :param pulumi.Input[_builtins.str] destination_path: The path within the container at which the volume should be mounted. Only valid path characters are allowed.
         :param pulumi.Input[_builtins.str] name: Name of the volume being referenced.
         :param pulumi.Input[_builtins.bool] read_only: The flag indicating whether the volume is read only. Default is 'false'.

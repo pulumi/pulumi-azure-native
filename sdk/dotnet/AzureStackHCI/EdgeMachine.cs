@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// EdgeMachine details.
     /// 
     /// Uses Azure REST API version 2025-12-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### EdgeMachines_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var edgeMachine = new AzureNative.AzureStackHCI.EdgeMachine("edgeMachine", new()
+    ///     {
+    ///         EdgeMachineName = "machine-1",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AzureStackHCI.Inputs.EdgeMachinePropertiesArgs
+    ///         {
+    ///             ArcMachineResourceGroupId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg",
+    ///             ArcMachineResourceId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+    ///         },
+    ///         ResourceGroupName = "ArcInstance-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:EdgeMachine machine-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/edgeMachines/{edgeMachineName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:EdgeMachine")]
     public partial class EdgeMachine : global::Pulumi.CustomResource

@@ -15,6 +15,63 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a source control.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sourceControl = new AzureNative.SecurityInsights.SourceControl("sourceControl", new()
+    ///     {
+    ///         ContentTypes = new[]
+    ///         {
+    ///             "AnalyticRules",
+    ///             AzureNative.SecurityInsights.ContentType.Workbook,
+    ///         },
+    ///         Description = "This is a source control",
+    ///         DisplayName = "My Source Control",
+    ///         RepoType = AzureNative.SecurityInsights.RepoType.Github,
+    ///         Repository = new AzureNative.SecurityInsights.Inputs.RepositoryArgs
+    ///         {
+    ///             Branch = "master",
+    ///             DisplayUrl = "https://github.com/user/repo",
+    ///             PathMapping = new[]
+    ///             {
+    ///                 new AzureNative.SecurityInsights.Inputs.ContentPathMapArgs
+    ///                 {
+    ///                     ContentType = "AnalyticRules",
+    ///                     Path = "path/to/rules",
+    ///                 },
+    ///                 new AzureNative.SecurityInsights.Inputs.ContentPathMapArgs
+    ///                 {
+    ///                     ContentType = AzureNative.SecurityInsights.ContentType.Workbook,
+    ///                     Path = "path/to/workbooks",
+    ///                 },
+    ///             },
+    ///             Url = "https://github.com/user/repo",
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         SourceControlId = "789e0c1f-4a3d-43ad-809c-e713b677b04a",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:SourceControl 789e0c1f-4a3d-43ad-809c-e713b677b04a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/sourcecontrols/{sourceControlId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource

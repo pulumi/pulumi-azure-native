@@ -28,6 +28,7 @@ class AuthenticationSettingArgs:
                  properties: Optional[pulumi.Input['ManagedIdentityAuthenticationSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationSetting resource.
+
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -120,6 +121,35 @@ class AuthenticationSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
+        ## Example Usage
+        ### AuthenticationSettings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authentication_setting = azure_native.monitor.AuthenticationSetting("authenticationSetting",
+            authentication_setting_name="myAuthSetting",
+            azure_monitor_workspace_name="myWorkspace",
+            health_model_name="myHealthModel",
+            properties={
+                "authentication_kind": "ManagedIdentity",
+                "display_name": "myDisplayName",
+                "managed_identity_name": "SystemAssigned",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:AuthenticationSetting myAuthSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_setting_name: Name of the authentication setting. Must be unique within a health model.
@@ -138,6 +168,35 @@ class AuthenticationSetting(pulumi.CustomResource):
         An authentication setting in a health model
 
         Uses Azure REST API version 2025-05-03-preview.
+
+        ## Example Usage
+        ### AuthenticationSettings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authentication_setting = azure_native.monitor.AuthenticationSetting("authenticationSetting",
+            authentication_setting_name="myAuthSetting",
+            azure_monitor_workspace_name="myWorkspace",
+            health_model_name="myHealthModel",
+            properties={
+                "authentication_kind": "ManagedIdentity",
+                "display_name": "myDisplayName",
+                "managed_identity_name": "SystemAssigned",
+            },
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:AuthenticationSetting myAuthSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthenticationSettingArgs args: The arguments to use to populate this resource's properties.

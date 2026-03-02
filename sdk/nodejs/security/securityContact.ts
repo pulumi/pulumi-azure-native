@@ -13,6 +13,44 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
  *
  * Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### Create security contact data
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityContact = new azure_native.security.SecurityContact("securityContact", {
+ *     emails: "john@contoso.com;jane@contoso.com",
+ *     isEnabled: true,
+ *     notificationsByRole: {
+ *         roles: [azure_native.security.SecurityContactRole.Owner],
+ *         state: azure_native.security.State.On,
+ *     },
+ *     notificationsSources: [
+ *         {
+ *             minimalRiskLevel: azure_native.security.MinimalRiskLevel.Critical,
+ *             sourceType: "AttackPath",
+ *         },
+ *         {
+ *             minimalSeverity: azure_native.security.MinimalSeverity.Medium,
+ *             sourceType: "Alert",
+ *         },
+ *     ],
+ *     phone: "(214)275-4038",
+ *     securityContactName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:SecurityContact default /subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName} 
+ * ```
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**

@@ -690,6 +690,7 @@ class ActivityDependencyResponse(dict):
                  dependency_conditions: Sequence[_builtins.str]):
         """
         Activity dependency information.
+
         :param _builtins.str activity: Activity name.
         :param Sequence[_builtins.str] dependency_conditions: Match-Condition for the dependency.
         """
@@ -747,6 +748,7 @@ class ActivityPolicyResponse(dict):
                  timeout: Optional[Any] = None):
         """
         Execution policy for an activity.
+
         :param Any retry: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         :param _builtins.int retry_interval_in_seconds: Interval between each retry attempt (in seconds). The default is 30 sec.
         :param _builtins.bool secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
@@ -864,6 +866,7 @@ class AmazonMWSLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Amazon Marketplace Web Service linked service.
+
         :param Any access_key_id: The access key id used to access data.
         :param Any endpoint: The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)
         :param Any marketplace_id: The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)
@@ -1076,6 +1079,7 @@ class AmazonMWSObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Amazon Marketplace Web Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AmazonMWSObject'.
@@ -1221,6 +1225,7 @@ class AmazonMWSSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Amazon Marketplace Web Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AmazonMWSSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -1389,6 +1394,7 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         AmazonRdsForOracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AmazonRdsForOracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -1681,6 +1687,7 @@ class AmazonRdsForOraclePartitionSettingsResponse(dict):
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for AmazonRdsForOracle source partitioning.
+
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Sequence[Any] partition_names: Names of the physical partitions of AmazonRdsForOracle table. 
@@ -1785,6 +1792,7 @@ class AmazonRdsForOracleSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity AmazonRdsForOracle source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AmazonRdsForOracleSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -1955,6 +1963,7 @@ class AmazonRdsForOracleTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The AmazonRdsForOracle database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AmazonRdsForOracleTable'.
@@ -2153,6 +2162,7 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Amazon RDS for SQL Server linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AmazonRdsForSqlServer'.
         :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
@@ -2561,6 +2571,7 @@ class AmazonRdsForSqlServerSourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Amazon RDS for SQL Server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AmazonRdsForSqlServerSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -2753,6 +2764,7 @@ class AmazonRdsForSqlServerTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The Amazon RDS for SQL Server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AmazonRdsForSqlServerTable'.
@@ -2894,6 +2906,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Amazon Redshift.
+
         :param Any database: The database name of the Amazon Redshift source. Type: string (or Expression with resultType string).
         :param Any server: The name of the Amazon Redshift server. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -3074,6 +3087,7 @@ class AmazonRedshiftSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for Amazon Redshift Source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AmazonRedshiftSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -3214,6 +3228,7 @@ class AmazonRedshiftTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Amazon Redshift table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AmazonRedshiftTable'.
@@ -3373,6 +3388,7 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Amazon S3 Compatible.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AmazonS3Compatible'.
         :param Any access_key_id: The access key identifier of the Amazon S3 Compatible Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -3532,6 +3548,7 @@ class AmazonS3CompatibleLocationResponse(dict):
                  version: Optional[Any] = None):
         """
         The location of Amazon S3 Compatible dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'AmazonS3CompatibleLocation'.
         :param Any bucket_name: Specify the bucketName of Amazon S3 Compatible. Type: string (or Expression with resultType string)
@@ -3647,6 +3664,7 @@ class AmazonS3CompatibleReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Amazon S3 Compatible read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'AmazonS3CompatibleReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -3841,6 +3859,7 @@ class AmazonS3DatasetResponse(dict):
                  version: Optional[Any] = None):
         """
         A single Amazon Simple Storage Service (S3) object or a set of S3 objects.
+
         :param Any bucket_name: The name of the Amazon S3 bucket. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -4068,6 +4087,7 @@ class AmazonS3LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Amazon S3.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AmazonS3'.
         :param Any access_key_id: The access key identifier of the Amazon S3 Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -4238,6 +4258,7 @@ class AmazonS3LocationResponse(dict):
                  version: Optional[Any] = None):
         """
         The location of amazon S3 dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'AmazonS3Location'.
         :param Any bucket_name: Specify the bucketName of amazon S3. Type: string (or Expression with resultType string)
@@ -4353,6 +4374,7 @@ class AmazonS3ReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Amazon S3 read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'AmazonS3ReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -4538,6 +4560,7 @@ class AppFiguresLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for AppFigures.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_key: The client key for the AppFigures source.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the AppFigures source.
         :param _builtins.str type: Type of linked service.
@@ -4678,6 +4701,7 @@ class AppendVariableActivityResponse(dict):
                  variable_name: Optional[_builtins.str] = None):
         """
         Append value for a Variable of type Array.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'AppendVariable'.
@@ -4835,6 +4859,7 @@ class AsanaLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Asana.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Asana source.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Asana'.
@@ -4966,6 +4991,7 @@ class AvroDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Avro dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the avro storage.
         :param _builtins.str type: Type of dataset.
@@ -5096,6 +5122,7 @@ class AvroFormatResponse(dict):
                  serializer: Optional[Any] = None):
         """
         The data stored in Avro format.
+
         :param _builtins.str type: Type of dataset storage format.
                Expected value is 'AvroFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
@@ -5181,6 +5208,7 @@ class AvroSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Avro sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AvroSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -5326,6 +5354,7 @@ class AvroSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity Avro source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AvroSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -5443,6 +5472,7 @@ class AvroWriteSettingsResponse(dict):
                  record_namespace: Optional[_builtins.str] = None):
         """
         Avro write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'AvroWriteSettings'.
         :param Any file_name_prefix: Specifies the file name pattern <fileNamePrefix>_<fileIndex>.<fileExtension> when copy from non-file based store without partitionOptions. Type: string (or Expression with resultType string).
@@ -5512,6 +5542,7 @@ class AzPowerShellSetupResponse(dict):
                  version: _builtins.str):
         """
         The express custom setup of installing Azure PowerShell.
+
         :param _builtins.str type: The type of custom setup.
                Expected value is 'AzPowerShellSetup'.
         :param _builtins.str version: The required version of Azure PowerShell to install.
@@ -5587,6 +5618,7 @@ class AzureBatchLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Batch linked service.
+
         :param Any account_name: The Azure Batch account name. Type: string (or Expression with resultType string).
         :param Any batch_uri: The Azure Batch URI. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: The Azure Storage linked service reference.
@@ -5780,6 +5812,7 @@ class AzureBlobDatasetResponse(dict):
                  table_root_location: Optional[Any] = None):
         """
         The Azure Blob storage.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureBlob'.
@@ -5989,6 +6022,7 @@ class AzureBlobFSDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure Data Lake Storage Gen2 storage.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureBlobFSFile'.
@@ -6185,6 +6219,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Data Lake Storage Gen2 linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureBlobFS'.
         :param Any account_key: Account key for the Azure Data Lake Storage Gen2 service. Type: string (or Expression with resultType string).
@@ -6420,6 +6455,7 @@ class AzureBlobFSLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of azure blobFS dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'AzureBlobFSLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -6523,6 +6559,7 @@ class AzureBlobFSReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Azure blobFS read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'AzureBlobFSReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -6705,6 +6742,7 @@ class AzureBlobFSSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Data Lake Storage Gen2 sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureBlobFSSink'.
         :param Any copy_behavior: The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
@@ -6851,6 +6889,7 @@ class AzureBlobFSSourceResponse(dict):
                  treat_empty_as_null: Optional[Any] = None):
         """
         A copy activity Azure BlobFS source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureBlobFSSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -6980,6 +7019,7 @@ class AzureBlobFSWriteSettingsResponse(dict):
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure blobFS write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'AzureBlobFSWriteSettings'.
         :param Any block_size_in_mb: Indicates the block size(MB) when writing data to blob. Type: integer (or Expression with resultType integer).
@@ -7119,6 +7159,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The azure blob storage linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureBlobStorage'.
         :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
@@ -7374,6 +7415,7 @@ class AzureBlobStorageLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of azure blob dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'AzureBlobStorageLocation'.
         :param Any container: Specify the container of azure blob. Type: string (or Expression with resultType string).
@@ -7478,6 +7520,7 @@ class AzureBlobStorageReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Azure blob read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'AzureBlobStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -7662,6 +7705,7 @@ class AzureBlobStorageWriteSettingsResponse(dict):
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure blob write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'AzureBlobStorageWriteSettings'.
         :param Any block_size_in_mb: Indicates the block size(MB) when writing data to blob. Type: integer (or Expression with resultType integer).
@@ -7776,6 +7820,7 @@ class AzureDataExplorerCommandActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Azure Data Explorer command activity.
+
         :param Any command: A control command, according to the Azure Data Explorer command syntax. Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -7940,6 +7985,7 @@ class AzureDataExplorerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Data Explorer (Kusto) linked service.
+
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of Azure Data Explorer (the engine's endpoint). URL will be in the format https://<clusterName>.<regionName>.kusto.windows.net. Type: string (or Expression with resultType string)
         :param _builtins.str type: Type of linked service.
@@ -8125,6 +8171,7 @@ class AzureDataExplorerSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Data Explorer sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureDataExplorerSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -8285,6 +8332,7 @@ class AzureDataExplorerSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure Data Explorer (Kusto) source.
+
         :param Any query: Database query. Should be a Kusto Query Language (KQL) query. Type: string (or Expression with resultType string).
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureDataExplorerSource'.
@@ -8421,6 +8469,7 @@ class AzureDataExplorerTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The Azure Data Explorer (Kusto) dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureDataExplorerTable'.
@@ -8576,6 +8625,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Data Lake Analytics linked service.
+
         :param Any account_name: The Azure Data Lake Analytics account name. Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -8773,6 +8823,7 @@ class AzureDataLakeStoreDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Azure Data Lake Store dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureDataLakeStoreFile'.
@@ -8965,6 +9016,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Data Lake Store linked service.
+
         :param Any data_lake_store_uri: Data Lake Store service URI. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureDataLakeStore'.
@@ -9174,6 +9226,7 @@ class AzureDataLakeStoreLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of azure data lake store dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'AzureDataLakeStoreLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -9272,6 +9325,7 @@ class AzureDataLakeStoreReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Azure data lake store read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'AzureDataLakeStoreReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -9478,6 +9532,7 @@ class AzureDataLakeStoreSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Data Lake Store sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureDataLakeStoreSink'.
         :param Any copy_behavior: The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
@@ -9618,6 +9673,7 @@ class AzureDataLakeStoreSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure Data Lake source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureDataLakeStoreSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -9725,6 +9781,7 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure data lake store write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'AzureDataLakeStoreWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
@@ -9830,6 +9887,7 @@ class AzureDatabricksDeltaLakeDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         Azure Databricks Delta Lake dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureDatabricksDeltaLakeDataset'.
@@ -9973,6 +10031,7 @@ class AzureDatabricksDeltaLakeExportCommandResponse(dict):
                  timestamp_format: Optional[Any] = None):
         """
         Azure Databricks Delta Lake export command settings.
+
         :param _builtins.str type: The export setting type.
                Expected value is 'AzureDatabricksDeltaLakeExportCommand'.
         :param Any date_format: Specify the date format for the csv in Azure Databricks Delta Lake Copy. Type: string (or Expression with resultType string).
@@ -10040,6 +10099,7 @@ class AzureDatabricksDeltaLakeImportCommandResponse(dict):
                  timestamp_format: Optional[Any] = None):
         """
         Azure Databricks Delta Lake import command settings.
+
         :param _builtins.str type: The import setting type.
                Expected value is 'AzureDatabricksDeltaLakeImportCommand'.
         :param Any date_format: Specify the date format for csv in Azure Databricks Delta Lake Copy. Type: string (or Expression with resultType string).
@@ -10122,6 +10182,7 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks Delta Lake linked service.
+
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureDatabricksDeltaLake'.
@@ -10305,6 +10366,7 @@ class AzureDatabricksDeltaLakeSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Databricks Delta Lake sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureDatabricksDeltaLakeSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -10448,6 +10510,7 @@ class AzureDatabricksDeltaLakeSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure Databricks Delta Lake source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureDatabricksDeltaLakeSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -10614,6 +10677,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Databricks linked service.
+
         :param Any domain: <REGION>.azuredatabricks.net, domain name of your Databricks deployment. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureDatabricks'.
@@ -10962,6 +11026,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure File Storage linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureFileStorage'.
         :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
@@ -11194,6 +11259,7 @@ class AzureFileStorageLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of file server dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'AzureFileStorageLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -11287,6 +11353,7 @@ class AzureFileStorageReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Azure File Storage read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'AzureFileStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -11468,6 +11535,7 @@ class AzureFileStorageWriteSettingsResponse(dict):
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure File Storage write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'AzureFileStorageWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
@@ -11573,6 +11641,7 @@ class AzureFunctionActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Azure Function activity.
+
         :param Any function_name: Name of the Function that the Azure Function Activity will call. Type: string (or Expression with resultType string)
         :param _builtins.str method: Rest API method for target endpoint.
         :param _builtins.str name: Activity name.
@@ -11762,6 +11831,7 @@ class AzureFunctionLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Function linked service.
+
         :param Any function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureFunction'.
@@ -11932,6 +12002,7 @@ class AzureKeyVaultLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Key Vault linked service.
+
         :param Any base_url: The base URL of the Azure Key Vault. e.g. https://myakv.vault.azure.net Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureKeyVault'.
@@ -12054,6 +12125,7 @@ class AzureKeyVaultSecretReferenceResponse(dict):
                  secret_version: Optional[Any] = None):
         """
         Azure Key Vault secret reference.
+
         :param Any secret_name: The name of the secret in Azure Key Vault. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' store: The Azure Key Vault linked service reference.
         :param _builtins.str type: Type of the secret.
@@ -12149,6 +12221,7 @@ class AzureMLBatchExecutionActivityResponse(dict):
                  web_service_outputs: Optional[Mapping[str, 'outputs.AzureMLWebServiceFileResponse']] = None):
         """
         Azure ML Batch Execution activity.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'AzureMLBatchExecution'.
@@ -12346,6 +12419,7 @@ class AzureMLExecutePipelineActivityResponse(dict):
                  version: Optional[Any] = None):
         """
         Azure ML Execute Pipeline activity.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'AzureMLExecutePipeline'.
@@ -12587,6 +12661,7 @@ class AzureMLLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure ML Studio Web Service linked service.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_key: The API key for accessing the Azure ML model endpoint.
         :param Any ml_endpoint: The Batch Execution REST URL for an Azure ML Studio Web Service endpoint. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -12794,6 +12869,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure ML Service linked service.
+
         :param Any ml_workspace_name: Azure ML Service workspace name. Type: string (or Expression with resultType string).
         :param Any resource_group_name: Azure ML Service workspace resource group name. Type: string (or Expression with resultType string).
         :param Any subscription_id: Azure ML Service workspace subscription ID. Type: string (or Expression with resultType string).
@@ -12998,6 +13074,7 @@ class AzureMLUpdateResourceActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Azure ML Update Resource management activity.
+
         :param _builtins.str name: Activity name.
         :param Any trained_model_file_path: The relative file path in trainedModelLinkedService to represent the .ilearner file that will be uploaded by the update operation.  Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' trained_model_linked_service_name: Name of Azure Storage linked service holding the .ilearner file that will be uploaded by the update operation.
@@ -13159,6 +13236,7 @@ class AzureMLWebServiceFileResponse(dict):
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse'):
         """
         Azure ML WebService Input/Output file
+
         :param Any file_path: The relative file path, including container name, in the Azure Blob Storage specified by the LinkedService. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Reference to an Azure Storage LinkedService, where Azure ML WebService Input/Output file located.
         """
@@ -13220,6 +13298,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure Database for MariaDB linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureMariaDB'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -13366,6 +13445,7 @@ class AzureMariaDBSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure MariaDB source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureMariaDBSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -13494,6 +13574,7 @@ class AzureMariaDBTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Azure Database for MariaDB dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureMariaDBTable'.
@@ -13634,6 +13715,7 @@ class AzureMySqlLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure MySQL database linked service.
+
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureMySql'.
@@ -13781,6 +13863,7 @@ class AzureMySqlSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure MySql sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureMySqlSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -13916,6 +13999,7 @@ class AzureMySqlSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure MySQL source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureMySqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -14045,6 +14129,7 @@ class AzureMySqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure MySQL database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureMySqlTable'.
@@ -14235,6 +14320,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure PostgreSQL linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzurePostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -14598,6 +14684,7 @@ class AzurePostgreSqlSinkResponse(dict):
                  write_method: Optional[_builtins.str] = None):
         """
         A copy activity Azure Database for PostgreSQL sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzurePostgreSqlSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -14721,6 +14808,7 @@ class AzurePostgreSqlSinkResponseUpsertSettings(dict):
                  keys: Optional[Any] = None):
         """
         Azure Database for PostgreSQL upsert option settings
+
         :param Any keys: Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
         """
         if keys is not None:
@@ -14778,6 +14866,7 @@ class AzurePostgreSqlSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure Database for PostgreSQL source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzurePostgreSqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -14907,6 +14996,7 @@ class AzurePostgreSqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Azure PostgreSQL dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzurePostgreSqlTable'.
@@ -15062,6 +15152,7 @@ class AzureQueueSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Queue sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureQueueSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -15179,6 +15270,7 @@ class AzureSearchIndexDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure Search Index.
+
         :param Any index_name: The name of the Azure Search Index. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -15325,6 +15417,7 @@ class AzureSearchIndexSinkResponse(dict):
                  write_behavior: Optional[_builtins.str] = None):
         """
         A copy activity Azure Search Index sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureSearchIndexSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -15453,6 +15546,7 @@ class AzureSearchLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Windows Azure Search Service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureSearch'.
         :param Any url: URL for Azure Search service. Type: string (or Expression with resultType string).
@@ -15665,6 +15759,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure SQL Data Warehouse linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureSqlDW'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -16113,6 +16208,7 @@ class AzureSqlDWTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure SQL Data Warehouse dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureSqlDWTable'.
@@ -16339,6 +16435,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Microsoft Azure SQL Database linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureSqlDatabase'.
         :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
@@ -16874,6 +16971,7 @@ class AzureSqlMILinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Azure SQL Managed Instance linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureSqlMI'.
         :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
@@ -17333,6 +17431,7 @@ class AzureSqlMITableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure SQL Managed Instance dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureSqlMITable'.
@@ -17515,6 +17614,7 @@ class AzureSqlSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity Azure SQL sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureSqlSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -17758,6 +17858,7 @@ class AzureSqlSourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Azure SQL source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureSqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -17953,6 +18054,7 @@ class AzureSqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Azure SQL Server database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'AzureSqlTable'.
@@ -18112,6 +18214,7 @@ class AzureStorageLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The storage account linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureStorage'.
         :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
@@ -18273,6 +18376,7 @@ class AzureSynapseArtifactsLinkedServiceResponse(dict):
                  workspace_resource_id: Optional[Any] = None):
         """
         Azure Synapse Analytics (Artifacts) linked service.
+
         :param Any endpoint: https://<workspacename>.dev.azuresynapse.net, Azure Synapse Analytics workspace URL. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureSynapseArtifacts'.
@@ -18411,6 +18515,7 @@ class AzureTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Azure Table storage dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The table name of the Azure Table storage. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -18566,6 +18671,7 @@ class AzureTableSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Table sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'AzureTableSink'.
         :param Any azure_table_default_partition_key_value: Azure Table default partition key value. Type: string (or Expression with resultType string).
@@ -18739,6 +18845,7 @@ class AzureTableSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure Table source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'AzureTableSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -18892,6 +18999,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         The azure table storage linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'AzureTableStorage'.
         :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
@@ -19066,6 +19174,7 @@ class BigDataPoolParametrizationReferenceResponse(dict):
                  type: _builtins.str):
         """
         Big data pool reference type.
+
         :param Any reference_name: Reference big data pool name. Type: string (or Expression with resultType string).
         :param _builtins.str type: Big data pool reference type.
         """
@@ -19124,6 +19233,7 @@ class BinaryDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Binary dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the Binary storage.
         :param _builtins.str type: Type of dataset.
@@ -19263,6 +19373,7 @@ class BinaryReadSettingsResponse(dict):
                  compression_properties: Optional[Any] = None):
         """
         Binary read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'BinaryReadSettings'.
         :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
@@ -19334,6 +19445,7 @@ class BinarySinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Binary sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'BinarySink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -19468,6 +19580,7 @@ class BinarySourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity Binary source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'BinarySource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -19590,6 +19703,7 @@ class BlobEventsTriggerResponse(dict):
                  pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Trigger that runs every time a Blob event occurs.
+
         :param Sequence[_builtins.str] events: The type of events that cause this trigger to fire.
         :param _builtins.str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param _builtins.str scope: The ARM resource ID of the Storage Account.
@@ -19756,6 +19870,7 @@ class BlobSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Azure Blob sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'BlobSink'.
         :param Any blob_writer_add_header: Blob writer add header. Type: boolean (or Expression with resultType boolean).
@@ -19935,6 +20050,7 @@ class BlobSourceResponse(dict):
                  treat_empty_as_null: Optional[Any] = None):
         """
         A copy activity Azure Blob source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'BlobSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -20066,6 +20182,7 @@ class BlobTriggerResponse(dict):
                  pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Trigger that runs every time the selected Blob container changes.
+
         :param _builtins.str folder_path: The path of the container/folder that will trigger the pipeline.
         :param 'LinkedServiceReferenceResponse' linked_service: The Azure Storage linked service reference.
         :param _builtins.int max_concurrency: The max number of parallel files to handle when it is triggered.
@@ -20180,6 +20297,7 @@ class CMKIdentityDefinitionResponse(dict):
                  user_assigned_identity: Optional[_builtins.str] = None):
         """
         Managed Identity used for CMK.
+
         :param _builtins.str user_assigned_identity: The resource id of the user assigned identity to authenticate to customer's key vault.
         """
         if user_assigned_identity is not None:
@@ -20235,6 +20353,7 @@ class CassandraLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Cassandra data source.
+
         :param Any host: Host name for connection. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'Cassandra'.
@@ -20416,6 +20535,7 @@ class CassandraSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for a Cassandra database.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'CassandraSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -20556,6 +20676,7 @@ class CassandraTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Cassandra database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'CassandraTable'.
@@ -20705,6 +20826,7 @@ class ChainingTriggerResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Trigger that allows the referenced pipeline to depend on other pipeline runs based on runDimension Name/Value pairs. Upstream pipelines should declare the same runDimension Name and their runs should have the values for those runDimensions. The referenced pipeline run would be triggered if the values for the runDimension match for all upstream pipeline runs.
+
         :param Sequence['PipelineReferenceResponse'] depends_on: Upstream Pipelines.
         :param 'TriggerPipelineReferenceResponse' pipeline: Pipeline for which runs are created when all upstream pipelines complete successfully.
         :param _builtins.str run_dimension: Run Dimension property that needs to be emitted by upstream pipelines.
@@ -20791,6 +20913,7 @@ class ChangeDataCaptureResponseFolder(dict):
                  name: Optional[_builtins.str] = None):
         """
         The folder that this CDC is in. If not specified, CDC will appear at the root level.
+
         :param _builtins.str name: The name of the folder that this CDC is in.
         """
         if name is not None:
@@ -20836,6 +20959,7 @@ class CmdkeySetupResponse(dict):
                  user_name: Any):
         """
         The custom setup of running cmdkey commands.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of data source access.
         :param Any target_name: The server name of data source access. Type: string.
         :param _builtins.str type: The type of custom setup.
@@ -20917,6 +21041,7 @@ class CommonDataServiceForAppsEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Common Data Service for Apps entity dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'CommonDataServiceForAppsEntity'.
@@ -21081,6 +21206,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Common Data Service for Apps linked service.
+
         :param Any authentication_type: The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         :param Any deployment_type: The deployment type of the Common Data Service for Apps instance. 'Online' for Common Data Service for Apps Online and 'OnPremisesWithIfd' for Common Data Service for Apps on-premises with Ifd. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -21349,6 +21475,7 @@ class CommonDataServiceForAppsSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Common Data Service for Apps sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'CommonDataServiceForAppsSink'.
         :param _builtins.str write_behavior: The write behavior for the operation.
@@ -21524,6 +21651,7 @@ class CommonDataServiceForAppsSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Common Data Service for Apps source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'CommonDataServiceForAppsSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -21635,6 +21763,7 @@ class ComponentSetupResponse(dict):
                  license_key: Optional[Any] = None):
         """
         The custom setup of installing 3rd party components.
+
         :param _builtins.str component_name: The name of the 3rd party component.
         :param _builtins.str type: The type of custom setup.
                Expected value is 'ComponentSetup'.
@@ -21722,6 +21851,7 @@ class ConcurLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Concur Service linked service.
+
         :param Any client_id: Application client_id supplied by Concur App Management.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Concur'.
@@ -21914,6 +22044,7 @@ class ConcurObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Concur Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ConcurObject'.
@@ -22059,6 +22190,7 @@ class ConcurSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Concur Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ConcurSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -22179,6 +22311,7 @@ class ConnectionStatePropertiesResponse(dict):
                  status: _builtins.str):
         """
         The connection state of a managed private endpoint
+
         :param _builtins.str actions_required: The actions required on the managed private endpoint
         :param _builtins.str description: The managed private endpoint description
         :param _builtins.str status: The approval status
@@ -22244,6 +22377,7 @@ class ContinuationSettingsReferenceResponse(dict):
                  idle_condition: Optional[Any] = None):
         """
         Continuation settings for execute data flow activity.
+
         :param Any continuation_ttl_in_minutes: Continuation TTL in minutes.
         :param Any customized_checkpoint_key: Customized checkpoint key.
         :param Any idle_condition: Idle condition.
@@ -22316,6 +22450,7 @@ class ControlActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Base class for all control activities like IfCondition, ForEach , Until.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'Container'.
@@ -22425,6 +22560,7 @@ class CopyActivityLogSettingsResponse(dict):
                  log_level: Optional[Any] = None):
         """
         Settings for copy activity log.
+
         :param Any enable_reliable_logging: Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
         :param Any log_level: Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
         """
@@ -22529,6 +22665,7 @@ class CopyActivityResponse(dict):
                  validate_data_consistency: Optional[Any] = None):
         """
         Copy activity.
+
         :param _builtins.str name: Activity name.
         :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'IcebergSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceServiceCloudV2SinkResponse', 'SalesforceSinkResponse', 'SalesforceV2SinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SnowflakeV2SinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse', 'TeradataSinkResponse', 'WarehouseSinkResponse'] sink: Copy activity sink.
         :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GoogleBigQueryV2SourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PostgreSqlV2SourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'ServiceNowV2SourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SnowflakeV2SourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
@@ -22845,6 +22982,7 @@ class CopyComputeScalePropertiesResponse(dict):
                  time_to_live: Optional[_builtins.int] = None):
         """
         CopyComputeScale properties for managed integration runtime.
+
         :param _builtins.int data_integration_unit: DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.
         :param _builtins.int time_to_live: Time to live (in minutes) setting of integration runtime which will execute copy activity.
         """
@@ -22931,6 +23069,7 @@ class CosmosDbLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Microsoft Azure Cosmos Database (CosmosDB) linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'CosmosDb'.
         :param Any account_endpoint: The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)
@@ -23167,6 +23306,7 @@ class CosmosDbMongoDbApiCollectionDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The CosmosDB (MongoDB API) database dataset.
+
         :param Any collection: The collection name of the CosmosDB (MongoDB API) database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -23306,6 +23446,7 @@ class CosmosDbMongoDbApiLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for CosmosDB (MongoDB API) data source.
+
         :param Any connection_string: The CosmosDB (MongoDB API) connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: The name of the CosmosDB (MongoDB API) database that you want to access. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -23452,6 +23593,7 @@ class CosmosDbMongoDbApiSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity sink for a CosmosDB (MongoDB API) database.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'CosmosDbMongoDbApiSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -23593,6 +23735,7 @@ class CosmosDbMongoDbApiSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for a CosmosDB (MongoDB API) database.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'CosmosDbMongoDbApiSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -23743,6 +23886,7 @@ class CosmosDbSqlApiCollectionDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Microsoft Azure CosmosDB (SQL API) Collection dataset.
+
         :param Any collection_name: CosmosDB (SQL API) collection name. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -23889,6 +24033,7 @@ class CosmosDbSqlApiSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity Azure CosmosDB (SQL API) Collection sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'CosmosDbSqlApiSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -24030,6 +24175,7 @@ class CosmosDbSqlApiSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Azure CosmosDB (SQL API) Collection source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'CosmosDbSqlApiSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -24184,6 +24330,7 @@ class CouchbaseLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Couchbase server linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Couchbase'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -24330,6 +24477,7 @@ class CouchbaseSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Couchbase server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'CouchbaseSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -24458,6 +24606,7 @@ class CouchbaseTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Couchbase server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'CouchbaseTable'.
@@ -24587,6 +24736,7 @@ class CredentialReferenceResponse(dict):
                  type: _builtins.str):
         """
         Credential reference type.
+
         :param _builtins.str reference_name: Reference credential name.
         :param _builtins.str type: Credential reference type.
         """
@@ -24637,6 +24787,7 @@ class CustomActivityReferenceObjectResponse(dict):
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None):
         """
         Reference objects for custom activity
+
         :param Sequence['DatasetReferenceResponse'] datasets: Dataset references.
         :param Sequence['LinkedServiceReferenceResponse'] linked_services: Linked service references.
         """
@@ -24721,6 +24872,7 @@ class CustomActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Custom activity type.
+
         :param Any command: Command for custom activity Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -24930,6 +25082,7 @@ class CustomDataSourceLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Custom linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'CustomDataSource'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -25033,6 +25186,7 @@ class CustomDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The custom dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'CustomDataset'.
@@ -25162,6 +25316,7 @@ class CustomEventsTriggerResponse(dict):
                  subject_ends_with: Optional[_builtins.str] = None):
         """
         Trigger that runs every time a custom event is received.
+
         :param Sequence[Any] events: The list of event types that cause this trigger to fire.
         :param _builtins.str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param _builtins.str scope: The ARM resource ID of the Azure Event Grid Topic.
@@ -25291,6 +25446,7 @@ class DWCopyCommandDefaultValueResponse(dict):
                  default_value: Optional[Any] = None):
         """
         Default value.
+
         :param Any column_name: Column name. Type: object (or Expression with resultType string).
         :param Any default_value: The default value of the column. Type: object (or Expression with resultType string).
         """
@@ -25345,6 +25501,7 @@ class DWCopyCommandSettingsResponse(dict):
                  default_values: Optional[Sequence['outputs.DWCopyCommandDefaultValueResponse']] = None):
         """
         DW Copy Command settings.
+
         :param Mapping[str, _builtins.str] additional_options: Additional options directly passed to SQL DW in Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalOptions": { "MAXERRORS": "1000", "DATEFORMAT": "'ymd'" }
         :param Sequence['DWCopyCommandDefaultValueResponse'] default_values: Specifies the default values for each target column in SQL DW. The default values in the property overwrite the DEFAULT constraint set in the DB, and identity column cannot have a default value. Type: array of objects (or Expression with resultType array of objects).
         """
@@ -25401,6 +25558,7 @@ class DataFlowReferenceResponse(dict):
                  parameters: Optional[Mapping[str, Any]] = None):
         """
         Data flow reference type.
+
         :param _builtins.str reference_name: Reference data flow name.
         :param _builtins.str type: Data flow reference type.
         :param Any dataset_parameters: Reference data flow parameters from dataset.
@@ -25455,6 +25613,7 @@ class DataFlowResponseFolder(dict):
                  name: Optional[_builtins.str] = None):
         """
         The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+
         :param _builtins.str name: The name of the folder that this data flow is in.
         """
         if name is not None:
@@ -25505,6 +25664,7 @@ class DataFlowSinkResponse(dict):
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
         Transformation for data flow sink.
+
         :param _builtins.str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param _builtins.str description: Transformation description.
@@ -25617,6 +25777,7 @@ class DataFlowSourceResponse(dict):
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
         Transformation for data flow source.
+
         :param _builtins.str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param _builtins.str description: Transformation description.
@@ -25714,6 +25875,7 @@ class DataFlowStagingInfoResponse(dict):
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
         Staging info for execute data flow activity.
+
         :param Any folder_path: Folder path for staging blob. Type: string (or Expression with resultType string)
         :param 'LinkedServiceReferenceResponse' linked_service: Staging linked service reference.
         """
@@ -25796,6 +25958,7 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Data Lake Analytics U-SQL activity.
+
         :param _builtins.str name: Activity name.
         :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).
@@ -26011,6 +26174,7 @@ class DataMapperMappingResponse(dict):
                  target_entity_name: Optional[_builtins.str] = None):
         """
         Source and target table mapping details.
+
         :param 'MapperAttributeMappingsResponse' attribute_mapping_info: This holds the user provided attribute mapping information.
         :param 'MapperConnectionReferenceResponse' source_connection_reference: The connection reference for the source connection.
         :param Any source_denormalize_info: This holds the source denormalization information used while joining multiple sources.
@@ -26115,6 +26279,7 @@ class DatabricksJobActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Databricks Job activity.
+
         :param Any job_id: The Id of the Databricks Job to be executed. Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -26285,6 +26450,7 @@ class DatabricksNotebookActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         DatabricksNotebook activity.
+
         :param _builtins.str name: Activity name.
         :param Any notebook_path: The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of activity.
@@ -26464,6 +26630,7 @@ class DatabricksSparkJarActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         DatabricksSparkJar activity.
+
         :param Any main_class_name: The full name of the class containing the main method to be executed. This class must be contained in a JAR provided as a library. Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -26643,6 +26810,7 @@ class DatabricksSparkPythonActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         DatabricksSparkPython activity.
+
         :param _builtins.str name: Activity name.
         :param Any python_file: The URI of the Python file to be executed. DBFS paths are supported. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of activity.
@@ -26787,6 +26955,7 @@ class DatasetCompressionResponse(dict):
                  level: Optional[Any] = None):
         """
         The compression method used on a dataset.
+
         :param Any type: Type of dataset compression. Type: string (or Expression with resultType string).
         :param Any level: The dataset compression level. Type: string (or Expression with resultType string).
         """
@@ -26839,6 +27008,7 @@ class DatasetReferenceResponse(dict):
                  parameters: Optional[Mapping[str, Any]] = None):
         """
         Dataset reference type.
+
         :param _builtins.str reference_name: Reference dataset name.
         :param _builtins.str type: Dataset reference type.
         :param Mapping[str, Any] parameters: Arguments for dataset.
@@ -26882,6 +27052,7 @@ class DatasetResponseFolder(dict):
                  name: Optional[_builtins.str] = None):
         """
         The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+
         :param _builtins.str name: The name of the folder that this Dataset is in.
         """
         if name is not None:
@@ -26933,6 +27104,7 @@ class DataworldLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Dataworld.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Dataworld source.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Dataworld'.
@@ -27074,6 +27246,7 @@ class Db2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for DB2 data source.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Db2'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -27286,6 +27459,7 @@ class Db2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for Db2 databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'Db2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -27415,6 +27589,7 @@ class Db2TableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Db2 table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'Db2Table'.
@@ -27582,6 +27757,7 @@ class DeleteActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Delete activity.
+
         :param 'DatasetReferenceResponse' dataset: Delete activity dataset reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -27810,6 +27986,7 @@ class DelimitedTextDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Delimited text dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the delimited text storage.
         :param _builtins.str type: Type of dataset.
@@ -28040,6 +28217,7 @@ class DelimitedTextReadSettingsResponse(dict):
                  skip_line_count: Optional[Any] = None):
         """
         Delimited text read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'DelimitedTextReadSettings'.
         :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
@@ -28125,6 +28303,7 @@ class DelimitedTextSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity DelimitedText sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'DelimitedTextSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -28273,6 +28452,7 @@ class DelimitedTextSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity DelimitedText source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'DelimitedTextSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -28401,6 +28581,7 @@ class DelimitedTextWriteSettingsResponse(dict):
                  quote_all_text: Optional[Any] = None):
         """
         Delimited text write settings.
+
         :param Any file_extension: The file extension used to create the files. Type: string (or Expression with resultType string).
         :param _builtins.str type: The write setting type.
                Expected value is 'DelimitedTextWriteSettings'.
@@ -28491,6 +28672,7 @@ class DistcpSettingsResponse(dict):
                  distcp_options: Optional[Any] = None):
         """
         Distcp settings.
+
         :param Any resource_manager_endpoint: Specifies the Yarn ResourceManager endpoint. Type: string (or Expression with resultType string).
         :param Any temp_script_path: Specifies an existing folder path which will be used to store temp Distcp command script. The script file is generated by ADF and will be removed after Copy job finished. Type: string (or Expression with resultType string).
         :param Any distcp_options: Specifies the Distcp options. Type: string (or Expression with resultType string).
@@ -28561,6 +28743,7 @@ class DocumentDbCollectionDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Microsoft Azure Document Database Collection dataset.
+
         :param Any collection_name: Document Database collection name. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -28710,6 +28893,7 @@ class DocumentDbCollectionSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity Document Database Collection sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'DocumentDbCollectionSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -28859,6 +29043,7 @@ class DocumentDbCollectionSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Document Database Collection source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'DocumentDbCollectionSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -29000,6 +29185,7 @@ class DrillLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Drill server linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Drill'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -29146,6 +29332,7 @@ class DrillSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Drill server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'DrillSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -29275,6 +29462,7 @@ class DrillTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Drill server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'DrillTable'.
@@ -29433,6 +29621,7 @@ class DynamicsAXLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Dynamics AX linked service.
+
         :param Any aad_resource_id: Specify the resource you are requesting authorization. Type: string (or Expression with resultType string).
         :param Any service_principal_id: Specify the application's client ID. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or reference a secret stored in Azure Key Vault. Type: string (or Expression with resultType string).
@@ -29598,6 +29787,7 @@ class DynamicsAXResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the Dynamics AX OData entity.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the Dynamics AX OData entity. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -29745,6 +29935,7 @@ class DynamicsAXSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Dynamics AX source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'DynamicsAXSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -29884,6 +30075,7 @@ class DynamicsCrmEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Dynamics CRM entity dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'DynamicsCrmEntity'.
@@ -30049,6 +30241,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Dynamics CRM linked service.
+
         :param Any authentication_type: The authentication type to connect to Dynamics CRM server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         :param Any deployment_type: The deployment type of the Dynamics CRM instance. 'Online' for Dynamics CRM Online and 'OnPremisesWithIfd' for Dynamics CRM on-premises with Ifd. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -30328,6 +30521,7 @@ class DynamicsCrmSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Dynamics CRM sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'DynamicsCrmSink'.
         :param _builtins.str write_behavior: The write behavior for the operation.
@@ -30503,6 +30697,7 @@ class DynamicsCrmSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Dynamics CRM source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'DynamicsCrmSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -30620,6 +30815,7 @@ class DynamicsEntityDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Dynamics entity dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'DynamicsEntity'.
@@ -30785,6 +30981,7 @@ class DynamicsLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Dynamics linked service.
+
         :param Any authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario, 'AADServicePrincipal' for Server-To-Server authentication in online scenario, 'Active Directory' for Dynamics on-premises with IFD. Type: string (or Expression with resultType string).
         :param Any deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -31064,6 +31261,7 @@ class DynamicsSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Dynamics sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'DynamicsSink'.
         :param _builtins.str write_behavior: The write behavior for the operation.
@@ -31239,6 +31437,7 @@ class DynamicsSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Dynamics source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'DynamicsSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -31366,6 +31565,7 @@ class EloquaLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Eloqua server linked service.
+
         :param Any endpoint: The endpoint of the Eloqua server. (i.e. eloqua.example.com)
         :param _builtins.str type: Type of linked service.
                Expected value is 'Eloqua'.
@@ -31547,6 +31747,7 @@ class EloquaObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Eloqua server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'EloquaObject'.
@@ -31692,6 +31893,7 @@ class EloquaSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Eloqua server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'EloquaSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -31817,6 +32019,7 @@ class EncryptionConfigurationResponse(dict):
                  key_version: Optional[_builtins.str] = None):
         """
         Definition of CMK for the factory.
+
         :param _builtins.str key_name: The name of the key in Azure Key Vault to use as Customer Managed Key.
         :param _builtins.str vault_base_url: The url of the Azure Key Vault used for CMK.
         :param 'CMKIdentityDefinitionResponse' identity: User assigned identity to use to authenticate to customer's key vault. If not provided Managed Service Identity will be used.
@@ -31889,6 +32092,7 @@ class EntityReferenceResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         The entity reference.
+
         :param _builtins.str reference_name: The name of this referenced entity.
         :param _builtins.str type: The type of this referenced entity.
         """
@@ -31944,6 +32148,7 @@ class EnvironmentVariableSetupResponse(dict):
                  variable_value: _builtins.str):
         """
         The custom setup of setting environment variable.
+
         :param _builtins.str type: The type of custom setup.
                Expected value is 'EnvironmentVariableSetup'.
         :param _builtins.str variable_name: The name of the environment variable.
@@ -32027,6 +32232,7 @@ class ExcelDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Excel dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the excel storage.
         :param _builtins.str type: Type of dataset.
@@ -32236,6 +32442,7 @@ class ExcelSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity excel source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ExcelSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -32380,6 +32587,7 @@ class ExecuteDataFlowActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute data flow activity.
+
         :param 'DataFlowReferenceResponse' data_flow: Data flow reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -32609,6 +32817,7 @@ class ExecuteDataFlowActivityTypePropertiesResponseCompute(dict):
                  core_count: Optional[Any] = None):
         """
         Compute properties for data flow activity.
+
         :param Any compute_type: Compute type of the cluster which will execute data flow job. Possible values include: 'General', 'MemoryOptimized', 'ComputeOptimized'. Type: string (or Expression with resultType string)
         :param Any core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272. Type: integer (or Expression with resultType integer)
         """
@@ -32660,6 +32869,7 @@ class ExecutePipelineActivityPolicyResponse(dict):
                  secure_input: Optional[_builtins.bool] = None):
         """
         Execution policy for an execute pipeline activity.
+
         :param _builtins.bool secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
         """
         if secure_input is not None:
@@ -32716,6 +32926,7 @@ class ExecutePipelineActivityResponse(dict):
                  wait_on_completion: Optional[_builtins.bool] = None):
         """
         Execute pipeline activity.
+
         :param _builtins.str name: Activity name.
         :param 'PipelineReferenceResponse' pipeline: Pipeline reference.
         :param _builtins.str type: Type of activity.
@@ -32913,6 +33124,7 @@ class ExecuteSSISPackageActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute SSIS package activity.
+
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param _builtins.str name: Activity name.
         :param 'SSISPackageLocationResponse' package_location: SSIS package location.
@@ -33207,6 +33419,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute power query activity.
+
         :param 'DataFlowReferenceResponse' data_flow: Data flow reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -33458,6 +33671,7 @@ class ExecutionActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Base class for all execution activities.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'Execution'.
@@ -33570,6 +33784,7 @@ class ExpressionResponse(dict):
                  value: _builtins.str):
         """
         Azure Data Factory expression definition.
+
         :param _builtins.str type: Expression type.
         :param _builtins.str value: Expression value.
         """
@@ -33605,6 +33820,7 @@ class ExpressionV2Response(dict):
                  value: Optional[Any] = None):
         """
         Nested representation of a complex expression.
+
         :param Sequence['ExpressionV2Response'] operands: List of nested expressions.
         :param Sequence[_builtins.str] operators: Expression operator value Type: list of strings.
         :param _builtins.str type: Type of expressions supported by the system. Type: string.
@@ -33703,6 +33919,7 @@ class FactoryGitHubConfigurationResponse(dict):
                  last_commit_id: Optional[_builtins.str] = None):
         """
         Factory's GitHub repo information.
+
         :param _builtins.str account_name: Account name.
         :param _builtins.str collaboration_branch: Collaboration branch.
         :param _builtins.str repository_name: Repository name.
@@ -33846,6 +34063,7 @@ class FactoryIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, Any]] = None):
         """
         Identity properties of the factory resource.
+
         :param _builtins.str principal_id: The principal id of the identity.
         :param _builtins.str tenant_id: The client tenant id of the identity.
         :param _builtins.str type: The identity type.
@@ -33938,6 +34156,7 @@ class FactoryVSTSConfigurationResponse(dict):
                  tenant_id: Optional[_builtins.str] = None):
         """
         Factory's VSTS repo information.
+
         :param _builtins.str account_name: Account name.
         :param _builtins.str collaboration_branch: Collaboration branch.
         :param _builtins.str project_name: VSTS project name.
@@ -34076,6 +34295,7 @@ class FailActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it.
+
         :param Any error_code: The error code that categorizes the error type of the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
         :param Any message: The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated to a non empty/blank string at runtime. Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
@@ -34215,6 +34435,7 @@ class FileServerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         File system linked service.
+
         :param Any host: Host name of the server. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'FileServer'.
@@ -34358,6 +34579,7 @@ class FileServerLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of file server dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'FileServerLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -34453,6 +34675,7 @@ class FileServerReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         File server read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'FileServerReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -34634,6 +34857,7 @@ class FileServerWriteSettingsResponse(dict):
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         File server write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'FileServerWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
@@ -34743,6 +34967,7 @@ class FileShareDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         An on-premises file system dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'FileShare'.
@@ -34956,6 +35181,7 @@ class FileSystemSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity file system sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'FileSystemSink'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
@@ -35088,6 +35314,7 @@ class FileSystemSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity file system source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'FileSystemSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -35207,6 +35434,7 @@ class FilterActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Filter and return results from input array based on the conditions.
+
         :param 'ExpressionResponse' condition: Condition to be used for filtering the input.
         :param 'ExpressionResponse' items: Input array on which filter should be applied.
         :param _builtins.str name: Activity name.
@@ -35341,6 +35569,7 @@ class FlowletResponse(dict):
                  transformations: Optional[Sequence['outputs.TransformationResponse']] = None):
         """
         Data flow flowlet
+
         :param _builtins.str type: Type of data flow.
                Expected value is 'Flowlet'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
@@ -35488,6 +35717,7 @@ class ForEachActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
+
         :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
         :param 'ExpressionResponse' items: Collection to iterate.
         :param _builtins.str name: Activity name.
@@ -35665,6 +35895,7 @@ class FtpReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Ftp read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'FtpReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -35850,6 +36081,7 @@ class FtpServerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         A FTP server Linked Service.
+
         :param Any host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'FtpServer'.
@@ -36037,6 +36269,7 @@ class FtpServerLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of ftp server dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'FtpServerLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -36124,6 +36357,7 @@ class GetMetadataActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Activity to get metadata of dataset
+
         :param 'DatasetReferenceResponse' dataset: GetMetadata activity dataset reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -36298,6 +36532,7 @@ class GitHubClientSecretResponse(dict):
                  byoa_secret_name: Optional[_builtins.str] = None):
         """
         Client secret information for factory's bring your own app repository configuration.
+
         :param _builtins.str byoa_secret_akv_url: Bring your own app client secret AKV URL.
         :param _builtins.str byoa_secret_name: Bring your own app client secret name in AKV.
         """
@@ -36333,6 +36568,7 @@ class GlobalParameterSpecificationResponse(dict):
                  value: Any):
         """
         Definition of a single parameter for an entity.
+
         :param _builtins.str type: Global Parameter type.
         :param Any value: Value of parameter.
         """
@@ -36433,6 +36669,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Google AdWords service linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'GoogleAdWords'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -36715,6 +36952,7 @@ class GoogleAdWordsObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Google AdWords service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'GoogleAdWordsObject'.
@@ -36860,6 +37098,7 @@ class GoogleAdWordsSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Google AdWords service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'GoogleAdWordsSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -37015,6 +37254,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Google BigQuery service linked service.
+
         :param _builtins.str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         :param Any project: The default BigQuery project to query against. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -37253,6 +37493,7 @@ class GoogleBigQueryObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Google BigQuery service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'GoogleBigQueryObject'.
@@ -37420,6 +37661,7 @@ class GoogleBigQuerySourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Google BigQuery service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'GoogleBigQuerySource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -37564,6 +37806,7 @@ class GoogleBigQueryV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Google BigQuery service linked service.
+
         :param _builtins.str authentication_type: The OAuth 2.0 authentication mechanism used for authentication.
         :param Any project_id: The default BigQuery project id to query against. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -37744,6 +37987,7 @@ class GoogleBigQueryV2ObjectDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         Google BigQuery service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'GoogleBigQueryV2Object'.
@@ -37900,6 +38144,7 @@ class GoogleBigQueryV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Google BigQuery service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'GoogleBigQueryV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -38035,6 +38280,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Google Cloud Storage.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'GoogleCloudStorage'.
         :param Any access_key_id: The access key identifier of the Google Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -38183,6 +38429,7 @@ class GoogleCloudStorageLocationResponse(dict):
                  version: Optional[Any] = None):
         """
         The location of Google Cloud Storage dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'GoogleCloudStorageLocation'.
         :param Any bucket_name: Specify the bucketName of Google Cloud Storage. Type: string (or Expression with resultType string)
@@ -38298,6 +38545,7 @@ class GoogleCloudStorageReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Google Cloud Storage read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'GoogleCloudStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -38482,6 +38730,7 @@ class GoogleSheetsLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for GoogleSheets.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the GoogleSheets source.
         :param _builtins.str type: Type of linked service.
                Expected value is 'GoogleSheets'.
@@ -38627,6 +38876,7 @@ class GreenplumLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Greenplum Database linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Greenplum'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -38861,6 +39111,7 @@ class GreenplumSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Greenplum Database source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'GreenplumSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -38990,6 +39241,7 @@ class GreenplumTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Greenplum Database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'GreenplumTable'.
@@ -39159,6 +39411,7 @@ class HBaseLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         HBase server linked service.
+
         :param _builtins.str authentication_type: The authentication mechanism to use to connect to the HBase server.
         :param Any host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         :param _builtins.str type: Type of linked service.
@@ -39384,6 +39637,7 @@ class HBaseObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         HBase server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'HBaseObject'.
@@ -39529,6 +39783,7 @@ class HBaseSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity HBase server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'HBaseSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -39679,6 +39934,7 @@ class HDInsightHiveActivityResponse(dict):
                  variables: Optional[Mapping[str, Any]] = None):
         """
         HDInsight Hive activity type.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'HDInsightHive'.
@@ -39926,6 +40182,7 @@ class HDInsightLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         HDInsight linked service.
+
         :param Any cluster_uri: HDInsight cluster URI. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'HDInsight'.
@@ -40165,6 +40422,7 @@ class HDInsightMapReduceActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         HDInsight MapReduce activity type.
+
         :param Any class_name: Class name. Type: string (or Expression with resultType string).
         :param Any jar_file_path: Jar path. Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
@@ -40482,6 +40740,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  zookeeper_node_size: Optional[Any] = None):
         """
         HDInsight ondemand linked service.
+
         :param Any cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
         :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         :param Any host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
@@ -40973,6 +41232,7 @@ class HDInsightPigActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         HDInsight Pig activity type.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'HDInsightPig'.
@@ -41203,6 +41463,7 @@ class HDInsightSparkActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         HDInsight Spark activity.
+
         :param Any entry_file_path: The relative path to the root folder of the code/package to be executed. Type: string (or Expression with resultType string).
         :param _builtins.str name: Activity name.
         :param Any root_path: The root path in 'sparkJobLinkedService' for all the job’s files. Type: string (or Expression with resultType string).
@@ -41453,6 +41714,7 @@ class HDInsightStreamingActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         HDInsight streaming activity type.
+
         :param Sequence[Any] file_paths: Paths to streaming job files. Can be directories.
         :param Any input: Input blob path. Type: string (or Expression with resultType string).
         :param Any mapper: Mapper executable name. Type: string (or Expression with resultType string).
@@ -41724,6 +41986,7 @@ class HdfsLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Hadoop Distributed File System (HDFS) linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Hdfs'.
         :param Any url: The URL of the HDFS service endpoint, e.g. http://myhostname:50070/webhdfs/v1 . Type: string (or Expression with resultType string).
@@ -41878,6 +42141,7 @@ class HdfsLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of HDFS.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'HdfsLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -41973,6 +42237,7 @@ class HdfsReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         HDFS read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'HdfsReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -42160,6 +42425,7 @@ class HdfsSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity HDFS source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'HdfsSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -42318,6 +42584,7 @@ class HiveLinkedServiceResponse(dict):
                  zoo_keeper_name_space: Optional[Any] = None):
         """
         Hive Server linked service.
+
         :param _builtins.str authentication_type: The authentication method used to access the Hive server.
         :param Any host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         :param _builtins.str type: Type of linked service.
@@ -42621,6 +42888,7 @@ class HiveObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Hive Server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'HiveObject'.
@@ -42777,6 +43045,7 @@ class HiveSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Hive Server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'HiveSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -42916,6 +43185,7 @@ class HttpDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         A file in an HTTP web server.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'HttpFile'.
@@ -43131,6 +43401,7 @@ class HttpLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for an HTTP source.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'HttpServer'.
         :param Any url: The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
@@ -43344,6 +43615,7 @@ class HttpReadSettingsResponse(dict):
                  request_timeout: Optional[Any] = None):
         """
         Http read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'HttpReadSettings'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -43469,6 +43741,7 @@ class HttpServerLocationResponse(dict):
                  relative_url: Optional[Any] = None):
         """
         The location of http server.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'HttpServerLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -43556,6 +43829,7 @@ class HttpSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for an HTTP file.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'HttpSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -43681,6 +43955,7 @@ class HubspotLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Hubspot Service linked service.
+
         :param Any client_id: The client ID associated with your Hubspot application.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Hubspot'.
@@ -43874,6 +44149,7 @@ class HubspotObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Hubspot Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'HubspotObject'.
@@ -44019,6 +44295,7 @@ class HubspotSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Hubspot Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'HubspotSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -44145,6 +44422,7 @@ class IcebergDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Iceberg dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the iceberg storage. Setting a file name is not allowed for iceberg format.
         :param _builtins.str type: Type of dataset.
@@ -44294,6 +44572,7 @@ class IcebergSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Iceberg sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'IcebergSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -44406,6 +44685,7 @@ class IcebergWriteSettingsResponse(dict):
                  type: _builtins.str):
         """
         Iceberg write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'IcebergWriteSettings'.
         """
@@ -44464,6 +44744,7 @@ class IfConditionActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
+
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. This is used to determine the block of activities (ifTrueActivities or ifFalseActivities) that will be executed.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -44638,6 +44919,7 @@ class ImpalaLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Impala server linked service.
+
         :param _builtins.str authentication_type: The authentication type to use.
         :param Any host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         :param _builtins.str type: Type of linked service.
@@ -44886,6 +45168,7 @@ class ImpalaObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Impala server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ImpalaObject'.
@@ -45042,6 +45325,7 @@ class ImpalaSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Impala server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ImpalaSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -45179,6 +45463,7 @@ class InformixLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Informix linked service.
+
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Informix'.
@@ -45359,6 +45644,7 @@ class InformixSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Informix sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'InformixSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -45494,6 +45780,7 @@ class InformixSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for Informix.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'InformixSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -45622,6 +45909,7 @@ class InformixTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Informix table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'InformixTable'.
@@ -45769,6 +46057,7 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
+
         :param 'CopyComputeScalePropertiesResponse' copy_compute_scale_properties: CopyComputeScale properties for managed integration runtime.
         :param 'IntegrationRuntimeDataFlowPropertiesResponse' data_flow_properties: Data flow properties for managed integration runtime.
         :param _builtins.str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
@@ -45889,6 +46178,7 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
                  sas_token: Optional['outputs.SecureStringResponse'] = None):
         """
         Custom setup script properties for a managed dedicated integration runtime.
+
         :param _builtins.str blob_container_uri: The URI of the Azure blob container that contains the custom setup script.
         :param 'SecureStringResponse' sas_token: The SAS token of the Azure blob container.
         """
@@ -45940,6 +46230,7 @@ class IntegrationRuntimeCustomerVirtualNetworkResponse(dict):
                  subnet_id: Optional[_builtins.str] = None):
         """
         The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+
         :param _builtins.str subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
         """
         if subnet_id is not None:
@@ -45990,6 +46281,7 @@ class IntegrationRuntimeDataFlowPropertiesResponse(dict):
                  time_to_live: Optional[_builtins.int] = None):
         """
         Data flow properties for managed integration runtime.
+
         :param _builtins.bool cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param _builtins.str compute_type: Compute type of the cluster which will execute data flow job.
         :param _builtins.int core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
@@ -46109,6 +46401,7 @@ class IntegrationRuntimeDataProxyPropertiesResponse(dict):
                  staging_linked_service: Optional['outputs.EntityReferenceResponse'] = None):
         """
         Data proxy properties for a managed dedicated integration runtime.
+
         :param 'EntityReferenceResponse' connect_via: The self-hosted integration runtime reference.
         :param _builtins.str path: The path to contain the staged data in the Blob storage.
         :param 'EntityReferenceResponse' staging_linked_service: The staging linked service reference.
@@ -46173,6 +46466,7 @@ class IntegrationRuntimeReferenceResponse(dict):
                  parameters: Optional[Mapping[str, Any]] = None):
         """
         Integration runtime reference type.
+
         :param _builtins.str reference_name: Reference integration runtime name.
         :param _builtins.str type: Type of integration runtime.
         :param Mapping[str, Any] parameters: Arguments for integration runtime.
@@ -46245,6 +46539,7 @@ class IntegrationRuntimeSsisCatalogInfoResponse(dict):
                  dual_standby_pair_name: Optional[_builtins.str] = None):
         """
         Catalog information for managed dedicated integration runtime.
+
         :param 'SecureStringResponse' catalog_admin_password: The password of the administrator user account of the catalog database.
         :param _builtins.str catalog_admin_user_name: The administrator user name of catalog database.
         :param _builtins.str catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
@@ -46346,6 +46641,7 @@ class IntegrationRuntimeSsisPropertiesResponse(dict):
                  package_stores: Optional[Sequence['outputs.PackageStoreResponse']] = None):
         """
         SSIS properties for managed integration runtime.
+
         :param 'IntegrationRuntimeSsisCatalogInfoResponse' catalog_info: Catalog information for managed dedicated integration runtime.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param 'IntegrationRuntimeCustomSetupScriptPropertiesResponse' custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
@@ -46470,6 +46766,7 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
                  v_net_id: Optional[_builtins.str] = None):
         """
         VNet properties for managed integration runtime.
+
         :param Sequence[_builtins.str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param _builtins.str subnet: The name of the subnet this integration runtime will join.
         :param _builtins.str subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
@@ -46544,6 +46841,7 @@ class InteractiveQueryPropertiesResponse(dict):
                  status: _builtins.str):
         """
         Interactive authoring capability type properties.
+
         :param _builtins.int auto_termination_minutes: The allowed idle time for interactive authoring.
         :param _builtins.str status: The interactive authoring capability status. Must be one of InteractiveCapabilityStatus. The default value is 'Enabling'.
         """
@@ -46614,6 +46912,7 @@ class JiraLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Jira Service linked service.
+
         :param Any host: The IP address or host name of the Jira service. (e.g. jira.example.com)
         :param _builtins.str type: Type of linked service.
                Expected value is 'Jira'.
@@ -46807,6 +47106,7 @@ class JiraObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Jira Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'JiraObject'.
@@ -46963,6 +47263,7 @@ class JiraSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Jira Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'JiraSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -47093,6 +47394,7 @@ class JsonDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Json dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
         :param _builtins.str type: Type of dataset.
@@ -47257,6 +47559,7 @@ class JsonFormatResponse(dict):
                  serializer: Optional[Any] = None):
         """
         The data stored in JSON format.
+
         :param _builtins.str type: Type of dataset storage format.
                Expected value is 'JsonFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
@@ -47376,6 +47679,7 @@ class JsonReadSettingsResponse(dict):
                  compression_properties: Optional[Any] = None):
         """
         Json read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'JsonReadSettings'.
         :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
@@ -47450,6 +47754,7 @@ class JsonSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Json sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'JsonSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -47598,6 +47903,7 @@ class JsonSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity Json source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'JsonSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -47717,6 +48023,7 @@ class JsonWriteSettingsResponse(dict):
                  file_pattern: Optional[Any] = None):
         """
         Json write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'JsonWriteSettings'.
         :param Any file_pattern: File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
@@ -47800,6 +48107,7 @@ class LakeHouseLinkedServiceResponse(dict):
                  workspace_id: Optional[Any] = None):
         """
         Microsoft Fabric Lakehouse linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Lakehouse'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -48010,6 +48318,7 @@ class LakeHouseLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of Microsoft Fabric Lakehouse Files dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'LakeHouseLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -48102,6 +48411,7 @@ class LakeHouseReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Microsoft Fabric Lakehouse Files read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'LakeHouseReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -48272,6 +48582,7 @@ class LakeHouseTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         Microsoft Fabric Lakehouse Table.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'LakehouseTable'.
@@ -48425,6 +48736,7 @@ class LakeHouseTableSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity for Microsoft Fabric Lakehouse Table sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'LakeHouseTableSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -48584,6 +48896,7 @@ class LakeHouseTableSourceResponse(dict):
                  version_as_of: Optional[Any] = None):
         """
         A copy activity source for Microsoft Fabric Lakehouse Table.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'LakeHouseTableSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -48710,6 +49023,7 @@ class LakeHouseWriteSettingsResponse(dict):
                  metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Microsoft Fabric Lakehouse Files write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'LakeHouseWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
@@ -48796,6 +49110,7 @@ class LinkedIntegrationRuntimeKeyAuthorizationResponse(dict):
                  key: 'outputs.SecureStringResponse'):
         """
         The key authorization type integration runtime.
+
         :param _builtins.str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'Key'.
         :param 'SecureStringResponse' key: The key used for authorization.
@@ -48851,6 +49166,7 @@ class LinkedIntegrationRuntimeRbacAuthorizationResponse(dict):
                  credential: Optional['outputs.CredentialReferenceResponse'] = None):
         """
         The role based access control (RBAC) authorization type integration runtime.
+
         :param _builtins.str authorization_type: The authorization type for integration runtime sharing.
                Expected value is 'RBAC'.
         :param _builtins.str resource_id: The resource identifier of the integration runtime to be shared.
@@ -48900,6 +49216,7 @@ class LinkedIntegrationRuntimeResponse(dict):
                  subscription_id: _builtins.str):
         """
         The linked integration runtime information.
+
         :param _builtins.str create_time: The creating time of the linked integration runtime.
         :param _builtins.str data_factory_location: The location of the data factory for which the linked integration runtime belong to.
         :param _builtins.str data_factory_name: The name of the data factory for which the linked integration runtime belong to.
@@ -48981,6 +49298,7 @@ class LinkedServiceReferenceResponse(dict):
                  parameters: Optional[Mapping[str, Any]] = None):
         """
         Linked service reference type.
+
         :param _builtins.str reference_name: Reference LinkedService name.
         :param _builtins.str type: Linked service reference type.
         :param Mapping[str, Any] parameters: Arguments for LinkedService.
@@ -49042,6 +49360,7 @@ class LogLocationSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         Log location settings.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Log storage linked service reference.
         :param Any path: The path to storage for storing detailed logs of activity execution. Type: string (or Expression with resultType string).
         """
@@ -49098,6 +49417,7 @@ class LogSettingsResponse(dict):
                  enable_copy_activity_log: Optional[Any] = None):
         """
         Log settings.
+
         :param 'LogLocationSettingsResponse' log_location_settings: Log location settings customer needs to provide when enabling log.
         :param 'CopyActivityLogSettingsResponse' copy_activity_log_settings: Specifies settings for copy activity log.
         :param Any enable_copy_activity_log: Specifies whether to enable copy activity log. Type: boolean (or Expression with resultType boolean).
@@ -49166,6 +49486,7 @@ class LogStorageSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         (Deprecated. Please use LogSettings) Log storage settings.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Log storage linked service reference.
         :param Any enable_reliable_logging: Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
         :param Any log_level: Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
@@ -49260,6 +49581,7 @@ class LookupActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Lookup activity.
+
         :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param _builtins.str name: Activity name.
         :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GoogleBigQueryV2SourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PostgreSqlV2SourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'ServiceNowV2SourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SnowflakeV2SourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
@@ -49451,6 +49773,7 @@ class MagentoLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Magento server linked service.
+
         :param Any host: The URL of the Magento instance. (i.e. 192.168.222.110/magento3)
         :param _builtins.str type: Type of linked service.
                Expected value is 'Magento'.
@@ -49622,6 +49945,7 @@ class MagentoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Magento server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'MagentoObject'.
@@ -49767,6 +50091,7 @@ class MagentoSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Magento server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MagentoSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -49888,6 +50213,7 @@ class ManagedIdentityCredentialResponse(dict):
                  resource_id: Optional[_builtins.str] = None):
         """
         Managed identity credential.
+
         :param _builtins.str type: Type of credential.
                Expected value is 'ManagedIdentity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
@@ -49948,6 +50274,7 @@ class ManagedIntegrationRuntimeErrorResponse(dict):
                  time: _builtins.str):
         """
         Error definition for managed integration runtime.
+
         :param _builtins.str code: Error code.
         :param _builtins.str message: Error message.
         :param Sequence[_builtins.str] parameters: Managed integration runtime error parameters.
@@ -50002,6 +50329,7 @@ class ManagedIntegrationRuntimeNodeResponse(dict):
                  errors: Optional[Sequence['outputs.ManagedIntegrationRuntimeErrorResponse']] = None):
         """
         Properties of integration runtime node.
+
         :param _builtins.str node_id: The managed integration runtime node id.
         :param _builtins.str status: The managed integration runtime node status.
         :param Sequence['ManagedIntegrationRuntimeErrorResponse'] errors: The errors that occurred on this integration runtime node.
@@ -50050,6 +50378,7 @@ class ManagedIntegrationRuntimeOperationResultResponse(dict):
                  type: _builtins.str):
         """
         Properties of managed integration runtime operation result.
+
         :param _builtins.str activity_id: The activity id for the operation request.
         :param _builtins.str error_code: The error code.
         :param Sequence[_builtins.str] parameters: Managed integration runtime error parameters.
@@ -50154,6 +50483,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
+
         :param _builtins.str state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param _builtins.str type: The type of integration runtime.
                Expected value is 'Managed'.
@@ -50260,6 +50590,7 @@ class ManagedIntegrationRuntimeStatusResponse(dict):
                  type: _builtins.str):
         """
         Managed integration runtime status.
+
         :param _builtins.str create_time: The time at which the integration runtime was created, in ISO8601 format.
         :param _builtins.str data_factory_name: The data factory name which the integration runtime belong to.
         :param 'ManagedIntegrationRuntimeOperationResultResponse' last_operation: The last operation result that occurred on this integration runtime.
@@ -50374,6 +50705,7 @@ class ManagedPrivateEndpointResponse(dict):
                  private_link_resource_id: Optional[_builtins.str] = None):
         """
         Properties of a managed private endpoint
+
         :param _builtins.bool is_reserved: Denotes whether the managed private endpoint is reserved
         :param _builtins.str provisioning_state: The managed private endpoint provisioning state
         :param 'ConnectionStatePropertiesResponse' connection_state: The managed private endpoint connection state
@@ -50468,6 +50800,7 @@ class ManagedVirtualNetworkReferenceResponse(dict):
                  type: _builtins.str):
         """
         Managed Virtual Network reference type.
+
         :param _builtins.str reference_name: Reference ManagedVirtualNetwork name.
         :param _builtins.str type: Managed Virtual Network reference type.
         """
@@ -50526,6 +50859,7 @@ class MapperAttributeMappingResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Source and target column mapping details.
+
         :param 'MapperAttributeReferenceResponse' attribute_reference: Reference of the source column used in the mapping. It is used for 'Direct' mapping type only.
         :param Sequence['MapperAttributeReferenceResponse'] attribute_references: List of references for source columns. It is used for 'Derived' and 'Aggregate' type mappings only.
         :param _builtins.str expression: Expression used for 'Aggregate' and 'Derived' type mapping.
@@ -50621,6 +50955,7 @@ class MapperAttributeMappingsResponse(dict):
                  attribute_mappings: Optional[Sequence['outputs.MapperAttributeMappingResponse']] = None):
         """
         Attribute mapping details.
+
         :param Sequence['MapperAttributeMappingResponse'] attribute_mappings: List of attribute mappings.
         """
         if attribute_mappings is not None:
@@ -50663,6 +50998,7 @@ class MapperAttributeReferenceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Attribute reference details for the referred column.
+
         :param _builtins.str entity: Name of the table.
         :param 'MapperConnectionReferenceResponse' entity_connection_reference: The connection reference for the connection.
         :param _builtins.str name: Name of the column.
@@ -50726,6 +51062,7 @@ class MapperConnectionReferenceResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         Source or target connection reference details.
+
         :param _builtins.str connection_name: Name of the connection
         :param _builtins.str type: Type of connection via linked service or dataset.
         """
@@ -50787,6 +51124,7 @@ class MapperConnectionResponse(dict):
                  linked_service_type: Optional[_builtins.str] = None):
         """
         Source connection details.
+
         :param _builtins.str type: Type of connection via linked service or dataset.
         :param Sequence['MapperDslConnectorPropertiesResponse'] common_dsl_connector_properties: List of name/value pairs for connection properties.
         :param _builtins.bool is_inline_dataset: A boolean indicating whether linked service is of type inline dataset. Currently only inline datasets are supported.
@@ -50854,6 +51192,7 @@ class MapperDslConnectorPropertiesResponse(dict):
                  value: Optional[Any] = None):
         """
         Connector properties of a CDC table in terms of name / value pairs.
+
         :param _builtins.str name: Name of the property.
         :param Any value: Value of the property.
         """
@@ -50889,6 +51228,7 @@ class MapperPolicyRecurrenceResponse(dict):
                  interval: Optional[_builtins.int] = None):
         """
         CDC policy recurrence details.
+
         :param _builtins.str frequency: Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
         :param _builtins.int interval: Actual interval value as per chosen frequency.
         """
@@ -50924,6 +51264,7 @@ class MapperPolicyResponse(dict):
                  recurrence: Optional['outputs.MapperPolicyRecurrenceResponse'] = None):
         """
         CDC Policy.
+
         :param _builtins.str mode: Mode of running the CDC: batch vs continuous.
         :param 'MapperPolicyRecurrenceResponse' recurrence: Defines the frequency and interval for running the CDC for batch mode.
         """
@@ -50976,6 +51317,7 @@ class MapperSourceConnectionsInfoResponse(dict):
                  source_entities: Optional[Sequence['outputs.MapperTableResponse']] = None):
         """
         A object which contains list of tables and connection details for a source connection.
+
         :param 'MapperConnectionResponse' connection: Source connection details.
         :param Sequence['MapperTableResponse'] source_entities: List of source tables for a source connection.
         """
@@ -51029,6 +51371,7 @@ class MapperTableResponse(dict):
                  schema: Optional[Sequence['outputs.MapperTableSchemaResponse']] = None):
         """
         CDC table details.
+
         :param Sequence['MapperDslConnectorPropertiesResponse'] dsl_connector_properties: List of name/value pairs for connection properties.
         :param _builtins.str name: Name of the table.
         :param Sequence['MapperTableSchemaResponse'] schema: List of columns for the source table.
@@ -51092,6 +51435,7 @@ class MapperTableSchemaResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Schema of a CDC table in terms of column names and their corresponding data types.
+
         :param _builtins.str data_type: Data type of the column.
         :param _builtins.str name: Name of the column.
         """
@@ -51148,6 +51492,7 @@ class MapperTargetConnectionsInfoResponse(dict):
                  target_entities: Optional[Sequence['outputs.MapperTableResponse']] = None):
         """
         A object which contains list of tables and connection details for a target connection.
+
         :param 'MapperConnectionResponse' connection: Source connection details.
         :param Sequence['DataMapperMappingResponse'] data_mapper_mappings: List of table mappings.
         :param Sequence[Any] relationships: List of relationship info among the tables.
@@ -51229,6 +51574,7 @@ class MappingDataFlowResponse(dict):
                  transformations: Optional[Sequence['outputs.TransformationResponse']] = None):
         """
         Mapping data flow.
+
         :param _builtins.str type: Type of data flow.
                Expected value is 'MappingDataFlow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
@@ -51383,6 +51729,7 @@ class MariaDBLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         MariaDB server linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'MariaDB'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -51606,6 +51953,7 @@ class MariaDBSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity MariaDB server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MariaDBSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -51734,6 +52082,7 @@ class MariaDBTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         MariaDB server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'MariaDBTable'.
@@ -51886,6 +52235,7 @@ class MarketoLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Marketo server linked service.
+
         :param Any client_id: The client Id of your Marketo service.
         :param Any endpoint: The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)
         :param _builtins.str type: Type of linked service.
@@ -52067,6 +52417,7 @@ class MarketoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Marketo server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'MarketoObject'.
@@ -52212,6 +52563,7 @@ class MarketoSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Marketo server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MarketoSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -52314,6 +52666,7 @@ class MetadataItemResponse(dict):
                  value: Optional[Any] = None):
         """
         Specify the name and value of custom metadata item.
+
         :param Any name: Metadata item key name. Type: string (or Expression with resultType string).
         :param Any value: Metadata item value. Type: string (or Expression with resultType string).
         """
@@ -52384,6 +52737,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Microsoft Access linked service.
+
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         :param _builtins.str type: Type of linked service.
                Expected value is 'MicrosoftAccess'.
@@ -52564,6 +52918,7 @@ class MicrosoftAccessSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Microsoft Access sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'MicrosoftAccessSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -52696,6 +53051,7 @@ class MicrosoftAccessSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for Microsoft Access.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MicrosoftAccessSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -52813,6 +53169,7 @@ class MicrosoftAccessTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Microsoft Access table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'MicrosoftAccessTable'.
@@ -52949,6 +53306,7 @@ class MongoDbAtlasCollectionDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The MongoDB Atlas database dataset.
+
         :param Any collection: The collection name of the MongoDB Atlas database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -53088,6 +53446,7 @@ class MongoDbAtlasLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for MongoDB Atlas data source.
+
         :param Any connection_string: The MongoDB Atlas connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: The name of the MongoDB Atlas database that you want to access. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -53234,6 +53593,7 @@ class MongoDbAtlasSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity MongoDB Atlas sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'MongoDbAtlasSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -53375,6 +53735,7 @@ class MongoDbAtlasSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for a MongoDB Atlas database.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MongoDbAtlasSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -53525,6 +53886,7 @@ class MongoDbCollectionDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The MongoDB database dataset.
+
         :param Any collection_name: The table name of the MongoDB database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -53638,6 +54000,7 @@ class MongoDbCursorMethodsPropertiesResponse(dict):
                  sort: Optional[Any] = None):
         """
         Cursor methods for Mongodb query
+
         :param Any limit: Specifies the maximum number of documents the server returns. limit() is analogous to the LIMIT statement in a SQL database. Type: integer (or Expression with resultType integer).
         :param Any project: Specifies the fields to return in the documents that match the query filter. To return all fields in the matching documents, omit this parameter. Type: string (or Expression with resultType string).
         :param Any skip: Specifies the how many documents skipped and where MongoDB begins returning results. This approach may be useful in implementing paginated results. Type: integer (or Expression with resultType integer).
@@ -53738,6 +54101,7 @@ class MongoDbLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for MongoDb data source.
+
         :param Any database_name: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         :param Any server: The IP address or server name of the MongoDB server. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -53956,6 +54320,7 @@ class MongoDbSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for a MongoDB database.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MongoDbSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -54071,6 +54436,7 @@ class MongoDbV2CollectionDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The MongoDB database dataset.
+
         :param Any collection: The collection name of the MongoDB database. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -54207,6 +54573,7 @@ class MongoDbV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for MongoDB data source.
+
         :param Any connection_string: The MongoDB connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: The name of the MongoDB database that you want to access. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -54342,6 +54709,7 @@ class MongoDbV2SinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity MongoDB sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'MongoDbV2Sink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -54483,6 +54851,7 @@ class MongoDbV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for a MongoDB database.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MongoDbV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -54627,6 +54996,7 @@ class MultiplePipelineTriggerResponse(dict):
                  pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Base class for all triggers that support one to many model for trigger to pipeline.
+
         :param _builtins.str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param _builtins.str type: Trigger type.
                Expected value is 'MultiplePipelineTrigger'.
@@ -54757,6 +55127,7 @@ class MySqlLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for MySQL data source.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'MySql'.
         :param Any allow_zero_date_time: This allows the special “zero” date value 0000-00-00 to be retrieved from the database. Type: boolean.
@@ -55057,6 +55428,7 @@ class MySqlSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for MySQL databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'MySqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -55185,6 +55557,7 @@ class MySqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The MySQL table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'MySqlTable'.
@@ -55332,6 +55705,7 @@ class NetezzaLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Netezza linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Netezza'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -55522,6 +55896,7 @@ class NetezzaPartitionSettingsResponse(dict):
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for Netezza source partitioning.
+
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_upper_bound: The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -55607,6 +55982,7 @@ class NetezzaSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Netezza source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'NetezzaSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -55758,6 +56134,7 @@ class NetezzaTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Netezza dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'NetezzaTable'.
@@ -55881,6 +56258,7 @@ class NotebookParameterResponse(dict):
                  value: Optional[Any] = None):
         """
         Notebook parameter.
+
         :param _builtins.str type: Notebook parameter type.
         :param Any value: Notebook parameter value. Type: string (or Expression with resultType string).
         """
@@ -55973,6 +56351,7 @@ class ODataLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Open Data Protocol (OData) linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'OData'.
         :param Any url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
@@ -56230,6 +56609,7 @@ class ODataResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Open Data Protocol (OData) resource dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ODataResource'.
@@ -56375,6 +56755,7 @@ class ODataSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for OData source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ODataSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -56512,6 +56893,7 @@ class OdbcLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Open Database Connectivity (ODBC) linked service.
+
         :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Odbc'.
@@ -56692,6 +57074,7 @@ class OdbcSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity ODBC sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'OdbcSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -56827,6 +57210,7 @@ class OdbcSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for ODBC databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'OdbcSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -56955,6 +57339,7 @@ class OdbcTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The ODBC table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'OdbcTable'.
@@ -57094,6 +57479,7 @@ class Office365DatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Office365 account.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: Name of the dataset to extract from Office 365. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -57261,6 +57647,7 @@ class Office365LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Office365 linked service.
+
         :param Any office365_tenant_id: Azure tenant ID to which the Office 365 account belongs. Type: string (or Expression with resultType string).
         :param Any service_principal_id: Specify the application's client ID. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: Specify the application's key.
@@ -57469,6 +57856,7 @@ class Office365SourceResponse(dict):
                  user_scope_filter_uri: Optional[Any] = None):
         """
         A copy activity source for an Office 365 service.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'Office365Source'.
         :param Any allowed_groups: The groups containing all the users. Type: array of strings (or Expression with resultType array of strings).
@@ -57637,6 +58025,7 @@ class OracleCloudStorageLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Oracle Cloud Storage.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'OracleCloudStorage'.
         :param Any access_key_id: The access key identifier of the Oracle Cloud Storage Identity and Access Management (IAM) user. Type: string (or Expression with resultType string).
@@ -57785,6 +58174,7 @@ class OracleCloudStorageLocationResponse(dict):
                  version: Optional[Any] = None):
         """
         The location of Oracle Cloud Storage dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'OracleCloudStorageLocation'.
         :param Any bucket_name: Specify the bucketName of Oracle Cloud Storage. Type: string (or Expression with resultType string)
@@ -57900,6 +58290,7 @@ class OracleCloudStorageReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Oracle Cloud Storage read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'OracleCloudStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -58123,6 +58514,7 @@ class OracleLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Oracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -58415,6 +58807,7 @@ class OraclePartitionSettingsResponse(dict):
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for Oracle source partitioning.
+
         :param Any partition_column_name: The name of the column in integer type that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Sequence[Any] partition_names: Names of the physical partitions of Oracle table. 
@@ -58508,6 +58901,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Oracle Service Cloud linked service.
+
         :param Any host: The URL of the Oracle Service Cloud instance.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username key.
         :param _builtins.str type: Type of linked service.
@@ -58688,6 +59082,7 @@ class OracleServiceCloudObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Oracle Service Cloud dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'OracleServiceCloudObject'.
@@ -58833,6 +59228,7 @@ class OracleServiceCloudSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Oracle Service Cloud source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'OracleServiceCloudSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -58970,6 +59366,7 @@ class OracleSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Oracle sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'OracleSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -59119,6 +59516,7 @@ class OracleSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Oracle source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'OracleSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -59292,6 +59690,7 @@ class OracleTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The on-premises Oracle database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'OracleTable'.
@@ -59442,6 +59841,7 @@ class OrcDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         ORC dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the ORC data storage.
         :param _builtins.str type: Type of dataset.
@@ -59565,6 +59965,7 @@ class OrcFormatResponse(dict):
                  serializer: Optional[Any] = None):
         """
         The data stored in Optimized Row Columnar (ORC) format.
+
         :param _builtins.str type: Type of dataset storage format.
                Expected value is 'OrcFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
@@ -59650,6 +60051,7 @@ class OrcSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity ORC sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'OrcSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -59795,6 +60197,7 @@ class OrcSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity ORC source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'OrcSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -59906,6 +60309,7 @@ class OrcWriteSettingsResponse(dict):
                  max_rows_per_file: Optional[Any] = None):
         """
         Orc write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'OrcWriteSettings'.
         :param Any file_name_prefix: Specifies the file name pattern <fileNamePrefix>_<fileIndex>.<fileExtension> when copy from non-file based store without partitionOptions. Type: string (or Expression with resultType string).
@@ -59970,6 +60374,7 @@ class PackageStoreResponse(dict):
                  package_store_linked_service: 'outputs.EntityReferenceResponse'):
         """
         Package store for the SSIS integration runtime.
+
         :param _builtins.str name: The name of the package store
         :param 'EntityReferenceResponse' package_store_linked_service: The package store linked service reference.
         """
@@ -60020,6 +60425,7 @@ class ParameterSpecificationResponse(dict):
                  default_value: Optional[Any] = None):
         """
         Definition of a single parameter for an entity.
+
         :param _builtins.str type: Parameter type.
         :param Any default_value: Default value of parameter.
         """
@@ -60081,6 +60487,7 @@ class ParquetDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Parquet dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the parquet storage.
         :param _builtins.str type: Type of dataset.
@@ -60204,6 +60611,7 @@ class ParquetFormatResponse(dict):
                  serializer: Optional[Any] = None):
         """
         The data stored in Parquet format.
+
         :param _builtins.str type: Type of dataset storage format.
                Expected value is 'ParquetFormat'.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
@@ -60268,6 +60676,7 @@ class ParquetReadSettingsResponse(dict):
                  compression_properties: Optional[Any] = None):
         """
         Parquet read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'ParquetReadSettings'.
         :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
@@ -60342,6 +60751,7 @@ class ParquetSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Parquet sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'ParquetSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -60490,6 +60900,7 @@ class ParquetSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity Parquet source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ParquetSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -60612,6 +61023,7 @@ class ParquetWriteSettingsResponse(dict):
                  max_rows_per_file: Optional[Any] = None):
         """
         Parquet write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'ParquetWriteSettings'.
         :param Any file_name_prefix: Specifies the file name pattern <fileNamePrefix>_<fileIndex>.<fileExtension> when copy from non-file based store without partitionOptions. Type: string (or Expression with resultType string).
@@ -60699,6 +61111,7 @@ class PaypalLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Paypal Service linked service.
+
         :param Any client_id: The client ID associated with your PayPal application.
         :param Any host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param _builtins.str type: Type of linked service.
@@ -60880,6 +61293,7 @@ class PaypalObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Paypal Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'PaypalObject'.
@@ -61025,6 +61439,7 @@ class PaypalSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Paypal Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'PaypalSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -61176,6 +61591,7 @@ class PhoenixLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Phoenix server linked service.
+
         :param _builtins.str authentication_type: The authentication mechanism used to connect to the Phoenix server.
         :param Any host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         :param _builtins.str type: Type of linked service.
@@ -61413,6 +61829,7 @@ class PhoenixObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Phoenix server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'PhoenixObject'.
@@ -61569,6 +61986,7 @@ class PhoenixSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Phoenix server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'PhoenixSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -61670,6 +62088,7 @@ class PipelineElapsedTimeMetricPolicyResponse(dict):
                  duration: Optional[Any] = None):
         """
         Pipeline ElapsedTime Metric Policy.
+
         :param Any duration: TimeSpan value, after which an Azure Monitoring Metric is fired.
         """
         if duration is not None:
@@ -61716,6 +62135,7 @@ class PipelineExternalComputeScalePropertiesResponse(dict):
                  time_to_live: Optional[_builtins.int] = None):
         """
         PipelineExternalComputeScale properties for managed integration runtime.
+
         :param _builtins.int number_of_external_nodes: Number of the the external nodes, which should be greater than 0 and less than 11.
         :param _builtins.int number_of_pipeline_nodes: Number of the pipeline nodes, which should be greater than 0 and less than 11.
         :param _builtins.int time_to_live: Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
@@ -61778,6 +62198,7 @@ class PipelinePolicyResponse(dict):
                  elapsed_time_metric: Optional['outputs.PipelineElapsedTimeMetricPolicyResponse'] = None):
         """
         Pipeline Policy.
+
         :param 'PipelineElapsedTimeMetricPolicyResponse' elapsed_time_metric: Pipeline ElapsedTime Metric Policy.
         """
         if elapsed_time_metric is not None:
@@ -61820,6 +62241,7 @@ class PipelineReferenceResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Pipeline reference type.
+
         :param _builtins.str reference_name: Reference pipeline name.
         :param _builtins.str type: Pipeline reference type.
         :param _builtins.str name: Reference name.
@@ -61863,6 +62285,7 @@ class PipelineResponseFolder(dict):
                  name: Optional[_builtins.str] = None):
         """
         The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+
         :param _builtins.str name: The name of the folder that this Pipeline is in.
         """
         if name is not None:
@@ -61912,6 +62335,7 @@ class PolybaseSettingsResponse(dict):
                  use_type_default: Optional[Any] = None):
         """
         PolyBase settings.
+
         :param Any reject_sample_value: Determines the number of rows to attempt to retrieve before the PolyBase recalculates the percentage of rejected rows. Type: integer (or Expression with resultType integer), minimum: 0.
         :param _builtins.str reject_type: Reject type.
         :param Any reject_value: Specifies the value or the percentage of rows that can be rejected before the query fails. Type: number (or Expression with resultType number), minimum: 0.
@@ -61997,6 +62421,7 @@ class PostgreSqlLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for PostgreSQL data source.
+
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param _builtins.str type: Type of linked service.
                Expected value is 'PostgreSql'.
@@ -62142,6 +62567,7 @@ class PostgreSqlSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for PostgreSQL databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'PostgreSqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -62271,6 +62697,7 @@ class PostgreSqlTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The PostgreSQL table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'PostgreSqlTable'.
@@ -62457,6 +62884,7 @@ class PostgreSqlV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for PostgreSQLV2 data source.
+
         :param Any authentication_type: The authentication type to use. Type: string.
         :param Any database: Database name for connection. Type: string.
         :param Any server: Server name for connection. Type: string.
@@ -62785,6 +63213,7 @@ class PostgreSqlV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for PostgreSQL databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'PostgreSqlV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -62911,6 +63340,7 @@ class PostgreSqlV2TableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The PostgreSQLV2 table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'PostgreSqlV2Table'.
@@ -63042,6 +63472,7 @@ class PowerQuerySinkMappingResponse(dict):
                  query_name: Optional[_builtins.str] = None):
         """
         Map Power Query mashup query to sink dataset(s).
+
         :param Sequence['PowerQuerySinkResponse'] dataflow_sinks: List of sinks mapped to Power Query mashup query.
         :param _builtins.str query_name: Name of the query in Power Query mashup document.
         """
@@ -63104,6 +63535,7 @@ class PowerQuerySinkResponse(dict):
                  script: Optional[_builtins.str] = None):
         """
         Power query sink.
+
         :param _builtins.str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param _builtins.str description: Transformation description.
@@ -63228,6 +63660,7 @@ class PowerQuerySourceResponse(dict):
                  script: Optional[_builtins.str] = None):
         """
         Power query source.
+
         :param _builtins.str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param _builtins.str description: Transformation description.
@@ -63373,6 +63806,7 @@ class PrestoLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Presto server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
+
         :param _builtins.str authentication_type: The authentication mechanism used to connect to the Presto server.
         :param Any catalog: The catalog context for all request against the server.
         :param Any host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
@@ -63642,6 +64076,7 @@ class PrestoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Presto server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'PrestoObject'.
@@ -63798,6 +64233,7 @@ class PrestoSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Presto server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'PrestoSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -63918,6 +64354,7 @@ class PrivateLinkConnectionStateResponse(dict):
                  status: Optional[_builtins.str] = None):
         """
         The state of a private link connection
+
         :param _builtins.str actions_required: ActionsRequired for a private link connection
         :param _builtins.str description: Description of a private link connection
         :param _builtins.str status: Status of a private link connection
@@ -63980,6 +64417,7 @@ class PurviewConfigurationResponse(dict):
                  purview_resource_id: Optional[_builtins.str] = None):
         """
         Purview configuration.
+
         :param _builtins.str purview_resource_id: Purview resource id.
         """
         if purview_resource_id is not None:
@@ -64053,6 +64491,7 @@ class QuickBooksLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         QuickBooks server linked service. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'QuickBooks'.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for OAuth 2.0 authentication.
@@ -64269,6 +64708,7 @@ class QuickBooksObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         QuickBooks server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'QuickBooksObject'.
@@ -64414,6 +64854,7 @@ class QuickBooksSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity QuickBooks server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'QuickBooksSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -64544,6 +64985,7 @@ class QuickbaseLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Quickbase.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Quickbase'.
         :param Any url: The url to connect Quickbase source. Type: string (or Expression with resultType string).
@@ -64655,6 +65097,7 @@ class RecurrenceScheduleOccurrenceResponse(dict):
                  occurrence: Optional[_builtins.int] = None):
         """
         The recurrence schedule occurrence.
+
         :param _builtins.str day: The day of the week.
         :param _builtins.int occurrence: The occurrence.
         """
@@ -64714,6 +65157,7 @@ class RecurrenceScheduleResponse(dict):
                  week_days: Optional[Sequence[_builtins.str]] = None):
         """
         The recurrence schedule.
+
         :param Sequence[_builtins.int] hours: The hours.
         :param Sequence[_builtins.int] minutes: The minutes.
         :param Sequence[_builtins.int] month_days: The month days.
@@ -64799,6 +65243,7 @@ class RedirectIncompatibleRowSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         Redirect incompatible row settings
+
         :param Any linked_service_name: Name of the Azure Storage, Storage SAS, or Azure Data Lake Store linked service used for redirecting incompatible row. Must be specified if redirectIncompatibleRowSettings is specified. Type: string (or Expression with resultType string).
         :param Any path: The path for storing the redirect incompatible row data. Type: string (or Expression with resultType string).
         """
@@ -64852,6 +65297,7 @@ class RedshiftUnloadSettingsResponse(dict):
                  s3_linked_service_name: 'outputs.LinkedServiceReferenceResponse'):
         """
         The Amazon S3 settings needed for the interim Amazon S3 when copying from Amazon Redshift with unload. With this, data from Amazon Redshift source will be unloaded into S3 first and then copied into the targeted sink from the interim S3.
+
         :param Any bucket_name: The bucket of the interim Amazon S3 which will be used to store the unloaded data from Amazon Redshift source. The bucket must be in the same region as the Amazon Redshift source. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' s3_linked_service_name: The name of the Amazon S3 linked service which will be used for the unload operation when copying from the Amazon Redshift source.
         """
@@ -64915,6 +65361,7 @@ class RelationalSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for various relational databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'RelationalSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -65032,6 +65479,7 @@ class RelationalTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The relational table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'RelationalTable'.
@@ -65166,6 +65614,7 @@ class RemotePrivateEndpointConnectionResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None):
         """
         A remote private endpoint connection
+
         :param 'ArmIdWrapperResponse' private_endpoint: PrivateEndpoint of a remote private endpoint connection
         :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: The state of a private link connection
         """
@@ -65238,6 +65687,7 @@ class RerunTumblingWindowTriggerResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Trigger that schedules pipeline reruns for all fixed time interval windows from a requested start time to requested end time.
+
         :param Any parent_trigger: The parent trigger reference.
         :param _builtins.str requested_end_time: The end time for the time period for which restatement is initiated. Only UTC time is currently supported.
         :param _builtins.str requested_start_time: The start time for the time period for which restatement is initiated. Only UTC time is currently supported.
@@ -65375,6 +65825,7 @@ class ResponsysLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Responsys linked service.
+
         :param Any client_id: The client ID associated with the Responsys application. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of the Responsys server.
         :param _builtins.str type: Type of linked service.
@@ -65556,6 +66007,7 @@ class ResponsysObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Responsys dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ResponsysObject'.
@@ -65701,6 +66153,7 @@ class ResponsysSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Responsys source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ResponsysSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -65841,6 +66294,7 @@ class RestResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         A Rest service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'RestResource'.
@@ -66069,6 +66523,7 @@ class RestServiceLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Rest Service linked service.
+
         :param _builtins.str authentication_type: Type of authentication used to connect to the REST service.
         :param _builtins.str type: Type of linked service.
                Expected value is 'RestService'.
@@ -66425,6 +66880,7 @@ class RestSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Rest service Sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'RestSink'.
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: key value pairs (value should be string type).
@@ -66618,6 +67074,7 @@ class RestSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Rest service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'RestSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: key value pairs (value should be string type).
@@ -66781,6 +67238,7 @@ class RetryPolicyResponse(dict):
                  interval_in_seconds: Optional[_builtins.int] = None):
         """
         Execution policy for an activity.
+
         :param Any count: Maximum ordinary retry attempts. Default is 0. Type: integer (or Expression with resultType integer), minimum: 0.
         :param _builtins.int interval_in_seconds: Interval between retries in seconds. Default is 30.
         """
@@ -66834,6 +67292,7 @@ class SSISAccessCredentialResponse(dict):
                  user_name: Any):
         """
         SSIS access credential.
+
         :param Any domain: Domain for windows authentication. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for windows authentication.
         :param Any user_name: UseName for windows authentication. Type: string (or Expression with resultType string).
@@ -66902,6 +67361,7 @@ class SSISChildPackageResponse(dict):
                  package_name: Optional[_builtins.str] = None):
         """
         SSIS embedded child package.
+
         :param Any package_content: Content for embedded child package. Type: string (or Expression with resultType string).
         :param Any package_path: Path for embedded child package. Type: string (or Expression with resultType string).
         :param _builtins.str package_last_modified_date: Last modified date for embedded child package.
@@ -66975,6 +67435,7 @@ class SSISExecutionCredentialResponse(dict):
                  user_name: Any):
         """
         SSIS package execution credential.
+
         :param Any domain: Domain for windows authentication. Type: string (or Expression with resultType string).
         :param 'SecureStringResponse' password: Password for windows authentication.
         :param Any user_name: UseName for windows authentication. Type: string (or Expression with resultType string).
@@ -67017,6 +67478,7 @@ class SSISExecutionParameterResponse(dict):
                  value: Any):
         """
         SSIS execution parameter.
+
         :param Any value: SSIS package execution parameter value. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "value", value)
@@ -67063,6 +67525,7 @@ class SSISLogLocationResponse(dict):
                  log_refresh_interval: Optional[Any] = None):
         """
         SSIS package execution log location
+
         :param Any log_path: The SSIS package execution log path. Type: string (or Expression with resultType string).
         :param _builtins.str type: The type of SSIS log location.
         :param 'SSISAccessCredentialResponse' access_credential: The package execution log access credential.
@@ -67159,6 +67622,7 @@ class SSISPackageLocationResponse(dict):
                  type: Optional[_builtins.str] = None):
         """
         SSIS package location.
+
         :param 'SSISAccessCredentialResponse' access_credential: The package access credential.
         :param Sequence['SSISChildPackageResponse'] child_packages: The embedded child package list.
         :param 'SSISAccessCredentialResponse' configuration_access_credential: The configuration file access credential.
@@ -67299,6 +67763,7 @@ class SSISPropertyOverrideResponse(dict):
                  is_sensitive: Optional[_builtins.bool] = None):
         """
         SSIS property override.
+
         :param Any value: SSIS package property override value. Type: string (or Expression with resultType string).
         :param _builtins.bool is_sensitive: Whether SSIS package property override value is sensitive data. Value will be encrypted in SSISDB if it is true
         """
@@ -67368,6 +67833,7 @@ class SalesforceLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Salesforce.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Salesforce'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -67556,6 +68022,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Salesforce Marketing Cloud linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SalesforceMarketingCloud'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -67739,6 +68206,7 @@ class SalesforceMarketingCloudObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Salesforce Marketing Cloud dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SalesforceMarketingCloudObject'.
@@ -67884,6 +68352,7 @@ class SalesforceMarketingCloudSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Salesforce Marketing Cloud source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SalesforceMarketingCloudSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -68012,6 +68481,7 @@ class SalesforceObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce object dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SalesforceObject'.
@@ -68162,6 +68632,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Salesforce Service Cloud.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SalesforceServiceCloud'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -68345,6 +68816,7 @@ class SalesforceServiceCloudObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce Service Cloud object dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SalesforceServiceCloudObject'.
@@ -68498,6 +68970,7 @@ class SalesforceServiceCloudSinkResponse(dict):
                  write_behavior: Optional[_builtins.str] = None):
         """
         A copy activity Salesforce Service Cloud sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SalesforceServiceCloudSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -68655,6 +69128,7 @@ class SalesforceServiceCloudSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Salesforce Service Cloud source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SalesforceServiceCloudSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -68796,6 +69270,7 @@ class SalesforceServiceCloudV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Salesforce Service Cloud V2.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SalesforceServiceCloudV2'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -68971,6 +69446,7 @@ class SalesforceServiceCloudV2ObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce Service Cloud V2 object dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SalesforceServiceCloudV2Object'.
@@ -69135,6 +69611,7 @@ class SalesforceServiceCloudV2SinkResponse(dict):
                  write_behavior: Optional[_builtins.str] = None):
         """
         A copy activity Salesforce Service Cloud V2 sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SalesforceServiceCloudV2Sink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -69295,6 +69772,7 @@ class SalesforceServiceCloudV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Salesforce Service Cloud V2 source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SalesforceServiceCloudV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -69449,6 +69927,7 @@ class SalesforceSinkResponse(dict):
                  write_behavior: Optional[_builtins.str] = None):
         """
         A copy activity Salesforce sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SalesforceSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -69609,6 +70088,7 @@ class SalesforceSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Salesforce source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SalesforceSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -69761,6 +70241,7 @@ class SalesforceV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Salesforce V2.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SalesforceV2'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -69936,6 +70417,7 @@ class SalesforceV2ObjectDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The Salesforce V2 object dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SalesforceV2Object'.
@@ -70100,6 +70582,7 @@ class SalesforceV2SinkResponse(dict):
                  write_behavior: Optional[_builtins.str] = None):
         """
         A copy activity Salesforce V2 sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SalesforceV2Sink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -70269,6 +70752,7 @@ class SalesforceV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Salesforce V2 source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SalesforceV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -70450,6 +70934,7 @@ class SapBWLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         SAP Business Warehouse Linked Service.
+
         :param Any client_id: Client ID of the client on the BW system. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param Any server: Host name of the SAP BW instance. Type: string (or Expression with resultType string).
         :param Any system_number: System number of the BW system. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
@@ -70616,6 +71101,7 @@ class SapBwCubeDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The SAP BW cube dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SapBwCube'.
@@ -70750,6 +71236,7 @@ class SapBwSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for SapBW server via MDX.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapBwSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -70879,6 +71366,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for SAP Cloud for Customer.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SapCloudForCustomer'.
         :param Any url: The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).
@@ -71026,6 +71514,7 @@ class SapCloudForCustomerResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the SAP Cloud for Customer OData entity.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP Cloud for Customer OData entity. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -71175,6 +71664,7 @@ class SapCloudForCustomerSinkResponse(dict):
                  write_behavior: Optional[_builtins.str] = None):
         """
         A copy activity SAP Cloud for Customer sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SapCloudForCustomerSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -71324,6 +71814,7 @@ class SapCloudForCustomerSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for SAP Cloud for Customer source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapCloudForCustomerSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -71464,6 +71955,7 @@ class SapEccLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for SAP ERP Central Component(SAP ECC).
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SapEcc'.
         :param Any url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
@@ -71611,6 +72103,7 @@ class SapEccResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The path of the SAP ECC OData entity.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any path: The path of the SAP ECC OData entity. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -71758,6 +72251,7 @@ class SapEccSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for SAP ECC source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapEccSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -71906,6 +72400,7 @@ class SapHanaLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         SAP HANA Linked Service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SapHana'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -72068,6 +72563,7 @@ class SapHanaPartitionSettingsResponse(dict):
                  partition_column_name: Optional[Any] = None):
         """
         The settings that will be leveraged for SAP HANA source partitioning.
+
         :param Any partition_column_name: The name of the column that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         """
         if partition_column_name is not None:
@@ -72134,6 +72630,7 @@ class SapHanaSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for SAP HANA source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapHanaSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -72293,6 +72790,7 @@ class SapHanaTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         SAP HANA Table properties.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SapHanaTable'.
@@ -72474,6 +72972,7 @@ class SapOdpLinkedServiceResponse(dict):
                  x509_certificate_path: Optional[Any] = None):
         """
         SAP ODP Linked Service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SapOdp'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -72779,6 +73278,7 @@ class SapOdpResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         SAP ODP Resource properties.
+
         :param Any context: The context of the SAP ODP Object. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any object_name: The name of the SAP ODP Object. Type: string (or Expression with resultType string).
@@ -72940,6 +73440,7 @@ class SapOdpSourceResponse(dict):
                  subscriber_process: Optional[Any] = None):
         """
         A copy activity source for SAP ODP source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapOdpSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73123,6 +73624,7 @@ class SapOpenHubLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         SAP Business Warehouse Open Hub Destination Linked Service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SapOpenHub'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -73368,6 +73870,7 @@ class SapOpenHubSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for SAP Business Warehouse Open Hub Destination source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapOpenHubSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -73535,6 +74038,7 @@ class SapOpenHubTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Sap Business Warehouse Open Hub Destination Table properties.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any open_hub_destination_name: The name of the Open Hub Destination with destination type as Database Table. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -73731,6 +74235,7 @@ class SapTableLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         SAP Table Linked Service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SapTable'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -74012,6 +74517,7 @@ class SapTablePartitionSettingsResponse(dict):
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for SAP table source partitioning.
+
         :param Any max_partitions_number: The maximum value of partitions the table will be split into. Type: integer (or Expression with resultType string).
         :param Any partition_column_name: The name of the column that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -74095,6 +74601,7 @@ class SapTableResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         SAP Table Resource properties.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any table_name: The name of the SAP Table. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of dataset.
@@ -74265,6 +74772,7 @@ class SapTableSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for SAP Table source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SapTableSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -74480,6 +74988,7 @@ class ScheduleTriggerRecurrenceResponse(dict):
                  time_zone: Optional[_builtins.str] = None):
         """
         The workflow trigger recurrence.
+
         :param _builtins.str end_time: The end time.
         :param _builtins.str frequency: The frequency.
         :param _builtins.int interval: The interval.
@@ -74580,6 +75089,7 @@ class ScheduleTriggerResponse(dict):
                  pipelines: Optional[Sequence['outputs.TriggerPipelineReferenceResponse']] = None):
         """
         Trigger that creates pipeline runs periodically, on schedule.
+
         :param 'ScheduleTriggerRecurrenceResponse' recurrence: Recurrence schedule configuration.
         :param _builtins.str runtime_state: Indicates if trigger is running or not. Updated when Start/Stop APIs are called on the Trigger.
         :param _builtins.str type: Trigger type.
@@ -74660,6 +75170,7 @@ class ScriptActionResponse(dict):
                  parameters: Optional[_builtins.str] = None):
         """
         Custom script action to run on HDI ondemand cluster once it's up.
+
         :param _builtins.str name: The user provided name of the script action.
         :param Any roles: The node types on which the script action should be executed.
         :param _builtins.str uri: The URI for the script action.
@@ -74717,6 +75228,7 @@ class ScriptActivityParameterResponse(dict):
                  value: Optional[Any] = None):
         """
         Parameters of a script block.
+
         :param _builtins.str direction: The direction of the parameter.
         :param Any name: The name of the parameter. Type: string (or Expression with resultType string).
         :param _builtins.int size: The size of the output direction parameter.
@@ -74828,6 +75340,7 @@ class ScriptActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Script activity type.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -74995,6 +75508,7 @@ class ScriptActivityScriptBlockResponse(dict):
                  parameters: Optional[Sequence['outputs.ScriptActivityParameterResponse']] = None):
         """
         Script block of scripts.
+
         :param Any text: The query text. Type: string (or Expression with resultType string).
         :param Any type: The type of the query. Please refer to the ScriptType for valid options. Type: string (or Expression with resultType string).
         :param Sequence['ScriptActivityParameterResponse'] parameters: Array of script parameters. Type: array.
@@ -75058,6 +75572,7 @@ class ScriptActivityTypePropertiesResponseLogSettings(dict):
                  log_location_settings: Optional['outputs.LogLocationSettingsResponse'] = None):
         """
         Log settings of script activity.
+
         :param _builtins.str log_destination: The destination of logs. Type: string.
         :param 'LogLocationSettingsResponse' log_location_settings: Log location settings customer needs to provide when enabling log.
         """
@@ -75111,6 +75626,7 @@ class SecureInputOutputPolicyResponse(dict):
                  secure_output: Optional[_builtins.bool] = None):
         """
         Execution policy for an activity that supports secure input and output.
+
         :param _builtins.bool secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
         :param _builtins.bool secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
         """
@@ -75146,6 +75662,7 @@ class SecureStringResponse(dict):
                  value: _builtins.str):
         """
         Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
+
         :param _builtins.str type: Type of the secret.
                Expected value is 'SecureString'.
         :param _builtins.str value: Value of secure string.
@@ -75182,6 +75699,7 @@ class SelfDependencyTumblingWindowTriggerReferenceResponse(dict):
                  size: Optional[_builtins.str] = None):
         """
         Self referenced tumbling window trigger dependency.
+
         :param _builtins.str offset: Timespan applied to the start time of a tumbling window when evaluating dependency.
         :param _builtins.str type: The type of dependency reference.
                Expected value is 'SelfDependencyTumblingWindowTriggerReference'.
@@ -75244,6 +75762,7 @@ class SelfHostedIntegrationRuntimeNodeResponse(dict):
                  version_status: _builtins.str):
         """
         Properties of Self-hosted integration runtime node.
+
         :param Mapping[str, _builtins.str] capabilities: The integration runtime capabilities dictionary
         :param _builtins.int concurrent_jobs_limit: Maximum concurrent jobs on the integration runtime node.
         :param _builtins.str expiry_time: The time at which the integration runtime will expire in ISO8601 format.
@@ -75458,6 +75977,7 @@ class SelfHostedIntegrationRuntimeResponse(dict):
                  self_contained_interactive_authoring_enabled: Optional[_builtins.bool] = None):
         """
         Self-hosted integration runtime.
+
         :param _builtins.str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param _builtins.str description: Integration runtime description.
@@ -75534,6 +76054,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
                  nodes: Optional[Sequence['outputs.SelfHostedIntegrationRuntimeNodeResponse']] = None):
         """
         Self-hosted integration runtime status.
+
         :param _builtins.str auto_update: Whether Self-hosted integration runtime auto update has been turned on.
         :param _builtins.str auto_update_eta: The estimated time when the self-hosted integration runtime will be updated.
         :param Mapping[str, _builtins.str] capabilities: Object with additional information about integration runtime capabilities.
@@ -75796,6 +76317,7 @@ class ServiceNowLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         ServiceNow server linked service.
+
         :param _builtins.str authentication_type: The authentication type to use.
         :param Any endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param _builtins.str type: Type of linked service.
@@ -76010,6 +76532,7 @@ class ServiceNowObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         ServiceNow server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ServiceNowObject'.
@@ -76155,6 +76678,7 @@ class ServiceNowSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity ServiceNow server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ServiceNowSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -76296,6 +76820,7 @@ class ServiceNowV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         ServiceNowV2 server linked service.
+
         :param _builtins.str authentication_type: The authentication type to use.
         :param Any endpoint: The endpoint of the ServiceNowV2 server. (i.e. <instance>.service-now.com)
         :param _builtins.str type: Type of linked service.
@@ -76491,6 +77016,7 @@ class ServiceNowV2ObjectDatasetResponse(dict):
                  value_type: Optional[_builtins.str] = None):
         """
         ServiceNowV2 server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ServiceNowV2Object'.
@@ -76650,6 +77176,7 @@ class ServiceNowV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity ServiceNowV2 server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ServiceNowV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -76786,6 +77313,7 @@ class ServicePrincipalCredentialResponse(dict):
                  tenant: Optional[Any] = None):
         """
         Service principal credential.
+
         :param _builtins.str type: Type of credential.
                Expected value is 'ServicePrincipal'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
@@ -76900,6 +77428,7 @@ class SetVariableActivityResponse(dict):
                  variable_name: Optional[_builtins.str] = None):
         """
         Set value for a Variable.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'SetVariable'.
@@ -77054,6 +77583,7 @@ class SftpLocationResponse(dict):
                  folder_path: Optional[Any] = None):
         """
         The location of SFTP dataset.
+
         :param _builtins.str type: Type of dataset storage location.
                Expected value is 'SftpLocation'.
         :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
@@ -77149,6 +77679,7 @@ class SftpReadSettingsResponse(dict):
                  wildcard_folder_path: Optional[Any] = None):
         """
         Sftp read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'SftpReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -77354,6 +77885,7 @@ class SftpServerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         A linked service for an SSH File Transfer Protocol (SFTP) server. 
+
         :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
                Expected value is 'Sftp'.
@@ -77584,6 +78116,7 @@ class SftpWriteSettingsResponse(dict):
                  use_temp_file_rename: Optional[Any] = None):
         """
         Sftp write settings.
+
         :param _builtins.str type: The write setting type.
                Expected value is 'SftpWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
@@ -77720,6 +78253,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         SharePoint Online List linked service.
+
         :param Any service_principal_id: The application (client) ID of your application registered in Azure Active Directory. Make sure to grant SharePoint site permission to this application. Type: string (or Expression with resultType string).
         :param Any site_url: The URL of the SharePoint Online site. For example, https://contoso.sharepoint.com/sites/siteName. Type: string (or Expression with resultType string).
         :param Any tenant_id: The tenant ID under which your application resides. You can find it from Azure portal Active Directory overview page. Type: string (or Expression with resultType string).
@@ -77911,6 +78445,7 @@ class SharePointOnlineListResourceDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The sharepoint online list resource dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SharePointOnlineListResource'.
@@ -78053,6 +78588,7 @@ class SharePointOnlineListSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for sharePoint online list source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SharePointOnlineListSource'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -78181,6 +78717,7 @@ class ShopifyLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Shopify Service linked service.
+
         :param Any host: The endpoint of the Shopify server. (i.e. mystore.myshopify.com)
         :param _builtins.str type: Type of linked service.
                Expected value is 'Shopify'.
@@ -78352,6 +78889,7 @@ class ShopifyObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Shopify Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ShopifyObject'.
@@ -78497,6 +79035,7 @@ class ShopifySourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Shopify Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ShopifySource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -78618,6 +79157,7 @@ class SkipErrorFileResponse(dict):
                  file_missing: Optional[Any] = None):
         """
         Skip error file.
+
         :param Any data_inconsistency: Skip if source/sink file changed by other concurrent write. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any file_missing: Skip if file is deleted by other client during copy. Default is true. Type: boolean (or Expression with resultType boolean).
         """
@@ -78680,6 +79220,7 @@ class SmartsheetLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Smartsheet.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Smartsheet source.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Smartsheet'.
@@ -78805,6 +79346,7 @@ class SnowflakeDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The snowflake dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SnowflakeTable'.
@@ -78940,6 +79482,7 @@ class SnowflakeExportCopyCommandResponse(dict):
                  storage_integration: Optional[Any] = None):
         """
         Snowflake export command settings.
+
         :param _builtins.str type: The export setting type.
                Expected value is 'SnowflakeExportCopyCommand'.
         :param Mapping[str, Any] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
@@ -79021,6 +79564,7 @@ class SnowflakeImportCopyCommandResponse(dict):
                  storage_integration: Optional[Any] = None):
         """
         Snowflake import command settings.
+
         :param _builtins.str type: The import setting type.
                Expected value is 'SnowflakeImportCopyCommand'.
         :param Mapping[str, Any] additional_copy_options: Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalCopyOptions": { "DATE_FORMAT": "MM/DD/YYYY", "TIME_FORMAT": "'HH24:MI:SS.FF'" }
@@ -79107,6 +79651,7 @@ class SnowflakeLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Snowflake linked service.
+
         :param Any connection_string: The connection string of snowflake. Type: string, SecureString.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Snowflake'.
@@ -79257,6 +79802,7 @@ class SnowflakeSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity snowflake sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SnowflakeSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -79400,6 +79946,7 @@ class SnowflakeSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity snowflake source.
+
         :param 'SnowflakeExportCopyCommandResponse' export_settings: Snowflake export settings.
         :param _builtins.str type: Copy source type.
                Expected value is 'SnowflakeSource'.
@@ -79514,6 +80061,7 @@ class SnowflakeV2DatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The snowflake dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SnowflakeV2Table'.
@@ -79682,6 +80230,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Snowflake linked service.
+
         :param Any account_identifier: The account identifier of your Snowflake account, e.g. xy12345.east-us-2.azure
         :param Any database: The name of the Snowflake database.
         :param _builtins.str type: Type of linked service.
@@ -79986,6 +80535,7 @@ class SnowflakeV2SinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity snowflake sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SnowflakeV2Sink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -80129,6 +80679,7 @@ class SnowflakeV2SourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity snowflake source.
+
         :param 'SnowflakeExportCopyCommandResponse' export_settings: Snowflake export settings.
         :param _builtins.str type: Copy source type.
                Expected value is 'SnowflakeV2Source'.
@@ -80236,6 +80787,7 @@ class SparkConfigurationParametrizationReferenceResponse(dict):
                  type: _builtins.str):
         """
         Spark configuration reference.
+
         :param Any reference_name: Reference spark configuration name. Type: string (or Expression with resultType string).
         :param _builtins.str type: Spark configuration reference type.
         """
@@ -80327,6 +80879,7 @@ class SparkLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Spark Server linked service.
+
         :param _builtins.str authentication_type: The authentication method used to access the Spark server.
         :param Any host: IP address or host name of the Spark server
         :param Any port: The TCP port that the Spark server uses to listen for client connections.
@@ -80596,6 +81149,7 @@ class SparkObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Spark Server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SparkObject'.
@@ -80752,6 +81306,7 @@ class SparkSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Spark Server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SparkSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -80877,6 +81432,7 @@ class SqlAlwaysEncryptedPropertiesResponse(dict):
                  service_principal_key: Optional[Any] = None):
         """
         Sql always encrypted properties.
+
         :param _builtins.str always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
@@ -80992,6 +81548,7 @@ class SqlDWSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity SQL Data Warehouse sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SqlDWSink'.
         :param Any allow_copy_command: Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean).
@@ -81232,6 +81789,7 @@ class SqlDWSourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity SQL Data Warehouse source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SqlDWSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -81406,6 +81964,7 @@ class SqlDWUpsertSettingsResponse(dict):
                  keys: Optional[Any] = None):
         """
         Sql DW upsert option settings
+
         :param Any interim_schema_name: Schema name for interim table. Type: string (or Expression with resultType string).
         :param Any keys: Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
         """
@@ -81500,6 +82059,7 @@ class SqlMISinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity Azure SQL Managed Instance sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SqlMISink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -81743,6 +82303,7 @@ class SqlMISourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Azure SQL Managed Instance source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SqlMISource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -81933,6 +82494,7 @@ class SqlPartitionSettingsResponse(dict):
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for Sql source partitioning.
+
         :param Any partition_column_name: The name of the column in integer or datetime type that will be used for proceeding partitioning. If not specified, the primary key of the table is auto-detected and used as the partition column. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. Type: string (or Expression with resultType string).
         :param Any partition_upper_bound: The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. Type: string (or Expression with resultType string).
@@ -82066,6 +82628,7 @@ class SqlServerLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         SQL Server linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'SqlServer'.
         :param 'SqlAlwaysEncryptedPropertiesResponse' always_encrypted_settings: Sql always encrypted properties.
@@ -82491,6 +83054,7 @@ class SqlServerSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity SQL server sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SqlServerSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -82734,6 +83298,7 @@ class SqlServerSourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity SQL server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SqlServerSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -82938,6 +83503,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         SQL stored procedure activity type.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str name: Activity name.
         :param Any stored_procedure_name: Stored procedure name. Type: string (or Expression with resultType string).
@@ -83097,6 +83663,7 @@ class SqlServerTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The on-premises SQL Server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SqlServerTable'.
@@ -83279,6 +83846,7 @@ class SqlSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity SQL sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'SqlSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -83519,6 +84087,7 @@ class SqlSourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity SQL source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -83696,6 +84265,7 @@ class SqlUpsertSettingsResponse(dict):
                  use_temp_db: Optional[Any] = None):
         """
         Sql upsert option settings
+
         :param Any interim_schema_name: Schema name for interim table. Type: string (or Expression with resultType string).
         :param Any keys: Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
         :param Any use_temp_db: Specifies whether to use temp db for upsert interim table. Type: boolean (or Expression with resultType boolean).
@@ -83788,6 +84358,7 @@ class SquareLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Square Service linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Square'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -83993,6 +84564,7 @@ class SquareObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Square Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SquareObject'.
@@ -84138,6 +84710,7 @@ class SquareSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Square Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SquareSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -84242,6 +84815,7 @@ class SsisEnvironmentReferenceResponse(dict):
                  reference_type: Optional[_builtins.str] = None):
         """
         Ssis environment reference.
+
         :param _builtins.str environment_folder_name: Environment folder name.
         :param _builtins.str environment_name: Environment name.
         :param _builtins.float id: Environment reference id.
@@ -84303,6 +84877,7 @@ class SsisEnvironmentResponse(dict):
                  variables: Optional[Sequence['outputs.SsisVariableResponse']] = None):
         """
         Ssis environment.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Environment'.
         :param _builtins.str description: Metadata description.
@@ -84385,6 +84960,7 @@ class SsisFolderResponse(dict):
                  name: Optional[_builtins.str] = None):
         """
         Ssis folder.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Folder'.
         :param _builtins.str description: Metadata description.
@@ -84449,6 +85025,7 @@ class SsisPackageResponse(dict):
                  project_version: Optional[_builtins.float] = None):
         """
         Ssis Package.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Package'.
         :param _builtins.str description: Metadata description.
@@ -84561,6 +85138,7 @@ class SsisParameterResponse(dict):
                  variable: Optional[_builtins.str] = None):
         """
         Ssis parameter.
+
         :param _builtins.str data_type: Parameter type.
         :param _builtins.str default_value: Default value of parameter.
         :param _builtins.str description: Parameter description.
@@ -84712,6 +85290,7 @@ class SsisProjectResponse(dict):
                  version: Optional[_builtins.float] = None):
         """
         Ssis project.
+
         :param _builtins.str type: The type of SSIS object metadata.
                Expected value is 'Project'.
         :param _builtins.str description: Metadata description.
@@ -84819,6 +85398,7 @@ class SsisVariableResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Ssis variable.
+
         :param _builtins.str data_type: Variable type.
         :param _builtins.str description: Variable description.
         :param _builtins.float id: Variable id.
@@ -84929,6 +85509,7 @@ class StagingSettingsResponse(dict):
                  path: Optional[Any] = None):
         """
         Staging settings.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Staging linked service reference.
         :param Any enable_compression: Specifies whether to use compression when copying data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Any path: The path to storage for storing the interim data. Type: string (or Expression with resultType string).
@@ -85005,6 +85586,7 @@ class SwitchActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity evaluates an expression and executes activities under the cases property that correspond to the expression evaluation expected in the equals property.
+
         :param _builtins.str name: Activity name.
         :param 'ExpressionResponse' on: An expression that would evaluate to a string or integer. This is used to determine the block of activities in cases that will be executed.
         :param _builtins.str type: Type of activity.
@@ -85127,6 +85709,7 @@ class SwitchCaseResponse(dict):
                  value: Optional[_builtins.str] = None):
         """
         Switch cases with have a value and corresponding activities.
+
         :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
         :param _builtins.str value: Expected value that satisfies the expression result of the 'on' property.
         """
@@ -85194,6 +85777,7 @@ class SybaseLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Sybase data source.
+
         :param Any database: Database name for connection. Type: string (or Expression with resultType string).
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -85382,6 +85966,7 @@ class SybaseSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for Sybase databases.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'SybaseSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -85510,6 +86095,7 @@ class SybaseTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         The Sybase table dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'SybaseTable'.
@@ -85676,6 +86262,7 @@ class SynapseNotebookActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute Synapse notebook activity.
+
         :param _builtins.str name: Activity name.
         :param 'SynapseNotebookReferenceResponse' notebook: Synapse notebook reference.
         :param _builtins.str type: Type of activity.
@@ -85914,6 +86501,7 @@ class SynapseNotebookReferenceResponse(dict):
                  type: _builtins.str):
         """
         Synapse notebook reference type.
+
         :param Any reference_name: Reference notebook name. Type: string (or Expression with resultType string).
         :param _builtins.str type: Synapse notebook reference type.
         """
@@ -86017,6 +86605,7 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute spark job activity.
+
         :param _builtins.str name: Activity name.
         :param 'SynapseSparkJobReferenceResponse' spark_job: Synapse spark job reference.
         :param _builtins.str type: Type of activity.
@@ -86321,6 +86910,7 @@ class SynapseSparkJobReferenceResponse(dict):
                  type: _builtins.str):
         """
         Synapse spark job reference type.
+
         :param Any reference_name: Reference spark job name. Expression with resultType string.
         :param _builtins.str type: Synapse spark job reference type.
         """
@@ -86386,6 +86976,7 @@ class TabularSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         Copy activity sources of tabular type.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'TabularSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -86494,6 +87085,7 @@ class TarGZipReadSettingsResponse(dict):
                  preserve_compression_file_name_as_folder: Optional[Any] = None):
         """
         The TarGZip compression read settings.
+
         :param _builtins.str type: The Compression setting type.
                Expected value is 'TarGZipReadSettings'.
         :param Any preserve_compression_file_name_as_folder: Preserve the compression file name as folder path. Type: boolean (or Expression with resultType boolean).
@@ -86547,6 +87139,7 @@ class TarReadSettingsResponse(dict):
                  preserve_compression_file_name_as_folder: Optional[Any] = None):
         """
         The Tar compression read settings.
+
         :param _builtins.str type: The Compression setting type.
                Expected value is 'TarReadSettings'.
         :param Any preserve_compression_file_name_as_folder: Preserve the compression file name as folder path. Type: boolean (or Expression with resultType boolean).
@@ -86618,6 +87211,7 @@ class TeamDeskLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for TeamDesk.
+
         :param _builtins.str authentication_type: The authentication type to use.
         :param _builtins.str type: Type of linked service.
                Expected value is 'TeamDesk'.
@@ -86779,6 +87373,7 @@ class TeradataImportCommandResponse(dict):
                  additional_format_options: Optional[Any] = None):
         """
         Teradata import command settings.
+
         :param _builtins.str type: The import setting type.
                Expected value is 'TeradataImportCommand'.
         :param Any additional_format_options: Additional format options for Teradata Copy Command. The format options only applies to direct copy from CSV source. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: "additionalFormatOptions": { "timeFormat": "HHhMImSSs" }
@@ -86866,6 +87461,7 @@ class TeradataLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Teradata data source.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Teradata'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -87100,6 +87696,7 @@ class TeradataPartitionSettingsResponse(dict):
                  partition_upper_bound: Optional[Any] = None):
         """
         The settings that will be leveraged for teradata source partitioning.
+
         :param Any partition_column_name: The name of the column that will be used for proceeding range or hash partitioning. Type: string (or Expression with resultType string).
         :param Any partition_lower_bound: The minimum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
         :param Any partition_upper_bound: The maximum value of column specified in partitionColumnName that will be used for proceeding range partitioning. Type: string (or Expression with resultType string).
@@ -87181,6 +87778,7 @@ class TeradataSinkResponse(dict):
                  write_batch_timeout: Optional[Any] = None):
         """
         A copy activity Teradata sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'TeradataSink'.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -87322,6 +87920,7 @@ class TeradataSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Teradata source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'TeradataSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -87471,6 +88070,7 @@ class TeradataTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         The Teradata database dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'TeradataTable'.
@@ -87637,6 +88237,7 @@ class TextFormatResponse(dict):
                  treat_empty_as_null: Optional[Any] = None):
         """
         The data stored in text format.
+
         :param _builtins.str type: Type of dataset storage format.
                Expected value is 'TextFormat'.
         :param Any column_delimiter: The column delimiter. Type: string (or Expression with resultType string).
@@ -87803,6 +88404,7 @@ class TransformationResponse(dict):
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
         A data flow transformation.
+
         :param _builtins.str name: Transformation name.
         :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param _builtins.str description: Transformation description.
@@ -87887,6 +88489,7 @@ class TriggerDependencyReferenceResponse(dict):
                  type: _builtins.str):
         """
         Trigger referenced dependency.
+
         :param 'TriggerReferenceResponse' reference_trigger: Referenced trigger.
         :param _builtins.str type: The type of dependency reference.
                Expected value is 'TriggerDependencyReference'.
@@ -87939,6 +88542,7 @@ class TriggerPipelineReferenceResponse(dict):
                  pipeline_reference: Optional['outputs.PipelineReferenceResponse'] = None):
         """
         Pipeline that needs to be triggered with the given parameters.
+
         :param Mapping[str, Any] parameters: Pipeline parameters.
         :param 'PipelineReferenceResponse' pipeline_reference: Pipeline reference.
         """
@@ -87991,6 +88595,7 @@ class TriggerReferenceResponse(dict):
                  type: _builtins.str):
         """
         Trigger reference type.
+
         :param _builtins.str reference_name: Reference trigger name.
         :param _builtins.str type: Trigger reference type.
         """
@@ -88043,6 +88648,7 @@ class TumblingWindowTriggerDependencyReferenceResponse(dict):
                  size: Optional[_builtins.str] = None):
         """
         Referenced tumbling window trigger dependency.
+
         :param 'TriggerReferenceResponse' reference_trigger: Referenced trigger.
         :param _builtins.str type: The type of dependency reference.
                Expected value is 'TumblingWindowTriggerDependencyReference'.
@@ -88138,6 +88744,7 @@ class TumblingWindowTriggerResponse(dict):
                  retry_policy: Optional['outputs.RetryPolicyResponse'] = None):
         """
         Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
+
         :param _builtins.str frequency: The frequency of the time windows.
         :param _builtins.int interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
         :param _builtins.int max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
@@ -88314,6 +88921,7 @@ class TwilioLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Twilio.
+
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The auth token of Twilio service.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Twilio'.
@@ -88443,6 +89051,7 @@ class UntilActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
+
         :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksJobActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param _builtins.str name: Activity name.
@@ -88567,6 +89176,7 @@ class UserAccessPolicyResponse(dict):
                  start_time: Optional[_builtins.str] = None):
         """
         Get Data Plane read only token request definition.
+
         :param _builtins.str access_resource_path: The resource path to get access relative to factory. Currently only empty string is supported which corresponds to the factory resource.
         :param _builtins.str expire_time: Expiration time for the token. Maximum duration for the token is eight hours and by default the token will expire in eight hours.
         :param _builtins.str permissions: The string with permissions for Data Plane access. Currently only 'r' is supported which grants read only access.
@@ -88635,6 +89245,7 @@ class UserPropertyResponse(dict):
                  value: Any):
         """
         User property.
+
         :param _builtins.str name: User property name.
         :param Any value: User property value. Type: string (or Expression with resultType string).
         """
@@ -88703,6 +89314,7 @@ class ValidationActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity verifies that an external resource exists.
+
         :param 'DatasetReferenceResponse' dataset: Validation activity dataset reference.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -88864,6 +89476,7 @@ class VariableSpecificationResponse(dict):
                  default_value: Optional[Any] = None):
         """
         Definition of a single variable for a Pipeline.
+
         :param _builtins.str type: Variable type.
         :param Any default_value: Default value of variable.
         """
@@ -88930,6 +89543,7 @@ class VerticaLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Vertica linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Vertica'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -89120,6 +89734,7 @@ class VerticaSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Vertica source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'VerticaSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -89249,6 +89864,7 @@ class VerticaTableDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Vertica dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'VerticaTable'.
@@ -89401,6 +90017,7 @@ class WaitActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity suspends pipeline execution for the specified interval.
+
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
                Expected value is 'Wait'.
@@ -89549,6 +90166,7 @@ class WarehouseLinkedServiceResponse(dict):
                  workspace_id: Optional[Any] = None):
         """
         Microsoft Fabric Warehouse linked service.
+
         :param Any artifact_id: The ID of Microsoft Fabric Warehouse artifact. Type: string (or Expression with resultType string).
         :param Any endpoint: The endpoint of Microsoft Fabric Warehouse server. Type: string (or Expression with resultType string).
         :param _builtins.str type: Type of linked service.
@@ -89795,6 +90413,7 @@ class WarehouseSinkResponse(dict):
                  write_behavior: Optional[Any] = None):
         """
         A copy activity Microsoft Fabric Warehouse sink.
+
         :param _builtins.str type: Copy sink type.
                Expected value is 'WarehouseSink'.
         :param Any allow_copy_command: Indicates to use Copy Command to copy data into SQL Data Warehouse. Type: boolean (or Expression with resultType boolean).
@@ -89991,6 +90610,7 @@ class WarehouseSourceResponse(dict):
                  stored_procedure_parameters: Optional[Any] = None):
         """
         A copy activity Microsoft Fabric Warehouse source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'WarehouseSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -90172,6 +90792,7 @@ class WarehouseTableDatasetResponse(dict):
                  table: Optional[Any] = None):
         """
         Microsoft Fabric Warehouse dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'WarehouseTable'.
@@ -90306,6 +90927,7 @@ class WebActivityAuthenticationResponse(dict):
                  username: Optional[Any] = None):
         """
         Web activity authentication properties.
+
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
@@ -90447,6 +91069,7 @@ class WebActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Web activity.
+
         :param _builtins.str method: Rest API method for target endpoint.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -90695,6 +91318,7 @@ class WebAnonymousAuthenticationResponse(dict):
                  url: Any):
         """
         A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
+
         :param _builtins.str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'Anonymous'.
         :param Any url: The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
@@ -90749,6 +91373,7 @@ class WebBasicAuthenticationResponse(dict):
                  username: Any):
         """
         A WebLinkedService that uses basic authentication to communicate with an HTTP endpoint.
+
         :param _builtins.str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'Basic'.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
@@ -90823,6 +91448,7 @@ class WebClientCertificateAuthenticationResponse(dict):
                  url: Any):
         """
         A WebLinkedService that uses client certificate based authentication to communicate with an HTTP endpoint. This scheme follows mutual authentication; the server must also provide valid credentials to the client.
+
         :param _builtins.str authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'ClientCertificate'.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for the PFX file.
@@ -90914,6 +91540,7 @@ class WebHookActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         WebHook activity.
+
         :param _builtins.str method: Rest API method for target endpoint.
         :param _builtins.str name: Activity name.
         :param _builtins.str type: Type of activity.
@@ -91114,6 +91741,7 @@ class WebLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Web linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Web'.
         :param Union['WebAnonymousAuthenticationResponse', 'WebBasicAuthenticationResponse', 'WebClientCertificateAuthenticationResponse'] type_properties: Web linked service properties.
@@ -91233,6 +91861,7 @@ class WebSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity source for web page table.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'WebSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -91338,6 +91967,7 @@ class WebTableDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         The dataset points to a HTML table in the web page.
+
         :param Any index: The zero-based index of the table in the web page. Type: integer (or Expression with resultType integer), minimum: 0.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
@@ -91482,6 +92112,7 @@ class WranglingDataFlowResponse(dict):
                  sources: Optional[Sequence['outputs.PowerQuerySourceResponse']] = None):
         """
         Power Query data flow.
+
         :param _builtins.str type: Type of data flow.
                Expected value is 'WranglingDataFlow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
@@ -91616,6 +92247,7 @@ class XeroLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Xero Service linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Xero'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -91812,6 +92444,7 @@ class XeroObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Xero Service dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'XeroObject'.
@@ -91957,6 +92590,7 @@ class XeroSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Xero Service source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'XeroSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -92090,6 +92724,7 @@ class XmlDatasetResponse(dict):
                  structure: Optional[Any] = None):
         """
         Xml dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
         :param _builtins.str type: Type of dataset.
@@ -92261,6 +92896,7 @@ class XmlReadSettingsResponse(dict):
                  validation_mode: Optional[Any] = None):
         """
         Xml read settings.
+
         :param _builtins.str type: The read setting type.
                Expected value is 'XmlReadSettings'.
         :param Union['TarGZipReadSettingsResponse', 'TarReadSettingsResponse', 'ZipDeflateReadSettingsResponse'] compression_properties: Compression settings.
@@ -92376,6 +93012,7 @@ class XmlSourceResponse(dict):
                  store_settings: Optional[Any] = None):
         """
         A copy activity Xml source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'XmlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
@@ -92513,6 +93150,7 @@ class ZendeskLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Linked service for Zendesk.
+
         :param _builtins.str authentication_type: The authentication type to use.
         :param _builtins.str type: Type of linked service.
                Expected value is 'Zendesk'.
@@ -92674,6 +93312,7 @@ class ZipDeflateReadSettingsResponse(dict):
                  preserve_zip_file_name_as_folder: Optional[Any] = None):
         """
         The ZipDeflate compression read settings.
+
         :param _builtins.str type: The Compression setting type.
                Expected value is 'ZipDeflateReadSettings'.
         :param Any preserve_zip_file_name_as_folder: Preserve the zip file name as folder path. Type: boolean (or Expression with resultType boolean).
@@ -92750,6 +93389,7 @@ class ZohoLinkedServiceResponse(dict):
                  version: Optional[_builtins.str] = None):
         """
         Zoho server linked service.
+
         :param _builtins.str type: Type of linked service.
                Expected value is 'Zoho'.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] access_token: The access token for Zoho authentication.
@@ -92933,6 +93573,7 @@ class ZohoObjectDatasetResponse(dict):
                  table_name: Optional[Any] = None):
         """
         Zoho server dataset.
+
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param _builtins.str type: Type of dataset.
                Expected value is 'ZohoObject'.
@@ -93078,6 +93719,7 @@ class ZohoSourceResponse(dict):
                  source_retry_wait: Optional[Any] = None):
         """
         A copy activity Zoho server source.
+
         :param _builtins.str type: Copy source type.
                Expected value is 'ZohoSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).

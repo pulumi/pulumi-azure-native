@@ -15,6 +15,42 @@ namespace Pulumi.AzureNative.Marketplace
     /// Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// 
     /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateStoreOffer_update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateStoreCollectionOffer = new AzureNative.Marketplace.PrivateStoreCollectionOffer("privateStoreCollectionOffer", new()
+    ///     {
+    ///         CollectionId = "56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
+    ///         ETag = "\"9301f4fd-0000-0100-0000-5e248b350666\"",
+    ///         OfferId = "marketplacetestthirdparty.md-test-third-party-2",
+    ///         PrivateStoreId = "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+    ///         SpecificPlanIdsLimitation = new[]
+    ///         {
+    ///             "0001",
+    ///             "0002",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:marketplace:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/{privateStoreId}/collections/{collectionId}/offers/{offerId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollectionOffer")]
     public partial class PrivateStoreCollectionOffer : global::Pulumi.CustomResource

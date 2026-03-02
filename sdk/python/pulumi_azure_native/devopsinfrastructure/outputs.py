@@ -66,6 +66,7 @@ class AutomaticResourcePredictionsProfileResponse(dict):
                  prediction_preference: Optional[_builtins.str] = None):
         """
         The stand-by agent scheme is determined based on historical demand.
+
         :param _builtins.str kind: Determines how the stand-by scheme should be provided.
                Expected value is 'Automatic'.
         :param _builtins.str prediction_preference: Determines the balance between cost and performance.
@@ -120,6 +121,7 @@ class AzureDevOpsOrganizationProfileResponse(dict):
                  permission_profile: Optional['outputs.AzureDevOpsPermissionProfileResponse'] = None):
         """
         Azure DevOps organization profile
+
         :param _builtins.str kind: Discriminator property for OrganizationProfile.
                Expected value is 'AzureDevOps'.
         :param Sequence['OrganizationResponse'] organizations: The list of Azure DevOps organizations the pool should be present in.
@@ -167,6 +169,7 @@ class AzureDevOpsPermissionProfileResponse(dict):
                  users: Optional[Sequence[_builtins.str]] = None):
         """
         Defines the type of Azure DevOps pool permission.
+
         :param _builtins.str kind: Determines who has admin permissions to the Azure DevOps pool.
         :param Sequence[_builtins.str] groups: Group email addresses
         :param Sequence[_builtins.str] users: User email addresses
@@ -235,6 +238,7 @@ class DataDiskResponse(dict):
                  storage_account_type: Optional[_builtins.str] = None):
         """
         The data disk of the VMSS.
+
         :param _builtins.str caching: The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
         :param _builtins.int disk_size_gi_b: The initial disk size in gigabytes.
         :param _builtins.str drive_letter: The drive letter for the empty data disk. If not specified, it will be the first available letter.
@@ -291,6 +295,7 @@ class DevOpsAzureSkuResponse(dict):
                  name: _builtins.str):
         """
         The Azure SKU of the machines in the pool.
+
         :param _builtins.str name: The Azure SKU name of the machines in the pool.
         """
         pulumi.set(__self__, "name", name)
@@ -314,6 +319,7 @@ class GitHubOrganizationProfileResponse(dict):
                  organizations: Sequence['outputs.GitHubOrganizationResponse']):
         """
         GitHub organization profile
+
         :param _builtins.str kind: Discriminator property for OrganizationProfile.
                Expected value is 'GitHub'.
         :param Sequence['GitHubOrganizationResponse'] organizations: The list of GitHub organizations/repositories the pool should be present in.
@@ -349,6 +355,7 @@ class GitHubOrganizationResponse(dict):
                  repositories: Optional[Sequence[_builtins.str]] = None):
         """
         Defines a GitHub organization
+
         :param _builtins.str url: The GitHub organization URL in which the pool should be created.
         :param Sequence[_builtins.str] repositories: Optional list of repositories in which the pool should be created.
         """
@@ -406,6 +413,7 @@ class ManagedServiceIdentityResponse(dict):
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param _builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param _builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
@@ -459,6 +467,7 @@ class ManualResourcePredictionsProfileResponse(dict):
                  kind: _builtins.str):
         """
         Customer provides the stand-by agent scheme.
+
         :param _builtins.str kind: Determines how the stand-by scheme should be provided.
                Expected value is 'Manual'.
         """
@@ -500,6 +509,7 @@ class NetworkProfileResponse(dict):
                  subnet_id: _builtins.str):
         """
         The network profile of the machines in the pool.
+
         :param _builtins.str subnet_id: The subnet id on which to put all machines created in the pool.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -542,6 +552,7 @@ class OrganizationResponse(dict):
                  projects: Optional[Sequence[_builtins.str]] = None):
         """
         Defines an Azure DevOps organization.
+
         :param _builtins.str url: The Azure DevOps organization URL in which the pool should be created.
         :param _builtins.bool open_access: Determines if the pool should have open access to all projects in this organization.
         :param _builtins.int parallelism: How many machines can be created at maximum in this organization out of the maximumConcurrency of the pool.
@@ -617,6 +628,7 @@ class OsProfileResponse(dict):
                  secrets_management_settings: Optional['outputs.SecretsManagementSettingsResponse'] = None):
         """
         The OS profile of the machines in the pool.
+
         :param _builtins.str logon_type: Determines how the service should be run. By default, this will be set to Service.
         :param 'SecretsManagementSettingsResponse' secrets_management_settings: The secret management settings of the machines in the pool.
         """
@@ -676,6 +688,7 @@ class PoolImageResponse(dict):
                  well_known_image_name: Optional[_builtins.str] = None):
         """
         The VM image of the machines in the pool.
+
         :param Sequence[_builtins.str] aliases: List of aliases to reference the image by.
         :param _builtins.str buffer: The percentage of the buffer to be allocated to this image.
         :param _builtins.str ephemeral_type: The ephemeral type of the image.
@@ -771,6 +784,7 @@ class SecretsManagementSettingsResponse(dict):
                  certificate_store_name: Optional[_builtins.str] = None):
         """
         The secret management settings of the machines in the pool.
+
         :param _builtins.bool key_exportable: Defines if the key of the certificates should be exportable.
         :param Sequence[_builtins.str] observed_certificates: The list of certificates to install on all machines in the pool.
         :param _builtins.str certificate_store_location: Where to store certificates on the machine.
@@ -852,6 +866,7 @@ class StatefulResponse(dict):
                  resource_predictions_profile: Optional[Any] = None):
         """
         Stateful profile meaning that the machines will be returned to the pool after running a job.
+
         :param _builtins.str kind: Discriminator property for AgentProfile.
                Expected value is 'Stateful'.
         :param _builtins.str grace_period_time_span: How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
@@ -941,6 +956,7 @@ class StatelessAgentProfileResponse(dict):
                  resource_predictions_profile: Optional[Any] = None):
         """
         Stateless profile meaning that the machines will be cleaned up after running a job.
+
         :param _builtins.str kind: Discriminator property for AgentProfile.
                Expected value is 'Stateless'.
         :param Any resource_predictions: Defines pool buffer/stand-by agents.
@@ -1007,6 +1023,7 @@ class StorageProfileResponse(dict):
                  os_disk_storage_account_type: Optional[_builtins.str] = None):
         """
         The storage profile of the VMSS.
+
         :param Sequence['DataDiskResponse'] data_disks: A list of empty data disks to attach.
         :param _builtins.str os_disk_storage_account_type: The Azure SKU name of the machines in the pool.
         """
@@ -1073,6 +1090,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -1171,6 +1189,7 @@ class UserAssignedIdentityResponse(dict):
                  principal_id: _builtins.str):
         """
         User assigned identity properties
+
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
         """
@@ -1229,6 +1248,7 @@ class VmssFabricProfileResponse(dict):
                  storage_profile: Optional['outputs.StorageProfileResponse'] = None):
         """
         The agents will run on Virtual Machine Scale Sets.
+
         :param Sequence['PoolImageResponse'] images: The VM images of the machines in the pool.
         :param _builtins.str kind: Discriminator property for FabricProfile.
                Expected value is 'Vmss'.

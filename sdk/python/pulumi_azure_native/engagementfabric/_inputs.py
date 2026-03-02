@@ -19,23 +19,18 @@ __all__ = [
     'SKUArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SKUArgsDict(TypedDict):
-        """
-        The EngagementFabric SKU
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the SKU
-        """
-        tier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The price tier of the SKU
-        """
-elif False:
-    SKUArgsDict: TypeAlias = Mapping[str, Any]
+class SKUArgsDict(TypedDict):
+    """
+    The EngagementFabric SKU
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SKU
+    """
+    tier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The price tier of the SKU
+    """
 
 @pulumi.input_type
 class SKUArgs:
@@ -44,6 +39,7 @@ class SKUArgs:
                  tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The EngagementFabric SKU
+
         :param pulumi.Input[_builtins.str] name: The name of the SKU
         :param pulumi.Input[_builtins.str] tier: The price tier of the SKU
         """

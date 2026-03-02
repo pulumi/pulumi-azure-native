@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// The Role Assignment resource format.
     /// 
     /// Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
+    /// 
+    /// ## Example Usage
+    /// ### RoleAssignments_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleAssignment = new AzureNative.CustomerInsights.RoleAssignment("roleAssignment", new()
+    ///     {
+    ///         AssignmentName = "assignmentName8976",
+    ///         HubName = "sdkTestHub",
+    ///         Principals = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.Inputs.AssignmentPrincipalArgs
+    ///             {
+    ///                 PrincipalId = "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+    ///                 PrincipalType = "User",
+    ///             },
+    ///             new AzureNative.CustomerInsights.Inputs.AssignmentPrincipalArgs
+    ///             {
+    ///                 PrincipalId = "93061d15a5054f2b9948ae25724cf9d5",
+    ///                 PrincipalType = "User",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestHubRG",
+    ///         Role = AzureNative.CustomerInsights.RoleTypes.Admin,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights:RoleAssignment azSdkTestHub/assignmentName8976 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/roleAssignments/{assignmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:RoleAssignment")]
     public partial class RoleAssignment : global::Pulumi.CustomResource

@@ -27,6 +27,7 @@ class WorkspaceManagerMemberArgs:
                  workspace_manager_member_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceManagerMember resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] target_workspace_resource_id: Fully qualified resource ID of the target Sentinel workspace joining the given Sentinel workspace manager
         :param pulumi.Input[_builtins.str] target_workspace_tenant_id: Tenant id of the target Sentinel workspace joining the given Sentinel workspace manager
@@ -120,6 +121,31 @@ class WorkspaceManagerMember(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or Update a workspace manager member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_member = azure_native.securityinsights.WorkspaceManagerMember("workspaceManagerMember",
+            resource_group_name="myRg",
+            target_workspace_resource_id="/subscriptions/7aef9d48-814f-45ad-b644-b0343316e174/resourceGroups/otherRg/providers/Microsoft.OperationalInsights/workspaces/Example_Workspace",
+            target_workspace_tenant_id="f676d436-8d16-42db-81b7-ab578e110ccd",
+            workspace_manager_member_name="afbd324f-6c48-459c-8710-8d1e1cd03812",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:WorkspaceManagerMember afbd324f-6c48-459c-8710-8d1e1cd03812 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/workspaceManagerMembers/{workspaceManagerMemberName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -140,6 +166,31 @@ class WorkspaceManagerMember(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or Update a workspace manager member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_member = azure_native.securityinsights.WorkspaceManagerMember("workspaceManagerMember",
+            resource_group_name="myRg",
+            target_workspace_resource_id="/subscriptions/7aef9d48-814f-45ad-b644-b0343316e174/resourceGroups/otherRg/providers/Microsoft.OperationalInsights/workspaces/Example_Workspace",
+            target_workspace_tenant_id="f676d436-8d16-42db-81b7-ab578e110ccd",
+            workspace_manager_member_name="afbd324f-6c48-459c-8710-8d1e1cd03812",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:WorkspaceManagerMember afbd324f-6c48-459c-8710-8d1e1cd03812 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/workspaceManagerMembers/{workspaceManagerMemberName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerMemberArgs args: The arguments to use to populate this resource's properties.

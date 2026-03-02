@@ -13,6 +13,58 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+    /// 
+    /// ## Example Usage
+    /// ### KmsAliases_CreateOrReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kmsAlias = new AzureNative.AwsConnector.KmsAlias("kmsAlias", new()
+    ///     {
+    ///         Location = "zsrefx",
+    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+    ///         Properties = new AzureNative.AwsConnector.Inputs.KmsAliasPropertiesArgs
+    ///         {
+    ///             Arn = "seecdsob",
+    ///             AwsAccountId = "mi",
+    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsKmsAliasPropertiesArgs
+    ///             {
+    ///                 AliasName = "qpqfyfsgzbqqqwohdqogpksketglb",
+    ///                 TargetKeyId = "fgiefgtmhdrvw",
+    ///             },
+    ///             AwsRegion = "zofqccwhxvtaeqhhtqwmruhcjkro",
+    ///             AwsSourceSchema = "iwkqjxnfjutfnhhocco",
+    ///             AwsTags = 
+    ///             {
+    ///                 { "key6582", "wejhqyokgch" },
+    ///             },
+    ///             PublicCloudConnectorsResourceId = "n",
+    ///             PublicCloudResourceName = "qrdvkbofzddttwvcfunr",
+    ///         },
+    ///         ResourceGroupName = "rgkmsAlias",
+    ///         Tags = 
+    ///         {
+    ///             { "key1437", "lfgpfgxqkrvrlhnpwtzafonw" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:awsconnector:KmsAlias runvybddwo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsAliases/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:KmsAlias")]
     public partial class KmsAlias : global::Pulumi.CustomResource

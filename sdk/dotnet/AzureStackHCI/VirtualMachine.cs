@@ -13,6 +13,193 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The virtual machine resource definition.
     /// 
     /// Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutVirtualMachineWithGalleryImage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.AzureStackHCI.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
+    ///         },
+    ///         HardwareProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesHardwareProfileArgs
+    ///         {
+    ///             VmSize = AzureNative.AzureStackHCI.VmSizeEnum.Default,
+    ///         },
+    ///         Location = "West US2",
+    ///         NetworkProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesNetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesNetworkInterfacesArgs
+    ///                 {
+    ///                     Id = "test-nic",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesOsProfileArgs
+    ///         {
+    ///             AdminPassword = "password",
+    ///             AdminUsername = "localadmin",
+    ///             ComputerName = "luamaster",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         SecurityProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesSecurityProfileArgs
+    ///         {
+    ///             EnableTPM = true,
+    ///             UefiSettings = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesUefiSettingsArgs
+    ///             {
+    ///                 SecureBootEnabled = true,
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesStorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesImageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image",
+    ///             },
+    ///             VmConfigStoragePathId = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+    ///         },
+    ///         VirtualMachineName = "test-vm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutVirtualMachineWithMarketplaceGalleryImage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.AzureStackHCI.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
+    ///         },
+    ///         HardwareProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesHardwareProfileArgs
+    ///         {
+    ///             VmSize = AzureNative.AzureStackHCI.VmSizeEnum.Default,
+    ///         },
+    ///         Location = "West US2",
+    ///         NetworkProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesNetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesNetworkInterfacesArgs
+    ///                 {
+    ///                     Id = "test-nic",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesOsProfileArgs
+    ///         {
+    ///             AdminPassword = "password",
+    ///             AdminUsername = "localadmin",
+    ///             ComputerName = "luamaster",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         SecurityProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesSecurityProfileArgs
+    ///         {
+    ///             EnableTPM = true,
+    ///             UefiSettings = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesUefiSettingsArgs
+    ///             {
+    ///                 SecureBootEnabled = true,
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesStorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesImageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
+    ///             },
+    ///             VmConfigStoragePathId = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+    ///         },
+    ///         VirtualMachineName = "test-vm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutVirtualMachineWithOsDisk
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.AzureStackHCI.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
+    ///         },
+    ///         HardwareProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesHardwareProfileArgs
+    ///         {
+    ///             VmSize = AzureNative.AzureStackHCI.VmSizeEnum.Default,
+    ///         },
+    ///         Location = "West US2",
+    ///         NetworkProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesNetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesNetworkInterfacesArgs
+    ///                 {
+    ///                     Id = "test-nic",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         SecurityProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesSecurityProfileArgs
+    ///         {
+    ///             EnableTPM = true,
+    ///             UefiSettings = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesUefiSettingsArgs
+    ///             {
+    ///                 SecureBootEnabled = true,
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.AzureStackHCI.Inputs.VirtualMachinePropertiesOsDiskArgs
+    ///             {
+    ///                 Id = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualHardDisks/test-vhd",
+    ///             },
+    ///             VmConfigStoragePathId = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+    ///         },
+    ///         VirtualMachineName = "test-vm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:VirtualMachine myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

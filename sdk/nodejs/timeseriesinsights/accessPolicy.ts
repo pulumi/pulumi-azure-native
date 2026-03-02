@@ -13,6 +13,32 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
  *
  * Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### AccessPoliciesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessPolicy = new azure_native.timeseriesinsights.AccessPolicy("accessPolicy", {
+ *     accessPolicyName: "ap1",
+ *     description: "some description",
+ *     environmentName: "env1",
+ *     principalObjectId: "aGuid",
+ *     resourceGroupName: "rg1",
+ *     roles: [azure_native.timeseriesinsights.AccessPolicyRole.Reader],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights:AccessPolicy ap1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName} 
+ * ```
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**

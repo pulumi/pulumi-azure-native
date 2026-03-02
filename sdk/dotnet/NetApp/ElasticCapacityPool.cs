@@ -13,6 +13,89 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp Elastic Capacity Pool resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### ElasticCapacityPools_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticCapacityPool = new AzureNative.NetApp.ElasticCapacityPool("elasticCapacityPool", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         Location = "eastus",
+    ///         PoolName = "pool1",
+    ///         Properties = new AzureNative.NetApp.Inputs.ElasticCapacityPoolPropertiesArgs
+    ///         {
+    ///             ActiveDirectoryConfigResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/activeDirectoryConfigs/activeDirectoryConfig1",
+    ///             ServiceLevel = AzureNative.NetApp.ElasticServiceLevel.ZoneRedundant,
+    ///             Size = 4398046511104,
+    ///             SubnetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///             "3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ElasticCapacityPools_CreateOrUpdateCMK
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticCapacityPool = new AzureNative.NetApp.ElasticCapacityPool("elasticCapacityPool", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         Location = "eastus",
+    ///         PoolName = "pool1",
+    ///         Properties = new AzureNative.NetApp.Inputs.ElasticCapacityPoolPropertiesArgs
+    ///         {
+    ///             ActiveDirectoryConfigResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/activeDirectoryConfigs/activeDirectoryConfig1",
+    ///             Encryption = new AzureNative.NetApp.Inputs.ElasticEncryptionConfigurationArgs
+    ///             {
+    ///                 ElasticPoolEncryptionKeySource = AzureNative.NetApp.ElasticPoolEncryptionKeySource.NetApp,
+    ///                 KeyVaultPrivateEndpointResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault/privateEndpointConnections/myKeyVaultPec",
+    ///             },
+    ///             ServiceLevel = AzureNative.NetApp.ElasticServiceLevel.ZoneRedundant,
+    ///             Size = 4398046511104,
+    ///             SubnetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///             "3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:ElasticCapacityPool account1/pool1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticCapacityPool")]
     public partial class ElasticCapacityPool : global::Pulumi.CustomResource

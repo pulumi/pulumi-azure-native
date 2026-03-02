@@ -65,6 +65,7 @@ class DatabaseArgs:
                  zone_redundant: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Database resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
@@ -844,6 +845,325 @@ class Database(pulumi.CustomResource):
 
         Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates a VCore database by specifying service objective name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "family": "Gen4",
+                "name": "BC",
+            })
+
+        ```
+        ### Creates a VCore database by specifying sku name and capacity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "name": "BC_Gen4",
+            })
+
+        ```
+        ### Creates a data warehouse database as a cross-subscription restore from a backup of a dropped database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.RESTORE,
+            database_name="testdw",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/restorableDroppedDatabases/srcdw,131403269876900000")
+
+        ```
+        ### Creates a data warehouse database as a cross-subscription restore from a geo-backup.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.RECOVERY,
+            database_name="testdw",
+            location="westus",
+            resource_group_name="Default-SQL-WestUS",
+            server_name="testsvr",
+            source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-EastUS/providers/Microsoft.Sql/servers/srcsvr/recoverabledatabases/srcdw")
+
+        ```
+        ### Creates a data warehouse database as a cross-subscription restore from a restore point of an existing database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.POINT_IN_TIME_RESTORE,
+            database_name="testdw",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2022-01-22T05:35:31.503Z",
+            server_name="testsvr",
+            source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/databases/srcdw")
+
+        ```
+        ### Creates a database as a copy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.COPY,
+            database_name="dbcopy",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database as a standby secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.SECONDARY,
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            secondary_type=azure_native.sql.SecondaryType.STANDBY,
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb")
+
+        ```
+        ### Creates a database as an on-line secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.SECONDARY,
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            secondary_type=azure_native.sql.SecondaryType.GEO,
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb")
+
+        ```
+        ### Creates a database as named replica secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.SECONDARY,
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            secondary_type=azure_native.sql.SecondaryType.NAMED,
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "name": "HS_Gen4",
+                "tier": "Hyperscale",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/primarydb")
+
+        ```
+        ### Creates a database from PointInTimeRestore.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.POINT_IN_TIME_RESTORE,
+            database_name="dbpitr",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2020-10-22T05:35:31.503Z",
+            server_name="testsvr",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SoutheastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database with Default enclave type.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.DEFAULT,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with VBS enclave type.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.VBS,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with availability zone specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            availability_zone=azure_native.sql.AvailabilityZoneType.ONE,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.CreateMode.DEFAULT,
+            database_name="testdb",
+            location="southeastasia",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with default mode.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.CreateMode.DEFAULT,
+            database_name="testdb",
+            location="southeastasia",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with ledger on.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            is_ledger_on=True,
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with minimum number of parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with preferred maintenance window.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.CreateMode.DEFAULT,
+            database_name="testdb",
+            location="southeastasia",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_SouthEastAsia_1",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S2",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with specified backup storage redundancy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            requested_backup_storage_redundancy=azure_native.sql.BackupStorageRedundancy.ZONE,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:Database testdb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
@@ -954,6 +1274,325 @@ class Database(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2014-04-01, 2017-03-01-preview, 2017-10-01-preview, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates a VCore database by specifying service objective name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "family": "Gen4",
+                "name": "BC",
+            })
+
+        ```
+        ### Creates a VCore database by specifying sku name and capacity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "name": "BC_Gen4",
+            })
+
+        ```
+        ### Creates a data warehouse database as a cross-subscription restore from a backup of a dropped database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.RESTORE,
+            database_name="testdw",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/restorableDroppedDatabases/srcdw,131403269876900000")
+
+        ```
+        ### Creates a data warehouse database as a cross-subscription restore from a geo-backup.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.RECOVERY,
+            database_name="testdw",
+            location="westus",
+            resource_group_name="Default-SQL-WestUS",
+            server_name="testsvr",
+            source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-EastUS/providers/Microsoft.Sql/servers/srcsvr/recoverabledatabases/srcdw")
+
+        ```
+        ### Creates a data warehouse database as a cross-subscription restore from a restore point of an existing database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.POINT_IN_TIME_RESTORE,
+            database_name="testdw",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2022-01-22T05:35:31.503Z",
+            server_name="testsvr",
+            source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/databases/srcdw")
+
+        ```
+        ### Creates a database as a copy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.COPY,
+            database_name="dbcopy",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database as a standby secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.SECONDARY,
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            secondary_type=azure_native.sql.SecondaryType.STANDBY,
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb")
+
+        ```
+        ### Creates a database as an on-line secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.SECONDARY,
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            secondary_type=azure_native.sql.SecondaryType.GEO,
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb")
+
+        ```
+        ### Creates a database as named replica secondary.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.SECONDARY,
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            secondary_type=azure_native.sql.SecondaryType.NAMED,
+            server_name="testsvr",
+            sku={
+                "capacity": 2,
+                "name": "HS_Gen4",
+                "tier": "Hyperscale",
+            },
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/primarydb")
+
+        ```
+        ### Creates a database from PointInTimeRestore.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            create_mode=azure_native.sql.CreateMode.POINT_IN_TIME_RESTORE,
+            database_name="dbpitr",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            restore_point_in_time="2020-10-22T05:35:31.503Z",
+            server_name="testsvr",
+            source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SoutheastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb")
+
+        ```
+        ### Creates a database with Default enclave type.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.DEFAULT,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with VBS enclave type.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            preferred_enclave_type=azure_native.sql.AlwaysEncryptedEnclaveType.VBS,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with availability zone specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            availability_zone=azure_native.sql.AvailabilityZoneType.ONE,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.CreateMode.DEFAULT,
+            database_name="testdb",
+            location="southeastasia",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with default mode.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.CreateMode.DEFAULT,
+            database_name="testdb",
+            location="southeastasia",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S0",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with ledger on.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            is_ledger_on=True,
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with minimum number of parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+        ### Creates a database with preferred maintenance window.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            create_mode=azure_native.sql.CreateMode.DEFAULT,
+            database_name="testdb",
+            location="southeastasia",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_SouthEastAsia_1",
+            max_size_bytes=1073741824,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            sku={
+                "name": "S2",
+                "tier": "Standard",
+            })
+
+        ```
+        ### Creates a database with specified backup storage redundancy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.sql.Database("database",
+            database_name="testdb",
+            location="southeastasia",
+            requested_backup_storage_redundancy=azure_native.sql.BackupStorageRedundancy.ZONE,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:Database testdb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

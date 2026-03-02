@@ -9,6 +9,61 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2020-01-01. In version 2.x of the Azure Native provider, it used API version 2020-01-01.
+ *
+ * ## Example Usage
+ * ### Create JIT network access policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jitNetworkAccessPolicy = new azure_native.security.JitNetworkAccessPolicy("jitNetworkAccessPolicy", {
+ *     ascLocation: "westeurope",
+ *     jitNetworkAccessPolicyName: "default",
+ *     kind: "Basic",
+ *     requests: [{
+ *         requestor: "barbara@contoso.com",
+ *         startTimeUtc: "2018-05-17T08:06:45.5691611Z",
+ *         virtualMachines: [{
+ *             id: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+ *             ports: [{
+ *                 allowedSourceAddressPrefix: "192.127.0.2",
+ *                 endTimeUtc: "2018-05-17T09:06:45.5691611Z",
+ *                 number: 3389,
+ *                 status: azure_native.security.Status.Initiated,
+ *                 statusReason: azure_native.security.StatusReason.UserRequested,
+ *             }],
+ *         }],
+ *     }],
+ *     resourceGroupName: "myRg1",
+ *     virtualMachines: [{
+ *         id: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+ *         ports: [
+ *             {
+ *                 allowedSourceAddressPrefix: "*",
+ *                 maxRequestAccessDuration: "PT3H",
+ *                 number: 22,
+ *                 protocol: azure_native.security.Protocol.All,
+ *             },
+ *             {
+ *                 allowedSourceAddressPrefix: "*",
+ *                 maxRequestAccessDuration: "PT3H",
+ *                 number: 3389,
+ *                 protocol: azure_native.security.Protocol.All,
+ *             },
+ *         ],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:JitNetworkAccessPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{ascLocation}/jitNetworkAccessPolicies/{jitNetworkAccessPolicyName} 
+ * ```
  */
 export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     /**

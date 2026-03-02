@@ -30,6 +30,7 @@ class NetworkDeviceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkDevice resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] serial_number: Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -173,6 +174,36 @@ class NetworkDevice(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### NetworkDevices_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_device = azure_native.managednetworkfabric.NetworkDevice("networkDevice",
+            annotation="annotation",
+            host_name="NFA-Device",
+            location="eastuseuap",
+            network_device_name="example-device",
+            network_device_sku="DeviceSku",
+            resource_group_name="example-rg",
+            serial_number="Vendor;DCS-7280XXX-24;12.05;JPE2111XXXX",
+            tags={
+                "keyID": "KeyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkDevice example-device /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkDevices/{networkDeviceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
@@ -196,6 +227,36 @@ class NetworkDevice(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### NetworkDevices_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_device = azure_native.managednetworkfabric.NetworkDevice("networkDevice",
+            annotation="annotation",
+            host_name="NFA-Device",
+            location="eastuseuap",
+            network_device_name="example-device",
+            network_device_sku="DeviceSku",
+            resource_group_name="example-rg",
+            serial_number="Vendor;DCS-7280XXX-24;12.05;JPE2111XXXX",
+            tags={
+                "keyID": "KeyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkDevice example-device /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkDevices/{networkDeviceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkDeviceArgs args: The arguments to use to populate this resource's properties.

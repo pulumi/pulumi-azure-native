@@ -29,6 +29,7 @@ class BackupInstanceInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupInstance resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The name of the backup vault.
         :param pulumi.Input[_builtins.str] backup_instance_name: The name of the backup instance.
@@ -124,6 +125,193 @@ class BackupInstance(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create BackupInstance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties={
+                "data_source_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "Datasource",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resource_location": "",
+                    "resource_name": "testdb",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resource_uri": "",
+                },
+                "data_source_set_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "DatasourceSet",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    "resource_location": "",
+                    "resource_name": "viveksipgtest",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers",
+                    "resource_uri": "",
+                },
+                "datasource_auth_credentials": {
+                    "object_type": "SecretStoreBasedAuthCredentials",
+                    "secret_store_resource": {
+                        "secret_store_type": azure_native.dataprotection.SecretStoreType.AZURE_KEY_VAULT,
+                        "uri": "https://samplevault.vault.azure.net/secrets/credentials",
+                    },
+                },
+                "friendly_name": "harshitbi2",
+                "identity_details": {
+                    "use_system_assigned_identity": False,
+                    "user_assigned_identity_arm_url": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourcegroups/rg-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUami",
+                },
+                "object_type": "BackupInstance",
+                "policy_info": {
+                    "policy_id": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policy_parameters": {
+                        "data_store_parameters_list": [{
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.OPERATIONAL_STORE,
+                            "object_type": "AzureOperationalStoreParameters",
+                            "resource_group_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        }],
+                    },
+                },
+                "validation_type": azure_native.dataprotection.ValidationType.SHALLOW_VALIDATION,
+            },
+            resource_group_name="000pikumar",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+        ### Create BackupInstance With KubernetesClusterBackupDatasourceParameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="aksbi",
+            properties={
+                "data_source_info": {
+                    "datasource_type": "Microsoft.ContainerService/managedclusters",
+                    "object_type": "Datasource",
+                    "resource_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                    "resource_location": "eastus2euap",
+                    "resource_name": "akscluster",
+                    "resource_type": "Microsoft.ContainerService/managedclusters",
+                    "resource_uri": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                },
+                "data_source_set_info": {
+                    "datasource_type": "Microsoft.ContainerService/managedclusters",
+                    "object_type": "DatasourceSet",
+                    "resource_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                    "resource_location": "eastus2euap",
+                    "resource_name": "akscluster",
+                    "resource_type": "Microsoft.ContainerService/managedclusters",
+                    "resource_uri": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                },
+                "friendly_name": "aksbi",
+                "object_type": "BackupInstance",
+                "policy_info": {
+                    "policy_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourcegroups/aksrg/providers/Microsoft.DataProtection/BackupVaults/aksvault/backupPolicies/akspolicy",
+                    "policy_parameters": {
+                        "backup_datasource_parameters_list": [{
+                            "excluded_namespaces": ["kube-system"],
+                            "excluded_resource_types": ["v1/Secret"],
+                            "include_cluster_scope_resources": True,
+                            "included_namespaces": ["test"],
+                            "included_resource_types": [],
+                            "included_volume_types": [
+                                azure_native.dataprotection.AKSVolumeTypes.AZURE_DISK,
+                                azure_native.dataprotection.AKSVolumeTypes.AZURE_FILE_SHARE_SMB,
+                            ],
+                            "label_selectors": [],
+                            "object_type": "KubernetesClusterBackupDatasourceParameters",
+                            "snapshot_volumes": True,
+                        }],
+                        "data_store_parameters_list": [{
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.OPERATIONAL_STORE,
+                            "object_type": "AzureOperationalStoreParameters",
+                            "resource_group_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg",
+                        }],
+                    },
+                },
+            },
+            resource_group_name="aksrg",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="aksvault")
+
+        ```
+        ### Create BackupInstance to perform critical operation With MUA
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties={
+                "data_source_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "Datasource",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resource_location": "",
+                    "resource_name": "testdb",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resource_uri": "",
+                },
+                "data_source_set_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "DatasourceSet",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    "resource_location": "",
+                    "resource_name": "viveksipgtest",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers",
+                    "resource_uri": "",
+                },
+                "datasource_auth_credentials": {
+                    "object_type": "SecretStoreBasedAuthCredentials",
+                    "secret_store_resource": {
+                        "secret_store_type": azure_native.dataprotection.SecretStoreType.AZURE_KEY_VAULT,
+                        "uri": "https://samplevault.vault.azure.net/secrets/credentials",
+                    },
+                },
+                "friendly_name": "harshitbi2",
+                "object_type": "BackupInstance",
+                "policy_info": {
+                    "policy_id": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policy_parameters": {
+                        "data_store_parameters_list": [{
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.OPERATIONAL_STORE,
+                            "object_type": "AzureOperationalStoreParameters",
+                            "resource_group_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        }],
+                    },
+                },
+                "resource_guard_operation_requests": ["/subscriptions/38304e13-357e-405e-9e9a-220351dcce8c/resourcegroups/ankurResourceGuard1/providers/Microsoft.DataProtection/resourceGuards/ResourceGuard38-1/dppModifyPolicy/default"],
+                "validation_type": azure_native.dataprotection.ValidationType.SHALLOW_VALIDATION,
+            },
+            resource_group_name="000pikumar",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupInstance harshitbi2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_instance_name: The name of the backup instance.
@@ -144,6 +332,193 @@ class BackupInstance(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2023-01-01, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-02-01, 2025-07-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dataprotection [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create BackupInstance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties={
+                "data_source_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "Datasource",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resource_location": "",
+                    "resource_name": "testdb",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resource_uri": "",
+                },
+                "data_source_set_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "DatasourceSet",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    "resource_location": "",
+                    "resource_name": "viveksipgtest",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers",
+                    "resource_uri": "",
+                },
+                "datasource_auth_credentials": {
+                    "object_type": "SecretStoreBasedAuthCredentials",
+                    "secret_store_resource": {
+                        "secret_store_type": azure_native.dataprotection.SecretStoreType.AZURE_KEY_VAULT,
+                        "uri": "https://samplevault.vault.azure.net/secrets/credentials",
+                    },
+                },
+                "friendly_name": "harshitbi2",
+                "identity_details": {
+                    "use_system_assigned_identity": False,
+                    "user_assigned_identity_arm_url": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourcegroups/rg-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUami",
+                },
+                "object_type": "BackupInstance",
+                "policy_info": {
+                    "policy_id": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policy_parameters": {
+                        "data_store_parameters_list": [{
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.OPERATIONAL_STORE,
+                            "object_type": "AzureOperationalStoreParameters",
+                            "resource_group_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        }],
+                    },
+                },
+                "validation_type": azure_native.dataprotection.ValidationType.SHALLOW_VALIDATION,
+            },
+            resource_group_name="000pikumar",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+        ### Create BackupInstance With KubernetesClusterBackupDatasourceParameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="aksbi",
+            properties={
+                "data_source_info": {
+                    "datasource_type": "Microsoft.ContainerService/managedclusters",
+                    "object_type": "Datasource",
+                    "resource_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                    "resource_location": "eastus2euap",
+                    "resource_name": "akscluster",
+                    "resource_type": "Microsoft.ContainerService/managedclusters",
+                    "resource_uri": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                },
+                "data_source_set_info": {
+                    "datasource_type": "Microsoft.ContainerService/managedclusters",
+                    "object_type": "DatasourceSet",
+                    "resource_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                    "resource_location": "eastus2euap",
+                    "resource_name": "akscluster",
+                    "resource_type": "Microsoft.ContainerService/managedclusters",
+                    "resource_uri": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg/providers/Microsoft.ContainerService/managedClusters/akscluster",
+                },
+                "friendly_name": "aksbi",
+                "object_type": "BackupInstance",
+                "policy_info": {
+                    "policy_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourcegroups/aksrg/providers/Microsoft.DataProtection/BackupVaults/aksvault/backupPolicies/akspolicy",
+                    "policy_parameters": {
+                        "backup_datasource_parameters_list": [{
+                            "excluded_namespaces": ["kube-system"],
+                            "excluded_resource_types": ["v1/Secret"],
+                            "include_cluster_scope_resources": True,
+                            "included_namespaces": ["test"],
+                            "included_resource_types": [],
+                            "included_volume_types": [
+                                azure_native.dataprotection.AKSVolumeTypes.AZURE_DISK,
+                                azure_native.dataprotection.AKSVolumeTypes.AZURE_FILE_SHARE_SMB,
+                            ],
+                            "label_selectors": [],
+                            "object_type": "KubernetesClusterBackupDatasourceParameters",
+                            "snapshot_volumes": True,
+                        }],
+                        "data_store_parameters_list": [{
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.OPERATIONAL_STORE,
+                            "object_type": "AzureOperationalStoreParameters",
+                            "resource_group_id": "/subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/aksrg",
+                        }],
+                    },
+                },
+            },
+            resource_group_name="aksrg",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="aksvault")
+
+        ```
+        ### Create BackupInstance to perform critical operation With MUA
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties={
+                "data_source_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "Datasource",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resource_location": "",
+                    "resource_name": "testdb",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resource_uri": "",
+                },
+                "data_source_set_info": {
+                    "datasource_type": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "object_type": "DatasourceSet",
+                    "resource_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    "resource_location": "",
+                    "resource_name": "viveksipgtest",
+                    "resource_type": "Microsoft.DBforPostgreSQL/servers",
+                    "resource_uri": "",
+                },
+                "datasource_auth_credentials": {
+                    "object_type": "SecretStoreBasedAuthCredentials",
+                    "secret_store_resource": {
+                        "secret_store_type": azure_native.dataprotection.SecretStoreType.AZURE_KEY_VAULT,
+                        "uri": "https://samplevault.vault.azure.net/secrets/credentials",
+                    },
+                },
+                "friendly_name": "harshitbi2",
+                "object_type": "BackupInstance",
+                "policy_info": {
+                    "policy_id": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policy_parameters": {
+                        "data_store_parameters_list": [{
+                            "data_store_type": azure_native.dataprotection.DataStoreTypes.OPERATIONAL_STORE,
+                            "object_type": "AzureOperationalStoreParameters",
+                            "resource_group_id": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        }],
+                    },
+                },
+                "resource_guard_operation_requests": ["/subscriptions/38304e13-357e-405e-9e9a-220351dcce8c/resourcegroups/ankurResourceGuard1/providers/Microsoft.DataProtection/resourceGuards/ResourceGuard38-1/dppModifyPolicy/default"],
+                "validation_type": azure_native.dataprotection.ValidationType.SHALLOW_VALIDATION,
+            },
+            resource_group_name="000pikumar",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupInstance harshitbi2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.

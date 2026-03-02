@@ -24,27 +24,22 @@ __all__ = [
     'DedicatedCapacityAdministratorsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AutoScaleVCoreSkuArgsDict(TypedDict):
-        """
-        Represents the SKU name and Azure pricing tier for auto scale v-core resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the SKU level.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The capacity of an auto scale v-core resource.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]]
-        """
-        The name of the Azure pricing tier to which the SKU applies.
-        """
-elif False:
-    AutoScaleVCoreSkuArgsDict: TypeAlias = Mapping[str, Any]
+class AutoScaleVCoreSkuArgsDict(TypedDict):
+    """
+    Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the SKU level.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The capacity of an auto scale v-core resource.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]]
+    """
+    The name of the Azure pricing tier to which the SKU applies.
+    """
 
 @pulumi.input_type
 class AutoScaleVCoreSkuArgs:
@@ -54,6 +49,7 @@ class AutoScaleVCoreSkuArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the SKU level.
         :param pulumi.Input[_builtins.int] capacity: The capacity of an auto scale v-core resource.
         :param pulumi.Input[Union[_builtins.str, 'VCoreSkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
@@ -101,25 +97,22 @@ class AutoScaleVCoreSkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class CapacitySkuArgsDict(TypedDict):
-        """
-        Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the SKU level.
-        """
-        capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The capacity of the SKU.
-        """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]]
-        """
-        The name of the Azure pricing tier to which the SKU applies.
-        """
-elif False:
-    CapacitySkuArgsDict: TypeAlias = Mapping[str, Any]
+class CapacitySkuArgsDict(TypedDict):
+    """
+    Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the SKU level.
+    """
+    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The capacity of the SKU.
+    """
+    tier: NotRequired[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]]
+    """
+    The name of the Azure pricing tier to which the SKU applies.
+    """
 
 @pulumi.input_type
 class CapacitySkuArgs:
@@ -129,6 +122,7 @@ class CapacitySkuArgs:
                  tier: Optional[pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for PowerBI Dedicated capacity resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the SKU level.
         :param pulumi.Input[_builtins.int] capacity: The capacity of the SKU.
         :param pulumi.Input[Union[_builtins.str, 'CapacitySkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
@@ -176,17 +170,14 @@ class CapacitySkuArgs:
         pulumi.set(self, "tier", value)
 
 
-if not MYPY:
-    class DedicatedCapacityAdministratorsArgsDict(TypedDict):
-        """
-        An array of administrator user identities
-        """
-        members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of administrator user identities.
-        """
-elif False:
-    DedicatedCapacityAdministratorsArgsDict: TypeAlias = Mapping[str, Any]
+class DedicatedCapacityAdministratorsArgsDict(TypedDict):
+    """
+    An array of administrator user identities
+    """
+    members: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of administrator user identities.
+    """
 
 @pulumi.input_type
 class DedicatedCapacityAdministratorsArgs:
@@ -194,6 +185,7 @@ class DedicatedCapacityAdministratorsArgs:
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         An array of administrator user identities
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: An array of administrator user identities.
         """
         if members is not None:

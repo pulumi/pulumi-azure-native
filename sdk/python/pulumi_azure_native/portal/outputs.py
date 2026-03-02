@@ -60,6 +60,7 @@ class ConfigurationPropertiesResponse(dict):
                  enforce_private_markdown_storage: Optional[_builtins.bool] = None):
         """
         Tenant Configuration Properties with Provisioning state
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param _builtins.bool enforce_private_markdown_storage: When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
         """
@@ -114,6 +115,7 @@ class ConsolePropertiesResponse(dict):
                  uri: _builtins.str):
         """
         Cloud shell console properties.
+
         :param _builtins.str os_type: The operating system type of the cloud shell.
         :param _builtins.str provisioning_state: Provisioning state of the console.
         :param _builtins.str uri: Uri of the console.
@@ -158,6 +160,7 @@ class DashboardLensResponse(dict):
                  metadata: Optional[Any] = None):
         """
         A dashboard lens.
+
         :param _builtins.int order: The lens order.
         :param Sequence['DashboardPartsResponse'] parts: The dashboard parts.
         :param Any metadata: The dashboard len's metadata.
@@ -203,6 +206,7 @@ class DashboardPartMetadataResponse(dict):
                  settings: Optional[Mapping[str, Any]] = None):
         """
         A dashboard part metadata.
+
         :param _builtins.str type: The type of dashboard part.
         :param Sequence[Any] inputs: Inputs to dashboard part.
         :param Mapping[str, Any] settings: Settings of dashboard part.
@@ -270,6 +274,7 @@ class DashboardPartsPositionResponse(dict):
                  metadata: Optional[Any] = None):
         """
         The dashboard's part position.
+
         :param _builtins.int col_span: The dashboard's part column span.
         :param _builtins.int row_span: The dashboard's part row span.
         :param _builtins.int x: The dashboard's part x coordinate.
@@ -334,6 +339,7 @@ class DashboardPartsResponse(dict):
                  metadata: Optional['outputs.DashboardPartMetadataResponse'] = None):
         """
         A dashboard part.
+
         :param 'DashboardPartsPositionResponse' position: The dashboard's part position.
         :param 'DashboardPartMetadataResponse' metadata: The dashboard's part metadata.
         """
@@ -386,6 +392,7 @@ class DashboardPropertiesWithProvisioningStateResponse(dict):
                  metadata: Optional[Any] = None):
         """
         Dashboard Properties with Provisioning state
+
         :param _builtins.str provisioning_state: The status of the last operation.
         :param Sequence['DashboardLensResponse'] lenses: The dashboard lenses.
         :param Any metadata: The dashboard metadata.
@@ -453,6 +460,7 @@ class StorageProfileResponse(dict):
                  storage_account_resource_id: Optional[_builtins.str] = None):
         """
         The storage profile of the user settings.
+
         :param _builtins.int disk_size_in_gb: Size of file share
         :param _builtins.str file_share_name: Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         :param _builtins.str storage_account_resource_id: Full resource ID of storage account.
@@ -530,6 +538,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
@@ -628,6 +637,7 @@ class TerminalSettingsResponse(dict):
                  font_style: Optional[_builtins.str] = None):
         """
         Settings for terminal appearance.
+
         :param _builtins.str font_size: Size of terminal font.
         :param _builtins.str font_style: Style of terminal font.
         """
@@ -691,6 +701,7 @@ class UserPropertiesResponse(dict):
                  terminal_settings: 'outputs.TerminalSettingsResponse'):
         """
         The cloud shell user settings properties.
+
         :param _builtins.str preferred_location: The preferred location of the cloud shell.
         :param _builtins.str preferred_os_type: The operating system type of the cloud shell. Deprecated, use preferredShellType.
         :param _builtins.str preferred_shell_type: The shell type of the cloud shell.
@@ -755,6 +766,7 @@ class ViolationResponse(dict):
                  user_id: _builtins.str):
         """
         Violation information.
+
         :param _builtins.str error_message: Error message.
         :param _builtins.str id: Id of the item that violates tenant configuration.
         :param _builtins.str user_id: Id of the user who owns violated item.

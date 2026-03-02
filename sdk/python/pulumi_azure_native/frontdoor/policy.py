@@ -32,6 +32,7 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -176,6 +177,122 @@ class Policy(pulumi.CustomResource):
 
         Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.frontdoor.Policy("policy",
+            custom_rules={
+                "rules": [
+                    {
+                        "action": azure_native.frontdoor.ActionType.BLOCK,
+                        "match_conditions": [{
+                            "match_value": [
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            "match_variable": azure_native.frontdoor.MatchVariable.REMOTE_ADDR,
+                            "operator": azure_native.frontdoor.Operator.IP_MATCH,
+                        }],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rate_limit_threshold": 1000,
+                        "rule_type": azure_native.frontdoor.RuleType.RATE_LIMIT_RULE,
+                    },
+                    {
+                        "action": azure_native.frontdoor.ActionType.BLOCK,
+                        "match_conditions": [
+                            {
+                                "match_value": ["CH"],
+                                "match_variable": azure_native.frontdoor.MatchVariable.REMOTE_ADDR,
+                                "operator": azure_native.frontdoor.Operator.GEO_MATCH,
+                            },
+                            {
+                                "match_value": ["windows"],
+                                "match_variable": azure_native.frontdoor.MatchVariable.REQUEST_HEADER,
+                                "operator": azure_native.frontdoor.Operator.CONTAINS,
+                                "selector": "UserAgent",
+                                "transforms": [azure_native.frontdoor.TransformType.LOWERCASE],
+                            },
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "rule_type": azure_native.frontdoor.RuleType.MATCH_RULE,
+                    },
+                ],
+            },
+            location="WestUs",
+            managed_rules={
+                "managed_rule_sets": [{
+                    "exclusions": [{
+                        "match_variable": azure_native.frontdoor.ManagedRuleExclusionMatchVariable.REQUEST_HEADER_NAMES,
+                        "selector": "User-Agent",
+                        "selector_match_operator": azure_native.frontdoor.ManagedRuleExclusionSelectorMatchOperator.EQUALS,
+                    }],
+                    "rule_group_overrides": [{
+                        "exclusions": [{
+                            "match_variable": azure_native.frontdoor.ManagedRuleExclusionMatchVariable.REQUEST_COOKIE_NAMES,
+                            "selector": "token",
+                            "selector_match_operator": azure_native.frontdoor.ManagedRuleExclusionSelectorMatchOperator.STARTS_WITH,
+                        }],
+                        "rule_group_name": "SQLI",
+                        "rules": [
+                            {
+                                "action": azure_native.frontdoor.ActionType.REDIRECT,
+                                "enabled_state": azure_native.frontdoor.ManagedRuleEnabledState.ENABLED,
+                                "exclusions": [{
+                                    "match_variable": azure_native.frontdoor.ManagedRuleExclusionMatchVariable.QUERY_STRING_ARG_NAMES,
+                                    "selector": "query",
+                                    "selector_match_operator": azure_native.frontdoor.ManagedRuleExclusionSelectorMatchOperator.EQUALS,
+                                }],
+                                "rule_id": "942100",
+                            },
+                            {
+                                "enabled_state": azure_native.frontdoor.ManagedRuleEnabledState.DISABLED,
+                                "rule_id": "942110",
+                            },
+                        ],
+                    }],
+                    "rule_set_action": azure_native.frontdoor.ManagedRuleSetActionType.BLOCK,
+                    "rule_set_type": "DefaultRuleSet",
+                    "rule_set_version": "1.0",
+                }],
+            },
+            policy_name="Policy1",
+            policy_settings={
+                "custom_block_response_body": "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                "custom_block_response_status_code": 429,
+                "enabled_state": azure_native.frontdoor.PolicyEnabledState.ENABLED,
+                "javascript_challenge_expiration_in_minutes": 30,
+                "mode": azure_native.frontdoor.PolicyMode.PREVENTION,
+                "redirect_url": "http://www.bing.com",
+                "request_body_check": azure_native.frontdoor.PolicyRequestBodyCheck.DISABLED,
+                "scrubbing_rules": [{
+                    "match_variable": azure_native.frontdoor.ScrubbingRuleEntryMatchVariable.REQUEST_IP_ADDRESS,
+                    "selector_match_operator": azure_native.frontdoor.ScrubbingRuleEntryMatchOperator.EQUALS_ANY,
+                    "state": azure_native.frontdoor.ScrubbingRuleEntryState.ENABLED,
+                }],
+                "state": azure_native.frontdoor.WebApplicationFirewallScrubbingState.ENABLED,
+            },
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.frontdoor.SkuName.PREMIUM_AZURE_FRONT_DOOR,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:frontdoor:Policy Policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/{policyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomRuleListArgs', 'CustomRuleListArgsDict']] custom_rules: Describes custom rules inside the policy.
@@ -199,6 +316,122 @@ class Policy(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01.
 
         Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.frontdoor.Policy("policy",
+            custom_rules={
+                "rules": [
+                    {
+                        "action": azure_native.frontdoor.ActionType.BLOCK,
+                        "match_conditions": [{
+                            "match_value": [
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            "match_variable": azure_native.frontdoor.MatchVariable.REMOTE_ADDR,
+                            "operator": azure_native.frontdoor.Operator.IP_MATCH,
+                        }],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rate_limit_threshold": 1000,
+                        "rule_type": azure_native.frontdoor.RuleType.RATE_LIMIT_RULE,
+                    },
+                    {
+                        "action": azure_native.frontdoor.ActionType.BLOCK,
+                        "match_conditions": [
+                            {
+                                "match_value": ["CH"],
+                                "match_variable": azure_native.frontdoor.MatchVariable.REMOTE_ADDR,
+                                "operator": azure_native.frontdoor.Operator.GEO_MATCH,
+                            },
+                            {
+                                "match_value": ["windows"],
+                                "match_variable": azure_native.frontdoor.MatchVariable.REQUEST_HEADER,
+                                "operator": azure_native.frontdoor.Operator.CONTAINS,
+                                "selector": "UserAgent",
+                                "transforms": [azure_native.frontdoor.TransformType.LOWERCASE],
+                            },
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "rule_type": azure_native.frontdoor.RuleType.MATCH_RULE,
+                    },
+                ],
+            },
+            location="WestUs",
+            managed_rules={
+                "managed_rule_sets": [{
+                    "exclusions": [{
+                        "match_variable": azure_native.frontdoor.ManagedRuleExclusionMatchVariable.REQUEST_HEADER_NAMES,
+                        "selector": "User-Agent",
+                        "selector_match_operator": azure_native.frontdoor.ManagedRuleExclusionSelectorMatchOperator.EQUALS,
+                    }],
+                    "rule_group_overrides": [{
+                        "exclusions": [{
+                            "match_variable": azure_native.frontdoor.ManagedRuleExclusionMatchVariable.REQUEST_COOKIE_NAMES,
+                            "selector": "token",
+                            "selector_match_operator": azure_native.frontdoor.ManagedRuleExclusionSelectorMatchOperator.STARTS_WITH,
+                        }],
+                        "rule_group_name": "SQLI",
+                        "rules": [
+                            {
+                                "action": azure_native.frontdoor.ActionType.REDIRECT,
+                                "enabled_state": azure_native.frontdoor.ManagedRuleEnabledState.ENABLED,
+                                "exclusions": [{
+                                    "match_variable": azure_native.frontdoor.ManagedRuleExclusionMatchVariable.QUERY_STRING_ARG_NAMES,
+                                    "selector": "query",
+                                    "selector_match_operator": azure_native.frontdoor.ManagedRuleExclusionSelectorMatchOperator.EQUALS,
+                                }],
+                                "rule_id": "942100",
+                            },
+                            {
+                                "enabled_state": azure_native.frontdoor.ManagedRuleEnabledState.DISABLED,
+                                "rule_id": "942110",
+                            },
+                        ],
+                    }],
+                    "rule_set_action": azure_native.frontdoor.ManagedRuleSetActionType.BLOCK,
+                    "rule_set_type": "DefaultRuleSet",
+                    "rule_set_version": "1.0",
+                }],
+            },
+            policy_name="Policy1",
+            policy_settings={
+                "custom_block_response_body": "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                "custom_block_response_status_code": 429,
+                "enabled_state": azure_native.frontdoor.PolicyEnabledState.ENABLED,
+                "javascript_challenge_expiration_in_minutes": 30,
+                "mode": azure_native.frontdoor.PolicyMode.PREVENTION,
+                "redirect_url": "http://www.bing.com",
+                "request_body_check": azure_native.frontdoor.PolicyRequestBodyCheck.DISABLED,
+                "scrubbing_rules": [{
+                    "match_variable": azure_native.frontdoor.ScrubbingRuleEntryMatchVariable.REQUEST_IP_ADDRESS,
+                    "selector_match_operator": azure_native.frontdoor.ScrubbingRuleEntryMatchOperator.EQUALS_ANY,
+                    "state": azure_native.frontdoor.ScrubbingRuleEntryState.ENABLED,
+                }],
+                "state": azure_native.frontdoor.WebApplicationFirewallScrubbingState.ENABLED,
+            },
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.frontdoor.SkuName.PREMIUM_AZURE_FRONT_DOOR,
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:frontdoor:Policy Policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/{policyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

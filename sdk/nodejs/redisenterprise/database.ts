@@ -13,6 +13,98 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### RedisEnterpriseDatabasesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.redisenterprise.Database("database", {
+ *     accessKeysAuthentication: azure_native.redisenterprise.AccessKeysAuthentication.Enabled,
+ *     clientProtocol: azure_native.redisenterprise.Protocol.Encrypted,
+ *     clusterName: "cache1",
+ *     clusteringPolicy: azure_native.redisenterprise.ClusteringPolicy.EnterpriseCluster,
+ *     databaseName: "default",
+ *     deferUpgrade: azure_native.redisenterprise.DeferUpgradeSetting.NotDeferred,
+ *     evictionPolicy: azure_native.redisenterprise.EvictionPolicy.AllKeysLRU,
+ *     modules: [
+ *         {
+ *             args: "ERROR_RATE 0.00 INITIAL_SIZE 400",
+ *             name: "RedisBloom",
+ *         },
+ *         {
+ *             args: "RETENTION_POLICY 20",
+ *             name: "RedisTimeSeries",
+ *         },
+ *         {
+ *             name: "RediSearch",
+ *         },
+ *     ],
+ *     persistence: {
+ *         aofEnabled: true,
+ *         aofFrequency: azure_native.redisenterprise.AofFrequency.AofFrequency_1s,
+ *     },
+ *     port: 10000,
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### RedisEnterpriseDatabasesCreate No Cluster Cache
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.redisenterprise.Database("database", {
+ *     clientProtocol: azure_native.redisenterprise.Protocol.Encrypted,
+ *     clusterName: "cache1",
+ *     clusteringPolicy: azure_native.redisenterprise.ClusteringPolicy.NoCluster,
+ *     databaseName: "default",
+ *     evictionPolicy: azure_native.redisenterprise.EvictionPolicy.NoEviction,
+ *     port: 10000,
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### RedisEnterpriseDatabasesCreate With Active Geo Replication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.redisenterprise.Database("database", {
+ *     accessKeysAuthentication: azure_native.redisenterprise.AccessKeysAuthentication.Enabled,
+ *     clientProtocol: azure_native.redisenterprise.Protocol.Encrypted,
+ *     clusterName: "cache1",
+ *     clusteringPolicy: azure_native.redisenterprise.ClusteringPolicy.EnterpriseCluster,
+ *     databaseName: "default",
+ *     evictionPolicy: azure_native.redisenterprise.EvictionPolicy.NoEviction,
+ *     geoReplication: {
+ *         groupNickname: "groupName",
+ *         linkedDatabases: [
+ *             {
+ *                 id: "/subscriptions/e7b5a9d2-6b6a-4d2f-9143-20d9a10f5b8f/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default",
+ *             },
+ *             {
+ *                 id: "/subscriptions/e7b5a9d2-6b6a-4d2f-9143-20d9a10f5b8e/resourceGroups/rg2/providers/Microsoft.Cache/redisEnterprise/cache2/databases/default",
+ *             },
+ *         ],
+ *     },
+ *     port: 10000,
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:redisenterprise:Database cache1/default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName} 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

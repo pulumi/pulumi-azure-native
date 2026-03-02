@@ -13,6 +13,188 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01.
  *
  * Other available API versions: 2015-08-01, 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### RedisCacheCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.redis.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "East US",
+ *     minimumTlsVersion: azure_native.redis.TlsVersion.TlsVersion_1_2,
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     redisVersion: "4",
+ *     replicasPerPrimary: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: azure_native.redis.SkuFamily.P,
+ *         name: azure_native.redis.SkuName.Premium,
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ * ### RedisCacheCreateAutomaticZonalAllocationPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.redis.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "East US",
+ *     minimumTlsVersion: azure_native.redis.TlsVersion.TlsVersion_1_2,
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     replicasPerPrimary: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: azure_native.redis.SkuFamily.P,
+ *         name: azure_native.redis.SkuName.Premium,
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zonalAllocationPolicy: azure_native.redis.ZonalAllocationPolicy.Automatic,
+ * });
+ *
+ * ```
+ * ### RedisCacheCreateDefaultVersion
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.redis.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "East US",
+ *     minimumTlsVersion: azure_native.redis.TlsVersion.TlsVersion_1_2,
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     replicasPerPrimary: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: azure_native.redis.SkuFamily.P,
+ *         name: azure_native.redis.SkuName.Premium,
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ * ### RedisCacheCreateLatestVersion
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.redis.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "East US",
+ *     minimumTlsVersion: azure_native.redis.TlsVersion.TlsVersion_1_2,
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     redisVersion: "Latest",
+ *     replicasPerPrimary: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: azure_native.redis.SkuFamily.P,
+ *         name: azure_native.redis.SkuName.Premium,
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ * ### RedisCacheCreateNoZonesZonalAllocationPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.redis.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "East US",
+ *     minimumTlsVersion: azure_native.redis.TlsVersion.TlsVersion_1_2,
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     replicasPerPrimary: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: azure_native.redis.SkuFamily.P,
+ *         name: azure_native.redis.SkuName.Premium,
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zonalAllocationPolicy: azure_native.redis.ZonalAllocationPolicy.NoZones,
+ * });
+ *
+ * ```
+ * ### RedisCacheCreateUserDefinedZonalAllocationPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.redis.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "East US",
+ *     minimumTlsVersion: azure_native.redis.TlsVersion.TlsVersion_1_2,
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     redisVersion: "Latest",
+ *     replicasPerPrimary: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: azure_native.redis.SkuFamily.P,
+ *         name: azure_native.redis.SkuName.Premium,
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zonalAllocationPolicy: azure_native.redis.ZonalAllocationPolicy.UserDefined,
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:redis:Redis cache1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name} 
+ * ```
  */
 export class Redis extends pulumi.CustomResource {
     /**

@@ -15,6 +15,97 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2016-03-31.
     /// 
     /// Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlContainerCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccountSqlContainer = new AzureNative.CosmosDB.DatabaseAccountSqlContainer("databaseAccountSqlContainer", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.CosmosDB.Inputs.SqlContainerResourceArgs
+    ///         {
+    ///             ConflictResolutionPolicy = new AzureNative.CosmosDB.Inputs.ConflictResolutionPolicyArgs
+    ///             {
+    ///                 ConflictResolutionPath = "/path",
+    ///                 Mode = AzureNative.CosmosDB.ConflictResolutionMode.LastWriterWins,
+    ///             },
+    ///             DefaultTtl = 100,
+    ///             Id = "containerName",
+    ///             IndexingPolicy = new AzureNative.CosmosDB.Inputs.IndexingPolicyArgs
+    ///             {
+    ///                 Automatic = true,
+    ///                 ExcludedPaths = new() { },
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.IncludedPathArgs
+    ///                     {
+    ///                         Indexes = new[]
+    ///                         {
+    ///                             new AzureNative.CosmosDB.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = AzureNative.CosmosDB.DataType.String,
+    ///                                 Kind = AzureNative.CosmosDB.IndexKind.Range,
+    ///                                 Precision = -1,
+    ///                             },
+    ///                             new AzureNative.CosmosDB.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = AzureNative.CosmosDB.DataType.Number,
+    ///                                 Kind = AzureNative.CosmosDB.IndexKind.Range,
+    ///                                 Precision = -1,
+    ///                             },
+    ///                         },
+    ///                         Path = "/*",
+    ///                     },
+    ///                 },
+    ///                 IndexingMode = "Consistent",
+    ///             },
+    ///             PartitionKey = new AzureNative.CosmosDB.Inputs.ContainerPartitionKeyArgs
+    ///             {
+    ///                 Kind = AzureNative.CosmosDB.PartitionKind.Hash,
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/AccountNumber",
+    ///                 },
+    ///             },
+    ///             UniqueKeyPolicy = new AzureNative.CosmosDB.Inputs.UniqueKeyPolicyArgs
+    ///             {
+    ///                 UniqueKeys = new[]
+    ///                 {
+    ///                     new AzureNative.CosmosDB.Inputs.UniqueKeyArgs
+    ///                     {
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/testPath",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:DatabaseAccountSqlContainer containerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/sql/databases/{databaseName}/containers/{containerName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:DatabaseAccountSqlContainer")]
     public partial class DatabaseAccountSqlContainer : global::Pulumi.CustomResource

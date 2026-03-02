@@ -28,6 +28,7 @@ class InventoryItemArgs:
                  kind: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InventoryItem resource.
+
         :param pulumi.Input[Union[_builtins.str, 'InventoryType']] inventory_type: They inventory type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] vmm_server_name: Name of the VMMServer.
@@ -122,6 +123,30 @@ class InventoryItem(pulumi.CustomResource):
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.scvmm.InventoryItem("inventoryItem",
+            inventory_item_name="12345678-1234-1234-1234-123456789abc",
+            inventory_type=azure_native.scvmm.InventoryType.CLOUD,
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryItems/{inventoryItemName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] inventory_item_name: Name of the inventoryItem.
@@ -142,6 +167,30 @@ class InventoryItem(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.scvmm.InventoryItem("inventoryItem",
+            inventory_item_name="12345678-1234-1234-1234-123456789abc",
+            inventory_type=azure_native.scvmm.InventoryType.CLOUD,
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryItems/{inventoryItemName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.

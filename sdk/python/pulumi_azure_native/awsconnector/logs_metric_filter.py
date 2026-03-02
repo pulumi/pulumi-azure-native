@@ -29,6 +29,7 @@ class LogsMetricFilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogsMetricFilter resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of LogsMetricFilter
@@ -123,6 +124,58 @@ class LogsMetricFilter(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### LogsMetricFilters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logs_metric_filter = azure_native.awsconnector.LogsMetricFilter("logsMetricFilter",
+            location="hvjoetfjcwqioibnqqj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "cjjfhzeoyddkfmdmwsl",
+                "aws_account_id": "z",
+                "aws_properties": {
+                    "filter_name": "xexgsguaaqmkiteqgc",
+                    "filter_pattern": "xkejasx",
+                    "log_group_name": "cugxyp",
+                    "metric_transformations": [{
+                        "default_value": 7,
+                        "dimensions": [{
+                            "value": "rosnaljwmrdesiticsc",
+                        }],
+                        "metric_name": "oybfr",
+                        "metric_namespace": "iabzdcxljvduduha",
+                        "metric_value": "rpkrrqxywciyvedsvrlbujqjenrlpr",
+                        "unit": azure_native.awsconnector.MetricTransformationUnit.BITS,
+                    }],
+                },
+                "aws_region": "qjqubwwtlycfy",
+                "aws_source_schema": "tekgcey",
+                "aws_tags": {
+                    "key5547": "bdcrhaondaponausevadhudvvfitd",
+                },
+                "public_cloud_connectors_resource_id": "dabxbsdvufxltivnlbpft",
+                "public_cloud_resource_name": "ljjatut",
+            },
+            resource_group_name="rglogsMetricFilter",
+            tags={
+                "key5537": "lpylvddirnglehlucv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LogsMetricFilter dqrq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsMetricFilters/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +194,58 @@ class LogsMetricFilter(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### LogsMetricFilters_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logs_metric_filter = azure_native.awsconnector.LogsMetricFilter("logsMetricFilter",
+            location="hvjoetfjcwqioibnqqj",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "cjjfhzeoyddkfmdmwsl",
+                "aws_account_id": "z",
+                "aws_properties": {
+                    "filter_name": "xexgsguaaqmkiteqgc",
+                    "filter_pattern": "xkejasx",
+                    "log_group_name": "cugxyp",
+                    "metric_transformations": [{
+                        "default_value": 7,
+                        "dimensions": [{
+                            "value": "rosnaljwmrdesiticsc",
+                        }],
+                        "metric_name": "oybfr",
+                        "metric_namespace": "iabzdcxljvduduha",
+                        "metric_value": "rpkrrqxywciyvedsvrlbujqjenrlpr",
+                        "unit": azure_native.awsconnector.MetricTransformationUnit.BITS,
+                    }],
+                },
+                "aws_region": "qjqubwwtlycfy",
+                "aws_source_schema": "tekgcey",
+                "aws_tags": {
+                    "key5547": "bdcrhaondaponausevadhudvvfitd",
+                },
+                "public_cloud_connectors_resource_id": "dabxbsdvufxltivnlbpft",
+                "public_cloud_resource_name": "ljjatut",
+            },
+            resource_group_name="rglogsMetricFilter",
+            tags={
+                "key5537": "lpylvddirnglehlucv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:LogsMetricFilter dqrq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/logsMetricFilters/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param LogsMetricFilterArgs args: The arguments to use to populate this resource's properties.

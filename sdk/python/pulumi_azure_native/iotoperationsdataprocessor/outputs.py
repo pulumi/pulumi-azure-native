@@ -49,6 +49,7 @@ class DatasetPropertyKeyResponse(dict):
                  primary_key: Optional[_builtins.bool] = None):
         """
         Key that can be used for joining on enrich.
+
         :param _builtins.str path: Path to the input value from the message.
         :param _builtins.bool primary_key: If true the property will be used as a primary key. At most one primary key can exists.
         """
@@ -83,6 +84,7 @@ class ExtendedLocationResponse(dict):
                  type: _builtins.str):
         """
         Extended location is an extension of Azure locations. They provide a way to use their Azure ARC enabled Kubernetes clusters as target locations for deploying Azure services instances.
+
         :param _builtins.str name: The name of the extended location.
         :param _builtins.str type: The type of the extended location.
         """
@@ -117,6 +119,7 @@ class PipelineInputResponse(dict):
                  description: Optional[_builtins.str] = None):
         """
         Stage configuration for Pipeline input stage.
+
         :param Sequence[_builtins.str] next: Next stage in the pipeline.
         :param _builtins.str type: ARM resource type.
         :param _builtins.str description: Description for stage.
@@ -162,6 +165,7 @@ class PipelineStageResponse(dict):
                  next: Optional[Sequence[_builtins.str]] = None):
         """
         Stage configurations for all Pipeline processing and output stages.
+
         :param _builtins.str type: ARM resource type.
         :param _builtins.str description: Description for stage.
         :param Sequence[_builtins.str] next: Next stage in the pipeline. Not required if output stage.
@@ -238,6 +242,7 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[_builtins.str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
+
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.

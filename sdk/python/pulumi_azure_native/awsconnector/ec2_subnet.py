@@ -28,6 +28,7 @@ class Ec2SubnetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Ec2Subnet resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of Ec2Subnet
@@ -122,6 +123,72 @@ class Ec2Subnet(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### Ec2Subnets_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_subnet = azure_native.awsconnector.Ec2Subnet("ec2Subnet",
+            location="zlyeymkfsbtninhfrnvrhxprr",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "swrduvxfquidiycxlrijjixfbwb",
+                "aws_account_id": "mmlzefobqbimxcbqwrkitlgfu",
+                "aws_properties": {
+                    "assign_ipv6_address_on_creation": True,
+                    "availability_zone": "forrknmiozum",
+                    "availability_zone_id": "gbjfdurjqxgejgwo",
+                    "cidr_block": "sisksglodnipqskrsfsvkpcrrcy",
+                    "enable_dns64": True,
+                    "enable_lni_at_device_index": 1,
+                    "ipv4_ipam_pool_id": "jdpbqiv",
+                    "ipv4_netmask_length": 18,
+                    "ipv6_cidr_block": "ayzvyvftxekjogtumuln",
+                    "ipv6_cidr_blocks": ["amuwewdpaadfixhakcdaqrjzlskguz"],
+                    "ipv6_ipam_pool_id": "lenenhwtwwet",
+                    "ipv6_native": True,
+                    "ipv6_netmask_length": 16,
+                    "map_public_ip_on_launch": True,
+                    "network_acl_association_id": "saevhbbbzksuojanmdoizrhyxo",
+                    "outpost_arn": "qzuvnwxqc",
+                    "private_dns_name_options_on_launch": {
+                        "enable_resource_name_dns_aaaa_record": True,
+                        "enable_resource_name_dns_a_record": True,
+                        "hostname_type": "cbuc",
+                    },
+                    "subnet_id": "vxxbkvimjzmcfoxur",
+                    "tags": [{
+                        "key": "sffepghmsdrubyiodc",
+                        "value": "bfgzdnenxrviyueqzftrrvu",
+                    }],
+                    "vpc_id": "aqqzsoyvmaxfyqddvthvxlhdti",
+                },
+                "aws_region": "huifdbndfvqyztfwfclpqlxupzib",
+                "aws_source_schema": "wyjdcprcwjbw",
+                "aws_tags": {
+                    "key3667": "ydqfhlcswoexpb",
+                },
+                "public_cloud_connectors_resource_id": "svkjfvphtfxopebxrcdvwyj",
+                "public_cloud_resource_name": "p",
+            },
+            resource_group_name="rgec2Subnet",
+            tags={
+                "key8525": "tpogejwctbas",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Subnet urmilmqjfvqbhtfltmnc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Subnets/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -140,6 +207,72 @@ class Ec2Subnet(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### Ec2Subnets_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ec2_subnet = azure_native.awsconnector.Ec2Subnet("ec2Subnet",
+            location="zlyeymkfsbtninhfrnvrhxprr",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "swrduvxfquidiycxlrijjixfbwb",
+                "aws_account_id": "mmlzefobqbimxcbqwrkitlgfu",
+                "aws_properties": {
+                    "assign_ipv6_address_on_creation": True,
+                    "availability_zone": "forrknmiozum",
+                    "availability_zone_id": "gbjfdurjqxgejgwo",
+                    "cidr_block": "sisksglodnipqskrsfsvkpcrrcy",
+                    "enable_dns64": True,
+                    "enable_lni_at_device_index": 1,
+                    "ipv4_ipam_pool_id": "jdpbqiv",
+                    "ipv4_netmask_length": 18,
+                    "ipv6_cidr_block": "ayzvyvftxekjogtumuln",
+                    "ipv6_cidr_blocks": ["amuwewdpaadfixhakcdaqrjzlskguz"],
+                    "ipv6_ipam_pool_id": "lenenhwtwwet",
+                    "ipv6_native": True,
+                    "ipv6_netmask_length": 16,
+                    "map_public_ip_on_launch": True,
+                    "network_acl_association_id": "saevhbbbzksuojanmdoizrhyxo",
+                    "outpost_arn": "qzuvnwxqc",
+                    "private_dns_name_options_on_launch": {
+                        "enable_resource_name_dns_aaaa_record": True,
+                        "enable_resource_name_dns_a_record": True,
+                        "hostname_type": "cbuc",
+                    },
+                    "subnet_id": "vxxbkvimjzmcfoxur",
+                    "tags": [{
+                        "key": "sffepghmsdrubyiodc",
+                        "value": "bfgzdnenxrviyueqzftrrvu",
+                    }],
+                    "vpc_id": "aqqzsoyvmaxfyqddvthvxlhdti",
+                },
+                "aws_region": "huifdbndfvqyztfwfclpqlxupzib",
+                "aws_source_schema": "wyjdcprcwjbw",
+                "aws_tags": {
+                    "key3667": "ydqfhlcswoexpb",
+                },
+                "public_cloud_connectors_resource_id": "svkjfvphtfxopebxrcdvwyj",
+                "public_cloud_resource_name": "p",
+            },
+            resource_group_name="rgec2Subnet",
+            tags={
+                "key8525": "tpogejwctbas",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:Ec2Subnet urmilmqjfvqbhtfltmnc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Subnets/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Ec2SubnetArgs args: The arguments to use to populate this resource's properties.

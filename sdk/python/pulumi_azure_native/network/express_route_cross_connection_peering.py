@@ -39,6 +39,7 @@ class ExpressRouteCrossConnectionPeeringArgs:
                  vlan_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ExpressRouteCrossConnectionPeering resource.
+
         :param pulumi.Input[_builtins.str] cross_connection_name: The name of the ExpressRouteCrossConnection.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] gateway_manager_etag: The GatewayManager Etag.
@@ -294,6 +295,37 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### ExpressRouteCrossConnectionBgpPeeringCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_cross_connection_peering = azure_native.network.ExpressRouteCrossConnectionPeering("expressRouteCrossConnectionPeering",
+            cross_connection_name="<circuitServiceKey>",
+            ipv6_peering_config={
+                "primary_peer_address_prefix": "3FFE:FFFF:0:CD30::/126",
+                "secondary_peer_address_prefix": "3FFE:FFFF:0:CD30::4/126",
+            },
+            peer_asn=200,
+            peering_name="AzurePrivatePeering",
+            primary_peer_address_prefix="192.168.16.252/30",
+            resource_group_name="CrossConnection-SiliconValley",
+            secondary_peer_address_prefix="192.168.18.252/30",
+            vlan_id=200)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCrossConnectionPeering AzurePrivatePeering /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings/{peeringName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cross_connection_name: The name of the ExpressRouteCrossConnection.
@@ -324,6 +356,37 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### ExpressRouteCrossConnectionBgpPeeringCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_cross_connection_peering = azure_native.network.ExpressRouteCrossConnectionPeering("expressRouteCrossConnectionPeering",
+            cross_connection_name="<circuitServiceKey>",
+            ipv6_peering_config={
+                "primary_peer_address_prefix": "3FFE:FFFF:0:CD30::/126",
+                "secondary_peer_address_prefix": "3FFE:FFFF:0:CD30::4/126",
+            },
+            peer_asn=200,
+            peering_name="AzurePrivatePeering",
+            primary_peer_address_prefix="192.168.16.252/30",
+            resource_group_name="CrossConnection-SiliconValley",
+            secondary_peer_address_prefix="192.168.18.252/30",
+            vlan_id=200)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCrossConnectionPeering AzurePrivatePeering /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings/{peeringName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCrossConnectionPeeringArgs args: The arguments to use to populate this resource's properties.

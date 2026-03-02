@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * A share subscription data transfer object.
  *
  * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
+ *
+ * ## Example Usage
+ * ### ShareSubscriptions_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const shareSubscription = new azure_native.datashare.ShareSubscription("shareSubscription", {
+ *     accountName: "Account1",
+ *     expirationDate: "2020-08-26T22:33:24.5785265Z",
+ *     invitationId: "12345678-1234-1234-12345678abd",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     sourceShareLocation: "eastus2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare:ShareSubscription ShareSubscription1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName} 
+ * ```
  */
 export class ShareSubscription extends pulumi.CustomResource {
     /**

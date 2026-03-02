@@ -11,6 +11,126 @@ import * as utilities from "../utilities";
  * Represents a server.
  *
  * Uses Azure REST API version 2017-12-01.
+ *
+ * ## Example Usage
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbforpostgresql.SingleServer("singleServer", {
+ *     location: "brazilsouth",
+ *     properties: {
+ *         createMode: "PointInTimeRestore",
+ *         restorePointInTime: "2017-12-14T00:00:37.467Z",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "B_Gen5_2",
+ *         tier: azure_native.dbforpostgresql.SingleServerSkuTier.Basic,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbforpostgresql.SingleServer("singleServer", {
+ *     location: "westus",
+ *     properties: {
+ *         administratorLogin: "cloudsa",
+ *         administratorLoginPassword: "<administratorLoginPassword>",
+ *         createMode: "Default",
+ *         minimalTlsVersion: azure_native.dbforpostgresql.MinimalTlsVersionEnum.TLS1_2,
+ *         sslEnforcement: azure_native.dbforpostgresql.SslEnforcementEnum.Enabled,
+ *         storageProfile: {
+ *             backupRetentionDays: 7,
+ *             geoRedundantBackup: azure_native.dbforpostgresql.GeoRedundantBackup.Disabled,
+ *             storageMB: 128000,
+ *         },
+ *     },
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "pgtestsvc4",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "B_Gen5_2",
+ *         tier: azure_native.dbforpostgresql.SingleServerSkuTier.Basic,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a replica server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbforpostgresql.SingleServer("singleServer", {
+ *     location: "westcentralus",
+ *     properties: {
+ *         createMode: "Replica",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+ *     },
+ *     resourceGroupName: "TestGroup_WestCentralUS",
+ *     serverName: "testserver-replica1",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: azure_native.dbforpostgresql.SingleServerSkuTier.GeneralPurpose,
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a server as a geo restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const singleServer = new azure_native.dbforpostgresql.SingleServer("singleServer", {
+ *     location: "westus",
+ *     properties: {
+ *         createMode: "GeoRestore",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: azure_native.dbforpostgresql.SingleServerSkuTier.GeneralPurpose,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql:SingleServer targetserver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName} 
+ * ```
  */
 export class SingleServer extends pulumi.CustomResource {
     /**

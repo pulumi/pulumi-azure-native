@@ -13,6 +13,57 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
  *
  * Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ *
+ * ## Example Usage
+ * ### CustomizedAccelerators_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customizedAccelerator = new azure_native.appplatform.CustomizedAccelerator("customizedAccelerator", {
+ *     applicationAcceleratorName: "default",
+ *     customizedAcceleratorName: "acc-name",
+ *     properties: {
+ *         acceleratorTags: [
+ *             "tag-a",
+ *             "tag-b",
+ *         ],
+ *         description: "acc-desc",
+ *         displayName: "acc-name",
+ *         gitRepository: {
+ *             authSetting: {
+ *                 authType: "SSH",
+ *                 hostKey: "git-auth-hostkey",
+ *                 hostKeyAlgorithm: "git-auth-algorithm",
+ *                 privateKey: "git-auth-privatekey",
+ *             },
+ *             branch: "git-branch",
+ *             commit: "12345",
+ *             gitTag: "git-tag",
+ *             intervalInSeconds: 70,
+ *             url: "git-url",
+ *         },
+ *         iconUrl: "acc-icon",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "E0",
+ *         tier: "Enterprise",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform:CustomizedAccelerator default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/applicationAccelerators/{applicationAcceleratorName}/customizedAccelerators/{customizedAcceleratorName} 
+ * ```
  */
 export class CustomizedAccelerator extends pulumi.CustomResource {
     /**

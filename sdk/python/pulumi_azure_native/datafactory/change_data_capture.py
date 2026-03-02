@@ -34,6 +34,7 @@ class ChangeDataCaptureArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChangeDataCapture resource.
+
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input['MapperPolicyArgs'] policy: CDC policy
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
@@ -204,6 +205,1357 @@ class ChangeDataCapture(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
+        ## Example Usage
+        ### ChangeDataCapture_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        change_data_capture = azure_native.datafactory.ChangeDataCapture("changeDataCapture",
+            allow_v_net_override=False,
+            change_data_capture_name="exampleChangeDataCapture",
+            description="Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database with automapped and non-automapped mappings.",
+            factory_name="exampleFactoryName",
+            policy={
+                "mode": "Microbatch",
+                "recurrence": {
+                    "frequency": azure_native.datafactory.FrequencyType.MINUTE,
+                    "interval": 15,
+                },
+            },
+            resource_group_name="exampleResourceGroup",
+            source_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "delimited",
+                        },
+                        {
+                            "name": "dateFormats",
+                            "value": [
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "timestampFormats",
+                            "value": [
+                                "yyyyMMddHHmm",
+                                "yyyyMMdd HHmm",
+                                "yyyyMMddHHmmss",
+                                "yyyyMMdd HHmmss",
+                                "dd-MM-yyyy HH:mm:ss",
+                                "dd-MM-yyyy HH:mm",
+                                "yyyy-M-d H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss",
+                                "yyyy-MM-dd HH:mm:ss",
+                                "yyyy-MM-dd HH:mm",
+                                "yyyy.MM.dd HH:mm:ss",
+                                "MM/dd/yyyy HH:mm:ss",
+                                "M/d/yyyy H:m:s",
+                                "yyyy/MM/dd HH:mm:ss",
+                                "yyyy/M/d H:m:s",
+                                "dd MMM yyyy HH:mm:ss",
+                                "dd MMMM yyyy HH:mm:ss",
+                                "d MMM yyyy H:m:s",
+                                "d MMMM yyyy H:m:s",
+                                "d-M-yyyy H:m:s",
+                                "d-M-yyyy H:m",
+                                "yyyy-M-d H:m",
+                                "MM/dd/yyyy HH:mm",
+                                "M/d/yyyy H:m",
+                                "yyyy/MM/dd HH:mm",
+                                "yyyy/M/d H:m",
+                                "dd MMMM yyyy HH:mm",
+                                "dd MMM yyyy HH:mm",
+                                "d MMMM yyyy H:m",
+                                "d MMM yyyy H:m",
+                                "MM-dd-yyyy hh:mm:ss a",
+                                "MM-dd-yyyy HH:mm:ss",
+                                "MM/dd/yyyy hh:mm:ss a",
+                                "yyyy.MM.dd hh:mm:ss a",
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "enableCdc",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipInitialLoad",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnNamesAsHeader",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnDelimiter",
+                            "value": ",",
+                        },
+                        {
+                            "name": "escapeChar",
+                            "value": "\\\\\\\\",
+                        },
+                        {
+                            "name": "quoteChar",
+                            "value": "\\\\\\"",
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaAdls03",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureBlobFS",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "source_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/customer",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "source/employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "lookup",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "EmpId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "EmpName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "HomeAddress",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "OfficeAddress",
+                            },
+                            {
+                                "data_type": "integer",
+                                "name": "EmpPhoneNumber",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepLoc",
+                            },
+                            {
+                                "data_type": "double",
+                                "name": "DecimalCol",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/justSchema",
+                        "schema": [
+                            {
+                                "data_type": "string",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                ],
+            }],
+            target_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "table",
+                        },
+                        {
+                            "name": "store",
+                            "value": "sqlserver",
+                        },
+                        {
+                            "name": "databaseType",
+                            "value": "databaseType",
+                        },
+                        {
+                            "name": "database",
+                            "value": "database",
+                        },
+                        {
+                            "name": "deletable",
+                            "value": False,
+                        },
+                        {
+                            "name": "insertable",
+                            "value": True,
+                        },
+                        {
+                            "name": "updateable",
+                            "value": False,
+                        },
+                        {
+                            "name": "upsertable",
+                            "value": False,
+                        },
+                        {
+                            "name": "skipDuplicateMapInputs",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipDuplicateMapOutputs",
+                            "value": True,
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaSql",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureSqlDatabase",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "data_mapper_mappings": [
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/customer",
+                        "target_entity_name": "dbo.customer",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpName",
+                                    }],
+                                    "expression": "upper(EmpName)",
+                                    "function_name": "upper",
+                                    "name": "Name",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpId",
+                                    },
+                                    "function_name": "",
+                                    "name": "PersonID",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "lookup",
+                        "target_entity_name": "dbo.data_source_table",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/employee",
+                        "target_entity_name": "dbo.employee",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustAddres",
+                                    }],
+                                    "expression": "trim(CustAddres)",
+                                    "function_name": "trim",
+                                    "name": "CustAddres",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustDepLoc",
+                                    },
+                                    "name": "CustDepLoc",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_references": [
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustName",
+                                        },
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustDepName",
+                                        },
+                                    ],
+                                    "expression": "concat(CustName, \\" -> \\", CustDepName)",
+                                    "function_name": "",
+                                    "name": "CustDepName",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustId",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustId",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "name": "CustName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/justSchema",
+                        "target_entity_name": "dbo.justSchema",
+                    },
+                ],
+                "relationships": [],
+                "target_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "dbo.employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": True,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": True,
+                            },
+                        ],
+                        "name": "dbo.justSchema",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.customer",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDeptName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustEmail",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "data_source_table",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                            {
+                                "name": "defaultToUpsert",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.data_source_table",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "PersonID",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "Name",
+                            },
+                            {
+                                "data_type": "timestamp",
+                                "name": "LastModifytime",
+                            },
+                        ],
+                    },
+                ],
+            }])
+
+        ```
+        ### ChangeDataCapture_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        change_data_capture = azure_native.datafactory.ChangeDataCapture("changeDataCapture",
+            allow_v_net_override=False,
+            change_data_capture_name="exampleChangeDataCapture",
+            description="Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database. Updating table mappings.",
+            factory_name="exampleFactoryName",
+            policy={
+                "mode": "Microbatch",
+                "recurrence": {
+                    "frequency": azure_native.datafactory.FrequencyType.MINUTE,
+                    "interval": 15,
+                },
+            },
+            resource_group_name="exampleResourceGroup",
+            source_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "delimited",
+                        },
+                        {
+                            "name": "dateFormats",
+                            "value": [
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "timestampFormats",
+                            "value": [
+                                "yyyyMMddHHmm",
+                                "yyyyMMdd HHmm",
+                                "yyyyMMddHHmmss",
+                                "yyyyMMdd HHmmss",
+                                "dd-MM-yyyy HH:mm:ss",
+                                "dd-MM-yyyy HH:mm",
+                                "yyyy-M-d H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss",
+                                "yyyy-MM-dd HH:mm:ss",
+                                "yyyy-MM-dd HH:mm",
+                                "yyyy.MM.dd HH:mm:ss",
+                                "MM/dd/yyyy HH:mm:ss",
+                                "M/d/yyyy H:m:s",
+                                "yyyy/MM/dd HH:mm:ss",
+                                "yyyy/M/d H:m:s",
+                                "dd MMM yyyy HH:mm:ss",
+                                "dd MMMM yyyy HH:mm:ss",
+                                "d MMM yyyy H:m:s",
+                                "d MMMM yyyy H:m:s",
+                                "d-M-yyyy H:m:s",
+                                "d-M-yyyy H:m",
+                                "yyyy-M-d H:m",
+                                "MM/dd/yyyy HH:mm",
+                                "M/d/yyyy H:m",
+                                "yyyy/MM/dd HH:mm",
+                                "yyyy/M/d H:m",
+                                "dd MMMM yyyy HH:mm",
+                                "dd MMM yyyy HH:mm",
+                                "d MMMM yyyy H:m",
+                                "d MMM yyyy H:m",
+                                "MM-dd-yyyy hh:mm:ss a",
+                                "MM-dd-yyyy HH:mm:ss",
+                                "MM/dd/yyyy hh:mm:ss a",
+                                "yyyy.MM.dd hh:mm:ss a",
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "enableCdc",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipInitialLoad",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnNamesAsHeader",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnDelimiter",
+                            "value": ",",
+                        },
+                        {
+                            "name": "escapeChar",
+                            "value": "\\\\\\\\",
+                        },
+                        {
+                            "name": "quoteChar",
+                            "value": "\\\\\\"",
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaAdls03",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureBlobFS",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "source_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/customer",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "source/employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "lookup",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "EmpId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "EmpName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "HomeAddress",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "OfficeAddress",
+                            },
+                            {
+                                "data_type": "integer",
+                                "name": "EmpPhoneNumber",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepLoc",
+                            },
+                            {
+                                "data_type": "double",
+                                "name": "DecimalCol",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/justSchema",
+                        "schema": [
+                            {
+                                "data_type": "string",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                ],
+            }],
+            status="Stopped",
+            target_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "table",
+                        },
+                        {
+                            "name": "store",
+                            "value": "sqlserver",
+                        },
+                        {
+                            "name": "databaseType",
+                            "value": "databaseType",
+                        },
+                        {
+                            "name": "database",
+                            "value": "database",
+                        },
+                        {
+                            "name": "deletable",
+                            "value": False,
+                        },
+                        {
+                            "name": "insertable",
+                            "value": True,
+                        },
+                        {
+                            "name": "updateable",
+                            "value": False,
+                        },
+                        {
+                            "name": "upsertable",
+                            "value": False,
+                        },
+                        {
+                            "name": "skipDuplicateMapInputs",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipDuplicateMapOutputs",
+                            "value": True,
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaSql",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureSqlDatabase",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "data_mapper_mappings": [
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustAddres",
+                                    }],
+                                    "expression": "trim(CustAddres)",
+                                    "function_name": "trim",
+                                    "name": "CustAddres",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustDepName",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustDeptName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustEmail",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustId",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustId",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/customer",
+                        "target_entity_name": "dbo.customer",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpName",
+                                    }],
+                                    "expression": "upper(EmpName)",
+                                    "function_name": "upper",
+                                    "name": "Name",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpId",
+                                    },
+                                    "function_name": "",
+                                    "name": "PersonID",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "lookup",
+                        "target_entity_name": "dbo.data_source_table",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/employee",
+                        "target_entity_name": "dbo.employee",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustAddres",
+                                    }],
+                                    "expression": "trim(CustAddres)",
+                                    "function_name": "trim",
+                                    "name": "CustAddres",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustDepLoc",
+                                    },
+                                    "name": "CustDepLoc",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_references": [
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustName",
+                                        },
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustDepName",
+                                        },
+                                    ],
+                                    "expression": "concat(CustName, \\" -> \\", CustDepName)",
+                                    "function_name": "",
+                                    "name": "CustDepName",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustId",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustId",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "name": "CustName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/justSchema",
+                        "target_entity_name": "dbo.justSchema",
+                    },
+                ],
+                "relationships": [],
+                "target_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "dbo.employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": True,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": True,
+                            },
+                        ],
+                        "name": "dbo.justSchema",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.customer",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDeptName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustEmail",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "data_source_table",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                            {
+                                "name": "defaultToUpsert",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.data_source_table",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "PersonID",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "Name",
+                            },
+                            {
+                                "data_type": "timestamp",
+                                "name": "LastModifytime",
+                            },
+                        ],
+                    },
+                ],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:ChangeDataCapture exampleChangeDataCapture /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/adfcdcs/{changeDataCaptureName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_v_net_override: A boolean to determine if the vnet configuration needs to be overwritten.
@@ -227,6 +1579,1357 @@ class ChangeDataCapture(pulumi.CustomResource):
         Change data capture resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
+
+        ## Example Usage
+        ### ChangeDataCapture_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        change_data_capture = azure_native.datafactory.ChangeDataCapture("changeDataCapture",
+            allow_v_net_override=False,
+            change_data_capture_name="exampleChangeDataCapture",
+            description="Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database with automapped and non-automapped mappings.",
+            factory_name="exampleFactoryName",
+            policy={
+                "mode": "Microbatch",
+                "recurrence": {
+                    "frequency": azure_native.datafactory.FrequencyType.MINUTE,
+                    "interval": 15,
+                },
+            },
+            resource_group_name="exampleResourceGroup",
+            source_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "delimited",
+                        },
+                        {
+                            "name": "dateFormats",
+                            "value": [
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "timestampFormats",
+                            "value": [
+                                "yyyyMMddHHmm",
+                                "yyyyMMdd HHmm",
+                                "yyyyMMddHHmmss",
+                                "yyyyMMdd HHmmss",
+                                "dd-MM-yyyy HH:mm:ss",
+                                "dd-MM-yyyy HH:mm",
+                                "yyyy-M-d H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss",
+                                "yyyy-MM-dd HH:mm:ss",
+                                "yyyy-MM-dd HH:mm",
+                                "yyyy.MM.dd HH:mm:ss",
+                                "MM/dd/yyyy HH:mm:ss",
+                                "M/d/yyyy H:m:s",
+                                "yyyy/MM/dd HH:mm:ss",
+                                "yyyy/M/d H:m:s",
+                                "dd MMM yyyy HH:mm:ss",
+                                "dd MMMM yyyy HH:mm:ss",
+                                "d MMM yyyy H:m:s",
+                                "d MMMM yyyy H:m:s",
+                                "d-M-yyyy H:m:s",
+                                "d-M-yyyy H:m",
+                                "yyyy-M-d H:m",
+                                "MM/dd/yyyy HH:mm",
+                                "M/d/yyyy H:m",
+                                "yyyy/MM/dd HH:mm",
+                                "yyyy/M/d H:m",
+                                "dd MMMM yyyy HH:mm",
+                                "dd MMM yyyy HH:mm",
+                                "d MMMM yyyy H:m",
+                                "d MMM yyyy H:m",
+                                "MM-dd-yyyy hh:mm:ss a",
+                                "MM-dd-yyyy HH:mm:ss",
+                                "MM/dd/yyyy hh:mm:ss a",
+                                "yyyy.MM.dd hh:mm:ss a",
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "enableCdc",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipInitialLoad",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnNamesAsHeader",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnDelimiter",
+                            "value": ",",
+                        },
+                        {
+                            "name": "escapeChar",
+                            "value": "\\\\\\\\",
+                        },
+                        {
+                            "name": "quoteChar",
+                            "value": "\\\\\\"",
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaAdls03",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureBlobFS",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "source_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/customer",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "source/employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "lookup",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "EmpId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "EmpName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "HomeAddress",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "OfficeAddress",
+                            },
+                            {
+                                "data_type": "integer",
+                                "name": "EmpPhoneNumber",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepLoc",
+                            },
+                            {
+                                "data_type": "double",
+                                "name": "DecimalCol",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/justSchema",
+                        "schema": [
+                            {
+                                "data_type": "string",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                ],
+            }],
+            target_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "table",
+                        },
+                        {
+                            "name": "store",
+                            "value": "sqlserver",
+                        },
+                        {
+                            "name": "databaseType",
+                            "value": "databaseType",
+                        },
+                        {
+                            "name": "database",
+                            "value": "database",
+                        },
+                        {
+                            "name": "deletable",
+                            "value": False,
+                        },
+                        {
+                            "name": "insertable",
+                            "value": True,
+                        },
+                        {
+                            "name": "updateable",
+                            "value": False,
+                        },
+                        {
+                            "name": "upsertable",
+                            "value": False,
+                        },
+                        {
+                            "name": "skipDuplicateMapInputs",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipDuplicateMapOutputs",
+                            "value": True,
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaSql",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureSqlDatabase",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "data_mapper_mappings": [
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/customer",
+                        "target_entity_name": "dbo.customer",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpName",
+                                    }],
+                                    "expression": "upper(EmpName)",
+                                    "function_name": "upper",
+                                    "name": "Name",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpId",
+                                    },
+                                    "function_name": "",
+                                    "name": "PersonID",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "lookup",
+                        "target_entity_name": "dbo.data_source_table",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/employee",
+                        "target_entity_name": "dbo.employee",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustAddres",
+                                    }],
+                                    "expression": "trim(CustAddres)",
+                                    "function_name": "trim",
+                                    "name": "CustAddres",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustDepLoc",
+                                    },
+                                    "name": "CustDepLoc",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_references": [
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustName",
+                                        },
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustDepName",
+                                        },
+                                    ],
+                                    "expression": "concat(CustName, \\" -> \\", CustDepName)",
+                                    "function_name": "",
+                                    "name": "CustDepName",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustId",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustId",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "name": "CustName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/justSchema",
+                        "target_entity_name": "dbo.justSchema",
+                    },
+                ],
+                "relationships": [],
+                "target_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "dbo.employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": True,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": True,
+                            },
+                        ],
+                        "name": "dbo.justSchema",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.customer",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDeptName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustEmail",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "data_source_table",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                            {
+                                "name": "defaultToUpsert",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.data_source_table",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "PersonID",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "Name",
+                            },
+                            {
+                                "data_type": "timestamp",
+                                "name": "LastModifytime",
+                            },
+                        ],
+                    },
+                ],
+            }])
+
+        ```
+        ### ChangeDataCapture_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        change_data_capture = azure_native.datafactory.ChangeDataCapture("changeDataCapture",
+            allow_v_net_override=False,
+            change_data_capture_name="exampleChangeDataCapture",
+            description="Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database. Updating table mappings.",
+            factory_name="exampleFactoryName",
+            policy={
+                "mode": "Microbatch",
+                "recurrence": {
+                    "frequency": azure_native.datafactory.FrequencyType.MINUTE,
+                    "interval": 15,
+                },
+            },
+            resource_group_name="exampleResourceGroup",
+            source_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "delimited",
+                        },
+                        {
+                            "name": "dateFormats",
+                            "value": [
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "timestampFormats",
+                            "value": [
+                                "yyyyMMddHHmm",
+                                "yyyyMMdd HHmm",
+                                "yyyyMMddHHmmss",
+                                "yyyyMMdd HHmmss",
+                                "dd-MM-yyyy HH:mm:ss",
+                                "dd-MM-yyyy HH:mm",
+                                "yyyy-M-d H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s\\\\'Z\\\\'",
+                                "yyyy-M-d\\\\'T\\\\'H:m:s",
+                                "yyyy-MM-dd\\\\'T\\\\'HH:mm:ss",
+                                "yyyy-MM-dd HH:mm:ss",
+                                "yyyy-MM-dd HH:mm",
+                                "yyyy.MM.dd HH:mm:ss",
+                                "MM/dd/yyyy HH:mm:ss",
+                                "M/d/yyyy H:m:s",
+                                "yyyy/MM/dd HH:mm:ss",
+                                "yyyy/M/d H:m:s",
+                                "dd MMM yyyy HH:mm:ss",
+                                "dd MMMM yyyy HH:mm:ss",
+                                "d MMM yyyy H:m:s",
+                                "d MMMM yyyy H:m:s",
+                                "d-M-yyyy H:m:s",
+                                "d-M-yyyy H:m",
+                                "yyyy-M-d H:m",
+                                "MM/dd/yyyy HH:mm",
+                                "M/d/yyyy H:m",
+                                "yyyy/MM/dd HH:mm",
+                                "yyyy/M/d H:m",
+                                "dd MMMM yyyy HH:mm",
+                                "dd MMM yyyy HH:mm",
+                                "d MMMM yyyy H:m",
+                                "d MMM yyyy H:m",
+                                "MM-dd-yyyy hh:mm:ss a",
+                                "MM-dd-yyyy HH:mm:ss",
+                                "MM/dd/yyyy hh:mm:ss a",
+                                "yyyy.MM.dd hh:mm:ss a",
+                                "MM/dd/yyyy",
+                                "dd/MM/yyyy",
+                                "yyyy/MM/dd",
+                                "MM-dd-yyyy",
+                                "dd-MM-yyyy",
+                                "yyyy-MM-dd",
+                                "dd.MM.yyyy",
+                                "MM.dd.yyyy",
+                                "yyyy.MM.dd",
+                            ],
+                        },
+                        {
+                            "name": "enableCdc",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipInitialLoad",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnNamesAsHeader",
+                            "value": True,
+                        },
+                        {
+                            "name": "columnDelimiter",
+                            "value": ",",
+                        },
+                        {
+                            "name": "escapeChar",
+                            "value": "\\\\\\\\",
+                        },
+                        {
+                            "name": "quoteChar",
+                            "value": "\\\\\\"",
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaAdls03",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureBlobFS",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "source_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/customer",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "source/employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "lookup",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "lookup",
+                        "schema": [
+                            {
+                                "data_type": "short",
+                                "name": "EmpId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "EmpName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "HomeAddress",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "OfficeAddress",
+                            },
+                            {
+                                "data_type": "integer",
+                                "name": "EmpPhoneNumber",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "DepLoc",
+                            },
+                            {
+                                "data_type": "double",
+                                "name": "DecimalCol",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "container",
+                                "value": "source",
+                            },
+                            {
+                                "name": "fileSystem",
+                                "value": "source",
+                            },
+                            {
+                                "name": "folderPath",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "source/justSchema",
+                        "schema": [
+                            {
+                                "data_type": "string",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDepLoc",
+                            },
+                        ],
+                    },
+                ],
+            }],
+            status="Stopped",
+            target_connections_info=[{
+                "connection": {
+                    "common_dsl_connector_properties": [
+                        {
+                            "name": "allowSchemaDrift",
+                            "value": True,
+                        },
+                        {
+                            "name": "inferDriftedColumnTypes",
+                            "value": True,
+                        },
+                        {
+                            "name": "format",
+                            "value": "table",
+                        },
+                        {
+                            "name": "store",
+                            "value": "sqlserver",
+                        },
+                        {
+                            "name": "databaseType",
+                            "value": "databaseType",
+                        },
+                        {
+                            "name": "database",
+                            "value": "database",
+                        },
+                        {
+                            "name": "deletable",
+                            "value": False,
+                        },
+                        {
+                            "name": "insertable",
+                            "value": True,
+                        },
+                        {
+                            "name": "updateable",
+                            "value": False,
+                        },
+                        {
+                            "name": "upsertable",
+                            "value": False,
+                        },
+                        {
+                            "name": "skipDuplicateMapInputs",
+                            "value": True,
+                        },
+                        {
+                            "name": "skipDuplicateMapOutputs",
+                            "value": True,
+                        },
+                    ],
+                    "is_inline_dataset": True,
+                    "linked_service": {
+                        "reference_name": "amjaSql",
+                        "type": azure_native.datafactory.Type.LINKED_SERVICE_REFERENCE,
+                    },
+                    "linked_service_type": "AzureSqlDatabase",
+                    "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                },
+                "data_mapper_mappings": [
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustAddres",
+                                    }],
+                                    "expression": "trim(CustAddres)",
+                                    "function_name": "trim",
+                                    "name": "CustAddres",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustDepName",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustDeptName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustEmail",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustId",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustId",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/customer",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/customer",
+                        "target_entity_name": "dbo.customer",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpName",
+                                    }],
+                                    "expression": "upper(EmpName)",
+                                    "function_name": "upper",
+                                    "name": "Name",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "lookup",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "EmpId",
+                                    },
+                                    "function_name": "",
+                                    "name": "PersonID",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "lookup",
+                        "target_entity_name": "dbo.data_source_table",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/employee",
+                        "target_entity_name": "dbo.employee",
+                    },
+                    {
+                        "attribute_mapping_info": {
+                            "attribute_mappings": [
+                                {
+                                    "attribute_references": [{
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustAddres",
+                                    }],
+                                    "expression": "trim(CustAddres)",
+                                    "function_name": "trim",
+                                    "name": "CustAddres",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustDepLoc",
+                                    },
+                                    "name": "CustDepLoc",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_references": [
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustName",
+                                        },
+                                        {
+                                            "entity": "source/justSchema",
+                                            "entity_connection_reference": {
+                                                "connection_name": "amjaAdls03",
+                                                "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                            },
+                                            "name": "CustDepName",
+                                        },
+                                    ],
+                                    "expression": "concat(CustName, \\" -> \\", CustDepName)",
+                                    "function_name": "",
+                                    "name": "CustDepName",
+                                    "type": azure_native.datafactory.MappingType.DERIVED,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustId",
+                                    },
+                                    "function_name": "",
+                                    "name": "CustId",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                                {
+                                    "attribute_reference": {
+                                        "entity": "source/justSchema",
+                                        "entity_connection_reference": {
+                                            "connection_name": "amjaAdls03",
+                                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                                        },
+                                        "name": "CustName",
+                                    },
+                                    "name": "CustName",
+                                    "type": azure_native.datafactory.MappingType.DIRECT,
+                                },
+                            ],
+                        },
+                        "source_connection_reference": {
+                            "connection_name": "amjaAdls03",
+                            "type": azure_native.datafactory.ConnectionType.LINKEDSERVICETYPE,
+                        },
+                        "source_entity_name": "source/justSchema",
+                        "target_entity_name": "dbo.justSchema",
+                    },
+                ],
+                "relationships": [],
+                "target_entities": [
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "employee",
+                            },
+                        ],
+                        "name": "dbo.employee",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "justSchema",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": True,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": True,
+                            },
+                        ],
+                        "name": "dbo.justSchema",
+                        "schema": [],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "customer",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.customer",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "CustId",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustAddres",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustDeptName",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "CustEmail",
+                            },
+                        ],
+                    },
+                    {
+                        "dsl_connector_properties": [
+                            {
+                                "name": "schemaName",
+                                "value": "dbo",
+                            },
+                            {
+                                "name": "tableName",
+                                "value": "data_source_table",
+                            },
+                            {
+                                "name": "allowSchemaDrift",
+                                "value": False,
+                            },
+                            {
+                                "name": "inferDriftedColumnTypes",
+                                "value": False,
+                            },
+                            {
+                                "name": "defaultToUpsert",
+                                "value": False,
+                            },
+                        ],
+                        "name": "dbo.data_source_table",
+                        "schema": [
+                            {
+                                "data_type": "integer",
+                                "name": "PersonID",
+                            },
+                            {
+                                "data_type": "string",
+                                "name": "Name",
+                            },
+                            {
+                                "data_type": "timestamp",
+                                "name": "LastModifytime",
+                            },
+                        ],
+                    },
+                ],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:ChangeDataCapture exampleChangeDataCapture /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/adfcdcs/{changeDataCaptureName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ChangeDataCaptureArgs args: The arguments to use to populate this resource's properties.

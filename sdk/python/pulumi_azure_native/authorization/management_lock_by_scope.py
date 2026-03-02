@@ -29,6 +29,7 @@ class ManagementLockByScopeArgs:
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementLockByScope resource.
+
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[_builtins.str] scope: The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
         :param pulumi.Input[_builtins.str] lock_name: The name of lock.
@@ -122,6 +123,29 @@ class ManagementLockByScope(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
+        ## Example Usage
+        ### Create management lock at scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_lock_by_scope = azure_native.authorization.ManagementLockByScope("managementLockByScope",
+            level=azure_native.authorization.LockLevel.READ_ONLY,
+            lock_name="testlock",
+            scope="subscriptions/subscriptionId")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:ManagementLockByScope testlock /{scope}/providers/Microsoft.Authorization/locks/{lockName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -140,6 +164,29 @@ class ManagementLockByScope(pulumi.CustomResource):
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
+
+        ## Example Usage
+        ### Create management lock at scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_lock_by_scope = azure_native.authorization.ManagementLockByScope("managementLockByScope",
+            level=azure_native.authorization.LockLevel.READ_ONLY,
+            lock_name="testlock",
+            scope="subscriptions/subscriptionId")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:ManagementLockByScope testlock /{scope}/providers/Microsoft.Authorization/locks/{lockName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagementLockByScopeArgs args: The arguments to use to populate this resource's properties.

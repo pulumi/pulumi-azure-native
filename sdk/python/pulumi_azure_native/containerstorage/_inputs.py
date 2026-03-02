@@ -38,19 +38,14 @@ __all__ = [
     'ResourcesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssignmentArgsDict(TypedDict):
-        """
-        Assignment Properties
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        Resource id for the assigned resource
-        """
-elif False:
-    AssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class AssignmentArgsDict(TypedDict):
+    """
+    Assignment Properties
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    Resource id for the assigned resource
+    """
 
 @pulumi.input_type
 class AssignmentArgs:
@@ -58,6 +53,7 @@ class AssignmentArgs:
                  id: pulumi.Input[_builtins.str]):
         """
         Assignment Properties
+
         :param pulumi.Input[_builtins.str] id: Resource id for the assigned resource
         """
         pulumi.set(__self__, "id", id)
@@ -75,25 +71,22 @@ class AssignmentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class AzureDiskArgsDict(TypedDict):
-        """
-        Azure Disk Pool Properties
-        """
-        disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
-        """
-        Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
-        """
-        encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
-        """
-        Encryption specifies the encryption configuration for the Azure Disk pool
-        """
-        sku_name: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]]
-        """
-        Sku name
-        """
-elif False:
-    AzureDiskArgsDict: TypeAlias = Mapping[str, Any]
+class AzureDiskArgsDict(TypedDict):
+    """
+    Azure Disk Pool Properties
+    """
+    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    """
+    Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
+    """
+    encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+    """
+    Encryption specifies the encryption configuration for the Azure Disk pool
+    """
+    sku_name: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]]
+    """
+    Sku name
+    """
 
 @pulumi.input_type
 class AzureDiskArgs:
@@ -103,6 +96,7 @@ class AzureDiskArgs:
                  sku_name: Optional[pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']]] = None):
         """
         Azure Disk Pool Properties
+
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param pulumi.Input[Union[_builtins.str, 'AzureDiskSkuName']] sku_name: Sku name
@@ -151,21 +145,18 @@ class AzureDiskArgs:
         pulumi.set(self, "sku_name", value)
 
 
-if not MYPY:
-    class DiskArgsDict(TypedDict):
-        """
-        Model for disk for that pool is using
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        ID is the disk identifier visible to the OS. It is typically the WWN or disk ID in formats such as eui.e8238fa6bf530001001b448b45263379 or 0x5002cf6cbc5dd460
-        """
-        reference: pulumi.Input[_builtins.str]
-        """
-        Reference is the location of the disk in an external system.
-        """
-elif False:
-    DiskArgsDict: TypeAlias = Mapping[str, Any]
+class DiskArgsDict(TypedDict):
+    """
+    Model for disk for that pool is using
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    ID is the disk identifier visible to the OS. It is typically the WWN or disk ID in formats such as eui.e8238fa6bf530001001b448b45263379 or 0x5002cf6cbc5dd460
+    """
+    reference: pulumi.Input[_builtins.str]
+    """
+    Reference is the location of the disk in an external system.
+    """
 
 @pulumi.input_type
 class DiskArgs:
@@ -174,6 +165,7 @@ class DiskArgs:
                  reference: pulumi.Input[_builtins.str]):
         """
         Model for disk for that pool is using
+
         :param pulumi.Input[_builtins.str] id: ID is the disk identifier visible to the OS. It is typically the WWN or disk ID in formats such as eui.e8238fa6bf530001001b448b45263379 or 0x5002cf6cbc5dd460
         :param pulumi.Input[_builtins.str] reference: Reference is the location of the disk in an external system.
         """
@@ -205,21 +197,18 @@ class DiskArgs:
         pulumi.set(self, "reference", value)
 
 
-if not MYPY:
-    class ElasticSanArgsDict(TypedDict):
-        """
-        Elastic San Pool Properties
-        """
-        encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
-        """
-        Encryption specifies the encryption configuration for the Azure Disk pool
-        """
-        sku_name: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]]
-        """
-        Sku name
-        """
-elif False:
-    ElasticSanArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticSanArgsDict(TypedDict):
+    """
+    Elastic San Pool Properties
+    """
+    encryption: NotRequired[pulumi.Input['EncryptionArgsDict']]
+    """
+    Encryption specifies the encryption configuration for the Azure Disk pool
+    """
+    sku_name: NotRequired[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]]
+    """
+    Sku name
+    """
 
 @pulumi.input_type
 class ElasticSanArgs:
@@ -228,6 +217,7 @@ class ElasticSanArgs:
                  sku_name: Optional[pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']]] = None):
         """
         Elastic San Pool Properties
+
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param pulumi.Input[Union[_builtins.str, 'ElasticSanSkuName']] sku_name: Sku name
         """
@@ -261,25 +251,22 @@ class ElasticSanArgs:
         pulumi.set(self, "sku_name", value)
 
 
-if not MYPY:
-    class EncryptionArgsDict(TypedDict):
-        """
-        Encryption key properties for the pool.
-        """
-        key_name: pulumi.Input[_builtins.str]
-        """
-        The name of the key vault key.
-        """
-        key_vault_uri: pulumi.Input[_builtins.str]
-        """
-        The URI of the key vault.
-        """
-        identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
-        """
-        The managed service identities assigned to this resource.
-        """
-elif False:
-    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EncryptionArgsDict(TypedDict):
+    """
+    Encryption key properties for the pool.
+    """
+    key_name: pulumi.Input[_builtins.str]
+    """
+    The name of the key vault key.
+    """
+    key_vault_uri: pulumi.Input[_builtins.str]
+    """
+    The URI of the key vault.
+    """
+    identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
+    """
+    The managed service identities assigned to this resource.
+    """
 
 @pulumi.input_type
 class EncryptionArgs:
@@ -289,6 +276,7 @@ class EncryptionArgs:
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None):
         """
         Encryption key properties for the pool.
+
         :param pulumi.Input[_builtins.str] key_name: The name of the key vault key.
         :param pulumi.Input[_builtins.str] key_vault_uri: The URI of the key vault.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
@@ -335,21 +323,18 @@ class EncryptionArgs:
         pulumi.set(self, "identity", value)
 
 
-if not MYPY:
-    class EphemeralDiskArgsDict(TypedDict):
-        """
-        Ephemeral Disk Pool Properties
-        """
-        disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
-        """
-        Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
-        """
-        replicas: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The number of data copies. Default 3.
-        """
-elif False:
-    EphemeralDiskArgsDict: TypeAlias = Mapping[str, Any]
+class EphemeralDiskArgsDict(TypedDict):
+    """
+    Ephemeral Disk Pool Properties
+    """
+    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskArgsDict']]]]
+    """
+    Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
+    """
+    replicas: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The number of data copies. Default 3.
+    """
 
 @pulumi.input_type
 class EphemeralDiskArgs:
@@ -358,6 +343,7 @@ class EphemeralDiskArgs:
                  replicas: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Ephemeral Disk Pool Properties
+
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         :param pulumi.Input[_builtins.float] replicas: The number of data copies. Default 3.
         """
@@ -393,21 +379,18 @@ class EphemeralDiskArgs:
         pulumi.set(self, "replicas", value)
 
 
-if not MYPY:
-    class ManagedServiceIdentityArgsDict(TypedDict):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        """
-        type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-elif False:
-    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedServiceIdentityArgsDict(TypedDict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+    """
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
@@ -416,6 +399,7 @@ class ManagedServiceIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
+
         :param pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -448,25 +432,22 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-if not MYPY:
-    class PoolTypeArgsDict(TypedDict):
-        """
-        Type of the Pool: ephemeralDisk, azureDisk, or elasticsan
-        """
-        azure_disk: NotRequired[pulumi.Input['AzureDiskArgsDict']]
-        """
-        Disk Pool Properties
-        """
-        elastic_san: NotRequired[pulumi.Input['ElasticSanArgsDict']]
-        """
-        Elastic San Pool Properties
-        """
-        ephemeral_disk: NotRequired[pulumi.Input['EphemeralDiskArgsDict']]
-        """
-        Ephemeral Pool Properties
-        """
-elif False:
-    PoolTypeArgsDict: TypeAlias = Mapping[str, Any]
+class PoolTypeArgsDict(TypedDict):
+    """
+    Type of the Pool: ephemeralDisk, azureDisk, or elasticsan
+    """
+    azure_disk: NotRequired[pulumi.Input['AzureDiskArgsDict']]
+    """
+    Disk Pool Properties
+    """
+    elastic_san: NotRequired[pulumi.Input['ElasticSanArgsDict']]
+    """
+    Elastic San Pool Properties
+    """
+    ephemeral_disk: NotRequired[pulumi.Input['EphemeralDiskArgsDict']]
+    """
+    Ephemeral Pool Properties
+    """
 
 @pulumi.input_type
 class PoolTypeArgs:
@@ -476,6 +457,7 @@ class PoolTypeArgs:
                  ephemeral_disk: Optional[pulumi.Input['EphemeralDiskArgs']] = None):
         """
         Type of the Pool: ephemeralDisk, azureDisk, or elasticsan
+
         :param pulumi.Input['AzureDiskArgs'] azure_disk: Disk Pool Properties
         :param pulumi.Input['ElasticSanArgs'] elastic_san: Elastic San Pool Properties
         :param pulumi.Input['EphemeralDiskArgs'] ephemeral_disk: Ephemeral Pool Properties
@@ -524,17 +506,14 @@ class PoolTypeArgs:
         pulumi.set(self, "ephemeral_disk", value)
 
 
-if not MYPY:
-    class RequestsArgsDict(TypedDict):
-        """
-        Requests for capacity for the pool.
-        """
-        storage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Requested capacity of the pool in GiB.
-        """
-elif False:
-    RequestsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestsArgsDict(TypedDict):
+    """
+    Requests for capacity for the pool.
+    """
+    storage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Requested capacity of the pool in GiB.
+    """
 
 @pulumi.input_type
 class RequestsArgs:
@@ -542,6 +521,7 @@ class RequestsArgs:
                  storage: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Requests for capacity for the pool.
+
         :param pulumi.Input[_builtins.float] storage: Requested capacity of the pool in GiB.
         """
         if storage is None:
@@ -562,17 +542,14 @@ class RequestsArgs:
         pulumi.set(self, "storage", value)
 
 
-if not MYPY:
-    class ResourcesArgsDict(TypedDict):
-        """
-        Resource Requests for the pool.
-        """
-        requests: NotRequired[pulumi.Input['RequestsArgsDict']]
-        """
-        Requests for capacity for the pool.
-        """
-elif False:
-    ResourcesArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcesArgsDict(TypedDict):
+    """
+    Resource Requests for the pool.
+    """
+    requests: NotRequired[pulumi.Input['RequestsArgsDict']]
+    """
+    Requests for capacity for the pool.
+    """
 
 @pulumi.input_type
 class ResourcesArgs:
@@ -580,6 +557,7 @@ class ResourcesArgs:
                  requests: Optional[pulumi.Input['RequestsArgs']] = None):
         """
         Resource Requests for the pool.
+
         :param pulumi.Input['RequestsArgs'] requests: Requests for capacity for the pool.
         """
         if requests is not None:

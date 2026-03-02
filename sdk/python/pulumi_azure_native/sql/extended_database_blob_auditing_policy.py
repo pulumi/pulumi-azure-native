@@ -37,6 +37,7 @@ class ExtendedDatabaseBlobAuditingPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExtendedDatabaseBlobAuditingPolicy resource.
+
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
@@ -442,6 +443,75 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create or update an extended database's azure monitor auditing policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+            blob_auditing_policy_name="default",
+            database_name="testdb",
+            is_azure_monitor_target_enabled=True,
+            resource_group_name="blobauditingtest-4799",
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED)
+
+        ```
+        ### Create or update an extended database's blob auditing policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+            audit_actions_and_groups=[
+                "DATABASE_LOGOUT_GROUP",
+                "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+                "UPDATE on database::TestDatabaseName by public",
+            ],
+            blob_auditing_policy_name="default",
+            database_name="testdb",
+            is_azure_monitor_target_enabled=True,
+            is_storage_secondary_key_in_use=False,
+            predicate_expression="statement = 'select 1'",
+            queue_delay_ms=4000,
+            resource_group_name="blobauditingtest-4799",
+            retention_days=6,
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_account_subscription_id="00000000-1234-0000-5678-000000000000",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Create or update an extended database's blob auditing policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+            blob_auditing_policy_name="default",
+            database_name="testdb",
+            resource_group_name="blobauditingtest-4799",
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ExtendedDatabaseBlobAuditingPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/extendedAuditingSettings/{blobAuditingPolicyName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: Specifies the Actions-Groups and Actions to audit.
@@ -548,6 +618,75 @@ class ExtendedDatabaseBlobAuditingPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create or update an extended database's azure monitor auditing policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+            blob_auditing_policy_name="default",
+            database_name="testdb",
+            is_azure_monitor_target_enabled=True,
+            resource_group_name="blobauditingtest-4799",
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED)
+
+        ```
+        ### Create or update an extended database's blob auditing policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+            audit_actions_and_groups=[
+                "DATABASE_LOGOUT_GROUP",
+                "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+                "UPDATE on database::TestDatabaseName by public",
+            ],
+            blob_auditing_policy_name="default",
+            database_name="testdb",
+            is_azure_monitor_target_enabled=True,
+            is_storage_secondary_key_in_use=False,
+            predicate_expression="statement = 'select 1'",
+            queue_delay_ms=4000,
+            resource_group_name="blobauditingtest-4799",
+            retention_days=6,
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_account_subscription_id="00000000-1234-0000-5678-000000000000",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Create or update an extended database's blob auditing policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+            blob_auditing_policy_name="default",
+            database_name="testdb",
+            resource_group_name="blobauditingtest-4799",
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ExtendedDatabaseBlobAuditingPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/extendedAuditingSettings/{blobAuditingPolicyName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ExtendedDatabaseBlobAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

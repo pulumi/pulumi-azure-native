@@ -29,6 +29,7 @@ class SnsTopicArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SnsTopic resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Name of SnsTopic
@@ -123,6 +124,67 @@ class SnsTopic(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
+        ## Example Usage
+        ### SnsTopics_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sns_topic = azure_native.awsconnector.SnsTopic("snsTopic",
+            location="vzzjtyjhqbty",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jjhuxiyhej",
+                "aws_account_id": "wndmunvvkmoyxlrbsnowo",
+                "aws_properties": {
+                    "content_based_deduplication": True,
+                    "delivery_status_logging": [{
+                        "failure_feedback_role_arn": "ygtlmetldtzqhoasmdit",
+                        "protocol": azure_native.awsconnector.LoggingConfigProtocol.APPLICATION,
+                        "success_feedback_role_arn": "ersgnxrmfnrqhmyilsomcxxlza",
+                        "success_feedback_sample_rate": "iudedzrjawqzroytyyonpydzjzzmlj",
+                    }],
+                    "display_name": "sanmplpvkvcorlhraijepxftlyeqwj",
+                    "fifo_topic": True,
+                    "kms_master_key_id": "nioyrfbmzmfdvakoenyodtjgzaxuw",
+                    "signature_version": "lpfgizlw",
+                    "subscription": [{
+                        "endpoint": "yuvwciasnlpnswnynse",
+                        "protocol": "zohpkxrrouufioztdmkw",
+                    }],
+                    "tags": [{
+                        "key": "daicnimeizenloocglfwacmcp",
+                        "value": "bxdamnevuybindqttmfvzotzqboj",
+                    }],
+                    "topic_arn": "owersxkcdlhhnawxkmqlcjlzqlxtmj",
+                    "topic_name": "lijmdexuvnfby",
+                    "tracing_config": "yrpvxmefnaexobhqvtdrj",
+                },
+                "aws_region": "qbpwpfnzmmkh",
+                "aws_source_schema": "sxholwzdshjzccfoioytctdmjrmlpo",
+                "aws_tags": {
+                    "key2577": "tygcrksvujusefiivyigtch",
+                },
+                "public_cloud_connectors_resource_id": "didnyoylzwmnsjudmfwojgtjqsuypn",
+                "public_cloud_resource_name": "vwncs",
+            },
+            resource_group_name="rgsnsTopic",
+            tags={
+                "key5456": "eqraeavtnbspitsdlpmv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SnsTopic hsdynqpvalkbhp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsTopics/{name} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -141,6 +203,67 @@ class SnsTopic(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+
+        ## Example Usage
+        ### SnsTopics_CreateOrReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sns_topic = azure_native.awsconnector.SnsTopic("snsTopic",
+            location="vzzjtyjhqbty",
+            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+            properties={
+                "arn": "jjhuxiyhej",
+                "aws_account_id": "wndmunvvkmoyxlrbsnowo",
+                "aws_properties": {
+                    "content_based_deduplication": True,
+                    "delivery_status_logging": [{
+                        "failure_feedback_role_arn": "ygtlmetldtzqhoasmdit",
+                        "protocol": azure_native.awsconnector.LoggingConfigProtocol.APPLICATION,
+                        "success_feedback_role_arn": "ersgnxrmfnrqhmyilsomcxxlza",
+                        "success_feedback_sample_rate": "iudedzrjawqzroytyyonpydzjzzmlj",
+                    }],
+                    "display_name": "sanmplpvkvcorlhraijepxftlyeqwj",
+                    "fifo_topic": True,
+                    "kms_master_key_id": "nioyrfbmzmfdvakoenyodtjgzaxuw",
+                    "signature_version": "lpfgizlw",
+                    "subscription": [{
+                        "endpoint": "yuvwciasnlpnswnynse",
+                        "protocol": "zohpkxrrouufioztdmkw",
+                    }],
+                    "tags": [{
+                        "key": "daicnimeizenloocglfwacmcp",
+                        "value": "bxdamnevuybindqttmfvzotzqboj",
+                    }],
+                    "topic_arn": "owersxkcdlhhnawxkmqlcjlzqlxtmj",
+                    "topic_name": "lijmdexuvnfby",
+                    "tracing_config": "yrpvxmefnaexobhqvtdrj",
+                },
+                "aws_region": "qbpwpfnzmmkh",
+                "aws_source_schema": "sxholwzdshjzccfoioytctdmjrmlpo",
+                "aws_tags": {
+                    "key2577": "tygcrksvujusefiivyigtch",
+                },
+                "public_cloud_connectors_resource_id": "didnyoylzwmnsjudmfwojgtjqsuypn",
+                "public_cloud_resource_name": "vwncs",
+            },
+            resource_group_name="rgsnsTopic",
+            tags={
+                "key5456": "eqraeavtnbspitsdlpmv",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:awsconnector:SnsTopic hsdynqpvalkbhp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsTopics/{name} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param SnsTopicArgs args: The arguments to use to populate this resource's properties.

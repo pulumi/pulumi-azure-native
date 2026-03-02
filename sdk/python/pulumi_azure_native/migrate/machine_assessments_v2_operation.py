@@ -28,6 +28,7 @@ class MachineAssessmentsV2OperationArgs:
                  properties: Optional[pulumi.Input['MachineAssessmentV2PropertiesArgs']] = None):
         """
         The set of arguments for constructing a MachineAssessmentsV2Operation resource.
+
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] assessment_name: Machine Assessment V2 ARM name
@@ -105,6 +106,70 @@ class MachineAssessmentsV2Operation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
+        ## Example Usage
+        ### MachineAssessmentsV2Operations_Create_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_assessments_v2_operation = azure_native.migrate.MachineAssessmentsV2Operation("machineAssessmentsV2Operation",
+            assessment_name="assessmentName",
+            project_name="contosoProject",
+            properties={
+                "scope": {
+                    "azure_resource_graph_query": "hfhwuqalmenpcttboxvo",
+                    "scope_type": azure_native.migrate.ScopeType.SERVER_GROUP_ID,
+                    "server_group_id": "f",
+                },
+                "settings": {
+                    "azure_disk_types": [azure_native.migrate.AzureDiskType.UNKNOWN],
+                    "azure_hybrid_use_benefit": azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+                    "azure_location": "rsequlcso",
+                    "azure_pricing_tier": azure_native.migrate.AzurePricingTier.STANDARD,
+                    "azure_security_offering_type": azure_native.migrate.AzureSecurityOfferingType.NO,
+                    "azure_storage_redundancy": azure_native.migrate.AzureStorageRedundancy.UNKNOWN,
+                    "azure_vm_families": [azure_native.migrate.AzureVmFamily.UNKNOWN],
+                    "azure_vm_security_options": [azure_native.migrate.AzureVmSecurityType.TVM],
+                    "billing_settings": {
+                        "licensing_program": azure_native.migrate.LicensingProgram.RETAIL,
+                        "subscription_id": "lee",
+                    },
+                    "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
+                    "discount_percentage": 5,
+                    "environment_type": azure_native.migrate.EnvironmentType.PRODUCTION,
+                    "linux_azure_hybrid_use_benefit": azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+                    "performance_data": {
+                        "percentile": "Unknown",
+                        "perf_data_end_time": "2025-02-21T05:47:51.336Z",
+                        "perf_data_start_time": "2025-02-21T05:47:51.336Z",
+                        "time_range": azure_native.migrate.TimeRange.DAY,
+                    },
+                    "savings_settings": {
+                        "azure_offer_code": azure_native.migrate.AzureOffer.UNKNOWN,
+                        "savings_options": azure_native.migrate.SavingsOptions.NONE,
+                    },
+                    "scaling_factor": 9,
+                    "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+                    "vm_uptime": {
+                        "days_per_month": 9,
+                        "hours_per_day": 10,
+                    },
+                },
+            },
+            resource_group_name="rgmachineAssessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:MachineAssessmentsV2Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/assessments/{assessmentName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assessment_name: Machine Assessment V2 ARM name
@@ -122,6 +187,70 @@ class MachineAssessmentsV2Operation(pulumi.CustomResource):
         Machine assessment V2 resource.
 
         Uses Azure REST API version 2024-03-03-preview.
+
+        ## Example Usage
+        ### MachineAssessmentsV2Operations_Create_MaximumSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_assessments_v2_operation = azure_native.migrate.MachineAssessmentsV2Operation("machineAssessmentsV2Operation",
+            assessment_name="assessmentName",
+            project_name="contosoProject",
+            properties={
+                "scope": {
+                    "azure_resource_graph_query": "hfhwuqalmenpcttboxvo",
+                    "scope_type": azure_native.migrate.ScopeType.SERVER_GROUP_ID,
+                    "server_group_id": "f",
+                },
+                "settings": {
+                    "azure_disk_types": [azure_native.migrate.AzureDiskType.UNKNOWN],
+                    "azure_hybrid_use_benefit": azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+                    "azure_location": "rsequlcso",
+                    "azure_pricing_tier": azure_native.migrate.AzurePricingTier.STANDARD,
+                    "azure_security_offering_type": azure_native.migrate.AzureSecurityOfferingType.NO,
+                    "azure_storage_redundancy": azure_native.migrate.AzureStorageRedundancy.UNKNOWN,
+                    "azure_vm_families": [azure_native.migrate.AzureVmFamily.UNKNOWN],
+                    "azure_vm_security_options": [azure_native.migrate.AzureVmSecurityType.TVM],
+                    "billing_settings": {
+                        "licensing_program": azure_native.migrate.LicensingProgram.RETAIL,
+                        "subscription_id": "lee",
+                    },
+                    "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
+                    "discount_percentage": 5,
+                    "environment_type": azure_native.migrate.EnvironmentType.PRODUCTION,
+                    "linux_azure_hybrid_use_benefit": azure_native.migrate.AzureHybridUseBenefit.UNKNOWN,
+                    "performance_data": {
+                        "percentile": "Unknown",
+                        "perf_data_end_time": "2025-02-21T05:47:51.336Z",
+                        "perf_data_start_time": "2025-02-21T05:47:51.336Z",
+                        "time_range": azure_native.migrate.TimeRange.DAY,
+                    },
+                    "savings_settings": {
+                        "azure_offer_code": azure_native.migrate.AzureOffer.UNKNOWN,
+                        "savings_options": azure_native.migrate.SavingsOptions.NONE,
+                    },
+                    "scaling_factor": 9,
+                    "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
+                    "vm_uptime": {
+                        "days_per_month": 9,
+                        "hours_per_day": 10,
+                    },
+                },
+            },
+            resource_group_name="rgmachineAssessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:MachineAssessmentsV2Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/assessments/{assessmentName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param MachineAssessmentsV2OperationArgs args: The arguments to use to populate this resource's properties.

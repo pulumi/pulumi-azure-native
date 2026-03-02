@@ -15,6 +15,199 @@ namespace Pulumi.AzureNative.Storage
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCreateObjectReplicationPolicyOnDestination
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var objectReplicationPolicy = new AzureNative.Storage.ObjectReplicationPolicy("objectReplicationPolicy", new()
+    ///     {
+    ///         AccountName = "dst112",
+    ///         DestinationAccount = "dst112",
+    ///         Metrics = new AzureNative.Storage.Inputs.ObjectReplicationPolicyPropertiesMetricsArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ObjectReplicationPolicyId = "default",
+    ///         ResourceGroupName = "res7687",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+    ///             {
+    ///                 DestinationContainer = "dcont139",
+    ///                 Filters = new AzureNative.Storage.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                 {
+    ///                     PrefixMatch = new[]
+    ///                     {
+    ///                         "blobA",
+    ///                         "blobB",
+    ///                     },
+    ///                 },
+    ///                 SourceContainer = "scont139",
+    ///             },
+    ///         },
+    ///         SourceAccount = "src1122",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountCreateObjectReplicationPolicyOnSource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var objectReplicationPolicy = new AzureNative.Storage.ObjectReplicationPolicy("objectReplicationPolicy", new()
+    ///     {
+    ///         AccountName = "src1122",
+    ///         DestinationAccount = "dst112",
+    ///         Metrics = new AzureNative.Storage.Inputs.ObjectReplicationPolicyPropertiesMetricsArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+    ///         ResourceGroupName = "res7687",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+    ///             {
+    ///                 DestinationContainer = "dcont139",
+    ///                 Filters = new AzureNative.Storage.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                 {
+    ///                     MinCreationTime = "2020-02-19T16:05:00Z",
+    ///                     PrefixMatch = new[]
+    ///                     {
+    ///                         "blobA",
+    ///                         "blobB",
+    ///                     },
+    ///                 },
+    ///                 RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+    ///                 SourceContainer = "scont139",
+    ///             },
+    ///         },
+    ///         SourceAccount = "src1122",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountUpdateObjectReplicationPolicyOnDestination
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var objectReplicationPolicy = new AzureNative.Storage.ObjectReplicationPolicy("objectReplicationPolicy", new()
+    ///     {
+    ///         AccountName = "dst112",
+    ///         DestinationAccount = "dst112",
+    ///         Metrics = new AzureNative.Storage.Inputs.ObjectReplicationPolicyPropertiesMetricsArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+    ///         ResourceGroupName = "res7687",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+    ///             {
+    ///                 DestinationContainer = "dcont139",
+    ///                 Filters = new AzureNative.Storage.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                 {
+    ///                     PrefixMatch = new[]
+    ///                     {
+    ///                         "blobA",
+    ///                         "blobB",
+    ///                     },
+    ///                 },
+    ///                 RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+    ///                 SourceContainer = "scont139",
+    ///             },
+    ///             new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+    ///             {
+    ///                 DestinationContainer = "dcont179",
+    ///                 SourceContainer = "scont179",
+    ///             },
+    ///         },
+    ///         SourceAccount = "src1122",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountUpdateObjectReplicationPolicyOnSource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var objectReplicationPolicy = new AzureNative.Storage.ObjectReplicationPolicy("objectReplicationPolicy", new()
+    ///     {
+    ///         AccountName = "src1122",
+    ///         DestinationAccount = "dst112",
+    ///         Metrics = new AzureNative.Storage.Inputs.ObjectReplicationPolicyPropertiesMetricsArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+    ///         ResourceGroupName = "res7687",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+    ///             {
+    ///                 DestinationContainer = "dcont139",
+    ///                 Filters = new AzureNative.Storage.Inputs.ObjectReplicationPolicyFilterArgs
+    ///                 {
+    ///                     PrefixMatch = new[]
+    ///                     {
+    ///                         "blobA",
+    ///                         "blobB",
+    ///                     },
+    ///                 },
+    ///                 RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+    ///                 SourceContainer = "scont139",
+    ///             },
+    ///             new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+    ///             {
+    ///                 DestinationContainer = "dcont179",
+    ///                 RuleId = "cfbb4bc2-8b60-429f-b05a-d1e0942b33b2",
+    ///                 SourceContainer = "scont179",
+    ///             },
+    ///         },
+    ///         SourceAccount = "src1122",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:ObjectReplicationPolicy 2a20bb73-5717-4635-985a-5d4cf777438f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/objectReplicationPolicies/{objectReplicationPolicyId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : global::Pulumi.CustomResource

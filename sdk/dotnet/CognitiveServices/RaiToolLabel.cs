@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services RAI Tool Label resource.
     /// 
     /// Uses Azure REST API version 2025-10-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PutRaiToolLabel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var raiToolLabel = new AzureNative.CognitiveServices.RaiToolLabel("raiToolLabel", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.RaiToolLabelPropertiesArgs
+    ///         {
+    ///             AccountScope = new AzureNative.CognitiveServices.Inputs.RaiToolLabelPropertiesAccountScopeArgs
+    ///             {
+    ///                 LabelValues = 
+    ///                 {
+    ///                     { "confidentiality", "low" },
+    ///                 },
+    ///             },
+    ///             ProjectScopes = new[]
+    ///             {
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiToolLabelPropertiesProjectScopesArgs
+    ///                 {
+    ///                     LabelValues = 
+    ///                     {
+    ///                         { "confidentiality", "low" },
+    ///                     },
+    ///                     Project = "test-project",
+    ///                 },
+    ///                 new AzureNative.CognitiveServices.Inputs.RaiToolLabelPropertiesProjectScopesArgs
+    ///                 {
+    ///                     LabelValues = 
+    ///                     {
+    ///                         { "confidentiality", "low" },
+    ///                     },
+    ///                     Project = "sample-project",
+    ///                 },
+    ///             },
+    ///             ToolConnectionName = "Web_Search",
+    ///         },
+    ///         RaiToolConnectionName = "Web_Search",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:RaiToolLabel Web_Search /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiToolLabels/{raiToolConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:RaiToolLabel")]
     public partial class RaiToolLabel : global::Pulumi.CustomResource

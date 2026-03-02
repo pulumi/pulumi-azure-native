@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Complete information about the private endpoint.
  *
  * Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
+ *
+ * ## Example Usage
+ * ### Create a private endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpoint = new azure_native.streamanalytics.PrivateEndpoint("privateEndpoint", {
+ *     clusterName: "testcluster",
+ *     manualPrivateLinkServiceConnections: [{
+ *         groupIds: ["groupIdFromResource"],
+ *         privateLinkServiceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+ *     }],
+ *     privateEndpointName: "testpe",
+ *     resourceGroupName: "sjrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics:PrivateEndpoint An Example Private Endpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName}/privateEndpoints/{privateEndpointName} 
+ * ```
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**

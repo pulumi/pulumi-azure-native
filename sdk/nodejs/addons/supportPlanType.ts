@@ -8,6 +8,28 @@ import * as utilities from "../utilities";
  * The status of the Canonical support plan.
  *
  * Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
+ *
+ * ## Example Usage
+ * ### SupportPlanTypes_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const supportPlanType = new azure_native.addons.SupportPlanType("supportPlanType", {
+ *     planTypeName: "Standard",
+ *     providerName: "Canonical",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:addons:SupportPlanType Standard /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName} 
+ * ```
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**

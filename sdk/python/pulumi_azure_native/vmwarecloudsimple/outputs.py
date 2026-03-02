@@ -88,6 +88,7 @@ class DedicatedCloudNodePropertiesResponse(dict):
                  vmware_cluster_name: _builtins.str):
         """
         Properties of dedicated cloud node
+
         :param _builtins.str availability_zone_id: Availability Zone id, e.g. "az1"
         :param _builtins.str availability_zone_name: Availability Zone name, e.g. "Availability Zone 1"
         :param _builtins.str cloud_rack_name: VMWare Cloud Rack Name
@@ -275,6 +276,7 @@ class GuestOSCustomizationResponse(dict):
                  username: Optional[_builtins.str] = None):
         """
         Guest OS Customization properties
+
         :param Sequence[_builtins.str] dns_servers: List of dns servers to use
         :param _builtins.str host_name: Virtual Machine hostname
         :param _builtins.str password: Password for login
@@ -371,6 +373,7 @@ class GuestOSNICCustomizationResponse(dict):
                  secondary_wins_server: Optional[_builtins.str] = None):
         """
         Guest OS nic customization
+
         :param _builtins.str allocation: IP address allocation method
         :param Sequence[_builtins.str] dns_servers: List of dns servers to use
         :param Sequence[_builtins.str] gateway: Gateway addresses assigned to nic
@@ -484,6 +487,7 @@ class ResourcePoolResponse(dict):
                  type: _builtins.str):
         """
         Resource pool model
+
         :param _builtins.str full_name: Hierarchical resource pool name
         :param _builtins.str id: resource pool id (privateCloudId:vsphereId)
         :param _builtins.str location: Azure region
@@ -560,6 +564,7 @@ class SkuResponse(dict):
                  tier: Optional[_builtins.str] = None):
         """
         The purchase SKU for CloudSimple paid resources
+
         :param _builtins.str name: The name of the SKU for VMWare CloudSimple Node
         :param _builtins.str capacity: The capacity of the SKU
         :param _builtins.str description: dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
@@ -646,6 +651,7 @@ class VirtualDiskControllerResponse(dict):
                  type: _builtins.str):
         """
         Virtual disk controller model
+
         :param _builtins.str id: Controller's id
         :param _builtins.str name: The display name of Controller
         :param _builtins.str sub_type: dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
@@ -727,6 +733,7 @@ class VirtualDiskResponse(dict):
                  virtual_disk_id: Optional[_builtins.str] = None):
         """
         Virtual disk model
+
         :param _builtins.str controller_id: Disk's Controller id
         :param _builtins.str independence_mode: Disk's independence mode type
         :param _builtins.int total_size: Disk's total size
@@ -812,6 +819,7 @@ class VirtualNetworkResponse(dict):
                  type: _builtins.str):
         """
         Virtual network model
+
         :param _builtins.bool assignable: can be used in vm creation/deletion
         :param _builtins.str id: virtual network id (privateCloudId:vsphereId)
         :param _builtins.str location: Azure region
@@ -918,6 +926,7 @@ class VirtualNicResponse(dict):
                  virtual_nic_id: Optional[_builtins.str] = None):
         """
         Virtual NIC model
+
         :param 'VirtualNetworkResponse' network: Virtual Network
         :param _builtins.str nic_type: NIC type
         :param _builtins.str virtual_nic_name: NIC name

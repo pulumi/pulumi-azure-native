@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.Monitor
     /// The Issue resource
     /// 
     /// Uses Azure REST API version 2025-05-03-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Issue_Create_MaximumSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var issue = new AzureNative.Monitor.Issue("issue", new()
+    ///     {
+    ///         AzureMonitorWorkspaceName = "myWorkspace",
+    ///         IssueName = "3f29e1b2b05f8371595dc761fed8e8b3",
+    ///         Properties = new AzureNative.Monitor.Inputs.IssuePropertiesArgs
+    ///         {
+    ///             ImpactTime = "2024-12-13T02:45:33",
+    ///             Severity = "Sev2",
+    ///             Status = AzureNative.Monitor.Status.New,
+    ///             Title = "Alert fired on VM CPU",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor:Issue 3f29e1b2b05f8371595dc761fed8e8b3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:Issue")]
     public partial class Issue : global::Pulumi.CustomResource

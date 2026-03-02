@@ -42,6 +42,7 @@ class AzureFirewallArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureFirewall resource.
+
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: The additional properties used to further config this azure firewall.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
@@ -346,6 +347,647 @@ class AzureFirewall(pulumi.CustomResource):
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### Create Azure Firewall
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With Additional Properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            additional_properties={
+                "key1": "value1",
+                "key2": "value2",
+            },
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With IpGroups
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With Zones
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US 2",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[
+                "1",
+                "2",
+                "3",
+            ])
+
+        ```
+        ### Create Azure Firewall With management subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            management_ip_configuration={
+                "name": "azureFirewallMgmtIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/managementPipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallManagementSubnet",
+                },
+            },
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall in virtual Hub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            azure_firewall_name="azurefirewall",
+            firewall_policy={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+            },
+            hub_ip_addresses={
+                "public_ips": {
+                    "addresses": [],
+                    "count": 1,
+                },
+            },
+            location="West US",
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_HUB,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            virtual_hub={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            },
+            zones=[])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:AzureFirewall azurefirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: The additional properties used to further config this azure firewall.
@@ -379,6 +1021,647 @@ class AzureFirewall(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2018-06-01, 2018-07-01, 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01, 2019-07-01, 2019-08-01, 2019-09-01, 2019-11-01, 2019-12-01, 2020-03-01, 2020-04-01, 2020-05-01, 2020-06-01, 2020-07-01, 2020-08-01, 2020-11-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-08-01, 2022-01-01, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### Create Azure Firewall
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With Additional Properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            additional_properties={
+                "key1": "value1",
+                "key2": "value2",
+            },
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With IpGroups
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall With Zones
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US 2",
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[
+                "1",
+                "2",
+                "3",
+            ])
+
+        ```
+        ### Create Azure Firewall With management subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            application_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/applicationRuleCollections/apprulecoll",
+                "name": "apprulecoll",
+                "priority": 110,
+                "rules": [{
+                    "description": "Deny inbound rule",
+                    "name": "rule1",
+                    "protocols": [{
+                        "port": 443,
+                        "protocol_type": azure_native.network.AzureFirewallApplicationRuleProtocolType.HTTPS,
+                    }],
+                    "source_addresses": [
+                        "216.58.216.164",
+                        "10.0.0.0/24",
+                    ],
+                    "target_fqdns": ["www.test.com"],
+                }],
+            }],
+            azure_firewall_name="azurefirewall",
+            ip_configurations=[{
+                "name": "azureFirewallIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
+                },
+            }],
+            location="West US",
+            management_ip_configuration={
+                "name": "azureFirewallMgmtIpConfiguration",
+                "public_ip_address": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/managementPipName",
+                },
+                "subnet": {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallManagementSubnet",
+                },
+            },
+            nat_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallNatRCActionType.DNAT,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/natRuleCollections/natrulecoll",
+                "name": "natrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "D-NAT all outbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["443"],
+                        "name": "DNAT-HTTPS-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_address": "1.2.3.5",
+                        "translated_port": "8443",
+                    },
+                    {
+                        "description": "D-NAT all inbound web traffic for inspection",
+                        "destination_addresses": ["1.2.3.4"],
+                        "destination_ports": ["80"],
+                        "name": "DNAT-HTTP-traffic-With-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["*"],
+                        "translated_fqdn": "internalhttpserver",
+                        "translated_port": "880",
+                    },
+                ],
+            }],
+            network_rule_collections=[{
+                "action": {
+                    "type": azure_native.network.AzureFirewallRCActionType.DENY,
+                },
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azurefirewall/networkRuleCollections/netrulecoll",
+                "name": "netrulecoll",
+                "priority": 112,
+                "rules": [
+                    {
+                        "description": "Block traffic based on source IPs and ports",
+                        "destination_addresses": ["*"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": [
+                            "192.168.1.1-192.168.1.12",
+                            "10.1.4.12-10.1.4.255",
+                        ],
+                    },
+                    {
+                        "description": "Block traffic based on source IPs and ports to amazon",
+                        "destination_fqdns": ["www.amazon.com"],
+                        "destination_ports": [
+                            "443-444",
+                            "8443",
+                        ],
+                        "name": "L4-traffic-with-FQDN",
+                        "protocols": [azure_native.network.AzureFirewallNetworkRuleProtocol.TCP],
+                        "source_addresses": ["10.2.4.12-10.2.4.255"],
+                    },
+                ],
+            }],
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_V_NET,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            zones=[])
+
+        ```
+        ### Create Azure Firewall in virtual Hub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+            azure_firewall_name="azurefirewall",
+            firewall_policy={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+            },
+            hub_ip_addresses={
+                "public_ips": {
+                    "addresses": [],
+                    "count": 1,
+                },
+            },
+            location="West US",
+            resource_group_name="rg1",
+            sku={
+                "name": azure_native.network.AzureFirewallSkuName.AZF_W_HUB,
+                "tier": azure_native.network.AzureFirewallSkuTier.STANDARD,
+            },
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode=azure_native.network.AzureFirewallThreatIntelMode.ALERT,
+            virtual_hub={
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            },
+            zones=[])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:AzureFirewall azurefirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param AzureFirewallArgs args: The arguments to use to populate this resource's properties.

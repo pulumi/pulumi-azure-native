@@ -29,6 +29,7 @@ class DataflowProfileArgs:
                  properties: Optional[pulumi.Input['DataflowProfilePropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataflowProfile resource.
+
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -123,6 +124,82 @@ class DataflowProfile(pulumi.CustomResource):
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
+        ## Example Usage
+        ### DataflowProfile_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_profile = azure_native.iotoperations.DataflowProfile("dataflowProfile",
+            dataflow_profile_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "diagnostics": {
+                    "logs": {
+                        "level": "rnmwokumdmebpmfxxxzvvjfdywotav",
+                    },
+                    "metrics": {
+                        "prometheus_port": 7581,
+                    },
+                },
+                "instance_count": 14,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowProfile_CreateOrUpdate_Minimal
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_profile = azure_native.iotoperations.DataflowProfile("dataflowProfile",
+            dataflow_profile_name="aio-dataflowprofile",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "instance_count": 1,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowProfile_CreateOrUpdate_Multi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_profile = azure_native.iotoperations.DataflowProfile("dataflowProfile",
+            dataflow_profile_name="aio-dataflowprofile",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "instance_count": 3,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:DataflowProfile bwhcjsnnfnrmbixamyxjau /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowProfiles/{dataflowProfileName} 
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataflow_profile_name: Name of Instance dataflowProfile resource
@@ -143,6 +220,82 @@ class DataflowProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2025-04-01, 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
+        ## Example Usage
+        ### DataflowProfile_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_profile = azure_native.iotoperations.DataflowProfile("dataflowProfile",
+            dataflow_profile_name="resource-name123",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "diagnostics": {
+                    "logs": {
+                        "level": "rnmwokumdmebpmfxxxzvvjfdywotav",
+                    },
+                    "metrics": {
+                        "prometheus_port": 7581,
+                    },
+                },
+                "instance_count": 14,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowProfile_CreateOrUpdate_Minimal
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_profile = azure_native.iotoperations.DataflowProfile("dataflowProfile",
+            dataflow_profile_name="aio-dataflowprofile",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "instance_count": 1,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+        ### DataflowProfile_CreateOrUpdate_Multi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataflow_profile = azure_native.iotoperations.DataflowProfile("dataflowProfile",
+            dataflow_profile_name="aio-dataflowprofile",
+            extended_location={
+                "name": "qmbrfwcpwwhggszhrdjv",
+                "type": azure_native.iotoperations.ExtendedLocationType.CUSTOM_LOCATION,
+            },
+            instance_name="resource-name123",
+            properties={
+                "instance_count": 3,
+            },
+            resource_group_name="rgiotoperations")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotoperations:DataflowProfile bwhcjsnnfnrmbixamyxjau /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/dataflowProfiles/{dataflowProfileName} 
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param DataflowProfileArgs args: The arguments to use to populate this resource's properties.

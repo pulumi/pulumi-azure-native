@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.PowerBIDedicated
     /// Represents an instance of a Dedicated Capacity resource.
     /// 
     /// Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create capacity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capacityDetails = new AzureNative.PowerBIDedicated.CapacityDetails("capacityDetails", new()
+    ///     {
+    ///         Administration = new AzureNative.PowerBIDedicated.Inputs.DedicatedCapacityAdministratorsArgs
+    ///         {
+    ///             Members = new[]
+    ///             {
+    ///                 "azsdktest@microsoft.com",
+    ///                 "azsdktest2@microsoft.com",
+    ///             },
+    ///         },
+    ///         DedicatedCapacityName = "azsdktest",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         Sku = new AzureNative.PowerBIDedicated.Inputs.CapacitySkuArgs
+    ///         {
+    ///             Name = "A1",
+    ///             Tier = AzureNative.PowerBIDedicated.CapacitySkuTier.PBIE_Azure,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testKey", "testValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbidedicated:CapacityDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/capacities/{dedicatedCapacityName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbidedicated:CapacityDetails")]
     public partial class CapacityDetails : global::Pulumi.CustomResource

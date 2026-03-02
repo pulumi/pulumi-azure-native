@@ -15,6 +15,41 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2016-03-31.
     /// 
     /// Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGremlinDatabaseCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccountGremlinDatabase = new AzureNative.CosmosDB.DatabaseAccountGremlinDatabase("databaseAccountGremlinDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.CosmosDB.Inputs.GremlinDatabaseResourceArgs
+    ///         {
+    ///             Id = "databaseName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cosmosdb:DatabaseAccountGremlinDatabase databaseName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/gremlin/databases/{databaseName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:DatabaseAccountGremlinDatabase")]
     public partial class DatabaseAccountGremlinDatabase : global::Pulumi.CustomResource

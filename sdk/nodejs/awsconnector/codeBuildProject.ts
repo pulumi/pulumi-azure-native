@@ -11,6 +11,260 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
+ *
+ * ## Example Usage
+ * ### CodeBuildProjects_CreateOrReplace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codeBuildProject = new azure_native.awsconnector.CodeBuildProject("codeBuildProject", {
+ *     location: "fpjpnhlms",
+ *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
+ *     properties: {
+ *         arn: "ae",
+ *         awsAccountId: "caiac",
+ *         awsProperties: {
+ *             arn: "wwhfeljvmnwnqcgxusgnvoq",
+ *             artifacts: {
+ *                 artifactIdentifier: "hcfdqzwleorpe",
+ *                 bucketOwnerAccess: {
+ *                     value: azure_native.awsconnector.BucketOwnerAccess.FULL,
+ *                 },
+ *                 encryptionDisabled: true,
+ *                 location: "zvhsfl",
+ *                 name: "dsqyinskfvabyktgjbszny",
+ *                 namespaceType: {
+ *                     value: azure_native.awsconnector.ArtifactNamespace.BUILD_ID,
+ *                 },
+ *                 overrideArtifactName: true,
+ *                 packaging: {
+ *                     value: azure_native.awsconnector.ArtifactPackaging.NONE,
+ *                 },
+ *                 path: "zbsfhzkoet",
+ *                 type: {
+ *                     value: azure_native.awsconnector.ArtifactsType.CODEPIPELINE,
+ *                 },
+ *             },
+ *             badge: {
+ *                 badgeEnabled: true,
+ *                 badgeRequestUrl: "ulpdsdbgtwm",
+ *             },
+ *             buildBatchConfig: {
+ *                 batchReportMode: {
+ *                     value: azure_native.awsconnector.BatchReportModeType.REPORT_AGGREGATED_BATCH,
+ *                 },
+ *                 combineArtifacts: true,
+ *                 restrictions: {
+ *                     computeTypesAllowed: ["ievoltoldfrhkpv"],
+ *                     maximumBuildsAllowed: 15,
+ *                 },
+ *                 serviceRole: "lceqjutffrykpuzjxvijbzpames",
+ *                 timeoutInMins: 3,
+ *             },
+ *             cache: {
+ *                 location: "wgmqyjzlxsazecszvdkfr",
+ *                 modes: [azure_native.awsconnector.CacheMode.LOCAL_CUSTOM_CACHE],
+ *                 type: {
+ *                     value: azure_native.awsconnector.CacheType.LOCAL,
+ *                 },
+ *             },
+ *             concurrentBuildLimit: 19,
+ *             created: "2024-10-08T03:48:48.570Z",
+ *             description: "adnfxoh",
+ *             encryptionKey: "upseoicsvrwjjachlewnltupswc",
+ *             environment: {
+ *                 certificate: "olzbdlydjqzkzlflzxcdjjjv",
+ *                 computeType: {
+ *                     value: azure_native.awsconnector.ComputeType.BUILD_GENERAL1_2XLARGE,
+ *                 },
+ *                 environmentVariables: [{
+ *                     name: "bmzlnmjzuxrxeemxfutykrlvemt",
+ *                     type: {
+ *                         value: azure_native.awsconnector.EnvironmentVariableType.PARAMETER_STORE,
+ *                     },
+ *                     value: "eakfsmirkkwnizotyqqgmgjthn",
+ *                 }],
+ *                 fleet: {
+ *                     fleetArn: "brslcsjgupcpeistg",
+ *                 },
+ *                 image: "kkmioknmuhxurahmnjg",
+ *                 imagePullCredentialsType: {
+ *                     value: azure_native.awsconnector.ImagePullCredentialsType.CODEBUILD,
+ *                 },
+ *                 privilegedMode: true,
+ *                 registryCredential: {
+ *                     credential: "rpnzfjdjuamclquyzquwicenfpefx",
+ *                     credentialProvider: {
+ *                         value: azure_native.awsconnector.CredentialProviderType.SECRETS_MANAGER,
+ *                     },
+ *                 },
+ *                 type: {
+ *                     value: azure_native.awsconnector.EnvironmentType.ARM_CONTAINER,
+ *                 },
+ *             },
+ *             fileSystemLocations: [{
+ *                 identifier: "tdquc",
+ *                 location: "yeaotrzuhjtdtbfrlpvmlmaoqyioin",
+ *                 mountOptions: "tocdlorjekugjotphpxuyebjj",
+ *                 mountPoint: "fctmorvlmplsmeqvmavw",
+ *                 type: {
+ *                     value: azure_native.awsconnector.FileSystemType.EFS,
+ *                 },
+ *             }],
+ *             lastModified: "2024-10-08T03:48:48.571Z",
+ *             logsConfig: {
+ *                 cloudWatchLogs: {
+ *                     groupName: "t",
+ *                     status: {
+ *                         value: azure_native.awsconnector.LogsConfigStatusType.DISABLED,
+ *                     },
+ *                     streamName: "rrqzbaaicbiblat",
+ *                 },
+ *                 s3Logs: {
+ *                     bucketOwnerAccess: {
+ *                         value: azure_native.awsconnector.BucketOwnerAccess.FULL,
+ *                     },
+ *                     encryptionDisabled: true,
+ *                     location: "zuepwokmlymlvsvzjawzxe",
+ *                     status: {
+ *                         value: azure_native.awsconnector.LogsConfigStatusType.DISABLED,
+ *                     },
+ *                 },
+ *             },
+ *             name: "budzhvktdvhxxy",
+ *             projectVisibility: {
+ *                 value: azure_native.awsconnector.ProjectVisibilityType.PRIVATE,
+ *             },
+ *             publicProjectAlias: "vstmzamjxtasdipcehcuwvfef",
+ *             queuedTimeoutInMinutes: 30,
+ *             resourceAccessRole: "st",
+ *             secondaryArtifacts: [{
+ *                 artifactIdentifier: "hcfdqzwleorpe",
+ *                 bucketOwnerAccess: {
+ *                     value: azure_native.awsconnector.BucketOwnerAccess.FULL,
+ *                 },
+ *                 encryptionDisabled: true,
+ *                 location: "zvhsfl",
+ *                 name: "dsqyinskfvabyktgjbszny",
+ *                 namespaceType: {
+ *                     value: azure_native.awsconnector.ArtifactNamespace.BUILD_ID,
+ *                 },
+ *                 overrideArtifactName: true,
+ *                 packaging: {
+ *                     value: azure_native.awsconnector.ArtifactPackaging.NONE,
+ *                 },
+ *                 path: "zbsfhzkoet",
+ *                 type: {
+ *                     value: azure_native.awsconnector.ArtifactsType.CODEPIPELINE,
+ *                 },
+ *             }],
+ *             secondarySourceVersions: [{
+ *                 sourceIdentifier: "kiyezlaophakaslamcsxpkzggoj",
+ *                 sourceVersion: "zy",
+ *             }],
+ *             secondarySources: [{
+ *                 auth: {
+ *                     resource: "oyfwquyzyjklbxlyjyddpmhmjgsgk",
+ *                     type: {
+ *                         value: azure_native.awsconnector.SourceAuthType.CODECONNECTIONS,
+ *                     },
+ *                 },
+ *                 buildStatusConfig: {
+ *                     context: "zoghbponrxfhugrjzdheibkada",
+ *                     targetUrl: "ooonrchy",
+ *                 },
+ *                 buildspec: "xxcoigvstisdhlfkfiblrgqhbtoqd",
+ *                 gitCloneDepth: 9,
+ *                 gitSubmodulesConfig: {
+ *                     fetchSubmodules: true,
+ *                 },
+ *                 insecureSsl: true,
+ *                 location: "owijjqkiwwegfcrynqcypho",
+ *                 reportBuildStatus: true,
+ *                 sourceIdentifier: "lnhelescdeif",
+ *                 type: {
+ *                     value: "BITBUCKET",
+ *                 },
+ *             }],
+ *             serviceRole: "pydzdifzkz",
+ *             source: {
+ *                 auth: {
+ *                     resource: "oyfwquyzyjklbxlyjyddpmhmjgsgk",
+ *                     type: {
+ *                         value: azure_native.awsconnector.SourceAuthType.CODECONNECTIONS,
+ *                     },
+ *                 },
+ *                 buildStatusConfig: {
+ *                     context: "zoghbponrxfhugrjzdheibkada",
+ *                     targetUrl: "ooonrchy",
+ *                 },
+ *                 buildspec: "xxcoigvstisdhlfkfiblrgqhbtoqd",
+ *                 gitCloneDepth: 9,
+ *                 gitSubmodulesConfig: {
+ *                     fetchSubmodules: true,
+ *                 },
+ *                 insecureSsl: true,
+ *                 location: "owijjqkiwwegfcrynqcypho",
+ *                 reportBuildStatus: true,
+ *                 sourceIdentifier: "lnhelescdeif",
+ *                 type: {
+ *                     value: "BITBUCKET",
+ *                 },
+ *             },
+ *             sourceVersion: "idpngofzedxghp",
+ *             tags: [{
+ *                 key: "jcnahvslmrynzn",
+ *                 value: "iqwximmqwgsjlwdgv",
+ *             }],
+ *             timeoutInMinutes: 7,
+ *             vpcConfig: {
+ *                 securityGroupIds: ["gcsqntkatjbigzj"],
+ *             },
+ *             webhook: {
+ *                 branchFilter: "fpfnqs",
+ *                 buildType: {
+ *                     value: azure_native.awsconnector.WebhookBuildType.BUILD,
+ *                 },
+ *                 filterGroups: [{
+ *                     webhookFilter: {
+ *                         excludeMatchedPattern: true,
+ *                         pattern: "ozqghxeblvksllu",
+ *                         type: {
+ *                             value: azure_native.awsconnector.WebhookFilterType.ACTOR_ACCOUNT_ID,
+ *                         },
+ *                     },
+ *                 }],
+ *                 lastModifiedSecret: "2024-10-08T03:48:48.574Z",
+ *                 payloadUrl: "wzalmmzopccsfbgwhxjneakxazu",
+ *                 secret: "mvic",
+ *                 url: "lwkywiwhmmdrirvajnxo",
+ *             },
+ *         },
+ *         awsRegion: "rakioiwqsjhpjqekyjft",
+ *         awsSourceSchema: "ujnztglujzqehsvvd",
+ *         awsTags: {
+ *             key9822: "ryzmieviyiycjaaenwj",
+ *         },
+ *         publicCloudConnectorsResourceId: "azzcclgcodhtl",
+ *         publicCloudResourceName: "tzylnhhjwtzngucgrkvklav",
+ *     },
+ *     resourceGroupName: "rgcodeBuildProject",
+ *     tags: {
+ *         key4761: "sranhogw",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:awsconnector:CodeBuildProject vxycsdfuepsiumuwerkphioygel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/codeBuildProjects/{name} 
+ * ```
  */
 export class CodeBuildProject extends pulumi.CustomResource {
     /**

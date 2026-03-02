@@ -15,6 +15,63 @@ namespace Pulumi.AzureNative.CostManagement
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
     /// Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdatePrivateScheduledAction
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledAction = new AzureNative.CostManagement.ScheduledAction("scheduledAction", new()
+    ///     {
+    ///         DisplayName = "Monthly Cost By Resource",
+    ///         Kind = AzureNative.CostManagement.ScheduledActionKind.Email,
+    ///         Name = "monthlyCostByResource",
+    ///         Notification = new AzureNative.CostManagement.Inputs.NotificationPropertiesArgs
+    ///         {
+    ///             Subject = "Cost by resource this month",
+    ///             To = new[]
+    ///             {
+    ///                 "user@gmail.com",
+    ///                 "team@gmail.com",
+    ///             },
+    ///         },
+    ///         Schedule = new AzureNative.CostManagement.Inputs.SchedulePropertiesArgs
+    ///         {
+    ///             DaysOfWeek = new[]
+    ///             {
+    ///                 AzureNative.CostManagement.DaysOfWeek.Monday,
+    ///             },
+    ///             EndDate = "2021-06-19T22:21:51.1287144Z",
+    ///             Frequency = AzureNative.CostManagement.ScheduleFrequency.Monthly,
+    ///             HourOfDay = 10,
+    ///             StartDate = "2020-06-19T22:21:51.1287144Z",
+    ///             WeeksOfMonth = new[]
+    ///             {
+    ///                 AzureNative.CostManagement.WeeksOfMonth.First,
+    ///                 AzureNative.CostManagement.WeeksOfMonth.Third,
+    ///             },
+    ///         },
+    ///         Status = AzureNative.CostManagement.ScheduledActionStatus.Enabled,
+    ///         ViewId = "/providers/Microsoft.CostManagement/views/swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement:ScheduledAction monthlyCostByResource /providers/Microsoft.CostManagement/scheduledActions/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource

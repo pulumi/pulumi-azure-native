@@ -15,6 +15,40 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
     /// 
     /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccount = new AzureNative.DataBoxEdge.StorageAccount("storageAccount", new()
+    ///     {
+    ///         DataPolicy = AzureNative.DataBoxEdge.DataPolicy.Cloud,
+    ///         Description = "It's an awesome storage account",
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+    ///         StorageAccountName = "blobstorageaccount1",
+    ///         StorageAccountStatus = AzureNative.DataBoxEdge.StorageAccountStatus.OK,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:StorageAccount blobstorageaccount1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccounts/{storageAccountName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource

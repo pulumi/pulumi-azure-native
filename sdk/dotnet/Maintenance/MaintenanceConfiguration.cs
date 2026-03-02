@@ -15,6 +15,44 @@ namespace Pulumi.AzureNative.Maintenance
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
     /// 
     /// Other available API versions: 2022-11-01-preview, 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// 
+    /// ## Example Usage
+    /// ### MaintenanceConfigurations_CreateOrUpdateForResource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var maintenanceConfiguration = new AzureNative.Maintenance.MaintenanceConfiguration("maintenanceConfiguration", new()
+    ///     {
+    ///         Duration = "05:00",
+    ///         ExpirationDateTime = "9999-12-31 00:00",
+    ///         Location = "westus2",
+    ///         MaintenanceScope = AzureNative.Maintenance.MaintenanceScope.OSImage,
+    ///         Namespace = "Microsoft.Maintenance",
+    ///         RecurEvery = "Day",
+    ///         ResourceGroupName = "examplerg",
+    ///         ResourceName = "configuration1",
+    ///         StartDateTime = "2020-04-30 08:00",
+    ///         TimeZone = "Pacific Standard Time",
+    ///         Visibility = AzureNative.Maintenance.Visibility.Custom,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maintenance:MaintenanceConfiguration configuration1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/maintenanceConfigurations/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
