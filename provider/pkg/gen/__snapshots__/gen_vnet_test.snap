@@ -11398,6 +11398,10 @@
     "description": "The OIDC token to exchange for an Azure token.",
     "type": "string"
    },
+   "oidcTokenFilePath": {
+    "description": "The path to a file containing an OIDC token to exchange for an Azure token.",
+    "type": "string"
+   },
    "partnerId": {
     "description": "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
     "type": "string"
