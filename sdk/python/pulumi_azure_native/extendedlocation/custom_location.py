@@ -245,39 +245,6 @@ class CustomLocation(pulumi.CustomResource):
 
         Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create/Update Custom Location
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_location = azure_native.extendedlocation.CustomLocation("customLocation",
-            authentication={
-                "type": "KubeConfig",
-                "value": "<base64 KubeConfig>",
-            },
-            cluster_extension_ids=["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension"],
-            display_name="customLocationLocation01",
-            host_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
-            identity={
-                "type": azure_native.extendedlocation.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="West US",
-            namespace="namespace01",
-            resource_group_name="testresourcegroup",
-            resource_name_="customLocation01")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:extendedlocation:CustomLocation customLocation01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,39 +273,6 @@ class CustomLocation(pulumi.CustomResource):
         Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-15.
 
         Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create/Update Custom Location
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_location = azure_native.extendedlocation.CustomLocation("customLocation",
-            authentication={
-                "type": "KubeConfig",
-                "value": "<base64 KubeConfig>",
-            },
-            cluster_extension_ids=["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension"],
-            display_name="customLocationLocation01",
-            host_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
-            identity={
-                "type": azure_native.extendedlocation.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="West US",
-            namespace="namespace01",
-            resource_group_name="testresourcegroup",
-            resource_name_="customLocation01")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:extendedlocation:CustomLocation customLocation01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

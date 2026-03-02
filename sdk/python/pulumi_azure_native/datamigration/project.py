@@ -217,31 +217,6 @@ class Project(pulumi.CustomResource):
 
         Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Projects_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        project = azure_native.datamigration.Project("project",
-            group_name="DmsSdkRg",
-            location="southcentralus",
-            project_name="DmsSdkProject",
-            service_name="DmsSdkService",
-            source_platform=azure_native.datamigration.ProjectSourcePlatform.SQL,
-            target_platform=azure_native.datamigration.ProjectTargetPlatform.SQLDB)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datamigration:Project DmsSdkProject /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.DataMigration/services/{serviceName}/projects/{projectName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,31 +242,6 @@ class Project(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-30.
 
         Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Projects_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        project = azure_native.datamigration.Project("project",
-            group_name="DmsSdkRg",
-            location="southcentralus",
-            project_name="DmsSdkProject",
-            service_name="DmsSdkService",
-            source_platform=azure_native.datamigration.ProjectSourcePlatform.SQL,
-            target_platform=azure_native.datamigration.ProjectTargetPlatform.SQLDB)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datamigration:Project DmsSdkProject /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.DataMigration/services/{serviceName}/projects/{projectName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

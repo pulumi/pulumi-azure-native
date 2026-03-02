@@ -123,36 +123,6 @@ class EnterpriseCustomerOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
-        ## Example Usage
-        ### EnterpriseCustomerOperations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        enterprise_customer_operation = azure_native.connectedcache.EnterpriseCustomerOperation("enterpriseCustomerOperation",
-            customer_resource_name="l",
-            location="zdzhhkjyogrqxwihkifnmeyhwpujbr",
-            properties={
-                "status_code": "oldkroffqtkryqffpsi",
-                "status_details": "lhwvcz",
-                "status_text": "bs",
-            },
-            resource_group_name="rgConnectedCache",
-            tags={
-                "key4215": "zjbszvlzf",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:connectedcache:EnterpriseCustomerOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/enterpriseCustomers/{customerResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,36 +142,6 @@ class EnterpriseCustomerOperation(pulumi.CustomResource):
         ConnectedCache Resource. Represents the high level Nodes needed to provision CacheNode and customer resources used in private preview
 
         Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
-
-        ## Example Usage
-        ### EnterpriseCustomerOperations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        enterprise_customer_operation = azure_native.connectedcache.EnterpriseCustomerOperation("enterpriseCustomerOperation",
-            customer_resource_name="l",
-            location="zdzhhkjyogrqxwihkifnmeyhwpujbr",
-            properties={
-                "status_code": "oldkroffqtkryqffpsi",
-                "status_details": "lhwvcz",
-                "status_text": "bs",
-            },
-            resource_group_name="rgConnectedCache",
-            tags={
-                "key4215": "zjbszvlzf",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:connectedcache:EnterpriseCustomerOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/enterpriseCustomers/{customerResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

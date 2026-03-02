@@ -124,59 +124,6 @@ class S3AccessPoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### S3AccessPoints_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        s3_access_point = azure_native.awsconnector.S3AccessPoint("s3AccessPoint",
-            location="azmnzomeh",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "dputejthukqrofpuygrkatazvamcge",
-                "aws_account_id": "rqzqzkncomjg",
-                "aws_properties": {
-                    "alias": "sv",
-                    "arn": "sizkkllnnrgdfkaov",
-                    "bucket": "hsqprhqjtcqrizzbhao",
-                    "bucket_account_id": "bmjnxdssnshenybwnws",
-                    "name": "ve",
-                    "network_origin": azure_native.awsconnector.NetworkOrigin.INTERNET,
-                    "public_access_block_configuration": {
-                        "block_public_acls": True,
-                        "block_public_policy": True,
-                        "ignore_public_acls": True,
-                        "restrict_public_buckets": True,
-                    },
-                    "vpc_configuration": {
-                        "vpc_id": "hhzyvprnlxearagzmfsg",
-                    },
-                },
-                "aws_region": "elrkktihogsptpwwazywnyyzs",
-                "aws_source_schema": "utriogwvkzanqypvldgboyemujg",
-                "aws_tags": {
-                    "key2658": "bhytpvuo",
-                },
-                "public_cloud_connectors_resource_id": "ixhnqrsogifbzagpdzakwjxqlt",
-                "public_cloud_resource_name": "swojnpzcxwqfvhrikxhgu",
-            },
-            resource_group_name="rgs3AccessPoint",
-            tags={
-                "key2363": "vhrwgmqmjqdfyeutonv",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:S3AccessPoint zlyclqdkaecrmrt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3AccessPoints/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,59 +143,6 @@ class S3AccessPoint(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### S3AccessPoints_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        s3_access_point = azure_native.awsconnector.S3AccessPoint("s3AccessPoint",
-            location="azmnzomeh",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "dputejthukqrofpuygrkatazvamcge",
-                "aws_account_id": "rqzqzkncomjg",
-                "aws_properties": {
-                    "alias": "sv",
-                    "arn": "sizkkllnnrgdfkaov",
-                    "bucket": "hsqprhqjtcqrizzbhao",
-                    "bucket_account_id": "bmjnxdssnshenybwnws",
-                    "name": "ve",
-                    "network_origin": azure_native.awsconnector.NetworkOrigin.INTERNET,
-                    "public_access_block_configuration": {
-                        "block_public_acls": True,
-                        "block_public_policy": True,
-                        "ignore_public_acls": True,
-                        "restrict_public_buckets": True,
-                    },
-                    "vpc_configuration": {
-                        "vpc_id": "hhzyvprnlxearagzmfsg",
-                    },
-                },
-                "aws_region": "elrkktihogsptpwwazywnyyzs",
-                "aws_source_schema": "utriogwvkzanqypvldgboyemujg",
-                "aws_tags": {
-                    "key2658": "bhytpvuo",
-                },
-                "public_cloud_connectors_resource_id": "ixhnqrsogifbzagpdzakwjxqlt",
-                "public_cloud_resource_name": "swojnpzcxwqfvhrikxhgu",
-            },
-            resource_group_name="rgs3AccessPoint",
-            tags={
-                "key2363": "vhrwgmqmjqdfyeutonv",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:S3AccessPoint zlyclqdkaecrmrt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3AccessPoints/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

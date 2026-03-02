@@ -191,40 +191,6 @@ class PublishedBlueprint(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
 
-        ## Example Usage
-        ### PublishedManagementGroupBlueprint_Publish
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        published_blueprint = azure_native.blueprint.PublishedBlueprint("publishedBlueprint",
-            blueprint_name="simpleBlueprint",
-            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
-            version_id="v2")
-
-        ```
-        ### PublishedSubscriptionBlueprint_Publish
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        published_blueprint = azure_native.blueprint.PublishedBlueprint("publishedBlueprint",
-            blueprint_name="simpleBlueprint",
-            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
-            version_id="v2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:blueprint:PublishedBlueprint v2 /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,40 +214,6 @@ class PublishedBlueprint(pulumi.CustomResource):
         Represents a published blueprint.
 
         Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
-
-        ## Example Usage
-        ### PublishedManagementGroupBlueprint_Publish
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        published_blueprint = azure_native.blueprint.PublishedBlueprint("publishedBlueprint",
-            blueprint_name="simpleBlueprint",
-            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
-            version_id="v2")
-
-        ```
-        ### PublishedSubscriptionBlueprint_Publish
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        published_blueprint = azure_native.blueprint.PublishedBlueprint("publishedBlueprint",
-            blueprint_name="simpleBlueprint",
-            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
-            version_id="v2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:blueprint:PublishedBlueprint v2 /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

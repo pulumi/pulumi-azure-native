@@ -121,51 +121,6 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
 
-        ## Example Usage
-        ### CreateOrUpdate Environment Specification Version.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        environment_specification_version = azure_native.machinelearningservices.EnvironmentSpecificationVersion("environmentSpecificationVersion",
-            name="testEnvironment",
-            properties={
-                "conda_file": \"\"\"channels:
-        - defaults
-        dependencies:
-        - python=3.7.7
-        name: my-env\"\"\",
-                "description": "string",
-                "docker": {
-                    "docker_specification_type": "Build",
-                    "dockerfile": "FROM myimage",
-                },
-                "properties": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string",
-                },
-                "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string",
-                },
-            },
-            resource_group_name="testrg123",
-            version="1",
-            workspace_name="testworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:EnvironmentSpecificationVersion 1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/environments/{name}/versions/{version} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,51 +140,6 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
 
         Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
-
-        ## Example Usage
-        ### CreateOrUpdate Environment Specification Version.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        environment_specification_version = azure_native.machinelearningservices.EnvironmentSpecificationVersion("environmentSpecificationVersion",
-            name="testEnvironment",
-            properties={
-                "conda_file": \"\"\"channels:
-        - defaults
-        dependencies:
-        - python=3.7.7
-        name: my-env\"\"\",
-                "description": "string",
-                "docker": {
-                    "docker_specification_type": "Build",
-                    "dockerfile": "FROM myimage",
-                },
-                "properties": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string",
-                },
-                "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string",
-                },
-            },
-            resource_group_name="testrg123",
-            version="1",
-            workspace_name="testworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:EnvironmentSpecificationVersion 1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/environments/{name}/versions/{version} 
-        ```
 
 
         :param str resource_name: The name of the resource.

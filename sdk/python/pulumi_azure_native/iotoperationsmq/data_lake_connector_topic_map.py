@@ -187,54 +187,6 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        ## Example Usage
-        ### DataLakeConnectorTopicMap_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_lake_connector_topic_map = azure_native.iotoperationsmq.DataLakeConnectorTopicMap("dataLakeConnectorTopicMap",
-            data_lake_connector_name="E9gU89-1QnIG7-IP8qOQLV-",
-            data_lake_connector_ref="zirczjfua",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            location="wjmgeh",
-            mapping={
-                "allowed_latency_secs": 25407,
-                "client_id": "gyjduryceozwqyjdrxhrtwuw",
-                "max_messages_per_batch": 1581641880,
-                "message_payload_type": "pwhpwzqlzlhdrozpqziipvjqrnipo",
-                "mqtt_source_topic": "mtac",
-                "qos": 2,
-                "table": {
-                    "schema": [{
-                        "format": azure_native.iotoperationsmq.DeltaTableFormatEnum.BOOLEAN,
-                        "mapping": "lfnyjp",
-                        "name": "hejqncdsueoerueffbaqix",
-                        "optional": True,
-                    }],
-                    "table_name": "qyvzigmefvxwyjqksofyrstn",
-                    "table_path": "cyrkvxsjhbhwjegmhzyixchkdnxe",
-                },
-            },
-            mq_name="rc-8Z--2m-MU",
-            resource_group_name="rgiotoperationsmq",
-            tags={},
-            topic_map_name="17-")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:DataLakeConnectorTopicMap l /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/dataLakeConnector/{dataLakeConnectorName}/topicMap/{topicMapName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,54 +210,6 @@ class DataLakeConnectorTopicMap(pulumi.CustomResource):
         MQ dataLakeConnector/topicMap resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
-        ## Example Usage
-        ### DataLakeConnectorTopicMap_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_lake_connector_topic_map = azure_native.iotoperationsmq.DataLakeConnectorTopicMap("dataLakeConnectorTopicMap",
-            data_lake_connector_name="E9gU89-1QnIG7-IP8qOQLV-",
-            data_lake_connector_ref="zirczjfua",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            location="wjmgeh",
-            mapping={
-                "allowed_latency_secs": 25407,
-                "client_id": "gyjduryceozwqyjdrxhrtwuw",
-                "max_messages_per_batch": 1581641880,
-                "message_payload_type": "pwhpwzqlzlhdrozpqziipvjqrnipo",
-                "mqtt_source_topic": "mtac",
-                "qos": 2,
-                "table": {
-                    "schema": [{
-                        "format": azure_native.iotoperationsmq.DeltaTableFormatEnum.BOOLEAN,
-                        "mapping": "lfnyjp",
-                        "name": "hejqncdsueoerueffbaqix",
-                        "optional": True,
-                    }],
-                    "table_name": "qyvzigmefvxwyjqksofyrstn",
-                    "table_path": "cyrkvxsjhbhwjegmhzyixchkdnxe",
-                },
-            },
-            mq_name="rc-8Z--2m-MU",
-            resource_group_name="rgiotoperationsmq",
-            tags={},
-            topic_map_name="17-")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:DataLakeConnectorTopicMap l /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/dataLakeConnector/{dataLakeConnectorName}/topicMap/{topicMapName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

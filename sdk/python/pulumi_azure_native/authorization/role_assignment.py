@@ -192,58 +192,6 @@ class RoleAssignment(pulumi.CustomResource):
 
         Other available API versions: 2020-08-01-preview, 2020-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create role assignment for resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_assignment = azure_native.authorization.RoleAssignment("roleAssignment",
-            principal_id="ce2ce14e-85d7-4629-bdbc-454d0519d987",
-            principal_type=azure_native.authorization.PrincipalType.USER,
-            role_assignment_name="05c5a614-a7d6-4502-b150-c2fb455033ff",
-            role_definition_id="/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
-            scope="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account")
-
-        ```
-        ### Create role assignment for resource group
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_assignment = azure_native.authorization.RoleAssignment("roleAssignment",
-            principal_id="ce2ce14e-85d7-4629-bdbc-454d0519d987",
-            principal_type=azure_native.authorization.PrincipalType.USER,
-            role_assignment_name="05c5a614-a7d6-4502-b150-c2fb455033ff",
-            role_definition_id="/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
-            scope="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg")
-
-        ```
-        ### Create role assignment for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_assignment = azure_native.authorization.RoleAssignment("roleAssignment",
-            principal_id="ce2ce14e-85d7-4629-bdbc-454d0519d987",
-            principal_type=azure_native.authorization.PrincipalType.USER,
-            role_assignment_name="05c5a614-a7d6-4502-b150-c2fb455033ff",
-            role_definition_id="/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
-            scope="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:RoleAssignment 05c5a614-a7d6-4502-b150-c2fb455033ff /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,58 +217,6 @@ class RoleAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2022-04-01. In version 2.x of the Azure Native provider, it used API version 2022-04-01.
 
         Other available API versions: 2020-08-01-preview, 2020-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create role assignment for resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_assignment = azure_native.authorization.RoleAssignment("roleAssignment",
-            principal_id="ce2ce14e-85d7-4629-bdbc-454d0519d987",
-            principal_type=azure_native.authorization.PrincipalType.USER,
-            role_assignment_name="05c5a614-a7d6-4502-b150-c2fb455033ff",
-            role_definition_id="/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
-            scope="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account")
-
-        ```
-        ### Create role assignment for resource group
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_assignment = azure_native.authorization.RoleAssignment("roleAssignment",
-            principal_id="ce2ce14e-85d7-4629-bdbc-454d0519d987",
-            principal_type=azure_native.authorization.PrincipalType.USER,
-            role_assignment_name="05c5a614-a7d6-4502-b150-c2fb455033ff",
-            role_definition_id="/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
-            scope="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg")
-
-        ```
-        ### Create role assignment for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_assignment = azure_native.authorization.RoleAssignment("roleAssignment",
-            principal_id="ce2ce14e-85d7-4629-bdbc-454d0519d987",
-            principal_type=azure_native.authorization.PrincipalType.USER,
-            role_assignment_name="05c5a614-a7d6-4502-b150-c2fb455033ff",
-            role_definition_id="/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
-            scope="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:RoleAssignment 05c5a614-a7d6-4502-b150-c2fb455033ff /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

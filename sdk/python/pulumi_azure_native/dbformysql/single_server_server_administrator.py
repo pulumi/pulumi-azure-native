@@ -134,31 +134,6 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
-        ## Example Usage
-        ### ServerAdministratorCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_server_administrator = azure_native.dbformysql.SingleServerServerAdministrator("singleServerServerAdministrator",
-            administrator_type=azure_native.dbformysql.AdministratorType.ACTIVE_DIRECTORY,
-            login="bob@contoso.com",
-            resource_group_name="testrg",
-            server_name="mysqltestsvc4",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformysql:SingleServerServerAdministrator activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/administrators/activeDirectory 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,31 +154,6 @@ class SingleServerServerAdministrator(pulumi.CustomResource):
         Represents a and external administrator to be created.
 
         Uses Azure REST API version 2017-12-01.
-
-        ## Example Usage
-        ### ServerAdministratorCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_server_administrator = azure_native.dbformysql.SingleServerServerAdministrator("singleServerServerAdministrator",
-            administrator_type=azure_native.dbformysql.AdministratorType.ACTIVE_DIRECTORY,
-            login="bob@contoso.com",
-            resource_group_name="testrg",
-            server_name="mysqltestsvc4",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformysql:SingleServerServerAdministrator activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/administrators/activeDirectory 
-        ```
 
 
         :param str resource_name: The name of the resource.

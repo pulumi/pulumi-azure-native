@@ -105,31 +105,6 @@ class ImportSqlCollectorOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
-        ## Example Usage
-        ### ImportSqlCollectorOperations_Create_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_sql_collector_operation = azure_native.migrate.ImportSqlCollectorOperation("importSqlCollectorOperation",
-            import_sql_collectors_name="importCollector",
-            project_name="contosoProject",
-            properties={
-                "discovery_site_id": "/subscriptions/C1DB66AE-BCF9-42FD-ADC2-390E0721C351/resourceGroups/rgsqlAssessments/providers/Microsoft.OffAzure/MasterSites/testproject8566mastersite/SqlSites/testproject8566sqlsites",
-            },
-            resource_group_name="rgsqlAssessments")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:ImportSqlCollectorOperation importCollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importSqlCollectors/{importSqlCollectorsName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,31 +123,6 @@ class ImportSqlCollectorOperation(pulumi.CustomResource):
         Import SQL Collector REST resource.
 
         Uses Azure REST API version 2024-03-03-preview.
-
-        ## Example Usage
-        ### ImportSqlCollectorOperations_Create_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_sql_collector_operation = azure_native.migrate.ImportSqlCollectorOperation("importSqlCollectorOperation",
-            import_sql_collectors_name="importCollector",
-            project_name="contosoProject",
-            properties={
-                "discovery_site_id": "/subscriptions/C1DB66AE-BCF9-42FD-ADC2-390E0721C351/resourceGroups/rgsqlAssessments/providers/Microsoft.OffAzure/MasterSites/testproject8566mastersite/SqlSites/testproject8566sqlsites",
-            },
-            resource_group_name="rgsqlAssessments")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:ImportSqlCollectorOperation importCollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importSqlCollectors/{importSqlCollectorsName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

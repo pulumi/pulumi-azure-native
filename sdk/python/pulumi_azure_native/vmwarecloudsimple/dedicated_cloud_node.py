@@ -219,37 +219,6 @@ class DedicatedCloudNode(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
 
-        ## Example Usage
-        ### CreateDedicatedCloudNode
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dedicated_cloud_node = azure_native.vmwarecloudsimple.DedicatedCloudNode("dedicatedCloudNode",
-            availability_zone_id="az1",
-            dedicated_cloud_node_name="myNode",
-            id="general",
-            location="westus",
-            name="CS28-Node",
-            nodes_count=1,
-            placement_group_id="n1",
-            purchase_id="56acbd46-3d36-4bbf-9b08-57c30fdf6932",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "VMware_CloudSimple_CS28",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:vmwarecloudsimple:DedicatedCloudNode myNode /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/{dedicatedCloudNodeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,37 +244,6 @@ class DedicatedCloudNode(pulumi.CustomResource):
         Dedicated cloud node model
 
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
-
-        ## Example Usage
-        ### CreateDedicatedCloudNode
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dedicated_cloud_node = azure_native.vmwarecloudsimple.DedicatedCloudNode("dedicatedCloudNode",
-            availability_zone_id="az1",
-            dedicated_cloud_node_name="myNode",
-            id="general",
-            location="westus",
-            name="CS28-Node",
-            nodes_count=1,
-            placement_group_id="n1",
-            purchase_id="56acbd46-3d36-4bbf-9b08-57c30fdf6932",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "VMware_CloudSimple_CS28",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:vmwarecloudsimple:DedicatedCloudNode myNode /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/{dedicatedCloudNodeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

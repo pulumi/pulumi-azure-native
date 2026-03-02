@@ -90,37 +90,6 @@ class VariableValue(pulumi.CustomResource):
 
         Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a variable value
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        variable_value = azure_native.authorization.VariableValue("variableValue",
-            values=[
-                {
-                    "column_name": "StringColumn",
-                    "column_value": "SampleValue",
-                },
-                {
-                    "column_name": "IntegerColumn",
-                    "column_value": 10,
-                },
-            ],
-            variable_name="DemoTestVariable",
-            variable_value_name="TestValue")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:VariableValue TestValue /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/variables/{variableName}/values/{variableValueName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,37 +109,6 @@ class VariableValue(pulumi.CustomResource):
         Uses Azure REST API version 2022-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
 
         Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a variable value
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        variable_value = azure_native.authorization.VariableValue("variableValue",
-            values=[
-                {
-                    "column_name": "StringColumn",
-                    "column_value": "SampleValue",
-                },
-                {
-                    "column_name": "IntegerColumn",
-                    "column_value": 10,
-                },
-            ],
-            variable_name="DemoTestVariable",
-            variable_value_name="TestValue")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:VariableValue TestValue /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/variables/{variableName}/values/{variableValueName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -140,31 +140,6 @@ class AccessPolicy(pulumi.CustomResource):
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### AccessPoliciesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        access_policy = azure_native.timeseriesinsights.AccessPolicy("accessPolicy",
-            access_policy_name="ap1",
-            description="some description",
-            environment_name="env1",
-            principal_object_id="aGuid",
-            resource_group_name="rg1",
-            roles=[azure_native.timeseriesinsights.AccessPolicyRole.READER])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:timeseriesinsights:AccessPolicy ap1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,31 +162,6 @@ class AccessPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
         Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### AccessPoliciesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        access_policy = azure_native.timeseriesinsights.AccessPolicy("accessPolicy",
-            access_policy_name="ap1",
-            description="some description",
-            environment_name="env1",
-            principal_object_id="aGuid",
-            resource_group_name="rg1",
-            roles=[azure_native.timeseriesinsights.AccessPolicyRole.READER])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:timeseriesinsights:AccessPolicy ap1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/accessPolicies/{accessPolicyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

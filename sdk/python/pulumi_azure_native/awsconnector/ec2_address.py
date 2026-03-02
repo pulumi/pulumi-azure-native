@@ -124,63 +124,6 @@ class Ec2Address(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### Ec2Addresses_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_address = azure_native.awsconnector.Ec2Address("ec2Address",
-            location="uwbmdjhaqaqz",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "kgqnwrdoqeqjraczlznfiu",
-                "aws_account_id": "nfzczrgklte",
-                "aws_properties": {
-                    "allocation_id": "lakfpwuipmqvwqzpiojxgxjrh",
-                    "association_id": "wwgugzolrxtpvpaxafaqi",
-                    "carrier_ip": "tpwlxdfmqhkr",
-                    "customer_owned_ip": "qpvlzqkbksm",
-                    "customer_owned_ipv4_pool": "sbzgaydiiwsnarhj",
-                    "domain": {
-                        "value": azure_native.awsconnector.DomainType.STANDARD,
-                    },
-                    "instance_id": "lcw",
-                    "network_border_group": "cvmuzymwrwriouiziwwhybkwv",
-                    "network_interface_id": "pundetxxybkvjkwhenmdlxzoji",
-                    "network_interface_owner_id": "mxcypkkbqs",
-                    "private_ip_address": "syfgrbvaucqkmkakjhez",
-                    "public_ip": "uzkzeonfghtefuulqaev",
-                    "public_ipv4_pool": "dlv",
-                    "tags": [{
-                        "key": "acaotlyww",
-                        "value": "tcahesrhkpnaonjnhbfsmiyhypjmw",
-                    }],
-                },
-                "aws_region": "qocfydee",
-                "aws_source_schema": "uachsjdkxtczamkh",
-                "aws_tags": {
-                    "key6276": "nolpfwzekiehxektjfku",
-                },
-                "public_cloud_connectors_resource_id": "eytnpsrqhczygcelqjky",
-                "public_cloud_resource_name": "xongligvmdxe",
-            },
-            resource_group_name="rgec2Address",
-            tags={
-                "key991": "zgudcnhfnizgcnyjetbfss",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2Address xnduh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Addresses/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,63 +143,6 @@ class Ec2Address(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### Ec2Addresses_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_address = azure_native.awsconnector.Ec2Address("ec2Address",
-            location="uwbmdjhaqaqz",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "kgqnwrdoqeqjraczlznfiu",
-                "aws_account_id": "nfzczrgklte",
-                "aws_properties": {
-                    "allocation_id": "lakfpwuipmqvwqzpiojxgxjrh",
-                    "association_id": "wwgugzolrxtpvpaxafaqi",
-                    "carrier_ip": "tpwlxdfmqhkr",
-                    "customer_owned_ip": "qpvlzqkbksm",
-                    "customer_owned_ipv4_pool": "sbzgaydiiwsnarhj",
-                    "domain": {
-                        "value": azure_native.awsconnector.DomainType.STANDARD,
-                    },
-                    "instance_id": "lcw",
-                    "network_border_group": "cvmuzymwrwriouiziwwhybkwv",
-                    "network_interface_id": "pundetxxybkvjkwhenmdlxzoji",
-                    "network_interface_owner_id": "mxcypkkbqs",
-                    "private_ip_address": "syfgrbvaucqkmkakjhez",
-                    "public_ip": "uzkzeonfghtefuulqaev",
-                    "public_ipv4_pool": "dlv",
-                    "tags": [{
-                        "key": "acaotlyww",
-                        "value": "tcahesrhkpnaonjnhbfsmiyhypjmw",
-                    }],
-                },
-                "aws_region": "qocfydee",
-                "aws_source_schema": "uachsjdkxtczamkh",
-                "aws_tags": {
-                    "key6276": "nolpfwzekiehxektjfku",
-                },
-                "public_cloud_connectors_resource_id": "eytnpsrqhczygcelqjky",
-                "public_cloud_resource_name": "xongligvmdxe",
-            },
-            resource_group_name="rgec2Address",
-            tags={
-                "key991": "zgudcnhfnizgcnyjetbfss",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2Address xnduh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Addresses/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

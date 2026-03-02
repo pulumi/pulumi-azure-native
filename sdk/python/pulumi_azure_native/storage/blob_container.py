@@ -210,57 +210,6 @@ class BlobContainer(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PutContainerWithDefaultEncryptionScope
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        blob_container = azure_native.storage.BlobContainer("blobContainer",
-            account_name="sto328",
-            container_name="container6185",
-            default_encryption_scope="encryptionscope185",
-            deny_encryption_scope_override=True,
-            resource_group_name="res3376")
-
-        ```
-        ### PutContainerWithObjectLevelWorm
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        blob_container = azure_native.storage.BlobContainer("blobContainer",
-            account_name="sto328",
-            container_name="container6185",
-            immutable_storage_with_versioning={
-                "enabled": True,
-            },
-            resource_group_name="res3376")
-
-        ```
-        ### PutContainers
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        blob_container = azure_native.storage.BlobContainer("blobContainer",
-            account_name="sto328",
-            container_name="container6185",
-            resource_group_name="res3376")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storage:BlobContainer container6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,57 +236,6 @@ class BlobContainer(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-04-01, 2023-05-01, 2025-01-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutContainerWithDefaultEncryptionScope
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        blob_container = azure_native.storage.BlobContainer("blobContainer",
-            account_name="sto328",
-            container_name="container6185",
-            default_encryption_scope="encryptionscope185",
-            deny_encryption_scope_override=True,
-            resource_group_name="res3376")
-
-        ```
-        ### PutContainerWithObjectLevelWorm
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        blob_container = azure_native.storage.BlobContainer("blobContainer",
-            account_name="sto328",
-            container_name="container6185",
-            immutable_storage_with_versioning={
-                "enabled": True,
-            },
-            resource_group_name="res3376")
-
-        ```
-        ### PutContainers
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        blob_container = azure_native.storage.BlobContainer("blobContainer",
-            account_name="sto328",
-            container_name="container6185",
-            resource_group_name="res3376")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storage:BlobContainer container6185 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

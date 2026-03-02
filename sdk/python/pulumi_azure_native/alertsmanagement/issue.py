@@ -90,33 +90,6 @@ class Issue(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
-        ## Example Usage
-        ### Issue_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        issue = azure_native.alertsmanagement.Issue("issue",
-            issue_name="3f29e1b2b05f8371595dc761fed8e8b3",
-            properties={
-                "impact_time": "2024-12-13T02:45:33",
-                "severity": "Sev2",
-                "status": azure_native.alertsmanagement.Status.NEW,
-                "title": "Alert fired on VM CPU",
-            },
-            resource_uri="subscriptions/aceaa046-91f0-492a-96dc-45e10a9183dc/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:alertsmanagement:Issue 3f29e1b2b05f8371595dc761fed8e8b3 /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,33 +107,6 @@ class Issue(pulumi.CustomResource):
         The Issue resource
 
         Uses Azure REST API version 2025-03-01-preview.
-
-        ## Example Usage
-        ### Issue_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        issue = azure_native.alertsmanagement.Issue("issue",
-            issue_name="3f29e1b2b05f8371595dc761fed8e8b3",
-            properties={
-                "impact_time": "2024-12-13T02:45:33",
-                "severity": "Sev2",
-                "status": azure_native.alertsmanagement.Status.NEW,
-                "title": "Alert fired on VM CPU",
-            },
-            resource_uri="subscriptions/aceaa046-91f0-492a-96dc-45e10a9183dc/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:alertsmanagement:Issue 3f29e1b2b05f8371595dc761fed8e8b3 /{resourceUri}/providers/Microsoft.AlertsManagement/issues/{issueName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

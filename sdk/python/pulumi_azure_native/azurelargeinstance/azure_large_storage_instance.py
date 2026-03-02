@@ -159,43 +159,6 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
-        ## Example Usage
-        ### AzureLargeStorageInstance_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_large_storage_instance = azure_native.azurelargeinstance.AzureLargeStorageInstance("azureLargeStorageInstance",
-            azure_large_storage_instance_name="myAzureLargeStorageInstance",
-            azure_large_storage_instance_unique_identifier="23415635-4d7e-41dc-9598-8194f22c24e9",
-            location="westus2",
-            resource_group_name="myResourceGroup",
-            storage_properties={
-                "generation": "Gen4",
-                "hardware_type": "NetApp",
-                "offering_type": "EPIC",
-                "storage_billing_properties": {
-                    "billing_mode": "PAYG",
-                    "sku": "",
-                },
-                "storage_type": "FC",
-                "workload_type": "ODB",
-            },
-            tags={
-                "key": "value",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurelargeinstance:AzureLargeStorageInstance myAzureLargeStorageInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeStorageInstances/{azureLargeStorageInstanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,43 +181,6 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
         AzureLargeStorageInstance properties)
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
-
-        ## Example Usage
-        ### AzureLargeStorageInstance_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_large_storage_instance = azure_native.azurelargeinstance.AzureLargeStorageInstance("azureLargeStorageInstance",
-            azure_large_storage_instance_name="myAzureLargeStorageInstance",
-            azure_large_storage_instance_unique_identifier="23415635-4d7e-41dc-9598-8194f22c24e9",
-            location="westus2",
-            resource_group_name="myResourceGroup",
-            storage_properties={
-                "generation": "Gen4",
-                "hardware_type": "NetApp",
-                "offering_type": "EPIC",
-                "storage_billing_properties": {
-                    "billing_mode": "PAYG",
-                    "sku": "",
-                },
-                "storage_type": "FC",
-                "workload_type": "ODB",
-            },
-            tags={
-                "key": "value",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurelargeinstance:AzureLargeStorageInstance myAzureLargeStorageInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeStorageInstances/{azureLargeStorageInstanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -141,38 +141,6 @@ class FabricCapacity(pulumi.CustomResource):
 
         Other available API versions: 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a capacity
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fabric_capacity = azure_native.fabric.FabricCapacity("fabricCapacity",
-            administration={
-                "members": [
-                    "azsdktest@microsoft.com",
-                    "azsdktest2@microsoft.com",
-                ],
-            },
-            capacity_name="azsdktest",
-            location="westcentralus",
-            resource_group_name="TestRG",
-            sku={
-                "name": "F2",
-                "tier": azure_native.fabric.RpSkuTier.FABRIC,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fabric:FabricCapacity azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric/capacities/{capacityName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,38 +163,6 @@ class FabricCapacity(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
         Other available API versions: 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a capacity
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fabric_capacity = azure_native.fabric.FabricCapacity("fabricCapacity",
-            administration={
-                "members": [
-                    "azsdktest@microsoft.com",
-                    "azsdktest2@microsoft.com",
-                ],
-            },
-            capacity_name="azsdktest",
-            location="westcentralus",
-            resource_group_name="TestRG",
-            sku={
-                "name": "F2",
-                "tier": azure_native.fabric.RpSkuTier.FABRIC,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fabric:FabricCapacity azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric/capacities/{capacityName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

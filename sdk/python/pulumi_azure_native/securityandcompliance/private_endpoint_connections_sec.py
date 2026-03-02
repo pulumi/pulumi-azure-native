@@ -105,32 +105,6 @@ class PrivateEndpointConnectionsSec(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-03-08. In version 2.x of the Azure Native provider, it used API version 2021-03-08.
 
-        ## Example Usage
-        ### PrivateEndpointConnection_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connections_sec = azure_native.securityandcompliance.PrivateEndpointConnectionsSec("privateEndpointConnectionsSec",
-            private_endpoint_connection_name="myConnection",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.securityandcompliance.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rgname",
-            resource_name_="service1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:securityandcompliance:PrivateEndpointConnectionsSec myConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForM365SecurityCenter/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,32 +123,6 @@ class PrivateEndpointConnectionsSec(pulumi.CustomResource):
         The Private Endpoint Connection resource.
 
         Uses Azure REST API version 2021-03-08. In version 2.x of the Azure Native provider, it used API version 2021-03-08.
-
-        ## Example Usage
-        ### PrivateEndpointConnection_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connections_sec = azure_native.securityandcompliance.PrivateEndpointConnectionsSec("privateEndpointConnectionsSec",
-            private_endpoint_connection_name="myConnection",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.securityandcompliance.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rgname",
-            resource_name_="service1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:securityandcompliance:PrivateEndpointConnectionsSec myConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForM365SecurityCenter/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

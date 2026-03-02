@@ -124,57 +124,6 @@ class OrganizationsAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### OrganizationsAccounts_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        organizations_account = azure_native.awsconnector.OrganizationsAccount("organizationsAccount",
-            location="wyzamnearzlajcvzhj",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "zdirlutwidghhfrufpjhexxbsrfxwl",
-                "aws_account_id": "ggnntqdpbcdtbjxaiabsgxxmtunblo",
-                "aws_properties": {
-                    "account_id": "kkdjvhtsvtqybdxezywfojndmjpou",
-                    "account_name": "vegcsgzymnbxry",
-                    "arn": "ffkjxnnwpewiiudycadgtyrztehy",
-                    "email": "bwriakvcvyhklvulzwvlddeevj",
-                    "joined_method": azure_native.awsconnector.JoinedMethod.CREATED,
-                    "joined_timestamp": "xdxxffzfzxgewxyavjim",
-                    "parent_ids": ["xxzonolej"],
-                    "role_name": "izpxv",
-                    "status": azure_native.awsconnector.Status.ACTIVE,
-                    "tags": [{
-                        "key": "jwuqulmpbiwqxudtqfgrtnvxtbyxcb",
-                        "value": "esqhxwyrftlxbuab",
-                    }],
-                },
-                "aws_region": "yvslwciyhnwwnxxrv",
-                "aws_source_schema": "emcozgsikaryx",
-                "aws_tags": {
-                    "key907": "gwpsscwhgavtczmdnje",
-                },
-                "public_cloud_connectors_resource_id": "zbgkie",
-                "public_cloud_resource_name": "tmmwrgytiyucnzokuiq",
-            },
-            resource_group_name="rgorganizationsAccount",
-            tags={
-                "key9774": "vgzqosjmzoxfqujm",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:OrganizationsAccount exyrlvjjmalphltdpztjlgart /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/organizationsAccounts/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,57 +143,6 @@ class OrganizationsAccount(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### OrganizationsAccounts_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        organizations_account = azure_native.awsconnector.OrganizationsAccount("organizationsAccount",
-            location="wyzamnearzlajcvzhj",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "zdirlutwidghhfrufpjhexxbsrfxwl",
-                "aws_account_id": "ggnntqdpbcdtbjxaiabsgxxmtunblo",
-                "aws_properties": {
-                    "account_id": "kkdjvhtsvtqybdxezywfojndmjpou",
-                    "account_name": "vegcsgzymnbxry",
-                    "arn": "ffkjxnnwpewiiudycadgtyrztehy",
-                    "email": "bwriakvcvyhklvulzwvlddeevj",
-                    "joined_method": azure_native.awsconnector.JoinedMethod.CREATED,
-                    "joined_timestamp": "xdxxffzfzxgewxyavjim",
-                    "parent_ids": ["xxzonolej"],
-                    "role_name": "izpxv",
-                    "status": azure_native.awsconnector.Status.ACTIVE,
-                    "tags": [{
-                        "key": "jwuqulmpbiwqxudtqfgrtnvxtbyxcb",
-                        "value": "esqhxwyrftlxbuab",
-                    }],
-                },
-                "aws_region": "yvslwciyhnwwnxxrv",
-                "aws_source_schema": "emcozgsikaryx",
-                "aws_tags": {
-                    "key907": "gwpsscwhgavtczmdnje",
-                },
-                "public_cloud_connectors_resource_id": "zbgkie",
-                "public_cloud_resource_name": "tmmwrgytiyucnzokuiq",
-            },
-            resource_group_name="rgorganizationsAccount",
-            tags={
-                "key9774": "vgzqosjmzoxfqujm",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:OrganizationsAccount exyrlvjjmalphltdpztjlgart /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/organizationsAccounts/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

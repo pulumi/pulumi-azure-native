@@ -118,30 +118,6 @@ class SingleServerFirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
-        ## Example Usage
-        ### FirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_firewall_rule = azure_native.dbforpostgresql.SingleServerFirewallRule("singleServerFirewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            start_ip_address="0.0.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,30 +137,6 @@ class SingleServerFirewallRule(pulumi.CustomResource):
         Represents a server firewall rule.
 
         Uses Azure REST API version 2017-12-01.
-
-        ## Example Usage
-        ### FirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_firewall_rule = azure_native.dbforpostgresql.SingleServerFirewallRule("singleServerFirewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            start_ip_address="0.0.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/firewallRules/{firewallRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

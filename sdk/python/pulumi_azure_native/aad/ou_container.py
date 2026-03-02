@@ -140,31 +140,6 @@ class OuContainer(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create Domain Service
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ou_container = azure_native.aad.OuContainer("ouContainer",
-            account_name="AccountName1",
-            domain_service_name="OuContainer.com",
-            ou_container_name="OuContainer1",
-            password="<password>",
-            resource_group_name="OuContainerResourceGroup",
-            spn="Spn1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:aad:OuContainer OuContainer.com/OuContainer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Aad/domainServices/{domainServiceName}/ouContainer/{ouContainerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,31 +162,6 @@ class OuContainer(pulumi.CustomResource):
         Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
         Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create Domain Service
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ou_container = azure_native.aad.OuContainer("ouContainer",
-            account_name="AccountName1",
-            domain_service_name="OuContainer.com",
-            ou_container_name="OuContainer1",
-            password="<password>",
-            resource_group_name="OuContainerResourceGroup",
-            spn="Spn1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:aad:OuContainer OuContainer.com/OuContainer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Aad/domainServices/{domainServiceName}/ouContainer/{ouContainerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

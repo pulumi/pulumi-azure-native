@@ -107,40 +107,6 @@ class MigrationService(pulumi.CustomResource):
 
         Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or Update Migration Service with maximum parameters.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migration_service = azure_native.datamigration.MigrationService("migrationService",
-            location="northeurope",
-            migration_service_name="testagent",
-            resource_group_name="testrg")
-
-        ```
-        ### Create or Update Migration Service with minimum parameters.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migration_service = azure_native.datamigration.MigrationService("migrationService",
-            location="northeurope",
-            migration_service_name="testagent",
-            resource_group_name="testrg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datamigration:MigrationService testagent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataMigration/migrationServices/{migrationServiceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,40 +127,6 @@ class MigrationService(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-15-preview.
 
         Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or Update Migration Service with maximum parameters.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migration_service = azure_native.datamigration.MigrationService("migrationService",
-            location="northeurope",
-            migration_service_name="testagent",
-            resource_group_name="testrg")
-
-        ```
-        ### Create or Update Migration Service with minimum parameters.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migration_service = azure_native.datamigration.MigrationService("migrationService",
-            location="northeurope",
-            migration_service_name="testagent",
-            resource_group_name="testrg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datamigration:MigrationService testagent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataMigration/migrationServices/{migrationServiceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

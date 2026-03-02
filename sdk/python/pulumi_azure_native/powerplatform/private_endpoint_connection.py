@@ -105,32 +105,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
 
-        ## Example Usage
-        ### Approve or reject a private endpoint connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.powerplatform.PrivateEndpointConnection("privateEndpointConnection",
-            enterprise_policy_name="ddb1",
-            private_endpoint_connection_name="privateEndpointConnectionName",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": azure_native.powerplatform.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,32 +123,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
-
-        ## Example Usage
-        ### Approve or reject a private endpoint connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.powerplatform.PrivateEndpointConnection("privateEndpointConnection",
-            enterprise_policy_name="ddb1",
-            private_endpoint_connection_name="privateEndpointConnectionName",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": azure_native.powerplatform.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

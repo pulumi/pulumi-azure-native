@@ -328,52 +328,6 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a run command.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine_run_command_by_virtual_machine = azure_native.compute.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
-            async_execution=False,
-            error_blob_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/scriptURI",
-            location="West US",
-            output_blob_managed_identity={
-                "client_id": "22d35efb-0c99-4041-8c5b-6d24db33a69a",
-            },
-            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
-            parameters=[
-                {
-                    "name": "param1",
-                    "value": "value1",
-                },
-                {
-                    "name": "param2",
-                    "value": "value2",
-                },
-            ],
-            resource_group_name="myResourceGroup",
-            run_as_password="<runAsPassword>",
-            run_as_user="user1",
-            run_command_name="myRunCommand",
-            source={
-                "script_uri": "https://mystorageaccount.blob.core.windows.net/scriptcontainer/scriptURI",
-            },
-            timeout_in_seconds=3600,
-            treat_failure_as_deployment_failure=False,
-            vm_name="myVM")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/runCommands/{runCommandName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -407,52 +361,6 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a run command.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine_run_command_by_virtual_machine = azure_native.compute.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
-            async_execution=False,
-            error_blob_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/scriptURI",
-            location="West US",
-            output_blob_managed_identity={
-                "client_id": "22d35efb-0c99-4041-8c5b-6d24db33a69a",
-            },
-            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
-            parameters=[
-                {
-                    "name": "param1",
-                    "value": "value1",
-                },
-                {
-                    "name": "param2",
-                    "value": "value2",
-                },
-            ],
-            resource_group_name="myResourceGroup",
-            run_as_password="<runAsPassword>",
-            run_as_user="user1",
-            run_command_name="myRunCommand",
-            source={
-                "script_uri": "https://mystorageaccount.blob.core.windows.net/scriptcontainer/scriptURI",
-            },
-            timeout_in_seconds=3600,
-            treat_failure_as_deployment_failure=False,
-            vm_name="myVM")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/runCommands/{runCommandName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

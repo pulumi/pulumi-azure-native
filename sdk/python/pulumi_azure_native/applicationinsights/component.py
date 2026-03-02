@@ -369,50 +369,6 @@ class Component(pulumi.CustomResource):
 
         Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ComponentCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component = azure_native.applicationinsights.Component("component",
-            application_type=azure_native.applicationinsights.ApplicationType.WEB,
-            flow_type=azure_native.applicationinsights.FlowType.BLUEFIELD,
-            kind="web",
-            location="South Central US",
-            request_source=azure_native.applicationinsights.RequestSource.REST,
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            workspace_resource_id="/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace")
-
-        ```
-        ### ComponentUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component = azure_native.applicationinsights.Component("component",
-            kind="web",
-            location="South Central US",
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            tags={
-                "ApplicationGatewayType": "Internal-Only",
-                "BillingEntity": "Self",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:Component my-component /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -448,50 +404,6 @@ class Component(pulumi.CustomResource):
         Uses Azure REST API version 2020-02-02.
 
         Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ComponentCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component = azure_native.applicationinsights.Component("component",
-            application_type=azure_native.applicationinsights.ApplicationType.WEB,
-            flow_type=azure_native.applicationinsights.FlowType.BLUEFIELD,
-            kind="web",
-            location="South Central US",
-            request_source=azure_native.applicationinsights.RequestSource.REST,
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            workspace_resource_id="/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace")
-
-        ```
-        ### ComponentUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component = azure_native.applicationinsights.Component("component",
-            kind="web",
-            location="South Central US",
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            tags={
-                "ApplicationGatewayType": "Internal-Only",
-                "BillingEntity": "Self",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:Component my-component /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

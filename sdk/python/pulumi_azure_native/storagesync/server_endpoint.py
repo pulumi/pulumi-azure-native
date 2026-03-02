@@ -303,39 +303,6 @@ class ServerEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ServerEndpoints_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_endpoint = azure_native.storagesync.ServerEndpoint("serverEndpoint",
-            cloud_tiering=azure_native.storagesync.FeatureStatus.OFF,
-            initial_download_policy=azure_native.storagesync.InitialDownloadPolicy.NAMESPACE_THEN_MODIFIED_FILES,
-            initial_upload_policy=azure_native.storagesync.InitialUploadPolicy.SERVER_AUTHORITATIVE,
-            local_cache_mode=azure_native.storagesync.LocalCacheMode.UPDATE_LOCALLY_CACHED_FILES,
-            offline_data_transfer=azure_native.storagesync.FeatureStatus.ON,
-            offline_data_transfer_share_name="myfileshare",
-            resource_group_name="SampleResourceGroup_1",
-            server_endpoint_name="SampleServerEndpoint_1",
-            server_local_path="D:\\\\SampleServerEndpoint_1",
-            server_resource_id="/subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
-            storage_sync_service_name="SampleStorageSyncService_1",
-            sync_group_name="SampleSyncGroup_1",
-            tier_files_older_than_days=0,
-            volume_free_space_percent=100)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagesync:ServerEndpoint SampleServerEndpoint_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -367,39 +334,6 @@ class ServerEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ServerEndpoints_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_endpoint = azure_native.storagesync.ServerEndpoint("serverEndpoint",
-            cloud_tiering=azure_native.storagesync.FeatureStatus.OFF,
-            initial_download_policy=azure_native.storagesync.InitialDownloadPolicy.NAMESPACE_THEN_MODIFIED_FILES,
-            initial_upload_policy=azure_native.storagesync.InitialUploadPolicy.SERVER_AUTHORITATIVE,
-            local_cache_mode=azure_native.storagesync.LocalCacheMode.UPDATE_LOCALLY_CACHED_FILES,
-            offline_data_transfer=azure_native.storagesync.FeatureStatus.ON,
-            offline_data_transfer_share_name="myfileshare",
-            resource_group_name="SampleResourceGroup_1",
-            server_endpoint_name="SampleServerEndpoint_1",
-            server_local_path="D:\\\\SampleServerEndpoint_1",
-            server_resource_id="/subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
-            storage_sync_service_name="SampleStorageSyncService_1",
-            sync_group_name="SampleSyncGroup_1",
-            tier_files_older_than_days=0,
-            volume_free_space_percent=100)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagesync:ServerEndpoint SampleServerEndpoint_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

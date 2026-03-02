@@ -142,33 +142,6 @@ class ImportSitesController(pulumi.CustomResource):
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ImportSitesController_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_sites_controller = azure_native.offazure.ImportSitesController("importSitesController",
-            discovery_solution_id="cgwjekybxrlaunxf",
-            location="adfizitxdfwwrkgywpqqupuhkvwie",
-            provisioning_state=azure_native.offazure.ProvisioningState.CREATED,
-            resource_group_name="rgmigrate",
-            site_name="44GV2SnONP-cPFOQ18Zmn",
-            tags={
-                "key592": "pj",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:offazure:ImportSitesController czihdkszxssaxzvpogzksxyqdg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/importSites/{siteName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,33 +164,6 @@ class ImportSitesController(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
 
         Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ImportSitesController_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_sites_controller = azure_native.offazure.ImportSitesController("importSitesController",
-            discovery_solution_id="cgwjekybxrlaunxf",
-            location="adfizitxdfwwrkgywpqqupuhkvwie",
-            provisioning_state=azure_native.offazure.ProvisioningState.CREATED,
-            resource_group_name="rgmigrate",
-            site_name="44GV2SnONP-cPFOQ18Zmn",
-            tags={
-                "key592": "pj",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:offazure:ImportSitesController czihdkszxssaxzvpogzksxyqdg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/importSites/{siteName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

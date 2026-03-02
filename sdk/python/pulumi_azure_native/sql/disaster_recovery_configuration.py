@@ -86,28 +86,6 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
 
-        ## Example Usage
-        ### Update a disaster recovery configuration
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        disaster_recovery_configuration = azure_native.sql.DisasterRecoveryConfiguration("disasterRecoveryConfiguration",
-            disaster_recovery_configuration_name="Default",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-5961")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:DisasterRecoveryConfiguration Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/disasterRecoveryConfiguration/{disasterRecoveryConfigurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,28 +103,6 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         Represents a disaster recovery configuration.
 
         Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
-
-        ## Example Usage
-        ### Update a disaster recovery configuration
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        disaster_recovery_configuration = azure_native.sql.DisasterRecoveryConfiguration("disasterRecoveryConfiguration",
-            disaster_recovery_configuration_name="Default",
-            resource_group_name="sqlcrudtest-4799",
-            server_name="sqlcrudtest-5961")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:DisasterRecoveryConfiguration Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/disasterRecoveryConfiguration/{disasterRecoveryConfigurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

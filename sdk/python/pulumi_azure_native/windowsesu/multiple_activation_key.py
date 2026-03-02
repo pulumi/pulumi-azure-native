@@ -192,33 +192,6 @@ class MultipleActivationKey(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
 
-        ## Example Usage
-        ### CreateMultipleActivationKey
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        multiple_activation_key = azure_native.windowsesu.MultipleActivationKey("multipleActivationKey",
-            agreement_number="1a2b45ag",
-            installed_server_number=100,
-            is_eligible=True,
-            location="East US",
-            multiple_activation_key_name="server08-key-2019",
-            os_type=azure_native.windowsesu.OsType.WINDOWS_SERVER2008,
-            resource_group_name="testgr1",
-            support_type=azure_native.windowsesu.SupportType.SUPPLEMENTAL_SERVICING)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:windowsesu:MultipleActivationKey server08-key-2019 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsESU/multipleActivationKeys/{multipleActivationKeyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,33 +215,6 @@ class MultipleActivationKey(pulumi.CustomResource):
         MAK key details.
 
         Uses Azure REST API version 2019-09-16-preview. In version 2.x of the Azure Native provider, it used API version 2019-09-16-preview.
-
-        ## Example Usage
-        ### CreateMultipleActivationKey
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        multiple_activation_key = azure_native.windowsesu.MultipleActivationKey("multipleActivationKey",
-            agreement_number="1a2b45ag",
-            installed_server_number=100,
-            is_eligible=True,
-            location="East US",
-            multiple_activation_key_name="server08-key-2019",
-            os_type=azure_native.windowsesu.OsType.WINDOWS_SERVER2008,
-            resource_group_name="testgr1",
-            support_type=azure_native.windowsesu.SupportType.SUPPLEMENTAL_SERVICING)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:windowsesu:MultipleActivationKey server08-key-2019 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsESU/multipleActivationKeys/{multipleActivationKeyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

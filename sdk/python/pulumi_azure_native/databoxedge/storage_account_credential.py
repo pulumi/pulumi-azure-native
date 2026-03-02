@@ -224,37 +224,6 @@ class StorageAccountCredential(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### SACPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        storage_account_credential = azure_native.databoxedge.StorageAccountCredential("storageAccountCredential",
-            account_key={
-                "encryption_algorithm": azure_native.databoxedge.EncryptionAlgorithm.AES256,
-                "encryption_cert_thumbprint": "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
-                "value": "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
-            },
-            account_type=azure_native.databoxedge.AccountType.BLOB_STORAGE,
-            alias="sac1",
-            device_name="testedgedevice",
-            name="sac1",
-            resource_group_name="GroupForEdgeAutomation",
-            ssl_status=azure_native.databoxedge.SSLStatus.DISABLED,
-            user_name="cisbvt")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:StorageAccountCredential sac1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccountCredentials/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,37 +251,6 @@ class StorageAccountCredential(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### SACPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        storage_account_credential = azure_native.databoxedge.StorageAccountCredential("storageAccountCredential",
-            account_key={
-                "encryption_algorithm": azure_native.databoxedge.EncryptionAlgorithm.AES256,
-                "encryption_cert_thumbprint": "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
-                "value": "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
-            },
-            account_type=azure_native.databoxedge.AccountType.BLOB_STORAGE,
-            alias="sac1",
-            device_name="testedgedevice",
-            name="sac1",
-            resource_group_name="GroupForEdgeAutomation",
-            ssl_status=azure_native.databoxedge.SSLStatus.DISABLED,
-            user_name="cisbvt")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:StorageAccountCredential sac1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccountCredentials/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

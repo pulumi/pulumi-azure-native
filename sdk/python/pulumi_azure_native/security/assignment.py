@@ -276,62 +276,6 @@ class Assignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
 
-        ## Example Usage
-        ### Define a default standard assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assignment = azure_native.security.Assignment("assignment",
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            assignment_id="1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            description="Set of policies monitored by Azure Security Center for cross cloud",
-            display_name="ASC Default",
-            effect="audit",
-            resource_group_name="myResourceGroup",
-            scope="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg")
-
-        ```
-        ### Exempt Recommendation From standard and resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assignment = azure_native.security.Assignment("assignment",
-            additional_data={
-                "exemption_category": "waiver",
-            },
-            assigned_component={
-                "key": "1195afff-c881-495e-9bc5-1486211ae03f",
-            },
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            assignment_id="1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            description="Set of policies monitored by Azure Security Center for cross cloud",
-            display_name="ASC Default",
-            effect="Exempt",
-            expires_on="2022-05-01T19:50:47.083633Z",
-            metadata={
-                "ticketId": 12345,
-            },
-            resource_group_name="myResourceGroup",
-            scope="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:Assignment 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/assignments/{assignmentId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,62 +304,6 @@ class Assignment(pulumi.CustomResource):
         Security Assignment on a resource group over a given scope
 
         Uses Azure REST API version 2021-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-01-preview.
-
-        ## Example Usage
-        ### Define a default standard assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assignment = azure_native.security.Assignment("assignment",
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            assignment_id="1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            description="Set of policies monitored by Azure Security Center for cross cloud",
-            display_name="ASC Default",
-            effect="audit",
-            resource_group_name="myResourceGroup",
-            scope="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg")
-
-        ```
-        ### Exempt Recommendation From standard and resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assignment = azure_native.security.Assignment("assignment",
-            additional_data={
-                "exemption_category": "waiver",
-            },
-            assigned_component={
-                "key": "1195afff-c881-495e-9bc5-1486211ae03f",
-            },
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            assignment_id="1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            description="Set of policies monitored by Azure Security Center for cross cloud",
-            display_name="ASC Default",
-            effect="Exempt",
-            expires_on="2022-05-01T19:50:47.083633Z",
-            metadata={
-                "ticketId": 12345,
-            },
-            resource_group_name="myResourceGroup",
-            scope="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:Assignment 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/assignments/{assignmentId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

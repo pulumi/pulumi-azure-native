@@ -205,30 +205,6 @@ class DataExport(pulumi.CustomResource):
 
         Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DataExportCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_export = azure_native.operationalinsights.DataExport("dataExport",
-            data_export_name="export1",
-            resource_group_name="RgTest1",
-            resource_id="/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
-            table_names=["Heartbeat"],
-            workspace_name="DeWnTest1234")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:DataExport export1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/dataExports/{dataExportName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,30 +231,6 @@ class DataExport(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DataExportCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_export = azure_native.operationalinsights.DataExport("dataExport",
-            data_export_name="export1",
-            resource_group_name="RgTest1",
-            resource_id="/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
-            table_names=["Heartbeat"],
-            workspace_name="DeWnTest1234")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:DataExport export1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/dataExports/{dataExportName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

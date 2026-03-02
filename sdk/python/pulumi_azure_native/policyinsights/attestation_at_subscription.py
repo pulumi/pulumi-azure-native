@@ -211,52 +211,6 @@ class AttestationAtSubscription(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create attestation at subscription scope
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        attestation_at_subscription = azure_native.policyinsights.AttestationAtSubscription("attestationAtSubscription",
-            attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
-            compliance_state=azure_native.policyinsights.ComplianceState.COMPLIANT,
-            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5")
-
-        ```
-        ### Create attestation at subscription scope with all properties
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        attestation_at_subscription = azure_native.policyinsights.AttestationAtSubscription("attestationAtSubscription",
-            assessment_date="2021-06-10T00:00:00Z",
-            attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
-            comments="This subscription has passed a security audit.",
-            compliance_state=azure_native.policyinsights.ComplianceState.COMPLIANT,
-            evidence=[{
-                "description": "The results of the security audit.",
-                "source_uri": "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
-            }],
-            expires_on="2021-06-15T00:00:00Z",
-            metadata={
-                "departmentId": "NYC-MARKETING-1",
-            },
-            owner="55a32e28-3aa5-4eea-9b5a-4cd85153b966",
-            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
-            policy_definition_reference_id="0b158b46-ff42-4799-8e39-08a5c23b4551")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:policyinsights:AttestationAtSubscription 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/attestations/{attestationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,52 +237,6 @@ class AttestationAtSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create attestation at subscription scope
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        attestation_at_subscription = azure_native.policyinsights.AttestationAtSubscription("attestationAtSubscription",
-            attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
-            compliance_state=azure_native.policyinsights.ComplianceState.COMPLIANT,
-            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5")
-
-        ```
-        ### Create attestation at subscription scope with all properties
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        attestation_at_subscription = azure_native.policyinsights.AttestationAtSubscription("attestationAtSubscription",
-            assessment_date="2021-06-10T00:00:00Z",
-            attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
-            comments="This subscription has passed a security audit.",
-            compliance_state=azure_native.policyinsights.ComplianceState.COMPLIANT,
-            evidence=[{
-                "description": "The results of the security audit.",
-                "source_uri": "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
-            }],
-            expires_on="2021-06-15T00:00:00Z",
-            metadata={
-                "departmentId": "NYC-MARKETING-1",
-            },
-            owner="55a32e28-3aa5-4eea-9b5a-4cd85153b966",
-            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
-            policy_definition_reference_id="0b158b46-ff42-4799-8e39-08a5c23b4551")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:policyinsights:AttestationAtSubscription 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/attestations/{attestationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

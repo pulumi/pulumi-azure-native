@@ -171,33 +171,6 @@ class Certificate(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a certificate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        certificate = azure_native.automation.Certificate("certificate",
-            automation_account_name="myAutomationAccount18",
-            base64_value="base 64 value of cert",
-            certificate_name="testCert",
-            description="Sample Cert",
-            is_exportable=False,
-            name="testCert",
-            resource_group_name="rg",
-            thumbprint="thumbprint of cert")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:Certificate testCert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/certificates/{certificateName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,33 +195,6 @@ class Certificate(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a certificate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        certificate = azure_native.automation.Certificate("certificate",
-            automation_account_name="myAutomationAccount18",
-            base64_value="base 64 value of cert",
-            certificate_name="testCert",
-            description="Sample Cert",
-            is_exportable=False,
-            name="testCert",
-            resource_group_name="rg",
-            thumbprint="thumbprint of cert")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:Certificate testCert /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/certificates/{certificateName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

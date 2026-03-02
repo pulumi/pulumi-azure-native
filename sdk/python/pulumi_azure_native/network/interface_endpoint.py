@@ -177,34 +177,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create interface endpoint
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        interface_endpoint = azure_native.network.InterfaceEndpoint("interfaceEndpoint",
-            endpoint_service={
-                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
-            },
-            fqdn="uniqueIdentifier.fqdn.windows.net",
-            interface_endpoint_name="testIe",
-            resource_group_name="rg1",
-            subnet={
-                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:InterfaceEndpoint testIe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interfaceEndpoints/{interfaceEndpointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,34 +201,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2019-02-01. In version 2.x of the Azure Native provider, it used API version 2019-02-01.
 
         Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create interface endpoint
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        interface_endpoint = azure_native.network.InterfaceEndpoint("interfaceEndpoint",
-            endpoint_service={
-                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
-            },
-            fqdn="uniqueIdentifier.fqdn.windows.net",
-            interface_endpoint_name="testIe",
-            resource_group_name="rg1",
-            subnet={
-                "id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:InterfaceEndpoint testIe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/interfaceEndpoints/{interfaceEndpointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

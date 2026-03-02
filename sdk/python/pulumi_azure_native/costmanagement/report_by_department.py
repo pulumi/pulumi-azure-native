@@ -138,13 +138,6 @@ class ReportByDepartment(pulumi.CustomResource):
         A report resource.
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:costmanagement:ReportByDepartment TestReport /providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.CostManagement/reports/{reportName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -166,13 +159,6 @@ class ReportByDepartment(pulumi.CustomResource):
         A report resource.
 
         Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:costmanagement:ReportByDepartment TestReport /providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.CostManagement/reports/{reportName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -157,30 +157,6 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        ## Example Usage
-        ### Create a connector resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connector = azure_native.workloads.Connector("connector",
-            connector_name="C1",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            source_resource_id="/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:Connector C1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/connectors/{connectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,30 +178,6 @@ class Connector(pulumi.CustomResource):
         Define the connector resource.
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-
-        ## Example Usage
-        ### Create a connector resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connector = azure_native.workloads.Connector("connector",
-            connector_name="C1",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            source_resource_id="/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:Connector C1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/connectors/{connectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

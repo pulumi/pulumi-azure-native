@@ -124,35 +124,6 @@ class Cluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
 
-        ## Example Usage
-        ### Create a new cluster
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cluster = azure_native.streamanalytics.Cluster("cluster",
-            cluster_name="An Example Cluster",
-            location="North US",
-            resource_group_name="sjrg",
-            sku={
-                "capacity": 48,
-                "name": azure_native.streamanalytics.ClusterSkuName.DEFAULT,
-            },
-            tags={
-                "key": "value",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:streamanalytics:Cluster An Example Cluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,35 +143,6 @@ class Cluster(pulumi.CustomResource):
         A Stream Analytics Cluster object
 
         Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
-
-        ## Example Usage
-        ### Create a new cluster
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cluster = azure_native.streamanalytics.Cluster("cluster",
-            cluster_name="An Example Cluster",
-            location="North US",
-            resource_group_name="sjrg",
-            sku={
-                "capacity": 48,
-                "name": azure_native.streamanalytics.ClusterSkuName.DEFAULT,
-            },
-            tags={
-                "key": "value",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:streamanalytics:Cluster An Example Cluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

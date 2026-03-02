@@ -120,30 +120,6 @@ class Configuration(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### ConfigurationCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration = azure_native.dbformariadb.Configuration("configuration",
-            configuration_name="event_scheduler",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            source="user-override",
-            value="off")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformariadb:Configuration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/configurations/{configurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,30 +139,6 @@ class Configuration(pulumi.CustomResource):
         Represents a Configuration.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### ConfigurationCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration = azure_native.dbformariadb.Configuration("configuration",
-            configuration_name="event_scheduler",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            source="user-override",
-            value="off")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformariadb:Configuration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/configurations/{configurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

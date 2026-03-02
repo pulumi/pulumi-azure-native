@@ -520,66 +520,6 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### AvsAssessmentsOperations_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        avs_assessments_operation = azure_native.migrate.AvsAssessmentsOperation("avsAssessmentsOperation",
-            assessment_name="asm2",
-            avs_assessment_scenario=azure_native.migrate.AvsAssessmentScenario.NEW_AVS_SDDC,
-            azure_location=azure_native.migrate.AzureLocation.EAST_US,
-            azure_offer_code=azure_native.migrate.AzureOfferCode.MSAZR0003_P,
-            cpu_headroom=12,
-            currency=azure_native.migrate.AzureCurrency.USD,
-            dedupe_compression=1.5,
-            discount_percentage=0,
-            external_storage_types=[
-                azure_native.migrate.ExternalStorageType.ANF_STANDARD,
-                azure_native.migrate.ExternalStorageType.ANF_PREMIUM,
-                azure_native.migrate.ExternalStorageType.ANF_ULTRA,
-            ],
-            failures_to_tolerate_and_raid_level=azure_native.migrate.FttAndRaidLevel.UNKNOWN,
-            failures_to_tolerate_and_raid_level_list=[
-                azure_native.migrate.FttAndRaidLevel.FTT1_RAID1,
-                azure_native.migrate.FttAndRaidLevel.FTT1_RAID5,
-                azure_native.migrate.FttAndRaidLevel.FTT3_RAID1,
-            ],
-            group_name="kuchatur-test",
-            is_stretch_cluster_enabled=True,
-            is_vcf_byol_enabled=True,
-            mem_overcommit=1,
-            node_type=azure_native.migrate.AzureAvsNodeType.UNKNOWN,
-            node_types=[
-                azure_native.migrate.AzureAvsNodeType.AV36,
-                azure_native.migrate.AzureAvsNodeType.AV52,
-                azure_native.migrate.AzureAvsNodeType.AV36_P,
-                azure_native.migrate.AzureAvsNodeType.AV64,
-            ],
-            percentile=azure_native.migrate.Percentile.PERCENTILE95,
-            perf_data_end_time="2023-09-26T13:35:56.5671462Z",
-            perf_data_start_time="2023-09-25T13:35:56.5671462Z",
-            project_name="app18700project",
-            provisioning_state=azure_native.migrate.ProvisioningState.SUCCEEDED,
-            reserved_instance=azure_native.migrate.AzureReservedInstance.RI3_YEAR,
-            resource_group_name="ayagrawrg",
-            scaling_factor=1,
-            sizing_criterion=azure_native.migrate.AssessmentSizingCriterion.AS_ON_PREMISES,
-            time_range=azure_native.migrate.TimeRange.DAY,
-            vcpu_oversubscription=4)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:AvsAssessmentsOperation asm2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -627,66 +567,6 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### AvsAssessmentsOperations_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        avs_assessments_operation = azure_native.migrate.AvsAssessmentsOperation("avsAssessmentsOperation",
-            assessment_name="asm2",
-            avs_assessment_scenario=azure_native.migrate.AvsAssessmentScenario.NEW_AVS_SDDC,
-            azure_location=azure_native.migrate.AzureLocation.EAST_US,
-            azure_offer_code=azure_native.migrate.AzureOfferCode.MSAZR0003_P,
-            cpu_headroom=12,
-            currency=azure_native.migrate.AzureCurrency.USD,
-            dedupe_compression=1.5,
-            discount_percentage=0,
-            external_storage_types=[
-                azure_native.migrate.ExternalStorageType.ANF_STANDARD,
-                azure_native.migrate.ExternalStorageType.ANF_PREMIUM,
-                azure_native.migrate.ExternalStorageType.ANF_ULTRA,
-            ],
-            failures_to_tolerate_and_raid_level=azure_native.migrate.FttAndRaidLevel.UNKNOWN,
-            failures_to_tolerate_and_raid_level_list=[
-                azure_native.migrate.FttAndRaidLevel.FTT1_RAID1,
-                azure_native.migrate.FttAndRaidLevel.FTT1_RAID5,
-                azure_native.migrate.FttAndRaidLevel.FTT3_RAID1,
-            ],
-            group_name="kuchatur-test",
-            is_stretch_cluster_enabled=True,
-            is_vcf_byol_enabled=True,
-            mem_overcommit=1,
-            node_type=azure_native.migrate.AzureAvsNodeType.UNKNOWN,
-            node_types=[
-                azure_native.migrate.AzureAvsNodeType.AV36,
-                azure_native.migrate.AzureAvsNodeType.AV52,
-                azure_native.migrate.AzureAvsNodeType.AV36_P,
-                azure_native.migrate.AzureAvsNodeType.AV64,
-            ],
-            percentile=azure_native.migrate.Percentile.PERCENTILE95,
-            perf_data_end_time="2023-09-26T13:35:56.5671462Z",
-            perf_data_start_time="2023-09-25T13:35:56.5671462Z",
-            project_name="app18700project",
-            provisioning_state=azure_native.migrate.ProvisioningState.SUCCEEDED,
-            reserved_instance=azure_native.migrate.AzureReservedInstance.RI3_YEAR,
-            resource_group_name="ayagrawrg",
-            scaling_factor=1,
-            sizing_criterion=azure_native.migrate.AssessmentSizingCriterion.AS_ON_PREMISES,
-            time_range=azure_native.migrate.TimeRange.DAY,
-            vcpu_oversubscription=4)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:AvsAssessmentsOperation asm2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/avsAssessments/{assessmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

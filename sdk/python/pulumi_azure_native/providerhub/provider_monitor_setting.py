@@ -105,28 +105,6 @@ class ProviderMonitorSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### ProviderMonitorSettings_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        provider_monitor_setting = azure_native.providerhub.ProviderMonitorSetting("providerMonitorSetting",
-            location="eastus",
-            provider_monitor_setting_name="ContosoMonitorSetting",
-            resource_group_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:ProviderMonitorSetting ContosoMonitorSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProviderHub/providerMonitorSettings/{providerMonitorSettingName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,28 +123,6 @@ class ProviderMonitorSetting(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### ProviderMonitorSettings_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        provider_monitor_setting = azure_native.providerhub.ProviderMonitorSetting("providerMonitorSetting",
-            location="eastus",
-            provider_monitor_setting_name="ContosoMonitorSetting",
-            resource_group_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:ProviderMonitorSetting ContosoMonitorSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProviderHub/providerMonitorSettings/{providerMonitorSettingName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

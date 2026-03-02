@@ -138,47 +138,6 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDBCassandraTableCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_account_cassandra_table = azure_native.cosmosdb.DatabaseAccountCassandraTable("databaseAccountCassandraTable",
-            account_name="ddb1",
-            keyspace_name="tableName",
-            options={},
-            resource={
-                "default_ttl": 100,
-                "id": "tableName",
-                "schema": {
-                    "cluster_keys": [{
-                        "name": "columnA",
-                        "order_by": "Asc",
-                    }],
-                    "columns": [{
-                        "name": "columnA",
-                        "type": "Ascii",
-                    }],
-                    "partition_keys": [{
-                        "name": "columnA",
-                    }],
-                },
-            },
-            resource_group_name="rg1",
-            table_name="tableName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:DatabaseAccountCassandraTable tableName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/cassandra/keyspaces/{keyspaceName}/tables/{tableName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,47 +160,6 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         Uses Azure REST API version 2016-03-31.
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDBCassandraTableCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_account_cassandra_table = azure_native.cosmosdb.DatabaseAccountCassandraTable("databaseAccountCassandraTable",
-            account_name="ddb1",
-            keyspace_name="tableName",
-            options={},
-            resource={
-                "default_ttl": 100,
-                "id": "tableName",
-                "schema": {
-                    "cluster_keys": [{
-                        "name": "columnA",
-                        "order_by": "Asc",
-                    }],
-                    "columns": [{
-                        "name": "columnA",
-                        "type": "Ascii",
-                    }],
-                    "partition_keys": [{
-                        "name": "columnA",
-                    }],
-                },
-            },
-            resource_group_name="rg1",
-            table_name="tableName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:DatabaseAccountCassandraTable tableName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/cassandra/keyspaces/{keyspaceName}/tables/{tableName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

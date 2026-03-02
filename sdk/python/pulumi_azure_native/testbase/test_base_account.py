@@ -159,32 +159,6 @@ class TestBaseAccount(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### TestBaseAccountCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        test_base_account = azure_native.testbase.TestBaseAccount("testBaseAccount",
-            location="westus",
-            resource_group_name="contoso-rg1",
-            sku={
-                "name": "S0",
-                "tier": azure_native.testbase.Tier.STANDARD,
-            },
-            test_base_account_name="contoso-testBaseAccount1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:testbase:TestBaseAccount contoso-testBaseAccount1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,32 +182,6 @@ class TestBaseAccount(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### TestBaseAccountCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        test_base_account = azure_native.testbase.TestBaseAccount("testBaseAccount",
-            location="westus",
-            resource_group_name="contoso-rg1",
-            sku={
-                "name": "S0",
-                "tier": azure_native.testbase.Tier.STANDARD,
-            },
-            test_base_account_name="contoso-testBaseAccount1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:testbase:TestBaseAccount contoso-testBaseAccount1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

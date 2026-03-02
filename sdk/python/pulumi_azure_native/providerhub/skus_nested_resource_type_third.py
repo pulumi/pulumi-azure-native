@@ -152,48 +152,6 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Skus_CreateOrUpdateNestedResourceTypeThird
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        skus_nested_resource_type_third = azure_native.providerhub.SkusNestedResourceTypeThird("skusNestedResourceTypeThird",
-            nested_resource_type_first="nestedResourceTypeFirst",
-            nested_resource_type_second="nestedResourceTypeSecond",
-            nested_resource_type_third="nestedResourceTypeThird",
-            properties={
-                "sku_settings": [
-                    {
-                        "kind": "Standard",
-                        "name": "freeSku",
-                        "tier": "Tier1",
-                    },
-                    {
-                        "costs": [{
-                            "meter_id": "xxx",
-                        }],
-                        "kind": "Premium",
-                        "name": "premiumSku",
-                        "tier": "Tier2",
-                    },
-                ],
-            },
-            provider_namespace="Microsoft.Contoso",
-            resource_type="testResourceType",
-            sku="testSku")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:SkusNestedResourceTypeThird Microsoft.Contoso/employees/nestedEmployee/nestedEmployee2/nestedEmployee3/sku1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType}/resourcetypeRegistrations/{nestedResourceTypeFirst}/resourcetypeRegistrations/{nestedResourceTypeSecond}/resourcetypeRegistrations/{nestedResourceTypeThird}/skus/{sku} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,48 +174,6 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Skus_CreateOrUpdateNestedResourceTypeThird
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        skus_nested_resource_type_third = azure_native.providerhub.SkusNestedResourceTypeThird("skusNestedResourceTypeThird",
-            nested_resource_type_first="nestedResourceTypeFirst",
-            nested_resource_type_second="nestedResourceTypeSecond",
-            nested_resource_type_third="nestedResourceTypeThird",
-            properties={
-                "sku_settings": [
-                    {
-                        "kind": "Standard",
-                        "name": "freeSku",
-                        "tier": "Tier1",
-                    },
-                    {
-                        "costs": [{
-                            "meter_id": "xxx",
-                        }],
-                        "kind": "Premium",
-                        "name": "premiumSku",
-                        "tier": "Tier2",
-                    },
-                ],
-            },
-            provider_namespace="Microsoft.Contoso",
-            resource_type="testResourceType",
-            sku="testSku")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:SkusNestedResourceTypeThird Microsoft.Contoso/employees/nestedEmployee/nestedEmployee2/nestedEmployee3/sku1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType}/resourcetypeRegistrations/{nestedResourceTypeFirst}/resourcetypeRegistrations/{nestedResourceTypeSecond}/resourcetypeRegistrations/{nestedResourceTypeThird}/skus/{sku} 
-        ```
 
 
         :param str resource_name: The name of the resource.

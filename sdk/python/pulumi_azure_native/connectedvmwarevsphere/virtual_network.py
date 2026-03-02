@@ -193,34 +193,6 @@ class VirtualNetwork(pulumi.CustomResource):
 
         Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateVirtualNetwork
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_network = azure_native.connectedvmwarevsphere.VirtualNetwork("virtualNetwork",
-            extended_location={
-                "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
-                "type": "customLocation",
-            },
-            location="East US",
-            mo_ref_id="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-            resource_group_name="testrg",
-            v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
-            virtual_network_name="ProdNetwork")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:connectedvmwarevsphere:VirtualNetwork ProdNetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualNetworks/{virtualNetworkName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,34 +218,6 @@ class VirtualNetwork(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
         Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateVirtualNetwork
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_network = azure_native.connectedvmwarevsphere.VirtualNetwork("virtualNetwork",
-            extended_location={
-                "name": "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
-                "type": "customLocation",
-            },
-            location="East US",
-            mo_ref_id="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
-            resource_group_name="testrg",
-            v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
-            virtual_network_name="ProdNetwork")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:connectedvmwarevsphere:VirtualNetwork ProdNetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualNetworks/{virtualNetworkName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

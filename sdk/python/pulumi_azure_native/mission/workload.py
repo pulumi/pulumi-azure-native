@@ -140,33 +140,6 @@ class Workload(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Workload_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workload = azure_native.mission.Workload("workload",
-            location="westcentralus",
-            resource_group_collection=[],
-            resource_group_name="rgopenapi",
-            tags={
-                "TestKey": "TestValue",
-            },
-            virtual_enclave_name="TestMyEnclave",
-            workload_name="TestMyWorkload")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mission:Workload kxzylwqnmxtivpmupnlho /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/workloads/{workloadName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,33 +162,6 @@ class Workload(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Workload_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workload = azure_native.mission.Workload("workload",
-            location="westcentralus",
-            resource_group_collection=[],
-            resource_group_name="rgopenapi",
-            tags={
-                "TestKey": "TestValue",
-            },
-            virtual_enclave_name="TestMyEnclave",
-            workload_name="TestMyWorkload")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mission:Workload kxzylwqnmxtivpmupnlho /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/workloads/{workloadName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

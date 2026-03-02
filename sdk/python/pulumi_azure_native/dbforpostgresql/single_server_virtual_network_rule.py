@@ -119,30 +119,6 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
-        ## Example Usage
-        ### Create or update a virtual network rule
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_virtual_network_rule = azure_native.dbforpostgresql.SingleServerVirtualNetworkRule("singleServerVirtualNetworkRule",
-            ignore_missing_vnet_service_endpoint=False,
-            resource_group_name="TestGroup",
-            server_name="vnet-test-svr",
-            virtual_network_rule_name="vnet-firewall-rule",
-            virtual_network_subnet_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerVirtualNetworkRule vnet-firewall-rule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,30 +138,6 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
         A virtual network rule.
 
         Uses Azure REST API version 2017-12-01.
-
-        ## Example Usage
-        ### Create or update a virtual network rule
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_virtual_network_rule = azure_native.dbforpostgresql.SingleServerVirtualNetworkRule("singleServerVirtualNetworkRule",
-            ignore_missing_vnet_service_endpoint=False,
-            resource_group_name="TestGroup",
-            server_name="vnet-test-svr",
-            virtual_network_rule_name="vnet-firewall-rule",
-            virtual_network_subnet_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerVirtualNetworkRule vnet-firewall-rule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -107,32 +107,6 @@ class ManagedEnvironmentPrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Update a Private Endpoint Connection by Managed Environment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_environment_private_endpoint_connection = azure_native.app.ManagedEnvironmentPrivateEndpointConnection("managedEnvironmentPrivateEndpointConnection",
-            environment_name="managedEnv",
-            private_endpoint_connection_name="jlaw-demo1",
-            private_link_service_connection_state={
-                "actions_required": "None",
-                "status": azure_native.app.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="examplerg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:app:ManagedEnvironmentPrivateEndpointConnection jlaw-demo1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class ManagedEnvironmentPrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
 
         Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Update a Private Endpoint Connection by Managed Environment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_environment_private_endpoint_connection = azure_native.app.ManagedEnvironmentPrivateEndpointConnection("managedEnvironmentPrivateEndpointConnection",
-            environment_name="managedEnv",
-            private_endpoint_connection_name="jlaw-demo1",
-            private_link_service_connection_state={
-                "actions_required": "None",
-                "status": azure_native.app.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="examplerg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:app:ManagedEnvironmentPrivateEndpointConnection jlaw-demo1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -157,51 +157,6 @@ class Volume(pulumi.CustomResource):
 
         Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Volumes_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        volume = azure_native.elasticsan.Volume("volume",
-            creation_data={
-                "create_source": azure_native.elasticsan.VolumeCreateOption.NONE,
-                "source_id": "ARM Id of Resource",
-            },
-            elastic_san_name="elasticsanname",
-            managed_by={
-                "resource_id": "mtkeip",
-            },
-            resource_group_name="resourcegroupname",
-            size_gi_b=9,
-            volume_group_name="volumegroupname",
-            volume_name="volumename")
-
-        ```
-        ### Volumes_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        volume = azure_native.elasticsan.Volume("volume",
-            elastic_san_name="elasticsanname",
-            resource_group_name="resourcegroupname",
-            size_gi_b=9,
-            volume_group_name="volumegroupname",
-            volume_name="volumename")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:elasticsan:Volume o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,51 +180,6 @@ class Volume(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
 
         Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Volumes_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        volume = azure_native.elasticsan.Volume("volume",
-            creation_data={
-                "create_source": azure_native.elasticsan.VolumeCreateOption.NONE,
-                "source_id": "ARM Id of Resource",
-            },
-            elastic_san_name="elasticsanname",
-            managed_by={
-                "resource_id": "mtkeip",
-            },
-            resource_group_name="resourcegroupname",
-            size_gi_b=9,
-            volume_group_name="volumegroupname",
-            volume_name="volumename")
-
-        ```
-        ### Volumes_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        volume = azure_native.elasticsan.Volume("volume",
-            elastic_san_name="elasticsanname",
-            resource_group_name="resourcegroupname",
-            size_gi_b=9,
-            volume_group_name="volumegroupname",
-            volume_name="volumename")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:elasticsan:Volume o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

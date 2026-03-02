@@ -227,37 +227,6 @@ class App(pulumi.CustomResource):
 
         Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Apps_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        app = azure_native.iotcentral.App("app",
-            display_name="My IoT Central App",
-            identity={
-                "type": azure_native.iotcentral.SystemAssignedServiceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="westus",
-            resource_group_name="resRg",
-            resource_name_="myIoTCentralApp",
-            sku={
-                "name": azure_native.iotcentral.AppSku.ST2,
-            },
-            subdomain="my-iot-central-app",
-            template="iotc-pnp-preview@1.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotcentral:App myIoTCentralApp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTCentral/iotApps/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,37 +254,6 @@ class App(pulumi.CustomResource):
         Uses Azure REST API version 2021-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotcentral [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Apps_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        app = azure_native.iotcentral.App("app",
-            display_name="My IoT Central App",
-            identity={
-                "type": azure_native.iotcentral.SystemAssignedServiceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="westus",
-            resource_group_name="resRg",
-            resource_name_="myIoTCentralApp",
-            sku={
-                "name": azure_native.iotcentral.AppSku.ST2,
-            },
-            subdomain="my-iot-central-app",
-            template="iotc-pnp-preview@1.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotcentral:App myIoTCentralApp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTCentral/iotApps/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

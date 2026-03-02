@@ -121,29 +121,6 @@ class ElasticBackupVault(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### ElasticBackupVaults_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_backup_vault = azure_native.netapp.ElasticBackupVault("elasticBackupVault",
-            account_name="account1",
-            backup_vault_name="backupVault1",
-            location="eastus",
-            resource_group_name="myRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticBackupVault account1/backupVault1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,29 +140,6 @@ class ElasticBackupVault(pulumi.CustomResource):
         NetApp elastic backup vault resource
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### ElasticBackupVaults_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_backup_vault = azure_native.netapp.ElasticBackupVault("elasticBackupVault",
-            account_name="account1",
-            backup_vault_name="backupVault1",
-            location="eastus",
-            resource_group_name="myRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticBackupVault account1/backupVault1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

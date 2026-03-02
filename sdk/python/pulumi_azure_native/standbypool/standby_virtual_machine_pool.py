@@ -159,35 +159,6 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
 
         Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### StandbyVirtualMachinePools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standby_virtual_machine_pool = azure_native.standbypool.StandbyVirtualMachinePool("standbyVirtualMachinePool",
-            attached_virtual_machine_scale_set_id="/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Compute/virtualMachineScaleSets/myVmss",
-            elasticity_profile={
-                "max_ready_capacity": 304,
-                "min_ready_capacity": 300,
-            },
-            location="West US",
-            resource_group_name="rgstandbypool",
-            standby_virtual_machine_pool_name="pool",
-            tags={},
-            virtual_machine_state=azure_native.standbypool.VirtualMachineState.RUNNING)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:standbypool:StandbyVirtualMachinePool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyVirtualMachinePoolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,35 +182,6 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
 
         Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### StandbyVirtualMachinePools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standby_virtual_machine_pool = azure_native.standbypool.StandbyVirtualMachinePool("standbyVirtualMachinePool",
-            attached_virtual_machine_scale_set_id="/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Compute/virtualMachineScaleSets/myVmss",
-            elasticity_profile={
-                "max_ready_capacity": 304,
-                "min_ready_capacity": 300,
-            },
-            location="West US",
-            resource_group_name="rgstandbypool",
-            standby_virtual_machine_pool_name="pool",
-            tags={},
-            virtual_machine_state=azure_native.standbypool.VirtualMachineState.RUNNING)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:standbypool:StandbyVirtualMachinePool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyVirtualMachinePools/{standbyVirtualMachinePoolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -245,41 +245,6 @@ class GlobalSchedule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### GlobalSchedules_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        global_schedule = azure_native.devtestlab.GlobalSchedule("globalSchedule",
-            name="labvmautostart",
-            resource_group_name="resourceGroupName",
-            status=azure_native.devtestlab.EnableStatus.ENABLED,
-            task_type="LabVmsStartupTask",
-            time_zone_id="Hawaiian Standard Time",
-            weekly_recurrence={
-                "time": "0700",
-                "weekdays": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                ],
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:GlobalSchedule LabVmAutoStart /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,41 +271,6 @@ class GlobalSchedule(pulumi.CustomResource):
         A schedule.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### GlobalSchedules_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        global_schedule = azure_native.devtestlab.GlobalSchedule("globalSchedule",
-            name="labvmautostart",
-            resource_group_name="resourceGroupName",
-            status=azure_native.devtestlab.EnableStatus.ENABLED,
-            task_type="LabVmsStartupTask",
-            time_zone_id="Hawaiian Standard Time",
-            weekly_recurrence={
-                "time": "0700",
-                "weekdays": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                ],
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:GlobalSchedule LabVmAutoStart /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/schedules/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

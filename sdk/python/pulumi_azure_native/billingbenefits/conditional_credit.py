@@ -329,56 +329,6 @@ class ConditionalCredit(pulumi.CustomResource):
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConditionalCreditCreateContributor
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        conditional_credit = azure_native.billingbenefits.ConditionalCredit("conditionalCredit",
-            conditional_credit_name="conditionalCredit_contributor_20250801",
-            display_name="Contributor Conditional Credit 20250801",
-            entity_type=azure_native.billingbenefits.ConditionalCreditEntityType.CONTRIBUTOR,
-            location="global",
-            product_code="000187f7-0000-0260-ab43-b8473ce57f1d",
-            resource_group_name="resource_group_name_02",
-            start_at="2025-09-01T00:00:00Z",
-            tags={
-                "environment": "dev",
-                "team": "finance",
-            })
-
-        ```
-        ### ConditionalCreditCreatePrimary
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        conditional_credit = azure_native.billingbenefits.ConditionalCredit("conditionalCredit",
-            conditional_credit_name="conditionalCredit_20250801",
-            display_name="Conditional Credit 20250801",
-            entity_type=azure_native.billingbenefits.ConditionalCreditEntityType.PRIMARY,
-            location="global",
-            product_code="000187f7-0000-0260-ab43-b8473ce57f1d",
-            resource_group_name="resource_group_name_01",
-            start_at="2025-07-01T00:00:00Z",
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:billingbenefits:ConditionalCredit conditionalCredit_20250801 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/conditionalCredits/{conditionalCreditName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -412,56 +362,6 @@ class ConditionalCredit(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConditionalCreditCreateContributor
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        conditional_credit = azure_native.billingbenefits.ConditionalCredit("conditionalCredit",
-            conditional_credit_name="conditionalCredit_contributor_20250801",
-            display_name="Contributor Conditional Credit 20250801",
-            entity_type=azure_native.billingbenefits.ConditionalCreditEntityType.CONTRIBUTOR,
-            location="global",
-            product_code="000187f7-0000-0260-ab43-b8473ce57f1d",
-            resource_group_name="resource_group_name_02",
-            start_at="2025-09-01T00:00:00Z",
-            tags={
-                "environment": "dev",
-                "team": "finance",
-            })
-
-        ```
-        ### ConditionalCreditCreatePrimary
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        conditional_credit = azure_native.billingbenefits.ConditionalCredit("conditionalCredit",
-            conditional_credit_name="conditionalCredit_20250801",
-            display_name="Conditional Credit 20250801",
-            entity_type=azure_native.billingbenefits.ConditionalCreditEntityType.PRIMARY,
-            location="global",
-            product_code="000187f7-0000-0260-ab43-b8473ce57f1d",
-            resource_group_name="resource_group_name_01",
-            start_at="2025-07-01T00:00:00Z",
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:billingbenefits:ConditionalCredit conditionalCredit_20250801 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/conditionalCredits/{conditionalCreditName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

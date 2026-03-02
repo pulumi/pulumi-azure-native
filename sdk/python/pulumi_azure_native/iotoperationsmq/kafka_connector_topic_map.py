@@ -276,66 +276,6 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        ## Example Usage
-        ### KafkaConnectorTopicMap_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kafka_connector_topic_map = azure_native.iotoperationsmq.KafkaConnectorTopicMap("kafkaConnectorTopicMap",
-            batching={
-                "enabled": True,
-                "latency_ms": 9110,
-                "max_bytes": 732052221,
-                "max_messages": 373078076,
-            },
-            compression=azure_native.iotoperationsmq.KafkaMessageCompressionType.NONE,
-            copy_mqtt_properties="efpqgkycuawnzyubdyt",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            kafka_connector_name="216VN",
-            kafka_connector_ref="icivjwerdspx",
-            location="pavphpzfsgdudpyvufyebqh",
-            mq_name="-1-eD-7-J",
-            partition_key_property="c",
-            partition_strategy=azure_native.iotoperationsmq.KafkaPartitionStrategy.DEFAULT,
-            resource_group_name="rgiotoperationsmq",
-            routes=[{
-                "kafka_to_mqtt": {
-                    "consumer_group_id": "usork",
-                    "kafka_topic": "ggwhwbsr",
-                    "mqtt_topic": "jwvmmhfqqkkmqrpslbdfmpbdetfu",
-                    "name": "lrnvudysggscnqvmnlkrk",
-                    "qos": 1,
-                },
-                "mqtt_to_kafka": {
-                    "kafka_acks": azure_native.iotoperationsmq.KafkaAcks.ZERO,
-                    "kafka_topic": "tellycttwulueqcpqf",
-                    "mqtt_topic": "raipkrcwvdnnflywhgjwnquarf",
-                    "name": "qpshqcaxvxnyjzimvchngupzezdei",
-                    "qos": 1,
-                    "shared_subscription": {
-                        "group_minimum_share_number": 216,
-                        "group_name": "nwdyccsditzhchuksmi",
-                    },
-                },
-            }],
-            tags={},
-            topic_map_name="q582ViEY-b7wF1OO2A")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:KafkaConnectorTopicMap kdcutfmwzjixcfzbkpelp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/kafkaConnector/{kafkaConnectorName}/topicMap/{topicMapName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,66 +304,6 @@ class KafkaConnectorTopicMap(pulumi.CustomResource):
         MQ kafkaConnector/topicMap resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
-        ## Example Usage
-        ### KafkaConnectorTopicMap_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kafka_connector_topic_map = azure_native.iotoperationsmq.KafkaConnectorTopicMap("kafkaConnectorTopicMap",
-            batching={
-                "enabled": True,
-                "latency_ms": 9110,
-                "max_bytes": 732052221,
-                "max_messages": 373078076,
-            },
-            compression=azure_native.iotoperationsmq.KafkaMessageCompressionType.NONE,
-            copy_mqtt_properties="efpqgkycuawnzyubdyt",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            kafka_connector_name="216VN",
-            kafka_connector_ref="icivjwerdspx",
-            location="pavphpzfsgdudpyvufyebqh",
-            mq_name="-1-eD-7-J",
-            partition_key_property="c",
-            partition_strategy=azure_native.iotoperationsmq.KafkaPartitionStrategy.DEFAULT,
-            resource_group_name="rgiotoperationsmq",
-            routes=[{
-                "kafka_to_mqtt": {
-                    "consumer_group_id": "usork",
-                    "kafka_topic": "ggwhwbsr",
-                    "mqtt_topic": "jwvmmhfqqkkmqrpslbdfmpbdetfu",
-                    "name": "lrnvudysggscnqvmnlkrk",
-                    "qos": 1,
-                },
-                "mqtt_to_kafka": {
-                    "kafka_acks": azure_native.iotoperationsmq.KafkaAcks.ZERO,
-                    "kafka_topic": "tellycttwulueqcpqf",
-                    "mqtt_topic": "raipkrcwvdnnflywhgjwnquarf",
-                    "name": "qpshqcaxvxnyjzimvchngupzezdei",
-                    "qos": 1,
-                    "shared_subscription": {
-                        "group_minimum_share_number": 216,
-                        "group_name": "nwdyccsditzhchuksmi",
-                    },
-                },
-            }],
-            tags={},
-            topic_map_name="q582ViEY-b7wF1OO2A")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:KafkaConnectorTopicMap kdcutfmwzjixcfzbkpelp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/kafkaConnector/{kafkaConnectorName}/topicMap/{topicMapName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

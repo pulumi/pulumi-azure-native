@@ -175,45 +175,6 @@ class ImportPipeline(pulumi.CustomResource):
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ImportPipelineCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_pipeline = azure_native.containerregistry.ImportPipeline("importPipeline",
-            identity={
-                "type": azure_native.containerregistry.ResourceIdentityType.USER_ASSIGNED,
-                "user_assigned_identities": {
-                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
-                },
-            },
-            import_pipeline_name="myImportPipeline",
-            location="westus",
-            options=[
-                azure_native.containerregistry.PipelineOptions.OVERWRITE_TAGS,
-                azure_native.containerregistry.PipelineOptions.DELETE_SOURCE_BLOB_ON_SUCCESS,
-                azure_native.containerregistry.PipelineOptions.CONTINUE_ON_ERRORS,
-            ],
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            source={
-                "key_vault_uri": "https://myvault.vault.azure.net/secrets/acrimportsas",
-                "type": azure_native.containerregistry.PipelineSourceType.AZURE_STORAGE_BLOB_CONTAINER,
-                "uri": "https://accountname.blob.core.windows.net/containername",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:ImportPipeline myImportPipeline /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/importPipelines/{importPipelineName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,45 +199,6 @@ class ImportPipeline(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ImportPipelineCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_pipeline = azure_native.containerregistry.ImportPipeline("importPipeline",
-            identity={
-                "type": azure_native.containerregistry.ResourceIdentityType.USER_ASSIGNED,
-                "user_assigned_identities": {
-                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
-                },
-            },
-            import_pipeline_name="myImportPipeline",
-            location="westus",
-            options=[
-                azure_native.containerregistry.PipelineOptions.OVERWRITE_TAGS,
-                azure_native.containerregistry.PipelineOptions.DELETE_SOURCE_BLOB_ON_SUCCESS,
-                azure_native.containerregistry.PipelineOptions.CONTINUE_ON_ERRORS,
-            ],
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            source={
-                "key_vault_uri": "https://myvault.vault.azure.net/secrets/acrimportsas",
-                "type": azure_native.containerregistry.PipelineSourceType.AZURE_STORAGE_BLOB_CONTAINER,
-                "uri": "https://accountname.blob.core.windows.net/containername",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:ImportPipeline myImportPipeline /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/importPipelines/{importPipelineName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

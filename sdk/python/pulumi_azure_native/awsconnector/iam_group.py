@@ -123,52 +123,6 @@ class IamGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### IamGroups_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_group = azure_native.awsconnector.IamGroup("iamGroup",
-            location="badqu",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "yvnnjydmrptjbytuyca",
-                "aws_account_id": "obfwwcnhlgytlanolsfrdn",
-                "aws_properties": {
-                    "arn": "qaymkzqiwzdilzpmfapwpudc",
-                    "group_name": "zcmfl",
-                    "managed_policy_arns": ["uqek"],
-                    "path": "liuneeastp",
-                    "policies": [{
-                        "policy_document": {},
-                        "policy_name": "cokejufrpuszoopjjywwxopal",
-                    }],
-                },
-                "aws_region": "uqzi",
-                "aws_source_schema": "kprcuajdxtfckwviyxpajstzdjeb",
-                "aws_tags": {
-                    "key9078": "mpcfehsyuyqdbvmijur",
-                },
-                "public_cloud_connectors_resource_id": "fjfneaczmcscofgdjnxw",
-                "public_cloud_resource_name": "hj",
-            },
-            resource_group_name="rgiamGroup",
-            tags={
-                "key3844": "pzbfdnhacakyrfejqwafqqmbdjnpx",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamGroup erqrekmdrzpjiicenaylpbsim /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamGroups/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,52 +142,6 @@ class IamGroup(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### IamGroups_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_group = azure_native.awsconnector.IamGroup("iamGroup",
-            location="badqu",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "yvnnjydmrptjbytuyca",
-                "aws_account_id": "obfwwcnhlgytlanolsfrdn",
-                "aws_properties": {
-                    "arn": "qaymkzqiwzdilzpmfapwpudc",
-                    "group_name": "zcmfl",
-                    "managed_policy_arns": ["uqek"],
-                    "path": "liuneeastp",
-                    "policies": [{
-                        "policy_document": {},
-                        "policy_name": "cokejufrpuszoopjjywwxopal",
-                    }],
-                },
-                "aws_region": "uqzi",
-                "aws_source_schema": "kprcuajdxtfckwviyxpajstzdjeb",
-                "aws_tags": {
-                    "key9078": "mpcfehsyuyqdbvmijur",
-                },
-                "public_cloud_connectors_resource_id": "fjfneaczmcscofgdjnxw",
-                "public_cloud_resource_name": "hj",
-            },
-            resource_group_name="rgiamGroup",
-            tags={
-                "key3844": "pzbfdnhacakyrfejqwafqqmbdjnpx",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamGroup erqrekmdrzpjiicenaylpbsim /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamGroups/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -160,36 +160,6 @@ class License(pulumi.CustomResource):
 
         Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or Update a License
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        license = azure_native.hybridcompute.License("license",
-            license_details={
-                "edition": azure_native.hybridcompute.LicenseEdition.DATACENTER,
-                "processors": 6,
-                "state": azure_native.hybridcompute.LicenseState.ACTIVATED,
-                "target": azure_native.hybridcompute.LicenseTarget.WINDOWS_SERVER_2012,
-                "type": azure_native.hybridcompute.LicenseCoreType.P_CORE,
-            },
-            license_name="{licenseName}",
-            license_type=azure_native.hybridcompute.LicenseType.ESU,
-            location="eastus2euap",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcompute:License {licenseName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/licenses/{licenseName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,36 +183,6 @@ class License(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-10. In version 2.x of the Azure Native provider, it used API version 2023-06-20-preview.
 
         Other available API versions: 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or Update a License
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        license = azure_native.hybridcompute.License("license",
-            license_details={
-                "edition": azure_native.hybridcompute.LicenseEdition.DATACENTER,
-                "processors": 6,
-                "state": azure_native.hybridcompute.LicenseState.ACTIVATED,
-                "target": azure_native.hybridcompute.LicenseTarget.WINDOWS_SERVER_2012,
-                "type": azure_native.hybridcompute.LicenseCoreType.P_CORE,
-            },
-            license_name="{licenseName}",
-            license_type=azure_native.hybridcompute.LicenseType.ESU,
-            location="eastus2euap",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcompute:License {licenseName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/licenses/{licenseName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

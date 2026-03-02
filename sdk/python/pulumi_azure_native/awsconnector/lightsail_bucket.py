@@ -123,60 +123,6 @@ class LightsailBucket(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### LightsailBuckets_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        lightsail_bucket = azure_native.awsconnector.LightsailBucket("lightsailBucket",
-            location="ctcjoqkhbmgwtqztn",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "uoyqkdsfok",
-                "aws_account_id": "wqlujalgyyyfgmedzj",
-                "aws_properties": {
-                    "able_to_update_bundle": True,
-                    "access_rules": {
-                        "allow_public_overrides": True,
-                        "get_object": "rzsbxpoywnkypgcjndwgjxurwaggf",
-                    },
-                    "bucket_arn": "khrxjzjloawhlsscrupp",
-                    "bucket_name": "rbqqhyugkapyxigvfygdmmsig",
-                    "bundle_id": "s",
-                    "object_versioning": True,
-                    "read_only_access_accounts": ["yptmppbxsgfmbvcoourx"],
-                    "resources_receiving_access": ["abmltbmvfqgzha"],
-                    "tags": [{
-                        "key": "pllzblljxgv",
-                        "value": "onksgozpshqfschbsuyhhui",
-                    }],
-                    "url": "dzofeppuoqkmehqcpzpezbmbvrvqbn",
-                },
-                "aws_region": "kozgryjoinum",
-                "aws_source_schema": "kcjmzaxkkbztlm",
-                "aws_tags": {
-                    "key7074": "efcntnbhiifsphfneto",
-                },
-                "public_cloud_connectors_resource_id": "vcenimpnlashmiz",
-                "public_cloud_resource_name": "aqpayfdjm",
-            },
-            resource_group_name="rglightsailBucket",
-            tags={
-                "key4407": "iuaeevz",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:LightsailBucket rkporzdndsluhrdrkavuxzbdhl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lightsailBuckets/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,60 +142,6 @@ class LightsailBucket(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### LightsailBuckets_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        lightsail_bucket = azure_native.awsconnector.LightsailBucket("lightsailBucket",
-            location="ctcjoqkhbmgwtqztn",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "uoyqkdsfok",
-                "aws_account_id": "wqlujalgyyyfgmedzj",
-                "aws_properties": {
-                    "able_to_update_bundle": True,
-                    "access_rules": {
-                        "allow_public_overrides": True,
-                        "get_object": "rzsbxpoywnkypgcjndwgjxurwaggf",
-                    },
-                    "bucket_arn": "khrxjzjloawhlsscrupp",
-                    "bucket_name": "rbqqhyugkapyxigvfygdmmsig",
-                    "bundle_id": "s",
-                    "object_versioning": True,
-                    "read_only_access_accounts": ["yptmppbxsgfmbvcoourx"],
-                    "resources_receiving_access": ["abmltbmvfqgzha"],
-                    "tags": [{
-                        "key": "pllzblljxgv",
-                        "value": "onksgozpshqfschbsuyhhui",
-                    }],
-                    "url": "dzofeppuoqkmehqcpzpezbmbvrvqbn",
-                },
-                "aws_region": "kozgryjoinum",
-                "aws_source_schema": "kcjmzaxkkbztlm",
-                "aws_tags": {
-                    "key7074": "efcntnbhiifsphfneto",
-                },
-                "public_cloud_connectors_resource_id": "vcenimpnlashmiz",
-                "public_cloud_resource_name": "aqpayfdjm",
-            },
-            resource_group_name="rglightsailBucket",
-            tags={
-                "key4407": "iuaeevz",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:LightsailBucket rkporzdndsluhrdrkavuxzbdhl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/lightsailBuckets/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

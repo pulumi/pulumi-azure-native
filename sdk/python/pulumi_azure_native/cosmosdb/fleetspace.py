@@ -159,35 +159,6 @@ class Fleetspace(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDB Fleetspace Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fleetspace = azure_native.cosmosdb.Fleetspace("fleetspace",
-            data_regions=["westus2"],
-            fleet_name="fleet1",
-            fleetspace_api_kind=azure_native.cosmosdb.FleetspaceApiKind.NO_SQL,
-            fleetspace_name="fleetspace1",
-            resource_group_name="rg1",
-            service_tier=azure_native.cosmosdb.ServiceTier.GENERAL_PURPOSE,
-            throughput_pool_configuration={
-                "max_throughput": 500000,
-                "min_throughput": 100000,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:Fleetspace fleetspace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName}/fleetspaces/{fleetspaceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,35 +182,6 @@ class Fleetspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-10-15.
 
         Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDB Fleetspace Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fleetspace = azure_native.cosmosdb.Fleetspace("fleetspace",
-            data_regions=["westus2"],
-            fleet_name="fleet1",
-            fleetspace_api_kind=azure_native.cosmosdb.FleetspaceApiKind.NO_SQL,
-            fleetspace_name="fleetspace1",
-            resource_group_name="rg1",
-            service_tier=azure_native.cosmosdb.ServiceTier.GENERAL_PURPOSE,
-            throughput_pool_configuration={
-                "max_throughput": 500000,
-                "min_throughput": 100000,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:Fleetspace fleetspace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName}/fleetspaces/{fleetspaceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

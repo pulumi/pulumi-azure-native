@@ -107,32 +107,6 @@ class FirewallRule(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates a firewall rule on a Mongo Cluster resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.mongocluster.FirewallRule("firewallRule",
-            firewall_rule_name="rule1",
-            mongo_cluster_name="myMongoCluster",
-            properties={
-                "end_ip_address": "255.255.255.255",
-                "start_ip_address": "0.0.0.0",
-            },
-            resource_group_name="TestGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mongocluster:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class FirewallRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01.
 
         Other available API versions: 2024-03-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mongocluster [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates a firewall rule on a Mongo Cluster resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.mongocluster.FirewallRule("firewallRule",
-            firewall_rule_name="rule1",
-            mongo_cluster_name="myMongoCluster",
-            properties={
-                "end_ip_address": "255.255.255.255",
-                "start_ip_address": "0.0.0.0",
-            },
-            resource_group_name="TestGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mongocluster:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

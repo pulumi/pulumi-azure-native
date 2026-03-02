@@ -204,44 +204,6 @@ class RelationshipLink(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-        ## Example Usage
-        ### RelationshipLinks_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        relationship_link = azure_native.customerinsights.RelationshipLink("relationshipLink",
-            description={
-                "en-us": "Link Description",
-            },
-            display_name={
-                "en-us": "Link DisplayName",
-            },
-            hub_name="sdkTestHub",
-            interaction_type="testInteraction4332",
-            profile_property_references=[{
-                "interaction_property_name": "profile1",
-                "profile_property_name": "ProfileId",
-            }],
-            related_profile_property_references=[{
-                "interaction_property_name": "profile1",
-                "profile_property_name": "ProfileId",
-            }],
-            relationship_link_name="Somelink",
-            relationship_name="testProfile2326994",
-            resource_group_name="TestHubRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:RelationshipLink sdkTestHub/Somelink /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/relationshipLinks/{relationshipLinkName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,44 +228,6 @@ class RelationshipLink(pulumi.CustomResource):
         The relationship link resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
-        ## Example Usage
-        ### RelationshipLinks_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        relationship_link = azure_native.customerinsights.RelationshipLink("relationshipLink",
-            description={
-                "en-us": "Link Description",
-            },
-            display_name={
-                "en-us": "Link DisplayName",
-            },
-            hub_name="sdkTestHub",
-            interaction_type="testInteraction4332",
-            profile_property_references=[{
-                "interaction_property_name": "profile1",
-                "profile_property_name": "ProfileId",
-            }],
-            related_profile_property_references=[{
-                "interaction_property_name": "profile1",
-                "profile_property_name": "ProfileId",
-            }],
-            relationship_link_name="Somelink",
-            relationship_name="testProfile2326994",
-            resource_group_name="TestHubRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:RelationshipLink sdkTestHub/Somelink /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/relationshipLinks/{relationshipLinkName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -105,35 +105,6 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
-        ## Example Usage
-        ### ComponentCurrentBillingFeaturesUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component_current_billing_feature = azure_native.applicationinsights.ComponentCurrentBillingFeature("componentCurrentBillingFeature",
-            current_billing_features=[
-                "Basic",
-                "Application Insights Enterprise",
-            ],
-            data_volume_cap={
-                "cap": 100,
-                "stop_send_notification_when_hit_cap": True,
-            },
-            resource_group_name="my-resource-group",
-            resource_name_="my-component")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:ComponentCurrentBillingFeature myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,35 +123,6 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         An Application Insights component billing features
 
         Uses Azure REST API version 2015-05-01.
-
-        ## Example Usage
-        ### ComponentCurrentBillingFeaturesUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component_current_billing_feature = azure_native.applicationinsights.ComponentCurrentBillingFeature("componentCurrentBillingFeature",
-            current_billing_features=[
-                "Basic",
-                "Application Insights Enterprise",
-            ],
-            data_volume_cap={
-                "cap": 100,
-                "stop_send_notification_when_hit_cap": True,
-            },
-            resource_group_name="my-resource-group",
-            resource_name_="my-component")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:ComponentCurrentBillingFeature myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -107,32 +107,6 @@ class ServiceGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-02-01-preview.
 
-        ## Example Usage
-        ### PutServiceGroup
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_group = azure_native.management.ServiceGroup("serviceGroup",
-            properties={
-                "display_name": "ServiceGroup 1 Name",
-                "parent": {
-                    "resource_id": "/providers/Microsoft.Management/serviceGroups/RootGroup",
-                },
-            },
-            service_group_name="ServiceGroup1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:management:ServiceGroup ServiceGroup1 /providers/Microsoft.Management/serviceGroups/{serviceGroupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,32 +125,6 @@ class ServiceGroup(pulumi.CustomResource):
         The serviceGroup details.
 
         Uses Azure REST API version 2024-02-01-preview.
-
-        ## Example Usage
-        ### PutServiceGroup
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_group = azure_native.management.ServiceGroup("serviceGroup",
-            properties={
-                "display_name": "ServiceGroup 1 Name",
-                "parent": {
-                    "resource_id": "/providers/Microsoft.Management/serviceGroups/RootGroup",
-                },
-            },
-            service_group_name="ServiceGroup1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:management:ServiceGroup ServiceGroup1 /providers/Microsoft.Management/serviceGroups/{serviceGroupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

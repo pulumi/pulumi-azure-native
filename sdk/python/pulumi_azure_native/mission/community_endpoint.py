@@ -141,39 +141,6 @@ class CommunityEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CommunityEndpoints_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        community_endpoint = azure_native.mission.CommunityEndpoint("communityEndpoint",
-            community_endpoint_name="TestMyCommunityEndpoint",
-            community_name="TestMyCommunity",
-            location="West US",
-            resource_group_name="rgopenapi",
-            rule_collection=[{
-                "destination": "foo.example.com",
-                "destination_type": azure_native.mission.DestinationType.FQDN_TAG,
-                "ports": "443",
-                "protocols": [azure_native.mission.CommunityEndpointProtocol.TCP],
-                "transit_hub_resource_id": "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity/transitHubs/TestThName",
-            }],
-            tags={
-                "sampletag": "samplevalue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mission:CommunityEndpoint TestMyCommunityEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,39 +163,6 @@ class CommunityEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CommunityEndpoints_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        community_endpoint = azure_native.mission.CommunityEndpoint("communityEndpoint",
-            community_endpoint_name="TestMyCommunityEndpoint",
-            community_name="TestMyCommunity",
-            location="West US",
-            resource_group_name="rgopenapi",
-            rule_collection=[{
-                "destination": "foo.example.com",
-                "destination_type": azure_native.mission.DestinationType.FQDN_TAG,
-                "ports": "443",
-                "protocols": [azure_native.mission.CommunityEndpointProtocol.TCP],
-                "transit_hub_resource_id": "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity/transitHubs/TestThName",
-            }],
-            tags={
-                "sampletag": "samplevalue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mission:CommunityEndpoint TestMyCommunityEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/communityEndpoints/{communityEndpointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

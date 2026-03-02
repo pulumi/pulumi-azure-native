@@ -141,42 +141,6 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
 
         Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### StandbyContainerGroupPools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standby_container_group_pool = azure_native.standbypool.StandbyContainerGroupPool("standbyContainerGroupPool",
-            container_group_properties={
-                "container_group_profile": {
-                    "id": "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile",
-                    "revision": 1,
-                },
-                "subnet_ids": [{
-                    "id": "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Network/virtualNetworks/cgSubnet/subnets/cgSubnet",
-                }],
-            },
-            elasticity_profile={
-                "max_ready_capacity": 688,
-                "refill_policy": azure_native.standbypool.RefillPolicy.ALWAYS,
-            },
-            location="West US",
-            resource_group_name="rgstandbypool",
-            standby_container_group_pool_name="pool",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:standbypool:StandbyContainerGroupPool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyContainerGroupPoolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,42 +163,6 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01-preview.
 
         Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native standbypool [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### StandbyContainerGroupPools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standby_container_group_pool = azure_native.standbypool.StandbyContainerGroupPool("standbyContainerGroupPool",
-            container_group_properties={
-                "container_group_profile": {
-                    "id": "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile",
-                    "revision": 1,
-                },
-                "subnet_ids": [{
-                    "id": "/subscriptions/00000000-0000-0000-0000-000000000009/resourceGroups/rgstandbypool/providers/Microsoft.Network/virtualNetworks/cgSubnet/subnets/cgSubnet",
-                }],
-            },
-            elasticity_profile={
-                "max_ready_capacity": 688,
-                "refill_policy": azure_native.standbypool.RefillPolicy.ALWAYS,
-            },
-            location="West US",
-            resource_group_name="rgstandbypool",
-            standby_container_group_pool_name="pool",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:standbypool:StandbyContainerGroupPool pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StandbyPool/standbyContainerGroupPools/{standbyContainerGroupPoolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

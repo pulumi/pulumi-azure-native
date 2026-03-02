@@ -157,36 +157,6 @@ class LinkedService(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
 
-        ## Example Usage
-        ### CreateLinkedService
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.machinelearningservices.LinkedService("linkedService",
-            identity={
-                "type": azure_native.machinelearningservices.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            link_name="link-1",
-            location="westus",
-            name="link-1",
-            properties={
-                "linked_service_resource_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
-            },
-            resource_group_name="resourceGroup-1",
-            workspace_name="workspace-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:LinkedService link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedServices/{linkName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,36 +178,6 @@ class LinkedService(pulumi.CustomResource):
         Linked service.
 
         Uses Azure REST API version 2020-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
-
-        ## Example Usage
-        ### CreateLinkedService
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.machinelearningservices.LinkedService("linkedService",
-            identity={
-                "type": azure_native.machinelearningservices.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            link_name="link-1",
-            location="westus",
-            name="link-1",
-            properties={
-                "linked_service_resource_id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
-            },
-            resource_group_name="resourceGroup-1",
-            workspace_name="workspace-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:LinkedService link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedServices/{linkName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

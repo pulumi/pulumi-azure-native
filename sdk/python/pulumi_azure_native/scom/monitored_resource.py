@@ -87,28 +87,6 @@ class MonitoredResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
 
-        ## Example Usage
-        ### MonitoredResources_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        monitored_resource = azure_native.scom.MonitoredResource("monitoredResource",
-            instance_name="myInstance",
-            monitored_resource_name="d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
-            resource_group_name="myResGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scom:MonitoredResource d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/monitoredResources/{monitoredResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,28 +104,6 @@ class MonitoredResource(pulumi.CustomResource):
         A monitored resource.
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
-
-        ## Example Usage
-        ### MonitoredResources_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        monitored_resource = azure_native.scom.MonitoredResource("monitoredResource",
-            instance_name="myInstance",
-            monitored_resource_name="d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
-            resource_group_name="myResGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scom:MonitoredResource d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/monitoredResources/{monitoredResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

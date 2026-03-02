@@ -122,29 +122,6 @@ class ApiGatewayConfigConnection(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateGatewayConfigConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_gateway_config_connection = azure_native.apimanagement.ApiGatewayConfigConnection("apiGatewayConfigConnection",
-            config_connection_name="gcc-01",
-            gateway_name="standard-gw-01",
-            resource_group_name="rg1",
-            source_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/services/apim-service-1/workspaces/ws-001")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiGatewayConfigConnection gcc-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/configConnections/{configConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,29 +143,6 @@ class ApiGatewayConfigConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateGatewayConfigConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_gateway_config_connection = azure_native.apimanagement.ApiGatewayConfigConnection("apiGatewayConfigConnection",
-            config_connection_name="gcc-01",
-            gateway_name="standard-gw-01",
-            resource_group_name="rg1",
-            source_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/services/apim-service-1/workspaces/ws-001")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiGatewayConfigConnection gcc-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/configConnections/{configConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

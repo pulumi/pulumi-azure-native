@@ -225,35 +225,6 @@ class VNetPeering(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create vNet Peering for Workspace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        v_net_peering = azure_native.databricks.VNetPeering("vNetPeering",
-            allow_forwarded_traffic=False,
-            allow_gateway_transit=False,
-            allow_virtual_network_access=True,
-            peering_name="vNetPeeringTest",
-            remote_virtual_network={
-                "id": "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
-            },
-            resource_group_name="subramantest",
-            use_remote_gateways=False,
-            workspace_name="adbworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databricks:VNetPeering vNetPeeringTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/virtualNetworkPeerings/{peeringName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,35 +252,6 @@ class VNetPeering(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01.
 
         Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create vNet Peering for Workspace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        v_net_peering = azure_native.databricks.VNetPeering("vNetPeering",
-            allow_forwarded_traffic=False,
-            allow_gateway_transit=False,
-            allow_virtual_network_access=True,
-            peering_name="vNetPeeringTest",
-            remote_virtual_network={
-                "id": "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
-            },
-            resource_group_name="subramantest",
-            use_remote_gateways=False,
-            workspace_name="adbworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databricks:VNetPeering vNetPeeringTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/virtualNetworkPeerings/{peeringName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

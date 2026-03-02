@@ -123,61 +123,6 @@ class ElasticBeanstalkApplication(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### ElasticBeanstalkApplications_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_beanstalk_application = azure_native.awsconnector.ElasticBeanstalkApplication("elasticBeanstalkApplication",
-            location="iiedtydxzeyayiwanytnqwn",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "yautrhxbrmk",
-                "aws_account_id": "xrjnzzimbdnoqnbzpppxas",
-                "aws_properties": {
-                    "application_name": "lrxgvxoicfhhixebp",
-                    "description": "a",
-                    "resource_lifecycle_config": {
-                        "service_role": "buibidzp",
-                        "version_lifecycle_config": {
-                            "max_age_rule": {
-                                "delete_source_from_s3": True,
-                                "enabled": True,
-                                "max_age_in_days": 5,
-                            },
-                            "max_count_rule": {
-                                "delete_source_from_s3": True,
-                                "enabled": True,
-                                "max_count": 14,
-                            },
-                        },
-                    },
-                },
-                "aws_region": "wxoiinzpqpanl",
-                "aws_source_schema": "or",
-                "aws_tags": {
-                    "key4469": "wyj",
-                },
-                "public_cloud_connectors_resource_id": "echppxwpbpqnasbem",
-                "public_cloud_resource_name": "nkyqyjvezjhltbpdnnxr",
-            },
-            resource_group_name="rgelasticBeanstalkApplication",
-            tags={
-                "key8088": "wwicspxekbelocgqyxjqadlctp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ElasticBeanstalkApplication zp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkApplications/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,61 +142,6 @@ class ElasticBeanstalkApplication(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### ElasticBeanstalkApplications_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_beanstalk_application = azure_native.awsconnector.ElasticBeanstalkApplication("elasticBeanstalkApplication",
-            location="iiedtydxzeyayiwanytnqwn",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "yautrhxbrmk",
-                "aws_account_id": "xrjnzzimbdnoqnbzpppxas",
-                "aws_properties": {
-                    "application_name": "lrxgvxoicfhhixebp",
-                    "description": "a",
-                    "resource_lifecycle_config": {
-                        "service_role": "buibidzp",
-                        "version_lifecycle_config": {
-                            "max_age_rule": {
-                                "delete_source_from_s3": True,
-                                "enabled": True,
-                                "max_age_in_days": 5,
-                            },
-                            "max_count_rule": {
-                                "delete_source_from_s3": True,
-                                "enabled": True,
-                                "max_count": 14,
-                            },
-                        },
-                    },
-                },
-                "aws_region": "wxoiinzpqpanl",
-                "aws_source_schema": "or",
-                "aws_tags": {
-                    "key4469": "wyj",
-                },
-                "public_cloud_connectors_resource_id": "echppxwpbpqnasbem",
-                "public_cloud_resource_name": "nkyqyjvezjhltbpdnnxr",
-            },
-            resource_group_name="rgelasticBeanstalkApplication",
-            tags={
-                "key8088": "wwicspxekbelocgqyxjqadlctp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ElasticBeanstalkApplication zp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkApplications/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

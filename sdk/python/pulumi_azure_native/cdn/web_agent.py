@@ -158,43 +158,6 @@ class WebAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### Create or Update Web Agent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_agent = azure_native.cdn.WebAgent("webAgent",
-            description="Primary web agent for content processing",
-            location="WestUs",
-            paths=[
-                {
-                    "path": "/chat",
-                    "type": azure_native.cdn.AgentPathType.CHAT,
-                },
-                {
-                    "path": "/mcp",
-                    "type": azure_native.cdn.AgentPathType.MCP_SERVER,
-                },
-            ],
-            resource_group_name="RG",
-            system_prompt="You are a helpful AI assistant for customer support. Please provide accurate and friendly responses.",
-            tags={
-                "key1": "value1",
-            },
-            web_agent_name="myWebAgent1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:WebAgent myWebAgent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,43 +179,6 @@ class WebAgent(pulumi.CustomResource):
         Defines a web agent resource for Azure CDN.
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### Create or Update Web Agent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_agent = azure_native.cdn.WebAgent("webAgent",
-            description="Primary web agent for content processing",
-            location="WestUs",
-            paths=[
-                {
-                    "path": "/chat",
-                    "type": azure_native.cdn.AgentPathType.CHAT,
-                },
-                {
-                    "path": "/mcp",
-                    "type": azure_native.cdn.AgentPathType.MCP_SERVER,
-                },
-            ],
-            resource_group_name="RG",
-            system_prompt="You are a helpful AI assistant for customer support. Please provide accurate and friendly responses.",
-            tags={
-                "key1": "value1",
-            },
-            web_agent_name="myWebAgent1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:WebAgent myWebAgent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

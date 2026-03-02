@@ -172,32 +172,6 @@ class Service(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
 
-        ## Example Usage
-        ### Service_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service = azure_native.windowsiot.Service("service",
-            admin_domain_name="d.e.f",
-            billing_domain_name="a.b.c",
-            device_name="service4445",
-            location="East US",
-            notes="blah",
-            quantity=1000000,
-            resource_group_name="res9101")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:windowsiot:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,32 +194,6 @@ class Service(pulumi.CustomResource):
         The description of the Windows IoT Device Service.
 
         Uses Azure REST API version 2019-06-01. In version 2.x of the Azure Native provider, it used API version 2019-06-01.
-
-        ## Example Usage
-        ### Service_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service = azure_native.windowsiot.Service("service",
-            admin_domain_name="d.e.f",
-            billing_domain_name="a.b.c",
-            device_name="service4445",
-            location="East US",
-            notes="blah",
-            quantity=1000000,
-            resource_group_name="res9101")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:windowsiot:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

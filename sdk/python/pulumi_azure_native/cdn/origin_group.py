@@ -175,42 +175,6 @@ class OriginGroup(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### OriginGroups_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        origin_group = azure_native.cdn.OriginGroup("originGroup",
-            endpoint_name="endpoint1",
-            health_probe_settings={
-                "probe_interval_in_seconds": 120,
-                "probe_path": "/health.aspx",
-                "probe_protocol": azure_native.cdn.ProbeProtocol.HTTP,
-                "probe_request_type": azure_native.cdn.HealthProbeRequestType.GET,
-            },
-            origin_group_name="origingroup1",
-            origins=[{
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
-            }],
-            profile_name="profile1",
-            resource_group_name="RG",
-            response_based_origin_error_detection_settings={
-                "response_based_detected_error_types": azure_native.cdn.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
-                "response_based_failover_threshold_percentage": 10,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:OriginGroup origingroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/originGroups/{originGroupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,42 +199,6 @@ class OriginGroup(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### OriginGroups_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        origin_group = azure_native.cdn.OriginGroup("originGroup",
-            endpoint_name="endpoint1",
-            health_probe_settings={
-                "probe_interval_in_seconds": 120,
-                "probe_path": "/health.aspx",
-                "probe_protocol": azure_native.cdn.ProbeProtocol.HTTP,
-                "probe_request_type": azure_native.cdn.HealthProbeRequestType.GET,
-            },
-            origin_group_name="origingroup1",
-            origins=[{
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
-            }],
-            profile_name="profile1",
-            resource_group_name="RG",
-            response_based_origin_error_detection_settings={
-                "response_based_detected_error_types": azure_native.cdn.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
-                "response_based_failover_threshold_percentage": 10,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:OriginGroup origingroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/originGroups/{originGroupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

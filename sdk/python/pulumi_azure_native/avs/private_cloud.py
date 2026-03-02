@@ -339,64 +339,6 @@ class PrivateCloud(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PrivateClouds_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_cloud = azure_native.avs.PrivateCloud("privateCloud",
-            identity={
-                "type": azure_native.avs.SystemAssignedServiceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="eastus2",
-            management_cluster={
-                "cluster_size": 4,
-            },
-            network_block="192.168.48.0/22",
-            private_cloud_name="cloud1",
-            resource_group_name="group1",
-            sku={
-                "name": "AV36",
-            },
-            tags={})
-
-        ```
-        ### PrivateClouds_CreateOrUpdate_Stretched
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_cloud = azure_native.avs.PrivateCloud("privateCloud",
-            availability={
-                "secondary_zone": 2,
-                "strategy": azure_native.avs.AvailabilityStrategy.DUAL_ZONE,
-                "zone": 1,
-            },
-            location="eastus2",
-            management_cluster={
-                "cluster_size": 4,
-            },
-            network_block="192.168.48.0/22",
-            private_cloud_name="cloud1",
-            resource_group_name="group1",
-            sku={
-                "name": "AV36",
-            },
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:avs:PrivateCloud cloud1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,64 +377,6 @@ class PrivateCloud(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PrivateClouds_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_cloud = azure_native.avs.PrivateCloud("privateCloud",
-            identity={
-                "type": azure_native.avs.SystemAssignedServiceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="eastus2",
-            management_cluster={
-                "cluster_size": 4,
-            },
-            network_block="192.168.48.0/22",
-            private_cloud_name="cloud1",
-            resource_group_name="group1",
-            sku={
-                "name": "AV36",
-            },
-            tags={})
-
-        ```
-        ### PrivateClouds_CreateOrUpdate_Stretched
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_cloud = azure_native.avs.PrivateCloud("privateCloud",
-            availability={
-                "secondary_zone": 2,
-                "strategy": azure_native.avs.AvailabilityStrategy.DUAL_ZONE,
-                "zone": 1,
-            },
-            location="eastus2",
-            management_cluster={
-                "cluster_size": 4,
-            },
-            network_block="192.168.48.0/22",
-            private_cloud_name="cloud1",
-            resource_group_name="group1",
-            sku={
-                "name": "AV36",
-            },
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:avs:PrivateCloud cloud1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

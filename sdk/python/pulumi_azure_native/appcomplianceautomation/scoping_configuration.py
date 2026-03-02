@@ -89,41 +89,6 @@ class ScopingConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
-        ## Example Usage
-        ### ScopingConfiguration_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scoping_configuration = azure_native.appcomplianceautomation.ScopingConfiguration("scopingConfiguration",
-            answers=[
-                {
-                    "answers": ["Azure"],
-                    "question_id": "GEN20_hostingEnvironment",
-                },
-                {
-                    "answers": [],
-                    "question_id": "DHP_G07_customerDataProcess",
-                },
-                {
-                    "answers": [],
-                    "question_id": "Tier2InitSub_serviceCommunicate",
-                },
-            ],
-            report_name="testReportName",
-            scoping_configuration_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:ScopingConfiguration default /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/scopingConfigurations/{scopingConfigurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,41 +106,6 @@ class ScopingConfiguration(pulumi.CustomResource):
         A class represent an AppComplianceAutomation scoping configuration resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-
-        ## Example Usage
-        ### ScopingConfiguration_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scoping_configuration = azure_native.appcomplianceautomation.ScopingConfiguration("scopingConfiguration",
-            answers=[
-                {
-                    "answers": ["Azure"],
-                    "question_id": "GEN20_hostingEnvironment",
-                },
-                {
-                    "answers": [],
-                    "question_id": "DHP_G07_customerDataProcess",
-                },
-                {
-                    "answers": [],
-                    "question_id": "Tier2InitSub_serviceCommunicate",
-                },
-            ],
-            report_name="testReportName",
-            scoping_configuration_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:ScopingConfiguration default /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/scopingConfigurations/{scopingConfigurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

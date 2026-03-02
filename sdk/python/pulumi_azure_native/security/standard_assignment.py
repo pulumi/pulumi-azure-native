@@ -209,58 +209,6 @@ class StandardAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
 
-        ## Example Usage
-        ### Put an audit standard assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standard_assignment = azure_native.security.StandardAssignment("standardAssignment",
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/securityStandards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            description="Set of policies monitored by Azure Security Center for cross cloud",
-            display_name="ASC Default",
-            effect=azure_native.security.Effect.AUDIT,
-            excluded_scopes=[],
-            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
-            standard_assignment_name="1f3afdf9-d0c9-4c3d-847f-89da613e70a8")
-
-        ```
-        ### Put exemption standard assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standard_assignment = azure_native.security.StandardAssignment("standardAssignment",
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/securityStandards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            description="Exemption description",
-            display_name="Test exemption",
-            effect=azure_native.security.Effect.EXEMPT,
-            exemption_data={
-                "assigned_assessment": {
-                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
-                },
-                "exemption_category": azure_native.security.ExemptionCategory.WAIVER,
-            },
-            expires_on="2022-05-01T19:50:47.083633Z",
-            resource_id="subscriptions/212f9889-769e-45ae-ab43-6da33674bd26/resourceGroups/ANAT_TEST_RG/providers/Microsoft.Compute/virtualMachines/anatTestE2LA",
-            standard_assignment_name="1f3afdf9-d0c9-4c3d-847f-89da613e70a8")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:StandardAssignment 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /{resourceId}/providers/Microsoft.Security/standardAssignments/{standardAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,58 +233,6 @@ class StandardAssignment(pulumi.CustomResource):
         Security Assignment on a resource group over a given scope
 
         Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2024-08-01.
-
-        ## Example Usage
-        ### Put an audit standard assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standard_assignment = azure_native.security.StandardAssignment("standardAssignment",
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/securityStandards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            description="Set of policies monitored by Azure Security Center for cross cloud",
-            display_name="ASC Default",
-            effect=azure_native.security.Effect.AUDIT,
-            excluded_scopes=[],
-            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
-            standard_assignment_name="1f3afdf9-d0c9-4c3d-847f-89da613e70a8")
-
-        ```
-        ### Put exemption standard assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        standard_assignment = azure_native.security.StandardAssignment("standardAssignment",
-            assigned_standard={
-                "id": "/providers/Microsoft.Security/securityStandards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
-            },
-            description="Exemption description",
-            display_name="Test exemption",
-            effect=azure_native.security.Effect.EXEMPT,
-            exemption_data={
-                "assigned_assessment": {
-                    "assessment_key": "1195afff-c881-495e-9bc5-1486211ae03f",
-                },
-                "exemption_category": azure_native.security.ExemptionCategory.WAIVER,
-            },
-            expires_on="2022-05-01T19:50:47.083633Z",
-            resource_id="subscriptions/212f9889-769e-45ae-ab43-6da33674bd26/resourceGroups/ANAT_TEST_RG/providers/Microsoft.Compute/virtualMachines/anatTestE2LA",
-            standard_assignment_name="1f3afdf9-d0c9-4c3d-847f-89da613e70a8")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:StandardAssignment 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /{resourceId}/providers/Microsoft.Security/standardAssignments/{standardAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

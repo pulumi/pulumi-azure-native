@@ -86,28 +86,6 @@ class APICollection(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
 
-        ## Example Usage
-        ### Onboard an Azure API Management API to Defender for APIs
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_collection = azure_native.security.APICollection("apiCollection",
-            api_collection_id="echo-api",
-            resource_group_name="rg1",
-            service_name="apimService1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:APICollection echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiCollectionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,28 +103,6 @@ class APICollection(pulumi.CustomResource):
         An API collection as represented by Defender for APIs.
 
         Uses Azure REST API version 2022-11-20-preview. In version 2.x of the Azure Native provider, it used API version 2022-11-20-preview.
-
-        ## Example Usage
-        ### Onboard an Azure API Management API to Defender for APIs
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_collection = azure_native.security.APICollection("apiCollection",
-            api_collection_id="echo-api",
-            resource_group_name="rg1",
-            service_name="apimService1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:APICollection echo-api /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/providers/Microsoft.Security/apiCollections/{apiCollectionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

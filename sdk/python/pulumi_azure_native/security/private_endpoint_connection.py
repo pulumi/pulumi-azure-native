@@ -107,33 +107,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update private endpoint connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.security.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="pe",
-            private_link_name="pls",
-            private_link_service_connection_state={
-                "actions_required": "None",
-                "description": "Approved by administrator",
-                "status": azure_native.security.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:PrivateEndpointConnection pe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,33 +127,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01-preview.
 
         Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update private endpoint connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.security.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="pe",
-            private_link_name="pls",
-            private_link_service_connection_state={
-                "actions_required": "None",
-                "description": "Approved by administrator",
-                "status": azure_native.security.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:PrivateEndpointConnection pe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

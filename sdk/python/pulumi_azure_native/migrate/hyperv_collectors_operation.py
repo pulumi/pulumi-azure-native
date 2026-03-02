@@ -142,42 +142,6 @@ class HypervCollectorsOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### HypervCollectorsOperations_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hyperv_collectors_operation = azure_native.migrate.HypervCollectorsOperation("hypervCollectorsOperation",
-            agent_properties={
-                "id": "12f1d90f-b3fa-4926-8893-e56803a09af0",
-                "last_heartbeat_utc": "2022-07-07T14:25:35.708325Z",
-                "spn_details": {
-                    "application_id": "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
-                    "audience": "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
-                    "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                    "object_id": "01b9f9e2-2d82-414c-adaa-09ce259b6b44",
-                    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                },
-                "version": "2.0.1993.19",
-            },
-            discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/HyperVSites/test-60527site",
-            hyperv_collector_name="test-697cecollector",
-            project_name="app18700project",
-            provisioning_state=azure_native.migrate.ProvisioningState.SUCCEEDED,
-            resource_group_name="ayagrawRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:HypervCollectorsOperation test-697cecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,42 +164,6 @@ class HypervCollectorsOperation(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### HypervCollectorsOperations_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hyperv_collectors_operation = azure_native.migrate.HypervCollectorsOperation("hypervCollectorsOperation",
-            agent_properties={
-                "id": "12f1d90f-b3fa-4926-8893-e56803a09af0",
-                "last_heartbeat_utc": "2022-07-07T14:25:35.708325Z",
-                "spn_details": {
-                    "application_id": "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
-                    "audience": "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
-                    "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                    "object_id": "01b9f9e2-2d82-414c-adaa-09ce259b6b44",
-                    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                },
-                "version": "2.0.1993.19",
-            },
-            discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/HyperVSites/test-60527site",
-            hyperv_collector_name="test-697cecollector",
-            project_name="app18700project",
-            provisioning_state=azure_native.migrate.ProvisioningState.SUCCEEDED,
-            resource_group_name="ayagrawRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:HypervCollectorsOperation test-697cecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

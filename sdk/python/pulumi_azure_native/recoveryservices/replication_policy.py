@@ -108,33 +108,6 @@ class ReplicationPolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates the policy.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        replication_policy = azure_native.recoveryservices.ReplicationPolicy("replicationPolicy",
-            policy_name="protectionprofile1",
-            properties={
-                "provider_specific_input": {
-                    "instance_type": "HyperVReplicaAzure",
-                },
-            },
-            resource_group_name="resourceGroupPS1",
-            resource_name_="vault1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:recoveryservices:ReplicationPolicy protectionprofile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,33 +128,6 @@ class ReplicationPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates the policy.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        replication_policy = azure_native.recoveryservices.ReplicationPolicy("replicationPolicy",
-            policy_name="protectionprofile1",
-            properties={
-                "provider_specific_input": {
-                    "instance_type": "HyperVReplicaAzure",
-                },
-            },
-            resource_group_name="resourceGroupPS1",
-            resource_name_="vault1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:recoveryservices:ReplicationPolicy protectionprofile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationPolicies/{policyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

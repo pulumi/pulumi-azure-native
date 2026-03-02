@@ -121,44 +121,6 @@ class SapCentralServerInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### Create SAP Central Instances for HA System with Availability Set
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_central_server_instance = azure_native.workloads.SapCentralServerInstance("sapCentralServerInstance",
-            central_instance_name="centralServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-        ### SapCentralServerInstances_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_central_server_instance = azure_native.workloads.SapCentralServerInstance("sapCentralServerInstance",
-            central_instance_name="centralServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:SapCentralServerInstance centralServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/centralInstances/{centralInstanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,44 +140,6 @@ class SapCentralServerInstance(pulumi.CustomResource):
         Define the SAP Central Services Instance resource.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### Create SAP Central Instances for HA System with Availability Set
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_central_server_instance = azure_native.workloads.SapCentralServerInstance("sapCentralServerInstance",
-            central_instance_name="centralServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-        ### SapCentralServerInstances_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_central_server_instance = azure_native.workloads.SapCentralServerInstance("sapCentralServerInstance",
-            central_instance_name="centralServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:SapCentralServerInstance centralServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/centralInstances/{centralInstanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

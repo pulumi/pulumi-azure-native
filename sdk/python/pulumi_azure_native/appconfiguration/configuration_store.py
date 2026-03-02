@@ -267,69 +267,6 @@ class ConfigurationStore(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConfigurationStores_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
-            config_store_name="contoso",
-            location="westus",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Standard",
-            },
-            tags={
-                "myTag": "myTagValue",
-            })
-
-        ```
-        ### ConfigurationStores_Create_With_Data_Plane_Proxy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
-            config_store_name="contoso",
-            data_plane_proxy={
-                "authentication_mode": azure_native.appconfiguration.AuthenticationMode.PASS_THROUGH,
-                "private_link_delegation": azure_native.appconfiguration.PrivateLinkDelegation.ENABLED,
-            },
-            location="westus",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Standard",
-            })
-
-        ```
-        ### ConfigurationStores_Create_With_Local_Auth_Disabled
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
-            config_store_name="contoso",
-            disable_local_auth=True,
-            location="westus",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Standard",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,69 +296,6 @@ class ConfigurationStore(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2023-03-01, 2023-08-01-preview, 2023-09-01-preview, 2024-06-01, 2024-06-15-preview, 2025-02-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConfigurationStores_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
-            config_store_name="contoso",
-            location="westus",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Standard",
-            },
-            tags={
-                "myTag": "myTagValue",
-            })
-
-        ```
-        ### ConfigurationStores_Create_With_Data_Plane_Proxy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
-            config_store_name="contoso",
-            data_plane_proxy={
-                "authentication_mode": azure_native.appconfiguration.AuthenticationMode.PASS_THROUGH,
-                "private_link_delegation": azure_native.appconfiguration.PrivateLinkDelegation.ENABLED,
-            },
-            location="westus",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Standard",
-            })
-
-        ```
-        ### ConfigurationStores_Create_With_Local_Auth_Disabled
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
-            config_store_name="contoso",
-            disable_local_auth=True,
-            location="westus",
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": "Standard",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppConfiguration/configurationStores/{configStoreName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

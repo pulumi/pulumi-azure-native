@@ -157,48 +157,6 @@ class WorkspaceCertificate(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceCertificate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_certificate = azure_native.apimanagement.WorkspaceCertificate("workspaceCertificate",
-            certificate_id="tempcert",
-            data="****************Base 64 Encoded Certificate *******************************",
-            password="****Certificate Password******",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            workspace_id="wks1")
-
-        ```
-        ### ApiManagementCreateWorkspaceCertificateWithKeyVault
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_certificate = azure_native.apimanagement.WorkspaceCertificate("workspaceCertificate",
-            certificate_id="templateCertkv",
-            key_vault={
-                "identity_client_id": "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
-                "secret_identifier": "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
-            },
-            resource_group_name="rg1",
-            service_name="apimService1",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceCertificate templateCertkv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/certificates/{certificateId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,48 +180,6 @@ class WorkspaceCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
 
         Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceCertificate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_certificate = azure_native.apimanagement.WorkspaceCertificate("workspaceCertificate",
-            certificate_id="tempcert",
-            data="****************Base 64 Encoded Certificate *******************************",
-            password="****Certificate Password******",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            workspace_id="wks1")
-
-        ```
-        ### ApiManagementCreateWorkspaceCertificateWithKeyVault
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_certificate = azure_native.apimanagement.WorkspaceCertificate("workspaceCertificate",
-            certificate_id="templateCertkv",
-            key_vault={
-                "identity_client_id": "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
-                "secret_identifier": "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
-            },
-            resource_group_name="rg1",
-            service_name="apimService1",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceCertificate templateCertkv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/certificates/{certificateId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

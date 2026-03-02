@@ -308,38 +308,6 @@ class MySQLServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
 
-        ## Example Usage
-        ### MySQLServers_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        my_sql_server = azure_native.mysqldiscovery.MySQLServer("mySQLServer",
-            host_ip=[
-                "127.0.0.1",
-                "127.0.0.2",
-            ],
-            host_name="test.mysql.server",
-            machine_id="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourcegroups/demoRG/providers/Microsoft.OffAzure/serverSites/xxx/machines/xxx",
-            mysql_version="8.0",
-            number_of_database=16,
-            port_number="3306",
-            resource_group_name="testrg",
-            server_name="testServerName",
-            site_name="testSite",
-            support_status=azure_native.mysqldiscovery.SupportStatus.MAINSTREAM)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mysqldiscovery:MySQLServer testServerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MySQLDiscovery/MySQLSites/{siteName}/MySQLServers/{serverName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -370,38 +338,6 @@ class MySQLServer(pulumi.CustomResource):
         The MySQLServer resource definition.
 
         Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
-
-        ## Example Usage
-        ### MySQLServers_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        my_sql_server = azure_native.mysqldiscovery.MySQLServer("mySQLServer",
-            host_ip=[
-                "127.0.0.1",
-                "127.0.0.2",
-            ],
-            host_name="test.mysql.server",
-            machine_id="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourcegroups/demoRG/providers/Microsoft.OffAzure/serverSites/xxx/machines/xxx",
-            mysql_version="8.0",
-            number_of_database=16,
-            port_number="3306",
-            resource_group_name="testrg",
-            server_name="testServerName",
-            site_name="testSite",
-            support_status=azure_native.mysqldiscovery.SupportStatus.MAINSTREAM)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mysqldiscovery:MySQLServer testServerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MySQLDiscovery/MySQLSites/{siteName}/MySQLServers/{serverName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

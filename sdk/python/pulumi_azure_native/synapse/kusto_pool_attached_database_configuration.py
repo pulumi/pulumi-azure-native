@@ -187,41 +187,6 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
-        ## Example Usage
-        ### KustoPoolAttachedDatabaseConfigurationsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kusto_pool_attached_database_configuration = azure_native.synapse.KustoPoolAttachedDatabaseConfiguration("kustoPoolAttachedDatabaseConfiguration",
-            attached_database_configuration_name="attachedDatabaseConfigurations1",
-            database_name="kustodatabase",
-            default_principals_modification_kind=azure_native.synapse.DefaultPrincipalsModificationKind.UNION,
-            kusto_pool_name="kustoclusterrptest4",
-            kusto_pool_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/Workspaces/kustorptest/KustoPools/kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            table_level_sharing_properties={
-                "external_tables_to_exclude": ["ExternalTable2"],
-                "external_tables_to_include": ["ExternalTable1"],
-                "materialized_views_to_exclude": ["MaterializedViewTable2"],
-                "materialized_views_to_include": ["MaterializedViewTable1"],
-                "tables_to_exclude": ["Table2"],
-                "tables_to_include": ["Table1"],
-            },
-            workspace_name="kustorptest")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:KustoPoolAttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/attachedDatabaseConfigurations/{attachedDatabaseConfigurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,41 +210,6 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         Class representing an attached database configuration.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-
-        ## Example Usage
-        ### KustoPoolAttachedDatabaseConfigurationsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kusto_pool_attached_database_configuration = azure_native.synapse.KustoPoolAttachedDatabaseConfiguration("kustoPoolAttachedDatabaseConfiguration",
-            attached_database_configuration_name="attachedDatabaseConfigurations1",
-            database_name="kustodatabase",
-            default_principals_modification_kind=azure_native.synapse.DefaultPrincipalsModificationKind.UNION,
-            kusto_pool_name="kustoclusterrptest4",
-            kusto_pool_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/Workspaces/kustorptest/KustoPools/kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            table_level_sharing_properties={
-                "external_tables_to_exclude": ["ExternalTable2"],
-                "external_tables_to_include": ["ExternalTable1"],
-                "materialized_views_to_exclude": ["MaterializedViewTable2"],
-                "materialized_views_to_include": ["MaterializedViewTable1"],
-                "tables_to_exclude": ["Table2"],
-                "tables_to_include": ["Table1"],
-            },
-            workspace_name="kustorptest")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:KustoPoolAttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/attachedDatabaseConfigurations/{attachedDatabaseConfigurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

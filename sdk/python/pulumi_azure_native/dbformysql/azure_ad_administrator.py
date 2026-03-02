@@ -175,33 +175,6 @@ class AzureADAdministrator(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create an azure ad administrator
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_ad_administrator = azure_native.dbformysql.AzureADAdministrator("azureADAdministrator",
-            administrator_name="ActiveDirectory",
-            administrator_type=azure_native.dbformysql.AdministratorType.ACTIVE_DIRECTORY,
-            identity_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
-            login="bob@contoso.com",
-            resource_group_name="testrg",
-            server_name="mysqltestsvc4",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c12b7025-bfe2-46c1-b463-993b5e4cd467")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformysql:AzureADAdministrator ActiveDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/administrators/{administratorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,33 +199,6 @@ class AzureADAdministrator(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
         Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create an azure ad administrator
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_ad_administrator = azure_native.dbformysql.AzureADAdministrator("azureADAdministrator",
-            administrator_name="ActiveDirectory",
-            administrator_type=azure_native.dbformysql.AdministratorType.ACTIVE_DIRECTORY,
-            identity_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
-            login="bob@contoso.com",
-            resource_group_name="testrg",
-            server_name="mysqltestsvc4",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c12b7025-bfe2-46c1-b463-993b5e4cd467")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformysql:AzureADAdministrator ActiveDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/administrators/{administratorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -124,56 +124,6 @@ class Ec2VpcEndpoint(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### Ec2VpcEndpoints_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_vpc_endpoint = azure_native.awsconnector.Ec2VpcEndpoint("ec2VpcEndpoint",
-            location="kkohg",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "cxdwblbwakjiwxs",
-                "aws_account_id": "wtjkq",
-                "aws_properties": {
-                    "creation_timestamp": "wmawquyzuhbnkrveo",
-                    "dns_entries": ["kenhegadrd"],
-                    "id": "xfylmv",
-                    "network_interface_ids": ["uvzbeqj"],
-                    "policy_document": {},
-                    "private_dns_enabled": True,
-                    "route_table_ids": ["ybkagmpjwuixbpltpabcrwewbjgj"],
-                    "security_group_ids": ["swfhjyallivwkmzqdyqsgitfilel"],
-                    "service_name": "bltgximadajrfctijpznsmxgy",
-                    "subnet_ids": ["oyfzvlrnugigsjyadmdpjblsgpcxkr"],
-                    "vpc_endpoint_type": azure_native.awsconnector.VpcEndpointType.GATEWAY,
-                    "vpc_id": "ebbnplgbjkbqfifbmbrii",
-                },
-                "aws_region": "hmnjtlhnkmnlwcuykbighvnvnjc",
-                "aws_source_schema": "mpgbtkugoucwqsqzzchrl",
-                "aws_tags": {
-                    "key7370": "ru",
-                },
-                "public_cloud_connectors_resource_id": "lyxajxyfvrugpvxchbigrlulomftou",
-                "public_cloud_resource_name": "zwgwsjbodssxgzq",
-            },
-            resource_group_name="rgec2VPCEndpoint",
-            tags={
-                "key8512": "flakqatnfqyuqukrwcy",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2VpcEndpoint gwdblodylojmzwamkvkhborn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCEndpoints/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,56 +143,6 @@ class Ec2VpcEndpoint(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### Ec2VpcEndpoints_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_vpc_endpoint = azure_native.awsconnector.Ec2VpcEndpoint("ec2VpcEndpoint",
-            location="kkohg",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "cxdwblbwakjiwxs",
-                "aws_account_id": "wtjkq",
-                "aws_properties": {
-                    "creation_timestamp": "wmawquyzuhbnkrveo",
-                    "dns_entries": ["kenhegadrd"],
-                    "id": "xfylmv",
-                    "network_interface_ids": ["uvzbeqj"],
-                    "policy_document": {},
-                    "private_dns_enabled": True,
-                    "route_table_ids": ["ybkagmpjwuixbpltpabcrwewbjgj"],
-                    "security_group_ids": ["swfhjyallivwkmzqdyqsgitfilel"],
-                    "service_name": "bltgximadajrfctijpznsmxgy",
-                    "subnet_ids": ["oyfzvlrnugigsjyadmdpjblsgpcxkr"],
-                    "vpc_endpoint_type": azure_native.awsconnector.VpcEndpointType.GATEWAY,
-                    "vpc_id": "ebbnplgbjkbqfifbmbrii",
-                },
-                "aws_region": "hmnjtlhnkmnlwcuykbighvnvnjc",
-                "aws_source_schema": "mpgbtkugoucwqsqzzchrl",
-                "aws_tags": {
-                    "key7370": "ru",
-                },
-                "public_cloud_connectors_resource_id": "lyxajxyfvrugpvxchbigrlulomftou",
-                "public_cloud_resource_name": "zwgwsjbodssxgzq",
-            },
-            resource_group_name="rgec2VPCEndpoint",
-            tags={
-                "key8512": "flakqatnfqyuqukrwcy",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2VpcEndpoint gwdblodylojmzwamkvkhborn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCEndpoints/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

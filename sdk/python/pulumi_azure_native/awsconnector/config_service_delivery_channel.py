@@ -124,54 +124,6 @@ class ConfigServiceDeliveryChannel(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### ConfigServiceDeliveryChannels_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        config_service_delivery_channel = azure_native.awsconnector.ConfigServiceDeliveryChannel("configServiceDeliveryChannel",
-            location="djcnfaicagptxk",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "eevsmaokvzzbqwpfm",
-                "aws_account_id": "xiyydxsyykydvymn",
-                "aws_properties": {
-                    "config_snapshot_delivery_properties": {
-                        "delivery_frequency": {
-                            "value": azure_native.awsconnector.MaximumExecutionFrequency.ONE_HOUR,
-                        },
-                    },
-                    "name": "pfdwjyiaypjjedltuphpz",
-                    "s3_bucket_name": "kcgtpxhibekwygxkybv",
-                    "s3_key_prefix": "eqgzb",
-                    "s3_kms_key_arn": "vlnkltfo",
-                    "sns_topic_arn": "qsxejnowkzljayrlhzyyppaya",
-                },
-                "aws_region": "kngfw",
-                "aws_source_schema": "ged",
-                "aws_tags": {
-                    "key5086": "cnyyij",
-                },
-                "public_cloud_connectors_resource_id": "kzdkfyjjgkoolslydcmbms",
-                "public_cloud_resource_name": "idxxguxjmvrzjnruzz",
-            },
-            resource_group_name="rgconfigServiceDeliveryChannel",
-            tags={
-                "key6889": "bimlpmolvvbwmp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ConfigServiceDeliveryChannel nygnhqucwqufwbbhwstvjwf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceDeliveryChannels/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,54 +143,6 @@ class ConfigServiceDeliveryChannel(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### ConfigServiceDeliveryChannels_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        config_service_delivery_channel = azure_native.awsconnector.ConfigServiceDeliveryChannel("configServiceDeliveryChannel",
-            location="djcnfaicagptxk",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "eevsmaokvzzbqwpfm",
-                "aws_account_id": "xiyydxsyykydvymn",
-                "aws_properties": {
-                    "config_snapshot_delivery_properties": {
-                        "delivery_frequency": {
-                            "value": azure_native.awsconnector.MaximumExecutionFrequency.ONE_HOUR,
-                        },
-                    },
-                    "name": "pfdwjyiaypjjedltuphpz",
-                    "s3_bucket_name": "kcgtpxhibekwygxkybv",
-                    "s3_key_prefix": "eqgzb",
-                    "s3_kms_key_arn": "vlnkltfo",
-                    "sns_topic_arn": "qsxejnowkzljayrlhzyyppaya",
-                },
-                "aws_region": "kngfw",
-                "aws_source_schema": "ged",
-                "aws_tags": {
-                    "key5086": "cnyyij",
-                },
-                "public_cloud_connectors_resource_id": "kzdkfyjjgkoolslydcmbms",
-                "public_cloud_resource_name": "idxxguxjmvrzjnruzz",
-            },
-            resource_group_name="rgconfigServiceDeliveryChannel",
-            tags={
-                "key6889": "bimlpmolvvbwmp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ConfigServiceDeliveryChannel nygnhqucwqufwbbhwstvjwf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceDeliveryChannels/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

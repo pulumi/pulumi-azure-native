@@ -105,32 +105,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
-        ## Example Usage
-        ### AttestationProviderPutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.attestation.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="{privateEndpointConnectionName}",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.attestation.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            provider_name="sto9699",
-            resource_group_name="res7687")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:attestation:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,32 +123,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
 
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
-
-        ## Example Usage
-        ### AttestationProviderPutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.attestation.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="{privateEndpointConnectionName}",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.attestation.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            provider_name="sto9699",
-            resource_group_name="res7687")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:attestation:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{providerName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

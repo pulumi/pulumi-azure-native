@@ -158,55 +158,6 @@ class NetworkServiceDesignVersion(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a network service design version resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_service_design_version = azure_native.hybridnetwork.NetworkServiceDesignVersion("networkServiceDesignVersion",
-            location="eastus",
-            network_service_design_group_name="TestNetworkServiceDesignGroupName",
-            network_service_design_version_name="1.0.0",
-            properties={
-                "configuration_group_schema_references": {
-                    "MyVM_Configuration": {
-                        "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/publishers/contosoGroup/networkServiceDesignGroups/NSD_contoso/configurationGroupSchemas/MyVM_Configuration_Schema",
-                    },
-                },
-                "resource_element_templates": [{
-                    "configuration": {
-                        "artifact_profile": {
-                            "artifact_name": "MyVMArmTemplate",
-                            "artifact_store_reference": {
-                                "id": "/subscriptions/subid/providers/Microsoft.HybridNetwork/publishers/contosoGroup/artifactStoreReference/store1",
-                            },
-                            "artifact_version": "1.0.0",
-                        },
-                        "parameter_values": "{\\"publisherName\\":\\"{configurationparameters('MyVM_Configuration').publisherName}\\",\\"skuGroupName\\":\\"{configurationparameters('MyVM_Configuration').skuGroupName}\\",\\"skuVersion\\":\\"{configurationparameters('MyVM_Configuration').skuVersion}\\",\\"skuOfferingLocation\\":\\"{configurationparameters('MyVM_Configuration').skuOfferingLocation}\\",\\"nfviType\\":\\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviType}\\",\\"nfviId\\":\\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviId}\\",\\"allowSoftwareUpdates\\":\\"{configurationparameters('MyVM_Configuration').allowSoftwareUpdates}\\",\\"virtualNetworkName\\":\\"{configurationparameters('MyVM_Configuration').vnetName}\\",\\"subnetName\\":\\"{configurationparameters('MyVM_Configuration').subnetName}\\",\\"subnetAddressPrefix\\":\\"{configurationparameters('MyVM_Configuration').subnetAddressPrefix}\\",\\"managedResourceGroup\\":\\"{configurationparameters('SNSSelf').managedResourceGroupName}\\",\\"adminPassword\\":\\"{secretparameters('MyVM_Configuration').adminPassword}\\"}",
-                        "template_type": azure_native.hybridnetwork.TemplateType.ARM_TEMPLATE,
-                    },
-                    "depends_on_profile": {
-                        "install_depends_on": [],
-                    },
-                    "name": "MyVM",
-                    "resource_element_type": "ArmResourceDefinition",
-                }],
-            },
-            publisher_name="TestPublisher",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:NetworkServiceDesignVersion TestVersion /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkServiceDesignGroups/{networkServiceDesignGroupName}/networkServiceDesignVersions/{networkServiceDesignVersionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,55 +181,6 @@ class NetworkServiceDesignVersion(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a network service design version resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_service_design_version = azure_native.hybridnetwork.NetworkServiceDesignVersion("networkServiceDesignVersion",
-            location="eastus",
-            network_service_design_group_name="TestNetworkServiceDesignGroupName",
-            network_service_design_version_name="1.0.0",
-            properties={
-                "configuration_group_schema_references": {
-                    "MyVM_Configuration": {
-                        "id": "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/publishers/contosoGroup/networkServiceDesignGroups/NSD_contoso/configurationGroupSchemas/MyVM_Configuration_Schema",
-                    },
-                },
-                "resource_element_templates": [{
-                    "configuration": {
-                        "artifact_profile": {
-                            "artifact_name": "MyVMArmTemplate",
-                            "artifact_store_reference": {
-                                "id": "/subscriptions/subid/providers/Microsoft.HybridNetwork/publishers/contosoGroup/artifactStoreReference/store1",
-                            },
-                            "artifact_version": "1.0.0",
-                        },
-                        "parameter_values": "{\\"publisherName\\":\\"{configurationparameters('MyVM_Configuration').publisherName}\\",\\"skuGroupName\\":\\"{configurationparameters('MyVM_Configuration').skuGroupName}\\",\\"skuVersion\\":\\"{configurationparameters('MyVM_Configuration').skuVersion}\\",\\"skuOfferingLocation\\":\\"{configurationparameters('MyVM_Configuration').skuOfferingLocation}\\",\\"nfviType\\":\\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviType}\\",\\"nfviId\\":\\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviId}\\",\\"allowSoftwareUpdates\\":\\"{configurationparameters('MyVM_Configuration').allowSoftwareUpdates}\\",\\"virtualNetworkName\\":\\"{configurationparameters('MyVM_Configuration').vnetName}\\",\\"subnetName\\":\\"{configurationparameters('MyVM_Configuration').subnetName}\\",\\"subnetAddressPrefix\\":\\"{configurationparameters('MyVM_Configuration').subnetAddressPrefix}\\",\\"managedResourceGroup\\":\\"{configurationparameters('SNSSelf').managedResourceGroupName}\\",\\"adminPassword\\":\\"{secretparameters('MyVM_Configuration').adminPassword}\\"}",
-                        "template_type": azure_native.hybridnetwork.TemplateType.ARM_TEMPLATE,
-                    },
-                    "depends_on_profile": {
-                        "install_depends_on": [],
-                    },
-                    "name": "MyVM",
-                    "resource_element_type": "ArmResourceDefinition",
-                }],
-            },
-            publisher_name="TestPublisher",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:NetworkServiceDesignVersion TestVersion /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/networkServiceDesignGroups/{networkServiceDesignGroupName}/networkServiceDesignVersions/{networkServiceDesignVersionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

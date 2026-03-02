@@ -140,44 +140,6 @@ class ServiceConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ServiceConfigurationsPutSSH
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_configuration = azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration",
-            endpoint_name="default",
-            port=22,
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
-            service_configuration_name="SSH",
-            service_name=azure_native.hybridconnectivity.ServiceName.SSH)
-
-        ```
-        ### ServiceConfigurationsPutWAC
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_configuration = azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration",
-            endpoint_name="default",
-            port=6516,
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
-            service_configuration_name="WAC",
-            service_name=azure_native.hybridconnectivity.ServiceName.WAC)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridconnectivity:ServiceConfiguration myresource1 /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName}/serviceConfigurations/{serviceConfigurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,44 +162,6 @@ class ServiceConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ServiceConfigurationsPutSSH
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_configuration = azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration",
-            endpoint_name="default",
-            port=22,
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
-            service_configuration_name="SSH",
-            service_name=azure_native.hybridconnectivity.ServiceName.SSH)
-
-        ```
-        ### ServiceConfigurationsPutWAC
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_configuration = azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration",
-            endpoint_name="default",
-            port=6516,
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
-            service_configuration_name="WAC",
-            service_name=azure_native.hybridconnectivity.ServiceName.WAC)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridconnectivity:ServiceConfiguration myresource1 /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName}/serviceConfigurations/{serviceConfigurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

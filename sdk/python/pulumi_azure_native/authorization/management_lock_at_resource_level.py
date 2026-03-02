@@ -203,32 +203,6 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
 
-        ## Example Usage
-        ### Create management lock at resource level
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        management_lock_at_resource_level = azure_native.authorization.ManagementLockAtResourceLevel("managementLockAtResourceLevel",
-            level=azure_native.authorization.LockLevel.READ_ONLY,
-            lock_name="testlock",
-            parent_resource_path="parentResourcePath",
-            resource_group_name="resourcegroupname",
-            resource_name_="teststorageaccount",
-            resource_provider_namespace="Microsoft.Storage",
-            resource_type="storageAccounts")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:ManagementLockAtResourceLevel testlock /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/locks/{lockName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,32 +227,6 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         The lock information.
 
         Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-
-        ## Example Usage
-        ### Create management lock at resource level
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        management_lock_at_resource_level = azure_native.authorization.ManagementLockAtResourceLevel("managementLockAtResourceLevel",
-            level=azure_native.authorization.LockLevel.READ_ONLY,
-            lock_name="testlock",
-            parent_resource_path="parentResourcePath",
-            resource_group_name="resourcegroupname",
-            resource_name_="teststorageaccount",
-            resource_provider_namespace="Microsoft.Storage",
-            resource_type="storageAccounts")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:ManagementLockAtResourceLevel testlock /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/locks/{lockName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

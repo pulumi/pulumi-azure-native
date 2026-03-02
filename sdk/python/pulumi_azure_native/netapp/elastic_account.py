@@ -141,32 +141,6 @@ class ElasticAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### ElasticAccounts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_account = azure_native.netapp.ElasticAccount("elasticAccount",
-            account_name="account1",
-            location="eastus",
-            properties={},
-            resource_group_name="myRG",
-            tags={
-                "ac-tag1": "account1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticAccount account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,32 +161,6 @@ class ElasticAccount(pulumi.CustomResource):
         NetApp elastic account resource
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### ElasticAccounts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_account = azure_native.netapp.ElasticAccount("elasticAccount",
-            account_name="account1",
-            location="eastus",
-            properties={},
-            resource_group_name="myRG",
-            tags={
-                "ac-tag1": "account1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticAccount account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

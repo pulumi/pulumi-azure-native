@@ -276,38 +276,6 @@ class CustomImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### CustomImages_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_image = azure_native.devtestlab.CustomImage("customImage",
-            description="My Custom Image",
-            lab_name="{labName}",
-            name="{customImageName}",
-            resource_group_name="resourceGroupName",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            vm={
-                "linux_os_info": {
-                    "linux_os_state": azure_native.devtestlab.LinuxOsState.NON_DEPROVISIONED,
-                },
-                "source_vm_id": "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName}",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:CustomImage {customImageName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/customimages/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,38 +304,6 @@ class CustomImage(pulumi.CustomResource):
         A custom image.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### CustomImages_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_image = azure_native.devtestlab.CustomImage("customImage",
-            description="My Custom Image",
-            lab_name="{labName}",
-            name="{customImageName}",
-            resource_group_name="resourceGroupName",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            vm={
-                "linux_os_info": {
-                    "linux_os_state": azure_native.devtestlab.LinuxOsState.NON_DEPROVISIONED,
-                },
-                "source_vm_id": "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName}",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:CustomImage {customImageName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/customimages/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

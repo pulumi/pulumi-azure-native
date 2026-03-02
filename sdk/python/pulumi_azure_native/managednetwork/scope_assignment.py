@@ -104,28 +104,6 @@ class ScopeAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
-        ## Example Usage
-        ### ScopeAssignmentsPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scope_assignment = azure_native.managednetwork.ScopeAssignment("scopeAssignment",
-            assigned_managed_network="/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
-            scope="subscriptions/subscriptionC",
-            scope_assignment_name="subscriptionCAssignment")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetwork:ScopeAssignment subscriptionCAssignment /{scope}/providers/Microsoft.ManagedNetwork/scopeAssignments/{scopeAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,28 +122,6 @@ class ScopeAssignment(pulumi.CustomResource):
         The Managed Network resource
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
-
-        ## Example Usage
-        ### ScopeAssignmentsPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scope_assignment = azure_native.managednetwork.ScopeAssignment("scopeAssignment",
-            assigned_managed_network="/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
-            scope="subscriptions/subscriptionC",
-            scope_assignment_name="subscriptionCAssignment")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetwork:ScopeAssignment subscriptionCAssignment /{scope}/providers/Microsoft.ManagedNetwork/scopeAssignments/{scopeAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

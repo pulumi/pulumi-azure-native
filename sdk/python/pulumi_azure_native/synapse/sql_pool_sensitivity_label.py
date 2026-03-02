@@ -234,36 +234,6 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Updates the sensitivity label of a given column with all parameters
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_pool_sensitivity_label = azure_native.synapse.SqlPoolSensitivityLabel("sqlPoolSensitivityLabel",
-            column_name="myColumn",
-            information_type="PhoneNumber",
-            information_type_id="d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
-            label_id="bf91e08c-f4f0-478a-b016-25164b2a65ff",
-            label_name="PII",
-            resource_group_name="myRG",
-            schema_name="dbo",
-            sensitivity_label_source="current",
-            sql_pool_name="myDatabase",
-            table_name="myTable",
-            workspace_name="myServer")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:SqlPoolSensitivityLabel current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,36 +261,6 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Updates the sensitivity label of a given column with all parameters
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_pool_sensitivity_label = azure_native.synapse.SqlPoolSensitivityLabel("sqlPoolSensitivityLabel",
-            column_name="myColumn",
-            information_type="PhoneNumber",
-            information_type_id="d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
-            label_id="bf91e08c-f4f0-478a-b016-25164b2a65ff",
-            label_name="PII",
-            resource_group_name="myRG",
-            schema_name="dbo",
-            sensitivity_label_source="current",
-            sql_pool_name="myDatabase",
-            table_name="myTable",
-            workspace_name="myServer")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:SqlPoolSensitivityLabel current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource} 
-        ```
 
 
         :param str resource_name: The name of the resource.

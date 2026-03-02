@@ -112,41 +112,6 @@ class VMwareCollector(pulumi.CustomResource):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
-        ## Example Usage
-        ### VMwareCollectors_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        v_mware_collector = azure_native.migrate.VMwareCollector("vMwareCollector",
-            e_tag="\\"01003d32-0000-0d00-0000-5d74d2e50000\\"",
-            project_name="abgoyalWEselfhostb72bproject",
-            properties={
-                "agent_properties": {
-                    "spn_details": {
-                        "application_id": "fc717575-8173-4b21-92a5-658b655e613e",
-                        "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/PortalvCenterbc2fagentauthaadapp",
-                        "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                        "object_id": "29d94f38-db94-4980-aec0-0cfd55ab1cd0",
-                        "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                    },
-                },
-                "discovery_site_id": "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westEurope/providers/Microsoft.OffAzure/VMwareSites/PortalvCenterbc2fsite",
-            },
-            resource_group_name="abgoyal-westEurope",
-            vm_ware_collector_name="PortalvCenterbc2fcollector")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:VMwareCollector PortalvCenterbc2fcollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,41 +127,6 @@ class VMwareCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
-
-        ## Example Usage
-        ### VMwareCollectors_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        v_mware_collector = azure_native.migrate.VMwareCollector("vMwareCollector",
-            e_tag="\\"01003d32-0000-0d00-0000-5d74d2e50000\\"",
-            project_name="abgoyalWEselfhostb72bproject",
-            properties={
-                "agent_properties": {
-                    "spn_details": {
-                        "application_id": "fc717575-8173-4b21-92a5-658b655e613e",
-                        "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/PortalvCenterbc2fagentauthaadapp",
-                        "authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                        "object_id": "29d94f38-db94-4980-aec0-0cfd55ab1cd0",
-                        "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                    },
-                },
-                "discovery_site_id": "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westEurope/providers/Microsoft.OffAzure/VMwareSites/PortalvCenterbc2fsite",
-            },
-            resource_group_name="abgoyal-westEurope",
-            vm_ware_collector_name="PortalvCenterbc2fcollector")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:VMwareCollector PortalvCenterbc2fcollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -124,52 +124,6 @@ class CodeBuildSourceCredentialsInfo(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### CodeBuildSourceCredentialsInfos_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        code_build_source_credentials_info = azure_native.awsconnector.CodeBuildSourceCredentialsInfo("codeBuildSourceCredentialsInfo",
-            location="ckmgfv",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "wdxdkxuukdnrlpqgkmmvfagzrwom",
-                "aws_account_id": "bgwhzakphzjipkxqwy",
-                "aws_properties": {
-                    "arn": "ewe",
-                    "auth_type": {
-                        "value": azure_native.awsconnector.AuthType.BASI_C_AUTH,
-                    },
-                    "resource": "cnzfvgfcneqgffgfclggx",
-                    "server_type": {
-                        "value": azure_native.awsconnector.ServerType.BITBUCKET,
-                    },
-                },
-                "aws_region": "vywlxfetnso",
-                "aws_source_schema": "rhibtnvrfkidnqhyynub",
-                "aws_tags": {
-                    "key3224": "eky",
-                },
-                "public_cloud_connectors_resource_id": "cidijgvkoos",
-                "public_cloud_resource_name": "uazcojlwlavznbfsrjzbtthat",
-            },
-            resource_group_name="rgcodeBuildSourceCredentialsInfo",
-            tags={
-                "key9473": "osnuolokdgmmhzpdajuqnguse",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:CodeBuildSourceCredentialsInfo abybajjjrfhfmlcj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/codeBuildSourceCredentialsInfos/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,52 +143,6 @@ class CodeBuildSourceCredentialsInfo(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### CodeBuildSourceCredentialsInfos_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        code_build_source_credentials_info = azure_native.awsconnector.CodeBuildSourceCredentialsInfo("codeBuildSourceCredentialsInfo",
-            location="ckmgfv",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "wdxdkxuukdnrlpqgkmmvfagzrwom",
-                "aws_account_id": "bgwhzakphzjipkxqwy",
-                "aws_properties": {
-                    "arn": "ewe",
-                    "auth_type": {
-                        "value": azure_native.awsconnector.AuthType.BASI_C_AUTH,
-                    },
-                    "resource": "cnzfvgfcneqgffgfclggx",
-                    "server_type": {
-                        "value": azure_native.awsconnector.ServerType.BITBUCKET,
-                    },
-                },
-                "aws_region": "vywlxfetnso",
-                "aws_source_schema": "rhibtnvrfkidnqhyynub",
-                "aws_tags": {
-                    "key3224": "eky",
-                },
-                "public_cloud_connectors_resource_id": "cidijgvkoos",
-                "public_cloud_resource_name": "uazcojlwlavznbfsrjzbtthat",
-            },
-            resource_group_name="rgcodeBuildSourceCredentialsInfo",
-            tags={
-                "key9473": "osnuolokdgmmhzpdajuqnguse",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:CodeBuildSourceCredentialsInfo abybajjjrfhfmlcj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/codeBuildSourceCredentialsInfos/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

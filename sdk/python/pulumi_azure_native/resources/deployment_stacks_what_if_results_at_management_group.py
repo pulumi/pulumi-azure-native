@@ -124,55 +124,6 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
-        ## Example Usage
-        ### Create or update a management group Deployment stack what-if result
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        deployment_stacks_what_if_results_at_management_group = azure_native.resources.DeploymentStacksWhatIfResultsAtManagementGroup("deploymentStacksWhatIfResultsAtManagementGroup",
-            deployment_stacks_what_if_result_name="simpleDeploymentStackWhatIfResult",
-            location="eastus",
-            management_group_id="myMg",
-            properties={
-                "action_on_unmanage": {
-                    "management_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DETACH,
-                    "resource_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-                    "resources": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-                },
-                "deny_settings": {
-                    "apply_to_child_scopes": False,
-                    "mode": azure_native.resources.DenySettingsMode.NONE,
-                },
-                "deployment_stack_resource_id": "/providers/Microsoft.Management/managementGroups/myMg/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack",
-                "extension_configs": {
-                    "contoso": {
-                        "configOne": {
-                            "value": "config1Value",
-                        },
-                        "configTwo": {
-                            "value": True,
-                        },
-                    },
-                },
-                "parameters": {},
-                "retention_interval": "P7D",
-                "template_link": {
-                    "uri": "https://example.com/exampleTemplate.json",
-                },
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:DeploymentStacksWhatIfResultsAtManagementGroup simpleDeploymentStackWhatIfResult /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,55 +143,6 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
         Deployment stack object.
 
         Uses Azure REST API version 2025-07-01.
-
-        ## Example Usage
-        ### Create or update a management group Deployment stack what-if result
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        deployment_stacks_what_if_results_at_management_group = azure_native.resources.DeploymentStacksWhatIfResultsAtManagementGroup("deploymentStacksWhatIfResultsAtManagementGroup",
-            deployment_stacks_what_if_result_name="simpleDeploymentStackWhatIfResult",
-            location="eastus",
-            management_group_id="myMg",
-            properties={
-                "action_on_unmanage": {
-                    "management_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DETACH,
-                    "resource_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-                    "resources": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-                },
-                "deny_settings": {
-                    "apply_to_child_scopes": False,
-                    "mode": azure_native.resources.DenySettingsMode.NONE,
-                },
-                "deployment_stack_resource_id": "/providers/Microsoft.Management/managementGroups/myMg/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack",
-                "extension_configs": {
-                    "contoso": {
-                        "configOne": {
-                            "value": "config1Value",
-                        },
-                        "configTwo": {
-                            "value": True,
-                        },
-                    },
-                },
-                "parameters": {},
-                "retention_interval": "P7D",
-                "template_link": {
-                    "uri": "https://example.com/exampleTemplate.json",
-                },
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:DeploymentStacksWhatIfResultsAtManagementGroup simpleDeploymentStackWhatIfResult /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacksWhatIfResults/{deploymentStacksWhatIfResultName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

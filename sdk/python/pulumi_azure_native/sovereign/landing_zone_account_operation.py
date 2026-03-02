@@ -140,13 +140,6 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
         The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sovereign:LandingZoneAccountOperation lza-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -168,13 +161,6 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
         The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
 
         Uses Azure REST API version 2025-02-27-preview. In version 2.x of the Azure Native provider, it used API version 2025-02-27-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sovereign:LandingZoneAccountOperation lza-RemApiExample /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sovereign/landingZoneAccounts/{landingZoneAccountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

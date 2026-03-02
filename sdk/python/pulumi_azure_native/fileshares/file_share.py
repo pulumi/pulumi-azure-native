@@ -124,47 +124,6 @@ class FileShare(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01-preview.
 
-        ## Example Usage
-        ### FileShares_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        file_share = azure_native.fileshares.FileShare("fileShare",
-            location="gdsuixfhrgfbbbfjtgocmlzyuonrr",
-            properties={
-                "media_tier": azure_native.fileshares.MediaTier.SSD,
-                "mount_name": "fileshare",
-                "nfs_protocol_properties": {
-                    "root_squash": azure_native.fileshares.ShareRootSquash.NO_ROOT_SQUASH,
-                },
-                "protocol": azure_native.fileshares.Protocol.NFS,
-                "provisioned_io_per_sec": 5,
-                "provisioned_storage_gi_b": 8,
-                "provisioned_throughput_mi_b_per_sec": 22,
-                "public_access_properties": {
-                    "allowed_subnets": ["/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3"],
-                },
-                "public_network_access": azure_native.fileshares.PublicNetworkAccess.ENABLED,
-                "redundancy": azure_native.fileshares.Redundancy.LOCAL,
-            },
-            resource_group_name="rgfileshares",
-            resource_name_="fileshare",
-            tags={
-                "key9647": "xwokdvyoae",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fileshares:FileShare fileshare /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,47 +143,6 @@ class FileShare(pulumi.CustomResource):
         File share resource
 
         Uses Azure REST API version 2025-06-01-preview.
-
-        ## Example Usage
-        ### FileShares_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        file_share = azure_native.fileshares.FileShare("fileShare",
-            location="gdsuixfhrgfbbbfjtgocmlzyuonrr",
-            properties={
-                "media_tier": azure_native.fileshares.MediaTier.SSD,
-                "mount_name": "fileshare",
-                "nfs_protocol_properties": {
-                    "root_squash": azure_native.fileshares.ShareRootSquash.NO_ROOT_SQUASH,
-                },
-                "protocol": azure_native.fileshares.Protocol.NFS,
-                "provisioned_io_per_sec": 5,
-                "provisioned_storage_gi_b": 8,
-                "provisioned_throughput_mi_b_per_sec": 22,
-                "public_access_properties": {
-                    "allowed_subnets": ["/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3"],
-                },
-                "public_network_access": azure_native.fileshares.PublicNetworkAccess.ENABLED,
-                "redundancy": azure_native.fileshares.Redundancy.LOCAL,
-            },
-            resource_group_name="rgfileshares",
-            resource_name_="fileshare",
-            tags={
-                "key9647": "xwokdvyoae",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fileshares:FileShare fileshare /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

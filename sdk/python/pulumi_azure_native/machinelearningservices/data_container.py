@@ -107,40 +107,6 @@ class DataContainer(pulumi.CustomResource):
 
         Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateOrUpdate Workspace Data Container.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_container = azure_native.machinelearningservices.DataContainer("dataContainer",
-            data_container_properties={
-                "data_type": "UriFile",
-                "description": "string",
-                "properties": {
-                    "properties1": "value1",
-                    "properties2": "value2",
-                },
-                "tags": {
-                    "tag1": "value1",
-                    "tag2": "value2",
-                },
-            },
-            name="datacontainer123",
-            resource_group_name="testrg123",
-            workspace_name="workspace123")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:DataContainer datacontainer123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/data/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,40 +127,6 @@ class DataContainer(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateOrUpdate Workspace Data Container.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_container = azure_native.machinelearningservices.DataContainer("dataContainer",
-            data_container_properties={
-                "data_type": "UriFile",
-                "description": "string",
-                "properties": {
-                    "properties1": "value1",
-                    "properties2": "value2",
-                },
-                "tags": {
-                    "tag1": "value1",
-                    "tag2": "value2",
-                },
-            },
-            name="datacontainer123",
-            resource_group_name="testrg123",
-            workspace_name="workspace123")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:DataContainer datacontainer123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/data/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

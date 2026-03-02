@@ -157,29 +157,6 @@ class LinkedService(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### LinkedServicesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.operationalinsights.LinkedService("linkedService",
-            linked_service_name="Cluster",
-            resource_group_name="mms-eus",
-            workspace_name="TestLinkWS",
-            write_access_resource_id="/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:LinkedService TestLinkWS/Cluster /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,29 +180,6 @@ class LinkedService(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### LinkedServicesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.operationalinsights.LinkedService("linkedService",
-            linked_service_name="Cluster",
-            resource_group_name="mms-eus",
-            workspace_name="TestLinkWS",
-            write_access_resource_id="/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:LinkedService TestLinkWS/Cluster /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -107,44 +107,6 @@ class HciEdgeDevice(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
 
-        ## Example Usage
-        ### Create HCI Edge Device
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hci_edge_device = azure_native.azurestackhci.HciEdgeDevice("hciEdgeDevice",
-            edge_device_name="default",
-            kind="HCI",
-            properties={
-                "device_configuration": {
-                    "device_metadata": "",
-                    "nic_details": [{
-                        "adapter_name": "ethernet",
-                        "component_id": "VMBUS{f8615163-df3e-46c5-913f-f2d2f965ed0g} ",
-                        "default_gateway": "10.10.10.1",
-                        "default_isolation_id": "0",
-                        "dns_servers": ["100.10.10.1"],
-                        "driver_version": "10.0.20348.1547 ",
-                        "interface_description": "NDIS 6.70 ",
-                        "ip4_address": "10.10.10.10",
-                        "subnet_mask": "255.255.255.0",
-                    }],
-                },
-            },
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:HciEdgeDevice default /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,44 +126,6 @@ class HciEdgeDevice(pulumi.CustomResource):
         Arc-enabled edge device with HCI OS.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
-
-        ## Example Usage
-        ### Create HCI Edge Device
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hci_edge_device = azure_native.azurestackhci.HciEdgeDevice("hciEdgeDevice",
-            edge_device_name="default",
-            kind="HCI",
-            properties={
-                "device_configuration": {
-                    "device_metadata": "",
-                    "nic_details": [{
-                        "adapter_name": "ethernet",
-                        "component_id": "VMBUS{f8615163-df3e-46c5-913f-f2d2f965ed0g} ",
-                        "default_gateway": "10.10.10.1",
-                        "default_isolation_id": "0",
-                        "dns_servers": ["100.10.10.1"],
-                        "driver_version": "10.0.20348.1547 ",
-                        "interface_description": "NDIS 6.70 ",
-                        "ip4_address": "10.10.10.10",
-                        "subnet_mask": "255.255.255.0",
-                    }],
-                },
-            },
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:HciEdgeDevice default /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

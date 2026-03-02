@@ -172,32 +172,6 @@ class StaticSiteDatabaseConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a database connection for a static site
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        static_site_database_connection = azure_native.web.StaticSiteDatabaseConnection("staticSiteDatabaseConnection",
-            connection_identity="SystemAssigned",
-            connection_string="AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
-            database_connection_name="default",
-            name="testStaticSite0",
-            region="West US 2",
-            resource_group_name="rg",
-            resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:web:StaticSiteDatabaseConnection default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/databaseConnections/{databaseConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,32 +196,6 @@ class StaticSiteDatabaseConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a database connection for a static site
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        static_site_database_connection = azure_native.web.StaticSiteDatabaseConnection("staticSiteDatabaseConnection",
-            connection_identity="SystemAssigned",
-            connection_string="AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
-            database_connection_name="default",
-            name="testStaticSite0",
-            region="West US 2",
-            resource_group_name="rg",
-            resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:web:StaticSiteDatabaseConnection default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/databaseConnections/{databaseConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

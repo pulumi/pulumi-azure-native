@@ -106,36 +106,6 @@ class Setting(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01. In version 2.x of the Azure Native provider, it used API version 2019-11-01.
 
-        ## Example Usage
-        ### CreateOrUpdateSetting
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        setting = azure_native.costmanagement.Setting("setting",
-            cache=[{
-                "channel": "Modern",
-                "id": "/providers/Microsoft.Management/managementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                "name": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                "parent": "/providers/Microsoft.Management/managementGroups/acm",
-                "status": "enabled",
-                "subchannel": "NotApplicable",
-            }],
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
-            setting_name="myscope",
-            start_on="LastUsed")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:costmanagement:Setting myscope /providers/Microsoft.CostManagement/settings/{settingName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,36 +124,6 @@ class Setting(pulumi.CustomResource):
         State of the myscope setting.
 
         Uses Azure REST API version 2019-11-01. In version 2.x of the Azure Native provider, it used API version 2019-11-01.
-
-        ## Example Usage
-        ### CreateOrUpdateSetting
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        setting = azure_native.costmanagement.Setting("setting",
-            cache=[{
-                "channel": "Modern",
-                "id": "/providers/Microsoft.Management/managementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                "name": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                "parent": "/providers/Microsoft.Management/managementGroups/acm",
-                "status": "enabled",
-                "subchannel": "NotApplicable",
-            }],
-            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
-            setting_name="myscope",
-            start_on="LastUsed")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:costmanagement:Setting myscope /providers/Microsoft.CostManagement/settings/{settingName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

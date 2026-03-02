@@ -135,31 +135,6 @@ class RedisLinkedServer(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-02-01.
 
-        ## Example Usage
-        ### RedisLinkedServer_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        redis_linked_server = azure_native.redis.RedisLinkedServer("redisLinkedServer",
-            linked_redis_cache_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
-            linked_redis_cache_location="West US",
-            linked_server_name="cache2",
-            name="cache1",
-            resource_group_name="rg1",
-            server_role=azure_native.redis.ReplicationRole.SECONDARY)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redis:RedisLinkedServer cache2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{name}/linkedServers/{linkedServerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,31 +155,6 @@ class RedisLinkedServer(pulumi.CustomResource):
         Response to put/get linked server (with properties) for Redis cache.
 
         Uses Azure REST API version 2017-02-01.
-
-        ## Example Usage
-        ### RedisLinkedServer_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        redis_linked_server = azure_native.redis.RedisLinkedServer("redisLinkedServer",
-            linked_redis_cache_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
-            linked_redis_cache_location="West US",
-            linked_server_name="cache2",
-            name="cache1",
-            resource_group_name="rg1",
-            server_role=azure_native.redis.ReplicationRole.SECONDARY)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redis:RedisLinkedServer cache2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{name}/linkedServers/{linkedServerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

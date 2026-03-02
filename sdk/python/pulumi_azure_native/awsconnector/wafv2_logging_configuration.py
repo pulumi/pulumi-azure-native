@@ -124,67 +124,6 @@ class Wafv2LoggingConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### Wafv2LoggingConfigurations_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        wafv2_logging_configuration = azure_native.awsconnector.Wafv2LoggingConfiguration("wafv2LoggingConfiguration",
-            location="miqjaa",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "vvamx",
-                "aws_account_id": "opcrasgtswrifmkonwy",
-                "aws_properties": {
-                    "log_destination_configs": ["lyxpldjogdqpffwthdto"],
-                    "logging_filter": {
-                        "default_behavior": azure_native.awsconnector.DefaultBehavior.DROP,
-                        "filters": [{
-                            "behavior": azure_native.awsconnector.FilterBehavior.DROP,
-                            "conditions": [{
-                                "action_condition": {
-                                    "action": azure_native.awsconnector.Action.ALLOW,
-                                },
-                                "label_name_condition": {
-                                    "label_name": "oypkvstyighnjavknhfon",
-                                },
-                            }],
-                            "requirement": azure_native.awsconnector.FilterRequirement.MEET_S_ALL,
-                        }],
-                    },
-                    "managed_by_firewall_manager": True,
-                    "redacted_fields": [{
-                        "single_header": {
-                            "name": "bfqodp",
-                        },
-                    }],
-                    "resource_arn": "bnozeamipjgc",
-                },
-                "aws_region": "kkwxoqqqiadksrmfpvopq",
-                "aws_source_schema": "ywgazosjmcwothayguih",
-                "aws_tags": {
-                    "key5392": "qn",
-                },
-                "public_cloud_connectors_resource_id": "towziecfnbhswtodyqkkqrtatogbl",
-                "public_cloud_resource_name": "eniprewwy",
-            },
-            resource_group_name="rgwafv2LoggingConfiguration",
-            tags={
-                "key643": "cmguxikvqhszupgpbhlz",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Wafv2LoggingConfiguration fhprvqrekcufvebkfddaoyll /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/wafv2LoggingConfigurations/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,67 +143,6 @@ class Wafv2LoggingConfiguration(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### Wafv2LoggingConfigurations_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        wafv2_logging_configuration = azure_native.awsconnector.Wafv2LoggingConfiguration("wafv2LoggingConfiguration",
-            location="miqjaa",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "vvamx",
-                "aws_account_id": "opcrasgtswrifmkonwy",
-                "aws_properties": {
-                    "log_destination_configs": ["lyxpldjogdqpffwthdto"],
-                    "logging_filter": {
-                        "default_behavior": azure_native.awsconnector.DefaultBehavior.DROP,
-                        "filters": [{
-                            "behavior": azure_native.awsconnector.FilterBehavior.DROP,
-                            "conditions": [{
-                                "action_condition": {
-                                    "action": azure_native.awsconnector.Action.ALLOW,
-                                },
-                                "label_name_condition": {
-                                    "label_name": "oypkvstyighnjavknhfon",
-                                },
-                            }],
-                            "requirement": azure_native.awsconnector.FilterRequirement.MEET_S_ALL,
-                        }],
-                    },
-                    "managed_by_firewall_manager": True,
-                    "redacted_fields": [{
-                        "single_header": {
-                            "name": "bfqodp",
-                        },
-                    }],
-                    "resource_arn": "bnozeamipjgc",
-                },
-                "aws_region": "kkwxoqqqiadksrmfpvopq",
-                "aws_source_schema": "ywgazosjmcwothayguih",
-                "aws_tags": {
-                    "key5392": "qn",
-                },
-                "public_cloud_connectors_resource_id": "towziecfnbhswtodyqkkqrtatogbl",
-                "public_cloud_resource_name": "eniprewwy",
-            },
-            resource_group_name="rgwafv2LoggingConfiguration",
-            tags={
-                "key643": "cmguxikvqhszupgpbhlz",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Wafv2LoggingConfiguration fhprvqrekcufvebkfddaoyll /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/wafv2LoggingConfigurations/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

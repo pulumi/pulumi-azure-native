@@ -105,28 +105,6 @@ class Catalog(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        ## Example Usage
-        ### Catalogs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        catalog = azure_native.azuresphere.Catalog("catalog",
-            catalog_name="MyCatalog1",
-            location="global",
-            resource_group_name="MyResourceGroup1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azuresphere:Catalog MyCatalog1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,28 +123,6 @@ class Catalog(pulumi.CustomResource):
         An Azure Sphere catalog
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-
-        ## Example Usage
-        ### Catalogs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        catalog = azure_native.azuresphere.Catalog("catalog",
-            catalog_name="MyCatalog1",
-            location="global",
-            resource_group_name="MyResourceGroup1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azuresphere:Catalog MyCatalog1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

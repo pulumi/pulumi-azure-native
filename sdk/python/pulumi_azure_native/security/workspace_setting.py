@@ -86,28 +86,6 @@ class WorkspaceSetting(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-08-01-preview.
 
-        ## Example Usage
-        ### Create a workspace setting data for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_setting = azure_native.security.WorkspaceSetting("workspaceSetting",
-            scope="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
-            workspace_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
-            workspace_setting_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:WorkspaceSetting default /subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,28 +103,6 @@ class WorkspaceSetting(pulumi.CustomResource):
         Configures where to store the OMS agent data for workspaces under a scope
 
         Uses Azure REST API version 2017-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2017-08-01-preview.
-
-        ## Example Usage
-        ### Create a workspace setting data for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_setting = azure_native.security.WorkspaceSetting("workspaceSetting",
-            scope="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
-            workspace_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
-            workspace_setting_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:WorkspaceSetting default /subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

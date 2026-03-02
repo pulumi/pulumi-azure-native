@@ -190,34 +190,6 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update the LTR policy for the managed database.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_instance_long_term_retention_policy = azure_native.sql.ManagedInstanceLongTermRetentionPolicy("managedInstanceLongTermRetentionPolicy",
-            backup_storage_access_tier=azure_native.sql.BackupStorageAccessTier.HOT,
-            database_name="testDatabase",
-            managed_instance_name="testInstance",
-            monthly_retention="P1Y",
-            policy_name="default",
-            resource_group_name="testResourceGroup",
-            week_of_year=5,
-            weekly_retention="P1M",
-            yearly_retention="P5Y")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:ManagedInstanceLongTermRetentionPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,34 +215,6 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
         Other available API versions: 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update the LTR policy for the managed database.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_instance_long_term_retention_policy = azure_native.sql.ManagedInstanceLongTermRetentionPolicy("managedInstanceLongTermRetentionPolicy",
-            backup_storage_access_tier=azure_native.sql.BackupStorageAccessTier.HOT,
-            database_name="testDatabase",
-            managed_instance_name="testInstance",
-            monthly_retention="P1Y",
-            policy_name="default",
-            resource_group_name="testResourceGroup",
-            week_of_year=5,
-            weekly_retention="P1M",
-            yearly_retention="P5Y")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:ManagedInstanceLongTermRetentionPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/backupLongTermRetentionPolicies/{policyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

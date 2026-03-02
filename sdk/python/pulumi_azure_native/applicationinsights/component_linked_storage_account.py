@@ -103,29 +103,6 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-03-01-preview.
 
-        ## Example Usage
-        ### ComponentLinkedStorageAccountsCreateAndUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component_linked_storage_account = azure_native.applicationinsights.ComponentLinkedStorageAccount("componentLinkedStorageAccount",
-            linked_storage_account="/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
-            resource_group_name="someResourceGroupName",
-            resource_name_="myComponent",
-            storage_type="ServiceProfiler")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:ComponentLinkedStorageAccount serviceprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,29 +121,6 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
         An Application Insights component linked storage accounts
 
         Uses Azure REST API version 2020-03-01-preview.
-
-        ## Example Usage
-        ### ComponentLinkedStorageAccountsCreateAndUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        component_linked_storage_account = azure_native.applicationinsights.ComponentLinkedStorageAccount("componentLinkedStorageAccount",
-            linked_storage_account="/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
-            resource_group_name="someResourceGroupName",
-            resource_name_="myComponent",
-            storage_type="ServiceProfiler")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:ComponentLinkedStorageAccount serviceprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/linkedStorageAccounts/{storageType} 
-        ```
 
 
         :param str resource_name: The name of the resource.

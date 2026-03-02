@@ -156,31 +156,6 @@ class NspLink(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### NspLinksPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        nsp_link = azure_native.network.NspLink("nspLink",
-            auto_approved_remote_perimeter_resource_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
-            link_name="link1",
-            local_inbound_profiles=["*"],
-            network_security_perimeter_name="nsp1",
-            remote_inbound_profiles=["*"],
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:NspLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/links/{linkName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,31 +179,6 @@ class NspLink(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
         Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### NspLinksPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        nsp_link = azure_native.network.NspLink("nspLink",
-            auto_approved_remote_perimeter_resource_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
-            link_name="link1",
-            local_inbound_profiles=["*"],
-            network_security_perimeter_name="nsp1",
-            remote_inbound_profiles=["*"],
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:NspLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/links/{linkName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

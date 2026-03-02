@@ -171,33 +171,6 @@ class ScheduledTrigger(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-        ## Example Usage
-        ### Triggers_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scheduled_trigger = azure_native.datashare.ScheduledTrigger("scheduledTrigger",
-            account_name="Account1",
-            kind="ScheduleBased",
-            recurrence_interval=azure_native.datashare.RecurrenceInterval.DAY,
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1",
-            synchronization_mode=azure_native.datashare.SynchronizationMode.INCREMENTAL,
-            synchronization_time="2018-11-14T04:47:52.9614956Z",
-            trigger_name="Trigger1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datashare:ScheduledTrigger Trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/triggers/{triggerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,33 +194,6 @@ class ScheduledTrigger(pulumi.CustomResource):
         A type of trigger based on schedule
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
-        ## Example Usage
-        ### Triggers_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scheduled_trigger = azure_native.datashare.ScheduledTrigger("scheduledTrigger",
-            account_name="Account1",
-            kind="ScheduleBased",
-            recurrence_interval=azure_native.datashare.RecurrenceInterval.DAY,
-            resource_group_name="SampleResourceGroup",
-            share_subscription_name="ShareSubscription1",
-            synchronization_mode=azure_native.datashare.SynchronizationMode.INCREMENTAL,
-            synchronization_time="2018-11-14T04:47:52.9614956Z",
-            trigger_name="Trigger1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datashare:ScheduledTrigger Trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/triggers/{triggerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -205,42 +205,6 @@ class SecretSync(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
 
-        ## Example Usage
-        ### SecretSyncs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secret_sync = azure_native.secretsynccontroller.SecretSync("secretSync",
-            extended_location={
-                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-ssc-example/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location",
-                "type": azure_native.secretsynccontroller.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            kubernetes_secret_type=azure_native.secretsynccontroller.KubernetesSecretType.OPAQUE,
-            location="eastus",
-            object_secret_mapping=[{
-                "source_path": "kv-secret-name/0",
-                "target_key": "kv-secret-name/0",
-            }],
-            resource_group_name="rg-ssc-example",
-            secret_provider_class_name="akvspc-ssc-example",
-            secret_sync_name="secretsync-ssc-example",
-            service_account_name="example-k8s-sa-name",
-            tags={
-                "example-tag": "example-tag-value",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:secretsynccontroller:SecretSync secretsync-ssc-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecretSyncController/secretSyncs/{secretSyncName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,42 +229,6 @@ class SecretSync(pulumi.CustomResource):
         The SecretSync resource.
 
         Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
-
-        ## Example Usage
-        ### SecretSyncs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secret_sync = azure_native.secretsynccontroller.SecretSync("secretSync",
-            extended_location={
-                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-ssc-example/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location",
-                "type": azure_native.secretsynccontroller.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            kubernetes_secret_type=azure_native.secretsynccontroller.KubernetesSecretType.OPAQUE,
-            location="eastus",
-            object_secret_mapping=[{
-                "source_path": "kv-secret-name/0",
-                "target_key": "kv-secret-name/0",
-            }],
-            resource_group_name="rg-ssc-example",
-            secret_provider_class_name="akvspc-ssc-example",
-            secret_sync_name="secretsync-ssc-example",
-            service_account_name="example-k8s-sa-name",
-            tags={
-                "example-tag": "example-tag-value",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:secretsynccontroller:SecretSync secretsync-ssc-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecretSyncController/secretSyncs/{secretSyncName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

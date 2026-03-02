@@ -108,35 +108,6 @@ class DiscoveryRule(pulumi.CustomResource):
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DiscoveryRules_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        discovery_rule = azure_native.cloudhealth.DiscoveryRule("discoveryRule",
-            discovery_rule_name="myDiscoveryRule",
-            health_model_name="myHealthModel",
-            properties={
-                "add_recommended_signals": azure_native.cloudhealth.DiscoveryRuleRecommendedSignalsBehavior.ENABLED,
-                "authentication_setting": "authSetting1",
-                "discover_relationships": azure_native.cloudhealth.DiscoveryRuleRelationshipDiscoveryBehavior.ENABLED,
-                "display_name": "myDisplayName",
-                "resource_graph_query": "resources | where subscriptionId == '7ddfffd7-9b32-40df-1234-828cbd55d6f4' | where resourceGroup == 'my-rg'",
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cloudhealth:DiscoveryRule myDiscoveryRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,35 +128,6 @@ class DiscoveryRule(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DiscoveryRules_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        discovery_rule = azure_native.cloudhealth.DiscoveryRule("discoveryRule",
-            discovery_rule_name="myDiscoveryRule",
-            health_model_name="myHealthModel",
-            properties={
-                "add_recommended_signals": azure_native.cloudhealth.DiscoveryRuleRecommendedSignalsBehavior.ENABLED,
-                "authentication_setting": "authSetting1",
-                "discover_relationships": azure_native.cloudhealth.DiscoveryRuleRelationshipDiscoveryBehavior.ENABLED,
-                "display_name": "myDisplayName",
-                "resource_graph_query": "resources | where subscriptionId == '7ddfffd7-9b32-40df-1234-828cbd55d6f4' | where resourceGroup == 'my-rg'",
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cloudhealth:DiscoveryRule myDiscoveryRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

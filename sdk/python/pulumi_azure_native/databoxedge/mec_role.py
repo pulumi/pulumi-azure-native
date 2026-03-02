@@ -174,28 +174,6 @@ class MECRole(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-        ## Example Usage
-        ### RolePut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mec_role = azure_native.databoxedge.MECRole("mecRole",
-            device_name="testedgedevice",
-            name="IoTRole1",
-            resource_group_name="GroupForEdgeAutomation")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:MECRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,28 +197,6 @@ class MECRole(pulumi.CustomResource):
         MEC role.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-
-        ## Example Usage
-        ### RolePut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mec_role = azure_native.databoxedge.MECRole("mecRole",
-            device_name="testedgedevice",
-            name="IoTRole1",
-            resource_group_name="GroupForEdgeAutomation")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:MECRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

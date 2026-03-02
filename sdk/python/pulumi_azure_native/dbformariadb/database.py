@@ -120,30 +120,6 @@ class Database(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### DatabaseCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database = azure_native.dbformariadb.Database("database",
-            charset="utf8",
-            collation="utf8_general_ci",
-            database_name="db1",
-            resource_group_name="TestGroup",
-            server_name="testserver")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformariadb:Database db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/databases/{databaseName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,30 +139,6 @@ class Database(pulumi.CustomResource):
         Represents a Database.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### DatabaseCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database = azure_native.dbformariadb.Database("database",
-            charset="utf8",
-            collation="utf8_general_ci",
-            database_name="db1",
-            resource_group_name="TestGroup",
-            server_name="testserver")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformariadb:Database db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/databases/{databaseName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

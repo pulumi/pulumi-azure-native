@@ -141,44 +141,6 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
 
         Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update guest configuration assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_configuration_hcrpassignment = azure_native.guestconfiguration.GuestConfigurationHCRPAssignment("guestConfigurationHCRPAssignment",
-            guest_configuration_assignment_name="NotInstalledApplicationForWindows",
-            location="westcentralus",
-            machine_name="myMachineName",
-            name="NotInstalledApplicationForWindows",
-            properties={
-                "context": "Azure policy",
-                "guest_configuration": {
-                    "assignment_type": azure_native.guestconfiguration.AssignmentType.APPLY_AND_AUTO_CORRECT,
-                    "configuration_parameter": [{
-                        "name": "[InstalledApplication]NotInstalledApplicationResource1;Name",
-                        "value": "NotePad,sql",
-                    }],
-                    "content_hash": "123contenthash",
-                    "content_uri": "https://thisisfake/pacakge",
-                    "name": "NotInstalledApplicationForWindows",
-                    "version": "1.0.0.3",
-                },
-            },
-            resource_group_name="myResourceGroupName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:guestconfiguration:GuestConfigurationHCRPAssignment NotInstalledApplicationForWindows /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,44 +163,6 @@ class GuestConfigurationHCRPAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-05. In version 2.x of the Azure Native provider, it used API version 2022-01-25.
 
         Other available API versions: 2022-01-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native guestconfiguration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update guest configuration assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_configuration_hcrpassignment = azure_native.guestconfiguration.GuestConfigurationHCRPAssignment("guestConfigurationHCRPAssignment",
-            guest_configuration_assignment_name="NotInstalledApplicationForWindows",
-            location="westcentralus",
-            machine_name="myMachineName",
-            name="NotInstalledApplicationForWindows",
-            properties={
-                "context": "Azure policy",
-                "guest_configuration": {
-                    "assignment_type": azure_native.guestconfiguration.AssignmentType.APPLY_AND_AUTO_CORRECT,
-                    "configuration_parameter": [{
-                        "name": "[InstalledApplication]NotInstalledApplicationResource1;Name",
-                        "value": "NotePad,sql",
-                    }],
-                    "content_hash": "123contenthash",
-                    "content_uri": "https://thisisfake/pacakge",
-                    "name": "NotInstalledApplicationForWindows",
-                    "version": "1.0.0.3",
-                },
-            },
-            resource_group_name="myResourceGroupName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:guestconfiguration:GuestConfigurationHCRPAssignment NotInstalledApplicationForWindows /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

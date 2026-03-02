@@ -105,33 +105,6 @@ class FileShareSnapshot(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01-preview.
 
-        ## Example Usage
-        ### FileShareSnapshot_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        file_share_snapshot = azure_native.fileshares.FileShareSnapshot("fileShareSnapshot",
-            name="testfilesharesnapshot",
-            properties={
-                "metadata": {
-                    "key9372": "jtc",
-                },
-            },
-            resource_group_name="rgfileshares",
-            resource_name_="fileshare")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fileshares:FileShareSnapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName}/fileShareSnapshots/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,33 +123,6 @@ class FileShareSnapshot(pulumi.CustomResource):
         FileShareSnapshot resource
 
         Uses Azure REST API version 2025-06-01-preview.
-
-        ## Example Usage
-        ### FileShareSnapshot_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        file_share_snapshot = azure_native.fileshares.FileShareSnapshot("fileShareSnapshot",
-            name="testfilesharesnapshot",
-            properties={
-                "metadata": {
-                    "key9372": "jtc",
-                },
-            },
-            resource_group_name="rgfileshares",
-            resource_name_="fileshare")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fileshares:FileShareSnapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName}/fileShareSnapshots/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

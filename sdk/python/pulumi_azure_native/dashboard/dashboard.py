@@ -107,31 +107,6 @@ class Dashboard(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Dashboard_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dashboard = azure_native.dashboard.Dashboard("dashboard",
-            dashboard_name="myDashboard",
-            location="West US",
-            resource_group_name="myResourceGroup",
-            tags={
-                "Environment": "Dev",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dashboard:Dashboard myDashboard /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/dashboards/{dashboardName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,31 +127,6 @@ class Dashboard(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview.
 
         Other available API versions: 2025-08-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Dashboard_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dashboard = azure_native.dashboard.Dashboard("dashboard",
-            dashboard_name="myDashboard",
-            location="West US",
-            resource_group_name="myResourceGroup",
-            tags={
-                "Environment": "Dev",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dashboard:Dashboard myDashboard /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/dashboards/{dashboardName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

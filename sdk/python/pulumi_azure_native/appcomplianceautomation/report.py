@@ -143,40 +143,6 @@ class Report(pulumi.CustomResource):
 
         Other available API versions: 2022-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appcomplianceautomation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Report_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        report = azure_native.appcomplianceautomation.Report("report",
-            offer_guid="00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002",
-            report_name="testReportName",
-            resources=[{
-                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService",
-                "resource_origin": azure_native.appcomplianceautomation.ResourceOrigin.AZURE,
-                "resource_type": "Microsoft.SignalRService/SignalR",
-            }],
-            storage_info={
-                "account_name": "testStorageAccount",
-                "location": "East US",
-                "resource_group": "testResourceGroup",
-                "subscription_id": "00000000-0000-0000-0000-000000000000",
-            },
-            time_zone="GMT Standard Time",
-            trigger_time="2022-03-04T05:00:00.000Z")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:Report testReportName /providers/Microsoft.AppComplianceAutomation/reports/{reportName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,40 +166,6 @@ class Report(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2022-11-16-preview.
 
         Other available API versions: 2022-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appcomplianceautomation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Report_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        report = azure_native.appcomplianceautomation.Report("report",
-            offer_guid="00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002",
-            report_name="testReportName",
-            resources=[{
-                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService",
-                "resource_origin": azure_native.appcomplianceautomation.ResourceOrigin.AZURE,
-                "resource_type": "Microsoft.SignalRService/SignalR",
-            }],
-            storage_info={
-                "account_name": "testStorageAccount",
-                "location": "East US",
-                "resource_group": "testResourceGroup",
-                "subscription_id": "00000000-0000-0000-0000-000000000000",
-            },
-            time_zone="GMT Standard Time",
-            trigger_time="2022-03-04T05:00:00.000Z")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:Report testReportName /providers/Microsoft.AppComplianceAutomation/reports/{reportName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

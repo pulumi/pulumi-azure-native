@@ -107,35 +107,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### WorkloadNetworks_CreateDhcp
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workload_network_dhcp = azure_native.avs.WorkloadNetworkDhcp("workloadNetworkDhcp",
-            dhcp_id="dhcp1",
-            private_cloud_name="cloud1",
-            properties={
-                "dhcp_type": "SERVER",
-                "display_name": "dhcpConfigurations1",
-                "lease_time": 86400,
-                "revision": 1,
-                "server_address": "40.1.5.1/24",
-            },
-            resource_group_name="group1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:avs:WorkloadNetworkDhcp dhcp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,35 +127,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### WorkloadNetworks_CreateDhcp
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workload_network_dhcp = azure_native.avs.WorkloadNetworkDhcp("workloadNetworkDhcp",
-            dhcp_id="dhcp1",
-            private_cloud_name="cloud1",
-            properties={
-                "dhcp_type": "SERVER",
-                "display_name": "dhcpConfigurations1",
-                "lease_time": 86400,
-                "revision": 1,
-                "server_address": "40.1.5.1/24",
-            },
-            resource_group_name="group1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:avs:WorkloadNetworkDhcp dhcp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

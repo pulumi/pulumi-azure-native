@@ -142,31 +142,6 @@ class CacheRule(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CacheRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cache_rule = azure_native.containerregistry.CacheRule("cacheRule",
-            cache_rule_name="myCacheRule",
-            credential_set_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            source_repository="docker.io/library/hello-world",
-            target_repository="cached-docker-hub/hello-world")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:CacheRule myCacheRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,31 +165,6 @@ class CacheRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CacheRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cache_rule = azure_native.containerregistry.CacheRule("cacheRule",
-            cache_rule_name="myCacheRule",
-            credential_set_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            source_repository="docker.io/library/hello-world",
-            target_repository="cached-docker-hub/hello-world")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:CacheRule myCacheRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

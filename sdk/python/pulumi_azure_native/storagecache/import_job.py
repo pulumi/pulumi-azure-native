@@ -179,35 +179,6 @@ class ImportJob(pulumi.CustomResource):
 
         Other available API versions: 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### importJobs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_job = azure_native.storagecache.ImportJob("importJob",
-            aml_filesystem_name="fs1",
-            conflict_resolution_mode=azure_native.storagecache.ConflictResolutionMode.OVERWRITE_ALWAYS,
-            import_job_name="job1",
-            import_prefixes=["/"],
-            location="eastus",
-            maximum_errors=0,
-            resource_group_name="scgroup",
-            tags={
-                "Dept": "ContosoAds",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagecache:ImportJob job1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/importJobs/{importJobName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,35 +203,6 @@ class ImportJob(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01.
 
         Other available API versions: 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### importJobs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        import_job = azure_native.storagecache.ImportJob("importJob",
-            aml_filesystem_name="fs1",
-            conflict_resolution_mode=azure_native.storagecache.ConflictResolutionMode.OVERWRITE_ALWAYS,
-            import_job_name="job1",
-            import_prefixes=["/"],
-            location="eastus",
-            maximum_errors=0,
-            resource_group_name="scgroup",
-            tags={
-                "Dept": "ContosoAds",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagecache:ImportJob job1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/importJobs/{importJobName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

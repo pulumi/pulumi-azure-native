@@ -122,35 +122,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
 
-        ## Example Usage
-        ### PrivateEndpointConnections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.migrate.PrivateEndpointConnection("privateEndpointConnection",
-            e_tag="\\"00009300-0000-0300-0000-602b967b0000\\"",
-            private_endpoint_connection_name="custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
-            project_name="abgoyalWEselfhostb72bproject",
-            properties={
-                "private_link_service_connection_state": {
-                    "actions_required": "",
-                    "status": azure_native.migrate.PrivateEndpointServiceConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="abgoyal-westEurope")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:PrivateEndpointConnection custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentprojects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,35 +141,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection for a project.
 
         Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
-
-        ## Example Usage
-        ### PrivateEndpointConnections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.migrate.PrivateEndpointConnection("privateEndpointConnection",
-            e_tag="\\"00009300-0000-0300-0000-602b967b0000\\"",
-            private_endpoint_connection_name="custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
-            project_name="abgoyalWEselfhostb72bproject",
-            properties={
-                "private_link_service_connection_state": {
-                    "actions_required": "",
-                    "status": azure_native.migrate.PrivateEndpointServiceConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="abgoyal-westEurope")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:PrivateEndpointConnection custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentprojects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

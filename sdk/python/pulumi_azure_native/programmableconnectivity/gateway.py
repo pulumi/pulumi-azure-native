@@ -107,31 +107,6 @@ class Gateway(pulumi.CustomResource):
 
         Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Gateways_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gateway = azure_native.programmableconnectivity.Gateway("gateway",
-            gateway_name="pgzk",
-            location="oryhozfmeohscezl",
-            resource_group_name="rgopenapi",
-            tags={
-                "key2642": "ykmlftvwwpvcmriffxqh",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:programmableconnectivity:Gateway qwlnmndshgfrtkp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProgrammableConnectivity/gateways/{gatewayName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,31 +127,6 @@ class Gateway(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
 
         Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Gateways_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gateway = azure_native.programmableconnectivity.Gateway("gateway",
-            gateway_name="pgzk",
-            location="oryhozfmeohscezl",
-            resource_group_name="rgopenapi",
-            tags={
-                "key2642": "ykmlftvwwpvcmriffxqh",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:programmableconnectivity:Gateway qwlnmndshgfrtkp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProgrammableConnectivity/gateways/{gatewayName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -157,36 +157,6 @@ class SummaryLog(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
-        ## Example Usage
-        ### SummaryLogsUpsert
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        summary_log = azure_native.operationalinsights.SummaryLog("summaryLog",
-            resource_group_name="oiautorest6685",
-            rule_definition={
-                "bin_delay": 10,
-                "bin_size": 180,
-                "bin_start_time": "2020-02-03T04:05:06Z",
-                "destination_table": "MyDestinationTable_CL",
-                "query": "MyTable_CL",
-            },
-            rule_type=azure_native.operationalinsights.RuleTypeEnum.USER,
-            summary_logs_name="summarylogs1",
-            workspace_name="oiautorest6685")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:SummaryLog summarylogs1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,36 +178,6 @@ class SummaryLog(pulumi.CustomResource):
         Workspace data summary rules definition.
 
         Uses Azure REST API version 2025-07-01.
-
-        ## Example Usage
-        ### SummaryLogsUpsert
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        summary_log = azure_native.operationalinsights.SummaryLog("summaryLog",
-            resource_group_name="oiautorest6685",
-            rule_definition={
-                "bin_delay": 10,
-                "bin_size": 180,
-                "bin_start_time": "2020-02-03T04:05:06Z",
-                "destination_table": "MyDestinationTable_CL",
-                "query": "MyTable_CL",
-            },
-            rule_type=azure_native.operationalinsights.RuleTypeEnum.USER,
-            summary_logs_name="summarylogs1",
-            workspace_name="oiautorest6685")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:SummaryLog summarylogs1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

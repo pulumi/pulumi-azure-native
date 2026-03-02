@@ -89,28 +89,6 @@ class SyncGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### SyncGroups_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sync_group = azure_native.storagesync.SyncGroup("syncGroup",
-            resource_group_name="SampleResourceGroup_1",
-            storage_sync_service_name="SampleStorageSyncService_1",
-            sync_group_name="SampleSyncGroup_1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagesync:SyncGroup SampleSyncGroup_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,28 +108,6 @@ class SyncGroup(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### SyncGroups_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sync_group = azure_native.storagesync.SyncGroup("syncGroup",
-            resource_group_name="SampleResourceGroup_1",
-            storage_sync_service_name="SampleStorageSyncService_1",
-            sync_group_name="SampleSyncGroup_1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagesync:SyncGroup SampleSyncGroup_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

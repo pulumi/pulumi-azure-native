@@ -74,29 +74,6 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
-        ## Example Usage
-        ### Connectors_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connector = azure_native.impact.Connector("connector",
-            connector_name="testconnector1",
-            properties={
-                "connector_type": azure_native.impact.Platform.AZURE_MONITOR,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:impact:Connector testconnector1 /subscriptions/{subscriptionId}/providers/Microsoft.Impact/connectors/{connectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,29 +90,6 @@ class Connector(pulumi.CustomResource):
         A connector is a resource that can be used to proactively report impacts against workloads in Azure to Microsoft.
 
         Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
-
-        ## Example Usage
-        ### Connectors_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connector = azure_native.impact.Connector("connector",
-            connector_name="testconnector1",
-            properties={
-                "connector_type": azure_native.impact.Platform.AZURE_MONITOR,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:impact:Connector testconnector1 /subscriptions/{subscriptionId}/providers/Microsoft.Impact/connectors/{connectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

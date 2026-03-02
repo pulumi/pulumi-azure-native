@@ -155,29 +155,6 @@ class IoTAddon(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
-        ## Example Usage
-        ### PutAddOns
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        io_t_addon = azure_native.databoxedge.IoTAddon("ioTAddon",
-            addon_name="arcName",
-            device_name="testedgedevice",
-            resource_group_name="GroupForEdgeAutomation",
-            role_name="KubernetesRole")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:IoTAddon arcName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/addons/{addonName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,29 +177,6 @@ class IoTAddon(pulumi.CustomResource):
         IoT Addon.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-
-        ## Example Usage
-        ### PutAddOns
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        io_t_addon = azure_native.databoxedge.IoTAddon("ioTAddon",
-            addon_name="arcName",
-            device_name="testedgedevice",
-            resource_group_name="GroupForEdgeAutomation",
-            role_name="KubernetesRole")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:IoTAddon arcName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/addons/{addonName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

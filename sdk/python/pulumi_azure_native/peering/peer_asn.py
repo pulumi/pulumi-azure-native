@@ -110,45 +110,6 @@ class PeerAsn(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a peer ASN
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        peer_asn = azure_native.peering.PeerAsn("peerAsn",
-            peer_asn=65000,
-            peer_asn_name="peerAsnName",
-            peer_contact_detail=[
-                {
-                    "email": "noc@contoso.com",
-                    "phone": "+1 (234) 567-8999",
-                    "role": azure_native.peering.Role.NOC,
-                },
-                {
-                    "email": "abc@contoso.com",
-                    "phone": "+1 (234) 567-8900",
-                    "role": azure_native.peering.Role.POLICY,
-                },
-                {
-                    "email": "xyz@contoso.com",
-                    "phone": "+1 (234) 567-8900",
-                    "role": azure_native.peering.Role.TECHNICAL,
-                },
-            ],
-            peer_name="Contoso")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:peering:PeerAsn peerAsnName /subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerAsns/{peerAsnName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,45 +130,6 @@ class PeerAsn(pulumi.CustomResource):
         Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
         Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a peer ASN
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        peer_asn = azure_native.peering.PeerAsn("peerAsn",
-            peer_asn=65000,
-            peer_asn_name="peerAsnName",
-            peer_contact_detail=[
-                {
-                    "email": "noc@contoso.com",
-                    "phone": "+1 (234) 567-8999",
-                    "role": azure_native.peering.Role.NOC,
-                },
-                {
-                    "email": "abc@contoso.com",
-                    "phone": "+1 (234) 567-8900",
-                    "role": azure_native.peering.Role.POLICY,
-                },
-                {
-                    "email": "xyz@contoso.com",
-                    "phone": "+1 (234) 567-8900",
-                    "role": azure_native.peering.Role.TECHNICAL,
-                },
-            ],
-            peer_name="Contoso")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:peering:PeerAsn peerAsnName /subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerAsns/{peerAsnName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

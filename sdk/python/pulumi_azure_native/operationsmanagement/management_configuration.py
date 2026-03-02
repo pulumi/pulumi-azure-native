@@ -106,28 +106,6 @@ class ManagementConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
 
-        ## Example Usage
-        ### ManagementConfigurationCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        management_configuration = azure_native.operationsmanagement.ManagementConfiguration("managementConfiguration",
-            location="East US",
-            management_configuration_name="managementConfiguration1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationsmanagement:ManagementConfiguration managementConfiguration1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationsManagement/ManagementConfigurations/{managementConfigurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,28 +124,6 @@ class ManagementConfiguration(pulumi.CustomResource):
         The container for solution.
 
         Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
-
-        ## Example Usage
-        ### ManagementConfigurationCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        management_configuration = azure_native.operationsmanagement.ManagementConfiguration("managementConfiguration",
-            location="East US",
-            management_configuration_name="managementConfiguration1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationsmanagement:ManagementConfiguration managementConfiguration1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationsManagement/ManagementConfigurations/{managementConfigurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

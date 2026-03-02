@@ -170,37 +170,6 @@ class Connector(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-        ## Example Usage
-        ### Connectors_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connector = azure_native.customerinsights.Connector("connector",
-            connector_name="testConnector",
-            connector_properties={
-                "connectionKeyVaultUrl": {
-                    "organizationId": "XXX",
-                    "organizationUrl": "https://XXX.crmlivetie.com/",
-                },
-            },
-            connector_type=azure_native.customerinsights.ConnectorTypes.AZURE_BLOB,
-            description="Test connector",
-            display_name="testConnector",
-            hub_name="sdkTestHub",
-            resource_group_name="TestHubRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Connector sdkTestHub/testConnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,37 +192,6 @@ class Connector(pulumi.CustomResource):
         The connector resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
-        ## Example Usage
-        ### Connectors_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connector = azure_native.customerinsights.Connector("connector",
-            connector_name="testConnector",
-            connector_properties={
-                "connectionKeyVaultUrl": {
-                    "organizationId": "XXX",
-                    "organizationUrl": "https://XXX.crmlivetie.com/",
-                },
-            },
-            connector_type=azure_native.customerinsights.ConnectorTypes.AZURE_BLOB,
-            description="Test connector",
-            display_name="testConnector",
-            hub_name="sdkTestHub",
-            resource_group_name="TestHubRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Connector sdkTestHub/testConnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/connectors/{connectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

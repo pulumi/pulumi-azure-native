@@ -157,33 +157,6 @@ class RoutingRuleCollection(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-07-01, 2024-09-01-preview, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or Update a routing rule collection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        routing_rule_collection = azure_native.network.RoutingRuleCollection("routingRuleCollection",
-            applies_to=[{
-                "network_group_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
-            }],
-            configuration_name="myTestRoutingConfig",
-            description="A sample policy",
-            network_manager_name="testNetworkManager",
-            resource_group_name="rg1",
-            rule_collection_name="testRuleCollection")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:RoutingRuleCollection myTestRoutingConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}/ruleCollections/{ruleCollectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,33 +180,6 @@ class RoutingRuleCollection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-07-01, 2024-09-01-preview, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or Update a routing rule collection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        routing_rule_collection = azure_native.network.RoutingRuleCollection("routingRuleCollection",
-            applies_to=[{
-                "network_group_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
-            }],
-            configuration_name="myTestRoutingConfig",
-            description="A sample policy",
-            network_manager_name="testNetworkManager",
-            resource_group_name="rg1",
-            rule_collection_name="testRuleCollection")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:RoutingRuleCollection myTestRoutingConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/routingConfigurations/{configurationName}/ruleCollections/{ruleCollectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

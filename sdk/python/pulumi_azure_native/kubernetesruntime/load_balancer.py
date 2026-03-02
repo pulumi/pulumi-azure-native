@@ -138,35 +138,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
-        ## Example Usage
-        ### LoadBalancers_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        load_balancer = azure_native.kubernetesruntime.LoadBalancer("loadBalancer",
-            addresses=[
-                "192.168.50.1/24",
-                "192.168.51.2-192.168.51.10",
-            ],
-            advertise_mode=azure_native.kubernetesruntime.AdvertiseMode.ARP,
-            load_balancer_name="testlb",
-            resource_uri="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
-            service_selector={
-                "app": "frontend",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:kubernetesruntime:LoadBalancer testlb /{resourceUri}/providers/Microsoft.KubernetesRuntime/loadBalancers/{loadBalancerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,35 +158,6 @@ class LoadBalancer(pulumi.CustomResource):
         A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
 
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
-
-        ## Example Usage
-        ### LoadBalancers_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        load_balancer = azure_native.kubernetesruntime.LoadBalancer("loadBalancer",
-            addresses=[
-                "192.168.50.1/24",
-                "192.168.51.2-192.168.51.10",
-            ],
-            advertise_mode=azure_native.kubernetesruntime.AdvertiseMode.ARP,
-            load_balancer_name="testlb",
-            resource_uri="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
-            service_selector={
-                "app": "frontend",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:kubernetesruntime:LoadBalancer testlb /{resourceUri}/providers/Microsoft.KubernetesRuntime/loadBalancers/{loadBalancerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

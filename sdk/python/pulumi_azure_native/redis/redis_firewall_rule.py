@@ -118,30 +118,6 @@ class RedisFirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-04-01.
 
-        ## Example Usage
-        ### RedisCacheFirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        redis_firewall_rule = azure_native.redis.RedisFirewallRule("redisFirewallRule",
-            cache_name="cache1",
-            end_ip="192.168.1.4",
-            resource_group_name="rg1",
-            rule_name="rule1",
-            start_ip="192.168.1.1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redis:RedisFirewallRule cache1/rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{cacheName}/firewallRules/{ruleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,30 +137,6 @@ class RedisFirewallRule(pulumi.CustomResource):
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 
         Uses Azure REST API version 2016-04-01.
-
-        ## Example Usage
-        ### RedisCacheFirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        redis_firewall_rule = azure_native.redis.RedisFirewallRule("redisFirewallRule",
-            cache_name="cache1",
-            end_ip="192.168.1.4",
-            resource_group_name="rg1",
-            rule_name="rule1",
-            start_ip="192.168.1.1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redis:RedisFirewallRule cache1/rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/Redis/{cacheName}/firewallRules/{ruleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

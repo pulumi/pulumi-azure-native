@@ -123,30 +123,6 @@ class Database(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a database
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database = azure_native.dbformysql.Database("database",
-            charset="utf8",
-            collation="utf8_general_ci",
-            database_name="db1",
-            resource_group_name="TestGroup",
-            server_name="testserver")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformysql:Database db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/databases/{databaseName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,30 +144,6 @@ class Database(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
 
         Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a database
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database = azure_native.dbformysql.Database("database",
-            charset="utf8",
-            collation="utf8_general_ci",
-            database_name="db1",
-            resource_group_name="TestGroup",
-            server_name="testserver")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformysql:Database db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/databases/{databaseName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -100,6 +100,8 @@ __all__ = [
     'ManagedIdentityAuthTypeConnectionPropertiesArgsDict',
     'MultiRegionSettingsArgs',
     'MultiRegionSettingsArgsDict',
+    'NetworkInjectionArgs',
+    'NetworkInjectionArgsDict',
     'NetworkRuleSetArgs',
     'NetworkRuleSetArgsDict',
     'NoneAuthTypeConnectionPropertiesArgs',
@@ -178,6 +180,9 @@ class AADAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -185,9 +190,18 @@ class AADAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -210,7 +224,11 @@ class AADAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'AAD'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'AAD')
         if category is not None:
@@ -262,6 +280,9 @@ class AADAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -301,6 +322,9 @@ class AADAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -310,6 +334,9 @@ class AADAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -328,6 +355,9 @@ class AADAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -356,6 +386,9 @@ class AccessKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
     """
     credentials: NotRequired[pulumi.Input['ConnectionAccessKeyArgsDict']]
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -363,9 +396,18 @@ class AccessKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -387,7 +429,11 @@ class AccessKeyAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'AccessKey'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'AccessKey')
         if category is not None:
@@ -450,6 +496,9 @@ class AccessKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -489,6 +538,9 @@ class AccessKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -498,6 +550,9 @@ class AccessKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -516,6 +571,9 @@ class AccessKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -550,6 +608,9 @@ class AccountKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Account key object for connection credential.
     """
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -557,9 +618,18 @@ class AccountKeyAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -584,7 +654,11 @@ class AccountKeyAuthTypeConnectionPropertiesArgs:
                Expected value is 'AccountKey'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input['ConnectionAccountKeyArgs'] credentials: Account key object for connection credential.
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'AccountKey')
         if category is not None:
@@ -650,6 +724,9 @@ class AccountKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -689,6 +766,9 @@ class AccountKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -698,6 +778,9 @@ class AccountKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -716,6 +799,9 @@ class AccountKeyAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -736,18 +822,30 @@ class AccountPropertiesArgsDict(TypedDict):
     """
     Properties of Cognitive Services account.
     """
+    allow_project_management: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+    """
     allowed_fqdn_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     aml_workspace: NotRequired[pulumi.Input['UserOwnedAmlWorkspaceArgsDict']]
     """
-    The user owned AML workspace properties.
+    The user owned AML account properties.
     """
     api_properties: NotRequired[pulumi.Input['ApiPropertiesArgsDict']]
     """
     The api properties for special APIs.
     """
+    associated_projects: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the projects, by project name, that are associated with this resource.
+    """
     custom_sub_domain_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Optional subdomain name used for token-based authentication.
+    """
+    default_project: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
     """
     disable_local_auth: NotRequired[pulumi.Input[_builtins.bool]]
     dynamic_throttling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
@@ -770,6 +868,7 @@ class AccountPropertiesArgsDict(TypedDict):
     """
     A collection of rules governing the accessibility from specific network locations.
     """
+    network_injections: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInjectionArgsDict']]]]
     public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]]
     """
     Whether or not public endpoint access is allowed for this account.
@@ -788,16 +887,20 @@ class AccountPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AccountPropertiesArgs:
     def __init__(__self__, *,
+                 allow_project_management: Optional[pulumi.Input[_builtins.bool]] = None,
                  allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  aml_workspace: Optional[pulumi.Input['UserOwnedAmlWorkspaceArgs']] = None,
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+                 associated_projects: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_sub_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_project: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_local_auth: Optional[pulumi.Input[_builtins.bool]] = None,
                  dynamic_throttling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  locations: Optional[pulumi.Input['MultiRegionSettingsArgs']] = None,
                  migration_token: Optional[pulumi.Input[_builtins.str]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 network_injections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInjectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  rai_monitor_config: Optional[pulumi.Input['RaiMonitorConfigArgs']] = None,
                  restore: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -806,9 +909,12 @@ class AccountPropertiesArgs:
         """
         Properties of Cognitive Services account.
 
-        :param pulumi.Input['UserOwnedAmlWorkspaceArgs'] aml_workspace: The user owned AML workspace properties.
+        :param pulumi.Input[_builtins.bool] allow_project_management: Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+        :param pulumi.Input['UserOwnedAmlWorkspaceArgs'] aml_workspace: The user owned AML account properties.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: The api properties for special APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_projects: Specifies the projects, by project name, that are associated with this resource.
         :param pulumi.Input[_builtins.str] custom_sub_domain_name: Optional subdomain name used for token-based authentication.
+        :param pulumi.Input[_builtins.str] default_project: Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: The flag to enable dynamic throttling.
         :param pulumi.Input['EncryptionArgs'] encryption: The encryption properties for this resource.
         :param pulumi.Input['MultiRegionSettingsArgs'] locations: The multiregion settings of Cognitive Services account.
@@ -818,14 +924,20 @@ class AccountPropertiesArgs:
         :param pulumi.Input['RaiMonitorConfigArgs'] rai_monitor_config: Cognitive Services Rai Monitor Config.
         :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
         """
+        if allow_project_management is not None:
+            pulumi.set(__self__, "allow_project_management", allow_project_management)
         if allowed_fqdn_list is not None:
             pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
         if aml_workspace is not None:
             pulumi.set(__self__, "aml_workspace", aml_workspace)
         if api_properties is not None:
             pulumi.set(__self__, "api_properties", api_properties)
+        if associated_projects is not None:
+            pulumi.set(__self__, "associated_projects", associated_projects)
         if custom_sub_domain_name is not None:
             pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
+        if default_project is not None:
+            pulumi.set(__self__, "default_project", default_project)
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if dynamic_throttling_enabled is not None:
@@ -838,6 +950,8 @@ class AccountPropertiesArgs:
             pulumi.set(__self__, "migration_token", migration_token)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if network_injections is not None:
+            pulumi.set(__self__, "network_injections", network_injections)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if rai_monitor_config is not None:
@@ -848,6 +962,18 @@ class AccountPropertiesArgs:
             pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
         if user_owned_storage is not None:
             pulumi.set(__self__, "user_owned_storage", user_owned_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="allowProjectManagement")
+    def allow_project_management(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether this resource support project management as child resources, used as containers for access management, data isolation and cost in AI Foundry.
+        """
+        return pulumi.get(self, "allow_project_management")
+
+    @allow_project_management.setter
+    def allow_project_management(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_project_management", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedFqdnList")
@@ -862,7 +988,7 @@ class AccountPropertiesArgs:
     @pulumi.getter(name="amlWorkspace")
     def aml_workspace(self) -> Optional[pulumi.Input['UserOwnedAmlWorkspaceArgs']]:
         """
-        The user owned AML workspace properties.
+        The user owned AML account properties.
         """
         return pulumi.get(self, "aml_workspace")
 
@@ -883,6 +1009,18 @@ class AccountPropertiesArgs:
         pulumi.set(self, "api_properties", value)
 
     @_builtins.property
+    @pulumi.getter(name="associatedProjects")
+    def associated_projects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the projects, by project name, that are associated with this resource.
+        """
+        return pulumi.get(self, "associated_projects")
+
+    @associated_projects.setter
+    def associated_projects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "associated_projects", value)
+
+    @_builtins.property
     @pulumi.getter(name="customSubDomainName")
     def custom_sub_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -893,6 +1031,18 @@ class AccountPropertiesArgs:
     @custom_sub_domain_name.setter
     def custom_sub_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "custom_sub_domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultProject")
+    def default_project(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the project, by project name, that is targeted when data plane endpoints are called without a project parameter.
+        """
+        return pulumi.get(self, "default_project")
+
+    @default_project.setter
+    def default_project(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_project", value)
 
     @_builtins.property
     @pulumi.getter(name="disableLocalAuth")
@@ -962,6 +1112,15 @@ class AccountPropertiesArgs:
     @network_acls.setter
     def network_acls(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
         pulumi.set(self, "network_acls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInjections")
+    def network_injections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInjectionArgs']]]]:
+        return pulumi.get(self, "network_injections")
+
+    @network_injections.setter
+    def network_injections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInjectionArgs']]]]):
+        pulumi.set(self, "network_injections", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
@@ -1357,6 +1516,9 @@ class ApiKeyAuthConnectionPropertiesArgsDict(TypedDict):
     Api key object for connection credential.
     """
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -1364,9 +1526,18 @@ class ApiKeyAuthConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -1410,7 +1581,11 @@ class ApiKeyAuthConnectionPropertiesArgs:
                Expected value is 'ApiKey'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input['ConnectionApiKeyArgs'] credentials: Api key object for connection credential.
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'ApiKey')
         if category is not None:
@@ -1476,6 +1651,9 @@ class ApiKeyAuthConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -1515,6 +1693,9 @@ class ApiKeyAuthConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -1524,6 +1705,9 @@ class ApiKeyAuthConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -1542,6 +1726,9 @@ class ApiKeyAuthConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -1974,7 +2161,7 @@ class CapabilityHostArgsDict(TypedDict):
     """
     storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    List of Storage connections.
+    List of connection names from those available in the account or project to be used as a storage resource.
     """
     tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
@@ -1982,11 +2169,11 @@ class CapabilityHostArgsDict(TypedDict):
     """
     thread_storage_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    List of Thread storage connections.
+    List of connection names from those available in the account or project to be used for Thread storage.
     """
     vector_store_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    List of VectorStore connections.
+    List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
     """
 
 @pulumi.input_type
@@ -2005,15 +2192,13 @@ class CapabilityHostArgs:
         :param pulumi.Input[Union[_builtins.str, 'CapabilityHostKind']] capability_host_kind: Kind of this capability host.
         :param pulumi.Input[_builtins.str] customer_subnet: Customer subnet info to help set up this capability host.
         :param pulumi.Input[_builtins.str] description: The asset description text.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_connections: List of Storage connections.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_connections: List of connection names from those available in the account or project to be used as a storage resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] thread_storage_connections: List of Thread storage connections.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vector_store_connections: List of VectorStore connections.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] thread_storage_connections: List of connection names from those available in the account or project to be used for Thread storage.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vector_store_connections: List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
         """
         if ai_services_connections is not None:
             pulumi.set(__self__, "ai_services_connections", ai_services_connections)
-        if capability_host_kind is None:
-            capability_host_kind = 'Agents'
         if capability_host_kind is not None:
             pulumi.set(__self__, "capability_host_kind", capability_host_kind)
         if customer_subnet is not None:
@@ -2081,7 +2266,7 @@ class CapabilityHostArgs:
     @pulumi.getter(name="storageConnections")
     def storage_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Storage connections.
+        List of connection names from those available in the account or project to be used as a storage resource.
         """
         return pulumi.get(self, "storage_connections")
 
@@ -2105,7 +2290,7 @@ class CapabilityHostArgs:
     @pulumi.getter(name="threadStorageConnections")
     def thread_storage_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of Thread storage connections.
+        List of connection names from those available in the account or project to be used for Thread storage.
         """
         return pulumi.get(self, "thread_storage_connections")
 
@@ -2117,7 +2302,7 @@ class CapabilityHostArgs:
     @pulumi.getter(name="vectorStoreConnections")
     def vector_store_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of VectorStore connections.
+        List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
         """
         return pulumi.get(self, "vector_store_connections")
 
@@ -2873,6 +3058,9 @@ class CustomKeysConnectionPropertiesArgsDict(TypedDict):
     Custom Keys credential object
     """
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -2880,9 +3068,18 @@ class CustomKeysConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -2911,7 +3108,11 @@ class CustomKeysConnectionPropertiesArgs:
                Expected value is 'CustomKeys'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input['CustomKeysArgs'] credentials: Custom Keys credential object
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'CustomKeys')
         if category is not None:
@@ -2977,6 +3178,9 @@ class CustomKeysConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -3016,6 +3220,9 @@ class CustomKeysConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -3025,6 +3232,9 @@ class CustomKeysConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -3043,6 +3253,9 @@ class CustomKeysConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -3375,6 +3588,10 @@ class DeploymentPropertiesArgsDict(TypedDict):
     """
     Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
     """
+    spillover_deployment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
+    """
     version_upgrade_option: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentModelVersionUpgradeOption']]]
     """
     Deployment model version upgrade option.
@@ -3389,6 +3606,7 @@ class DeploymentPropertiesArgs:
                  parent_deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  rai_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  scale_settings: Optional[pulumi.Input['DeploymentScaleSettingsArgs']] = None,
+                 spillover_deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  version_upgrade_option: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentModelVersionUpgradeOption']]] = None):
         """
         Properties of Cognitive Services account deployment.
@@ -3399,6 +3617,7 @@ class DeploymentPropertiesArgs:
         :param pulumi.Input[_builtins.str] parent_deployment_name: The name of parent deployment.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
+        :param pulumi.Input[_builtins.str] spillover_deployment_name: Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
         :param pulumi.Input[Union[_builtins.str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
         """
         if capacity_settings is not None:
@@ -3413,6 +3632,8 @@ class DeploymentPropertiesArgs:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if spillover_deployment_name is not None:
+            pulumi.set(__self__, "spillover_deployment_name", spillover_deployment_name)
         if version_upgrade_option is not None:
             pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
@@ -3487,6 +3708,18 @@ class DeploymentPropertiesArgs:
     @scale_settings.setter
     def scale_settings(self, value: Optional[pulumi.Input['DeploymentScaleSettingsArgs']]):
         pulumi.set(self, "scale_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spilloverDeploymentName")
+    def spillover_deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the deployment name that should serve requests when the request would have otherwise been throttled due to reaching current deployment throughput limit.
+        """
+        return pulumi.get(self, "spillover_deployment_name")
+
+    @spillover_deployment_name.setter
+    def spillover_deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "spillover_deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="versionUpgradeOption")
@@ -4354,6 +4587,9 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgsDict(TypedDict):
     """
     credentials: NotRequired[pulumi.Input['ConnectionManagedIdentityArgsDict']]
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -4361,9 +4597,18 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -4385,7 +4630,11 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'ManagedIdentity'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'ManagedIdentity')
         if category is not None:
@@ -4448,6 +4697,9 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -4487,6 +4739,9 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -4496,6 +4751,9 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -4514,6 +4772,9 @@ class ManagedIdentityAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -4575,6 +4836,80 @@ class MultiRegionSettingsArgs:
     @routing_method.setter
     def routing_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RoutingMethods']]]):
         pulumi.set(self, "routing_method", value)
+
+
+class NetworkInjectionArgsDict(TypedDict):
+    """
+    Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
+    """
+    scenario: NotRequired[pulumi.Input[Union[_builtins.str, 'ScenarioType']]]
+    """
+    Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+    """
+    subnet_arm_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the subnet for which your Agent Client is injected into.
+    """
+    use_microsoft_managed_network: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean to enable Microsoft Managed Network for subnet delegation
+    """
+
+@pulumi.input_type
+class NetworkInjectionArgs:
+    def __init__(__self__, *,
+                 scenario: Optional[pulumi.Input[Union[_builtins.str, 'ScenarioType']]] = None,
+                 subnet_arm_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_microsoft_managed_network: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Specifies in AI Foundry where virtual network injection occurs to secure scenarios like Agents entirely within the user's private network, eliminating public internet exposure while maintaining control over network configurations and resources.
+
+        :param pulumi.Input[Union[_builtins.str, 'ScenarioType']] scenario: Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+        :param pulumi.Input[_builtins.str] subnet_arm_id: Specify the subnet for which your Agent Client is injected into.
+        :param pulumi.Input[_builtins.bool] use_microsoft_managed_network: Boolean to enable Microsoft Managed Network for subnet delegation
+        """
+        if scenario is not None:
+            pulumi.set(__self__, "scenario", scenario)
+        if subnet_arm_id is not None:
+            pulumi.set(__self__, "subnet_arm_id", subnet_arm_id)
+        if use_microsoft_managed_network is not None:
+            pulumi.set(__self__, "use_microsoft_managed_network", use_microsoft_managed_network)
+
+    @_builtins.property
+    @pulumi.getter
+    def scenario(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScenarioType']]]:
+        """
+        Specifies what features in AI Foundry network injection applies to. Currently only supports 'agent' for agent scenarios. 'none' means no network injection.
+        """
+        return pulumi.get(self, "scenario")
+
+    @scenario.setter
+    def scenario(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScenarioType']]]):
+        pulumi.set(self, "scenario", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetArmId")
+    def subnet_arm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specify the subnet for which your Agent Client is injected into.
+        """
+        return pulumi.get(self, "subnet_arm_id")
+
+    @subnet_arm_id.setter
+    def subnet_arm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_arm_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useMicrosoftManagedNetwork")
+    def use_microsoft_managed_network(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean to enable Microsoft Managed Network for subnet delegation
+        """
+        return pulumi.get(self, "use_microsoft_managed_network")
+
+    @use_microsoft_managed_network.setter
+    def use_microsoft_managed_network(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_microsoft_managed_network", value)
 
 
 class NetworkRuleSetArgsDict(TypedDict):
@@ -4682,6 +5017,9 @@ class NoneAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -4689,9 +5027,18 @@ class NoneAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -4712,7 +5059,11 @@ class NoneAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'None'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'None')
         if category is not None:
@@ -4764,6 +5115,9 @@ class NoneAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -4803,6 +5157,9 @@ class NoneAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -4812,6 +5169,9 @@ class NoneAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -4830,6 +5190,9 @@ class NoneAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -4862,6 +5225,9 @@ class OAuth2AuthTypeConnectionPropertiesArgsDict(TypedDict):
     depending on each OAuth2 provider's implementation.
     """
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -4869,9 +5235,18 @@ class OAuth2AuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -4895,7 +5270,11 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input['ConnectionOAuth2Args'] credentials: ClientId and ClientSecret are required. Other properties are optional
                depending on each OAuth2 provider's implementation.
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'OAuth2')
         if category is not None:
@@ -4962,6 +5341,9 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -5001,6 +5383,9 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -5010,6 +5395,9 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -5028,6 +5416,9 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -5092,6 +5483,9 @@ class PATAuthTypeConnectionPropertiesArgsDict(TypedDict):
     """
     credentials: NotRequired[pulumi.Input['ConnectionPersonalAccessTokenArgsDict']]
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -5099,9 +5493,18 @@ class PATAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -5123,7 +5526,11 @@ class PATAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'PAT'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'PAT')
         if category is not None:
@@ -5186,6 +5593,9 @@ class PATAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -5225,6 +5635,9 @@ class PATAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -5234,6 +5647,9 @@ class PATAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -5252,6 +5668,9 @@ class PATAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -6552,6 +6971,9 @@ class SASAuthTypeConnectionPropertiesArgsDict(TypedDict):
     """
     credentials: NotRequired[pulumi.Input['ConnectionSharedAccessSignatureArgsDict']]
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -6559,9 +6981,18 @@ class SASAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -6583,7 +7014,11 @@ class SASAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'SAS'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'SAS')
         if category is not None:
@@ -6646,6 +7081,9 @@ class SASAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -6685,6 +7123,9 @@ class SASAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -6694,6 +7135,9 @@ class SASAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -6712,6 +7156,9 @@ class SASAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -6814,6 +7261,9 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgsDict(TypedDict):
     """
     credentials: NotRequired[pulumi.Input['ConnectionServicePrincipalArgsDict']]
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -6821,9 +7271,18 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -6845,7 +7304,11 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'ServicePrincipal'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'ServicePrincipal')
         if category is not None:
@@ -6908,6 +7371,9 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -6947,6 +7413,9 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -6956,6 +7425,9 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -6974,6 +7446,9 @@ class ServicePrincipalAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -7199,15 +7674,15 @@ class TrafficRoutingRuleArgs:
 
 class UserOwnedAmlWorkspaceArgsDict(TypedDict):
     """
-    The user owned AML workspace for Cognitive Services account.
+    The user owned AML account for Cognitive Services account.
     """
     identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Identity Client id of a AML workspace resource.
+    Identity Client id of a AML account resource.
     """
     resource_id: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Full resource id of a AML workspace resource.
+    Full resource id of a AML account resource.
     """
 
 @pulumi.input_type
@@ -7216,10 +7691,10 @@ class UserOwnedAmlWorkspaceArgs:
                  identity_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The user owned AML workspace for Cognitive Services account.
+        The user owned AML account for Cognitive Services account.
 
-        :param pulumi.Input[_builtins.str] identity_client_id: Identity Client id of a AML workspace resource.
-        :param pulumi.Input[_builtins.str] resource_id: Full resource id of a AML workspace resource.
+        :param pulumi.Input[_builtins.str] identity_client_id: Identity Client id of a AML account resource.
+        :param pulumi.Input[_builtins.str] resource_id: Full resource id of a AML account resource.
         """
         if identity_client_id is not None:
             pulumi.set(__self__, "identity_client_id", identity_client_id)
@@ -7230,7 +7705,7 @@ class UserOwnedAmlWorkspaceArgs:
     @pulumi.getter(name="identityClientId")
     def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identity Client id of a AML workspace resource.
+        Identity Client id of a AML account resource.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -7242,7 +7717,7 @@ class UserOwnedAmlWorkspaceArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Full resource id of a AML workspace resource.
+        Full resource id of a AML account resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -7310,6 +7785,9 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgsDict(TypedDict):
     """
     credentials: NotRequired[pulumi.Input['ConnectionUsernamePasswordArgsDict']]
     error: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Provides the error message if the connection fails
+    """
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
@@ -7317,9 +7795,18 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgsDict(TypedDict):
     Store user metadata for this connection
     """
     pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    """
+    Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+    """
     pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
+    """
+    Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+    """
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection URL to be used.
+    """
     use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
@@ -7341,7 +7828,11 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'UsernamePassword'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input[_builtins.str] error: Provides the error message if the connection fails
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']] pe_requirement: Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        :param pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']] pe_status: Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        :param pulumi.Input[_builtins.str] target: The connection URL to be used.
         """
         pulumi.set(__self__, "auth_type", 'UsernamePassword')
         if category is not None:
@@ -7404,6 +7895,9 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Provides the error message if the connection fails
+        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -7443,6 +7937,9 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peRequirement")
     def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        """
+        Specifies how private endpoints are used with this connection: 'Required', 'NotRequired', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_requirement")
 
     @pe_requirement.setter
@@ -7452,6 +7949,9 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter(name="peStatus")
     def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        """
+        Specifies the status of private endpoints for this connection: 'Inactive', 'Active', or 'NotApplicable'.
+        """
         return pulumi.get(self, "pe_status")
 
     @pe_status.setter
@@ -7470,6 +7970,9 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection URL to be used.
+        """
         return pulumi.get(self, "target")
 
     @target.setter

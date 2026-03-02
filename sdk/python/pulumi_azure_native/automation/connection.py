@@ -156,37 +156,6 @@ class Connection(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connection = azure_native.automation.Connection("connection",
-            automation_account_name="myAutomationAccount28",
-            connection_name="mysConnection",
-            connection_type={
-                "name": "Azure",
-            },
-            description="my description goes here",
-            field_definition_values={
-                "AutomationCertificateName": "mysCertificateName",
-                "SubscriptionID": "subid",
-            },
-            name="mysConnection",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:Connection mysConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connections/{connectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,37 +179,6 @@ class Connection(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connection = azure_native.automation.Connection("connection",
-            automation_account_name="myAutomationAccount28",
-            connection_name="mysConnection",
-            connection_type={
-                "name": "Azure",
-            },
-            description="my description goes here",
-            field_definition_values={
-                "AutomationCertificateName": "mysCertificateName",
-                "SubscriptionID": "subid",
-            },
-            name="mysConnection",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:Connection mysConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connections/{connectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

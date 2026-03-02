@@ -105,32 +105,6 @@ class IntegrationRuntime(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### IntegrationRuntimes_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        integration_runtime = azure_native.datafactory.IntegrationRuntime("integrationRuntime",
-            factory_name="exampleFactoryName",
-            integration_runtime_name="exampleIntegrationRuntime",
-            properties={
-                "description": "A selfhosted integration runtime",
-                "type": "SelfHosted",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:IntegrationRuntime exampleIntegrationRuntime /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,32 +123,6 @@ class IntegrationRuntime(pulumi.CustomResource):
         Integration runtime resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### IntegrationRuntimes_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        integration_runtime = azure_native.datafactory.IntegrationRuntime("integrationRuntime",
-            factory_name="exampleFactoryName",
-            integration_runtime_name="exampleIntegrationRuntime",
-            properties={
-                "description": "A selfhosted integration runtime",
-                "type": "SelfHosted",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:IntegrationRuntime exampleIntegrationRuntime /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

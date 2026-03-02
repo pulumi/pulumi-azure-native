@@ -143,36 +143,6 @@ class MoveCollection(pulumi.CustomResource):
 
         Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### MoveCollections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        move_collection = azure_native.migrate.MoveCollection("moveCollection",
-            identity={
-                "type": azure_native.migrate.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="eastus2",
-            move_collection_name="movecollection1",
-            properties={
-                "move_type": azure_native.migrate.MoveType.REGION_TO_REGION,
-                "source_region": "eastus",
-                "target_region": "westus",
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:MoveCollection movecollection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,36 +165,6 @@ class MoveCollection(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### MoveCollections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        move_collection = azure_native.migrate.MoveCollection("moveCollection",
-            identity={
-                "type": azure_native.migrate.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="eastus2",
-            move_collection_name="movecollection1",
-            properties={
-                "move_type": azure_native.migrate.MoveType.REGION_TO_REGION,
-                "source_region": "eastus",
-                "target_region": "westus",
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:MoveCollection movecollection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

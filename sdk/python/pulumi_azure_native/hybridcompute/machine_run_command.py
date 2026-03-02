@@ -313,48 +313,6 @@ class MachineRunCommand(pulumi.CustomResource):
 
         Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or Update a Run Command
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        machine_run_command = azure_native.hybridcompute.MachineRunCommand("machineRunCommand",
-            async_execution=False,
-            error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
-            location="eastus2",
-            machine_name="myMachine",
-            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
-            parameters=[
-                {
-                    "name": "param1",
-                    "value": "value1",
-                },
-                {
-                    "name": "param2",
-                    "value": "value2",
-                },
-            ],
-            resource_group_name="myResourceGroup",
-            run_as_password="<runAsPassword>",
-            run_as_user="user1",
-            run_command_name="myRunCommand",
-            source={
-                "script": "Write-Host Hello World!",
-            },
-            timeout_in_seconds=3600)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcompute:MachineRunCommand myRunCommand /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/runCommands/{runCommandName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,48 +345,6 @@ class MachineRunCommand(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-31-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-03-preview.
 
         Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-09-10-preview, 2024-11-10-preview, 2025-01-13, 2025-02-19-preview, 2025-06-01, 2025-08-21-preview, 2025-09-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcompute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or Update a Run Command
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        machine_run_command = azure_native.hybridcompute.MachineRunCommand("machineRunCommand",
-            async_execution=False,
-            error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
-            location="eastus2",
-            machine_name="myMachine",
-            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
-            parameters=[
-                {
-                    "name": "param1",
-                    "value": "value1",
-                },
-                {
-                    "name": "param2",
-                    "value": "value2",
-                },
-            ],
-            resource_group_name="myResourceGroup",
-            run_as_password="<runAsPassword>",
-            run_as_user="user1",
-            run_command_name="myRunCommand",
-            source={
-                "script": "Write-Host Hello World!",
-            },
-            timeout_in_seconds=3600)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcompute:MachineRunCommand myRunCommand /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/runCommands/{runCommandName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

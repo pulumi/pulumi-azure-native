@@ -825,58 +825,6 @@ class WebAppSlot(pulumi.CustomResource):
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Clone web app slot
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_app_slot = azure_native.web.WebAppSlot("webAppSlot",
-            cloning_info={
-                "app_settings_overrides": {
-                    "Setting1": "NewValue1",
-                    "Setting3": "NewValue5",
-                },
-                "clone_custom_host_names": True,
-                "clone_source_control": True,
-                "configure_load_balancing": False,
-                "hosting_environment": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
-                "overwrite": False,
-                "source_web_app_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
-                "source_web_app_location": "West Europe",
-            },
-            kind="app",
-            location="East US",
-            name="sitef6141",
-            resource_group_name="testrg123",
-            slot="staging")
-
-        ```
-        ### Create or Update Web App Slot
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_app_slot = azure_native.web.WebAppSlot("webAppSlot",
-            kind="app",
-            location="East US",
-            name="sitef6141",
-            resource_group_name="testrg123",
-            server_farm_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
-            slot="staging")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:web:WebAppSlot sitef6141/staging /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -944,58 +892,6 @@ class WebAppSlot(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Clone web app slot
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_app_slot = azure_native.web.WebAppSlot("webAppSlot",
-            cloning_info={
-                "app_settings_overrides": {
-                    "Setting1": "NewValue1",
-                    "Setting3": "NewValue5",
-                },
-                "clone_custom_host_names": True,
-                "clone_source_control": True,
-                "configure_load_balancing": False,
-                "hosting_environment": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
-                "overwrite": False,
-                "source_web_app_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
-                "source_web_app_location": "West Europe",
-            },
-            kind="app",
-            location="East US",
-            name="sitef6141",
-            resource_group_name="testrg123",
-            slot="staging")
-
-        ```
-        ### Create or Update Web App Slot
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_app_slot = azure_native.web.WebAppSlot("webAppSlot",
-            kind="app",
-            location="East US",
-            name="sitef6141",
-            resource_group_name="testrg123",
-            server_farm_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
-            slot="staging")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:web:WebAppSlot sitef6141/staging /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot} 
-        ```
 
 
         :param str resource_name: The name of the resource.

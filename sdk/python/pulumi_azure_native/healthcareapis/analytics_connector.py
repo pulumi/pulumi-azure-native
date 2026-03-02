@@ -188,43 +188,6 @@ class AnalyticsConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
-        ## Example Usage
-        ### Create or update a Analytics Connectors Service
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        analytics_connector = azure_native.healthcareapis.AnalyticsConnector("analyticsConnector",
-            analytics_connector_name="exampleconnector",
-            data_destination_configuration={
-                "data_lake_name": "exampledatalake",
-                "type": "datalake",
-            },
-            data_mapping_configuration={
-                "extension_schema_reference": "acrexample.azurecr.io/blah@sha256aaa/Extension",
-                "filter_configuration_reference": "acrexample.azurecr.io/blah@sha256xxx",
-                "type": "fhirToParquet",
-            },
-            data_source_configuration={
-                "kind": azure_native.healthcareapis.FhirServiceVersion.R4,
-                "type": "fhirservice",
-                "url": "https://workspace-examplefhir.fhir.azurehealthcareapis.com",
-            },
-            location="westus",
-            resource_group_name="testRG",
-            workspace_name="workspace1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:healthcareapis:AnalyticsConnector exampleconnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/analyticsconnectors/{analyticsConnectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,43 +211,6 @@ class AnalyticsConnector(pulumi.CustomResource):
         Analytics Connector definition.
 
         Uses Azure REST API version 2022-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
-
-        ## Example Usage
-        ### Create or update a Analytics Connectors Service
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        analytics_connector = azure_native.healthcareapis.AnalyticsConnector("analyticsConnector",
-            analytics_connector_name="exampleconnector",
-            data_destination_configuration={
-                "data_lake_name": "exampledatalake",
-                "type": "datalake",
-            },
-            data_mapping_configuration={
-                "extension_schema_reference": "acrexample.azurecr.io/blah@sha256aaa/Extension",
-                "filter_configuration_reference": "acrexample.azurecr.io/blah@sha256xxx",
-                "type": "fhirToParquet",
-            },
-            data_source_configuration={
-                "kind": azure_native.healthcareapis.FhirServiceVersion.R4,
-                "type": "fhirservice",
-                "url": "https://workspace-examplefhir.fhir.azurehealthcareapis.com",
-            },
-            location="westus",
-            resource_group_name="testRG",
-            workspace_name="workspace1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:healthcareapis:AnalyticsConnector exampleconnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/analyticsconnectors/{analyticsConnectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

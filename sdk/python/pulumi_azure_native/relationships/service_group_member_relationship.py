@@ -89,31 +89,6 @@ class ServiceGroupMemberRelationship(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01-preview.
 
-        ## Example Usage
-        ### ServiceGroupMemberRelationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_group_member_relationship = azure_native.relationships.ServiceGroupMemberRelationship("serviceGroupMemberRelationship",
-            name="sg1",
-            properties={
-                "target_id": "/providers/Microsoft.Management/serviceGroups/sg1",
-                "target_tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-            },
-            resource_uri="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:relationships:ServiceGroupMemberRelationship sg1 /{resourceUri}/providers/Microsoft.Relationships/serviceGroupMember/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,31 +106,6 @@ class ServiceGroupMemberRelationship(pulumi.CustomResource):
         Defines a ServiceGroupMember relationship resource.
 
         Uses Azure REST API version 2023-09-01-preview.
-
-        ## Example Usage
-        ### ServiceGroupMemberRelationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        service_group_member_relationship = azure_native.relationships.ServiceGroupMemberRelationship("serviceGroupMemberRelationship",
-            name="sg1",
-            properties={
-                "target_id": "/providers/Microsoft.Management/serviceGroups/sg1",
-                "target_tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-            },
-            resource_uri="subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:relationships:ServiceGroupMemberRelationship sg1 /{resourceUri}/providers/Microsoft.Relationships/serviceGroupMember/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

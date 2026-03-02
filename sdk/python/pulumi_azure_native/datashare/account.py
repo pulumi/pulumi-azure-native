@@ -123,35 +123,6 @@ class Account(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-        ## Example Usage
-        ### Accounts_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.datashare.Account("account",
-            account_name="Account1",
-            identity={
-                "type": azure_native.datashare.Type.SYSTEM_ASSIGNED,
-            },
-            location="West US 2",
-            resource_group_name="SampleResourceGroup",
-            tags={
-                "tag1": "Red",
-                "tag2": "White",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datashare:Account Account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,35 +142,6 @@ class Account(pulumi.CustomResource):
         An account data transfer object.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
-        ## Example Usage
-        ### Accounts_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.datashare.Account("account",
-            account_name="Account1",
-            identity={
-                "type": azure_native.datashare.Type.SYSTEM_ASSIGNED,
-            },
-            location="West US 2",
-            resource_group_name="SampleResourceGroup",
-            tags={
-                "tag1": "Red",
-                "tag2": "White",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datashare:Account Account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -247,38 +247,6 @@ class SensitivityLabel(pulumi.CustomResource):
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Updates the sensitivity label of a given column with all parameters
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sensitivity_label = azure_native.sql.SensitivityLabel("sensitivityLabel",
-            client_classification_source=azure_native.sql.ClientClassificationSource.NATIVE,
-            column_name="myColumn",
-            database_name="myDatabase",
-            information_type="PhoneNumber",
-            information_type_id="d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
-            label_id="bf91e08c-f4f0-478a-b016-25164b2a65ff",
-            label_name="PII",
-            rank=azure_native.sql.SensitivityLabelRank.LOW,
-            resource_group_name="myRG",
-            schema_name="dbo",
-            sensitivity_label_source="current",
-            server_name="myServer",
-            table_name="myTable")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:SensitivityLabel current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,38 +274,6 @@ class SensitivityLabel(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2017-03-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Updates the sensitivity label of a given column with all parameters
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sensitivity_label = azure_native.sql.SensitivityLabel("sensitivityLabel",
-            client_classification_source=azure_native.sql.ClientClassificationSource.NATIVE,
-            column_name="myColumn",
-            database_name="myDatabase",
-            information_type="PhoneNumber",
-            information_type_id="d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
-            label_id="bf91e08c-f4f0-478a-b016-25164b2a65ff",
-            label_name="PII",
-            rank=azure_native.sql.SensitivityLabelRank.LOW,
-            resource_group_name="myRG",
-            schema_name="dbo",
-            sensitivity_label_source="current",
-            server_name="myServer",
-            table_name="myTable")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:SensitivityLabel current /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/schemas/{schemaName}/tables/{tableName}/columns/{columnName}/sensitivityLabels/{sensitivityLabelSource} 
-        ```
 
 
         :param str resource_name: The name of the resource.

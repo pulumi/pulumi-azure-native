@@ -136,31 +136,6 @@ class ImageDefinition(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
-        ## Example Usage
-        ### ImageDefinitionCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        image_definition = azure_native.testbase.ImageDefinition("imageDefinition",
-            architecture=azure_native.testbase.ImageArchitecture.X64,
-            image_definition_name="contoso-image-def",
-            os_state=azure_native.testbase.ImageOSState.GENERALIZED,
-            resource_group_name="contoso-rg1",
-            security_type=azure_native.testbase.ImageSecurityType.STANDARD,
-            test_base_account_name="contoso-testBaseAccount1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:testbase:ImageDefinition contoso-image-def /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/imageDefinitions/{imageDefinitionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,31 +156,6 @@ class ImageDefinition(pulumi.CustomResource):
         The test base image definition resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
-
-        ## Example Usage
-        ### ImageDefinitionCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        image_definition = azure_native.testbase.ImageDefinition("imageDefinition",
-            architecture=azure_native.testbase.ImageArchitecture.X64,
-            image_definition_name="contoso-image-def",
-            os_state=azure_native.testbase.ImageOSState.GENERALIZED,
-            resource_group_name="contoso-rg1",
-            security_type=azure_native.testbase.ImageSecurityType.STANDARD,
-            test_base_account_name="contoso-testBaseAccount1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:testbase:ImageDefinition contoso-image-def /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/imageDefinitions/{imageDefinitionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -154,32 +154,6 @@ class KnowledgeSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### Create or Update Knowledge Source
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        knowledge_source = azure_native.cdn.KnowledgeSource("knowledgeSource",
-            description="Website knowledge source for FAQ content",
-            knowledge_source_name="myKnowledgeSource1",
-            resource_group_name="RG",
-            source_type=azure_native.cdn.KnowledgeSourceType.SCHEMA_ORG_MARKUP,
-            update_frequency=azure_native.cdn.KnowledgeSourceUpdateFrequency.EVERY_SIX_HOURS,
-            url="https://example.com/faq",
-            web_agent_name="myWebAgent1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:KnowledgeSource myKnowledgeSource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}/knowledgeSources/{knowledgeSourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,32 +175,6 @@ class KnowledgeSource(pulumi.CustomResource):
         Defines a knowledge source resource for a web agent.
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### Create or Update Knowledge Source
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        knowledge_source = azure_native.cdn.KnowledgeSource("knowledgeSource",
-            description="Website knowledge source for FAQ content",
-            knowledge_source_name="myKnowledgeSource1",
-            resource_group_name="RG",
-            source_type=azure_native.cdn.KnowledgeSourceType.SCHEMA_ORG_MARKUP,
-            update_frequency=azure_native.cdn.KnowledgeSourceUpdateFrequency.EVERY_SIX_HOURS,
-            url="https://example.com/faq",
-            web_agent_name="myWebAgent1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:KnowledgeSource myKnowledgeSource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}/knowledgeSources/{knowledgeSourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

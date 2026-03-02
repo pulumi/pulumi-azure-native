@@ -264,67 +264,6 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_to_network_interconnect = azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect",
-            egress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-            export_route_policy={
-                "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-            },
-            import_route_policy={
-                "import_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                "import_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-            },
-            ingress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-            is_management_type=azure_native.managednetworkfabric.IsManagementType.TRUE,
-            layer2_configuration={
-                "interfaces": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"],
-                "mtu": 1500,
-            },
-            network_fabric_name="example-fabric",
-            network_to_network_interconnect_name="example-nni",
-            nni_type=azure_native.managednetworkfabric.NniType.CE,
-            npb_static_route_configuration={
-                "bfd_configuration": {
-                    "interval_in_milli_seconds": 300,
-                    "multiplier": 25,
-                },
-                "ipv4_routes": [{
-                    "next_hop": ["21.20.20.20"],
-                    "prefix": "20.0.0.12/30",
-                }],
-                "ipv6_routes": [{
-                    "next_hop": ["4FFE:FFFF:0:CD30::ac"],
-                    "prefix": "3FFE:FFFF:0:CD30::ac/127",
-                }],
-            },
-            option_b_layer3_configuration={
-                "peer_asn": 61234,
-                "primary_ipv4_prefix": "10.0.0.12/30",
-                "primary_ipv6_prefix": "4FFE:FFFF:0:CD30::a8/127",
-                "secondary_ipv4_prefix": "40.0.0.14/30",
-                "secondary_ipv6_prefix": "6FFE:FFFF:0:CD30::ac/127",
-                "vlan_id": 1234,
-            },
-            resource_group_name="example-rg",
-            use_option_b=azure_native.managednetworkfabric.BooleanEnumProperty.TRUE)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect example-nni /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabrics/{networkFabricName}/networkToNetworkInterconnects/{networkToNetworkInterconnectName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,67 +293,6 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_to_network_interconnect = azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect",
-            egress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-            export_route_policy={
-                "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-            },
-            import_route_policy={
-                "import_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                "import_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-            },
-            ingress_acl_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-            is_management_type=azure_native.managednetworkfabric.IsManagementType.TRUE,
-            layer2_configuration={
-                "interfaces": ["/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"],
-                "mtu": 1500,
-            },
-            network_fabric_name="example-fabric",
-            network_to_network_interconnect_name="example-nni",
-            nni_type=azure_native.managednetworkfabric.NniType.CE,
-            npb_static_route_configuration={
-                "bfd_configuration": {
-                    "interval_in_milli_seconds": 300,
-                    "multiplier": 25,
-                },
-                "ipv4_routes": [{
-                    "next_hop": ["21.20.20.20"],
-                    "prefix": "20.0.0.12/30",
-                }],
-                "ipv6_routes": [{
-                    "next_hop": ["4FFE:FFFF:0:CD30::ac"],
-                    "prefix": "3FFE:FFFF:0:CD30::ac/127",
-                }],
-            },
-            option_b_layer3_configuration={
-                "peer_asn": 61234,
-                "primary_ipv4_prefix": "10.0.0.12/30",
-                "primary_ipv6_prefix": "4FFE:FFFF:0:CD30::a8/127",
-                "secondary_ipv4_prefix": "40.0.0.14/30",
-                "secondary_ipv6_prefix": "6FFE:FFFF:0:CD30::ac/127",
-                "vlan_id": 1234,
-            },
-            resource_group_name="example-rg",
-            use_option_b=azure_native.managednetworkfabric.BooleanEnumProperty.TRUE)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect example-nni /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabrics/{networkFabricName}/networkToNetworkInterconnects/{networkToNetworkInterconnectName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

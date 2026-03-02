@@ -156,31 +156,6 @@ class TestLine(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateTestLineResource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        test_line = azure_native.voiceservices.TestLine("testLine",
-            communications_gateway_name="myname",
-            location="useast",
-            phone_number="+1-555-1234",
-            purpose=azure_native.voiceservices.TestLinePurpose.AUTOMATED,
-            resource_group_name="testrg",
-            test_line_name="myline")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:voiceservices:TestLine myline /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}/testLines/{testLineName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,31 +179,6 @@ class TestLine(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
 
         Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateTestLineResource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        test_line = azure_native.voiceservices.TestLine("testLine",
-            communications_gateway_name="myname",
-            location="useast",
-            phone_number="+1-555-1234",
-            purpose=azure_native.voiceservices.TestLinePurpose.AUTOMATED,
-            resource_group_name="testrg",
-            test_line_name="myline")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:voiceservices:TestLine myline /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}/testLines/{testLineName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -136,31 +136,6 @@ class WorkspaceProductApiLink(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceProductApiLink
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_product_api_link = azure_native.apimanagement.WorkspaceProductApiLink("workspaceProductApiLink",
-            api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/apis/echo-api",
-            api_link_id="link1",
-            product_id="testproduct",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceProductApiLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}/apiLinks/{apiLinkId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,31 +158,6 @@ class WorkspaceProductApiLink(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceProductApiLink
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_product_api_link = azure_native.apimanagement.WorkspaceProductApiLink("workspaceProductApiLink",
-            api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/apis/echo-api",
-            api_link_id="link1",
-            product_id="testproduct",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceProductApiLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}/apiLinks/{apiLinkId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

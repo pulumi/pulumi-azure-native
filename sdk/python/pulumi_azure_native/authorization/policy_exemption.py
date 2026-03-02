@@ -228,65 +228,6 @@ class PolicyExemption(pulumi.CustomResource):
 
         Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a policy exemption
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy_exemption = azure_native.authorization.PolicyExemption("policyExemption",
-            description="Exempt demo cluster from limit sku",
-            display_name="Exempt demo cluster",
-            exemption_category=azure_native.authorization.ExemptionCategory.WAIVER,
-            metadata={
-                "reason": "Temporary exemption for a expensive VM demo",
-            },
-            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
-            policy_definition_reference_ids=["Limit_Skus"],
-            policy_exemption_name="DemoExpensiveVM",
-            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
-
-        ```
-        ### Create or update a policy exemption with resource selectors
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy_exemption = azure_native.authorization.PolicyExemption("policyExemption",
-            assignment_scope_validation=azure_native.authorization.AssignmentScopeValidation.DEFAULT,
-            description="Exempt demo cluster from limit sku",
-            display_name="Exempt demo cluster",
-            exemption_category=azure_native.authorization.ExemptionCategory.WAIVER,
-            metadata={
-                "reason": "Temporary exemption for a expensive VM demo",
-            },
-            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
-            policy_definition_reference_ids=["Limit_Skus"],
-            policy_exemption_name="DemoExpensiveVM",
-            resource_selectors=[{
-                "name": "SDPRegions",
-                "selectors": [{
-                    "in_": [
-                        "eastus2euap",
-                        "centraluseuap",
-                    ],
-                    "kind": azure_native.authorization.SelectorKind.RESOURCE_LOCATION,
-                }],
-            }],
-            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:PolicyExemption DemoExpensiveVM /{scope}/providers/Microsoft.Authorization/policyExemptions/{policyExemptionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,65 +255,6 @@ class PolicyExemption(pulumi.CustomResource):
         Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
 
         Other available API versions: 2020-07-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a policy exemption
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy_exemption = azure_native.authorization.PolicyExemption("policyExemption",
-            description="Exempt demo cluster from limit sku",
-            display_name="Exempt demo cluster",
-            exemption_category=azure_native.authorization.ExemptionCategory.WAIVER,
-            metadata={
-                "reason": "Temporary exemption for a expensive VM demo",
-            },
-            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
-            policy_definition_reference_ids=["Limit_Skus"],
-            policy_exemption_name="DemoExpensiveVM",
-            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
-
-        ```
-        ### Create or update a policy exemption with resource selectors
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy_exemption = azure_native.authorization.PolicyExemption("policyExemption",
-            assignment_scope_validation=azure_native.authorization.AssignmentScopeValidation.DEFAULT,
-            description="Exempt demo cluster from limit sku",
-            display_name="Exempt demo cluster",
-            exemption_category=azure_native.authorization.ExemptionCategory.WAIVER,
-            metadata={
-                "reason": "Temporary exemption for a expensive VM demo",
-            },
-            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
-            policy_definition_reference_ids=["Limit_Skus"],
-            policy_exemption_name="DemoExpensiveVM",
-            resource_selectors=[{
-                "name": "SDPRegions",
-                "selectors": [{
-                    "in_": [
-                        "eastus2euap",
-                        "centraluseuap",
-                    ],
-                    "kind": azure_native.authorization.SelectorKind.RESOURCE_LOCATION,
-                }],
-            }],
-            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:PolicyExemption DemoExpensiveVM /{scope}/providers/Microsoft.Authorization/policyExemptions/{policyExemptionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

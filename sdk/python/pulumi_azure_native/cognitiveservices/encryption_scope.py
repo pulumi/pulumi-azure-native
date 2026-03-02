@@ -121,41 +121,9 @@ class EncryptionScope(pulumi.CustomResource):
         """
         Cognitive Services EncryptionScope
 
-        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutEncryptionScope
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        encryption_scope = azure_native.cognitiveservices.EncryptionScope("encryptionScope",
-            account_name="accountName",
-            encryption_scope_name="encryptionScopeName",
-            properties={
-                "key_source": azure_native.cognitiveservices.KeySource.MICROSOFT_KEY_VAULT,
-                "key_vault_properties": {
-                    "identity_client_id": "00000000-0000-0000-0000-000000000000",
-                    "key_name": "DevKeyWestUS2",
-                    "key_vault_uri": "https://devkvwestus2.vault.azure.net/",
-                    "key_version": "9f85549d7bf14ff4bf178c10d3bdca95",
-                },
-                "state": azure_native.cognitiveservices.EncryptionScopeState.ENABLED,
-            },
-            resource_group_name="resourceGroupName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cognitiveservices:EncryptionScope encryptionScopeName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/encryptionScopes/{encryptionScopeName} 
-        ```
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -175,41 +143,9 @@ class EncryptionScope(pulumi.CustomResource):
         """
         Cognitive Services EncryptionScope
 
-        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutEncryptionScope
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        encryption_scope = azure_native.cognitiveservices.EncryptionScope("encryptionScope",
-            account_name="accountName",
-            encryption_scope_name="encryptionScopeName",
-            properties={
-                "key_source": azure_native.cognitiveservices.KeySource.MICROSOFT_KEY_VAULT,
-                "key_vault_properties": {
-                    "identity_client_id": "00000000-0000-0000-0000-000000000000",
-                    "key_name": "DevKeyWestUS2",
-                    "key_vault_uri": "https://devkvwestus2.vault.azure.net/",
-                    "key_version": "9f85549d7bf14ff4bf178c10d3bdca95",
-                },
-                "state": azure_native.cognitiveservices.EncryptionScopeState.ENABLED,
-            },
-            resource_group_name="resourceGroupName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cognitiveservices:EncryptionScope encryptionScopeName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/encryptionScopes/{encryptionScopeName} 
-        ```
+        Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.

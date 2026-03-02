@@ -125,53 +125,6 @@ class PrivateLinkScope(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PrivateLinkScopeCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scope = azure_native.monitor.PrivateLinkScope("privateLinkScope",
-            access_mode_settings={
-                "exclusions": [],
-                "ingestion_access_mode": azure_native.monitor.AccessMode.OPEN,
-                "query_access_mode": azure_native.monitor.AccessMode.OPEN,
-            },
-            location="Global",
-            resource_group_name="my-resource-group",
-            scope_name="my-privatelinkscope")
-
-        ```
-        ### PrivateLinkScopeUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scope = azure_native.monitor.PrivateLinkScope("privateLinkScope",
-            access_mode_settings={
-                "exclusions": [],
-                "ingestion_access_mode": azure_native.monitor.AccessMode.OPEN,
-                "query_access_mode": azure_native.monitor.AccessMode.OPEN,
-            },
-            location="Global",
-            resource_group_name="my-resource-group",
-            scope_name="my-privatelinkscope",
-            tags={
-                "Tag1": "Value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:PrivateLinkScope my-privatelinkscope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,53 +146,6 @@ class PrivateLinkScope(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PrivateLinkScopeCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scope = azure_native.monitor.PrivateLinkScope("privateLinkScope",
-            access_mode_settings={
-                "exclusions": [],
-                "ingestion_access_mode": azure_native.monitor.AccessMode.OPEN,
-                "query_access_mode": azure_native.monitor.AccessMode.OPEN,
-            },
-            location="Global",
-            resource_group_name="my-resource-group",
-            scope_name="my-privatelinkscope")
-
-        ```
-        ### PrivateLinkScopeUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scope = azure_native.monitor.PrivateLinkScope("privateLinkScope",
-            access_mode_settings={
-                "exclusions": [],
-                "ingestion_access_mode": azure_native.monitor.AccessMode.OPEN,
-                "query_access_mode": azure_native.monitor.AccessMode.OPEN,
-            },
-            location="Global",
-            resource_group_name="my-resource-group",
-            scope_name="my-privatelinkscope",
-            tags={
-                "Tag1": "Value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:PrivateLinkScope my-privatelinkscope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

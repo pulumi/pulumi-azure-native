@@ -105,29 +105,6 @@ class EyesOn(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        ## Example Usage
-        ### Update EyesOn settings.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        eyes_on = azure_native.securityinsights.EyesOn("eyesOn",
-            kind="EyesOn",
-            resource_group_name="myRg",
-            settings_name="EyesOn",
-            workspace_name="myWorkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:securityinsights:EyesOn EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,29 +124,6 @@ class EyesOn(pulumi.CustomResource):
         Settings with single toggle.
 
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-
-        ## Example Usage
-        ### Update EyesOn settings.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        eyes_on = azure_native.securityinsights.EyesOn("eyesOn",
-            kind="EyesOn",
-            resource_group_name="myRg",
-            settings_name="EyesOn",
-            workspace_name="myWorkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:securityinsights:EyesOn EyesOn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/settings/{settingsName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

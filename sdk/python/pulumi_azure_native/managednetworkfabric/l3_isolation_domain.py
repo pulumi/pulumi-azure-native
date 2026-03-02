@@ -214,50 +214,6 @@ class L3IsolationDomain(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### L3IsolationDomains_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        l3_isolation_domain = azure_native.managednetworkfabric.L3IsolationDomain("l3IsolationDomain",
-            aggregate_route_configuration={
-                "ipv4_routes": [{
-                    "prefix": "10.0.0.0/24",
-                }],
-                "ipv6_routes": [{
-                    "prefix": "3FFE:FFFF:0:CD30::a0/29",
-                }],
-            },
-            annotation="annotation",
-            connected_subnet_route_policy={
-                "export_route_policy": {
-                    "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                    "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                },
-                "export_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            },
-            l3_isolation_domain_name="example-l3domain",
-            location="eastus",
-            network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
-            redistribute_connected_subnets=azure_native.managednetworkfabric.RedistributeConnectedSubnets.TRUE,
-            redistribute_static_routes=azure_native.managednetworkfabric.RedistributeStaticRoutes.FALSE,
-            resource_group_name="example-rg",
-            tags={
-                "keyID": "KeyValue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:L3IsolationDomain example-l3domain /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,50 +240,6 @@ class L3IsolationDomain(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### L3IsolationDomains_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        l3_isolation_domain = azure_native.managednetworkfabric.L3IsolationDomain("l3IsolationDomain",
-            aggregate_route_configuration={
-                "ipv4_routes": [{
-                    "prefix": "10.0.0.0/24",
-                }],
-                "ipv6_routes": [{
-                    "prefix": "3FFE:FFFF:0:CD30::a0/29",
-                }],
-            },
-            annotation="annotation",
-            connected_subnet_route_policy={
-                "export_route_policy": {
-                    "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                    "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/example-routePolicy",
-                },
-                "export_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            },
-            l3_isolation_domain_name="example-l3domain",
-            location="eastus",
-            network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
-            redistribute_connected_subnets=azure_native.managednetworkfabric.RedistributeConnectedSubnets.TRUE,
-            redistribute_static_routes=azure_native.managednetworkfabric.RedistributeStaticRoutes.FALSE,
-            resource_group_name="example-rg",
-            tags={
-                "keyID": "KeyValue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:L3IsolationDomain example-l3domain /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

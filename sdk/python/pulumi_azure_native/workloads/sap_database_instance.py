@@ -121,44 +121,6 @@ class SapDatabaseInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### Create SAP Database Instances for HA System with Availability Set
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_database_instance = azure_native.workloads.SapDatabaseInstance("sapDatabaseInstance",
-            database_instance_name="databaseServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-        ### SAPDatabaseInstances_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_database_instance = azure_native.workloads.SapDatabaseInstance("sapDatabaseInstance",
-            database_instance_name="databaseServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:SapDatabaseInstance databaseServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/databaseInstances/{databaseInstanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,44 +140,6 @@ class SapDatabaseInstance(pulumi.CustomResource):
         Define the Database resource.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### Create SAP Database Instances for HA System with Availability Set
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_database_instance = azure_native.workloads.SapDatabaseInstance("sapDatabaseInstance",
-            database_instance_name="databaseServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-        ### SAPDatabaseInstances_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_database_instance = azure_native.workloads.SapDatabaseInstance("sapDatabaseInstance",
-            database_instance_name="databaseServer",
-            location="westcentralus",
-            resource_group_name="test-rg",
-            sap_virtual_instance_name="X00",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:SapDatabaseInstance databaseServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/databaseInstances/{databaseInstanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

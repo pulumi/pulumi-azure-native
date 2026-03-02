@@ -106,38 +106,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### Updates the Private Endpoint Connection.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.datareplication.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="jitf",
-            properties={
-                "private_endpoint": {
-                    "id": "cwcdqoynostmqwdwy",
-                },
-                "private_link_service_connection_state": {
-                    "actions_required": "afwbq",
-                    "description": "y",
-                    "status": azure_native.datareplication.PrivateEndpointConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="rgswagger_2024-09-01",
-            vault_name="4")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datareplication:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,38 +124,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Represents private endpoint connection.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### Updates the Private Endpoint Connection.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.datareplication.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="jitf",
-            properties={
-                "private_endpoint": {
-                    "id": "cwcdqoynostmqwdwy",
-                },
-                "private_link_service_connection_state": {
-                    "actions_required": "afwbq",
-                    "description": "y",
-                    "status": azure_native.datareplication.PrivateEndpointConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="rgswagger_2024-09-01",
-            vault_name="4")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datareplication:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

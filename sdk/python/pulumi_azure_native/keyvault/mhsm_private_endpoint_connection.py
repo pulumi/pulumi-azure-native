@@ -176,32 +176,6 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ManagedHsmPutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mhsm_private_endpoint_connection = azure_native.keyvault.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection",
-            name="sample-mhsm",
-            private_endpoint_connection_name="sample-pec",
-            private_link_service_connection_state={
-                "description": "My name is Joe and I'm approving this.",
-                "status": azure_native.keyvault.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="sample-group")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:keyvault:MHSMPrivateEndpointConnection sample-pec /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,32 +200,6 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ManagedHsmPutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mhsm_private_endpoint_connection = azure_native.keyvault.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection",
-            name="sample-mhsm",
-            private_endpoint_connection_name="sample-pec",
-            private_link_service_connection_state={
-                "description": "My name is Joe and I'm approving this.",
-                "status": azure_native.keyvault.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="sample-group")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:keyvault:MHSMPrivateEndpointConnection sample-pec /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/managedHSMs/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

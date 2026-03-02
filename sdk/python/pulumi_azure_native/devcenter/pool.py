@@ -274,65 +274,6 @@ class Pool(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Pools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pool = azure_native.devcenter.Pool("pool",
-            dev_box_definition_name="WebDevBox",
-            display_name="Developer Pool",
-            license_type=azure_native.devcenter.LicenseType.WINDOWS_CLIENT,
-            local_administrator=azure_native.devcenter.LocalAdminStatus.ENABLED,
-            location="centralus",
-            network_connection_name="Network1-westus2",
-            pool_name="DevPool",
-            project_name="DevProject",
-            resource_group_name="rg1",
-            single_sign_on_status=azure_native.devcenter.SingleSignOnStatus.DISABLED,
-            stop_on_disconnect={
-                "grace_period_minutes": 60,
-                "status": azure_native.devcenter.StopOnDisconnectEnableStatus.ENABLED,
-            },
-            virtual_network_type=azure_native.devcenter.VirtualNetworkType.UNMANAGED)
-
-        ```
-        ### Pools_CreateOrUpdateWithManagedNetwork
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pool = azure_native.devcenter.Pool("pool",
-            dev_box_definition_name="WebDevBox",
-            display_name="Developer Pool",
-            license_type=azure_native.devcenter.LicenseType.WINDOWS_CLIENT,
-            local_administrator=azure_native.devcenter.LocalAdminStatus.ENABLED,
-            location="centralus",
-            managed_virtual_network_regions=["centralus"],
-            network_connection_name="managedNetwork",
-            pool_name="DevPool",
-            project_name="DevProject",
-            resource_group_name="rg1",
-            single_sign_on_status=azure_native.devcenter.SingleSignOnStatus.DISABLED,
-            stop_on_disconnect={
-                "grace_period_minutes": 60,
-                "status": azure_native.devcenter.StopOnDisconnectEnableStatus.ENABLED,
-            },
-            virtual_network_type=azure_native.devcenter.VirtualNetworkType.MANAGED)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devcenter:Pool DevPool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/pools/{poolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,65 +304,6 @@ class Pool(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Pools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pool = azure_native.devcenter.Pool("pool",
-            dev_box_definition_name="WebDevBox",
-            display_name="Developer Pool",
-            license_type=azure_native.devcenter.LicenseType.WINDOWS_CLIENT,
-            local_administrator=azure_native.devcenter.LocalAdminStatus.ENABLED,
-            location="centralus",
-            network_connection_name="Network1-westus2",
-            pool_name="DevPool",
-            project_name="DevProject",
-            resource_group_name="rg1",
-            single_sign_on_status=azure_native.devcenter.SingleSignOnStatus.DISABLED,
-            stop_on_disconnect={
-                "grace_period_minutes": 60,
-                "status": azure_native.devcenter.StopOnDisconnectEnableStatus.ENABLED,
-            },
-            virtual_network_type=azure_native.devcenter.VirtualNetworkType.UNMANAGED)
-
-        ```
-        ### Pools_CreateOrUpdateWithManagedNetwork
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pool = azure_native.devcenter.Pool("pool",
-            dev_box_definition_name="WebDevBox",
-            display_name="Developer Pool",
-            license_type=azure_native.devcenter.LicenseType.WINDOWS_CLIENT,
-            local_administrator=azure_native.devcenter.LocalAdminStatus.ENABLED,
-            location="centralus",
-            managed_virtual_network_regions=["centralus"],
-            network_connection_name="managedNetwork",
-            pool_name="DevPool",
-            project_name="DevProject",
-            resource_group_name="rg1",
-            single_sign_on_status=azure_native.devcenter.SingleSignOnStatus.DISABLED,
-            stop_on_disconnect={
-                "grace_period_minutes": 60,
-                "status": azure_native.devcenter.StopOnDisconnectEnableStatus.ENABLED,
-            },
-            virtual_network_type=azure_native.devcenter.VirtualNetworkType.MANAGED)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devcenter:Pool DevPool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}/pools/{poolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

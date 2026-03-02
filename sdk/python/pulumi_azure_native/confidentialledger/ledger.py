@@ -126,44 +126,6 @@ class Ledger(pulumi.CustomResource):
 
         Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConfidentialLedgerCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ledger = azure_native.confidentialledger.Ledger("ledger",
-            ledger_name="DummyLedgerName",
-            location="EastUS",
-            properties={
-                "aad_based_security_principals": [{
-                    "ledger_role_name": azure_native.confidentialledger.LedgerRoleName.ADMINISTRATOR,
-                    "principal_id": "34621747-6fc8-4771-a2eb-72f31c461f2e",
-                    "tenant_id": "bce123b9-2b7b-4975-8360-5ca0b9b1cd08",
-                }],
-                "cert_based_security_principals": [{
-                    "cert": "-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
-                    "ledger_role_name": azure_native.confidentialledger.LedgerRoleName.READER,
-                }],
-                "ledger_sku": azure_native.confidentialledger.LedgerSku.STANDARD,
-                "ledger_type": azure_native.confidentialledger.LedgerType.PUBLIC,
-            },
-            resource_group_name="DummyResourceGroupName",
-            tags={
-                "additionalProps1": "additional properties",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:confidentialledger:Ledger DummyLedgerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConfidentialLedger/ledgers/{ledgerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,44 +147,6 @@ class Ledger(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-28-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-13.
 
         Other available API versions: 2022-05-13, 2022-09-08-preview, 2023-01-26-preview, 2024-07-09-preview, 2024-09-19-preview, 2025-06-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confidentialledger [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConfidentialLedgerCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ledger = azure_native.confidentialledger.Ledger("ledger",
-            ledger_name="DummyLedgerName",
-            location="EastUS",
-            properties={
-                "aad_based_security_principals": [{
-                    "ledger_role_name": azure_native.confidentialledger.LedgerRoleName.ADMINISTRATOR,
-                    "principal_id": "34621747-6fc8-4771-a2eb-72f31c461f2e",
-                    "tenant_id": "bce123b9-2b7b-4975-8360-5ca0b9b1cd08",
-                }],
-                "cert_based_security_principals": [{
-                    "cert": "-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
-                    "ledger_role_name": azure_native.confidentialledger.LedgerRoleName.READER,
-                }],
-                "ledger_sku": azure_native.confidentialledger.LedgerSku.STANDARD,
-                "ledger_type": azure_native.confidentialledger.LedgerType.PUBLIC,
-            },
-            resource_group_name="DummyResourceGroupName",
-            tags={
-                "additionalProps1": "additional properties",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:confidentialledger:Ledger DummyLedgerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConfidentialLedger/ledgers/{ledgerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

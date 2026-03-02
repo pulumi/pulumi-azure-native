@@ -104,29 +104,6 @@ class SolutionConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### SolutionConfigurations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        solution_configuration = azure_native.hybridconnectivity.SolutionConfiguration("solutionConfiguration",
-            resource_uri="ymuj",
-            solution_configuration="keebwujt",
-            solution_settings={},
-            solution_type="nmtqllkyohwtsthxaimsye")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridconnectivity:SolutionConfiguration qpwubemzmootxmtlxaerir /{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,29 +122,6 @@ class SolutionConfiguration(pulumi.CustomResource):
         Solution Configuration
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### SolutionConfigurations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        solution_configuration = azure_native.hybridconnectivity.SolutionConfiguration("solutionConfiguration",
-            resource_uri="ymuj",
-            solution_configuration="keebwujt",
-            solution_settings={},
-            solution_type="nmtqllkyohwtsthxaimsye")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridconnectivity:SolutionConfiguration qpwubemzmootxmtlxaerir /{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration} 
-        ```
 
 
         :param str resource_name: The name of the resource.

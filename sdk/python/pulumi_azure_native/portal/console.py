@@ -73,29 +73,6 @@ class Console(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
 
-        ## Example Usage
-        ### PutConsole
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        console = azure_native.portal.Console("console",
-            console_name="default",
-            properties={
-                "os_type": azure_native.portal.OsType.LINUX,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:portal:Console myresource1 /providers/Microsoft.Portal/consoles/{consoleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,29 +89,6 @@ class Console(pulumi.CustomResource):
         Cloud shell console
 
         Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
-
-        ## Example Usage
-        ### PutConsole
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        console = azure_native.portal.Console("console",
-            console_name="default",
-            properties={
-                "os_type": azure_native.portal.OsType.LINUX,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:portal:Console myresource1 /providers/Microsoft.Portal/consoles/{consoleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

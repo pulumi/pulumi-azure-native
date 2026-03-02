@@ -334,43 +334,6 @@ class Domain(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Domains_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        domain = azure_native.eventgrid.Domain("domain",
-            domain_name="exampledomain1",
-            inbound_ip_rules=[
-                {
-                    "action": azure_native.eventgrid.IpActionType.ALLOW,
-                    "ip_mask": "12.18.30.15",
-                },
-                {
-                    "action": azure_native.eventgrid.IpActionType.ALLOW,
-                    "ip_mask": "12.18.176.1",
-                },
-            ],
-            location="westus2",
-            public_network_access=azure_native.eventgrid.PublicNetworkAccess.ENABLED,
-            resource_group_name="examplerg",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:Domain exampledomain1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,43 +379,6 @@ class Domain(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Domains_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        domain = azure_native.eventgrid.Domain("domain",
-            domain_name="exampledomain1",
-            inbound_ip_rules=[
-                {
-                    "action": azure_native.eventgrid.IpActionType.ALLOW,
-                    "ip_mask": "12.18.30.15",
-                },
-                {
-                    "action": azure_native.eventgrid.IpActionType.ALLOW,
-                    "ip_mask": "12.18.176.1",
-                },
-            ],
-            location="westus2",
-            public_network_access=azure_native.eventgrid.PublicNetworkAccess.ENABLED,
-            resource_group_name="examplerg",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:Domain exampledomain1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

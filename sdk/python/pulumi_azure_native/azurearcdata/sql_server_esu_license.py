@@ -125,38 +125,6 @@ class SqlServerEsuLicense(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Updates a SQL Server ESU license.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_server_esu_license = azure_native.azurearcdata.SqlServerEsuLicense("sqlServerEsuLicense",
-            location="northeurope",
-            properties={
-                "activation_state": azure_native.azurearcdata.State.INACTIVE,
-                "billing_plan": azure_native.azurearcdata.BillingPlan.PAYG,
-                "physical_cores": 24,
-                "scope_type": azure_native.azurearcdata.ScopeType.SUBSCRIPTION,
-                "version": azure_native.azurearcdata.Version.SQ_L_SERVER_2012,
-            },
-            resource_group_name="testrg",
-            sql_server_esu_license_name="testsqlServerEsuLicense",
-            tags={
-                "mytag": "myval",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurearcdata:SqlServerEsuLicense sqlServerEsuLicense /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerEsuLicenses/{sqlServerEsuLicenseName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,38 +146,6 @@ class SqlServerEsuLicense(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Updates a SQL Server ESU license.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_server_esu_license = azure_native.azurearcdata.SqlServerEsuLicense("sqlServerEsuLicense",
-            location="northeurope",
-            properties={
-                "activation_state": azure_native.azurearcdata.State.INACTIVE,
-                "billing_plan": azure_native.azurearcdata.BillingPlan.PAYG,
-                "physical_cores": 24,
-                "scope_type": azure_native.azurearcdata.ScopeType.SUBSCRIPTION,
-                "version": azure_native.azurearcdata.Version.SQ_L_SERVER_2012,
-            },
-            resource_group_name="testrg",
-            sql_server_esu_license_name="testsqlServerEsuLicense",
-            tags={
-                "mytag": "myval",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurearcdata:SqlServerEsuLicense sqlServerEsuLicense /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerEsuLicenses/{sqlServerEsuLicenseName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

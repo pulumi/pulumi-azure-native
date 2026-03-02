@@ -139,31 +139,6 @@ class Share(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
 
-        ## Example Usage
-        ### Shares_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        share = azure_native.datashare.Share("share",
-            account_name="Account1",
-            description="share description",
-            resource_group_name="SampleResourceGroup",
-            share_kind=azure_native.datashare.ShareKind.COPY_BASED,
-            share_name="Share1",
-            terms="Confidential")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datashare:Share Share1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,31 +159,6 @@ class Share(pulumi.CustomResource):
         A share data transfer object.
 
         Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
-
-        ## Example Usage
-        ### Shares_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        share = azure_native.datashare.Share("share",
-            account_name="Account1",
-            description="share description",
-            resource_group_name="SampleResourceGroup",
-            share_kind=azure_native.datashare.ShareKind.COPY_BASED,
-            share_name="Share1",
-            terms="Confidential")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datashare:Share Share1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

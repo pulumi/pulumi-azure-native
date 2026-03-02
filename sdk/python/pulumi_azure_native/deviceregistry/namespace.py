@@ -143,43 +143,6 @@ class Namespace(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateOrReplace_Namespace_With_Endpoints
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        namespace = azure_native.deviceregistry.Namespace("namespace",
-            identity={
-                "type": azure_native.deviceregistry.SystemAssignedServiceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="North Europe",
-            messaging={
-                "endpoints": {
-                    "anotherEventGridEndpoint": {
-                        "address": "https://myeventgridtopic2.westeurope-1.eventgrid.azure.net/api/events",
-                        "endpoint_type": "Microsoft.EventGrid",
-                    },
-                    "eventGridEndpoint": {
-                        "address": "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
-                        "endpoint_type": "Microsoft.EventGrid",
-                    },
-                },
-            },
-            namespace_name="adr-namespace-gbk0925-n01",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceregistry:Namespace adr-namespace-gbk0925-n01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,43 +165,6 @@ class Namespace(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateOrReplace_Namespace_With_Endpoints
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        namespace = azure_native.deviceregistry.Namespace("namespace",
-            identity={
-                "type": azure_native.deviceregistry.SystemAssignedServiceIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="North Europe",
-            messaging={
-                "endpoints": {
-                    "anotherEventGridEndpoint": {
-                        "address": "https://myeventgridtopic2.westeurope-1.eventgrid.azure.net/api/events",
-                        "endpoint_type": "Microsoft.EventGrid",
-                    },
-                    "eventGridEndpoint": {
-                        "address": "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
-                        "endpoint_type": "Microsoft.EventGrid",
-                    },
-                },
-            },
-            namespace_name="adr-namespace-gbk0925-n01",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceregistry:Namespace adr-namespace-gbk0925-n01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

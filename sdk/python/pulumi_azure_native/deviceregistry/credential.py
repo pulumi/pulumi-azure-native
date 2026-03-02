@@ -104,31 +104,6 @@ class Credential(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
-        ## Example Usage
-        ### CreateOrReplace_Credentials
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        credential = azure_native.deviceregistry.Credential("credential",
-            location="East US 2",
-            namespace_name="mynamespace",
-            resource_group_name="rgdeviceregistry",
-            tags={
-                "key7121": "mtdjqipusqaqhdvekrknyjeo",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceregistry:Credential default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,31 +122,6 @@ class Credential(pulumi.CustomResource):
         A Credential Resource
 
         Uses Azure REST API version 2025-11-01-preview.
-
-        ## Example Usage
-        ### CreateOrReplace_Credentials
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        credential = azure_native.deviceregistry.Credential("credential",
-            location="East US 2",
-            namespace_name="mynamespace",
-            resource_group_name="rgdeviceregistry",
-            tags={
-                "key7121": "mtdjqipusqaqhdvekrknyjeo",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceregistry:Credential default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default 
-        ```
 
 
         :param str resource_name: The name of the resource.

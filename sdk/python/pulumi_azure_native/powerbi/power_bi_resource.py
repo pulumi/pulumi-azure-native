@@ -141,33 +141,6 @@ class PowerBIResource(pulumi.CustomResource):
         """
         Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
 
-        ## Example Usage
-        ### Creates or updates private link service resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        power_bi_resource = azure_native.powerbi.PowerBIResource("powerBIResource",
-            azure_resource_name="azureResourceName",
-            location="global",
-            resource_group_name="resourceGroup",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            },
-            tenant_id="ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerbi:PowerBIResource myPrivateLinkServiceResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/{azureResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,33 +160,6 @@ class PowerBIResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2020-06-01. In version 2.x of the Azure Native provider, it used API version 2020-06-01.
-
-        ## Example Usage
-        ### Creates or updates private link service resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        power_bi_resource = azure_native.powerbi.PowerBIResource("powerBIResource",
-            azure_resource_name="azureResourceName",
-            location="global",
-            resource_group_name="resourceGroup",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            },
-            tenant_id="ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerbi:PowerBIResource myPrivateLinkServiceResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/{azureResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

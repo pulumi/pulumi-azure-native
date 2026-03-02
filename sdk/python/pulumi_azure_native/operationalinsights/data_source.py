@@ -138,32 +138,6 @@ class DataSource(pulumi.CustomResource):
 
         Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DataSourcesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_source = azure_native.operationalinsights.DataSource("dataSource",
-            data_source_name="AzTestDS774",
-            kind=azure_native.operationalinsights.DataSourceKind.AZURE_ACTIVITY_LOG,
-            properties={
-                "LinkedResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management",
-            },
-            resource_group_name="OIAutoRest5123",
-            workspace_name="AzTest9724")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:DataSource AzTestDS774 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/dataSources/{dataSourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,32 +160,6 @@ class DataSource(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2015-11-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DataSourcesCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_source = azure_native.operationalinsights.DataSource("dataSource",
-            data_source_name="AzTestDS774",
-            kind=azure_native.operationalinsights.DataSourceKind.AZURE_ACTIVITY_LOG,
-            properties={
-                "LinkedResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management",
-            },
-            resource_group_name="OIAutoRest5123",
-            workspace_name="AzTest9724")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:DataSource AzTestDS774 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/dataSources/{dataSourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

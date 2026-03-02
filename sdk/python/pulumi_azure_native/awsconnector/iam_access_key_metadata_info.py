@@ -124,50 +124,6 @@ class IamAccessKeyMetadataInfo(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### IamAccessKeyMetadataInfo_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_access_key_metadata_info = azure_native.awsconnector.IamAccessKeyMetadataInfo("iamAccessKeyMetadataInfo",
-            location="dqubptgcoomyzlodtswea",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "gcbewovmmukvp",
-                "aws_account_id": "i",
-                "aws_properties": {
-                    "access_key_id": "ybrtvadgwepioqesepjpoxemlvu",
-                    "create_date": "2024-10-08T03:50:53.022Z",
-                    "status": {
-                        "value": azure_native.awsconnector.StatusType.ACTIVE,
-                    },
-                    "user_name": "obogutgiddo",
-                },
-                "aws_region": "e",
-                "aws_source_schema": "bcflc",
-                "aws_tags": {
-                    "key5899": "nnfwyaxbohwiqqvlegvbeuwx",
-                },
-                "public_cloud_connectors_resource_id": "iwcumigpcnebbhmwmaerblylcgdtt",
-                "public_cloud_resource_name": "ctvpxuzxqwzhmtivtftc",
-            },
-            resource_group_name="rgiamAccessKeyMetadata",
-            tags={
-                "key4454": "phceybsnzjaxtgagqgovz",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamAccessKeyMetadataInfo nzwilyzbgboyvjfhjmpqknqj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyMetadata/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,50 +143,6 @@ class IamAccessKeyMetadataInfo(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### IamAccessKeyMetadataInfo_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_access_key_metadata_info = azure_native.awsconnector.IamAccessKeyMetadataInfo("iamAccessKeyMetadataInfo",
-            location="dqubptgcoomyzlodtswea",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "gcbewovmmukvp",
-                "aws_account_id": "i",
-                "aws_properties": {
-                    "access_key_id": "ybrtvadgwepioqesepjpoxemlvu",
-                    "create_date": "2024-10-08T03:50:53.022Z",
-                    "status": {
-                        "value": azure_native.awsconnector.StatusType.ACTIVE,
-                    },
-                    "user_name": "obogutgiddo",
-                },
-                "aws_region": "e",
-                "aws_source_schema": "bcflc",
-                "aws_tags": {
-                    "key5899": "nnfwyaxbohwiqqvlegvbeuwx",
-                },
-                "public_cloud_connectors_resource_id": "iwcumigpcnebbhmwmaerblylcgdtt",
-                "public_cloud_resource_name": "ctvpxuzxqwzhmtivtftc",
-            },
-            resource_group_name="rgiamAccessKeyMetadata",
-            tags={
-                "key4454": "phceybsnzjaxtgagqgovz",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamAccessKeyMetadataInfo nzwilyzbgboyvjfhjmpqknqj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyMetadata/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

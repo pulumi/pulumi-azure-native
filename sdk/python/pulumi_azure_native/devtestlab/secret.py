@@ -153,30 +153,6 @@ class Secret(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### Secrets_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secret = azure_native.devtestlab.Secret("secret",
-            lab_name="{labName}",
-            name="{secretName}",
-            resource_group_name="resourceGroupName",
-            user_name="{userName}",
-            value="{secret}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:Secret {secretName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/secrets/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,30 +174,6 @@ class Secret(pulumi.CustomResource):
         A secret.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### Secrets_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secret = azure_native.devtestlab.Secret("secret",
-            lab_name="{labName}",
-            name="{secretName}",
-            resource_group_name="resourceGroupName",
-            user_name="{userName}",
-            value="{secret}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:Secret {secretName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/secrets/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

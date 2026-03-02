@@ -139,47 +139,6 @@ class ConnectionType(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update connection type
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connection_type = azure_native.automation.ConnectionType("connectionType",
-            automation_account_name="myAutomationAccount22",
-            connection_type_name="myCT",
-            field_definitions={
-                "myBoolField": {
-                    "is_encrypted": False,
-                    "is_optional": False,
-                    "type": "bool",
-                },
-                "myStringField": {
-                    "is_encrypted": False,
-                    "is_optional": False,
-                    "type": "string",
-                },
-                "myStringFieldEncrypted": {
-                    "is_encrypted": True,
-                    "is_optional": False,
-                    "type": "string",
-                },
-            },
-            is_global=False,
-            name="myCT",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:ConnectionType myCT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connectionTypes/{connectionTypeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,47 +161,6 @@ class ConnectionType(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update connection type
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connection_type = azure_native.automation.ConnectionType("connectionType",
-            automation_account_name="myAutomationAccount22",
-            connection_type_name="myCT",
-            field_definitions={
-                "myBoolField": {
-                    "is_encrypted": False,
-                    "is_optional": False,
-                    "type": "bool",
-                },
-                "myStringField": {
-                    "is_encrypted": False,
-                    "is_optional": False,
-                    "type": "string",
-                },
-                "myStringFieldEncrypted": {
-                    "is_encrypted": True,
-                    "is_optional": False,
-                    "type": "string",
-                },
-            },
-            is_global=False,
-            name="myCT",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:ConnectionType myCT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connectionTypes/{connectionTypeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

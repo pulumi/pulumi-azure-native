@@ -123,61 +123,6 @@ class Route53HostedZone(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### Route53HostedZones_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        route53_hosted_zone = azure_native.awsconnector.Route53HostedZone("route53HostedZone",
-            location="fohhkmxasqynkojwigmrzyhydfpdrd",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "vohjyzjtvd",
-                "aws_account_id": "rcvmulzibfebvzgooms",
-                "aws_properties": {
-                    "hosted_zone_config": {
-                        "comment": "vanhfd",
-                    },
-                    "hosted_zone_tags": [{
-                        "key": "zvuvccszzjwkmfojvfbtxuchpvxcy",
-                        "value": "ptsrmgayfujrfvjwyxoi",
-                    }],
-                    "id": "dwezucqqxsyhynebuyflyc",
-                    "name": "koqhelfps",
-                    "name_servers": ["qizlbjltglpbdpxcsriu"],
-                    "query_logging_config": {
-                        "cloud_watch_logs_log_group_arn": "magynetpgpdveymgnonjicfoxzxfp",
-                    },
-                    "vp_cs": [{
-                        "vpc_id": "nxfxsb",
-                        "vpc_region": "y",
-                    }],
-                },
-                "aws_region": "nthjzqxrrqsducmjudhrcdiqioy",
-                "aws_source_schema": "a",
-                "aws_tags": {
-                    "key625": "we",
-                },
-                "public_cloud_connectors_resource_id": "qugbrritrvssrcwtib",
-                "public_cloud_resource_name": "edufxpyvryjxbnwulifcrwuezu",
-            },
-            resource_group_name="rgroute53HostedZone",
-            tags={
-                "key8226": "nxab",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Route53HostedZone p /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/route53HostedZones/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,61 +142,6 @@ class Route53HostedZone(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### Route53HostedZones_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        route53_hosted_zone = azure_native.awsconnector.Route53HostedZone("route53HostedZone",
-            location="fohhkmxasqynkojwigmrzyhydfpdrd",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "vohjyzjtvd",
-                "aws_account_id": "rcvmulzibfebvzgooms",
-                "aws_properties": {
-                    "hosted_zone_config": {
-                        "comment": "vanhfd",
-                    },
-                    "hosted_zone_tags": [{
-                        "key": "zvuvccszzjwkmfojvfbtxuchpvxcy",
-                        "value": "ptsrmgayfujrfvjwyxoi",
-                    }],
-                    "id": "dwezucqqxsyhynebuyflyc",
-                    "name": "koqhelfps",
-                    "name_servers": ["qizlbjltglpbdpxcsriu"],
-                    "query_logging_config": {
-                        "cloud_watch_logs_log_group_arn": "magynetpgpdveymgnonjicfoxzxfp",
-                    },
-                    "vp_cs": [{
-                        "vpc_id": "nxfxsb",
-                        "vpc_region": "y",
-                    }],
-                },
-                "aws_region": "nthjzqxrrqsducmjudhrcdiqioy",
-                "aws_source_schema": "a",
-                "aws_tags": {
-                    "key625": "we",
-                },
-                "public_cloud_connectors_resource_id": "qugbrritrvssrcwtib",
-                "public_cloud_resource_name": "edufxpyvryjxbnwulifcrwuezu",
-            },
-            resource_group_name="rgroute53HostedZone",
-            tags={
-                "key8226": "nxab",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Route53HostedZone p /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/route53HostedZones/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

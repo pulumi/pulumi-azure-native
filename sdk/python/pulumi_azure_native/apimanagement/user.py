@@ -260,32 +260,6 @@ class User(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateUser
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        user = azure_native.apimanagement.User("user",
-            confirmation=azure_native.apimanagement.Confirmation.SIGNUP,
-            email="foobar@outlook.com",
-            first_name="foo",
-            last_name="bar",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            user_id="5931a75ae4bbd512288c680b")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:User 5931a75ae4bbd512288c680b /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,32 +289,6 @@ class User(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateUser
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        user = azure_native.apimanagement.User("user",
-            confirmation=azure_native.apimanagement.Confirmation.SIGNUP,
-            email="foobar@outlook.com",
-            first_name="foo",
-            last_name="bar",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            user_id="5931a75ae4bbd512288c680b")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:User 5931a75ae4bbd512288c680b /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

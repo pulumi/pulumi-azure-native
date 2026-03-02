@@ -174,37 +174,6 @@ class StorageInsightConfig(pulumi.CustomResource):
 
         Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### StorageInsightsCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        storage_insight_config = azure_native.operationalinsights.StorageInsightConfig("storageInsightConfig",
-            containers=["wad-iis-logfiles"],
-            resource_group_name="OIAutoRest5123",
-            storage_account={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
-                "key": "1234",
-            },
-            storage_insight_name="AzTestSI1110",
-            tables=[
-                "WADWindowsEventLogsTable",
-                "LinuxSyslogVer2v0",
-            ],
-            workspace_name="aztest5048")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:StorageInsightConfig AzTestSI1110 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/storageInsightConfigs/{storageInsightName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,37 +198,6 @@ class StorageInsightConfig(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
 
         Other available API versions: 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### StorageInsightsCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        storage_insight_config = azure_native.operationalinsights.StorageInsightConfig("storageInsightConfig",
-            containers=["wad-iis-logfiles"],
-            resource_group_name="OIAutoRest5123",
-            storage_account={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
-                "key": "1234",
-            },
-            storage_insight_name="AzTestSI1110",
-            tables=[
-                "WADWindowsEventLogsTable",
-                "LinuxSyslogVer2v0",
-            ],
-            workspace_name="aztest5048")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:operationalinsights:StorageInsightConfig AzTestSI1110 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/storageInsightConfigs/{storageInsightName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

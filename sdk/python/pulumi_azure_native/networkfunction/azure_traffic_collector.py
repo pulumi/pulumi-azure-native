@@ -105,31 +105,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
-        ## Example Usage
-        ### Create a traffic collector
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_traffic_collector = azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector",
-            azure_traffic_collector_name="atc",
-            location="West US",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:networkfunction:AzureTrafficCollector atc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,31 +123,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
         Azure Traffic Collector resource.
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
-
-        ## Example Usage
-        ### Create a traffic collector
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_traffic_collector = azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector",
-            azure_traffic_collector_name="atc",
-            location="West US",
-            resource_group_name="rg1",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:networkfunction:AzureTrafficCollector atc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

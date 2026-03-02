@@ -122,30 +122,6 @@ class SuppressionList(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateOrUpdate SuppressionLists resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        suppression_list = azure_native.communication.SuppressionList("suppressionList",
-            domain_name="contoso.com",
-            email_service_name="contosoEmailService",
-            list_name="contosoNewsAlerts",
-            resource_group_name="contosoResourceGroup",
-            suppression_list_name="aaaa1111-bbbb-2222-3333-aaaa11112222")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:communication:SuppressionList aaaa1111-bbbb-2222-3333-aaaa11112222 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/suppressionLists/{suppressionListName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,30 +143,6 @@ class SuppressionList(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateOrUpdate SuppressionLists resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        suppression_list = azure_native.communication.SuppressionList("suppressionList",
-            domain_name="contoso.com",
-            email_service_name="contosoEmailService",
-            list_name="contosoNewsAlerts",
-            resource_group_name="contosoResourceGroup",
-            suppression_list_name="aaaa1111-bbbb-2222-3333-aaaa11112222")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:communication:SuppressionList aaaa1111-bbbb-2222-3333-aaaa11112222 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName}/suppressionLists/{suppressionListName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

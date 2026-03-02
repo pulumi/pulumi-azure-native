@@ -191,54 +191,6 @@ class ProtectedItem(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Enable Protection on Azure IaasVm
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        protected_item = azure_native.recoveryservices.ProtectedItem("protectedItem",
-            container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            fabric_name="Azure",
-            properties={
-                "policy_id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/DefaultPolicy",
-                "protected_item_type": "Microsoft.Compute/virtualMachines",
-                "source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
-            },
-            protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            resource_group_name="SwaggerTestRg",
-            vault_name="NetSDKTestRsVault")
-
-        ```
-        ### Stop Protection with retain data on Azure IaasVm
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        protected_item = azure_native.recoveryservices.ProtectedItem("protectedItem",
-            container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            fabric_name="Azure",
-            properties={
-                "protected_item_type": "Microsoft.Compute/virtualMachines",
-                "protection_state": azure_native.recoveryservices.ProtectionState.PROTECTION_STOPPED,
-                "source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
-            },
-            protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            resource_group_name="SwaggerTestRg",
-            vault_name="NetSDKTestRsVault")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:recoveryservices:ProtectedItem VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,54 +216,6 @@ class ProtectedItem(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-11-01-preview, 2025-01-01, 2025-02-01, 2025-02-28-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Enable Protection on Azure IaasVm
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        protected_item = azure_native.recoveryservices.ProtectedItem("protectedItem",
-            container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            fabric_name="Azure",
-            properties={
-                "policy_id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/DefaultPolicy",
-                "protected_item_type": "Microsoft.Compute/virtualMachines",
-                "source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
-            },
-            protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            resource_group_name="SwaggerTestRg",
-            vault_name="NetSDKTestRsVault")
-
-        ```
-        ### Stop Protection with retain data on Azure IaasVm
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        protected_item = azure_native.recoveryservices.ProtectedItem("protectedItem",
-            container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            fabric_name="Azure",
-            properties={
-                "protected_item_type": "Microsoft.Compute/virtualMachines",
-                "protection_state": azure_native.recoveryservices.ProtectionState.PROTECTION_STOPPED,
-                "source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
-            },
-            protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
-            resource_group_name="SwaggerTestRg",
-            vault_name="NetSDKTestRsVault")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:recoveryservices:ProtectedItem VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

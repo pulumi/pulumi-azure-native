@@ -118,30 +118,6 @@ class FirewallRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### FirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.dbformariadb.FirewallRule("firewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            start_ip_address="0.0.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformariadb:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/firewallRules/{firewallRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,30 +137,6 @@ class FirewallRule(pulumi.CustomResource):
         Represents a server firewall rule.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### FirewallRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.dbformariadb.FirewallRule("firewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            start_ip_address="0.0.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbformariadb:FirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/firewallRules/{firewallRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -144,43 +144,6 @@ class SecurityContact(pulumi.CustomResource):
 
         Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create security contact data
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        security_contact = azure_native.security.SecurityContact("securityContact",
-            emails="john@contoso.com;jane@contoso.com",
-            is_enabled=True,
-            notifications_by_role={
-                "roles": [azure_native.security.SecurityContactRole.OWNER],
-                "state": azure_native.security.State.ON,
-            },
-            notifications_sources=[
-                {
-                    "minimal_risk_level": azure_native.security.MinimalRiskLevel.CRITICAL,
-                    "source_type": "AttackPath",
-                },
-                {
-                    "minimal_severity": azure_native.security.MinimalSeverity.MEDIUM,
-                    "source_type": "Alert",
-                },
-            ],
-            phone="(214)275-4038",
-            security_contact_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:SecurityContact default /subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,43 +166,6 @@ class SecurityContact(pulumi.CustomResource):
         Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
 
         Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create security contact data
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        security_contact = azure_native.security.SecurityContact("securityContact",
-            emails="john@contoso.com;jane@contoso.com",
-            is_enabled=True,
-            notifications_by_role={
-                "roles": [azure_native.security.SecurityContactRole.OWNER],
-                "state": azure_native.security.State.ON,
-            },
-            notifications_sources=[
-                {
-                    "minimal_risk_level": azure_native.security.MinimalRiskLevel.CRITICAL,
-                    "source_type": "AttackPath",
-                },
-                {
-                    "minimal_severity": azure_native.security.MinimalSeverity.MEDIUM,
-                    "source_type": "Alert",
-                },
-            ],
-            phone="(214)275-4038",
-            security_contact_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:SecurityContact default /subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

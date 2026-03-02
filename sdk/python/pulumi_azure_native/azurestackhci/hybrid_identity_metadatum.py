@@ -121,29 +121,6 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
-        ## Example Usage
-        ### CreateHybridIdentityMetadata
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hybrid_identity_metadatum = azure_native.azurestackhci.HybridIdentityMetadatum("hybridIdentityMetadatum",
-            metadata_name="default",
-            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
-            resource_group_name="testrg",
-            virtual_machine_name="ContosoVm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:HybridIdentityMetadatum default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,29 +140,6 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         Defines the HybridIdentityMetadata.
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
-
-        ## Example Usage
-        ### CreateHybridIdentityMetadata
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hybrid_identity_metadatum = azure_native.azurestackhci.HybridIdentityMetadatum("hybridIdentityMetadatum",
-            metadata_name="default",
-            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
-            resource_group_name="testrg",
-            virtual_machine_name="ContosoVm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:HybridIdentityMetadatum default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

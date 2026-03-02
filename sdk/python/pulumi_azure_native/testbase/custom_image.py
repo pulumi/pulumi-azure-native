@@ -155,32 +155,6 @@ class CustomImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
 
-        ## Example Usage
-        ### CustomImageCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_image = azure_native.testbase.CustomImage("customImage",
-            custom_image_name="image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003",
-            definition_name="contoso-image-def",
-            resource_group_name="contoso-rg1",
-            source=azure_native.testbase.ImageSource.VHD,
-            test_base_account_name="contoso-testBaseAccount1",
-            version_name="1.0.0",
-            vhd_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/VHDs/vhd-00ac3ccd-1503-4ee5-aa26-26569cfafe88")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:testbase:CustomImage image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customImages/{customImageName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,32 +176,6 @@ class CustomImage(pulumi.CustomResource):
         The test base custom image resource.
 
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
-
-        ## Example Usage
-        ### CustomImageCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_image = azure_native.testbase.CustomImage("customImage",
-            custom_image_name="image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003",
-            definition_name="contoso-image-def",
-            resource_group_name="contoso-rg1",
-            source=azure_native.testbase.ImageSource.VHD,
-            test_base_account_name="contoso-testBaseAccount1",
-            version_name="1.0.0",
-            vhd_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/VHDs/vhd-00ac3ccd-1503-4ee5-aa26-26569cfafe88")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:testbase:CustomImage image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customImages/{customImageName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

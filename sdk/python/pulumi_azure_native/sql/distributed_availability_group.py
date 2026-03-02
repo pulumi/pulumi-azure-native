@@ -227,55 +227,6 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
 
         Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a distributed availability group with all properties.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        distributed_availability_group = azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup",
-            databases=[{
-                "database_name": "testdb",
-            }],
-            distributed_availability_group_name="dag",
-            failover_mode=azure_native.sql.FailoverModeType.NONE,
-            instance_availability_group_name="testcl",
-            instance_link_role=azure_native.sql.LinkRole.PRIMARY,
-            managed_instance_name="testcl",
-            partner_availability_group_name="BoxLocalAg1",
-            partner_endpoint="TCP://SERVER:7022",
-            resource_group_name="testrg",
-            seeding_mode=azure_native.sql.SeedingModeType.AUTOMATIC)
-
-        ```
-        ### Create a distributed availability group with minimal properties.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        distributed_availability_group = azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup",
-            databases=[{
-                "database_name": "testdb",
-            }],
-            distributed_availability_group_name="dag",
-            instance_availability_group_name="testcl",
-            managed_instance_name="testcl",
-            partner_availability_group_name="BoxLocalAg1",
-            partner_endpoint="TCP://SERVER:7022",
-            resource_group_name="testrg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:DistributedAvailabilityGroup dag /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,55 +254,6 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a distributed availability group with all properties.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        distributed_availability_group = azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup",
-            databases=[{
-                "database_name": "testdb",
-            }],
-            distributed_availability_group_name="dag",
-            failover_mode=azure_native.sql.FailoverModeType.NONE,
-            instance_availability_group_name="testcl",
-            instance_link_role=azure_native.sql.LinkRole.PRIMARY,
-            managed_instance_name="testcl",
-            partner_availability_group_name="BoxLocalAg1",
-            partner_endpoint="TCP://SERVER:7022",
-            resource_group_name="testrg",
-            seeding_mode=azure_native.sql.SeedingModeType.AUTOMATIC)
-
-        ```
-        ### Create a distributed availability group with minimal properties.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        distributed_availability_group = azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup",
-            databases=[{
-                "database_name": "testdb",
-            }],
-            distributed_availability_group_name="dag",
-            instance_availability_group_name="testcl",
-            managed_instance_name="testcl",
-            partner_availability_group_name="BoxLocalAg1",
-            partner_endpoint="TCP://SERVER:7022",
-            resource_group_name="testrg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:DistributedAvailabilityGroup dag /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/distributedAvailabilityGroups/{distributedAvailabilityGroupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

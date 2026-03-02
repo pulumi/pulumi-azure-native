@@ -142,36 +142,6 @@ class GuestAgent(pulumi.CustomResource):
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateGuestAgent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_agent = azure_native.scvmm.GuestAgent("guestAgent",
-            credentials={
-                "password": "<password>",
-                "username": "tempuser",
-            },
-            guest_agent_name="default",
-            http_proxy_config={
-                "https_proxy": "http://192.1.2.3:8080",
-            },
-            provisioning_action=azure_native.scvmm.ProvisioningAction.INSTALL,
-            resource_group_name="testrg",
-            virtual_machine_name="ContosoVm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scvmm:GuestAgent default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/guestAgents/{guestAgentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,36 +164,6 @@ class GuestAgent(pulumi.CustomResource):
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
 
         Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateGuestAgent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_agent = azure_native.scvmm.GuestAgent("guestAgent",
-            credentials={
-                "password": "<password>",
-                "username": "tempuser",
-            },
-            guest_agent_name="default",
-            http_proxy_config={
-                "https_proxy": "http://192.1.2.3:8080",
-            },
-            provisioning_action=azure_native.scvmm.ProvisioningAction.INSTALL,
-            resource_group_name="testrg",
-            virtual_machine_name="ContosoVm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scvmm:GuestAgent default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/virtualMachines/{virtualMachineName}/guestAgents/{guestAgentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

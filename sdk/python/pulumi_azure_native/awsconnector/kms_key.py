@@ -124,61 +124,6 @@ class KmsKey(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### KmsKeys_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kms_key = azure_native.awsconnector.KmsKey("kmsKey",
-            location="qozbasr",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "qszqxzva",
-                "aws_account_id": "rvkcvpmljvwdryvsugsuc",
-                "aws_properties": {
-                    "arn": "qglsfyxssylnrh",
-                    "bypass_policy_lockout_safety_check": True,
-                    "description": "mjtmquqbhnvjw",
-                    "enable_key_rotation": True,
-                    "enabled": True,
-                    "key_id": "hgwon",
-                    "key_policy": {},
-                    "key_spec": azure_native.awsconnector.KeySpec.EC_C_NIS_T_P256,
-                    "key_usage": azure_native.awsconnector.KeyUsage.ENCRYP_T_DECRYPT,
-                    "multi_region": True,
-                    "origin": azure_native.awsconnector.Origin.AW_S_KMS,
-                    "pending_window_in_days": 7,
-                    "rotation_period_in_days": 4,
-                    "tags": [{
-                        "key": "eprsfobey",
-                        "value": "lcaeaqxughlzgzhbbi",
-                    }],
-                },
-                "aws_region": "hvyzzutginnqrhgkyyripyqhqkofm",
-                "aws_source_schema": "cvatoa",
-                "aws_tags": {
-                    "key8656": "ctsbcnfhcvojqkiouaoyaetkdt",
-                },
-                "public_cloud_connectors_resource_id": "tsbeayhnreovxnkbtbrvnuielziq",
-                "public_cloud_resource_name": "edkcxntzxplnpl",
-            },
-            resource_group_name="rgkmsKey",
-            tags={
-                "key3909": "dxto",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:KmsKey dfo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsKeys/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,61 +143,6 @@ class KmsKey(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### KmsKeys_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kms_key = azure_native.awsconnector.KmsKey("kmsKey",
-            location="qozbasr",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "qszqxzva",
-                "aws_account_id": "rvkcvpmljvwdryvsugsuc",
-                "aws_properties": {
-                    "arn": "qglsfyxssylnrh",
-                    "bypass_policy_lockout_safety_check": True,
-                    "description": "mjtmquqbhnvjw",
-                    "enable_key_rotation": True,
-                    "enabled": True,
-                    "key_id": "hgwon",
-                    "key_policy": {},
-                    "key_spec": azure_native.awsconnector.KeySpec.EC_C_NIS_T_P256,
-                    "key_usage": azure_native.awsconnector.KeyUsage.ENCRYP_T_DECRYPT,
-                    "multi_region": True,
-                    "origin": azure_native.awsconnector.Origin.AW_S_KMS,
-                    "pending_window_in_days": 7,
-                    "rotation_period_in_days": 4,
-                    "tags": [{
-                        "key": "eprsfobey",
-                        "value": "lcaeaqxughlzgzhbbi",
-                    }],
-                },
-                "aws_region": "hvyzzutginnqrhgkyyripyqhqkofm",
-                "aws_source_schema": "cvatoa",
-                "aws_tags": {
-                    "key8656": "ctsbcnfhcvojqkiouaoyaetkdt",
-                },
-                "public_cloud_connectors_resource_id": "tsbeayhnreovxnkbtbrvnuielziq",
-                "public_cloud_resource_name": "edkcxntzxplnpl",
-            },
-            resource_group_name="rgkmsKey",
-            tags={
-                "key3909": "dxto",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:KmsKey dfo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsKeys/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

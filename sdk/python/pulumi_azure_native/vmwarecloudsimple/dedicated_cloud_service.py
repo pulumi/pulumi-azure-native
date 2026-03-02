@@ -120,29 +120,6 @@ class DedicatedCloudService(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
 
-        ## Example Usage
-        ### CreateDedicatedCloudService
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dedicated_cloud_service = azure_native.vmwarecloudsimple.DedicatedCloudService("dedicatedCloudService",
-            dedicated_cloud_service_name="myService",
-            gateway_subnet="10.0.0.0",
-            location="westus",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:vmwarecloudsimple:DedicatedCloudService myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,29 +139,6 @@ class DedicatedCloudService(pulumi.CustomResource):
         Dedicated cloud service model
 
         Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
-
-        ## Example Usage
-        ### CreateDedicatedCloudService
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dedicated_cloud_service = azure_native.vmwarecloudsimple.DedicatedCloudService("dedicatedCloudService",
-            dedicated_cloud_service_name="myService",
-            gateway_subnet="10.0.0.0",
-            location="westus",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:vmwarecloudsimple:DedicatedCloudService myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/{dedicatedCloudServiceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

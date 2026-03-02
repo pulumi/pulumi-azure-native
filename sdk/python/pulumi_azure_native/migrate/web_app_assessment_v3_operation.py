@@ -106,65 +106,6 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-03-03-preview.
 
-        ## Example Usage
-        ### WebAppAssessmentV3Operations_Create_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_app_assessment_v3_operation = azure_native.migrate.WebAppAssessmentV3Operation("webAppAssessmentV3Operation",
-            assessment_name="assessmentName",
-            project_name="contosoProject",
-            properties={
-                "fallback_machine_assessment_arm_id": "gfjcubgnh",
-                "scope": {
-                    "azure_resource_graph_query": "mjonozzzflcglhdb",
-                    "scope_type": azure_native.migrate.ScopeType.SERVER_GROUP_ID,
-                    "server_group_id": "sxwigkygd",
-                },
-                "settings": {
-                    "app_svc_container_settings": {
-                        "isolation_required": True,
-                    },
-                    "app_svc_native_settings": {
-                        "isolation_required": True,
-                    },
-                    "azure_location": "khzvggbrcnpkzrqdtvvyytc",
-                    "azure_security_offering_type": azure_native.migrate.AzureSecurityOfferingType.NO,
-                    "billing_settings": {
-                        "licensing_program": azure_native.migrate.LicensingProgram.RETAIL,
-                        "subscription_id": "lakvxkjeqpajer",
-                    },
-                    "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
-                    "discount_percentage": 12,
-                    "environment_type": azure_native.migrate.EnvironmentType.PRODUCTION,
-                    "performance_data": {
-                        "percentile": "Unknown",
-                        "perf_data_end_time": "2025-02-21T06:18:34.789Z",
-                        "perf_data_start_time": "2025-02-21T06:18:34.789Z",
-                        "time_range": azure_native.migrate.TimeRange.DAY,
-                    },
-                    "savings_settings": {
-                        "azure_offer_code": azure_native.migrate.AzureOffer.UNKNOWN,
-                        "savings_options": azure_native.migrate.SavingsOptions.NONE,
-                    },
-                    "scaling_factor": 6,
-                    "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
-                },
-            },
-            resource_group_name="rgwebAppAssessments")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:WebAppAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppAssessments/{assessmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,65 +124,6 @@ class WebAppAssessmentV3Operation(pulumi.CustomResource):
         WebApp assessment resource.
 
         Uses Azure REST API version 2024-03-03-preview.
-
-        ## Example Usage
-        ### WebAppAssessmentV3Operations_Create_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        web_app_assessment_v3_operation = azure_native.migrate.WebAppAssessmentV3Operation("webAppAssessmentV3Operation",
-            assessment_name="assessmentName",
-            project_name="contosoProject",
-            properties={
-                "fallback_machine_assessment_arm_id": "gfjcubgnh",
-                "scope": {
-                    "azure_resource_graph_query": "mjonozzzflcglhdb",
-                    "scope_type": azure_native.migrate.ScopeType.SERVER_GROUP_ID,
-                    "server_group_id": "sxwigkygd",
-                },
-                "settings": {
-                    "app_svc_container_settings": {
-                        "isolation_required": True,
-                    },
-                    "app_svc_native_settings": {
-                        "isolation_required": True,
-                    },
-                    "azure_location": "khzvggbrcnpkzrqdtvvyytc",
-                    "azure_security_offering_type": azure_native.migrate.AzureSecurityOfferingType.NO,
-                    "billing_settings": {
-                        "licensing_program": azure_native.migrate.LicensingProgram.RETAIL,
-                        "subscription_id": "lakvxkjeqpajer",
-                    },
-                    "currency": azure_native.migrate.AzureCurrency.UNKNOWN,
-                    "discount_percentage": 12,
-                    "environment_type": azure_native.migrate.EnvironmentType.PRODUCTION,
-                    "performance_data": {
-                        "percentile": "Unknown",
-                        "perf_data_end_time": "2025-02-21T06:18:34.789Z",
-                        "perf_data_start_time": "2025-02-21T06:18:34.789Z",
-                        "time_range": azure_native.migrate.TimeRange.DAY,
-                    },
-                    "savings_settings": {
-                        "azure_offer_code": azure_native.migrate.AzureOffer.UNKNOWN,
-                        "savings_options": azure_native.migrate.SavingsOptions.NONE,
-                    },
-                    "scaling_factor": 6,
-                    "sizing_criterion": azure_native.migrate.AssessmentSizingCriterion.PERFORMANCE_BASED,
-                },
-            },
-            resource_group_name="rgwebAppAssessments")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:WebAppAssessmentV3Operation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppAssessments/{assessmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

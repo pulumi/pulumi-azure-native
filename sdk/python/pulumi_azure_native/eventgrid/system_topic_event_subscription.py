@@ -254,37 +254,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### SystemTopicEventSubscriptions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        system_topic_event_subscription = azure_native.eventgrid.SystemTopicEventSubscription("systemTopicEventSubscription",
-            destination={
-                "endpoint_type": "WebHook",
-                "endpoint_url": "https://requestb.in/15ksip71",
-            },
-            event_subscription_name="exampleEventSubscriptionName1",
-            filter={
-                "is_subject_case_sensitive": False,
-                "subject_begins_with": "ExamplePrefix",
-                "subject_ends_with": "ExampleSuffix",
-            },
-            resource_group_name="examplerg",
-            system_topic_name="exampleSystemTopic1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:SystemTopicEventSubscription exampleEventSubscriptionName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/systemTopics/{systemTopicName}/eventSubscriptions/{eventSubscriptionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,37 +286,6 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### SystemTopicEventSubscriptions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        system_topic_event_subscription = azure_native.eventgrid.SystemTopicEventSubscription("systemTopicEventSubscription",
-            destination={
-                "endpoint_type": "WebHook",
-                "endpoint_url": "https://requestb.in/15ksip71",
-            },
-            event_subscription_name="exampleEventSubscriptionName1",
-            filter={
-                "is_subject_case_sensitive": False,
-                "subject_begins_with": "ExamplePrefix",
-                "subject_ends_with": "ExampleSuffix",
-            },
-            resource_group_name="examplerg",
-            system_topic_name="exampleSystemTopic1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:SystemTopicEventSubscription exampleEventSubscriptionName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/systemTopics/{systemTopicName}/eventSubscriptions/{eventSubscriptionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

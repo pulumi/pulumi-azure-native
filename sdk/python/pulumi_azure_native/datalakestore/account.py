@@ -294,57 +294,6 @@ class Account(pulumi.CustomResource):
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
 
-        ## Example Usage
-        ### Creates the specified Data Lake Store account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.datalakestore.Account("account",
-            account_name="contosoadla",
-            default_group="test_default_group",
-            encryption_config={
-                "key_vault_meta_info": {
-                    "encryption_key_name": "test_encryption_key_name",
-                    "encryption_key_version": "encryption_key_version",
-                    "key_vault_resource_id": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
-                },
-                "type": azure_native.datalakestore.EncryptionConfigType.USER_MANAGED,
-            },
-            encryption_state=azure_native.datalakestore.EncryptionState.ENABLED,
-            firewall_allow_azure_ips=azure_native.datalakestore.FirewallAllowAzureIpsState.ENABLED,
-            firewall_rules=[{
-                "end_ip_address": "2.2.2.2",
-                "name": "test_rule",
-                "start_ip_address": "1.1.1.1",
-            }],
-            firewall_state=azure_native.datalakestore.FirewallState.ENABLED,
-            identity={
-                "type": azure_native.datalakestore.EncryptionIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="eastus2",
-            new_tier=azure_native.datalakestore.TierType.CONSUMPTION,
-            resource_group_name="contosorg",
-            tags={
-                "test_key": "test_value",
-            },
-            trusted_id_provider_state=azure_native.datalakestore.TrustedIdProviderState.ENABLED,
-            trusted_id_providers=[{
-                "id_provider": "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
-                "name": "test_trusted_id_provider_name",
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datalakestore:Account contosoadla /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -374,57 +323,6 @@ class Account(pulumi.CustomResource):
         Data Lake Store account information.
 
         Uses Azure REST API version 2016-11-01. In version 2.x of the Azure Native provider, it used API version 2016-11-01.
-
-        ## Example Usage
-        ### Creates the specified Data Lake Store account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.datalakestore.Account("account",
-            account_name="contosoadla",
-            default_group="test_default_group",
-            encryption_config={
-                "key_vault_meta_info": {
-                    "encryption_key_name": "test_encryption_key_name",
-                    "encryption_key_version": "encryption_key_version",
-                    "key_vault_resource_id": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
-                },
-                "type": azure_native.datalakestore.EncryptionConfigType.USER_MANAGED,
-            },
-            encryption_state=azure_native.datalakestore.EncryptionState.ENABLED,
-            firewall_allow_azure_ips=azure_native.datalakestore.FirewallAllowAzureIpsState.ENABLED,
-            firewall_rules=[{
-                "end_ip_address": "2.2.2.2",
-                "name": "test_rule",
-                "start_ip_address": "1.1.1.1",
-            }],
-            firewall_state=azure_native.datalakestore.FirewallState.ENABLED,
-            identity={
-                "type": azure_native.datalakestore.EncryptionIdentityType.SYSTEM_ASSIGNED,
-            },
-            location="eastus2",
-            new_tier=azure_native.datalakestore.TierType.CONSUMPTION,
-            resource_group_name="contosorg",
-            tags={
-                "test_key": "test_value",
-            },
-            trusted_id_provider_state=azure_native.datalakestore.TrustedIdProviderState.ENABLED,
-            trusted_id_providers=[{
-                "id_provider": "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
-                "name": "test_trusted_id_provider_name",
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datalakestore:Account contosoadla /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeStore/accounts/{accountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

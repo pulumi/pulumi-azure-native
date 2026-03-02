@@ -159,30 +159,6 @@ class Domain(pulumi.CustomResource):
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
 
-        ## Example Usage
-        ### Create or update Domains resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        domain = azure_native.communication.Domain("domain",
-            domain_management=azure_native.communication.DomainManagement.CUSTOMER_MANAGED,
-            domain_name="mydomain.com",
-            email_service_name="MyEmailServiceResource",
-            location="Global",
-            resource_group_name="MyResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:communication:Domain mydomain.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,30 +184,6 @@ class Domain(pulumi.CustomResource):
         Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
-
-        ## Example Usage
-        ### Create or update Domains resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        domain = azure_native.communication.Domain("domain",
-            domain_management=azure_native.communication.DomainManagement.CUSTOMER_MANAGED,
-            domain_name="mydomain.com",
-            email_service_name="MyEmailServiceResource",
-            location="Global",
-            resource_group_name="MyResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:communication:Domain mydomain.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/emailServices/{emailServiceName}/domains/{domainName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

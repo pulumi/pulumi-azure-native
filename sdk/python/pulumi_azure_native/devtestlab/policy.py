@@ -239,39 +239,6 @@ class Policy(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### Policies_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy = azure_native.devtestlab.Policy("policy",
-            description="{policyDescription}",
-            evaluator_type="{policyEvaluatorType}",
-            fact_data="{policyFactData}",
-            fact_name="{policyFactName}",
-            lab_name="{labName}",
-            location="{location}",
-            name="{policyName}",
-            policy_set_name="{policySetName}",
-            resource_group_name="resourceGroupName",
-            status="{policyStatus}",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            threshold="{policyThreshold}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:Policy {labName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{policySetName}/policies/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,39 +265,6 @@ class Policy(pulumi.CustomResource):
         A Policy.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### Policies_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy = azure_native.devtestlab.Policy("policy",
-            description="{policyDescription}",
-            evaluator_type="{policyEvaluatorType}",
-            fact_data="{policyFactData}",
-            fact_name="{policyFactName}",
-            lab_name="{labName}",
-            location="{location}",
-            name="{policyName}",
-            policy_set_name="{policySetName}",
-            resource_group_name="resourceGroupName",
-            status="{policyStatus}",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            threshold="{policyThreshold}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:Policy {labName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{policySetName}/policies/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

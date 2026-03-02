@@ -226,39 +226,6 @@ class SourceControl(pulumi.CustomResource):
 
         Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a source control
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        source_control = azure_native.automation.SourceControl("sourceControl",
-            auto_sync=True,
-            automation_account_name="sampleAccount9",
-            branch="master",
-            description="my description",
-            folder_path="/folderOne/folderTwo",
-            publish_runbook=True,
-            repo_url="https://sampleUser.visualstudio.com/myProject/_git/myRepository",
-            resource_group_name="rg",
-            security_token={
-                "access_token": "******",
-                "token_type": azure_native.automation.TokenType.PERSONAL_ACCESS_TOKEN,
-            },
-            source_control_name="sampleSourceControl",
-            source_type=azure_native.automation.SourceType.VSO_GIT)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:SourceControl sampleSourceControl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/sourceControls/{sourceControlName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,39 +253,6 @@ class SourceControl(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a source control
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        source_control = azure_native.automation.SourceControl("sourceControl",
-            auto_sync=True,
-            automation_account_name="sampleAccount9",
-            branch="master",
-            description="my description",
-            folder_path="/folderOne/folderTwo",
-            publish_runbook=True,
-            repo_url="https://sampleUser.visualstudio.com/myProject/_git/myRepository",
-            resource_group_name="rg",
-            security_token={
-                "access_token": "******",
-                "token_type": azure_native.automation.TokenType.PERSONAL_ACCESS_TOKEN,
-            },
-            source_control_name="sampleSourceControl",
-            source_type=azure_native.automation.SourceType.VSO_GIT)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:SourceControl sampleSourceControl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/sourceControls/{sourceControlName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

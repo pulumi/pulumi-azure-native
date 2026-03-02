@@ -158,45 +158,6 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
 
         Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### create or update rule collection group draft
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_policy_rule_collection_group_draft = azure_native.network.FirewallPolicyRuleCollectionGroupDraft("firewallPolicyRuleCollectionGroupDraft",
-            firewall_policy_name="firewallPolicy",
-            priority=100,
-            resource_group_name="rg1",
-            rule_collection_group_name="ruleCollectionGroup1",
-            rule_collections=[{
-                "action": {
-                    "type": azure_native.network.FirewallPolicyFilterRuleCollectionActionType.DENY,
-                },
-                "name": "Example-Filter-Rule-Collection",
-                "priority": 100,
-                "rule_collection_type": "FirewallPolicyFilterRuleCollection",
-                "rules": [{
-                    "destination_addresses": ["*"],
-                    "destination_ports": ["*"],
-                    "ip_protocols": [azure_native.network.FirewallPolicyRuleNetworkProtocol.TCP],
-                    "name": "network-rule1",
-                    "rule_type": "NetworkRule",
-                    "source_addresses": ["10.1.25.0/24"],
-                }],
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:FirewallPolicyRuleCollectionGroupDraft ruleCollectionGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}/ruleCollectionGroupDrafts/default 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,45 +181,6 @@ class FirewallPolicyRuleCollectionGroupDraft(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
         Other available API versions: 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### create or update rule collection group draft
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_policy_rule_collection_group_draft = azure_native.network.FirewallPolicyRuleCollectionGroupDraft("firewallPolicyRuleCollectionGroupDraft",
-            firewall_policy_name="firewallPolicy",
-            priority=100,
-            resource_group_name="rg1",
-            rule_collection_group_name="ruleCollectionGroup1",
-            rule_collections=[{
-                "action": {
-                    "type": azure_native.network.FirewallPolicyFilterRuleCollectionActionType.DENY,
-                },
-                "name": "Example-Filter-Rule-Collection",
-                "priority": 100,
-                "rule_collection_type": "FirewallPolicyFilterRuleCollection",
-                "rules": [{
-                    "destination_addresses": ["*"],
-                    "destination_ports": ["*"],
-                    "ip_protocols": [azure_native.network.FirewallPolicyRuleNetworkProtocol.TCP],
-                    "name": "network-rule1",
-                    "rule_type": "NetworkRule",
-                    "source_addresses": ["10.1.25.0/24"],
-                }],
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:FirewallPolicyRuleCollectionGroupDraft ruleCollectionGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}/ruleCollectionGroupDrafts/default 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -176,41 +176,6 @@ class MongoMIResourceMongoMIRoleDefinition(pulumi.CustomResource):
 
         Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDBMongoMIRoleDefinitionCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mongo_mi_resource_mongo_mi_role_definition = azure_native.cosmosdb.MongoMIResourceMongoMIRoleDefinition("mongoMIResourceMongoMIRoleDefinition",
-            account_name="myAccountName",
-            assignable_scopes=[
-                "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
-                "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
-            ],
-            permissions=[{
-                "data_actions": [
-                    "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/create",
-                    "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/read",
-                ],
-                "not_data_actions": [],
-            }],
-            resource_group_name="myResourceGroupName",
-            role_definition_id="myRoleDefinitionId",
-            role_name="myRoleName",
-            type=azure_native.cosmosdb.RoleDefinitionType.CUSTOM_ROLE)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:MongoMIResourceMongoMIRoleDefinition myRoleDefinitionId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongoMIRoleDefinitions/{roleDefinitionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,41 +200,6 @@ class MongoMIResourceMongoMIRoleDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDBMongoMIRoleDefinitionCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mongo_mi_resource_mongo_mi_role_definition = azure_native.cosmosdb.MongoMIResourceMongoMIRoleDefinition("mongoMIResourceMongoMIRoleDefinition",
-            account_name="myAccountName",
-            assignable_scopes=[
-                "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
-                "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
-            ],
-            permissions=[{
-                "data_actions": [
-                    "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/create",
-                    "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/read",
-                ],
-                "not_data_actions": [],
-            }],
-            resource_group_name="myResourceGroupName",
-            role_definition_id="myRoleDefinitionId",
-            role_name="myRoleName",
-            type=azure_native.cosmosdb.RoleDefinitionType.CUSTOM_ROLE)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:MongoMIResourceMongoMIRoleDefinition myRoleDefinitionId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongoMIRoleDefinitions/{roleDefinitionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

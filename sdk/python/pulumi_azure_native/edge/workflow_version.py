@@ -141,52 +141,6 @@ class WorkflowVersion(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### WorkflowVersions_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workflow_version = azure_native.edge.WorkflowVersion("workflowVersion",
-            context_name="testname",
-            extended_location={
-                "name": "szjrwimeqyiue",
-                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
-            },
-            properties={
-                "specification": {},
-                "stage_spec": [{
-                    "name": "amrbjd",
-                    "specification": {},
-                    "task_option": {
-                        "concurrency": 3,
-                        "error_action": {
-                            "max_tolerated_failures": 0,
-                            "mode": azure_native.edge.ErrorActionMode.STOP_ON_ANY_FAILURE,
-                        },
-                    },
-                    "tasks": [{
-                        "name": "xxmeyvmgydbcwxqwjhadjxjod",
-                        "specification": {},
-                        "target_id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
-                    }],
-                }],
-            },
-            resource_group_name="rgconfigurationmanager",
-            version_name="testname",
-            workflow_name="testname")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:WorkflowVersion rsghgriwbtckmabbcxmqbvshybhw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,52 +163,6 @@ class WorkflowVersion(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### WorkflowVersions_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workflow_version = azure_native.edge.WorkflowVersion("workflowVersion",
-            context_name="testname",
-            extended_location={
-                "name": "szjrwimeqyiue",
-                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
-            },
-            properties={
-                "specification": {},
-                "stage_spec": [{
-                    "name": "amrbjd",
-                    "specification": {},
-                    "task_option": {
-                        "concurrency": 3,
-                        "error_action": {
-                            "max_tolerated_failures": 0,
-                            "mode": azure_native.edge.ErrorActionMode.STOP_ON_ANY_FAILURE,
-                        },
-                    },
-                    "tasks": [{
-                        "name": "xxmeyvmgydbcwxqwjhadjxjod",
-                        "specification": {},
-                        "target_id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
-                    }],
-                }],
-            },
-            resource_group_name="rgconfigurationmanager",
-            version_name="testname",
-            workflow_name="testname")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:WorkflowVersion rsghgriwbtckmabbcxmqbvshybhw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName}/versions/{versionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

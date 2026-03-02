@@ -123,37 +123,6 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
-        ## Example Usage
-        ### ManagedNetworkPeeringPoliciesPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_network_peering_policy = azure_native.managednetwork.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy",
-            managed_network_name="myManagedNetwork",
-            managed_network_peering_policy_name="myHubAndSpoke",
-            properties={
-                "hub": {
-                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
-                },
-                "spokes": [{
-                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
-                }],
-                "type": azure_native.managednetwork.Type.HUB_AND_SPOKE_TOPOLOGY,
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetwork:ManagedNetworkPeeringPolicy myHubAndSpoke /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}/managedNetworkPeeringPolicies/{managedNetworkPeeringPolicyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,37 +142,6 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
         The Managed Network Peering Policy resource
 
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
-
-        ## Example Usage
-        ### ManagedNetworkPeeringPoliciesPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_network_peering_policy = azure_native.managednetwork.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy",
-            managed_network_name="myManagedNetwork",
-            managed_network_peering_policy_name="myHubAndSpoke",
-            properties={
-                "hub": {
-                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
-                },
-                "spokes": [{
-                    "id": "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
-                }],
-                "type": azure_native.managednetwork.Type.HUB_AND_SPOKE_TOPOLOGY,
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetwork:ManagedNetworkPeeringPolicy myHubAndSpoke /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}/managedNetworkPeeringPolicies/{managedNetworkPeeringPolicyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -188,47 +188,6 @@ class MqttBridgeTopicMap(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        ## Example Usage
-        ### MqttBridgeTopicMap_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mqtt_bridge_topic_map = azure_native.iotoperationsmq.MqttBridgeTopicMap("mqttBridgeTopicMap",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            location="icfdftifk",
-            mq_name="52A1-D1-t--Q7O9-C-2S",
-            mqtt_bridge_connector_name="5sKfh6461-KDI8h-5",
-            mqtt_bridge_connector_ref="aemmhvfdzmdtxwgimpaqephgo",
-            resource_group_name="rgiotoperationsmq",
-            routes=[{
-                "direction": azure_native.iotoperationsmq.MqttBridgeRouteDirection.REMOTE_TO_LOCAL,
-                "name": "u",
-                "qos": 2,
-                "shared_subscription": {
-                    "group_minimum_share_number": 129,
-                    "group_name": "exnfgkdccpuvzqhxrg",
-                },
-                "source": "xwnfgkkfezlgh",
-                "target": "mgwem",
-            }],
-            tags={},
-            topic_map_name="5--CR4S47--UaxB4-")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:MqttBridgeTopicMap vfnttiyszrcrtvwzqwfgeasgwtil /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName}/topicMap/{topicMapName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,47 +211,6 @@ class MqttBridgeTopicMap(pulumi.CustomResource):
         MQ mqttBridgeTopicMap resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
-        ## Example Usage
-        ### MqttBridgeTopicMap_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mqtt_bridge_topic_map = azure_native.iotoperationsmq.MqttBridgeTopicMap("mqttBridgeTopicMap",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            location="icfdftifk",
-            mq_name="52A1-D1-t--Q7O9-C-2S",
-            mqtt_bridge_connector_name="5sKfh6461-KDI8h-5",
-            mqtt_bridge_connector_ref="aemmhvfdzmdtxwgimpaqephgo",
-            resource_group_name="rgiotoperationsmq",
-            routes=[{
-                "direction": azure_native.iotoperationsmq.MqttBridgeRouteDirection.REMOTE_TO_LOCAL,
-                "name": "u",
-                "qos": 2,
-                "shared_subscription": {
-                    "group_minimum_share_number": 129,
-                    "group_name": "exnfgkdccpuvzqhxrg",
-                },
-                "source": "xwnfgkkfezlgh",
-                "target": "mgwem",
-            }],
-            tags={},
-            topic_map_name="5--CR4S47--UaxB4-")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:MqttBridgeTopicMap vfnttiyszrcrtvwzqwfgeasgwtil /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/mqttBridgeConnector/{mqttBridgeConnectorName}/topicMap/{topicMapName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -185,35 +185,6 @@ class Lab(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
-        ## Example Usage
-        ### CreateLab
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        lab = azure_native.education.Lab("lab",
-            billing_account_name="{billingAccountName}",
-            billing_profile_name="{billingProfileName}",
-            budget_per_student={
-                "currency": "USD",
-                "value": 100,
-            },
-            description="example lab description",
-            display_name="example lab",
-            expiration_date="2021-12-09T22:11:29.422Z",
-            invoice_section_name="{invoiceSectionName}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:education:Lab default /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,35 +208,6 @@ class Lab(pulumi.CustomResource):
         Lab details.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
-
-        ## Example Usage
-        ### CreateLab
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        lab = azure_native.education.Lab("lab",
-            billing_account_name="{billingAccountName}",
-            billing_profile_name="{billingProfileName}",
-            budget_per_student={
-                "currency": "USD",
-                "value": 100,
-            },
-            description="example lab description",
-            display_name="example lab",
-            expiration_date="2021-12-09T22:11:29.422Z",
-            invoice_section_name="{invoiceSectionName}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:education:Lab default /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default 
-        ```
 
 
         :param str resource_name: The name of the resource.

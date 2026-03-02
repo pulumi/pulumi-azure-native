@@ -153,37 +153,6 @@ class HyperVSite(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
 
-        ## Example Usage
-        ### Create Hyper-V site
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hyper_v_site = azure_native.offazure.HyperVSite("hyperVSite",
-            location="eastus",
-            properties={
-                "service_principal_identity_details": {
-                    "aad_authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                    "application_id": "e9f013df-2a2a-4871-b766-e79867f30348",
-                    "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
-                    "object_id": "2cd492bc-7ef3-4ee0-b301-59a88108b47b",
-                    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                },
-            },
-            resource_group_name="pajindTest",
-            site_name="appliance1e39site")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:offazure:HyperVSite appliance1e39site /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/HyperVSites/{siteName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,37 +173,6 @@ class HyperVSite(pulumi.CustomResource):
         Site REST Resource.
 
         Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
-
-        ## Example Usage
-        ### Create Hyper-V site
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hyper_v_site = azure_native.offazure.HyperVSite("hyperVSite",
-            location="eastus",
-            properties={
-                "service_principal_identity_details": {
-                    "aad_authority": "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-                    "application_id": "e9f013df-2a2a-4871-b766-e79867f30348",
-                    "audience": "https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
-                    "object_id": "2cd492bc-7ef3-4ee0-b301-59a88108b47b",
-                    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                },
-            },
-            resource_group_name="pajindTest",
-            site_name="appliance1e39site")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:offazure:HyperVSite appliance1e39site /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/HyperVSites/{siteName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

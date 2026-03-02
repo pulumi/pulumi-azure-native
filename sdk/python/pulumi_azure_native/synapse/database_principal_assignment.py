@@ -185,34 +185,6 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
 
-        ## Example Usage
-        ### KustoPoolDatabasePrincipalAssignmentsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_principal_assignment = azure_native.synapse.DatabasePrincipalAssignment("databasePrincipalAssignment",
-            database_name="Kustodatabase8",
-            kusto_pool_name="kustoclusterrptest4",
-            principal_assignment_name="kustoprincipal1",
-            principal_id="87654321-1234-1234-1234-123456789123",
-            principal_type=azure_native.synapse.PrincipalType.APP,
-            resource_group_name="kustorptest",
-            role=azure_native.synapse.DatabasePrincipalRole.ADMIN,
-            tenant_id="12345678-1234-1234-1234-123456789123",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:DatabasePrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/principalAssignments/{principalAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,34 +208,6 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         Class representing a database principal assignment.
 
         Uses Azure REST API version 2021-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01-preview.
-
-        ## Example Usage
-        ### KustoPoolDatabasePrincipalAssignmentsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_principal_assignment = azure_native.synapse.DatabasePrincipalAssignment("databasePrincipalAssignment",
-            database_name="Kustodatabase8",
-            kusto_pool_name="kustoclusterrptest4",
-            principal_assignment_name="kustoprincipal1",
-            principal_id="87654321-1234-1234-1234-123456789123",
-            principal_type=azure_native.synapse.PrincipalType.APP,
-            resource_group_name="kustorptest",
-            role=azure_native.synapse.DatabasePrincipalRole.ADMIN,
-            tenant_id="12345678-1234-1234-1234-123456789123",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:DatabasePrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/principalAssignments/{principalAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

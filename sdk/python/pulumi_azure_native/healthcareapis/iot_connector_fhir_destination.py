@@ -172,55 +172,6 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
 
         Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update an Iot Connector FHIR destination
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iot_connector_fhir_destination = azure_native.healthcareapis.IotConnectorFhirDestination("iotConnectorFhirDestination",
-            fhir_destination_name="dest1",
-            fhir_mapping={
-                "content": {
-                    "template": [{
-                        "template": {
-                            "codes": [{
-                                "code": "8867-4",
-                                "display": "Heart rate",
-                                "system": "http://loinc.org",
-                            }],
-                            "periodInterval": 60,
-                            "typeName": "heartrate",
-                            "value": {
-                                "defaultPeriod": 5000,
-                                "unit": "count/min",
-                                "valueName": "hr",
-                                "valueType": "SampledData",
-                            },
-                        },
-                        "templateType": "CodeValueFhir",
-                    }],
-                    "templateType": "CollectionFhirTemplate",
-                },
-            },
-            fhir_service_resource_id="subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-            iot_connector_name="blue",
-            location="westus",
-            resource_group_name="testRG",
-            resource_identity_resolution_type=azure_native.healthcareapis.IotIdentityResolutionType.CREATE,
-            workspace_name="workspace1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:healthcareapis:IotConnectorFhirDestination dest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/iotconnectors/{iotConnectorName}/fhirdestinations/{fhirDestinationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,55 +196,6 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-31. In version 2.x of the Azure Native provider, it used API version 2023-02-28.
 
         Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update an Iot Connector FHIR destination
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iot_connector_fhir_destination = azure_native.healthcareapis.IotConnectorFhirDestination("iotConnectorFhirDestination",
-            fhir_destination_name="dest1",
-            fhir_mapping={
-                "content": {
-                    "template": [{
-                        "template": {
-                            "codes": [{
-                                "code": "8867-4",
-                                "display": "Heart rate",
-                                "system": "http://loinc.org",
-                            }],
-                            "periodInterval": 60,
-                            "typeName": "heartrate",
-                            "value": {
-                                "defaultPeriod": 5000,
-                                "unit": "count/min",
-                                "valueName": "hr",
-                                "valueType": "SampledData",
-                            },
-                        },
-                        "templateType": "CodeValueFhir",
-                    }],
-                    "templateType": "CollectionFhirTemplate",
-                },
-            },
-            fhir_service_resource_id="subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-            iot_connector_name="blue",
-            location="westus",
-            resource_group_name="testRG",
-            resource_identity_resolution_type=azure_native.healthcareapis.IotIdentityResolutionType.CREATE,
-            workspace_name="workspace1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:healthcareapis:IotConnectorFhirDestination dest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/iotconnectors/{iotConnectorName}/fhirdestinations/{fhirDestinationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
