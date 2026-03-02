@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
     /// Other available API versions: 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PutLogicalNetwork
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var logicalNetwork = new AzureNative.AzureStackHCI.LogicalNetwork("logicalNetwork", new()
-    ///     {
-    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
-    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
-    ///         },
-    ///         Location = "West US2",
-    ///         LogicalNetworkName = "test-lnet",
-    ///         ResourceGroupName = "test-rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurestackhci:LogicalNetwork test-lnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/logicalNetworks/{logicalNetworkName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:LogicalNetwork")]
     public partial class LogicalNetwork : global::Pulumi.CustomResource

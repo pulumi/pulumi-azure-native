@@ -15,69 +15,6 @@ namespace Pulumi.AzureNative.TestBase
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
     /// 
     /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CustomerEventCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var customerEvent = new AzureNative.TestBase.CustomerEvent("customerEvent", new()
-    ///     {
-    ///         CustomerEventName = "WeeklySummary",
-    ///         EventName = "WeeklySummary",
-    ///         Receivers = new[]
-    ///         {
-    ///             new AzureNative.TestBase.Inputs.NotificationEventReceiverArgs
-    ///             {
-    ///                 ReceiverType = "UserObjects",
-    ///                 ReceiverValue = new AzureNative.TestBase.Inputs.NotificationReceiverValueArgs
-    ///                 {
-    ///                     UserObjectReceiverValue = new AzureNative.TestBase.Inputs.UserObjectReceiverValueArgs
-    ///                     {
-    ///                         UserObjectIds = new[]
-    ///                         {
-    ///                             "245245245245325",
-    ///                             "365365365363565",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new AzureNative.TestBase.Inputs.NotificationEventReceiverArgs
-    ///             {
-    ///                 ReceiverType = "DistributionGroup",
-    ///                 ReceiverValue = new AzureNative.TestBase.Inputs.NotificationReceiverValueArgs
-    ///                 {
-    ///                     DistributionGroupListReceiverValue = new AzureNative.TestBase.Inputs.DistributionGroupListReceiverValueArgs
-    ///                     {
-    ///                         DistributionGroups = new[]
-    ///                         {
-    ///                             "test@microsoft.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "contoso-rg1",
-    ///         TestBaseAccountName = "contoso-testBaseAccount1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:testbase:CustomerEvent WeeklySummary /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customerEvents/{customerEventName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomerEvent")]
     public partial class CustomerEvent : global::Pulumi.CustomResource

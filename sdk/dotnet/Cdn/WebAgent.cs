@@ -13,55 +13,6 @@ namespace Pulumi.AzureNative.Cdn
     /// Defines a web agent resource for Azure CDN.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create or Update Web Agent
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var webAgent = new AzureNative.Cdn.WebAgent("webAgent", new()
-    ///     {
-    ///         Description = "Primary web agent for content processing",
-    ///         Location = "WestUs",
-    ///         Paths = new[]
-    ///         {
-    ///             new AzureNative.Cdn.Inputs.AgentPathArgs
-    ///             {
-    ///                 Path = "/chat",
-    ///                 Type = AzureNative.Cdn.AgentPathType.Chat,
-    ///             },
-    ///             new AzureNative.Cdn.Inputs.AgentPathArgs
-    ///             {
-    ///                 Path = "/mcp",
-    ///                 Type = AzureNative.Cdn.AgentPathType.McpServer,
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "RG",
-    ///         SystemPrompt = "You are a helpful AI assistant for customer support. Please provide accurate and friendly responses.",
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///         },
-    ///         WebAgentName = "myWebAgent1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cdn:WebAgent myWebAgent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:WebAgent")]
     public partial class WebAgent : global::Pulumi.CustomResource

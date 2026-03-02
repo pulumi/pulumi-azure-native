@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.DataFactory
     /// Factory resource type.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-    /// 
-    /// ## Example Usage
-    /// ### Factories_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var factory = new AzureNative.DataFactory.Factory("factory", new()
-    ///     {
-    ///         FactoryName = "exampleFactoryName",
-    ///         Location = "East US",
-    ///         ResourceGroupName = "exampleResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datafactory:Factory exampleFactoryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:Factory")]
     public partial class Factory : global::Pulumi.CustomResource

@@ -15,68 +15,6 @@ namespace Pulumi.AzureNative.Confluent
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
     /// 
     /// Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Connector_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var connector = new AzureNative.Confluent.Connector("connector", new()
-    ///     {
-    ///         ClusterId = "dlz-f3a90de",
-    ///         ConnectorBasicInfo = new AzureNative.Confluent.Inputs.ConnectorInfoBaseArgs
-    ///         {
-    ///             ConnectorClass = "AZUREBLOBSTORAGESINK",
-    ///             ConnectorName = "connector-1",
-    ///             ConnectorType = AzureNative.Confluent.ConnectorType.SINK,
-    ///         },
-    ///         ConnectorName = "connector-1",
-    ///         ConnectorServiceTypeInfo = new AzureNative.Confluent.Inputs.AzureBlobStorageSinkConnectorServiceInfoArgs
-    ///         {
-    ///             ConnectorServiceType = "AzureBlobStorageSinkConnector",
-    ///             StorageAccountKey = "*******",
-    ///             StorageAccountName = "stcfaccount-1",
-    ///             StorageContainerName = "continer-1",
-    ///         },
-    ///         EnvironmentId = "env-12132",
-    ///         OrganizationName = "myOrganization",
-    ///         PartnerConnectorInfo = new AzureNative.Confluent.Inputs.KafkaAzureBlobStorageSinkConnectorInfoArgs
-    ///         {
-    ///             ApiKey = "xxxxxxx",
-    ///             ApiSecret = "*******",
-    ///             AuthType = AzureNative.Confluent.AuthType.KAFKA_API_KEY,
-    ///             FlushSize = "1000",
-    ///             InputFormat = AzureNative.Confluent.DataFormatType.JSON,
-    ///             MaxTasks = "2",
-    ///             OutputFormat = AzureNative.Confluent.DataFormatType.JSON,
-    ///             PartnerConnectorType = "KafkaAzureBlobStorageSink",
-    ///             TimeInterval = "DAILY",
-    ///             Topics = new[]
-    ///             {
-    ///                 "topic-1",
-    ///             },
-    ///             TopicsDir = "topicsDir",
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:confluent:Connector connector-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId}/connectors/{connectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

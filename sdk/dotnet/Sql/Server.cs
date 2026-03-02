@@ -25,49 +25,6 @@ namespace Pulumi.AzureNative.Sql
     /// To work around this, you can comment out `AdministratorLoginPassword` when enabling `AzureADOnlyAuthentication`. To update the password, you can disable `AzureADOnlyAuthentication` and re-enable it after the update.
     /// 
     /// For more details and discussion please see [this issue](https://github.com/pulumi/pulumi-azure-native/issues/2937).
-    /// 
-    /// ## Example Usage
-    /// ### Create server
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var server = new AzureNative.Sql.Server("server", new()
-    ///     {
-    ///         AdministratorLogin = "dummylogin",
-    ///         AdministratorLoginPassword = "PLACEHOLDER",
-    ///         Administrators = new AzureNative.Sql.Inputs.ServerExternalAdministratorArgs
-    ///         {
-    ///             AzureADOnlyAuthentication = true,
-    ///             Login = "bob@contoso.com",
-    ///             PrincipalType = AzureNative.Sql.PrincipalType.User,
-    ///             Sid = "00000011-1111-2222-2222-123456789111",
-    ///             TenantId = "00000011-1111-2222-2222-123456789111",
-    ///         },
-    ///         IsIPv6Enabled = AzureNative.Sql.ServerNetworkAccessFlag.Enabled,
-    ///         Location = "Japan East",
-    ///         PublicNetworkAccess = AzureNative.Sql.ServerPublicNetworkAccessFlag.Enabled,
-    ///         ResourceGroupName = "sqlcrudtest-7398",
-    ///         RestrictOutboundNetworkAccess = AzureNative.Sql.ServerNetworkAccessFlag.Enabled,
-    ///         ServerName = "sqlcrudtest-4645",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:sql:Server sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Server")]
     public partial class Server : global::Pulumi.CustomResource

@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// Uses Azure REST API version 2024-03-31. In version 2.x of the Azure Native provider, it used API version 2023-02-28.
     /// 
     /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PrivateEndpointConnection_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.HealthcareApis.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         PrivateEndpointConnectionName = "myConnection",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.HealthcareApis.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///         {
-    ///             Description = "Auto-Approved",
-    ///             Status = AzureNative.HealthcareApis.PrivateEndpointServiceConnectionStatus.Approved,
-    ///         },
-    ///         ResourceGroupName = "rgname",
-    ///         ResourceName = "service1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:healthcareapis:PrivateEndpointConnection myConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/services/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

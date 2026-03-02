@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.StorageSync
     /// Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
     /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CloudEndpoints_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cloudEndpoint = new AzureNative.StorageSync.CloudEndpoint("cloudEndpoint", new()
-    ///     {
-    ///         AzureFileShareName = "cvcloud-afscv-0719-058-a94a1354-a1fd-4e9a-9a50-919fad8c4ba4",
-    ///         CloudEndpointName = "SampleCloudEndpoint_1",
-    ///         FriendlyName = "ankushbsubscriptionmgmtmab",
-    ///         ResourceGroupName = "SampleResourceGroup_1",
-    ///         StorageAccountResourceId = "/subscriptions/744f4d70-6d17-4921-8970-a765d14f763f/resourceGroups/tminienv59svc/providers/Microsoft.Storage/storageAccounts/tminienv59storage",
-    ///         StorageAccountTenantId = "\"72f988bf-86f1-41af-91ab-2d7cd011db47\"",
-    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
-    ///         SyncGroupName = "SampleSyncGroup_1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:storagesync:CloudEndpoint SampleCloudEndpoint_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:CloudEndpoint")]
     public partial class CloudEndpoint : global::Pulumi.CustomResource

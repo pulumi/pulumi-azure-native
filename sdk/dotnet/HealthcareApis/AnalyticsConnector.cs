@@ -13,54 +13,6 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// Analytics Connector definition.
     /// 
     /// Uses Azure REST API version 2022-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a Analytics Connectors Service
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var analyticsConnector = new AzureNative.HealthcareApis.AnalyticsConnector("analyticsConnector", new()
-    ///     {
-    ///         AnalyticsConnectorName = "exampleconnector",
-    ///         DataDestinationConfiguration = new AzureNative.HealthcareApis.Inputs.AnalyticsConnectorDataLakeDataDestinationArgs
-    ///         {
-    ///             DataLakeName = "exampledatalake",
-    ///             Type = "datalake",
-    ///         },
-    ///         DataMappingConfiguration = new AzureNative.HealthcareApis.Inputs.AnalyticsConnectorFhirToParquetMappingArgs
-    ///         {
-    ///             ExtensionSchemaReference = "acrexample.azurecr.io/blah@sha256aaa/Extension",
-    ///             FilterConfigurationReference = "acrexample.azurecr.io/blah@sha256xxx",
-    ///             Type = "fhirToParquet",
-    ///         },
-    ///         DataSourceConfiguration = new AzureNative.HealthcareApis.Inputs.AnalyticsConnectorFhirServiceDataSourceArgs
-    ///         {
-    ///             Kind = AzureNative.HealthcareApis.FhirServiceVersion.R4,
-    ///             Type = "fhirservice",
-    ///             Url = "https://workspace-examplefhir.fhir.azurehealthcareapis.com",
-    ///         },
-    ///         Location = "westus",
-    ///         ResourceGroupName = "testRG",
-    ///         WorkspaceName = "workspace1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:healthcareapis:AnalyticsConnector exampleconnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/analyticsconnectors/{analyticsConnectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:AnalyticsConnector")]
     public partial class AnalyticsConnector : global::Pulumi.CustomResource

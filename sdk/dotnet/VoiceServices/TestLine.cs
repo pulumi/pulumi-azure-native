@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.VoiceServices
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-03.
     /// 
     /// Other available API versions: 2022-12-01-preview, 2023-01-31, 2023-04-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native voiceservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateTestLineResource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLine = new AzureNative.VoiceServices.TestLine("testLine", new()
-    ///     {
-    ///         CommunicationsGatewayName = "myname",
-    ///         Location = "useast",
-    ///         PhoneNumber = "+1-555-1234",
-    ///         Purpose = AzureNative.VoiceServices.TestLinePurpose.Automated,
-    ///         ResourceGroupName = "testrg",
-    ///         TestLineName = "myline",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:voiceservices:TestLine myline /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VoiceServices/communicationsGateways/{communicationsGatewayName}/testLines/{testLineName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices:TestLine")]
     public partial class TestLine : global::Pulumi.CustomResource

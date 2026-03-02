@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// The agentPool resource definition
     /// 
     /// Uses Azure REST API version 2022-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PutAgentPool
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var agentPool = new AzureNative.HybridContainerService.AgentPool("agentPool", new()
-    ///     {
-    ///         AgentPoolName = "test-hybridaksnodepool",
-    ///         Count = 1,
-    ///         Location = "westus",
-    ///         OsType = AzureNative.HybridContainerService.OsType.Linux,
-    ///         ResourceGroupName = "test-arcappliance-resgrp",
-    ///         ResourceName = "test-hybridakscluster",
-    ///         VmSize = "Standard_A4_v2",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hybridcontainerservice:AgentPool test-hybridaksnodepool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/agentPools/{agentPoolName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource

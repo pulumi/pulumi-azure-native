@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.TestBase
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
     /// 
     /// Other available API versions: 2022-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native testbase [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### TestBaseAccountCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testBaseAccount = new AzureNative.TestBase.TestBaseAccount("testBaseAccount", new()
-    ///     {
-    ///         Location = "westus",
-    ///         ResourceGroupName = "contoso-rg1",
-    ///         Sku = new AzureNative.TestBase.Inputs.TestBaseAccountSKUArgs
-    ///         {
-    ///             Name = "S0",
-    ///             Tier = AzureNative.TestBase.Tier.Standard,
-    ///         },
-    ///         TestBaseAccountName = "contoso-testBaseAccount1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:testbase:TestBaseAccount contoso-testBaseAccount1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:TestBaseAccount")]
     public partial class TestBaseAccount : global::Pulumi.CustomResource

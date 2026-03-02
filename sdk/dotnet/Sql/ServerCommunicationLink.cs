@@ -13,37 +13,6 @@ namespace Pulumi.AzureNative.Sql
     /// Server communication link.
     /// 
     /// Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create a server communication link
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serverCommunicationLink = new AzureNative.Sql.ServerCommunicationLink("serverCommunicationLink", new()
-    ///     {
-    ///         CommunicationLinkName = "link1",
-    ///         PartnerServer = "sqldcrudtest-test",
-    ///         ResourceGroupName = "sqlcrudtest-7398",
-    ///         ServerName = "sqlcrudtest-4645",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:sql:ServerCommunicationLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/communicationLinks/{communicationLinkName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerCommunicationLink")]
     public partial class ServerCommunicationLink : global::Pulumi.CustomResource

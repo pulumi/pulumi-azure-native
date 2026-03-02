@@ -11,36 +11,6 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
-    /// 
-    /// ## Example Usage
-    /// ### ImportCollectors_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var importCollector = new AzureNative.Migrate.ImportCollector("importCollector", new()
-    ///     {
-    ///         ImportCollectorName = "importCollector2952",
-    ///         ProjectName = "rajoshCCY9671project",
-    ///         ResourceGroupName = "markusavstestrg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:ImportCollector importCollector2952 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/importcollectors/{importCollectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ImportCollector")]
     public partial class ImportCollector : global::Pulumi.CustomResource

@@ -15,50 +15,6 @@ namespace Pulumi.AzureNative.DurableTask
     /// Uses Azure REST API version 2025-04-01-preview.
     /// 
     /// Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### RetentionPolicies_CreateOrReplace_MaximumSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var retentionPolicy = new AzureNative.DurableTask.RetentionPolicy("retentionPolicy", new()
-    ///     {
-    ///         Properties = new AzureNative.DurableTask.Inputs.RetentionPolicyPropertiesArgs
-    ///         {
-    ///             RetentionPolicies = new[]
-    ///             {
-    ///                 new AzureNative.DurableTask.Inputs.RetentionPolicyDetailsArgs
-    ///                 {
-    ///                     RetentionPeriodInDays = 30,
-    ///                 },
-    ///                 new AzureNative.DurableTask.Inputs.RetentionPolicyDetailsArgs
-    ///                 {
-    ///                     OrchestrationState = AzureNative.DurableTask.PurgeableOrchestrationState.Failed,
-    ///                     RetentionPeriodInDays = 10,
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgdurabletask",
-    ///         SchedulerName = "testscheduler",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:durabletask:RetentionPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName}/retentionPolicies/default 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:durabletask:RetentionPolicy")]
     public partial class RetentionPolicy : global::Pulumi.CustomResource

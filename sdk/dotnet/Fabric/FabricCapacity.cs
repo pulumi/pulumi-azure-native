@@ -15,49 +15,6 @@ namespace Pulumi.AzureNative.Fabric
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
     /// 
     /// Other available API versions: 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a capacity
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fabricCapacity = new AzureNative.Fabric.FabricCapacity("fabricCapacity", new()
-    ///     {
-    ///         Administration = new AzureNative.Fabric.Inputs.CapacityAdministrationArgs
-    ///         {
-    ///             Members = new[]
-    ///             {
-    ///                 "azsdktest@microsoft.com",
-    ///                 "azsdktest2@microsoft.com",
-    ///             },
-    ///         },
-    ///         CapacityName = "azsdktest",
-    ///         Location = "westcentralus",
-    ///         ResourceGroupName = "TestRG",
-    ///         Sku = new AzureNative.Fabric.Inputs.RpSkuArgs
-    ///         {
-    ///             Name = "F2",
-    ///             Tier = AzureNative.Fabric.RpSkuTier.Fabric,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:fabric:FabricCapacity azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fabric/capacities/{capacityName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fabric:FabricCapacity")]
     public partial class FabricCapacity : global::Pulumi.CustomResource

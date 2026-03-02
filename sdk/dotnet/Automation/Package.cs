@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
     /// 
     /// Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a package
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var package = new AzureNative.Automation.Package("package", new()
-    ///     {
-    ///         AutomationAccountName = "myAutomationAccount33",
-    ///         ContentLink = new AzureNative.Automation.Inputs.ContentLinkArgs
-    ///         {
-    ///             ContentHash = new AzureNative.Automation.Inputs.ContentHashArgs
-    ///             {
-    ///                 Algorithm = "sha265",
-    ///                 Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
-    ///             },
-    ///             Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
-    ///         },
-    ///         PackageName = "OmsCompositeResources",
-    ///         ResourceGroupName = "rg",
-    ///         RuntimeEnvironmentName = "runtimeEnvironmentName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:Package OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}/packages/{packageName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Package")]
     public partial class Package : global::Pulumi.CustomResource

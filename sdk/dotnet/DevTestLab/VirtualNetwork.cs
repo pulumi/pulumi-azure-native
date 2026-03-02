@@ -13,50 +13,6 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A virtual network.
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-    /// 
-    /// ## Example Usage
-    /// ### VirtualNetworks_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var virtualNetwork = new AzureNative.DevTestLab.VirtualNetwork("virtualNetwork", new()
-    ///     {
-    ///         AllowedSubnets = new[]
-    ///         {
-    ///             new AzureNative.DevTestLab.Inputs.SubnetArgs
-    ///             {
-    ///                 AllowPublicIp = AzureNative.DevTestLab.UsagePermissionType.Allow,
-    ///                 LabSubnetName = "{virtualNetworkName}Subnet",
-    ///                 ResourceId = "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{virtualNetworkName}Subnet",
-    ///             },
-    ///         },
-    ///         LabName = "{labName}",
-    ///         Location = "{location}",
-    ///         Name = "{virtualNetworkName}",
-    ///         ResourceGroupName = "resourceGroupName",
-    ///         Tags = 
-    ///         {
-    ///             { "tagName1", "tagValue1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:devtestlab:VirtualNetwork {virtualNetworkName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualnetworks/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.App
     /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-02-preview.
     /// 
     /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Update a Private Endpoint Connection by Managed Environment
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var managedEnvironmentPrivateEndpointConnection = new AzureNative.App.ManagedEnvironmentPrivateEndpointConnection("managedEnvironmentPrivateEndpointConnection", new()
-    ///     {
-    ///         EnvironmentName = "managedEnv",
-    ///         PrivateEndpointConnectionName = "jlaw-demo1",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.App.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///         {
-    ///             ActionsRequired = "None",
-    ///             Status = AzureNative.App.PrivateEndpointServiceConnectionStatus.Approved,
-    ///         },
-    ///         ResourceGroupName = "examplerg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:app:ManagedEnvironmentPrivateEndpointConnection jlaw-demo1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironmentPrivateEndpointConnection")]
     public partial class ManagedEnvironmentPrivateEndpointConnection : global::Pulumi.CustomResource

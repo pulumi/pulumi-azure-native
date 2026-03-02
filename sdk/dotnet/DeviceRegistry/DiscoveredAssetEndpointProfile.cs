@@ -13,56 +13,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Discovered Asset Endpoint Profile definition.
     /// 
     /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create_DiscoveredAssetEndpointProfile
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var discoveredAssetEndpointProfile = new AzureNative.DeviceRegistry.DiscoveredAssetEndpointProfile("discoveredAssetEndpointProfile", new()
-    ///     {
-    ///         AdditionalConfiguration = "{\"foo\": \"bar\"}",
-    ///         DiscoveredAssetEndpointProfileName = "my-discoveredassetendpointprofile",
-    ///         DiscoveryId = "11111111-1111-1111-1111-111111111111",
-    ///         EndpointProfileType = "myEndpointProfileType",
-    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
-    ///             Type = "CustomLocation",
-    ///         },
-    ///         Location = "West Europe",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         SupportedAuthenticationMethods = new[]
-    ///         {
-    ///             AzureNative.DeviceRegistry.AuthenticationMethod.Anonymous,
-    ///             AzureNative.DeviceRegistry.AuthenticationMethod.Certificate,
-    ///             AzureNative.DeviceRegistry.AuthenticationMethod.UsernamePassword,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "site", "building-1" },
-    ///         },
-    ///         TargetAddress = "https://www.example.com/myTargetAddress",
-    ///         Version = 73766,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceregistry:DiscoveredAssetEndpointProfile my-assetendpointprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/{discoveredAssetEndpointProfileName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:DiscoveredAssetEndpointProfile")]
     public partial class DiscoveredAssetEndpointProfile : global::Pulumi.CustomResource

@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// The private endpoint connection resource.
     /// 
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PrivateEndpointConnections_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.AgFoodPlatform.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         DataManagerForAgricultureResourceName = "examples-farmbeatsResourceName",
-    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.AgFoodPlatform.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///         {
-    ///             Description = "Approved by johndoe@contoso.com",
-    ///             Status = AzureNative.AgFoodPlatform.PrivateEndpointServiceConnectionStatus.Approved,
-    ///         },
-    ///         ResourceGroupName = "examples-rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.Sql
     /// An Azure SQL virtual cluster.
     /// 
     /// Uses Azure REST API version 2024-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create virtual cluster
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var virtualCluster = new AzureNative.Sql.VirtualCluster("virtualCluster", new()
-    ///     {
-    ///         Location = "japaneast",
-    ///         ResourceGroupName = "testrg",
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///         VirtualClusterName = "vc-subnet1-f769ed71-b3ad-491a-a9d5-26eeceaa6be2",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:sql:VirtualCluster vc-f769ed71-b3ad-491a-a9d5-26eeceaa6be2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/virtualClusters/{virtualClusterName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:VirtualCluster")]
     public partial class VirtualCluster : global::Pulumi.CustomResource

@@ -15,69 +15,6 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2016-03-31.
     /// 
     /// Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDBCassandraTableCreateUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var databaseAccountCassandraTable = new AzureNative.CosmosDB.DatabaseAccountCassandraTable("databaseAccountCassandraTable", new()
-    ///     {
-    ///         AccountName = "ddb1",
-    ///         KeyspaceName = "tableName",
-    ///         Options = null,
-    ///         Resource = new AzureNative.CosmosDB.Inputs.CassandraTableResourceArgs
-    ///         {
-    ///             DefaultTtl = 100,
-    ///             Id = "tableName",
-    ///             Schema = new AzureNative.CosmosDB.Inputs.CassandraSchemaArgs
-    ///             {
-    ///                 ClusterKeys = new[]
-    ///                 {
-    ///                     new AzureNative.CosmosDB.Inputs.ClusterKeyArgs
-    ///                     {
-    ///                         Name = "columnA",
-    ///                         OrderBy = "Asc",
-    ///                     },
-    ///                 },
-    ///                 Columns = new[]
-    ///                 {
-    ///                     new AzureNative.CosmosDB.Inputs.ColumnArgs
-    ///                     {
-    ///                         Name = "columnA",
-    ///                         Type = "Ascii",
-    ///                     },
-    ///                 },
-    ///                 PartitionKeys = new[]
-    ///                 {
-    ///                     new AzureNative.CosmosDB.Inputs.CassandraPartitionKeyArgs
-    ///                     {
-    ///                         Name = "columnA",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rg1",
-    ///         TableName = "tableName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cosmosdb:DatabaseAccountCassandraTable tableName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/cassandra/keyspaces/{keyspaceName}/tables/{tableName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:DatabaseAccountCassandraTable")]
     public partial class DatabaseAccountCassandraTable : global::Pulumi.CustomResource

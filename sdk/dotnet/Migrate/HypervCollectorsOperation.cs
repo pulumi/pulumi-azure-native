@@ -15,52 +15,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### HypervCollectorsOperations_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hypervCollectorsOperation = new AzureNative.Migrate.HypervCollectorsOperation("hypervCollectorsOperation", new()
-    ///     {
-    ///         AgentProperties = new AzureNative.Migrate.Inputs.CollectorAgentPropertiesBaseArgs
-    ///         {
-    ///             Id = "12f1d90f-b3fa-4926-8893-e56803a09af0",
-    ///             LastHeartbeatUtc = "2022-07-07T14:25:35.708325Z",
-    ///             SpnDetails = new AzureNative.Migrate.Inputs.CollectorAgentSpnPropertiesBaseArgs
-    ///             {
-    ///                 ApplicationId = "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
-    ///                 Audience = "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
-    ///                 Authority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///                 ObjectId = "01b9f9e2-2d82-414c-adaa-09ce259b6b44",
-    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///             },
-    ///             Version = "2.0.1993.19",
-    ///         },
-    ///         DiscoverySiteId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/HyperVSites/test-60527site",
-    ///         HypervCollectorName = "test-697cecollector",
-    ///         ProjectName = "app18700project",
-    ///         ProvisioningState = AzureNative.Migrate.ProvisioningState.Succeeded,
-    ///         ResourceGroupName = "ayagrawRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:HypervCollectorsOperation test-697cecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/hypervcollectors/{hypervCollectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:HypervCollectorsOperation")]
     public partial class HypervCollectorsOperation : global::Pulumi.CustomResource

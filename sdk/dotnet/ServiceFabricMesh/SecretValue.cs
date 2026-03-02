@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateSecretValue
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var secretValue = new AzureNative.ServiceFabricMesh.SecretValue("secretValue", new()
-    ///     {
-    ///         Location = "West US",
-    ///         ResourceGroupName = "sbz_demo",
-    ///         SecretResourceName = "dbConnectionString",
-    ///         SecretValueResourceName = "v1",
-    ///         Value = "mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:servicefabricmesh:SecretValue v1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/secrets/{secretResourceName}/values/{secretValueResourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:SecretValue")]
     public partial class SecretValue : global::Pulumi.CustomResource

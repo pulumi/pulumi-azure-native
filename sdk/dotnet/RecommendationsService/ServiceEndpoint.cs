@@ -15,45 +15,6 @@ namespace Pulumi.AzureNative.RecommendationsService
     /// Uses Azure REST API version 2022-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-02-01.
     /// 
     /// Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update ServiceEndpoint resource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceEndpoint = new AzureNative.RecommendationsService.ServiceEndpoint("serviceEndpoint", new()
-    ///     {
-    ///         AccountName = "sampleAccount",
-    ///         Location = "West US",
-    ///         Properties = new AzureNative.RecommendationsService.Inputs.ServiceEndpointResourcePropertiesArgs
-    ///         {
-    ///             PreAllocatedCapacity = 100,
-    ///         },
-    ///         ResourceGroupName = "rg",
-    ///         ServiceEndpointName = "s1",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Prod" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:recommendationsservice:ServiceEndpoint s1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecommendationsService/accounts/{accountName}/serviceEndpoints/{serviceEndpointName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice:ServiceEndpoint")]
     public partial class ServiceEndpoint : global::Pulumi.CustomResource

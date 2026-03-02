@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.Redis
     /// Uses Azure REST API version 2024-11-01.
     /// 
     /// Other available API versions: 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### LinkedServer_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var linkedServer = new AzureNative.Redis.LinkedServer("linkedServer", new()
-    ///     {
-    ///         LinkedRedisCacheId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
-    ///         LinkedRedisCacheLocation = "West US",
-    ///         LinkedServerName = "cache2",
-    ///         Name = "cache1",
-    ///         ResourceGroupName = "rg1",
-    ///         ServerRole = AzureNative.Redis.ReplicationRole.Secondary,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:redis:LinkedServer cache2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/linkedServers/{linkedServerName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redis:LinkedServer")]
     public partial class LinkedServer : global::Pulumi.CustomResource

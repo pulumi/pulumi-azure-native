@@ -15,63 +15,6 @@ namespace Pulumi.AzureNative.NetApp
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
     /// 
     /// Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### SnapshotPolicies_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var snapshotPolicy = new AzureNative.NetApp.SnapshotPolicy("snapshotPolicy", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         DailySchedule = new AzureNative.NetApp.Inputs.DailyScheduleArgs
-    ///         {
-    ///             Hour = 14,
-    ///             Minute = 30,
-    ///             SnapshotsToKeep = 4,
-    ///         },
-    ///         Enabled = true,
-    ///         HourlySchedule = new AzureNative.NetApp.Inputs.HourlyScheduleArgs
-    ///         {
-    ///             Minute = 50,
-    ///             SnapshotsToKeep = 2,
-    ///         },
-    ///         Location = "eastus",
-    ///         MonthlySchedule = new AzureNative.NetApp.Inputs.MonthlyScheduleArgs
-    ///         {
-    ///             DaysOfMonth = "10,11,12",
-    ///             Hour = 14,
-    ///             Minute = 15,
-    ///             SnapshotsToKeep = 5,
-    ///         },
-    ///         ResourceGroupName = "myRG",
-    ///         SnapshotPolicyName = "snapshotPolicyName",
-    ///         WeeklySchedule = new AzureNative.NetApp.Inputs.WeeklyScheduleArgs
-    ///         {
-    ///             Day = "Wednesday",
-    ///             Hour = 14,
-    ///             Minute = 45,
-    ///             SnapshotsToKeep = 3,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/snapshotPolicies/{snapshotPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:SnapshotPolicy")]
     public partial class SnapshotPolicy : global::Pulumi.CustomResource

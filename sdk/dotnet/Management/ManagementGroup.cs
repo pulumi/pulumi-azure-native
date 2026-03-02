@@ -15,42 +15,6 @@ namespace Pulumi.AzureNative.Management
     /// Uses Azure REST API version 2023-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
     /// 
     /// Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PutManagementGroup
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var managementGroup = new AzureNative.Management.ManagementGroup("managementGroup", new()
-    ///     {
-    ///         Details = new AzureNative.Management.Inputs.CreateManagementGroupDetailsArgs
-    ///         {
-    ///             Parent = new AzureNative.Management.Inputs.CreateParentGroupInfoArgs
-    ///             {
-    ///                 Id = "/providers/Microsoft.Management/managementGroups/RootGroup",
-    ///             },
-    ///         },
-    ///         DisplayName = "ChildGroup",
-    ///         GroupId = "ChildGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:management:ManagementGroup ChildGroup /providers/Microsoft.Management/managementGroups/{groupId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ManagementGroup")]
     public partial class ManagementGroup : global::Pulumi.CustomResource

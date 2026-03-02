@@ -13,47 +13,6 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// A user-defined logical grouping of machines.
     /// 
     /// Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### SMMachineGroupsUpdatePut
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var machineGroup = new AzureNative.OperationalInsights.MachineGroup("machineGroup", new()
-    ///     {
-    ///         Count = 1,
-    ///         DisplayName = "Foo",
-    ///         Kind = "machineGroup",
-    ///         MachineGroupName = "ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
-    ///         Machines = new[]
-    ///         {
-    ///             new AzureNative.OperationalInsights.Inputs.MachineReferenceWithHintsArgs
-    ///             {
-    ///                 Id = "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519",
-    ///                 Kind = "ref:machinewithhints",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rg-sm",
-    ///         WorkspaceName = "D6F79F14-E563-469B-84B5-9286D2803B2F",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:operationalinsights:MachineGroup ccfbf4bf-dc08-4371-9e9b-00a8d875d45a /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/serviceMap/machineGroups/{machineGroupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:MachineGroup")]
     public partial class MachineGroup : global::Pulumi.CustomResource

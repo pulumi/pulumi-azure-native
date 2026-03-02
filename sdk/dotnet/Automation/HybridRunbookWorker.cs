@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a V2 hybrid runbook worker
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hybridRunbookWorker = new AzureNative.Automation.HybridRunbookWorker("hybridRunbookWorker", new()
-    ///     {
-    ///         AutomationAccountName = "testaccount",
-    ///         HybridRunbookWorkerGroupName = "TestHybridGroup",
-    ///         HybridRunbookWorkerId = "c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
-    ///         ResourceGroupName = "rg",
-    ///         VmResourceId = "/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:HybridRunbookWorker c010ad12-ef14-4a2a-aa9e-ef22c4745ddd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorker")]
     public partial class HybridRunbookWorker : global::Pulumi.CustomResource

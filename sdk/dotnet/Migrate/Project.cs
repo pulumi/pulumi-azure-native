@@ -13,43 +13,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Azure Migrate Project.
     /// 
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
-    /// 
-    /// ## Example Usage
-    /// ### Projects_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new AzureNative.Migrate.Project("project", new()
-    ///     {
-    ///         ETag = "",
-    ///         Location = "West Europe",
-    ///         ProjectName = "abGoyalProject2",
-    ///         Properties = new AzureNative.Migrate.Inputs.ProjectPropertiesArgs
-    ///         {
-    ///             AssessmentSolutionId = "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourcegroups/abgoyal-westeurope/providers/microsoft.migrate/migrateprojects/abgoyalweselfhost/Solutions/Servers-Assessment-ServerAssessment",
-    ///             ProjectStatus = AzureNative.Migrate.ProjectStatus.Active,
-    ///         },
-    ///         ResourceGroupName = "abgoyal-westEurope",
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:Project abGoyalProject2 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Project")]
     public partial class Project : global::Pulumi.CustomResource

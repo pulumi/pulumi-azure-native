@@ -15,64 +15,6 @@ namespace Pulumi.AzureNative.Synapse
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a Big Data pool
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bigDataPool = new AzureNative.Synapse.BigDataPool("bigDataPool", new()
-    ///     {
-    ///         AutoPause = new AzureNative.Synapse.Inputs.AutoPausePropertiesArgs
-    ///         {
-    ///             DelayInMinutes = 15,
-    ///             Enabled = true,
-    ///         },
-    ///         AutoScale = new AzureNative.Synapse.Inputs.AutoScalePropertiesArgs
-    ///         {
-    ///             Enabled = true,
-    ///             MaxNodeCount = 50,
-    ///             MinNodeCount = 3,
-    ///         },
-    ///         BigDataPoolName = "ExamplePool",
-    ///         DefaultSparkLogFolder = "/logs",
-    ///         IsAutotuneEnabled = false,
-    ///         LibraryRequirements = new AzureNative.Synapse.Inputs.LibraryRequirementsArgs
-    ///         {
-    ///             Content = "",
-    ///             Filename = "requirements.txt",
-    ///         },
-    ///         Location = "West US 2",
-    ///         NodeCount = 4,
-    ///         NodeSize = AzureNative.Synapse.NodeSize.Medium,
-    ///         NodeSizeFamily = AzureNative.Synapse.NodeSizeFamily.MemoryOptimized,
-    ///         ResourceGroupName = "ExampleResourceGroup",
-    ///         SparkEventsFolder = "/events",
-    ///         SparkVersion = "3.3",
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///         WorkspaceName = "ExampleWorkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:synapse:BigDataPool ExamplePool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/bigDataPools/{bigDataPoolName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:BigDataPool")]
     public partial class BigDataPool : global::Pulumi.CustomResource

@@ -13,56 +13,6 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     /// A class represent an AppComplianceAutomation scoping configuration resource.
     /// 
     /// Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-    /// 
-    /// ## Example Usage
-    /// ### ScopingConfiguration_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var scopingConfiguration = new AzureNative.AppComplianceAutomation.ScopingConfiguration("scopingConfiguration", new()
-    ///     {
-    ///         Answers = new[]
-    ///         {
-    ///             new AzureNative.AppComplianceAutomation.Inputs.ScopingAnswerArgs
-    ///             {
-    ///                 Answers = new[]
-    ///                 {
-    ///                     "Azure",
-    ///                 },
-    ///                 QuestionId = "GEN20_hostingEnvironment",
-    ///             },
-    ///             new AzureNative.AppComplianceAutomation.Inputs.ScopingAnswerArgs
-    ///             {
-    ///                 Answers = new() { },
-    ///                 QuestionId = "DHP_G07_customerDataProcess",
-    ///             },
-    ///             new AzureNative.AppComplianceAutomation.Inputs.ScopingAnswerArgs
-    ///             {
-    ///                 Answers = new() { },
-    ///                 QuestionId = "Tier2InitSub_serviceCommunicate",
-    ///             },
-    ///         },
-    ///         ReportName = "testReportName",
-    ///         ScopingConfigurationName = "default",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:appcomplianceautomation:ScopingConfiguration default /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/scopingConfigurations/{scopingConfigurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:ScopingConfiguration")]
     public partial class ScopingConfiguration : global::Pulumi.CustomResource

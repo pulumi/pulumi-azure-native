@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.OnlineExperimentation
     /// Private endpoint connection resource for an online experimentation workspace resource.
     /// 
     /// Uses Azure REST API version 2025-08-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Updates the Private Endpoint Connection.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.OnlineExperimentation.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         PrivateEndpointConnectionName = "jitf",
-    ///         Properties = new AzureNative.OnlineExperimentation.Inputs.PrivateEndpointConnectionPropertiesArgs
-    ///         {
-    ///             PrivateLinkServiceConnectionState = new AzureNative.OnlineExperimentation.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///             {
-    ///                 ActionsRequired = "afwbq",
-    ///                 Description = "y",
-    ///                 Status = AzureNative.OnlineExperimentation.PrivateEndpointServiceConnectionStatus.Approved,
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "res9871",
-    ///         WorkspaceName = "expworkspace3",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:onlineexperimentation:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:onlineexperimentation:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

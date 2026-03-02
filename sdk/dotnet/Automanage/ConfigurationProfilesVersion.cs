@@ -15,56 +15,6 @@ namespace Pulumi.AzureNative.Automanage
     /// Uses Azure REST API version 2022-05-04. In version 2.x of the Azure Native provider, it used API version 2022-05-04.
     /// 
     /// Other available API versions: 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update configuration profile version
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var configurationProfilesVersion = new AzureNative.Automanage.ConfigurationProfilesVersion("configurationProfilesVersion", new()
-    ///     {
-    ///         ConfigurationProfileName = "customConfigurationProfile",
-    ///         Location = "East US",
-    ///         Properties = new AzureNative.Automanage.Inputs.ConfigurationProfilePropertiesArgs
-    ///         {
-    ///             Configuration = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["Antimalware/Enable"] = false,
-    ///                 ["AzureSecurityCenter/Enable"] = true,
-    ///                 ["Backup/Enable"] = false,
-    ///                 ["BootDiagnostics/Enable"] = true,
-    ///                 ["ChangeTrackingAndInventory/Enable"] = true,
-    ///                 ["GuestConfiguration/Enable"] = true,
-    ///                 ["LogAnalytics/Enable"] = true,
-    ///                 ["UpdateManagement/Enable"] = true,
-    ///                 ["VMInsights/Enable"] = true,
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "myResourceGroupName",
-    ///         Tags = 
-    ///         {
-    ///             { "Organization", "Administration" },
-    ///         },
-    ///         VersionName = "version1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automanage:ConfigurationProfilesVersion customConfigurationProfile/version1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automanage/configurationProfiles/{configurationProfileName}/versions/{versionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfilesVersion")]
     public partial class ConfigurationProfilesVersion : global::Pulumi.CustomResource

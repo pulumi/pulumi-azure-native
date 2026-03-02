@@ -15,45 +15,6 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Diagnostics_CreateOrUpdate_MaximumSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var diagnostic = new AzureNative.Edge.Diagnostic("diagnostic", new()
-    ///     {
-    ///         DiagnosticName = "testname",
-    ///         ExtendedLocation = new AzureNative.Edge.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
-    ///         {
-    ///             Name = "szjrwimeqyiue",
-    ///             Type = AzureNative.Edge.ExtendedLocationType.EdgeZone,
-    ///         },
-    ///         Location = "ouwfvnokjvivmjzqpupwrbsmls",
-    ///         ResourceGroupName = "rgconfigurationmanager",
-    ///         Tags = 
-    ///         {
-    ///             { "key4304", "mdrwpsdrcicagvximokxrrp" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:edge:Diagnostic drohk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/diagnostics/{diagnosticName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:Diagnostic")]
     public partial class Diagnostic : global::Pulumi.CustomResource

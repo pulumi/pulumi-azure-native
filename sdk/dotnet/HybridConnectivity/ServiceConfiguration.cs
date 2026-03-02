@@ -15,60 +15,6 @@ namespace Pulumi.AzureNative.HybridConnectivity
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ServiceConfigurationsPutSSH
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceConfiguration = new AzureNative.HybridConnectivity.ServiceConfiguration("serviceConfiguration", new()
-    ///     {
-    ///         EndpointName = "default",
-    ///         Port = 22,
-    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
-    ///         ServiceConfigurationName = "SSH",
-    ///         ServiceName = AzureNative.HybridConnectivity.ServiceName.SSH,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### ServiceConfigurationsPutWAC
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceConfiguration = new AzureNative.HybridConnectivity.ServiceConfiguration("serviceConfiguration", new()
-    ///     {
-    ///         EndpointName = "default",
-    ///         Port = 6516,
-    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
-    ///         ServiceConfigurationName = "WAC",
-    ///         ServiceName = AzureNative.HybridConnectivity.ServiceName.WAC,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hybridconnectivity:ServiceConfiguration myresource1 /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName}/serviceConfigurations/{serviceConfigurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:ServiceConfiguration")]
     public partial class ServiceConfiguration : global::Pulumi.CustomResource

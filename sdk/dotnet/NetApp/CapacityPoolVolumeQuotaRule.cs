@@ -15,42 +15,6 @@ namespace Pulumi.AzureNative.NetApp
     /// Uses Azure REST API version 2024-09-01.
     /// 
     /// Other available API versions: 2022-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01-preview, 2025-01-01, 2025-01-01-preview, 2025-03-01, 2025-03-01-preview, 2025-06-01, 2025-07-01-preview, 2025-08-01, 2025-08-01-preview, 2025-09-01, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### VolumeQuotaRules_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var capacityPoolVolumeQuotaRule = new AzureNative.NetApp.CapacityPoolVolumeQuotaRule("capacityPoolVolumeQuotaRule", new()
-    ///     {
-    ///         AccountName = "account-9957",
-    ///         Location = "westus",
-    ///         PoolName = "pool-5210",
-    ///         QuotaSizeInKiBs = 100005,
-    ///         QuotaTarget = "1821",
-    ///         QuotaType = AzureNative.NetApp.Type.IndividualUserQuota,
-    ///         ResourceGroupName = "myRG",
-    ///         VolumeName = "volume-6387",
-    ///         VolumeQuotaRuleName = "rule-0004",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:CapacityPoolVolumeQuotaRule account-9957/pool-5210/volume-6387/rule-0004 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:CapacityPoolVolumeQuotaRule")]
     public partial class CapacityPoolVolumeQuotaRule : global::Pulumi.CustomResource

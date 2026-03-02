@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     /// Data Lake Analytics firewall rule information.
     /// 
     /// Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates the specified firewall rule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var firewallRule = new AzureNative.DataLakeAnalytics.FirewallRule("firewallRule", new()
-    ///     {
-    ///         AccountName = "contosoadla",
-    ///         EndIpAddress = "2.2.2.2",
-    ///         FirewallRuleName = "test_rule",
-    ///         ResourceGroupName = "contosorg",
-    ///         StartIpAddress = "1.1.1.1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datalakeanalytics:FirewallRule test_rule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/firewallRules/{firewallRuleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

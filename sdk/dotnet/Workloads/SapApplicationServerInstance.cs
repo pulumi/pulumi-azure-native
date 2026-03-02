@@ -13,60 +13,6 @@ namespace Pulumi.AzureNative.Workloads
     /// Define the SAP Application Server Instance resource.
     /// 
     /// Uses Azure REST API version 2024-09-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create SAP Application Server Instances for HA System with Availability Set
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sapApplicationServerInstance = new AzureNative.Workloads.SapApplicationServerInstance("sapApplicationServerInstance", new()
-    ///     {
-    ///         ApplicationInstanceName = "app01",
-    ///         Location = "westcentralus",
-    ///         ResourceGroupName = "test-rg",
-    ///         SapVirtualInstanceName = "X00",
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### SAPApplicationServerInstances_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sapApplicationServerInstance = new AzureNative.Workloads.SapApplicationServerInstance("sapApplicationServerInstance", new()
-    ///     {
-    ///         ApplicationInstanceName = "app01",
-    ///         Location = "westcentralus",
-    ///         ResourceGroupName = "test-rg",
-    ///         SapVirtualInstanceName = "X00",
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:workloads:SapApplicationServerInstance app01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/applicationInstances/{applicationInstanceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapApplicationServerInstance")]
     public partial class SapApplicationServerInstance : global::Pulumi.CustomResource

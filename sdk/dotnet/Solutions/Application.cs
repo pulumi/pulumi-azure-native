@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.Solutions
     /// Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
     /// 
     /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update managed application
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var application = new AzureNative.Solutions.Application("application", new()
-    ///     {
-    ///         ApplicationDefinitionId = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
-    ///         ApplicationName = "myManagedApplication",
-    ///         Kind = "ServiceCatalog",
-    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:solutions:Application myManagedApplication /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:Application")]
     public partial class Application : global::Pulumi.CustomResource

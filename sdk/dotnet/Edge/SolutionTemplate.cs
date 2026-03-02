@@ -15,50 +15,6 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### SolutionTemplates_CreateOrUpdate_MaximumSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var solutionTemplate = new AzureNative.Edge.SolutionTemplate("solutionTemplate", new()
-    ///     {
-    ///         Location = "zheaaqvadewftnctxzpinrgeproqs",
-    ///         Properties = new AzureNative.Edge.Inputs.SolutionTemplatePropertiesArgs
-    ///         {
-    ///             Capabilities = new[]
-    ///             {
-    ///                 "dfoyxbbknrhvlunhmuyyt",
-    ///             },
-    ///             Description = "psrftehgzngcdlccivhjmwsmiz",
-    ///             EnableExternalValidation = true,
-    ///             State = AzureNative.Edge.ResourceState.Active,
-    ///         },
-    ///         ResourceGroupName = "rgconfigurationmanager",
-    ///         SolutionTemplateName = "testname",
-    ///         Tags = 
-    ///         {
-    ///             { "key5091", "dov" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:edge:SolutionTemplate hhmslfrwpuvrjr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/solutionTemplates/{solutionTemplateName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:SolutionTemplate")]
     public partial class SolutionTemplate : global::Pulumi.CustomResource

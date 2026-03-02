@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// Workspace data summary rules definition.
     /// 
     /// Uses Azure REST API version 2025-07-01.
-    /// 
-    /// ## Example Usage
-    /// ### SummaryLogsUpsert
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var summaryLog = new AzureNative.OperationalInsights.SummaryLog("summaryLog", new()
-    ///     {
-    ///         ResourceGroupName = "oiautorest6685",
-    ///         RuleDefinition = new AzureNative.OperationalInsights.Inputs.RuleDefinitionArgs
-    ///         {
-    ///             BinDelay = 10,
-    ///             BinSize = 180,
-    ///             BinStartTime = "2020-02-03T04:05:06Z",
-    ///             DestinationTable = "MyDestinationTable_CL",
-    ///             Query = "MyTable_CL",
-    ///         },
-    ///         RuleType = AzureNative.OperationalInsights.RuleTypeEnum.User,
-    ///         SummaryLogsName = "summarylogs1",
-    ///         WorkspaceName = "oiautorest6685",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:operationalinsights:SummaryLog summarylogs1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/summaryLogs/{summaryLogsName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:SummaryLog")]
     public partial class SummaryLog : global::Pulumi.CustomResource

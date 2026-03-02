@@ -13,44 +13,6 @@ namespace Pulumi.AzureNative.ScVmm
     /// Defines the GuestAgent.
     /// 
     /// Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateGuestAgent
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vmInstanceGuestAgent = new AzureNative.ScVmm.VMInstanceGuestAgent("vmInstanceGuestAgent", new()
-    ///     {
-    ///         Credentials = new AzureNative.ScVmm.Inputs.GuestCredentialArgs
-    ///         {
-    ///             Password = "&lt;password&gt;",
-    ///             Username = "tempuser",
-    ///         },
-    ///         HttpProxyConfig = new AzureNative.ScVmm.Inputs.HttpProxyConfigurationArgs
-    ///         {
-    ///             HttpsProxy = "http://192.1.2.3:8080",
-    ///         },
-    ///         ProvisioningAction = AzureNative.ScVmm.ProvisioningAction.Install,
-    ///         ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:scvmm:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VMInstanceGuestAgent")]
     public partial class VMInstanceGuestAgent : global::Pulumi.CustomResource

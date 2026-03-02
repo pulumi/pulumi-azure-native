@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.Features
     /// Subscription feature registration details
     /// 
     /// Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
-    /// 
-    /// ## Example Usage
-    /// ### Creates a feature registration
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var subscriptionFeatureRegistration = new AzureNative.Features.SubscriptionFeatureRegistration("subscriptionFeatureRegistration", new()
-    ///     {
-    ///         FeatureName = "testFeature",
-    ///         Properties = null,
-    ///         ProviderNamespace = "subscriptionFeatureRegistrationGroupTestRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:features:SubscriptionFeatureRegistration testFeature /subscriptions/{subscriptionId}/providers/Microsoft.Features/featureProviders/{providerNamespace}/subscriptionFeatureRegistrations/{featureName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:features:SubscriptionFeatureRegistration")]
     public partial class SubscriptionFeatureRegistration : global::Pulumi.CustomResource

@@ -15,49 +15,6 @@ namespace Pulumi.AzureNative.Chaos
     /// Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-15-preview.
     /// 
     /// Other available API versions: 2023-04-15-preview, 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-11-01-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create/update a Target that extends a virtual machine resource.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var target = new AzureNative.Chaos.Target("target", new()
-    ///     {
-    ///         ParentProviderNamespace = "Microsoft.Compute",
-    ///         ParentResourceName = "exampleVM",
-    ///         ParentResourceType = "virtualMachines",
-    ///         Properties = new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["identities"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["subject"] = "CN=example.subject",
-    ///                     ["type"] = "CertificateSubjectIssuer",
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "exampleRG",
-    ///         TargetName = "Microsoft-Agent",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:chaos:Target Microsoft-Agent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{parentProviderNamespace}/{parentResourceType}/{parentResourceName}/providers/Microsoft.Chaos/targets/{targetName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Target")]
     public partial class Target : global::Pulumi.CustomResource

@@ -13,53 +13,6 @@ namespace Pulumi.AzureNative.Impact
     /// Insight resource
     /// 
     /// Uses Azure REST API version 2024-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Creating an insight
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var insight = new AzureNative.Impact.Insight("insight", new()
-    ///     {
-    ///         InsightName = "insightId12",
-    ///         Properties = new AzureNative.Impact.Inputs.InsightPropertiesArgs
-    ///         {
-    ///             Category = "repair",
-    ///             Content = new AzureNative.Impact.Inputs.ContentArgs
-    ///             {
-    ///                 Description = "At 2018-11-08T00:00:00Z UTC, your services dependent on these resources &lt;link href=”…”&gt;VM1&lt;/link&gt; may have experienced an issue. &lt;br/&gt;&lt;div&gt;We have identified an outage that affected these resources(s). You can look at outage information on &lt;link href=\"https:// portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues/trackingId/NL2W-VCZ\"&gt;NL2W-VCZ&lt;/link&gt; link.&lt;div&gt;",
-    ///                 Title = "Impact Has been correlated to an outage",
-    ///             },
-    ///             EventTime = "2023-06-15T04:00:00.009223Z",
-    ///             Impact = new AzureNative.Impact.Inputs.ImpactDetailsArgs
-    ///             {
-    ///                 ImpactId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.Impact/workloadImpacts/impactid22",
-    ///                 ImpactedResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-rg/providers/Microsoft.Sql/sqlserver/dbservername",
-    ///                 StartTime = "2023-06-15T01:00:00.009223Z",
-    ///             },
-    ///             InsightUniqueId = "00000000-0000-0000-0000-000000000000",
-    ///             Status = "resolved",
-    ///         },
-    ///         WorkloadImpactName = "impactid22",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:impact:Insight insightId12 /subscriptions/{subscriptionId}/providers/Microsoft.Impact/workloadImpacts/{workloadImpactName}/insights/{insightName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:impact:Insight")]
     public partial class Insight : global::Pulumi.CustomResource

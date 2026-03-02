@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a Database.
     /// 
     /// Uses Azure REST API version 2017-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### DatabaseCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var singleServerDatabase = new AzureNative.DBforMySQL.SingleServerDatabase("singleServerDatabase", new()
-    ///     {
-    ///         Charset = "utf8",
-    ///         Collation = "utf8_general_ci",
-    ///         DatabaseName = "db1",
-    ///         ResourceGroupName = "TestGroup",
-    ///         ServerName = "testserver",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbformysql:SingleServerDatabase db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/databases/{databaseName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:SingleServerDatabase")]
     public partial class SingleServerDatabase : global::Pulumi.CustomResource

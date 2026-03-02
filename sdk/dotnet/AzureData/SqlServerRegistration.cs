@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.AzureData
     /// A SQL server registration.
     /// 
     /// Uses Azure REST API version 2019-07-24-preview. In version 2.x of the Azure Native provider, it used API version 2019-07-24-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a SQL Server registration.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sqlServerRegistration = new AzureNative.AzureData.SqlServerRegistration("sqlServerRegistration", new()
-    ///     {
-    ///         Location = "northeurope",
-    ///         ResourceGroupName = "testrg",
-    ///         SqlServerRegistrationName = "testsqlregistration",
-    ///         Tags = 
-    ///         {
-    ///             { "mytag", "myval" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azuredata:SqlServerRegistration testsqlregistration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureData/sqlServerRegistrations/{sqlServerRegistrationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredata:SqlServerRegistration")]
     public partial class SqlServerRegistration : global::Pulumi.CustomResource

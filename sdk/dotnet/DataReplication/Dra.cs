@@ -13,58 +13,6 @@ namespace Pulumi.AzureNative.DataReplication
     /// Dra model.
     /// 
     /// Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Dra_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dra = new AzureNative.DataReplication.Dra("dra", new()
-    ///     {
-    ///         FabricAgentName = "M",
-    ///         FabricName = "wPR",
-    ///         Properties = new AzureNative.DataReplication.Inputs.DraModelPropertiesArgs
-    ///         {
-    ///             AuthenticationIdentity = new AzureNative.DataReplication.Inputs.IdentityModelArgs
-    ///             {
-    ///                 AadAuthority = "bubwwbowfhdmujrt",
-    ///                 ApplicationId = "cwktzrwajuvfyyymfstpey",
-    ///                 Audience = "dkjobanyqgzenivyxhvavottpc",
-    ///                 ObjectId = "khsiaqfbpuhp",
-    ///                 TenantId = "joclkkdovixwapephhxaqtefubhhmq",
-    ///             },
-    ///             CustomProperties = null,
-    ///             MachineId = "envzcoijbqhtrpncbjbhk",
-    ///             MachineName = "y",
-    ///             ResourceAccessIdentity = new AzureNative.DataReplication.Inputs.IdentityModelArgs
-    ///             {
-    ///                 AadAuthority = "bubwwbowfhdmujrt",
-    ///                 ApplicationId = "cwktzrwajuvfyyymfstpey",
-    ///                 Audience = "dkjobanyqgzenivyxhvavottpc",
-    ///                 ObjectId = "khsiaqfbpuhp",
-    ///                 TenantId = "joclkkdovixwapephhxaqtefubhhmq",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgrecoveryservicesdatareplication",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datareplication:Dra ioxmwhzrzdilxivkvhpvzexl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Dra")]
     public partial class Dra : global::Pulumi.CustomResource

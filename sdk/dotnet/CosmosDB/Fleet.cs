@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-10-15.
     /// 
     /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDB Fleet Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fleet = new AzureNative.CosmosDB.Fleet("fleet", new()
-    ///     {
-    ///         FleetName = "fleet1",
-    ///         Location = "West US",
-    ///         ResourceGroupName = "rg1",
-    ///         Tags = 
-    ///         {
-    ///             { "Dept", "Finance" },
-    ///             { "Environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cosmosdb:Fleet fleet1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

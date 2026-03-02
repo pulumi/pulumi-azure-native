@@ -13,42 +13,6 @@ namespace Pulumi.AzureNative.ApiManagement
     /// A single API Management gateway hostname binding resource in List or Get response.
     /// 
     /// Uses Azure REST API version 2025-03-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateGatewayHostnameBinding
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apiGatewayHostnameBinding = new AzureNative.ApiManagement.ApiGatewayHostnameBinding("apiGatewayHostnameBinding", new()
-    ///     {
-    ///         GatewayName = "apimGateway1",
-    ///         Hostname = "primary.cotoso.com",
-    ///         HostnameBindingName = "hb-1",
-    ///         KeyVault = new AzureNative.ApiManagement.Inputs.GatewayHostnameBindingKeyVaultArgs
-    ///         {
-    ///             IdentityClientId = "00000000-0000-0000-0000-000000000000",
-    ///             SecretId = "https://myvault.keyvault.azure.net/secrets/contosoprimarycert",
-    ///         },
-    ///         ResourceGroupName = "rg1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apimanagement:ApiGatewayHostnameBinding hb-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/hostnameBindings/{hostnameBindingName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiGatewayHostnameBinding")]
     public partial class ApiGatewayHostnameBinding : global::Pulumi.CustomResource

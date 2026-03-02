@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.Synapse
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a workspace key
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var key = new AzureNative.Synapse.Key("key", new()
-    ///     {
-    ///         IsActiveCMK = true,
-    ///         KeyName = "somekey",
-    ///         KeyVaultUrl = "https://vault.azure.net/keys/somesecret",
-    ///         ResourceGroupName = "ExampleResourceGroup",
-    ///         WorkspaceName = "ExampleWorkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:synapse:Key somekey /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/keys/{keyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Key")]
     public partial class Key : global::Pulumi.CustomResource

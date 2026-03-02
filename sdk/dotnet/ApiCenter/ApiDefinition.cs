@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.ApiCenter
     /// Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
     /// 
     /// Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiDefinitions_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apiDefinition = new AzureNative.ApiCenter.ApiDefinition("apiDefinition", new()
-    ///     {
-    ///         ApiName = "openapi",
-    ///         DefinitionName = "openapi",
-    ///         Description = "Default spec",
-    ///         ResourceGroupName = "contoso-resources",
-    ///         ServiceName = "contoso",
-    ///         Title = "OpenAPI",
-    ///         VersionName = "2023-01-01",
-    ///         WorkspaceName = "default",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apicenter:ApiDefinition openapi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apis/{apiName}/versions/{versionName}/definitions/{definitionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:ApiDefinition")]
     public partial class ApiDefinition : global::Pulumi.CustomResource

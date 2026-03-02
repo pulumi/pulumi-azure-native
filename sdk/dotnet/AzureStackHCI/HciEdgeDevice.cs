@@ -13,61 +13,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Arc-enabled edge device with HCI OS.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create HCI Edge Device
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hciEdgeDevice = new AzureNative.AzureStackHCI.HciEdgeDevice("hciEdgeDevice", new()
-    ///     {
-    ///         EdgeDeviceName = "default",
-    ///         Kind = "HCI",
-    ///         Properties = new AzureNative.AzureStackHCI.Inputs.HciEdgeDevicePropertiesArgs
-    ///         {
-    ///             DeviceConfiguration = new AzureNative.AzureStackHCI.Inputs.DeviceConfigurationArgs
-    ///             {
-    ///                 DeviceMetadata = "",
-    ///                 NicDetails = new[]
-    ///                 {
-    ///                     new AzureNative.AzureStackHCI.Inputs.NicDetailArgs
-    ///                     {
-    ///                         AdapterName = "ethernet",
-    ///                         ComponentId = "VMBUS{f8615163-df3e-46c5-913f-f2d2f965ed0g} ",
-    ///                         DefaultGateway = "10.10.10.1",
-    ///                         DefaultIsolationId = "0",
-    ///                         DnsServers = new[]
-    ///                         {
-    ///                             "100.10.10.1",
-    ///                         },
-    ///                         DriverVersion = "10.0.20348.1547 ",
-    ///                         InterfaceDescription = "NDIS 6.70 ",
-    ///                         Ip4Address = "10.10.10.10",
-    ///                         SubnetMask = "255.255.255.0",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurestackhci:HciEdgeDevice default /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:HciEdgeDevice")]
     public partial class HciEdgeDevice : global::Pulumi.CustomResource

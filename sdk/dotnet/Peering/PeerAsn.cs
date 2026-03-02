@@ -15,57 +15,6 @@ namespace Pulumi.AzureNative.Peering
     /// Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
     /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a peer ASN
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var peerAsn = new AzureNative.Peering.PeerAsn("peerAsn", new()
-    ///     {
-    ///         PeerAsn = 65000,
-    ///         PeerAsnName = "peerAsnName",
-    ///         PeerContactDetail = new[]
-    ///         {
-    ///             new AzureNative.Peering.Inputs.ContactDetailArgs
-    ///             {
-    ///                 Email = "noc@contoso.com",
-    ///                 Phone = "+1 (234) 567-8999",
-    ///                 Role = AzureNative.Peering.Role.Noc,
-    ///             },
-    ///             new AzureNative.Peering.Inputs.ContactDetailArgs
-    ///             {
-    ///                 Email = "abc@contoso.com",
-    ///                 Phone = "+1 (234) 567-8900",
-    ///                 Role = AzureNative.Peering.Role.Policy,
-    ///             },
-    ///             new AzureNative.Peering.Inputs.ContactDetailArgs
-    ///             {
-    ///                 Email = "xyz@contoso.com",
-    ///                 Phone = "+1 (234) 567-8900",
-    ///                 Role = AzureNative.Peering.Role.Technical,
-    ///             },
-    ///         },
-    ///         PeerName = "Contoso",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:peering:PeerAsn peerAsnName /subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerAsns/{peerAsnName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource

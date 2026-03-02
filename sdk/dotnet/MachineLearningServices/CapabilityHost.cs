@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
     /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdate CapabilityHost.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var capabilityHost = new AzureNative.MachineLearningServices.CapabilityHost("capabilityHost", new()
-    ///     {
-    ///         CapabilityHostProperties = new AzureNative.MachineLearningServices.Inputs.CapabilityHostArgs
-    ///         {
-    ///             CustomerSubnet = "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroups/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
-    ///         },
-    ///         Name = "capabilityHostName",
-    ///         ResourceGroupName = "test-rg",
-    ///         WorkspaceName = "my-aml-workspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:machinelearningservices:CapabilityHost capabilityHostName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/capabilityHosts/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CapabilityHost")]
     public partial class CapabilityHost : global::Pulumi.CustomResource

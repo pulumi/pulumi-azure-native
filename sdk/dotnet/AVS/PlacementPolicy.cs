@@ -15,55 +15,6 @@ namespace Pulumi.AzureNative.AVS
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
     /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PlacementPolicies_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var placementPolicy = new AzureNative.AVS.PlacementPolicy("placementPolicy", new()
-    ///     {
-    ///         ClusterName = "cluster1",
-    ///         PlacementPolicyName = "policy1",
-    ///         PrivateCloudName = "cloud1",
-    ///         Properties = new AzureNative.AVS.Inputs.VmHostPlacementPolicyPropertiesArgs
-    ///         {
-    ///             AffinityStrength = AzureNative.AVS.AffinityStrength.Must,
-    ///             AffinityType = AzureNative.AVS.AffinityType.AntiAffinity,
-    ///             AzureHybridBenefitType = AzureNative.AVS.AzureHybridBenefitType.SqlHost,
-    ///             HostMembers = new[]
-    ///             {
-    ///                 "fakehost22.nyc1.kubernetes.center",
-    ///                 "fakehost23.nyc1.kubernetes.center",
-    ///                 "fakehost24.nyc1.kubernetes.center",
-    ///             },
-    ///             Type = "VmHost",
-    ///             VmMembers = new[]
-    ///             {
-    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
-    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "group1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PlacementPolicy")]
     public partial class PlacementPolicy : global::Pulumi.CustomResource

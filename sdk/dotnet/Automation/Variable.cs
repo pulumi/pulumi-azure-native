@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a variable
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var variable = new AzureNative.Automation.Variable("variable", new()
-    ///     {
-    ///         AutomationAccountName = "sampleAccount9",
-    ///         Description = "my description",
-    ///         IsEncrypted = false,
-    ///         Name = "sampleVariable",
-    ///         ResourceGroupName = "rg",
-    ///         Value = "\"ComputerName.domain.com\"",
-    ///         VariableName = "sampleVariable",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:Variable sampleVariable /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Variable")]
     public partial class Variable : global::Pulumi.CustomResource

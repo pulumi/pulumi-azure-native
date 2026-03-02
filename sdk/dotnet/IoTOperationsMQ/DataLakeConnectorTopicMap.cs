@@ -13,69 +13,6 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
     /// MQ dataLakeConnector/topicMap resource
     /// 
     /// Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-    /// 
-    /// ## Example Usage
-    /// ### DataLakeConnectorTopicMap_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dataLakeConnectorTopicMap = new AzureNative.IoTOperationsMQ.DataLakeConnectorTopicMap("dataLakeConnectorTopicMap", new()
-    ///     {
-    ///         DataLakeConnectorName = "E9gU89-1QnIG7-IP8qOQLV-",
-    ///         DataLakeConnectorRef = "zirczjfua",
-    ///         ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
-    ///         {
-    ///             Name = "an",
-    ///             Type = AzureNative.IoTOperationsMQ.ExtendedLocationType.CustomLocation,
-    ///         },
-    ///         Location = "wjmgeh",
-    ///         Mapping = new AzureNative.IoTOperationsMQ.Inputs.DataLakeConnectorMapArgs
-    ///         {
-    ///             AllowedLatencySecs = 25407,
-    ///             ClientId = "gyjduryceozwqyjdrxhrtwuw",
-    ///             MaxMessagesPerBatch = 1581641880,
-    ///             MessagePayloadType = "pwhpwzqlzlhdrozpqziipvjqrnipo",
-    ///             MqttSourceTopic = "mtac",
-    ///             Qos = 2,
-    ///             Table = new AzureNative.IoTOperationsMQ.Inputs.DeltaTableArgs
-    ///             {
-    ///                 Schema = new[]
-    ///                 {
-    ///                     new AzureNative.IoTOperationsMQ.Inputs.DeltaTableSchemaArgs
-    ///                     {
-    ///                         Format = AzureNative.IoTOperationsMQ.DeltaTableFormatEnum.Boolean,
-    ///                         Mapping = "lfnyjp",
-    ///                         Name = "hejqncdsueoerueffbaqix",
-    ///                         Optional = true,
-    ///                     },
-    ///                 },
-    ///                 TableName = "qyvzigmefvxwyjqksofyrstn",
-    ///                 TablePath = "cyrkvxsjhbhwjegmhzyixchkdnxe",
-    ///             },
-    ///         },
-    ///         MqName = "rc-8Z--2m-MU",
-    ///         ResourceGroupName = "rgiotoperationsmq",
-    ///         Tags = null,
-    ///         TopicMapName = "17-",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:iotoperationsmq:DataLakeConnectorTopicMap l /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/dataLakeConnector/{dataLakeConnectorName}/topicMap/{topicMapName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:DataLakeConnectorTopicMap")]
     public partial class DataLakeConnectorTopicMap : global::Pulumi.CustomResource

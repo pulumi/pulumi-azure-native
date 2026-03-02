@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.Network
     /// A virtual network appliance in a resource group.
     /// 
     /// Uses Azure REST API version 2025-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create virtual network appliance
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var virtualNetworkAppliance = new AzureNative.Network.VirtualNetworkAppliance("virtualNetworkAppliance", new()
-    ///     {
-    ///         BandwidthInGbps = "100",
-    ///         Location = "eastus",
-    ///         ResourceGroupName = "rg1",
-    ///         Subnet = new AzureNative.Network.Inputs.SubnetArgs
-    ///         {
-    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
-    ///         },
-    ///         VirtualNetworkApplianceName = "test-vna",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:network:VirtualNetworkAppliance test-vna /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkAppliances/{virtualNetworkApplianceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkAppliance")]
     public partial class VirtualNetworkAppliance : global::Pulumi.CustomResource

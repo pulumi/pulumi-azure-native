@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// A private endpoint connection
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-    /// 
-    /// ## Example Usage
-    /// ### Approve or reject a private endpoint connection with a given name.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.DBforMariaDB.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         PrivateEndpointConnectionName = "private-endpoint-connection-name",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.DBforMariaDB.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
-    ///         {
-    ///             Description = "Approved by johndoe@contoso.com",
-    ///             Status = "Approved",
-    ///         },
-    ///         ResourceGroupName = "Default",
-    ///         ServerName = "test-svr",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbformariadb:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

@@ -15,60 +15,6 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
     /// Uses Azure REST API version 2024-01-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-15-preview.
     /// 
     /// Other available API versions: 2025-03-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native programmableconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### OperatorApiConnections_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var operatorApiConnection = new AzureNative.ProgrammableConnectivity.OperatorApiConnection("operatorApiConnection", new()
-    ///     {
-    ///         AccountType = AzureNative.ProgrammableConnectivity.AccountType.AzureManaged,
-    ///         AppId = "czgrhbvgr",
-    ///         AppSecret = "wtxnpes",
-    ///         ConfiguredApplication = new AzureNative.ProgrammableConnectivity.Inputs.ApplicationPropertiesArgs
-    ///         {
-    ///             ApplicationDescription = "gjlwegnqvffvsc",
-    ///             ApplicationType = "f",
-    ///             LegalName = "ar",
-    ///             Name = "idzqqen",
-    ///             OrganizationDescription = "fcueqzlxxr",
-    ///             PrivacyContactEmailAddress = "l",
-    ///             TaxNumber = "ngzv",
-    ///         },
-    ///         GatewayId = "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/example-rg/providers/Microsoft.ProgrammableConnectivity/gateways/cdvcixxcdhjqw",
-    ///         Location = "dwvzfkjoepbmksygazllqryyinn",
-    ///         OperatorApiConnectionName = "nzsdg",
-    ///         OperatorApiPlanId = "/subscriptions/00000000-0000-0000-0000-00000000000/providers/Microsoft.ProgrammableConnectivity/operatorApiPlans/livmzrh",
-    ///         ResourceGroupName = "rgopenapi",
-    ///         SaasProperties = new AzureNative.ProgrammableConnectivity.Inputs.SaasPropertiesArgs
-    ///         {
-    ///             SaasResourceId = "pekejefyvfviabimdrmno",
-    ///             SaasSubscriptionId = "mgyusmqt",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "key5536", "bjhvpzsmtalqxmjjbsfdizhg" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:programmableconnectivity:OperatorApiConnection zsilgtpflhroamaglfbywbn /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProgrammableConnectivity/operatorApiConnections/{operatorApiConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:programmableconnectivity:OperatorApiConnection")]
     public partial class OperatorApiConnection : global::Pulumi.CustomResource

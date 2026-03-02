@@ -15,37 +15,6 @@ namespace Pulumi.AzureNative.FrontDoor
     /// Uses Azure REST API version 2019-11-01.
     /// 
     /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates an NetworkExperiment Profile in a Resource Group
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var networkExperimentProfile = new AzureNative.FrontDoor.NetworkExperimentProfile("networkExperimentProfile", new()
-    ///     {
-    ///         EnabledState = AzureNative.FrontDoor.State.Enabled,
-    ///         Location = "WestUs",
-    ///         ProfileName = "MyProfile",
-    ///         ResourceGroupName = "MyResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:frontdoor:NetworkExperimentProfile MyProfile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : global::Pulumi.CustomResource

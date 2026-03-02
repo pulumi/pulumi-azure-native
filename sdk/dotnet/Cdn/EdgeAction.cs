@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.Cdn
     /// Uses Azure REST API version 2025-09-01-preview.
     /// 
     /// Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateEdgeAction
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var edgeAction = new AzureNative.Cdn.EdgeAction("edgeAction", new()
-    ///     {
-    ///         EdgeActionName = "edgeAction1",
-    ///         Location = "global",
-    ///         ResourceGroupName = "testrg",
-    ///         Sku = new AzureNative.Cdn.Inputs.SkuTypeArgs
-    ///         {
-    ///             Name = "Standard",
-    ///             Tier = "Standard",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cdn:EdgeAction edgeAction1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:EdgeAction")]
     public partial class EdgeAction : global::Pulumi.CustomResource

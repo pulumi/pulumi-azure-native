@@ -15,43 +15,6 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// Uses Azure REST API version 2024-03-31. In version 2.x of the Azure Native provider, it used API version 2023-02-28.
     /// 
     /// Other available API versions: 2022-10-01-preview, 2022-12-01, 2023-02-28, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2025-03-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthcareapis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a Dicom Service
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dicomService = new AzureNative.HealthcareApis.DicomService("dicomService", new()
-    ///     {
-    ///         DicomServiceName = "blue",
-    ///         EnableDataPartitions = false,
-    ///         Location = "westus",
-    ///         ResourceGroupName = "testRG",
-    ///         StorageConfiguration = new AzureNative.HealthcareApis.Inputs.StorageConfigurationArgs
-    ///         {
-    ///             FileSystemName = "fileSystemName",
-    ///             StorageResourceId = "/subscriptions/ab309d4e-4c2e-4241-be2e-08e1c8dd4246/resourceGroups/rgname/providers/Microsoft.Storage/storageAccounts/accountname",
-    ///         },
-    ///         WorkspaceName = "workspace1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:healthcareapis:DicomService blue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/dicomservices/{dicomServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
     public partial class DicomService : global::Pulumi.CustomResource

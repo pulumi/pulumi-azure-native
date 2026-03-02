@@ -15,44 +15,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
     /// 
     /// Other available API versions: 2025-07-01-preview, 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create_Schema
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var schema = new AzureNative.DeviceRegistry.Schema("schema", new()
-    ///     {
-    ///         Description = "This is a sample Schema",
-    ///         DisplayName = "My Schema",
-    ///         Format = AzureNative.DeviceRegistry.Format.JsonSchema_draft7,
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         SchemaName = "my-schema",
-    ///         SchemaRegistryName = "my-schema-registry",
-    ///         SchemaType = AzureNative.DeviceRegistry.SchemaType.MessageSchema,
-    ///         Tags = 
-    ///         {
-    ///             { "sampleKey", "sampleValue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceregistry:Schema my-schema /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Schema")]
     public partial class Schema : global::Pulumi.CustomResource

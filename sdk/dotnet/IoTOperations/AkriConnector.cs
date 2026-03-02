@@ -15,42 +15,6 @@ namespace Pulumi.AzureNative.IoTOperations
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
     /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### AkriConnector_CreateOrUpdate_MaximumSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var akriConnector = new AzureNative.IoTOperations.AkriConnector("akriConnector", new()
-    ///     {
-    ///         AkriConnectorTemplateName = "resource-name123",
-    ///         ConnectorName = "resource-name123",
-    ///         ExtendedLocation = new AzureNative.IoTOperations.Inputs.ExtendedLocationArgs
-    ///         {
-    ///             Name = "subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup123/providers/Microsoft.ExtendedLocation/customLocations/resource-name123",
-    ///             Type = AzureNative.IoTOperations.ExtendedLocationType.CustomLocation,
-    ///         },
-    ///         InstanceName = "resource-name123",
-    ///         ResourceGroupName = "rgiotoperations",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:iotoperations:AkriConnector resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName}/connectors/{connectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperations:AkriConnector")]
     public partial class AkriConnector : global::Pulumi.CustomResource

@@ -13,56 +13,6 @@ namespace Pulumi.AzureNative.SecretSyncController
     /// The SecretSync resource.
     /// 
     /// Uses Azure REST API version 2024-08-21-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-21-preview.
-    /// 
-    /// ## Example Usage
-    /// ### SecretSyncs_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var secretSync = new AzureNative.SecretSyncController.SecretSync("secretSync", new()
-    ///     {
-    ///         ExtendedLocation = new AzureNative.SecretSyncController.Inputs.AzureResourceManagerCommonTypesExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-ssc-example/providers/Microsoft.ExtendedLocation/customLocations/example-custom-location",
-    ///             Type = AzureNative.SecretSyncController.ExtendedLocationType.CustomLocation,
-    ///         },
-    ///         KubernetesSecretType = AzureNative.SecretSyncController.KubernetesSecretType.Opaque,
-    ///         Location = "eastus",
-    ///         ObjectSecretMapping = new[]
-    ///         {
-    ///             new AzureNative.SecretSyncController.Inputs.KubernetesSecretObjectMappingArgs
-    ///             {
-    ///                 SourcePath = "kv-secret-name/0",
-    ///                 TargetKey = "kv-secret-name/0",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rg-ssc-example",
-    ///         SecretProviderClassName = "akvspc-ssc-example",
-    ///         SecretSyncName = "secretsync-ssc-example",
-    ///         ServiceAccountName = "example-k8s-sa-name",
-    ///         Tags = 
-    ///         {
-    ///             { "example-tag", "example-tag-value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:secretsynccontroller:SecretSync secretsync-ssc-example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecretSyncController/secretSyncs/{secretSyncName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:secretsynccontroller:SecretSync")]
     public partial class SecretSync : global::Pulumi.CustomResource

@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.Contoso
     /// Uses Azure REST API version 2021-11-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01-preview.
     /// 
     /// Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native contoso [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Employees_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var employee = new AzureNative.Contoso.Employee("employee", new()
-    ///     {
-    ///         EmployeeName = "9KF-f-8b",
-    ///         Location = "itajgxyqozseoygnl",
-    ///         Properties = new AzureNative.Contoso.Inputs.EmployeePropertiesArgs
-    ///         {
-    ///             Age = 30,
-    ///             City = "gydhnntudughbmxlkyzrskcdkotrxn",
-    ///             Profile = "ms",
-    ///         },
-    ///         ResourceGroupName = "rgopenapi",
-    ///         Tags = 
-    ///         {
-    ///             { "key2913", "urperxmkkhhkp" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:contoso:Employee xepyxhpb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Contoso/employees/{employeeName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:contoso:Employee")]
     public partial class Employee : global::Pulumi.CustomResource

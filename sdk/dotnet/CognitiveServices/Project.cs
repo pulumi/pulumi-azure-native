@@ -12,75 +12,9 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// <summary>
     /// Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
     /// 
-    /// Uses Azure REST API version 2025-04-01-preview.
+    /// Uses Azure REST API version 2025-06-01.
     /// 
-    /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Project
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new AzureNative.CognitiveServices.Project("project", new()
-    ///     {
-    ///         AccountName = "testCreate1",
-    ///         Identity = new AzureNative.CognitiveServices.Inputs.IdentityArgs
-    ///         {
-    ///             Type = AzureNative.CognitiveServices.ResourceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "West US",
-    ///         ProjectName = "testProject1",
-    ///         Properties = new AzureNative.CognitiveServices.Inputs.ProjectPropertiesArgs
-    ///         {
-    ///             Description = "Description of this project",
-    ///             DisplayName = "p1",
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create Project Min
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new AzureNative.CognitiveServices.Project("project", new()
-    ///     {
-    ///         AccountName = "testCreate1",
-    ///         Identity = new AzureNative.CognitiveServices.Inputs.IdentityArgs
-    ///         {
-    ///             Type = AzureNative.CognitiveServices.ResourceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "West US",
-    ///         ProjectName = "testProject1",
-    ///         Properties = null,
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cognitiveservices:Project testProject1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName} 
-    /// ```
+    /// Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Project")]
     public partial class Project : global::Pulumi.CustomResource

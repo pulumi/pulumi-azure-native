@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// Represents a Configuration.
     /// 
     /// Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-    /// 
-    /// ## Example Usage
-    /// ### ConfigurationCreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var configuration = new AzureNative.DBforMariaDB.Configuration("configuration", new()
-    ///     {
-    ///         ConfigurationName = "event_scheduler",
-    ///         ResourceGroupName = "TestGroup",
-    ///         ServerName = "testserver",
-    ///         Source = "user-override",
-    ///         Value = "off",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbformariadb:Configuration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}/configurations/{configurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource

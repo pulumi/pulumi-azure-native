@@ -13,57 +13,6 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### S3BucketPolicies_CreateOrReplace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var s3BucketPolicy = new AzureNative.AwsConnector.S3BucketPolicy("s3BucketPolicy", new()
-    ///     {
-    ///         Location = "hsbqwwdspecsoigxusdbqgilaa",
-    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-    ///         Properties = new AzureNative.AwsConnector.Inputs.S3BucketPolicyPropertiesArgs
-    ///         {
-    ///             Arn = "ebpwjamccadznftkixikeutdjacadm",
-    ///             AwsAccountId = "czyyfhht",
-    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsS3BucketPolicyPropertiesArgs
-    ///             {
-    ///                 Policy = "fifgvjoxnidoedtzm",
-    ///             },
-    ///             AwsRegion = "mlepmxnkxjgtrqhtbaaoxuaj",
-    ///             AwsSourceSchema = "wdyfvmrsshlyadt",
-    ///             AwsTags = 
-    ///             {
-    ///                 { "key5637", "ympfubnqykwth" },
-    ///             },
-    ///             PublicCloudConnectorsResourceId = "n",
-    ///             PublicCloudResourceName = "suksqtvhtayjy",
-    ///         },
-    ///         ResourceGroupName = "rgs3BucketPolicy",
-    ///         Tags = 
-    ///         {
-    ///             { "key9799", "kihjvhsun" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:awsconnector:S3BucketPolicy dbjztqfpgz /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3BucketPolicies/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:S3BucketPolicy")]
     public partial class S3BucketPolicy : global::Pulumi.CustomResource

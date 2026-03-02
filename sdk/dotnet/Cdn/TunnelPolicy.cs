@@ -13,59 +13,6 @@ namespace Pulumi.AzureNative.Cdn
     /// Tunnel Policy maps domains to target endpoints to process traffic over the tunnelling protocol.
     /// 
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### TunnelPolicies_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tunnelPolicy = new AzureNative.Cdn.TunnelPolicy("tunnelPolicy", new()
-    ///     {
-    ///         Domains = new[]
-    ///         {
-    ///             new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
-    ///             },
-    ///             new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
-    ///             },
-    ///         },
-    ///         ProfileName = "profile1",
-    ///         ResourceGroupName = "RG",
-    ///         TargetGroups = new[]
-    ///         {
-    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup1",
-    ///             },
-    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/targetgroups/targetgroup2",
-    ///             },
-    ///         },
-    ///         TunnelPolicyName = "tunnelPolicy1",
-    ///         TunnelType = AzureNative.Cdn.TunnelType.HttpConnect,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cdn:TunnelPolicy tunnelPolicy1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/tunnelPolicies/{tunnelPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:TunnelPolicy")]
     public partial class TunnelPolicy : global::Pulumi.CustomResource

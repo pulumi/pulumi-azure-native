@@ -15,56 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or Update Configuration
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dscConfiguration = new AzureNative.Automation.DscConfiguration("dscConfiguration", new()
-    ///     {
-    ///         AutomationAccountName = "myAutomationAccount18",
-    ///         ConfigurationName = "SetupServer",
-    ///         Description = "sample configuration",
-    ///         Location = "East US 2",
-    ///         Name = "SetupServer",
-    ///         ResourceGroupName = "rg",
-    ///         Source = new AzureNative.Automation.Inputs.ContentSourceArgs
-    ///         {
-    ///             Hash = new AzureNative.Automation.Inputs.ContentHashArgs
-    ///             {
-    ///                 Algorithm = "sha256",
-    ///                 Value = "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
-    ///             },
-    ///             Type = AzureNative.Automation.ContentSourceType.EmbeddedContent,
-    ///             Value = @"Configuration SetupServer {
-    ///     Node localhost {
-    ///                                WindowsFeature IIS {
-    ///                                Name = ""Web-Server"";
-    ///             Ensure = ""Present""
-    ///         }
-    ///     }
-    /// }",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:DscConfiguration SetupServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/configurations/{configurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:DscConfiguration")]
     public partial class DscConfiguration : global::Pulumi.CustomResource

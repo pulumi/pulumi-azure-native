@@ -15,62 +15,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
     /// Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrReplace_NamespaceDiscoveredDevice
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var namespaceDiscoveredDevice = new AzureNative.DeviceRegistry.NamespaceDiscoveredDevice("namespaceDiscoveredDevice", new()
-    ///     {
-    ///         DiscoveredDeviceName = "my-discovereddevice-1",
-    ///         DiscoveryId = "discoveryId1",
-    ///         Endpoints = new AzureNative.DeviceRegistry.Inputs.DiscoveredMessagingEndpointsArgs
-    ///         {
-    ///             Outbound = new AzureNative.DeviceRegistry.Inputs.DiscoveredOutboundEndpointsArgs
-    ///             {
-    ///                 Assigned = 
-    ///                 {
-    ///                     { "eventGridEndpoint", new AzureNative.DeviceRegistry.Inputs.DeviceMessagingEndpointArgs
-    ///                     {
-    ///                         Address = "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
-    ///                         EndpointType = "Microsoft.EventGrid",
-    ///                     } },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
-    ///             Type = "CustomLocation",
-    ///         },
-    ///         Location = "West Europe",
-    ///         NamespaceName = "my-namespace-1",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Tags = 
-    ///         {
-    ///             { "site", "building-1" },
-    ///         },
-    ///         Version = 1,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceregistry:NamespaceDiscoveredDevice my-discovereddevice-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:NamespaceDiscoveredDevice")]
     public partial class NamespaceDiscoveredDevice : global::Pulumi.CustomResource

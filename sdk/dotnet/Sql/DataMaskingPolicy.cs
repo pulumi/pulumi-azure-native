@@ -15,61 +15,6 @@ namespace Pulumi.AzureNative.Sql
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update data masking policy max
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dataMaskingPolicy = new AzureNative.Sql.DataMaskingPolicy("dataMaskingPolicy", new()
-    ///     {
-    ///         DataMaskingPolicyName = "Default",
-    ///         DataMaskingState = AzureNative.Sql.DataMaskingState.Enabled,
-    ///         DatabaseName = "sqlcrudtest-331",
-    ///         ExemptPrincipals = "testuser;",
-    ///         ResourceGroupName = "sqlcrudtest-6852",
-    ///         ServerName = "sqlcrudtest-2080",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create or update data masking policy min.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dataMaskingPolicy = new AzureNative.Sql.DataMaskingPolicy("dataMaskingPolicy", new()
-    ///     {
-    ///         DataMaskingPolicyName = "Default",
-    ///         DataMaskingState = AzureNative.Sql.DataMaskingState.Enabled,
-    ///         DatabaseName = "sqlcrudtest-331",
-    ///         ResourceGroupName = "sqlcrudtest-6852",
-    ///         ServerName = "sqlcrudtest-2080",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:sql:DataMaskingPolicy Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/dataMaskingPolicies/{dataMaskingPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DataMaskingPolicy")]
     public partial class DataMaskingPolicy : global::Pulumi.CustomResource

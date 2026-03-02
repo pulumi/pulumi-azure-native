@@ -15,35 +15,6 @@ namespace Pulumi.AzureNative.ContainerService
     /// Uses Azure REST API version 2025-04-02-preview.
     /// 
     /// Other available API versions: 2025-04-01, 2025-05-02-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates a DeploymentSafeguards resource with a long running operation.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var deploymentSafeguard = new AzureNative.ContainerService.DeploymentSafeguard("deploymentSafeguard", new()
-    ///     {
-    ///         Level = AzureNative.ContainerService.DeploymentSafeguardsLevel.Warn,
-    ///         ResourceUri = "subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:containerservice:DeploymentSafeguard default /{resourceUri}/providers/Microsoft.ContainerService/deploymentSafeguards/default 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:DeploymentSafeguard")]
     public partial class DeploymentSafeguard : global::Pulumi.CustomResource

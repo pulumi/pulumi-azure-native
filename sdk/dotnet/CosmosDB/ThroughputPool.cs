@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2024-12-01-preview.
     /// 
     /// Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDB ThroughputPool Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var throughputPool = new AzureNative.CosmosDB.ThroughputPool("throughputPool", new()
-    ///     {
-    ///         Location = "westus2",
-    ///         MaxThroughput = 10000,
-    ///         ResourceGroupName = "rg1",
-    ///         Tags = null,
-    ///         ThroughputPoolName = "tp1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cosmosdb:ThroughputPool tp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:ThroughputPool")]
     public partial class ThroughputPool : global::Pulumi.CustomResource

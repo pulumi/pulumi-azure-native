@@ -15,45 +15,6 @@ namespace Pulumi.AzureNative.FluidRelay
     /// Uses Azure REST API version 2022-06-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
     /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a Fluid Relay server
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fluidRelayServer = new AzureNative.FluidRelay.FluidRelayServer("fluidRelayServer", new()
-    ///     {
-    ///         FluidRelayServerName = "myFluidRelayServer",
-    ///         Identity = new AzureNative.FluidRelay.Inputs.IdentityArgs
-    ///         {
-    ///             Type = AzureNative.FluidRelay.ResourceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "west-us",
-    ///         ResourceGroup = "myResourceGroup",
-    ///         Storagesku = AzureNative.FluidRelay.StorageSKU.Basic,
-    ///         Tags = 
-    ///         {
-    ///             { "Category", "sales" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:fluidrelay:FluidRelayServer myFluidRelayServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay:FluidRelayServer")]
     public partial class FluidRelayServer : global::Pulumi.CustomResource

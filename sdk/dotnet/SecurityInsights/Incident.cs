@@ -15,49 +15,6 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-03-01-preview, 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-03-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates an incident.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var incident = new AzureNative.SecurityInsights.Incident("incident", new()
-    ///     {
-    ///         Classification = AzureNative.SecurityInsights.IncidentClassification.FalsePositive,
-    ///         ClassificationComment = "Not a malicious activity",
-    ///         ClassificationReason = AzureNative.SecurityInsights.IncidentClassificationReason.IncorrectAlertLogic,
-    ///         Description = "This is a demo incident",
-    ///         FirstActivityTimeUtc = "2019-01-01T13:00:30Z",
-    ///         IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-    ///         LastActivityTimeUtc = "2019-01-01T13:05:30Z",
-    ///         Owner = new AzureNative.SecurityInsights.Inputs.IncidentOwnerInfoArgs
-    ///         {
-    ///             ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
-    ///         },
-    ///         ResourceGroupName = "myRg",
-    ///         Severity = AzureNative.SecurityInsights.IncidentSeverity.High,
-    ///         Status = AzureNative.SecurityInsights.IncidentStatus.Closed,
-    ///         Title = "My incident",
-    ///         WorkspaceName = "myWorkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:securityinsights:Incident 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Incident")]
     public partial class Incident : global::Pulumi.CustomResource

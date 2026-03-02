@@ -15,45 +15,6 @@ namespace Pulumi.AzureNative.App
     /// Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-02-preview.
     /// 
     /// Other available API versions: 2024-10-02-preview, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ManagedEnvironmentMaintenanceConfigurationsCreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var maintenanceConfiguration = new AzureNative.App.MaintenanceConfiguration("maintenanceConfiguration", new()
-    ///     {
-    ///         ConfigName = "default",
-    ///         EnvironmentName = "managedEnv",
-    ///         ResourceGroupName = "rg1",
-    ///         ScheduledEntries = new[]
-    ///         {
-    ///             new AzureNative.App.Inputs.ScheduledEntryArgs
-    ///             {
-    ///                 DurationHours = 9,
-    ///                 StartHourUtc = 12,
-    ///                 WeekDay = AzureNative.App.WeekDay.Sunday,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:app:MaintenanceConfiguration default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/maintenanceConfigurations/{configName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource

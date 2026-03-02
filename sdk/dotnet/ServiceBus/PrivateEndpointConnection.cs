@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
     /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### NameSpacePrivateEndPointConnectionCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.ServiceBus.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         NamespaceName = "sdk-Namespace-2924",
-    ///         PrivateEndpoint = new AzureNative.ServiceBus.Inputs.PrivateEndpointArgs
-    ///         {
-    ///             Id = "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
-    ///         },
-    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.ServiceBus.Inputs.ConnectionStateArgs
-    ///         {
-    ///             Description = "testing",
-    ///             Status = AzureNative.ServiceBus.PrivateLinkConnectionStatus.Rejected,
-    ///         },
-    ///         ProvisioningState = AzureNative.ServiceBus.EndPointProvisioningState.Succeeded,
-    ///         ResourceGroupName = "ArunMonocle",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:servicebus:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

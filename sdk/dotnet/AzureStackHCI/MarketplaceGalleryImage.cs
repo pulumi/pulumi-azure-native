@@ -15,55 +15,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
     /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PutMarketplaceGalleryImage
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var marketplaceGalleryImage = new AzureNative.AzureStackHCI.MarketplaceGalleryImage("marketplaceGalleryImage", new()
-    ///     {
-    ///         CloudInitDataSource = AzureNative.AzureStackHCI.CloudInitDataSource.Azure,
-    ///         ContainerId = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-storage-container",
-    ///         ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
-    ///             Type = AzureNative.AzureStackHCI.ExtendedLocationTypes.CustomLocation,
-    ///         },
-    ///         HyperVGeneration = AzureNative.AzureStackHCI.HyperVGeneration.V1,
-    ///         Identifier = new AzureNative.AzureStackHCI.Inputs.GalleryImageIdentifierArgs
-    ///         {
-    ///             Offer = "myOfferName",
-    ///             Publisher = "myPublisherName",
-    ///             Sku = "mySkuName",
-    ///         },
-    ///         Location = "West US2",
-    ///         MarketplaceGalleryImageName = "test-marketplace-gallery-image",
-    ///         OsType = AzureNative.AzureStackHCI.OperatingSystemTypes.Windows,
-    ///         ResourceGroupName = "test-rg",
-    ///         Version = new AzureNative.AzureStackHCI.Inputs.GalleryImageVersionArgs
-    ///         {
-    ///             Name = "1.0.0",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurestackhci:MarketplaceGalleryImage test-marketplace-gallery-image /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/{marketplaceGalleryImageName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:MarketplaceGalleryImage")]
     public partial class MarketplaceGalleryImage : global::Pulumi.CustomResource

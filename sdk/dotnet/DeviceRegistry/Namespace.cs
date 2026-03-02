@@ -15,56 +15,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Uses Azure REST API version 2025-07-01-preview.
     /// 
     /// Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrReplace_Namespace_With_Endpoints
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @namespace = new AzureNative.DeviceRegistry.Namespace("namespace", new()
-    ///     {
-    ///         Identity = new AzureNative.DeviceRegistry.Inputs.SystemAssignedServiceIdentityArgs
-    ///         {
-    ///             Type = AzureNative.DeviceRegistry.SystemAssignedServiceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "North Europe",
-    ///         Messaging = new AzureNative.DeviceRegistry.Inputs.MessagingArgs
-    ///         {
-    ///             Endpoints = 
-    ///             {
-    ///                 { "anotherEventGridEndpoint", new AzureNative.DeviceRegistry.Inputs.MessagingEndpointArgs
-    ///                 {
-    ///                     Address = "https://myeventgridtopic2.westeurope-1.eventgrid.azure.net/api/events",
-    ///                     EndpointType = "Microsoft.EventGrid",
-    ///                 } },
-    ///                 { "eventGridEndpoint", new AzureNative.DeviceRegistry.Inputs.MessagingEndpointArgs
-    ///                 {
-    ///                     Address = "https://myeventgridtopic.westeurope-1.eventgrid.azure.net/api/events",
-    ///                     EndpointType = "Microsoft.EventGrid",
-    ///                 } },
-    ///             },
-    ///         },
-    ///         NamespaceName = "adr-namespace-gbk0925-n01",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceregistry:Namespace adr-namespace-gbk0925-n01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

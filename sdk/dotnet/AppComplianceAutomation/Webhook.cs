@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     /// A class represent an AppComplianceAutomation webhook resource.
     /// 
     /// Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-    /// 
-    /// ## Example Usage
-    /// ### Webhook_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var webhook = new AzureNative.AppComplianceAutomation.Webhook("webhook", new()
-    ///     {
-    ///         ContentType = AzureNative.AppComplianceAutomation.ContentType.ApplicationJson,
-    ///         EnableSslVerification = AzureNative.AppComplianceAutomation.EnableSslVerification.True,
-    ///         Events = new[]
-    ///         {
-    ///             AzureNative.AppComplianceAutomation.NotificationEvent.Generate_snapshot_failed,
-    ///         },
-    ///         PayloadUrl = "https://example.com",
-    ///         ReportName = "testReportName",
-    ///         SendAllEvents = AzureNative.AppComplianceAutomation.SendAllEvents.False,
-    ///         Status = AzureNative.AppComplianceAutomation.WebhookStatus.Enabled,
-    ///         UpdateWebhookKey = AzureNative.AppComplianceAutomation.UpdateWebhookKey.True,
-    ///         WebhookKey = "00000000-0000-0000-0000-000000000000",
-    ///         WebhookName = "testWebhookName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:appcomplianceautomation:Webhook testWebhookName /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/webhooks/{webhookName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource

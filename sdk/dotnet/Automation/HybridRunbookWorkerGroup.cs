@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a hybrid worker group
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hybridRunbookWorkerGroup = new AzureNative.Automation.HybridRunbookWorkerGroup("hybridRunbookWorkerGroup", new()
-    ///     {
-    ///         AutomationAccountName = "testaccount",
-    ///         Credential = new AzureNative.Automation.Inputs.RunAsCredentialAssociationPropertyArgs
-    ///         {
-    ///             Name = "myRunAsCredentialName",
-    ///         },
-    ///         HybridRunbookWorkerGroupName = "TestHybridGroup",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:HybridRunbookWorkerGroup TestHybridGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorkerGroup")]
     public partial class HybridRunbookWorkerGroup : global::Pulumi.CustomResource

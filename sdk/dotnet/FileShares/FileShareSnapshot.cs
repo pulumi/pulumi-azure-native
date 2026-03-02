@@ -13,43 +13,6 @@ namespace Pulumi.AzureNative.FileShares
     /// FileShareSnapshot resource
     /// 
     /// Uses Azure REST API version 2025-06-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### FileShareSnapshot_CreateOrUpdate_MaximumSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fileShareSnapshot = new AzureNative.FileShares.FileShareSnapshot("fileShareSnapshot", new()
-    ///     {
-    ///         Name = "testfilesharesnapshot",
-    ///         Properties = new AzureNative.FileShares.Inputs.FileShareSnapshotPropertiesArgs
-    ///         {
-    ///             Metadata = 
-    ///             {
-    ///                 { "key9372", "jtc" },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgfileshares",
-    ///         ResourceName = "fileshare",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:fileshares:FileShareSnapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName}/fileShareSnapshots/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fileshares:FileShareSnapshot")]
     public partial class FileShareSnapshot : global::Pulumi.CustomResource

@@ -13,44 +13,6 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services Rai External Safety provider Schema.
     /// 
     /// Uses Azure REST API version 2025-10-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PutRaiExternalSafetyProvider
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var raiExternalSafetyProvider = new AzureNative.CognitiveServices.RaiExternalSafetyProvider("raiExternalSafetyProvider", new()
-    ///     {
-    ///         Properties = new AzureNative.CognitiveServices.Inputs.RaiExternalSafetyProviderSchemaPropertiesArgs
-    ///         {
-    ///             KeyVaultUri = "https://example.vault.azure.net",
-    ///             ManagedIdentity = "00000000-0000-0000-0000-000000000000",
-    ///             Mode = "sync",
-    ///             ProviderId = "00000000-0000-0000-0000-000000000000",
-    ///             ProviderName = "safetyProviderName",
-    ///             SecretName = "mySecretName",
-    ///             Url = "https://example.webhook.endpoint",
-    ///         },
-    ///         SafetyProviderName = "safetyProviderName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cognitiveservices:RaiExternalSafetyProvider safetyProviderName /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiExternalSafetyProviders/{safetyProviderName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:RaiExternalSafetyProvider")]
     public partial class RaiExternalSafetyProvider : global::Pulumi.CustomResource

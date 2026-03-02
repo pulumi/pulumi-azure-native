@@ -15,54 +15,6 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create attestation at resource group scope
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var attestationAtResourceGroup = new AzureNative.PolicyInsights.AttestationAtResourceGroup("attestationAtResourceGroup", new()
-    ///     {
-    ///         AssessmentDate = "2021-06-10T00:00:00Z",
-    ///         AttestationName = "790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
-    ///         Comments = "This subscription has passed a security audit.",
-    ///         ComplianceState = AzureNative.PolicyInsights.ComplianceState.Compliant,
-    ///         Evidence = new[]
-    ///         {
-    ///             new AzureNative.PolicyInsights.Inputs.AttestationEvidenceArgs
-    ///             {
-    ///                 Description = "The results of the security audit.",
-    ///                 SourceUri = "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
-    ///             },
-    ///         },
-    ///         ExpiresOn = "2021-06-15T00:00:00Z",
-    ///         Metadata = new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["departmentId"] = "NYC-MARKETING-1",
-    ///         },
-    ///         Owner = "55a32e28-3aa5-4eea-9b5a-4cd85153b966",
-    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
-    ///         PolicyDefinitionReferenceId = "0b158b46-ff42-4799-8e39-08a5c23b4551",
-    ///         ResourceGroupName = "myRg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:policyinsights:AttestationAtResourceGroup 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{attestationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:AttestationAtResourceGroup")]
     public partial class AttestationAtResourceGroup : global::Pulumi.CustomResource

@@ -15,69 +15,6 @@ namespace Pulumi.AzureNative.HybridContainerService
     /// Uses Azure REST API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PutVirtualNetwork
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var virtualNetworkRetrieve = new AzureNative.HybridContainerService.VirtualNetworkRetrieve("virtualNetworkRetrieve", new()
-    ///     {
-    ///         ExtendedLocation = new AzureNative.HybridContainerService.Inputs.VirtualNetworksExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
-    ///             Type = "CustomLocation",
-    ///         },
-    ///         Location = "westus",
-    ///         Properties = new AzureNative.HybridContainerService.Inputs.VirtualNetworksPropertiesArgs
-    ///         {
-    ///             InfraVnetProfile = new AzureNative.HybridContainerService.Inputs.VirtualNetworksPropertiesInfraVnetProfileArgs
-    ///             {
-    ///                 Hci = new AzureNative.HybridContainerService.Inputs.VirtualNetworksPropertiesHciArgs
-    ///                 {
-    ///                     MocGroup = "target-group",
-    ///                     MocLocation = "MocLocation",
-    ///                     MocVnetName = "test-vnet",
-    ///                 },
-    ///             },
-    ///             VipPool = new[]
-    ///             {
-    ///                 new AzureNative.HybridContainerService.Inputs.VirtualNetworksPropertiesVipPoolArgs
-    ///                 {
-    ///                     EndIP = "192.168.0.50",
-    ///                     StartIP = "192.168.0.10",
-    ///                 },
-    ///             },
-    ///             VmipPool = new[]
-    ///             {
-    ///                 new AzureNative.HybridContainerService.Inputs.VirtualNetworksPropertiesVmipPoolArgs
-    ///                 {
-    ///                     EndIP = "192.168.0.130",
-    ///                     StartIP = "192.168.0.110",
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "test-arcappliance-resgrp",
-    ///         VirtualNetworksName = "test-vnet-static",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hybridcontainerservice:VirtualNetworkRetrieve test-vnet-static /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworksName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")]
     public partial class VirtualNetworkRetrieve : global::Pulumi.CustomResource

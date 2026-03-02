@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.Purview
     /// Uses Azure REST API version 2024-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01.
     /// 
     /// Other available API versions: 2021-12-01, 2023-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native purview [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### KafkaConfigurations_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var kafkaConfiguration = new AzureNative.Purview.KafkaConfiguration("kafkaConfiguration", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         ConsumerGroup = "consumerGroup",
-    ///         Credentials = new AzureNative.Purview.Inputs.CredentialsArgs
-    ///         {
-    ///             IdentityId = "/subscriptions/47e8596d-ee73-4eb2-b6b4-cc13c2b87ssd/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testId",
-    ///             Type = AzureNative.Purview.KafkaConfigurationIdentityType.UserAssigned,
-    ///         },
-    ///         EventHubPartitionId = "partitionId",
-    ///         EventHubResourceId = "/subscriptions/225be6fe-ec1c-4d51-a368-f69348d2e6c5/resourceGroups/testRG/providers/Microsoft.EventHub/namespaces/eventHubNameSpaceName",
-    ///         EventHubType = AzureNative.Purview.EventHubType.Notification,
-    ///         EventStreamingState = AzureNative.Purview.EventStreamingState.Enabled,
-    ///         EventStreamingType = AzureNative.Purview.EventStreamingType.Azure,
-    ///         KafkaConfigurationName = "kafkaConfigName",
-    ///         ResourceGroupName = "rgpurview",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:purview:KafkaConfiguration kafkaConfigName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/kafkaConfigurations/{kafkaConfigurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:KafkaConfiguration")]
     public partial class KafkaConfiguration : global::Pulumi.CustomResource

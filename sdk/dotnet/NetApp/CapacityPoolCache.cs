@@ -13,59 +13,6 @@ namespace Pulumi.AzureNative.NetApp
     /// Cache resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Caches_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var capacityPoolCache = new AzureNative.NetApp.CapacityPoolCache("capacityPoolCache", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         CacheName = "cache1",
-    ///         Location = "eastus",
-    ///         PoolName = "pool1",
-    ///         Properties = new AzureNative.NetApp.Inputs.CachePropertiesArgs
-    ///         {
-    ///             CacheSubnetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/cacheVnet/subnets/cacheSubnet1",
-    ///             EncryptionKeySource = AzureNative.NetApp.EncryptionKeySource.Microsoft_NetApp,
-    ///             Filepath = "cache-west-us2-01",
-    ///             Ldap = AzureNative.NetApp.LdapState.Enabled,
-    ///             LdapServerType = AzureNative.NetApp.LdapServerType.OpenLDAP,
-    ///             OriginClusterInformation = new AzureNative.NetApp.Inputs.OriginClusterInformationArgs
-    ///             {
-    ///                 PeerAddresses = new[]
-    ///                 {
-    ///                     "192.0.2.10",
-    ///                     "192.0.2.11",
-    ///                 },
-    ///                 PeerClusterName = "cluster1",
-    ///                 PeerVolumeName = "originvol1",
-    ///                 PeerVserverName = "vserver1",
-    ///             },
-    ///             PeeringSubnetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/icLifVnet/subnets/peeringSubnet1",
-    ///             Size = 107374182400,
-    ///         },
-    ///         ResourceGroupName = "myRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:CapacityPoolCache account1/pool1/cache1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:CapacityPoolCache")]
     public partial class CapacityPoolCache : global::Pulumi.CustomResource

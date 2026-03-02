@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-13-preview.
     /// 
     /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update watcher
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var watcher = new AzureNative.Automation.Watcher("watcher", new()
-    ///     {
-    ///         AutomationAccountName = "MyTestAutomationAccount",
-    ///         Description = "This is a test watcher.",
-    ///         ExecutionFrequencyInSeconds = 60,
-    ///         ResourceGroupName = "rg",
-    ///         ScriptName = "MyTestWatcherRunbook",
-    ///         ScriptRunOn = "MyTestHybridWorkerGroup",
-    ///         Tags = null,
-    ///         WatcherName = "MyTestWatcher",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:Watcher MyTestWatcher /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/watchers/{watcherName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource

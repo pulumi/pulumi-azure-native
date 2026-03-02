@@ -15,13 +15,6 @@ namespace Pulumi.AzureNative.ApplicationInsights
     /// Uses Azure REST API version 2021-03-08.
     /// 
     /// Other available API versions: 2015-05-01, 2020-10-20. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:applicationinsights:MyWorkbook deadb33f-8bee-4d3b-a059-9be8dac93960 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/myWorkbooks/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:applicationinsights:MyWorkbook")]
     public partial class MyWorkbook : global::Pulumi.CustomResource

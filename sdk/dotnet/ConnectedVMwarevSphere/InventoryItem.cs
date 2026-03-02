@@ -15,37 +15,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// Uses Azure REST API version 2023-12-01. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
     /// 
     /// Other available API versions: 2022-07-15-preview, 2023-03-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateInventoryItem
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var inventoryItem = new AzureNative.ConnectedVMwarevSphere.InventoryItem("inventoryItem", new()
-    ///     {
-    ///         InventoryItemName = "testItem",
-    ///         InventoryType = AzureNative.ConnectedVMwarevSphere.InventoryType.ResourcePool,
-    ///         ResourceGroupName = "testrg",
-    ///         VcenterName = "ContosoVCenter",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:connectedvmwarevsphere:InventoryItem testItem /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/vcenters/{vcenterName}/inventoryItems/{inventoryItemName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:InventoryItem")]
     public partial class InventoryItem : global::Pulumi.CustomResource

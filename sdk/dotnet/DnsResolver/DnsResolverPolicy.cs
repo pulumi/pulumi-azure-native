@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.DnsResolver
     /// Uses Azure REST API version 2023-07-01-preview.
     /// 
     /// Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Upsert DNS resolver policy
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dnsResolverPolicy = new AzureNative.DnsResolver.DnsResolverPolicy("dnsResolverPolicy", new()
-    ///     {
-    ///         DnsResolverPolicyName = "sampleDnsResolverPolicy",
-    ///         Location = "westus2",
-    ///         ResourceGroupName = "sampleResourceGroup",
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dnsresolver:DnsResolverPolicy sampleDnsResolverPolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolverPolicies/{dnsResolverPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dnsresolver:DnsResolverPolicy")]
     public partial class DnsResolverPolicy : global::Pulumi.CustomResource

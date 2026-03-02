@@ -15,43 +15,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
     /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### NetworkRacks_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var networkRack = new AzureNative.ManagedNetworkFabric.NetworkRack("networkRack", new()
-    ///     {
-    ///         Annotation = "annotation",
-    ///         Location = "eastuseuap",
-    ///         NetworkFabricId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
-    ///         NetworkRackName = "example-rack",
-    ///         NetworkRackType = AzureNative.ManagedNetworkFabric.NetworkRackType.Aggregate,
-    ///         ResourceGroupName = "example-rg",
-    ///         Tags = 
-    ///         {
-    ///             { "keyID", "keyValue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:managednetworkfabric:NetworkRack example-rack /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkRacks/{networkRackName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkRack")]
     public partial class NetworkRack : global::Pulumi.CustomResource

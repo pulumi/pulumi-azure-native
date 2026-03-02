@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.EngagementFabric
     /// The EngagementFabric account
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### AccountsCreateOrUpdateExample
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var account = new AzureNative.EngagementFabric.Account("account", new()
-    ///     {
-    ///         AccountName = "ExampleAccount",
-    ///         Location = "WestUS",
-    ///         ResourceGroupName = "ExampleRg",
-    ///         Sku = new AzureNative.EngagementFabric.Inputs.SKUArgs
-    ///         {
-    ///             Name = "B1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:engagementfabric:Account ExampleAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EngagementFabric/Accounts/{accountName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:engagementfabric:Account")]
     public partial class Account : global::Pulumi.CustomResource

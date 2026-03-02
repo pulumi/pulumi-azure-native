@@ -13,48 +13,6 @@ namespace Pulumi.AzureNative.CostManagement
     /// State of the myscope setting.
     /// 
     /// Uses Azure REST API version 2019-11-01. In version 2.x of the Azure Native provider, it used API version 2019-11-01.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdateSetting
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var setting = new AzureNative.CostManagement.Setting("setting", new()
-    ///     {
-    ///         Cache = new[]
-    ///         {
-    ///             new AzureNative.CostManagement.Inputs.SettingsPropertiesCacheArgs
-    ///             {
-    ///                 Channel = "Modern",
-    ///                 Id = "/providers/Microsoft.Management/managementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///                 Name = "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///                 Parent = "/providers/Microsoft.Management/managementGroups/acm",
-    ///                 Status = "enabled",
-    ///                 Subchannel = "NotApplicable",
-    ///             },
-    ///         },
-    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
-    ///         SettingName = "myscope",
-    ///         StartOn = "LastUsed",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:costmanagement:Setting myscope /providers/Microsoft.CostManagement/settings/{settingName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Setting")]
     public partial class Setting : global::Pulumi.CustomResource

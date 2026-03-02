@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.OffAzure
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
     /// 
     /// Uses Azure REST API version 2020-07-07. In version 2.x of the Azure Native provider, it used API version 2020-07-07.
-    /// 
-    /// ## Example Usage
-    /// ### Put privateEndpointConnection
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.OffAzure.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         PeConnectionName = "privateendpt1938mastersit9007pe.4f2f2970-0bfa-45d4-9ee1-d9f79502fc6f",
-    ///         ResourceGroupName = "ayagrawrg",
-    ///         SiteName = "privateendpt1938mastersite",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:offazure:PrivateEndpointConnection privateendpt1938mastersit9007pe.4f2f2970-0bfa-45d4-9ee1-d9f79502fc6f /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/masterSites/{siteName}/privateEndpointConnections/{peConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

@@ -15,50 +15,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
     /// 
     /// Other available API versions: 2021-03-31-preview, 2021-06-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native timeseriesinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ReferenceDataSetsCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var referenceDataSet = new AzureNative.TimeSeriesInsights.ReferenceDataSet("referenceDataSet", new()
-    ///     {
-    ///         EnvironmentName = "env1",
-    ///         KeyProperties = new[]
-    ///         {
-    ///             new AzureNative.TimeSeriesInsights.Inputs.ReferenceDataSetKeyPropertyArgs
-    ///             {
-    ///                 Name = "DeviceId1",
-    ///                 Type = AzureNative.TimeSeriesInsights.ReferenceDataKeyPropertyType.String,
-    ///             },
-    ///             new AzureNative.TimeSeriesInsights.Inputs.ReferenceDataSetKeyPropertyArgs
-    ///             {
-    ///                 Name = "DeviceFloor",
-    ///                 Type = AzureNative.TimeSeriesInsights.ReferenceDataKeyPropertyType.Double,
-    ///             },
-    ///         },
-    ///         Location = "West US",
-    ///         ReferenceDataSetName = "rds1",
-    ///         ResourceGroupName = "rg1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:timeseriesinsights:ReferenceDataSet rds1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/referenceDataSets/{referenceDataSetName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:ReferenceDataSet")]
     public partial class ReferenceDataSet : global::Pulumi.CustomResource

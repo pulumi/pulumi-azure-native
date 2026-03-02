@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### GroupsOperations_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var groupsOperation = new AzureNative.Migrate.GroupsOperation("groupsOperation", new()
-    ///     {
-    ///         GroupName = "kuchatur-test",
-    ///         GroupType = AzureNative.Migrate.GroupType.Default,
-    ///         ProjectName = "app18700project",
-    ///         ProvisioningState = AzureNative.Migrate.ProvisioningState.Succeeded,
-    ///         ResourceGroupName = "ayagrawrg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:GroupsOperation kuchatur-test /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:GroupsOperation")]
     public partial class GroupsOperation : global::Pulumi.CustomResource

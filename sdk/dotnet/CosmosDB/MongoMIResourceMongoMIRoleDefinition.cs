@@ -15,55 +15,6 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDBMongoMIRoleDefinitionCreateUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mongoMIResourceMongoMIRoleDefinition = new AzureNative.CosmosDB.MongoMIResourceMongoMIRoleDefinition("mongoMIResourceMongoMIRoleDefinition", new()
-    ///     {
-    ///         AccountName = "myAccountName",
-    ///         AssignableScopes = new[]
-    ///         {
-    ///             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
-    ///             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
-    ///         },
-    ///         Permissions = new[]
-    ///         {
-    ///             new AzureNative.CosmosDB.Inputs.PermissionArgs
-    ///             {
-    ///                 DataActions = new[]
-    ///                 {
-    ///                     "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/create",
-    ///                     "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/read",
-    ///                 },
-    ///                 NotDataActions = new() { },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "myResourceGroupName",
-    ///         RoleDefinitionId = "myRoleDefinitionId",
-    ///         RoleName = "myRoleName",
-    ///         Type = AzureNative.CosmosDB.RoleDefinitionType.CustomRole,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cosmosdb:MongoMIResourceMongoMIRoleDefinition myRoleDefinitionId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongoMIRoleDefinitions/{roleDefinitionId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:MongoMIResourceMongoMIRoleDefinition")]
     public partial class MongoMIResourceMongoMIRoleDefinition : global::Pulumi.CustomResource

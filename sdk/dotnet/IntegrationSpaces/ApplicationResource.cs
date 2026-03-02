@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     /// A resource under application.
     /// 
     /// Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdateApplicationResource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var applicationResource = new AzureNative.IntegrationSpaces.ApplicationResource("applicationResource", new()
-    ///     {
-    ///         ApplicationName = "Application1",
-    ///         ResourceGroupName = "testrg",
-    ///         ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Web/sites/LogicApp1",
-    ///         ResourceKind = "LogicApp",
-    ///         ResourceName = "Resource1",
-    ///         ResourceType = "Microsoft.Web/sites",
-    ///         SpaceName = "Space1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:integrationspaces:ApplicationResource Resource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName}/resources/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:ApplicationResource")]
     public partial class ApplicationResource : global::Pulumi.CustomResource

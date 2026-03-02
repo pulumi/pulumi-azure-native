@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp Elastic Snapshot under an Elastic Volume
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ElasticSnapshots_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var elasticSnapshot = new AzureNative.NetApp.ElasticSnapshot("elasticSnapshot", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         PoolName = "pool1",
-    ///         ResourceGroupName = "myRG",
-    ///         SnapshotName = "snapshot1",
-    ///         VolumeName = "volume1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:ElasticSnapshot account1/pool1/volume1/snapshot1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName}/elasticVolumes/{volumeName}/elasticSnapshots/{snapshotName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticSnapshot")]
     public partial class ElasticSnapshot : global::Pulumi.CustomResource

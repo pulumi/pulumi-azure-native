@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateWorkspaceProductGroupLink
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var workspaceProductGroupLink = new AzureNative.ApiManagement.WorkspaceProductGroupLink("workspaceProductGroupLink", new()
-    ///     {
-    ///         GroupId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/groups/group1",
-    ///         GroupLinkId = "link1",
-    ///         ProductId = "testproduct",
-    ///         ResourceGroupName = "rg1",
-    ///         ServiceName = "apimService1",
-    ///         WorkspaceId = "wks1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apimanagement:WorkspaceProductGroupLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}/groupLinks/{groupLinkId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceProductGroupLink")]
     public partial class WorkspaceProductGroupLink : global::Pulumi.CustomResource

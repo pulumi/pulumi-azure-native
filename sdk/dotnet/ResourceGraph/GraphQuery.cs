@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.ResourceGraph
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
     /// 
     /// Other available API versions: 2020-04-01-preview, 2021-03-01, 2022-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourcegraph [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Graph Query
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var graphQuery = new AzureNative.ResourceGraph.GraphQuery("graphQuery", new()
-    ///     {
-    ///         Description = "Docker VMs in PROD",
-    ///         Query = "where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
-    ///         ResourceGroupName = "my-resource-group",
-    ///         ResourceName = "MyDockerVMs",
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:resourcegraph:GraphQuery MyDockerVMs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ResourceGraph/queries/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resourcegraph:GraphQuery")]
     public partial class GraphQuery : global::Pulumi.CustomResource

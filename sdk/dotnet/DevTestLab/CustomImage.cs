@@ -13,49 +13,6 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A custom image.
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-    /// 
-    /// ## Example Usage
-    /// ### CustomImages_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var customImage = new AzureNative.DevTestLab.CustomImage("customImage", new()
-    ///     {
-    ///         Description = "My Custom Image",
-    ///         LabName = "{labName}",
-    ///         Name = "{customImageName}",
-    ///         ResourceGroupName = "resourceGroupName",
-    ///         Tags = 
-    ///         {
-    ///             { "tagName1", "tagValue1" },
-    ///         },
-    ///         Vm = new AzureNative.DevTestLab.Inputs.CustomImagePropertiesFromVmArgs
-    ///         {
-    ///             LinuxOsInfo = new AzureNative.DevTestLab.Inputs.LinuxOsInfoArgs
-    ///             {
-    ///                 LinuxOsState = AzureNative.DevTestLab.LinuxOsState.NonDeprovisioned,
-    ///             },
-    ///             SourceVmId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName}",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:devtestlab:CustomImage {customImageName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/customimages/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:CustomImage")]
     public partial class CustomImage : global::Pulumi.CustomResource

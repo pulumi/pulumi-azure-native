@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Compound assessment resource.
     /// 
     /// Uses Azure REST API version 2024-03-03-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CompoundAssessmentOperations_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var compoundAssessmentOperation = new AzureNative.Migrate.CompoundAssessmentOperation("compoundAssessmentOperation", new()
-    ///     {
-    ///         CompoundAssessmentName = "assessmentName",
-    ///         ProjectName = "contosoProject",
-    ///         Properties = new AzureNative.Migrate.Inputs.CompoundAssessmentPropertiesArgs
-    ///         {
-    ///             FallbackMachineAssessmentArmId = "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/assessments/nameOfAssessment",
-    ///             TargetAssessmentArmIds = new AzureNative.Migrate.Inputs.TargetAssessmentArmIdsArgs
-    ///             {
-    ///                 Aks = "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/aksAssessments/nameOfAssessment",
-    ///                 AzureAppService = "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
-    ///                 AzureAppServiceContainer = "/subscriptions/6898488D-BBF0-40FC-A5E3-3DF2C00C5F21/resourceGroups/rgwebAppCompoundAssessments/providers/Microsoft.Migrate/assessmentprojects/contosoProject/webAppAssessments/nameOfAssessment",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgwebAppCompoundAssessments",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:CompoundAssessmentOperation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/webAppCompoundAssessments/{compoundAssessmentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:CompoundAssessmentOperation")]
     public partial class CompoundAssessmentOperation : global::Pulumi.CustomResource

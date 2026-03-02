@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.LabServices
     /// Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### putSchedule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var schedule = new AzureNative.LabServices.Schedule("schedule", new()
-    ///     {
-    ///         LabName = "testlab",
-    ///         Notes = "Schedule 1 for students",
-    ///         RecurrencePattern = new AzureNative.LabServices.Inputs.RecurrencePatternArgs
-    ///         {
-    ///             ExpirationDate = "2020-08-14T23:59:59Z",
-    ///             Frequency = AzureNative.LabServices.RecurrenceFrequency.Daily,
-    ///             Interval = 2,
-    ///         },
-    ///         ResourceGroupName = "testrg123",
-    ///         ScheduleName = "schedule1",
-    ///         StartAt = "2020-05-26T12:00:00Z",
-    ///         StopAt = "2020-05-26T18:00:00Z",
-    ///         TimeZoneId = "America/Los_Angeles",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:labservices:Schedule schedule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/schedules/{scheduleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

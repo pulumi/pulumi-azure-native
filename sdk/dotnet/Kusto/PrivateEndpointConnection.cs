@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.Kusto
     /// Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2022-12-29.
     /// 
     /// Other available API versions: 2021-08-27, 2022-02-01, 2022-07-07, 2022-11-11, 2022-12-29, 2023-05-02, 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Approve or reject a private endpoint connection with a given name.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.Kusto.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         ClusterName = "kustoclusterrptest4",
-    ///         PrivateEndpointConnectionName = "privateEndpointTest",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.Kusto.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
-    ///         {
-    ///             Description = "Approved by johndoe@contoso.com",
-    ///             Status = "Approved",
-    ///         },
-    ///         ResourceGroupName = "kustorptest",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:kusto:PrivateEndpointConnection privateEndpointTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

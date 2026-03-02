@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// The Private Endpoint Connection resource.
     /// 
     /// Uses Azure REST API version 2021-03-25-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-25-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PrivateEndpointConnection_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnectionsSec = new AzureNative.M365SecurityAndCompliance.PrivateEndpointConnectionsSec("privateEndpointConnectionsSec", new()
-    ///     {
-    ///         PrivateEndpointConnectionName = "myConnection",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.M365SecurityAndCompliance.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///         {
-    ///             Description = "Auto-Approved",
-    ///             Status = AzureNative.M365SecurityAndCompliance.PrivateEndpointServiceConnectionStatus.Approved,
-    ///         },
-    ///         ResourceGroupName = "rgname",
-    ///         ResourceName = "service1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:m365securityandcompliance:PrivateEndpointConnectionsSec myConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.M365SecurityAndCompliance/privateLinkServicesForM365SecurityCenter/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance:PrivateEndpointConnectionsSec")]
     public partial class PrivateEndpointConnectionsSec : global::Pulumi.CustomResource

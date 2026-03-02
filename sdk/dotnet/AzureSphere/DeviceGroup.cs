@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.AzureSphere
     /// An device group resource belonging to a product resource.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### DeviceGroups_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var deviceGroup = new AzureNative.AzureSphere.DeviceGroup("deviceGroup", new()
-    ///     {
-    ///         CatalogName = "MyCatalog1",
-    ///         Description = "Description for MyDeviceGroup1",
-    ///         DeviceGroupName = "MyDeviceGroup1",
-    ///         OsFeedType = AzureNative.AzureSphere.OSFeedType.Retail,
-    ///         ProductName = "MyProduct1",
-    ///         ResourceGroupName = "MyResourceGroup1",
-    ///         UpdatePolicy = AzureNative.AzureSphere.UpdatePolicy.UpdateAll,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azuresphere:DeviceGroup MyDeviceId1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:DeviceGroup")]
     public partial class DeviceGroup : global::Pulumi.CustomResource

@@ -15,61 +15,6 @@ namespace Pulumi.AzureNative.Monitor
     /// Uses Azure REST API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Update a scoped platform metrics subscription in a private link scope.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateLinkScopedResource = new AzureNative.Monitor.PrivateLinkScopedResource("privateLinkScopedResource", new()
-    ///     {
-    ///         Kind = "PlatformMetrics",
-    ///         LinkedResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444",
-    ///         Name = "scoped-resource-name",
-    ///         ResourceGroupName = "MyResourceGroup",
-    ///         ScopeName = "MyPrivateLinkScope",
-    ///         SubscriptionLocation = "eastus",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Update a scoped resource in a private link scope.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateLinkScopedResource = new AzureNative.Monitor.PrivateLinkScopedResource("privateLinkScopedResource", new()
-    ///     {
-    ///         Kind = AzureNative.Monitor.ScopedResourceKind.Resource,
-    ///         LinkedResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
-    ///         Name = "scoped-resource-name",
-    ///         ResourceGroupName = "MyResourceGroup",
-    ///         ScopeName = "MyPrivateLinkScope",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:monitor:PrivateLinkScopedResource scoped-resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource

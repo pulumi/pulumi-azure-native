@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.PowerPlatform
     /// Definition of the account.
     /// 
     /// Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update account
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var account = new AzureNative.PowerPlatform.Account("account", new()
-    ///     {
-    ///         AccountName = "account",
-    ///         Description = "Description of the account.",
-    ///         Location = "East US",
-    ///         ResourceGroupName = "resourceGroup",
-    ///         Tags = 
-    ///         {
-    ///             { "Organization", "Administration" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:powerplatform:Account account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/accounts/{accountName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:Account")]
     public partial class Account : global::Pulumi.CustomResource

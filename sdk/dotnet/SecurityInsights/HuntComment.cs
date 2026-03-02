@@ -15,38 +15,6 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates a hunt comment.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var huntComment = new AzureNative.SecurityInsights.HuntComment("huntComment", new()
-    ///     {
-    ///         HuntCommentId = "2216d0e1-91e3-4902-89fd-d2df8c535096",
-    ///         HuntId = "163e7b2a-a2ec-4041-aaba-d878a38f265f",
-    ///         Message = "This is a test comment.",
-    ///         ResourceGroupName = "myRg",
-    ///         WorkspaceName = "myWorkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:securityinsights:HuntComment 2216d0e1-91e3-4902-89fd-d2df8c123456 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/hunts/{huntId}/comments/{huntCommentId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:HuntComment")]
     public partial class HuntComment : global::Pulumi.CustomResource

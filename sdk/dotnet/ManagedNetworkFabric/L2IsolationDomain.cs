@@ -15,44 +15,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
     /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### L2IsolationDomains_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var l2IsolationDomain = new AzureNative.ManagedNetworkFabric.L2IsolationDomain("l2IsolationDomain", new()
-    ///     {
-    ///         Annotation = "annotation",
-    ///         L2IsolationDomainName = "example-l2domain",
-    ///         Location = "eastus",
-    ///         Mtu = 1500,
-    ///         NetworkFabricId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
-    ///         ResourceGroupName = "example-rg",
-    ///         Tags = 
-    ///         {
-    ///             { "keyID", "keyValue" },
-    ///         },
-    ///         VlanId = 501,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:managednetworkfabric:L2IsolationDomain example-l2domain /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/{l2IsolationDomainName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:L2IsolationDomain")]
     public partial class L2IsolationDomain : global::Pulumi.CustomResource

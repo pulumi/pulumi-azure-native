@@ -13,13 +13,6 @@ namespace Pulumi.AzureNative.Scom
     /// A SCOM instance resource
     /// 
     /// Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:scom:Instance myInstace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scom:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

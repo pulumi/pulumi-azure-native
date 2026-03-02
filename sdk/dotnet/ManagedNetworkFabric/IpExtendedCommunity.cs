@@ -15,53 +15,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
     /// 
     /// Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### IpExtendedCommunities_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ipExtendedCommunity = new AzureNative.ManagedNetworkFabric.IpExtendedCommunity("ipExtendedCommunity", new()
-    ///     {
-    ///         Annotation = "annotation",
-    ///         IpExtendedCommunityName = "example-ipExtendedCommunity",
-    ///         IpExtendedCommunityRules = new[]
-    ///         {
-    ///             new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityRuleArgs
-    ///             {
-    ///                 Action = AzureNative.ManagedNetworkFabric.CommunityActionTypes.Permit,
-    ///                 RouteTargets = new[]
-    ///                 {
-    ///                     "1234:2345",
-    ///                 },
-    ///                 SequenceNumber = 4155123341,
-    ///             },
-    ///         },
-    ///         Location = "eastus",
-    ///         ResourceGroupName = "example-rg",
-    ///         Tags = 
-    ///         {
-    ///             { "keyID", "KeyValue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:managednetworkfabric:IpExtendedCommunity example-ipExtendedCommunity /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/{ipExtendedCommunityName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:IpExtendedCommunity")]
     public partial class IpExtendedCommunity : global::Pulumi.CustomResource

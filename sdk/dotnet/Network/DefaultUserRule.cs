@@ -13,62 +13,6 @@ namespace Pulumi.AzureNative.Network
     /// Network security default user rule.
     /// 
     /// Uses Azure REST API version 2022-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create a default user rule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultUserRule = new AzureNative.Network.DefaultUserRule("defaultUserRule", new()
-    ///     {
-    ///         ConfigurationName = "myTestSecurityConfig",
-    ///         Flag = "AllowVnetInbound",
-    ///         Kind = "Default",
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         ResourceGroupName = "rg1",
-    ///         RuleCollectionName = "testRuleCollection",
-    ///         RuleName = "SampleDefaultUserRule",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create a user rule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultUserRule = new AzureNative.Network.DefaultUserRule("defaultUserRule", new()
-    ///     {
-    ///         ConfigurationName = "myTestSecurityConfig",
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         ResourceGroupName = "rg1",
-    ///         RuleCollectionName = "testRuleCollection",
-    ///         RuleName = "SampleUserRule",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:network:DefaultUserRule SampleUserRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DefaultUserRule")]
     public partial class DefaultUserRule : global::Pulumi.CustomResource

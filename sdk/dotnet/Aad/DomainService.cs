@@ -15,68 +15,6 @@ namespace Pulumi.AzureNative.Aad
     /// Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
     /// Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Domain Service
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var domainService = new AzureNative.Aad.DomainService("domainService", new()
-    ///     {
-    ///         DomainName = "TestDomainService.com",
-    ///         DomainSecuritySettings = new AzureNative.Aad.Inputs.DomainSecuritySettingsArgs
-    ///         {
-    ///             NtlmV1 = AzureNative.Aad.NtlmV1.Enabled,
-    ///             SyncNtlmPasswords = AzureNative.Aad.SyncNtlmPasswords.Enabled,
-    ///             TlsV1 = AzureNative.Aad.TlsV1.Disabled,
-    ///         },
-    ///         DomainServiceName = "TestDomainService.com",
-    ///         FilteredSync = AzureNative.Aad.FilteredSync.Enabled,
-    ///         LdapsSettings = new AzureNative.Aad.Inputs.LdapsSettingsArgs
-    ///         {
-    ///             ExternalAccess = AzureNative.Aad.ExternalAccess.Enabled,
-    ///             Ldaps = AzureNative.Aad.Ldaps.Enabled,
-    ///             PfxCertificate = "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
-    ///             PfxCertificatePassword = "&lt;pfxCertificatePassword&gt;",
-    ///         },
-    ///         NotificationSettings = new AzureNative.Aad.Inputs.NotificationSettingsArgs
-    ///         {
-    ///             AdditionalRecipients = new[]
-    ///             {
-    ///                 "jicha@microsoft.com",
-    ///                 "caalmont@microsoft.com",
-    ///             },
-    ///             NotifyDcAdmins = AzureNative.Aad.NotifyDcAdmins.Enabled,
-    ///             NotifyGlobalAdmins = AzureNative.Aad.NotifyGlobalAdmins.Enabled,
-    ///         },
-    ///         ReplicaSets = new[]
-    ///         {
-    ///             new AzureNative.Aad.Inputs.ReplicaSetArgs
-    ///             {
-    ///                 Location = "West US",
-    ///                 SubnetId = "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "TestResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:aad:DomainService TestDomainService.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AAD/domainServices/{domainServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:DomainService")]
     public partial class DomainService : global::Pulumi.CustomResource

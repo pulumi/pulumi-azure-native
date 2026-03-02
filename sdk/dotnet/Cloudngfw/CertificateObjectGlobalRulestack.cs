@@ -15,59 +15,6 @@ namespace Pulumi.AzureNative.Cloudngfw
     /// Uses Azure REST API version 2025-05-23. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CertificateObjectGlobalRulestack_CreateOrUpdate_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var certificateObjectGlobalRulestack = new AzureNative.Cloudngfw.CertificateObjectGlobalRulestack("certificateObjectGlobalRulestack", new()
-    ///     {
-    ///         AuditComment = "comment",
-    ///         CertificateSelfSigned = AzureNative.Cloudngfw.BooleanEnum.TRUE,
-    ///         CertificateSignerResourceId = "",
-    ///         Description = "description",
-    ///         GlobalRulestackName = "praval",
-    ///         Name = "armid1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### CertificateObjectGlobalRulestack_CreateOrUpdate_MinimumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var certificateObjectGlobalRulestack = new AzureNative.Cloudngfw.CertificateObjectGlobalRulestack("certificateObjectGlobalRulestack", new()
-    ///     {
-    ///         CertificateSelfSigned = AzureNative.Cloudngfw.BooleanEnum.TRUE,
-    ///         GlobalRulestackName = "praval",
-    ///         Name = "armid1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cloudngfw:CertificateObjectGlobalRulestack armid1 /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/certificates/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudngfw:CertificateObjectGlobalRulestack")]
     public partial class CertificateObjectGlobalRulestack : global::Pulumi.CustomResource

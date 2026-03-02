@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.AzureSphere
     /// An deployment resource belonging to a device group resource.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Deployments_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var deployment = new AzureNative.AzureSphere.Deployment("deployment", new()
-    ///     {
-    ///         CatalogName = "MyCatalog1",
-    ///         DeploymentName = "MyDeployment1",
-    ///         DeviceGroupName = "myDeviceGroup1",
-    ///         ProductName = "MyProduct1",
-    ///         ResourceGroupName = "MyResourceGroup1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azuresphere:Deployment MyDeployment1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName}/deployments/{deploymentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

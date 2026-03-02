@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.HybridCloud
     /// Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
     /// 
     /// Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create a Cloud Connection
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cloudConnection = new AzureNative.HybridCloud.CloudConnection("cloudConnection", new()
-    ///     {
-    ///         CloudConnectionName = "cloudconnection1",
-    ///         CloudConnector = new AzureNative.HybridCloud.Inputs.ResourceReferenceArgs
-    ///         {
-    ///             Id = "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.HybridCloud/cloudConnectors/123456789012",
-    ///         },
-    ///         Location = "West US",
-    ///         RemoteResourceId = "arn:aws:ec2:us-east-1:123456789012:VPNGateway/vgw-043da592550819c8a",
-    ///         ResourceGroupName = "demo-rg",
-    ///         SharedKey = "password123",
-    ///         VirtualHub = new AzureNative.HybridCloud.Inputs.ResourceReferenceArgs
-    ///         {
-    ///             Id = "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.Network/VirtualHubs/testHub",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hybridcloud:CloudConnection cloudconnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnections/{cloudConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcloud:CloudConnection")]
     public partial class CloudConnection : global::Pulumi.CustomResource

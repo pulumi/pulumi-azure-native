@@ -15,48 +15,6 @@ namespace Pulumi.AzureNative.AzureArcData
     /// Uses Azure REST API version 2025-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
     /// 
     /// Other available API versions: 2024-05-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Updates a SQL Server ESU license.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sqlServerEsuLicense = new AzureNative.AzureArcData.SqlServerEsuLicense("sqlServerEsuLicense", new()
-    ///     {
-    ///         Location = "northeurope",
-    ///         Properties = new AzureNative.AzureArcData.Inputs.SqlServerEsuLicensePropertiesArgs
-    ///         {
-    ///             ActivationState = AzureNative.AzureArcData.State.Inactive,
-    ///             BillingPlan = AzureNative.AzureArcData.BillingPlan.PAYG,
-    ///             PhysicalCores = 24,
-    ///             ScopeType = AzureNative.AzureArcData.ScopeType.Subscription,
-    ///             Version = AzureNative.AzureArcData.Version.SQL_Server_2012,
-    ///         },
-    ///         ResourceGroupName = "testrg",
-    ///         SqlServerEsuLicenseName = "testsqlServerEsuLicense",
-    ///         Tags = 
-    ///         {
-    ///             { "mytag", "myval" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurearcdata:SqlServerEsuLicense sqlServerEsuLicense /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerEsuLicenses/{sqlServerEsuLicenseName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerEsuLicense")]
     public partial class SqlServerEsuLicense : global::Pulumi.CustomResource

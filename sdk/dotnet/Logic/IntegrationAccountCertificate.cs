@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.Logic
     /// Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
     /// 
     /// Other available API versions: 2015-08-01-preview, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a certificate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var integrationAccountCertificate = new AzureNative.Logic.IntegrationAccountCertificate("integrationAccountCertificate", new()
-    ///     {
-    ///         CertificateName = "testCertificate",
-    ///         IntegrationAccountName = "testIntegrationAccount",
-    ///         Key = new AzureNative.Logic.Inputs.KeyVaultKeyReferenceArgs
-    ///         {
-    ///             KeyName = "&lt;keyName&gt;",
-    ///             KeyVault = new AzureNative.Logic.Inputs.KeyVaultKeyReferenceKeyVaultArgs
-    ///             {
-    ///                 Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/&lt;keyVaultName&gt;",
-    ///             },
-    ///             KeyVersion = "87d9764197604449b9b8eb7bd8710868",
-    ///         },
-    ///         Location = "brazilsouth",
-    ///         PublicCertificate = "&lt;publicCertificateValue&gt;",
-    ///         ResourceGroupName = "testResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:logic:IntegrationAccountCertificate testCertificate /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/certificates/{certificateName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountCertificate")]
     public partial class IntegrationAccountCertificate : global::Pulumi.CustomResource

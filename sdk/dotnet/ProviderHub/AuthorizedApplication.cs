@@ -13,54 +13,6 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2024-09-01.
-    /// 
-    /// ## Example Usage
-    /// ### AuthorizedApplications_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var authorizedApplication = new AzureNative.ProviderHub.AuthorizedApplication("authorizedApplication", new()
-    ///     {
-    ///         ApplicationId = "760505bf-dcfa-4311-b890-18da392a00b2",
-    ///         Properties = new AzureNative.ProviderHub.Inputs.AuthorizedApplicationPropertiesArgs
-    ///         {
-    ///             DataAuthorizations = new[]
-    ///             {
-    ///                 new AzureNative.ProviderHub.Inputs.ApplicationDataAuthorizationArgs
-    ///                 {
-    ///                     ResourceTypes = new[]
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     Role = AzureNative.ProviderHub.Role.ServiceOwner,
-    ///                 },
-    ///             },
-    ///             ProviderAuthorization = new AzureNative.ProviderHub.Inputs.ApplicationProviderAuthorizationArgs
-    ///             {
-    ///                 ManagedByRoleDefinitionId = "1a3b5c7d-8e9f-10g1-1h12-i13j14k1",
-    ///                 RoleDefinitionId = "123456bf-gkur-2098-b890-98da392a00b2",
-    ///             },
-    ///         },
-    ///         ProviderNamespace = "Microsoft.Contoso",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:providerhub:AuthorizedApplication Microsoft.Contoso/760505bf-dcfa-4311-b890-18da392a00b2 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/authorizedApplications/{applicationId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:AuthorizedApplication")]
     public partial class AuthorizedApplication : global::Pulumi.CustomResource

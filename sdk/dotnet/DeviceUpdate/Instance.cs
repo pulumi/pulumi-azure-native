@@ -13,51 +13,6 @@ namespace Pulumi.AzureNative.DeviceUpdate
     /// Device Update instance details.
     /// 
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
-    /// 
-    /// ## Example Usage
-    /// ### Creates or updates Instance
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var instance = new AzureNative.DeviceUpdate.Instance("instance", new()
-    ///     {
-    ///         AccountName = "contoso",
-    ///         DiagnosticStorageProperties = new AzureNative.DeviceUpdate.Inputs.DiagnosticStoragePropertiesArgs
-    ///         {
-    ///             AuthenticationType = AzureNative.DeviceUpdate.AuthenticationType.KeyBased,
-    ///             ConnectionString = "string",
-    ///             ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
-    ///         },
-    ///         EnableDiagnostics = false,
-    ///         InstanceName = "blue",
-    ///         IotHubs = new[]
-    ///         {
-    ///             new AzureNative.DeviceUpdate.Inputs.IotHubSettingsArgs
-    ///             {
-    ///                 ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
-    ///             },
-    ///         },
-    ///         Location = "westus2",
-    ///         ResourceGroupName = "test-rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceupdate:Instance blue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/instances/{instanceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

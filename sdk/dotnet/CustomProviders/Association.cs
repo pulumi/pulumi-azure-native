@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.CustomProviders
     /// The resource definition of this association.
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update an association
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var association = new AzureNative.CustomProviders.Association("association", new()
-    ///     {
-    ///         AssociationName = "associationName",
-    ///         Scope = "scope",
-    ///         TargetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:customproviders:Association associationName /{scope}/providers/Microsoft.CustomProviders/associations/{associationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customproviders:Association")]
     public partial class Association : global::Pulumi.CustomResource

@@ -15,66 +15,6 @@ namespace Pulumi.AzureNative.CloudHealth
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### SignalDefinitions_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var signalDefinition = new AzureNative.CloudHealth.SignalDefinition("signalDefinition", new()
-    ///     {
-    ///         HealthModelName = "myHealthModel",
-    ///         Properties = new AzureNative.CloudHealth.Inputs.ResourceMetricSignalDefinitionPropertiesArgs
-    ///         {
-    ///             AggregationType = AzureNative.CloudHealth.MetricAggregationType.None,
-    ///             DataUnit = "byte",
-    ///             Dimension = "nodename",
-    ///             DimensionFilter = "node1",
-    ///             DisplayName = "cpu usage",
-    ///             EvaluationRules = new AzureNative.CloudHealth.Inputs.EvaluationRuleArgs
-    ///             {
-    ///                 DegradedRule = new AzureNative.CloudHealth.Inputs.ThresholdRuleArgs
-    ///                 {
-    ///                     Operator = AzureNative.CloudHealth.SignalOperator.LowerThan,
-    ///                     Threshold = "65",
-    ///                 },
-    ///                 UnhealthyRule = new AzureNative.CloudHealth.Inputs.ThresholdRuleArgs
-    ///                 {
-    ///                     Operator = AzureNative.CloudHealth.SignalOperator.LowerThan,
-    ///                     Threshold = "60",
-    ///                 },
-    ///             },
-    ///             Labels = 
-    ///             {
-    ///                 { "key4788", "ixfvzsfnpvkkbrce" },
-    ///             },
-    ///             MetricName = "cpuusage",
-    ///             MetricNamespace = "microsoft.compute/virtualMachines",
-    ///             RefreshInterval = AzureNative.CloudHealth.RefreshInterval.PT1M,
-    ///             SignalKind = "AzureResourceMetric",
-    ///             TimeGrain = "PT1M",
-    ///         },
-    ///         ResourceGroupName = "rgopenapi",
-    ///         SignalDefinitionName = "sig1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cloudhealth:SignalDefinition sig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudhealth:SignalDefinition")]
     public partial class SignalDefinition : global::Pulumi.CustomResource

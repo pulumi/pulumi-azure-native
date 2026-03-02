@@ -15,42 +15,6 @@ namespace Pulumi.AzureNative.Security
     /// Uses Azure REST API version 2025-09-01-preview.
     /// 
     /// Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update private endpoint connection
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.Security.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         PrivateEndpointConnectionName = "pe",
-    ///         PrivateLinkName = "pls",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.Security.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///         {
-    ///             ActionsRequired = "None",
-    ///             Description = "Approved by administrator",
-    ///             Status = AzureNative.Security.PrivateEndpointServiceConnectionStatus.Approved,
-    ///         },
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:security:PrivateEndpointConnection pe /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/privateLinks/{privateLinkName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

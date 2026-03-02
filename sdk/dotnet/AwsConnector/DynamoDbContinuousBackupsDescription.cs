@@ -13,69 +13,6 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### DynamoDbContinuousBackupsDescriptions_CreateOrReplace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dynamoDbContinuousBackupsDescription = new AzureNative.AwsConnector.DynamoDbContinuousBackupsDescription("dynamoDbContinuousBackupsDescription", new()
-    ///     {
-    ///         Location = "zlepfxe",
-    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-    ///         Properties = new AzureNative.AwsConnector.Inputs.DynamoDBContinuousBackupsDescriptionPropertiesArgs
-    ///         {
-    ///             Arn = "ftscqdgahea",
-    ///             AwsAccountId = "mf",
-    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsDynamoDBContinuousBackupsDescriptionPropertiesArgs
-    ///             {
-    ///                 ContinuousBackupsStatus = new AzureNative.AwsConnector.Inputs.ContinuousBackupsStatusEnumValueArgs
-    ///                 {
-    ///                     Value = AzureNative.AwsConnector.ContinuousBackupsStatus.DISABLED,
-    ///                 },
-    ///                 PointInTimeRecoveryDescription = new AzureNative.AwsConnector.Inputs.PointInTimeRecoveryDescriptionArgs
-    ///                 {
-    ///                     EarliestRestorableDateTime = "2024-10-08T03:52:00.281Z",
-    ///                     LatestRestorableDateTime = "2024-10-08T03:52:00.281Z",
-    ///                     PointInTimeRecoveryStatus = new AzureNative.AwsConnector.Inputs.PointInTimeRecoveryStatusEnumValueArgs
-    ///                     {
-    ///                         Value = AzureNative.AwsConnector.PointInTimeRecoveryStatus.DISABLED,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             AwsRegion = "vvdgggbbnkqfqlawtbkkxhtn",
-    ///             AwsSourceSchema = "qdkzzibfkzzsphoguehj",
-    ///             AwsTags = 
-    ///             {
-    ///                 { "key4982", "etujkpssxnluswfrmpfxwbkvvrbrj" },
-    ///             },
-    ///             PublicCloudConnectorsResourceId = "cmxfprcuzlfsuapudqgzmyrz",
-    ///             PublicCloudResourceName = "y",
-    ///         },
-    ///         ResourceGroupName = "rgdynamoDBContinuousBackupsDescription",
-    ///         Tags = 
-    ///         {
-    ///             { "key6182", "vfhpsiualsgltchem" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:awsconnector:DynamoDbContinuousBackupsDescription ybhxjyoab /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/dynamoDBContinuousBackupsDescriptions/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:DynamoDbContinuousBackupsDescription")]
     public partial class DynamoDbContinuousBackupsDescription : global::Pulumi.CustomResource

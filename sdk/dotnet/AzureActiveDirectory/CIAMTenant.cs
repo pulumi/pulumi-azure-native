@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     /// The Azure AD for customers resource.
     /// 
     /// Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-17-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create_CIAM_tenant
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ciamTenant = new AzureNative.AzureActiveDirectory.CIAMTenant("ciamTenant", new()
-    ///     {
-    ///         CreateTenantProperties = new AzureNative.AzureActiveDirectory.Inputs.CreateCIAMTenantPropertiesArgs
-    ///         {
-    ///             CountryCode = "US",
-    ///             DisplayName = "Contoso",
-    ///         },
-    ///         Location = "United States",
-    ///         ResourceGroupName = "contosoResourceGroup",
-    ///         ResourceName = "contoso",
-    ///         Sku = new AzureNative.AzureActiveDirectory.Inputs.CIAMResourceSKUArgs
-    ///         {
-    ///             Name = AzureNative.AzureActiveDirectory.CIAMResourceSKUName.Standard,
-    ///             Tier = AzureNative.AzureActiveDirectory.CIAMResourceSKUTier.A0,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azureactivedirectory:CIAMTenant contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/ciamDirectories/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:CIAMTenant")]
     public partial class CIAMTenant : global::Pulumi.CustomResource

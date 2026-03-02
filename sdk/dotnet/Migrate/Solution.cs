@@ -13,42 +13,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Solution REST Resource.
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Solutions_Put
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var solution = new AzureNative.Migrate.Solution("solution", new()
-    ///     {
-    ///         MigrateProjectName = "project01",
-    ///         Properties = new AzureNative.Migrate.Inputs.SolutionPropertiesArgs
-    ///         {
-    ///             Goal = "Databases",
-    ///             Purpose = "Assessment",
-    ///             Tool = "DataMigrationAssistant",
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         SolutionName = "dbsolution",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:Solution dbsolution /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName}/solutions/{solutionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

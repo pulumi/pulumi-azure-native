@@ -13,57 +13,6 @@ namespace Pulumi.AzureNative.DigitalTwins
     /// The description of the DigitalTwins service.
     /// 
     /// Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
-    /// 
-    /// ## Example Usage
-    /// ### Put a DigitalTwinsInstance resource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var digitalTwin = new AzureNative.DigitalTwins.DigitalTwin("digitalTwin", new()
-    ///     {
-    ///         Location = "WestUS2",
-    ///         ResourceGroupName = "resRg",
-    ///         ResourceName = "myDigitalTwinsService",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Put a DigitalTwinsInstance resource with publicNetworkAccess property
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var digitalTwin = new AzureNative.DigitalTwins.DigitalTwin("digitalTwin", new()
-    ///     {
-    ///         Location = "WestUS2",
-    ///         PublicNetworkAccess = AzureNative.DigitalTwins.PublicNetworkAccess.Enabled,
-    ///         ResourceGroupName = "resRg",
-    ///         ResourceName = "myDigitalTwinsService",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:digitaltwins:DigitalTwin myDigitalTwinsService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:DigitalTwin")]
     public partial class DigitalTwin : global::Pulumi.CustomResource

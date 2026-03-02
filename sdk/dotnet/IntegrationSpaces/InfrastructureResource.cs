@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     /// An infrastructure resource under Space.
     /// 
     /// Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdateInfrastructureResource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var infrastructureResource = new AzureNative.IntegrationSpaces.InfrastructureResource("infrastructureResource", new()
-    ///     {
-    ///         InfrastructureResourceName = "InfrastructureResource1",
-    ///         ResourceGroupName = "testrg",
-    ///         ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ApiManagement/service/APIM1",
-    ///         ResourceType = "Microsoft.ApiManagement/service",
-    ///         SpaceName = "Space1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:integrationspaces:InfrastructureResource InfrastructureResource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/infrastructureResources/{infrastructureResourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:integrationspaces:InfrastructureResource")]
     public partial class InfrastructureResource : global::Pulumi.CustomResource
