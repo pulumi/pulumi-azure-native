@@ -400,8 +400,7 @@ export FAKE_MODULE
 
 .make/build_python: .make/generate_python
 	cd sdk/python && \
-		git clean -fxd && \
-		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+		rm -rf ./bin/ ../python.bin/ ./venv/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 		rm ./bin/go.mod && \
 		python3 -m venv venv && \
 		./venv/bin/python -m pip install build && \
