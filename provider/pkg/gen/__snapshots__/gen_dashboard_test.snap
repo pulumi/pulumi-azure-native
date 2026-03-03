@@ -178,6 +178,82 @@
 
 [TestPortalDashboardGen - 3]
 {
+ "azure-native:authorization:ManagedByTenantResponse": {
+  "description": "Information about a tenant managing the subscription.",
+  "properties": {
+   "tenantId": {
+    "description": "The tenant ID of the managing tenant.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native:authorization:SubscriptionPoliciesResponse": {
+  "description": "Subscription policies.",
+  "properties": {
+   "locationPlacementId": {
+    "description": "The subscription location placement ID.",
+    "type": "string"
+   },
+   "quotaId": {
+    "description": "The subscription quota ID.",
+    "type": "string"
+   },
+   "spendingLimit": {
+    "description": "The subscription spending limit.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
+ "azure-native:authorization:SubscriptionResponse": {
+  "description": "Subscription information.",
+  "properties": {
+   "authorizationSource": {
+    "description": "The authorization source of the request.",
+    "type": "string"
+   },
+   "displayName": {
+    "description": "The subscription display name.",
+    "type": "string"
+   },
+   "id": {
+    "description": "The fully qualified ID for the subscription.",
+    "type": "string"
+   },
+   "managedByTenants": {
+    "description": "An array containing the tenants managing the subscription.",
+    "items": {
+     "$ref": "#/types/azure-native:authorization:ManagedByTenantResponse"
+    },
+    "type": "array"
+   },
+   "state": {
+    "description": "The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.",
+    "type": "string"
+   },
+   "subscriptionId": {
+    "description": "The subscription ID.",
+    "type": "string"
+   },
+   "subscriptionPolicies": {
+    "$ref": "#/types/azure-native:authorization:SubscriptionPoliciesResponse",
+    "description": "The subscription policies."
+   },
+   "tags": {
+    "additionalProperties": {
+     "type": "string"
+    },
+    "description": "The tags attached to the subscription.",
+    "type": "object"
+   },
+   "tenantId": {
+    "description": "The subscription tenant ID.",
+    "type": "string"
+   }
+  },
+  "type": "object"
+ },
  "azure-native:portal/v20200901preview:ConfigurationProperties": {
   "description": "Tenant Configuration Properties with Provisioning state",
   "properties": {
