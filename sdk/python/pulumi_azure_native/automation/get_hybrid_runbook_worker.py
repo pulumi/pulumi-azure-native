@@ -27,7 +27,7 @@ class GetHybridRunbookWorkerResult:
     """
     Definition of hybrid runbook worker.
     """
-    def __init__(__self__, azure_api_version=None, id=None, ip=None, last_seen_date_time=None, name=None, registered_date_time=None, system_data=None, type=None, vm_resource_id=None, worker_name=None, worker_type=None):
+    def __init__(__self__, azure_api_version=None, id=None, ip=None, last_seen_date_time=None, location=None, name=None, registered_date_time=None, system_data=None, tags=None, type=None, vm_resource_id=None, worker_name=None, worker_type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -40,6 +40,9 @@ class GetHybridRunbookWorkerResult:
         if last_seen_date_time and not isinstance(last_seen_date_time, str):
             raise TypeError("Expected argument 'last_seen_date_time' to be a str")
         pulumi.set(__self__, "last_seen_date_time", last_seen_date_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,9 @@ class GetHybridRunbookWorkerResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -74,7 +80,7 @@ class GetHybridRunbookWorkerResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -96,6 +102,14 @@ class GetHybridRunbookWorkerResult:
 
     @_builtins.property
     @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> _builtins.str:
         """
         The name of the resource
@@ -114,15 +128,23 @@ class GetHybridRunbookWorkerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -161,9 +183,11 @@ class AwaitableGetHybridRunbookWorkerResult(GetHybridRunbookWorkerResult):
             id=self.id,
             ip=self.ip,
             last_seen_date_time=self.last_seen_date_time,
+            location=self.location,
             name=self.name,
             registered_date_time=self.registered_date_time,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type,
             vm_resource_id=self.vm_resource_id,
             worker_name=self.worker_name,
@@ -178,9 +202,9 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[_builtins.str] =
     """
     Retrieve a hybrid runbook worker.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -201,9 +225,11 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[_builtins.str] =
         id=pulumi.get(__ret__, 'id'),
         ip=pulumi.get(__ret__, 'ip'),
         last_seen_date_time=pulumi.get(__ret__, 'last_seen_date_time'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         registered_date_time=pulumi.get(__ret__, 'registered_date_time'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_resource_id=pulumi.get(__ret__, 'vm_resource_id'),
         worker_name=pulumi.get(__ret__, 'worker_name'),
@@ -216,9 +242,9 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     """
     Retrieve a hybrid runbook worker.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -238,9 +264,11 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
         id=pulumi.get(__response__, 'id'),
         ip=pulumi.get(__response__, 'ip'),
         last_seen_date_time=pulumi.get(__response__, 'last_seen_date_time'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         registered_date_time=pulumi.get(__response__, 'registered_date_time'),
         system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         vm_resource_id=pulumi.get(__response__, 'vm_resource_id'),
         worker_name=pulumi.get(__response__, 'worker_name'),

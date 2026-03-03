@@ -101,15 +101,9 @@ Authorization:
 Automanage:
     tracking: "2022-05-04"
 Automation:
-    tracking: "2023-11-01"
+    tracking: "2024-10-23"
     additions:
-        Package: 2023-05-15-preview
-        PrivateEndpointConnection: 2023-05-15-preview
-        RuntimeEnvironment: 2023-05-15-preview
-        SoftwareUpdateConfigurationByName: 2023-05-15-preview
-        Watcher: 2023-05-15-preview
-        Webhook: 2023-05-15-preview
-        listAutomationAccountDeletedRunbooks: 2023-05-15-preview
+        PowerShell72Module: "2023-11-01"
 AwsConnector:
     tracking: "2024-12-01"
 AzureActiveDirectory:

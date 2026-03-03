@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Definition of hybrid runbook worker.
  *
- * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+ * Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
- * Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class HybridRunbookWorker extends pulumi.CustomResource {
     /**
@@ -54,19 +54,27 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastSeenDateTime: pulumi.Output<string | undefined>;
     /**
+     * The geo-location where the resource lives
+     */
+    declare public /*out*/ readonly location: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
-    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the registration time of the worker machine.
      */
     declare public /*out*/ readonly registeredDateTime: pulumi.Output<string | undefined>;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
-     * The type of the resource.
+     * Resource tags.
+     */
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -105,14 +113,16 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             resourceInputs["automationAccountName"] = args?.automationAccountName;
             resourceInputs["hybridRunbookWorkerGroupName"] = args?.hybridRunbookWorkerGroupName;
             resourceInputs["hybridRunbookWorkerId"] = args?.hybridRunbookWorkerId;
-            resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["vmResourceId"] = args?.vmResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["lastSeenDateTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["registeredDateTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerName"] = undefined /*out*/;
             resourceInputs["workerType"] = undefined /*out*/;
@@ -120,9 +130,11 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["lastSeenDateTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["registeredDateTime"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmResourceId"] = undefined /*out*/;
             resourceInputs["workerName"] = undefined /*out*/;
@@ -151,10 +163,6 @@ export interface HybridRunbookWorkerArgs {
      * The hybrid runbook worker id
      */
     hybridRunbookWorkerId?: pulumi.Input<string>;
-    /**
-     * Gets or sets the name of the resource.
-     */
-    name?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

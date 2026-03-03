@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Get information about the Runtime Environment
  *
- * Uses Azure REST API version 2023-05-15-preview.
+ * Uses Azure REST API version 2024-10-23.
  *
- * Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRuntimeEnvironment(args: GetRuntimeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRuntimeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,9 +90,9 @@ export interface GetRuntimeEnvironmentResult {
 /**
  * Get information about the Runtime Environment
  *
- * Uses Azure REST API version 2023-05-15-preview.
+ * Uses Azure REST API version 2024-10-23.
  *
- * Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRuntimeEnvironmentOutput(args: GetRuntimeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuntimeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

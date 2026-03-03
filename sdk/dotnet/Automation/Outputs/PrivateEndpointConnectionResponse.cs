@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
         /// <summary>
-        /// Fully qualified resource Id for the resource
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -37,7 +37,11 @@ namespace Pulumi.AzureNative.Automation.Outputs
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// The type of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.Automation.Outputs
 
             Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             GroupIds = groupIds;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            SystemData = systemData;
             Type = type;
         }
     }

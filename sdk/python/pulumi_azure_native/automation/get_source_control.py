@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetSourceControlResult',
@@ -26,7 +27,7 @@ class GetSourceControlResult:
     """
     Definition of the source control.
     """
-    def __init__(__self__, auto_sync=None, azure_api_version=None, branch=None, creation_time=None, description=None, folder_path=None, id=None, last_modified_time=None, name=None, publish_runbook=None, repo_url=None, source_type=None, type=None):
+    def __init__(__self__, auto_sync=None, azure_api_version=None, branch=None, creation_time=None, description=None, folder_path=None, id=None, last_modified_time=None, name=None, publish_runbook=None, repo_url=None, source_type=None, system_data=None, type=None):
         if auto_sync and not isinstance(auto_sync, bool):
             raise TypeError("Expected argument 'auto_sync' to be a bool")
         pulumi.set(__self__, "auto_sync", auto_sync)
@@ -63,6 +64,9 @@ class GetSourceControlResult:
         if source_type and not isinstance(source_type, str):
             raise TypeError("Expected argument 'source_type' to be a str")
         pulumi.set(__self__, "source_type", source_type)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -119,7 +123,7 @@ class GetSourceControlResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -164,10 +168,18 @@ class GetSourceControlResult:
         return pulumi.get(self, "source_type")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -190,6 +202,7 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
             publish_runbook=self.publish_runbook,
             repo_url=self.repo_url,
             source_type=self.source_type,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -200,9 +213,9 @@ def get_source_control(automation_account_name: Optional[_builtins.str] = None,
     """
     Retrieve the source control identified by source control name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -229,6 +242,7 @@ def get_source_control(automation_account_name: Optional[_builtins.str] = None,
         publish_runbook=pulumi.get(__ret__, 'publish_runbook'),
         repo_url=pulumi.get(__ret__, 'repo_url'),
         source_type=pulumi.get(__ret__, 'source_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_source_control_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -237,9 +251,9 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[_bu
     """
     Retrieve the source control identified by source control name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2017-05-15-preview, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -265,4 +279,5 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[_bu
         publish_runbook=pulumi.get(__response__, 'publish_runbook'),
         repo_url=pulumi.get(__response__, 'repo_url'),
         source_type=pulumi.get(__response__, 'source_type'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

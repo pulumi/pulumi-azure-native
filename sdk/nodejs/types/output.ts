@@ -12891,7 +12891,7 @@ export namespace automation {
      */
     export interface IdentityResponse {
         /**
-         * The principal ID of resource identity.
+         * The principal ID of resource identity. The value must be an UUID.
          */
         principalId: string;
         /**
@@ -12971,11 +12971,11 @@ export namespace automation {
      */
     export interface ModuleErrorInfoResponse {
         /**
-         * Gets the error code.
+         * Gets or sets the error code.
          */
         code?: string;
         /**
-         * Gets the error message.
+         * Gets or sets the error message.
          */
         message?: string;
     }
@@ -13017,7 +13017,7 @@ export namespace automation {
          */
         groupIds?: string[];
         /**
-         * Fully qualified resource Id for the resource
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
@@ -13033,7 +13033,11 @@ export namespace automation {
          */
         privateLinkServiceConnectionState?: outputs.automation.PrivateLinkServiceConnectionStatePropertyResponse;
         /**
-         * The type of the resource.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.automation.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -13091,6 +13095,10 @@ export namespace automation {
          * Gets or sets the creation time of the runbook draft.
          */
         creationTime?: string;
+        /**
+         * Gets or sets the draft runbook content link.
+         */
+        draftContentLink?: outputs.automation.ContentLinkResponse;
         /**
          * Gets or sets whether runbook is in edit mode.
          */

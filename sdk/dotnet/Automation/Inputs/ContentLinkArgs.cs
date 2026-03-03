@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.Automation.Inputs
     public sealed class ContentLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the hash.
+        /// Gets or sets the hash.
         /// </summary>
         [Input("contentHash")]
         public Input<Inputs.ContentHashArgs>? ContentHash { get; set; }
 
         /// <summary>
-        /// Sets the uri of the content.
+        /// Gets or sets the uri of content.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
-        /// Sets the version of the content.
+        /// Gets or sets the version of the content.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

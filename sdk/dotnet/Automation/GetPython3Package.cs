@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the python 3 package identified by package name.
         /// 
-        /// Uses Azure REST API version 2023-11-01.
+        /// Uses Azure REST API version 2024-10-23.
         /// 
-        /// Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPython3PackageResult> InvokeAsync(GetPython3PackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPython3PackageResult>("azure-native:automation:getPython3Package", args ?? new GetPython3PackageArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the python 3 package identified by package name.
         /// 
-        /// Uses Azure REST API version 2023-11-01.
+        /// Uses Azure REST API version 2024-10-23.
         /// 
-        /// Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPython3PackageResult> Invoke(GetPython3PackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython3PackageResult>("azure-native:automation:getPython3Package", args ?? new GetPython3PackageInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the python 3 package identified by package name.
         /// 
-        /// Uses Azure REST API version 2023-11-01.
+        /// Uses Azure REST API version 2024-10-23.
         /// 
-        /// Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPython3PackageResult> Invoke(GetPython3PackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython3PackageResult>("azure-native:automation:getPython3Package", args ?? new GetPython3PackageInvokeArgs(), options.WithDefaults());
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetPython3PackageResult
     {
         /// <summary>
-        /// Gets the activity count of the module.
+        /// Gets or sets the activity count of the module.
         /// </summary>
         public readonly int? ActivityCount;
         /// <summary>
@@ -108,7 +108,11 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Gets the creation time.
+        /// Gets or sets the contentLink of the module.
+        /// </summary>
+        public readonly Outputs.ContentLinkResponse? ContentLink;
+        /// <summary>
+        /// Gets or sets the creation time.
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
@@ -116,55 +120,59 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Gets the error info of the module.
+        /// Gets or sets the error info of the module.
         /// </summary>
         public readonly Outputs.ModuleErrorInfoResponse? Error;
         /// <summary>
-        /// Gets the etag of the resource.
+        /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Fully qualified resource Id for the resource
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Gets type of module, if its composite or not.
+        /// Gets or sets type of module, if its composite or not.
         /// </summary>
         public readonly bool? IsComposite;
         /// <summary>
-        /// Gets the isGlobal flag of the module.
+        /// Gets or sets the isGlobal flag of the module.
         /// </summary>
         public readonly bool? IsGlobal;
         /// <summary>
-        /// Gets the last modified time.
+        /// Gets or sets the last modified time.
         /// </summary>
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// The Azure Region where the resource lives
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state of the module.
+        /// Gets or sets the provisioning state of the module.
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Gets the size in bytes of the module.
+        /// Gets or sets the size in bytes of the module.
         /// </summary>
         public readonly double? SizeInBytes;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Gets the version of the module.
+        /// Gets or sets the version of the module.
         /// </summary>
         public readonly string? Version;
 
@@ -173,6 +181,8 @@ namespace Pulumi.AzureNative.Automation
             int? activityCount,
 
             string azureApiVersion,
+
+            Outputs.ContentLinkResponse? contentLink,
 
             string? creationTime,
 
@@ -190,13 +200,15 @@ namespace Pulumi.AzureNative.Automation
 
             string? lastModifiedTime,
 
-            string? location,
+            string location,
 
             string name,
 
             string? provisioningState,
 
             double? sizeInBytes,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -206,6 +218,7 @@ namespace Pulumi.AzureNative.Automation
         {
             ActivityCount = activityCount;
             AzureApiVersion = azureApiVersion;
+            ContentLink = contentLink;
             CreationTime = creationTime;
             Description = description;
             Error = error;
@@ -218,6 +231,7 @@ namespace Pulumi.AzureNative.Automation
             Name = name;
             ProvisioningState = provisioningState;
             SizeInBytes = sizeInBytes;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             Version = version;

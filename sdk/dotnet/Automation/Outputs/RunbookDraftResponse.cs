@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Automation.Outputs
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
+        /// Gets or sets the draft runbook content link.
+        /// </summary>
+        public readonly Outputs.ContentLinkResponse? DraftContentLink;
+        /// <summary>
         /// Gets or sets whether runbook is in edit mode.
         /// </summary>
         public readonly bool? InEdit;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureNative.Automation.Outputs
         private RunbookDraftResponse(
             string? creationTime,
 
+            Outputs.ContentLinkResponse? draftContentLink,
+
             bool? inEdit,
 
             string? lastModifiedTime,
@@ -47,6 +53,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
             ImmutableDictionary<string, Outputs.RunbookParameterResponse>? parameters)
         {
             CreationTime = creationTime;
+            DraftContentLink = draftContentLink;
             InEdit = inEdit;
             LastModifiedTime = lastModifiedTime;
             OutputTypes = outputTypes;

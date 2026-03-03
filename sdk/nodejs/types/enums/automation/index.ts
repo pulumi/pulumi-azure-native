@@ -65,6 +65,7 @@ export const RunbookTypeEnum = {
     GraphPowerShell: "GraphPowerShell",
     Python2: "Python2",
     Python3: "Python3",
+    Python: "Python",
     PowerShell72: "PowerShell72",
 } as const;
 

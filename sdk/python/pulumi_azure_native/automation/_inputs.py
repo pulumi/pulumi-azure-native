@@ -380,15 +380,15 @@ class ContentLinkArgsDict(TypedDict):
     """
     content_hash: NotRequired[pulumi.Input['ContentHashArgsDict']]
     """
-    Sets the hash.
+    Gets or sets the hash.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Sets the uri of the content.
+    Gets or sets the uri of content.
     """
     version: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Sets the version of the content.
+    Gets or sets the version of the content.
     """
 
 @pulumi.input_type
@@ -400,9 +400,9 @@ class ContentLinkArgs:
         """
         Definition of the content link.
 
-        :param pulumi.Input['ContentHashArgs'] content_hash: Sets the hash.
-        :param pulumi.Input[_builtins.str] uri: Sets the uri of the content.
-        :param pulumi.Input[_builtins.str] version: Sets the version of the content.
+        :param pulumi.Input['ContentHashArgs'] content_hash: Gets or sets the hash.
+        :param pulumi.Input[_builtins.str] uri: Gets or sets the uri of content.
+        :param pulumi.Input[_builtins.str] version: Gets or sets the version of the content.
         """
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
@@ -415,7 +415,7 @@ class ContentLinkArgs:
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> Optional[pulumi.Input['ContentHashArgs']]:
         """
-        Sets the hash.
+        Gets or sets the hash.
         """
         return pulumi.get(self, "content_hash")
 
@@ -427,7 +427,7 @@ class ContentLinkArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the uri of the content.
+        Gets or sets the uri of content.
         """
         return pulumi.get(self, "uri")
 
@@ -439,7 +439,7 @@ class ContentLinkArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the version of the content.
+        Gets or sets the version of the content.
         """
         return pulumi.get(self, "version")
 

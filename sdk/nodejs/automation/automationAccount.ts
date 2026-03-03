@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Definition of the automation account type.
  *
- * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+ * Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
- * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**
@@ -82,9 +82,9 @@ export class AutomationAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    declare public readonly location: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -106,7 +106,7 @@ export class AutomationAccount extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
@@ -114,7 +114,7 @@ export class AutomationAccount extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 

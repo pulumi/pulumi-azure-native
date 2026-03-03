@@ -27,7 +27,7 @@ class GetDscConfigurationResult:
     """
     Definition of the configuration type.
     """
-    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, etag=None, id=None, job_count=None, last_modified_time=None, location=None, log_verbose=None, name=None, node_configuration_count=None, parameters=None, provisioning_state=None, source=None, state=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, etag=None, id=None, job_count=None, last_modified_time=None, location=None, log_verbose=None, name=None, node_configuration_count=None, parameters=None, provisioning_state=None, source=None, state=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -73,6 +73,9 @@ class GetDscConfigurationResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -116,7 +119,7 @@ class GetDscConfigurationResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -138,9 +141,9 @@ class GetDscConfigurationResult:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[_builtins.str]:
+    def location(self) -> _builtins.str:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -201,6 +204,14 @@ class GetDscConfigurationResult:
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
@@ -212,7 +223,7 @@ class GetDscConfigurationResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -238,6 +249,7 @@ class AwaitableGetDscConfigurationResult(GetDscConfigurationResult):
             provisioning_state=self.provisioning_state,
             source=self.source,
             state=self.state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -249,9 +261,9 @@ def get_dsc_configuration(automation_account_name: Optional[_builtins.str] = Non
     """
     Retrieve the configuration identified by configuration name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -281,6 +293,7 @@ def get_dsc_configuration(automation_account_name: Optional[_builtins.str] = Non
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         source=pulumi.get(__ret__, 'source'),
         state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -290,9 +303,9 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
     """
     Retrieve the configuration identified by configuration name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -321,5 +334,6 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         source=pulumi.get(__response__, 'source'),
         state=pulumi.get(__response__, 'state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

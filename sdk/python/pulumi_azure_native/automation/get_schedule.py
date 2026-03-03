@@ -27,7 +27,7 @@ class GetScheduleResult:
     """
     Definition of the schedule.
     """
-    def __init__(__self__, advanced_schedule=None, azure_api_version=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, id=None, interval=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, time_zone=None, type=None):
+    def __init__(__self__, advanced_schedule=None, azure_api_version=None, creation_time=None, description=None, expiry_time=None, expiry_time_offset_minutes=None, frequency=None, id=None, interval=None, is_enabled=None, last_modified_time=None, name=None, next_run=None, next_run_offset_minutes=None, start_time=None, start_time_offset_minutes=None, system_data=None, time_zone=None, type=None):
         if advanced_schedule and not isinstance(advanced_schedule, dict):
             raise TypeError("Expected argument 'advanced_schedule' to be a dict")
         pulumi.set(__self__, "advanced_schedule", advanced_schedule)
@@ -76,6 +76,9 @@ class GetScheduleResult:
         if start_time_offset_minutes and not isinstance(start_time_offset_minutes, float):
             raise TypeError("Expected argument 'start_time_offset_minutes' to be a float")
         pulumi.set(__self__, "start_time_offset_minutes", start_time_offset_minutes)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if time_zone and not isinstance(time_zone, str):
             raise TypeError("Expected argument 'time_zone' to be a str")
         pulumi.set(__self__, "time_zone", time_zone)
@@ -143,7 +146,7 @@ class GetScheduleResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -212,6 +215,14 @@ class GetScheduleResult:
         return pulumi.get(self, "start_time_offset_minutes")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[_builtins.str]:
         """
@@ -223,7 +234,7 @@ class GetScheduleResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -250,6 +261,7 @@ class AwaitableGetScheduleResult(GetScheduleResult):
             next_run_offset_minutes=self.next_run_offset_minutes,
             start_time=self.start_time,
             start_time_offset_minutes=self.start_time_offset_minutes,
+            system_data=self.system_data,
             time_zone=self.time_zone,
             type=self.type)
 
@@ -261,9 +273,9 @@ def get_schedule(automation_account_name: Optional[_builtins.str] = None,
     """
     Retrieve the schedule identified by schedule name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -294,6 +306,7 @@ def get_schedule(automation_account_name: Optional[_builtins.str] = None,
         next_run_offset_minutes=pulumi.get(__ret__, 'next_run_offset_minutes'),
         start_time=pulumi.get(__ret__, 'start_time'),
         start_time_offset_minutes=pulumi.get(__ret__, 'start_time_offset_minutes'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
 def get_schedule_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -303,9 +316,9 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[_builtins
     """
     Retrieve the schedule identified by schedule name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -335,5 +348,6 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[_builtins
         next_run_offset_minutes=pulumi.get(__response__, 'next_run_offset_minutes'),
         start_time=pulumi.get(__response__, 'start_time'),
         start_time_offset_minutes=pulumi.get(__response__, 'start_time_offset_minutes'),
+        system_data=pulumi.get(__response__, 'system_data'),
         time_zone=pulumi.get(__response__, 'time_zone'),
         type=pulumi.get(__response__, 'type')))

@@ -1607,63 +1607,63 @@ Automanage:
         RpNamespace: Microsoft.Automanage
 Automation:
     AutomationAccount:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/account.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/account.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}
         RpNamespace: Microsoft.Automation
     Certificate:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/certificate.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/certificate.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/certificates/{certificateName}
         RpNamespace: Microsoft.Automation
     Connection:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/connection.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/connection.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connections/{connectionName}
         RpNamespace: Microsoft.Automation
     ConnectionType:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/connectionType.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/connectionType.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connectionTypes/{connectionTypeName}
         RpNamespace: Microsoft.Automation
     Credential:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/credential.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/credential.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/credentials/{credentialName}
         RpNamespace: Microsoft.Automation
     DscConfiguration:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/dscConfiguration.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/dscConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/configurations/{configurationName}
         RpNamespace: Microsoft.Automation
     DscNodeConfiguration:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/dscNodeConfiguration.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/dscNodeConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/nodeConfigurations/{nodeConfigurationName}
         RpNamespace: Microsoft.Automation
     HybridRunbookWorker:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/hybridRunbookWorker.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/hybridRunbookWorker.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId}
         RpNamespace: Microsoft.Automation
     HybridRunbookWorkerGroup:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/hybridRunbookWorkerGroup.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/hybridRunbookWorkerGroup.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}
         RpNamespace: Microsoft.Automation
     JobSchedule:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/jobSchedule.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/jobSchedule.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobSchedules/{jobScheduleId}
         RpNamespace: Microsoft.Automation
     Module:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/module.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/module.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/modules/{moduleName}
         RpNamespace: Microsoft.Automation
     Package:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/package.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/package.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}/packages/{packageName}
         RpNamespace: Microsoft.Automation
     PowerShell72Module:
@@ -1672,68 +1672,68 @@ Automation:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/powerShell72Modules/{moduleName}
         RpNamespace: Microsoft.Automation
     PrivateEndpointConnection:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/privateEndpointConnection.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/privateEndpointConnection.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Automation
     Python2Package:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/python2package.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/python2package.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{packageName}
         RpNamespace: Microsoft.Automation
     Python3Package:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/python3package.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/python3package.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python3Packages/{packageName}
         RpNamespace: Microsoft.Automation
     Runbook:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/runbook.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/runbook.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runbooks/{runbookName}
         RpNamespace: Microsoft.Automation
     RuntimeEnvironment:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/runtimeEnvironment.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/runtimeEnvironment.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}
         RpNamespace: Microsoft.Automation
     Schedule:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/schedule.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/schedule.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/schedules/{scheduleName}
         RpNamespace: Microsoft.Automation
     SoftwareUpdateConfigurationByName:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/softwareUpdateConfiguration.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/softwareUpdateConfiguration.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/softwareUpdateConfigurations/{softwareUpdateConfigurationName}
         RpNamespace: Microsoft.Automation
     SourceControl:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/sourceControl.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/sourceControl.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/sourceControls/{sourceControlName}
         RpNamespace: Microsoft.Automation
     Variable:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/variable.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/variable.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/variables/{variableName}
         RpNamespace: Microsoft.Automation
     Watcher:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/watcher.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/watcher.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/watchers/{watcherName}
         RpNamespace: Microsoft.Automation
     Webhook:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/webhook.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/webhook.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/webhooks/{webhookName}
         RpNamespace: Microsoft.Automation
     listAutomationAccountDeletedRunbooks:
-        ApiVersion: 2023-05-15-preview
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/preview/2023-05-15-preview/account.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/account.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listDeletedRunbooks
         RpNamespace: Microsoft.Automation
     listKeyByAutomationAccount:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2023-11-01/account.json
+        ApiVersion: "2024-10-23"
+        SpecFilePath: specification/automation/resource-manager/Microsoft.Automation/stable/2024-10-23/account.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listKeys
         RpNamespace: Microsoft.Automation
 AwsConnector:

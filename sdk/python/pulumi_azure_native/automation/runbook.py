@@ -34,6 +34,7 @@ class RunbookArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  publish_content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
                  runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Runbook resource.
@@ -50,6 +51,7 @@ class RunbookArgs:
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the resource.
         :param pulumi.Input['ContentLinkArgs'] publish_content_link: Gets or sets the published runbook content link.
         :param pulumi.Input[_builtins.str] runbook_name: The runbook name.
+        :param pulumi.Input[_builtins.str] runtime_environment: Environment of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -73,6 +75,8 @@ class RunbookArgs:
             pulumi.set(__self__, "publish_content_link", publish_content_link)
         if runbook_name is not None:
             pulumi.set(__self__, "runbook_name", runbook_name)
+        if runtime_environment is not None:
+            pulumi.set(__self__, "runtime_environment", runtime_environment)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -221,6 +225,18 @@ class RunbookArgs:
         pulumi.set(self, "runbook_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="runtimeEnvironment")
+    def runtime_environment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Environment of the runbook.
+        """
+        return pulumi.get(self, "runtime_environment")
+
+    @runtime_environment.setter
+    def runtime_environment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "runtime_environment", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -251,14 +267,15 @@ class Runbook(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_type: Optional[pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']]] = None,
+                 runtime_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of the runbook type.
 
-        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+        Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
-        Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -275,6 +292,7 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.str] runbook_name: The runbook name.
         :param pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
+        :param pulumi.Input[_builtins.str] runtime_environment: Environment of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         ...
@@ -286,9 +304,9 @@ class Runbook(pulumi.CustomResource):
         """
         Definition of the runbook type.
 
-        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+        Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
-        Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-10-31, 2018-06-30, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -318,6 +336,7 @@ class Runbook(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_name: Optional[pulumi.Input[_builtins.str]] = None,
                  runbook_type: Optional[pulumi.Input[Union[_builtins.str, 'RunbookTypeEnum']]] = None,
+                 runtime_environment: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -346,6 +365,7 @@ class Runbook(pulumi.CustomResource):
             if runbook_type is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_type'")
             __props__.__dict__["runbook_type"] = runbook_type
+            __props__.__dict__["runtime_environment"] = runtime_environment
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None
@@ -357,6 +377,7 @@ class Runbook(pulumi.CustomResource):
             __props__.__dict__["parameters"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-native:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-native:automation/v20190601:Runbook"), pulumi.Alias(type_="azure-native:automation/v20220808:Runbook"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Runbook"), pulumi.Alias(type_="azure-native:automation/v20231101:Runbook"), pulumi.Alias(type_="azure-native:automation/v20241023:Runbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -398,8 +419,11 @@ class Runbook(pulumi.CustomResource):
         __props__.__dict__["output_types"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["publish_content_link"] = None
         __props__.__dict__["runbook_type"] = None
+        __props__.__dict__["runtime_environment"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Runbook(resource_name, opts=opts, __props__=__props__)
@@ -470,9 +494,9 @@ class Runbook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -533,6 +557,14 @@ class Runbook(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="publishContentLink")
+    def publish_content_link(self) -> pulumi.Output[Optional['outputs.ContentLinkResponse']]:
+        """
+        Gets or sets the published runbook content link.
+        """
+        return pulumi.get(self, "publish_content_link")
+
+    @_builtins.property
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -541,12 +573,28 @@ class Runbook(pulumi.CustomResource):
         return pulumi.get(self, "runbook_type")
 
     @_builtins.property
+    @pulumi.getter(name="runtimeEnvironment")
+    def runtime_environment(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Runtime Environment of the runbook execution.
+        """
+        return pulumi.get(self, "runtime_environment")
+
+    @_builtins.property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Gets or sets the state of the runbook.
         """
         return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -560,7 +608,7 @@ class Runbook(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
