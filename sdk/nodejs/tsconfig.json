@@ -507,6 +507,7 @@
         "authorization/listPolicySetDefinitionVersionAll.ts",
         "authorization/listPolicySetDefinitionVersionAllAtManagementGroup.ts",
         "authorization/listPolicySetDefinitionVersionAllBuiltins.ts",
+        "authorization/listSubscriptions.ts",
         "authorization/managementLockAtResourceGroupLevel.ts",
         "authorization/managementLockAtResourceLevel.ts",
         "authorization/managementLockAtSubscriptionLevel.ts",

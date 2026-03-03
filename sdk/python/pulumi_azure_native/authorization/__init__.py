@@ -46,6 +46,7 @@ from .list_policy_definition_version_all_builtins import *
 from .list_policy_set_definition_version_all import *
 from .list_policy_set_definition_version_all_at_management_group import *
 from .list_policy_set_definition_version_all_builtins import *
+from .list_subscriptions import *
 from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *

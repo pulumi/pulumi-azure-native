@@ -317,3 +317,51 @@ func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) 
 		apitype.OpSame: 3,
 	}, preview.ChangeSummary)
 }
+
+// TestListSubscriptionsInvoke verifies that the listSubscriptions invoke works
+// by calling it from a YAML program and putting the results in an output.
+func TestListSubscriptionsInvoke(t *testing.T) {
+	proj := tempProject(t)
+	azureBinaryDir := azureNativeBinaryDir(t)
+	test := createTest(t, proj.dir)
+
+	plugins := map[string]any{
+		"providers": []interface{}{
+			map[string]any{
+				"name": "azure-native",
+				"path": azureBinaryDir,
+			},
+		},
+	}
+
+	program := map[string]any{
+		"name":    proj.name,
+		"runtime": "yaml",
+		"variables": map[string]any{
+			"subscriptions": map[string]any{
+				"fn::invoke": map[string]any{
+					"function": "azure-native:authorization:listSubscriptions",
+				},
+			},
+		},
+		"outputs": map[string]any{
+			"firstSubscriptionId": "${subscriptions.value[0].subscriptionId}",
+		},
+		"plugins": plugins,
+	}
+
+	updatePulumiYAML(t, test.WorkingDir(), program)
+
+	upResult := test.Up(t)
+	t.Logf("Up STDOUT: \n%s", upResult.StdOut)
+
+	firstSubscriptionId := ""
+	for key, value := range upResult.Outputs {
+		if key == "firstSubscriptionId" {
+			firstSubscriptionId = value.Value.(string)
+		}
+	}
+
+	assert.NotEmpty(t, firstSubscriptionId, "firstSubscriptionId should not be empty")
+	t.Logf("First subscription ID: %s", firstSubscriptionId)
+}

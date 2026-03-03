@@ -335,6 +335,16 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			return nil, err
 		}
 		outputs = map[string]interface{}{"token": token}
+	case "azure-native:authorization:listSubscriptions":
+		apiVersion := "2022-12-01"
+		if v, ok := args["apiVersion"]; ok && v.HasValue() && v.IsString() && v.StringValue() != "" {
+			apiVersion = v.StringValue()
+		}
+		response, err := k.azureClient.Get(ctx, "/subscriptions", apiVersion, nil)
+		if err != nil {
+			return nil, fmt.Errorf("listing subscriptions: %w", err)
+		}
+		outputs = response
 	default:
 		res, ok, err := k.resourceMap.Invokes.Get(req.Tok)
 		if err != nil {

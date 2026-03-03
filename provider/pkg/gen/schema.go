@@ -607,6 +607,130 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata, i
 		},
 	}
 
+	// Mixin 'listSubscriptions' to list all subscriptions for the authenticated account.
+	if _, has := pkg.Functions["azure-native:authorization:listSubscriptions"]; has {
+		return errors.New("Invoke 'azure-native:authorization:listSubscriptions' is already defined")
+	}
+
+	subscriptionPoliciesType := "azure-native:authorization:SubscriptionPoliciesResponse"
+	managedByTenantType := "azure-native:authorization:ManagedByTenantResponse"
+	subscriptionType := "azure-native:authorization:SubscriptionResponse"
+
+	pkg.Types[subscriptionPoliciesType] = pschema.ComplexTypeSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: "Subscription policies.",
+			Properties: map[string]pschema.PropertySpec{
+				"locationPlacementId": {
+					Description: "The subscription location placement ID.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"quotaId": {
+					Description: "The subscription quota ID.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"spendingLimit": {
+					Description: "The subscription spending limit.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+		},
+	}
+
+	pkg.Types[managedByTenantType] = pschema.ComplexTypeSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: "Information about a tenant managing the subscription.",
+			Properties: map[string]pschema.PropertySpec{
+				"tenantId": {
+					Description: "The tenant ID of the managing tenant.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+		},
+	}
+
+	pkg.Types[subscriptionType] = pschema.ComplexTypeSpec{
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: "Subscription information.",
+			Properties: map[string]pschema.PropertySpec{
+				"authorizationSource": {
+					Description: "The authorization source of the request.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"displayName": {
+					Description: "The subscription display name.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"id": {
+					Description: "The fully qualified ID for the subscription.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"managedByTenants": {
+					Description: "An array containing the tenants managing the subscription.",
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/" + managedByTenantType},
+					},
+				},
+				"state": {
+					Description: "The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"subscriptionId": {
+					Description: "The subscription ID.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"subscriptionPolicies": {
+					Description: "The subscription policies.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + subscriptionPoliciesType},
+				},
+				"tags": {
+					Description: "The tags attached to the subscription.",
+					TypeSpec: pschema.TypeSpec{
+						Type:                 "object",
+						AdditionalProperties: &pschema.TypeSpec{Type: "string"},
+					},
+				},
+				"tenantId": {
+					Description: "The subscription tenant ID.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+		},
+	}
+
+	pkg.Functions["azure-native:authorization:listSubscriptions"] = pschema.FunctionSpec{
+		Description: "Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.",
+		Inputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"apiVersion": {
+					Description: "The API version to use for the request. Defaults to '2022-12-01'.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+			},
+			Type: "object",
+		},
+		Outputs: &pschema.ObjectTypeSpec{
+			Description: "Subscription list operation response.",
+			Properties: map[string]pschema.PropertySpec{
+				"nextLink": {
+					Description: "The URL to get the next set of results.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"value": {
+					Description: "An array of subscriptions.",
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/" + subscriptionType},
+					},
+				},
+			},
+			Type: "object",
+		},
+	}
+
 	if includeCustomResources {
 		// Mixin all the custom resources that define schema and/or metadata.
 		for tok, r := range customresources.SchemaMixins() {
