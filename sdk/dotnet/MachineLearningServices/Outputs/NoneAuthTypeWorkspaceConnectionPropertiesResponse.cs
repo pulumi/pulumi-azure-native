@@ -22,7 +22,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Category of the connection
         /// </summary>
         public readonly string? Category;
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         public readonly string CreatedByWorkspaceArmId;
+        public readonly string? Error;
         public readonly string? ExpiryTime;
         /// <summary>
         /// Group based on connection category
@@ -33,16 +37,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Store user metadata for this connection
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly string? PeRequirement;
+        public readonly string? PeStatus;
         public readonly ImmutableArray<string> SharedUserList;
         public readonly string? Target;
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        public readonly string? Value;
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        public readonly string? ValueFormat;
+        public readonly bool? UseWorkspaceManagedIdentity;
 
         [OutputConstructor]
         private NoneAuthTypeWorkspaceConnectionPropertiesResponse(
@@ -52,6 +51,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string createdByWorkspaceArmId,
 
+            string? error,
+
             string? expiryTime,
 
             string group,
@@ -60,25 +61,29 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, string>? metadata,
 
+            string? peRequirement,
+
+            string? peStatus,
+
             ImmutableArray<string> sharedUserList,
 
             string? target,
 
-            string? value,
-
-            string? valueFormat)
+            bool? useWorkspaceManagedIdentity)
         {
             AuthType = authType;
             Category = category;
             CreatedByWorkspaceArmId = createdByWorkspaceArmId;
+            Error = error;
             ExpiryTime = expiryTime;
             Group = group;
             IsSharedToAll = isSharedToAll;
             Metadata = metadata;
+            PeRequirement = peRequirement;
+            PeStatus = peStatus;
             SharedUserList = sharedUserList;
             Target = target;
-            Value = value;
-            ValueFormat = valueFormat;
+            UseWorkspaceManagedIdentity = useWorkspaceManagedIdentity;
         }
     }
 }

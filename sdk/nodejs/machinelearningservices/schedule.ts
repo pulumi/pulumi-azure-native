@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -52,7 +52,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    declare public readonly scheduleProperties: pulumi.Output<outputs.machinelearningservices.ScheduleResponse>;
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.SchedulePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,18 +73,18 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (args?.scheduleProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scheduleProperties'");
             }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.schedulePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["scheduleProperties"] = args ? (args.scheduleProperties ? pulumi.output(args.scheduleProperties).apply(inputs.machinelearningservices.scheduleArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -92,12 +92,12 @@ export class Schedule extends pulumi.CustomResource {
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["scheduleProperties"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20220601preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221001:Schedule" }, { type: "azure-native:machinelearningservices/v20221001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221201preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230201preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230401:Schedule" }, { type: "azure-native:machinelearningservices/v20230401preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230601preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230801preview:Schedule" }, { type: "azure-native:machinelearningservices/v20231001:Schedule" }, { type: "azure-native:machinelearningservices/v20240101preview:Schedule" }, { type: "azure-native:machinelearningservices/v20240401:Schedule" }, { type: "azure-native:machinelearningservices/v20240401preview:Schedule" }, { type: "azure-native:machinelearningservices/v20240701preview:Schedule" }, { type: "azure-native:machinelearningservices/v20241001:Schedule" }, { type: "azure-native:machinelearningservices/v20241001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250101preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250401:Schedule" }, { type: "azure-native:machinelearningservices/v20250401preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250601:Schedule" }, { type: "azure-native:machinelearningservices/v20250701preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250901:Schedule" }, { type: "azure-native:machinelearningservices/v20251001preview:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20220601preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221001:Schedule" }, { type: "azure-native:machinelearningservices/v20221001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221201preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230201preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230401:Schedule" }, { type: "azure-native:machinelearningservices/v20230401preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230601preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230801preview:Schedule" }, { type: "azure-native:machinelearningservices/v20231001:Schedule" }, { type: "azure-native:machinelearningservices/v20240101preview:Schedule" }, { type: "azure-native:machinelearningservices/v20240401:Schedule" }, { type: "azure-native:machinelearningservices/v20240401preview:Schedule" }, { type: "azure-native:machinelearningservices/v20240701preview:Schedule" }, { type: "azure-native:machinelearningservices/v20241001:Schedule" }, { type: "azure-native:machinelearningservices/v20241001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250101preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250401:Schedule" }, { type: "azure-native:machinelearningservices/v20250401preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250601:Schedule" }, { type: "azure-native:machinelearningservices/v20250701preview:Schedule" }, { type: "azure-native:machinelearningservices/v20250901:Schedule" }, { type: "azure-native:machinelearningservices/v20251001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20251201:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
@@ -112,15 +112,15 @@ export interface ScheduleArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.SchedulePropertiesArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    scheduleProperties: pulumi.Input<inputs.machinelearningservices.ScheduleArgs>;
-    /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

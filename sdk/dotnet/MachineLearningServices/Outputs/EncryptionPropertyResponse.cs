@@ -14,29 +14,53 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class EncryptionPropertyResponse
     {
         /// <summary>
-        /// The identity that will be used to access the key vault for encryption at rest.
+        /// The byok cosmosdb account that customer brings to store customer's data
+        /// with encryption
+        /// </summary>
+        public readonly string? CosmosDbResourceId;
+        /// <summary>
+        /// Identity to be used with the keyVault
         /// </summary>
         public readonly Outputs.IdentityForCmkResponse? Identity;
         /// <summary>
-        /// Customer Key vault properties.
+        /// KeyVault details to do the encryption
         /// </summary>
-        public readonly Outputs.EncryptionKeyVaultPropertiesResponse KeyVaultProperties;
+        public readonly Outputs.KeyVaultPropertiesResponse KeyVaultProperties;
+        /// <summary>
+        /// The byok search account that customer brings to store customer's data
+        /// with encryption
+        /// </summary>
+        public readonly string? SearchAccountResourceId;
         /// <summary>
         /// Indicates whether or not the encryption is enabled for the workspace.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The byok storage account that customer brings to store customer's data
+        /// with encryption
+        /// </summary>
+        public readonly string? StorageAccountResourceId;
 
         [OutputConstructor]
         private EncryptionPropertyResponse(
+            string? cosmosDbResourceId,
+
             Outputs.IdentityForCmkResponse? identity,
 
-            Outputs.EncryptionKeyVaultPropertiesResponse keyVaultProperties,
+            Outputs.KeyVaultPropertiesResponse keyVaultProperties,
 
-            string status)
+            string? searchAccountResourceId,
+
+            string status,
+
+            string? storageAccountResourceId)
         {
+            CosmosDbResourceId = cosmosDbResourceId;
             Identity = identity;
             KeyVaultProperties = keyVaultProperties;
+            SearchAccountResourceId = searchAccountResourceId;
             Status = status;
+            StorageAccountResourceId = storageAccountResourceId;
         }
     }
 }

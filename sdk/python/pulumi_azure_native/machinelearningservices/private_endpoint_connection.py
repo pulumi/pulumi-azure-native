@@ -22,27 +22,25 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
-        :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
-        :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[_builtins.str] location: *Same as workspace location.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: NRP Private Endpoint Connection Name
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The connection state.
+        :param pulumi.Input['SkuArgs'] sku: Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if identity is not None:
@@ -51,22 +49,12 @@ class PrivateEndpointConnectionArgs:
             pulumi.set(__self__, "location", location)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -84,7 +72,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -96,7 +84,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        The identity of the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -108,7 +96,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the location of the resource.
+        *Same as workspace location.
         """
         return pulumi.get(self, "location")
 
@@ -120,7 +108,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the private endpoint connection associated with the workspace
+        NRP Private Endpoint Connection Name
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -129,10 +117,22 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
+        """
+        The connection state.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @_builtins.property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The sku of the workspace.
+        Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
         return pulumi.get(self, "sku")
 
@@ -143,9 +143,6 @@ class PrivateEndpointConnectionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Contains resource tags defined as key/value pairs.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -171,21 +168,20 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
-        :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the workspace
-        :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[_builtins.str] location: *Same as workspace location.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: NRP Private Endpoint Connection Name
+        :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: The connection state.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
@@ -196,9 +192,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -236,8 +232,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
-            if private_link_service_connection_state is None and not opts.urn:
-                raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -253,7 +247,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:machinelearningservices:PrivateEndpointConnection',
@@ -302,7 +296,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        The identity of the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -310,7 +304,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the location of the resource.
+        *Same as workspace location.
         """
         return pulumi.get(self, "location")
 
@@ -324,17 +318,17 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.WorkspacePrivateEndpointResourceResponse']]:
         """
-        The resource of private end point.
+        The Private Endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
+    def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStateResponse']]:
         """
-        A collection of information about the state of the connection between service consumer and provider.
+        The connection state.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -342,7 +336,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
         """
-        The provisioning state of the private endpoint connection resource.
+        The current provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -350,7 +344,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The sku of the workspace.
+        Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         """
         return pulumi.get(self, "sku")
 
@@ -365,9 +359,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
-        """
-        Contains resource tags defined as key/value pairs.
-        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

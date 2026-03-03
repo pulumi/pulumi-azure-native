@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// 
+    /// Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
@@ -24,10 +26,22 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Discovery URL for the Registry
+        /// </summary>
+        [Output("discoveryUrl")]
+        public Output<string?> DiscoveryUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// IntellectualPropertyPublisher for the registry
+        /// </summary>
+        [Output("intellectualPropertyPublisher")]
+        public Output<string?> IntellectualPropertyPublisher { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -42,16 +56,47 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// ResourceId of the managed RG if the registry has system created resources
+        /// </summary>
+        [Output("managedResourceGroup")]
+        public Output<Outputs.ArmResourceIdResponse?> ManagedResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed resource group specific settings
+        /// </summary>
+        [Output("managedResourceGroupSettings")]
+        public Output<Outputs.ManagedResourceGroupSettingsResponse?> ManagedResourceGroupSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// MLFlow Registry URI for the Registry
+        /// </summary>
+        [Output("mlFlowRegistryUri")]
+        public Output<string?> MlFlowRegistryUri { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
+        /// Is the Registry accessible from the internet?
+        /// Possible values: "Enabled" or "Disabled"
         /// </summary>
-        [Output("registryProperties")]
-        public Output<Outputs.RegistryResponse> RegistryProperties { get; private set; } = null!;
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of each region the registry is in
+        /// </summary>
+        [Output("regionDetails")]
+        public Output<ImmutableArray<Outputs.RegistryRegionArmDetailsResponse>> RegionDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Private endpoint connections info used for pending connections in private link portal
+        /// </summary>
+        [Output("registryPrivateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse>> RegistryPrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
@@ -123,6 +168,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:Registry" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:Registry" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:Registry" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:Registry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,10 +193,22 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Discovery URL for the Registry
+        /// </summary>
+        [Input("discoveryUrl")]
+        public Input<string>? DiscoveryUrl { get; set; }
+
+        /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// IntellectualPropertyPublisher for the registry
+        /// </summary>
+        [Input("intellectualPropertyPublisher")]
+        public Input<string>? IntellectualPropertyPublisher { get; set; }
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -165,16 +223,59 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// ResourceId of the managed RG if the registry has system created resources
+        /// </summary>
+        [Input("managedResourceGroup")]
+        public Input<Inputs.ArmResourceIdArgs>? ManagedResourceGroup { get; set; }
+
+        /// <summary>
+        /// Managed resource group specific settings
+        /// </summary>
+        [Input("managedResourceGroupSettings")]
+        public Input<Inputs.ManagedResourceGroupSettingsArgs>? ManagedResourceGroupSettings { get; set; }
+
+        /// <summary>
+        /// MLFlow Registry URI for the Registry
+        /// </summary>
+        [Input("mlFlowRegistryUri")]
+        public Input<string>? MlFlowRegistryUri { get; set; }
+
+        /// <summary>
+        /// Is the Registry accessible from the internet?
+        /// Possible values: "Enabled" or "Disabled"
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        [Input("regionDetails")]
+        private InputList<Inputs.RegistryRegionArmDetailsArgs>? _regionDetails;
+
+        /// <summary>
+        /// Details of each region the registry is in
+        /// </summary>
+        public InputList<Inputs.RegistryRegionArmDetailsArgs> RegionDetails
+        {
+            get => _regionDetails ?? (_regionDetails = new InputList<Inputs.RegistryRegionArmDetailsArgs>());
+            set => _regionDetails = value;
+        }
+
+        /// <summary>
         /// Name of Azure Machine Learning registry. This is case-insensitive
         /// </summary>
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 
+        [Input("registryPrivateEndpointConnections")]
+        private InputList<Inputs.RegistryPrivateEndpointConnectionArgs>? _registryPrivateEndpointConnections;
+
         /// <summary>
-        /// [Required] Additional attributes of the entity.
+        /// Private endpoint connections info used for pending connections in private link portal
         /// </summary>
-        [Input("registryProperties", required: true)]
-        public Input<Inputs.RegistryArgs> RegistryProperties { get; set; } = null!;
+        public InputList<Inputs.RegistryPrivateEndpointConnectionArgs> RegistryPrivateEndpointConnections
+        {
+            get => _registryPrivateEndpointConnections ?? (_registryPrivateEndpointConnections = new InputList<Inputs.RegistryPrivateEndpointConnectionArgs>());
+            set => _registryPrivateEndpointConnections = value;
+        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

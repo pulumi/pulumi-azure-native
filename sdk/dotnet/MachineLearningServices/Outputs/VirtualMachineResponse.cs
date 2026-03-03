@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The time at which the compute was last modified.
         /// </summary>
         public readonly string ModifiedOn;
-        public readonly Outputs.VirtualMachineSchemaResponseProperties? Properties;
+        public readonly Outputs.VirtualMachineSchemaPropertiesResponse? Properties;
         /// <summary>
         /// Errors during provisioning
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string modifiedOn,
 
-            Outputs.VirtualMachineSchemaResponseProperties? properties,
+            Outputs.VirtualMachineSchemaPropertiesResponse? properties,
 
             ImmutableArray<Outputs.ErrorResponseResponse> provisioningErrors,
 

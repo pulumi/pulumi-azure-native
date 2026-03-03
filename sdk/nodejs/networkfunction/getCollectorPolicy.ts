@@ -31,7 +31,7 @@ export interface GetCollectorPolicyArgs {
      */
     collectorPolicyName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -53,7 +53,7 @@ export interface GetCollectorPolicyResult {
      */
     readonly etag: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -65,7 +65,7 @@ export interface GetCollectorPolicyResult {
      */
     readonly location: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -73,15 +73,15 @@ export interface GetCollectorPolicyResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly systemData: outputs.networkfunction.TrackedResourceResponseSystemData;
+    readonly systemData: outputs.networkfunction.SystemDataResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -109,7 +109,7 @@ export interface GetCollectorPolicyOutputArgs {
      */
     collectorPolicyName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

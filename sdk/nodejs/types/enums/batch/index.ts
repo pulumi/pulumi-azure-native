@@ -105,6 +105,9 @@ export const CertificateVisibility = {
     RemoteUser: "RemoteUser",
 } as const;
 
+/**
+ * The visibility of the certificate.
+ */
 export type CertificateVisibility = (typeof CertificateVisibility)[keyof typeof CertificateVisibility];
 
 export const ComputeNodeDeallocationOption = {
@@ -121,7 +124,7 @@ export const ComputeNodeDeallocationOption = {
      */
     TaskCompletion: "TaskCompletion",
     /**
-     * Deprecated, we encourage you to upload task data to Azure Storage in your task and use `TaskCompletion` instead. Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.
+     * Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.
      */
     RetainedData: "RetainedData",
 } as const;
@@ -508,7 +511,13 @@ export const ResourceIdentityType = {
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SecurityEncryptionTypes = {
+    /**
+     * EncryptionType of the managed disk is set to NonPersistedTPM for not persisting firmware state in the VMGuestState blob.
+     */
     NonPersistedTPM: "NonPersistedTPM",
+    /**
+     * EncryptionType of the managed disk is set to VMGuestStateOnly for encryption of just the VMGuestState blob.
+     */
     VMGuestStateOnly: "VMGuestStateOnly",
 } as const;
 

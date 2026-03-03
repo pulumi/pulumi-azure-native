@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Datastore extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class Datastore extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly datastoreProperties: pulumi.Output<outputs.machinelearningservices.AzureBlobDatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen1DatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen2DatastoreResponse | outputs.machinelearningservices.AzureFileDatastoreResponse | outputs.machinelearningservices.OneLakeDatastoreResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.AzureBlobDatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen1DatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen2DatastoreResponse | outputs.machinelearningservices.AzureFileDatastoreResponse | outputs.machinelearningservices.OneLakeDatastoreResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,8 +73,8 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.datastoreProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'datastoreProperties'");
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,8 +82,8 @@ export class Datastore extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["datastoreProperties"] = args?.datastoreProperties;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["skipValidation"] = args?.skipValidation;
             resourceInputs["workspaceName"] = args?.workspaceName;
@@ -92,13 +92,13 @@ export class Datastore extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["datastoreProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:Datastore" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20210301preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220501:Datastore" }, { type: "azure-native:machinelearningservices/v20220601preview:Datastore" }, { type: "azure-native:machinelearningservices/v20221001:Datastore" }, { type: "azure-native:machinelearningservices/v20221001preview:Datastore" }, { type: "azure-native:machinelearningservices/v20221201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230401:Datastore" }, { type: "azure-native:machinelearningservices/v20230401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230601preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230801preview:Datastore" }, { type: "azure-native:machinelearningservices/v20231001:Datastore" }, { type: "azure-native:machinelearningservices/v20240101preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240401:Datastore" }, { type: "azure-native:machinelearningservices/v20240401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240701preview:Datastore" }, { type: "azure-native:machinelearningservices/v20241001:Datastore" }, { type: "azure-native:machinelearningservices/v20241001preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250101preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250401:Datastore" }, { type: "azure-native:machinelearningservices/v20250401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250601:Datastore" }, { type: "azure-native:machinelearningservices/v20250701preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250901:Datastore" }, { type: "azure-native:machinelearningservices/v20251001preview:Datastore" }, { type: "azure-native:machinelearningservices:MachineLearningDatastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:Datastore" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore" }, { type: "azure-native:machinelearningservices/v20210301preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20220501:Datastore" }, { type: "azure-native:machinelearningservices/v20220601preview:Datastore" }, { type: "azure-native:machinelearningservices/v20221001:Datastore" }, { type: "azure-native:machinelearningservices/v20221001preview:Datastore" }, { type: "azure-native:machinelearningservices/v20221201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230201preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230401:Datastore" }, { type: "azure-native:machinelearningservices/v20230401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230601preview:Datastore" }, { type: "azure-native:machinelearningservices/v20230801preview:Datastore" }, { type: "azure-native:machinelearningservices/v20231001:Datastore" }, { type: "azure-native:machinelearningservices/v20240101preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240401:Datastore" }, { type: "azure-native:machinelearningservices/v20240401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20240701preview:Datastore" }, { type: "azure-native:machinelearningservices/v20241001:Datastore" }, { type: "azure-native:machinelearningservices/v20241001preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250101preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250401:Datastore" }, { type: "azure-native:machinelearningservices/v20250401preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250601:Datastore" }, { type: "azure-native:machinelearningservices/v20250701preview:Datastore" }, { type: "azure-native:machinelearningservices/v20250901:Datastore" }, { type: "azure-native:machinelearningservices/v20251001preview:Datastore" }, { type: "azure-native:machinelearningservices/v20251201:Datastore" }, { type: "azure-native:machinelearningservices:MachineLearningDatastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Datastore.__pulumiType, name, resourceInputs, opts);
     }
@@ -109,13 +109,13 @@ export class Datastore extends pulumi.CustomResource {
  */
 export interface DatastoreArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    datastoreProperties: pulumi.Input<inputs.machinelearningservices.AzureBlobDatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen1DatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen2DatastoreArgs | inputs.machinelearningservices.AzureFileDatastoreArgs | inputs.machinelearningservices.OneLakeDatastoreArgs>;
-    /**
      * Datastore name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.AzureBlobDatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen1DatastoreArgs | inputs.machinelearningservices.AzureDataLakeGen2DatastoreArgs | inputs.machinelearningservices.AzureFileDatastoreArgs | inputs.machinelearningservices.OneLakeDatastoreArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface DatastoreArgs {
      */
     skipValidation?: pulumi.Input<boolean>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

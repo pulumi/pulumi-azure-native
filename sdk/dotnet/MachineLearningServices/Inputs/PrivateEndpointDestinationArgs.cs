@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// </summary>
     public sealed class PrivateEndpointDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Input("serviceResourceId")]
         public Input<string>? ServiceResourceId { get; set; }
 

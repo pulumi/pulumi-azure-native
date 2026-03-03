@@ -50,7 +50,7 @@ export class AgentApplication extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    declare public readonly properties: pulumi.Output<outputs.cognitiveservices.AgenticApplicationResponse>;
+    declare public readonly properties: pulumi.Output<outputs.cognitiveservices.AgenticApplicationPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -124,7 +124,7 @@ export interface AgentApplicationArgs {
     /**
      * [Required] Additional attributes of the entity.
      */
-    properties: pulumi.Input<inputs.cognitiveservices.AgenticApplicationArgs>;
+    properties: pulumi.Input<inputs.cognitiveservices.AgenticApplicationPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

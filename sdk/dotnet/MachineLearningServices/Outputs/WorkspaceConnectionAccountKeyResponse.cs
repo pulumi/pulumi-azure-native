@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Account key object for workspace connection credential.
+    /// </summary>
     [OutputType]
     public sealed class WorkspaceConnectionAccountKeyResponse
     {

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a Wave
         /// 
         /// Uses Azure REST API version 2025-03-30-preview.
+        /// 
+        /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWaveResult> InvokeAsync(GetWaveArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWaveResult>("azure-native:migrate:getWave", args ?? new GetWaveArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a Wave
         /// 
         /// Uses Azure REST API version 2025-03-30-preview.
+        /// 
+        /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWaveResult> Invoke(GetWaveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWaveResult>("azure-native:migrate:getWave", args ?? new GetWaveInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Migrate
         /// Get a Wave
         /// 
         /// Uses Azure REST API version 2025-03-30-preview.
+        /// 
+        /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWaveResult> Invoke(GetWaveInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWaveResult>("azure-native:migrate:getWave", args ?? new GetWaveInvokeArgs(), options.WithDefaults());

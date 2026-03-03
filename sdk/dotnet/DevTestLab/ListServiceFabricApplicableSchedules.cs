@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceFabric
+        /// The name of the service fabric.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceFabric
+        /// The name of the service fabric.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class ListServiceFabricApplicableSchedulesResult
     {
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -122,15 +122,19 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNative.DevTestLab
             LabVmsStartup = labVmsStartup;
             Location = location;
             Name = name;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

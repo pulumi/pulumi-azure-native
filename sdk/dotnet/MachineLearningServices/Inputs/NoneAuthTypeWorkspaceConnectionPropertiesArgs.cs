@@ -25,6 +25,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("category")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ConnectionCategory>? Category { get; set; }
 
+        [Input("error")]
+        public Input<string>? Error { get; set; }
+
         [Input("expiryTime")]
         public Input<string>? ExpiryTime { get; set; }
 
@@ -43,6 +46,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _metadata = value;
         }
 
+        [Input("peRequirement")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ManagedPERequirement>? PeRequirement { get; set; }
+
+        [Input("peStatus")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ManagedPEStatus>? PeStatus { get; set; }
+
         [Input("sharedUserList")]
         private InputList<string>? _sharedUserList;
         public InputList<string> SharedUserList
@@ -54,17 +63,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("target")]
         public Input<string>? Target { get; set; }
 
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        [Input("valueFormat")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ValueFormat>? ValueFormat { get; set; }
+        [Input("useWorkspaceManagedIdentity")]
+        public Input<bool>? UseWorkspaceManagedIdentity { get; set; }
 
         public NoneAuthTypeWorkspaceConnectionPropertiesArgs()
         {

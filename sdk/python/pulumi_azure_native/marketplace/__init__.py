@@ -9,10 +9,12 @@ import typing
 from ._enums import *
 from .get_private_store_collection import *
 from .get_private_store_collection_offer import *
+from .get_user_solution import *
 from .list_private_store_new_plans_notifications import *
 from .list_private_store_stop_sell_offers_plans_notifications import *
 from .list_private_store_subscriptions_context import *
 from .private_store_collection import *
 from .private_store_collection_offer import *
+from .user_solution import *
 from ._inputs import *
 from . import outputs

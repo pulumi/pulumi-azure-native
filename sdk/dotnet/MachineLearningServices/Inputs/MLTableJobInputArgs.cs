@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string> JobInputType { get; set; } = null!;
 
         /// <summary>
-        /// Input Asset Delivery Mode.
+        /// Enum to determine the input data delivery mode.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.InputDeliveryMode>? Mode { get; set; }

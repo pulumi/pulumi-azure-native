@@ -13,8 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class RegistryListCredentialsResultResponse
     {
+        /// <summary>
+        /// The location of the workspace ACR
+        /// </summary>
         public readonly string Location;
         public readonly ImmutableArray<Outputs.PasswordResponse> Passwords;
+        /// <summary>
+        /// The username of the workspace ACR
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

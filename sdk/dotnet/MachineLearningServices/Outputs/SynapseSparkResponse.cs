@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The time at which the compute was last modified.
         /// </summary>
         public readonly string ModifiedOn;
-        public readonly Outputs.SynapseSparkResponseProperties? Properties;
+        public readonly Outputs.SynapseSparkPropertiesResponse? Properties;
         /// <summary>
         /// Errors during provisioning
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string modifiedOn,
 
-            Outputs.SynapseSparkResponseProperties? properties,
+            Outputs.SynapseSparkPropertiesResponse? properties,
 
             ImmutableArray<Outputs.ErrorResponseResponse> provisioningErrors,
 

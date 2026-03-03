@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Docker container configuration
-    /// </summary>
     public sealed class DockerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

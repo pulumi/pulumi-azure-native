@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ApplicationArgs } from "./application";
-export type Application = import("./application").Application;
-export const Application: typeof import("./application").Application = null as any;
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-
-export { ApplicationTypeArgs } from "./applicationType";
-export type ApplicationType = import("./applicationType").ApplicationType;
-export const ApplicationType: typeof import("./applicationType").ApplicationType = null as any;
-utilities.lazyLoad(exports, ["ApplicationType"], () => require("./applicationType"));
-
-export { ApplicationTypeVersionArgs } from "./applicationTypeVersion";
-export type ApplicationTypeVersion = import("./applicationTypeVersion").ApplicationTypeVersion;
-export const ApplicationTypeVersion: typeof import("./applicationTypeVersion").ApplicationTypeVersion = null as any;
-utilities.lazyLoad(exports, ["ApplicationTypeVersion"], () => require("./applicationTypeVersion"));
-
-export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
-export const getApplication: typeof import("./getApplication").getApplication = null as any;
-export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-
-export { GetApplicationTypeArgs, GetApplicationTypeResult, GetApplicationTypeOutputArgs } from "./getApplicationType";
-export const getApplicationType: typeof import("./getApplicationType").getApplicationType = null as any;
-export const getApplicationTypeOutput: typeof import("./getApplicationType").getApplicationTypeOutput = null as any;
-utilities.lazyLoad(exports, ["getApplicationType","getApplicationTypeOutput"], () => require("./getApplicationType"));
-
-export { GetApplicationTypeVersionArgs, GetApplicationTypeVersionResult, GetApplicationTypeVersionOutputArgs } from "./getApplicationTypeVersion";
-export const getApplicationTypeVersion: typeof import("./getApplicationTypeVersion").getApplicationTypeVersion = null as any;
-export const getApplicationTypeVersionOutput: typeof import("./getApplicationTypeVersion").getApplicationTypeVersionOutput = null as any;
-utilities.lazyLoad(exports, ["getApplicationTypeVersion","getApplicationTypeVersionOutput"], () => require("./getApplicationTypeVersion"));
-
 export { GetManagedAzResiliencyStatusArgs, GetManagedAzResiliencyStatusResult, GetManagedAzResiliencyStatusOutputArgs } from "./getManagedAzResiliencyStatus";
 export const getManagedAzResiliencyStatus: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatus = null as any;
 export const getManagedAzResiliencyStatusOutput: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatusOutput = null as any;
@@ -85,11 +55,6 @@ export const getNodeTypeFaultSimulation: typeof import("./getNodeTypeFaultSimula
 export const getNodeTypeFaultSimulationOutput: typeof import("./getNodeTypeFaultSimulation").getNodeTypeFaultSimulationOutput = null as any;
 utilities.lazyLoad(exports, ["getNodeTypeFaultSimulation","getNodeTypeFaultSimulationOutput"], () => require("./getNodeTypeFaultSimulation"));
 
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-
 export { ListManagedClusterFaultSimulationArgs, ListManagedClusterFaultSimulationResult, ListManagedClusterFaultSimulationOutputArgs } from "./listManagedClusterFaultSimulation";
 export const listManagedClusterFaultSimulation: typeof import("./listManagedClusterFaultSimulation").listManagedClusterFaultSimulation = null as any;
 export const listManagedClusterFaultSimulationOutput: typeof import("./listManagedClusterFaultSimulation").listManagedClusterFaultSimulationOutput = null as any;
@@ -130,11 +95,6 @@ export type NodeType = import("./nodeType").NodeType;
 export const NodeType: typeof import("./nodeType").NodeType = null as any;
 utilities.lazyLoad(exports, ["NodeType"], () => require("./nodeType"));
 
-export { ServiceArgs } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
-
 
 // Export enums:
 export * from "../types/enums/servicefabric";
@@ -143,12 +103,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:servicefabric:Application":
-                return new Application(name, <any>undefined, { urn })
-            case "azure-native:servicefabric:ApplicationType":
-                return new ApplicationType(name, <any>undefined, { urn })
-            case "azure-native:servicefabric:ApplicationTypeVersion":
-                return new ApplicationTypeVersion(name, <any>undefined, { urn })
             case "azure-native:servicefabric:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
             case "azure-native:servicefabric:ManagedClusterApplication":
@@ -161,8 +115,6 @@ const _module = {
                 return new ManagedClusterService(name, <any>undefined, { urn })
             case "azure-native:servicefabric:NodeType":
                 return new NodeType(name, <any>undefined, { urn })
-            case "azure-native:servicefabric:Service":
-                return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

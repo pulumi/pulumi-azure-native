@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
  * Get the default application key.
  *
  * Uses Azure REST API version 2025-11-03-preview.
+ *
+ * Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMonitorDefaultApplicationKey(args: GetMonitorDefaultApplicationKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorDefaultApplicationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +51,8 @@ export interface GetMonitorDefaultApplicationKeyResult {
  * Get the default application key.
  *
  * Uses Azure REST API version 2025-11-03-preview.
+ *
+ * Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMonitorDefaultApplicationKeyOutput(args: GetMonitorDefaultApplicationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorDefaultApplicationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

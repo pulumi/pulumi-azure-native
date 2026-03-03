@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageCache
     /// 
     /// Uses Azure REST API version 2024-03-01.
     /// 
-    /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01, 2023-11-01-preview, 2024-07-01, 2025-07-01, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:AmlFilesystem")]
     public partial class AmlFilesystem : global::Pulumi.CustomResource
@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.StorageCache
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:AmlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240701:AmlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20250701:AmlFilesystem" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20260101:AmlFilesystem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

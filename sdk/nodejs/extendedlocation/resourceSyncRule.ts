@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Resource Sync Rules definition.
  *
  * Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-31-preview.
+ *
+ * Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ResourceSyncRule extends pulumi.CustomResource {
     /**
@@ -123,7 +125,7 @@ export class ResourceSyncRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210831preview:ResourceSyncRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210831preview:ResourceSyncRule" }, { type: "azure-native:extendedlocation/v20240915preview:ResourceSyncRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceSyncRule.__pulumiType, name, resourceInputs, opts);
     }

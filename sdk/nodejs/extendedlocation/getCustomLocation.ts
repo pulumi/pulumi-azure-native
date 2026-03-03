@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-08-31-preview.
  *
- * Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-08-15, 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +103,7 @@ export interface GetCustomLocationResult {
  *
  * Uses Azure REST API version 2021-08-31-preview.
  *
- * Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-08-15, 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

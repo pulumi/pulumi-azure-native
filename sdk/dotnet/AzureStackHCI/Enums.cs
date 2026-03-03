@@ -114,6 +114,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// Defines the customer's intent for updating confidential VM properties
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfidentialVmIntent : IEquatable<ConfidentialVmIntent>
+    {
+        private readonly string _value;
+
+        private ConfidentialVmIntent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that the customer intends to enable CVM support on the cluster.
+        /// </summary>
+        public static ConfidentialVmIntent Enable { get; } = new ConfidentialVmIntent("Enable");
+        /// <summary>
+        /// Indicates that the customer intends to disable CVM support on the cluster.
+        /// </summary>
+        public static ConfidentialVmIntent Disable { get; } = new ConfidentialVmIntent("Disable");
+
+        public static bool operator ==(ConfidentialVmIntent left, ConfidentialVmIntent right) => left.Equals(right);
+        public static bool operator !=(ConfidentialVmIntent left, ConfidentialVmIntent right) => !left.Equals(right);
+
+        public static explicit operator string(ConfidentialVmIntent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfidentialVmIntent other && Equals(other);
+        public bool Equals(ConfidentialVmIntent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Deployment mode to trigger job.
     /// </summary>
     [EnumType]
@@ -208,6 +245,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiagnosticLevel other && Equals(other);
         public bool Equals(DiagnosticLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This enumerates the possible sources of a disk's creation
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskCreateOption : IEquatable<DiskCreateOption>
+    {
+        private readonly string _value;
+
+        private DiskCreateOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Create a disk by copying from a source resource
+        /// </summary>
+        public static DiskCreateOption Copy { get; } = new DiskCreateOption("Copy");
+        /// <summary>
+        /// Create an empty disk
+        /// </summary>
+        public static DiskCreateOption Empty { get; } = new DiskCreateOption("Empty");
+
+        public static bool operator ==(DiskCreateOption left, DiskCreateOption right) => left.Equals(right);
+        public static bool operator !=(DiskCreateOption left, DiskCreateOption right) => !left.Equals(right);
+
+        public static explicit operator string(DiskCreateOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskCreateOption other && Equals(other);
+        public bool Equals(DiskCreateOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -512,6 +586,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HciEdgeDeviceJobType other && Equals(other);
         public bool Equals(HciEdgeDeviceJobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Job Type to support polymorphic resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct HciJobType : IEquatable<HciJobType>
+    {
+        private readonly string _value;
+
+        private HciJobType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Job to CVM  intent for the cluster.
+        /// </summary>
+        public static HciJobType ConfigureCVM { get; } = new HciJobType("ConfigureCVM");
+        /// <summary>
+        /// Job to configure SDN (Software Defined Networking) integration for the cluster.
+        /// </summary>
+        public static HciJobType ConfigureSdnIntegration { get; } = new HciJobType("ConfigureSdnIntegration");
+
+        public static bool operator ==(HciJobType left, HciJobType right) => left.Equals(right);
+        public static bool operator !=(HciJobType left, HciJobType right) => !left.Equals(right);
+
+        public static explicit operator string(HciJobType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HciJobType other && Equals(other);
+        public bool Equals(HciJobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1353,6 +1464,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the customer's intent for configuring SDN integration
+    /// </summary>
+    [EnumType]
+    public readonly struct SdnIntegrationIntent : IEquatable<SdnIntegrationIntent>
+    {
+        private readonly string _value;
+
+        private SdnIntegrationIntent(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable SDN integration for the deployment.
+        /// </summary>
+        public static SdnIntegrationIntent Enable { get; } = new SdnIntegrationIntent("Enable");
+        /// <summary>
+        /// Disable SDN integration for the deployment.
+        /// </summary>
+        public static SdnIntegrationIntent Disable { get; } = new SdnIntegrationIntent("Disable");
+
+        public static bool operator ==(SdnIntegrationIntent left, SdnIntegrationIntent right) => left.Equals(right);
+        public static bool operator !=(SdnIntegrationIntent left, SdnIntegrationIntent right) => !left.Equals(right);
+
+        public static explicit operator string(SdnIntegrationIntent value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SdnIntegrationIntent other && Equals(other);
+        public bool Equals(SdnIntegrationIntent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

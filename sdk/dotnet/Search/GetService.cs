@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Search
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Search
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

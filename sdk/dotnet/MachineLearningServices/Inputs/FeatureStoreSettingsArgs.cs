@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Settings for feature store type workspace.
-    /// </summary>
     public sealed class FeatureStoreSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Compute runtime config for feature store type workspace.
-        /// </summary>
         [Input("computeRuntime")]
         public Input<Inputs.ComputeRuntimeDtoArgs>? ComputeRuntime { get; set; }
 

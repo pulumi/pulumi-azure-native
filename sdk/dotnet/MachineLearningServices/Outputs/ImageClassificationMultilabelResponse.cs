@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.ImageLimitSettingsResponse LimitSettings;
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         public readonly string? LogVerbosity;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.ImageModelSettingsClassificationResponse? ModelSettings;
         /// <summary>
-        /// Primary metric to optimize for this task.
+        /// Primary metrics for classification multilabel tasks.
         /// </summary>
         public readonly string? PrimaryMetric;
         /// <summary>

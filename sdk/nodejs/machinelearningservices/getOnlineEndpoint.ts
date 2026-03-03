@@ -8,9 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2025-09-01.
+ * Get Online Endpoint.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Uses Azure REST API version 2025-12-01.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOnlineEndpoint(args: GetOnlineEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,11 +33,14 @@ export interface GetOnlineEndpointArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: string;
 }
 
+/**
+ * Concrete tracked resource types can be created by aliasing this type using a specific property type.
+ */
 export interface GetOnlineEndpointResult {
     /**
      * The Azure API version of the resource.
@@ -64,7 +69,7 @@ export interface GetOnlineEndpointResult {
     /**
      * [Required] Additional attributes of the entity.
      */
-    readonly onlineEndpointProperties: outputs.machinelearningservices.OnlineEndpointResponse;
+    readonly properties: outputs.machinelearningservices.OnlineEndpointPropertiesResponse;
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
@@ -83,9 +88,11 @@ export interface GetOnlineEndpointResult {
     readonly type: string;
 }
 /**
- * Uses Azure REST API version 2025-09-01.
+ * Get Online Endpoint.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Uses Azure REST API version 2025-12-01.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOnlineEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +113,7 @@ export interface GetOnlineEndpointOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

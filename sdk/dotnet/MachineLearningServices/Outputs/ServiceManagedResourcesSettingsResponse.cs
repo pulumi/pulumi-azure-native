@@ -13,9 +13,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class ServiceManagedResourcesSettingsResponse
     {
-        /// <summary>
-        /// The settings for the service managed cosmosdb account.
-        /// </summary>
         public readonly Outputs.CosmosDbSettingsResponse? CosmosDb;
 
         [OutputConstructor]

@@ -14,6 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class NotebookResourceInfoResponse
     {
         public readonly string? Fqdn;
+        public readonly bool? IsPrivateLinkEnabled;
         /// <summary>
         /// The error that occurs when preparing notebook.
         /// </summary>
@@ -27,11 +28,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private NotebookResourceInfoResponse(
             string? fqdn,
 
+            bool? isPrivateLinkEnabled,
+
             Outputs.NotebookPreparationErrorResponse? notebookPreparationError,
 
             string? resourceId)
         {
             Fqdn = fqdn;
+            IsPrivateLinkEnabled = isPrivateLinkEnabled;
             NotebookPreparationError = notebookPreparationError;
             ResourceId = resourceId;
         }

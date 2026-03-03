@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class TritonModelJobOutputResponse
     {
         /// <summary>
+        /// Output Asset Name.
+        /// </summary>
+        public readonly string? AssetName;
+        /// <summary>
         /// Description for the output.
         /// </summary>
         public readonly string? Description;
@@ -23,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string JobOutputType;
         /// <summary>
-        /// Output Asset Delivery Mode.
+        /// Output data delivery mode enums.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
@@ -33,6 +37,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private TritonModelJobOutputResponse(
+            string? assetName,
+
             string? description,
 
             string jobOutputType,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? uri)
         {
+            AssetName = assetName;
             Description = description;
             JobOutputType = jobOutputType;
             Mode = mode;

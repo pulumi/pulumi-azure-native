@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class ListWorkspaceKeysResult:
-    def __init__(__self__, app_insights_instrumentation_key=None, container_registry_credentials=None, notebook_access_keys=None, user_storage_key=None, user_storage_resource_id=None):
+    def __init__(__self__, app_insights_instrumentation_key=None, container_registry_credentials=None, notebook_access_keys=None, user_storage_arm_id=None, user_storage_key=None):
         if app_insights_instrumentation_key and not isinstance(app_insights_instrumentation_key, str):
             raise TypeError("Expected argument 'app_insights_instrumentation_key' to be a str")
         pulumi.set(__self__, "app_insights_instrumentation_key", app_insights_instrumentation_key)
@@ -34,37 +34,46 @@ class ListWorkspaceKeysResult:
         if notebook_access_keys and not isinstance(notebook_access_keys, dict):
             raise TypeError("Expected argument 'notebook_access_keys' to be a dict")
         pulumi.set(__self__, "notebook_access_keys", notebook_access_keys)
+        if user_storage_arm_id and not isinstance(user_storage_arm_id, str):
+            raise TypeError("Expected argument 'user_storage_arm_id' to be a str")
+        pulumi.set(__self__, "user_storage_arm_id", user_storage_arm_id)
         if user_storage_key and not isinstance(user_storage_key, str):
             raise TypeError("Expected argument 'user_storage_key' to be a str")
         pulumi.set(__self__, "user_storage_key", user_storage_key)
-        if user_storage_resource_id and not isinstance(user_storage_resource_id, str):
-            raise TypeError("Expected argument 'user_storage_resource_id' to be a str")
-        pulumi.set(__self__, "user_storage_resource_id", user_storage_resource_id)
 
     @_builtins.property
     @pulumi.getter(name="appInsightsInstrumentationKey")
     def app_insights_instrumentation_key(self) -> _builtins.str:
+        """
+        The access key of the workspace app insights
+        """
         return pulumi.get(self, "app_insights_instrumentation_key")
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryCredentials")
-    def container_registry_credentials(self) -> 'outputs.RegistryListCredentialsResultResponse':
+    def container_registry_credentials(self) -> Optional['outputs.RegistryListCredentialsResultResponse']:
         return pulumi.get(self, "container_registry_credentials")
 
     @_builtins.property
     @pulumi.getter(name="notebookAccessKeys")
-    def notebook_access_keys(self) -> 'outputs.ListNotebookKeysResultResponse':
+    def notebook_access_keys(self) -> Optional['outputs.ListNotebookKeysResultResponse']:
         return pulumi.get(self, "notebook_access_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="userStorageArmId")
+    def user_storage_arm_id(self) -> _builtins.str:
+        """
+        The arm Id key of the workspace storage
+        """
+        return pulumi.get(self, "user_storage_arm_id")
 
     @_builtins.property
     @pulumi.getter(name="userStorageKey")
     def user_storage_key(self) -> _builtins.str:
+        """
+        The access key of the workspace storage
+        """
         return pulumi.get(self, "user_storage_key")
-
-    @_builtins.property
-    @pulumi.getter(name="userStorageResourceId")
-    def user_storage_resource_id(self) -> _builtins.str:
-        return pulumi.get(self, "user_storage_resource_id")
 
 
 class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
@@ -76,23 +85,23 @@ class AwaitableListWorkspaceKeysResult(ListWorkspaceKeysResult):
             app_insights_instrumentation_key=self.app_insights_instrumentation_key,
             container_registry_credentials=self.container_registry_credentials,
             notebook_access_keys=self.notebook_access_keys,
-            user_storage_key=self.user_storage_key,
-            user_storage_resource_id=self.user_storage_resource_id)
+            user_storage_arm_id=self.user_storage_arm_id,
+            user_storage_key=self.user_storage_key)
 
 
 def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
                         workspace_name: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceKeysResult:
     """
-    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -104,21 +113,21 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
         app_insights_instrumentation_key=pulumi.get(__ret__, 'app_insights_instrumentation_key'),
         container_registry_credentials=pulumi.get(__ret__, 'container_registry_credentials'),
         notebook_access_keys=pulumi.get(__ret__, 'notebook_access_keys'),
-        user_storage_key=pulumi.get(__ret__, 'user_storage_key'),
-        user_storage_resource_id=pulumi.get(__ret__, 'user_storage_resource_id'))
+        user_storage_arm_id=pulumi.get(__ret__, 'user_storage_arm_id'),
+        user_storage_key=pulumi.get(__ret__, 'user_storage_key'))
 def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
-    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+    Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -129,5 +138,5 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_built
         app_insights_instrumentation_key=pulumi.get(__response__, 'app_insights_instrumentation_key'),
         container_registry_credentials=pulumi.get(__response__, 'container_registry_credentials'),
         notebook_access_keys=pulumi.get(__response__, 'notebook_access_keys'),
-        user_storage_key=pulumi.get(__response__, 'user_storage_key'),
-        user_storage_resource_id=pulumi.get(__response__, 'user_storage_resource_id')))
+        user_storage_arm_id=pulumi.get(__response__, 'user_storage_arm_id'),
+        user_storage_key=pulumi.get(__response__, 'user_storage_key')))

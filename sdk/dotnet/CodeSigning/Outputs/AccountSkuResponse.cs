@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CodeSigning.Outputs
 {
 
     /// <summary>
-    /// SKU of the trusted signing account.
+    /// SKU of the artifact signing account.
     /// </summary>
     [OutputType]
     public sealed class AccountSkuResponse

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Describes the bind options for the container
-    /// </summary>
     public sealed class BindOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

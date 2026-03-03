@@ -32,7 +32,7 @@ export interface GetVirtualMachineArgs {
      */
     labName: string;
     /**
-     * The name of the LabVirtualMachine
+     * The name of the virtual machine.
      */
     name: string;
     /**
@@ -114,7 +114,7 @@ export interface GetVirtualMachineResult {
      */
     readonly galleryImageReference?: outputs.devtestlab.GalleryImageReferenceResponse;
     /**
-     * The identifier of the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -134,11 +134,11 @@ export interface GetVirtualMachineResult {
      */
     readonly lastKnownPowerState: string;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     readonly location?: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -190,11 +190,15 @@ export interface GetVirtualMachineResult {
      */
     readonly storageType?: string;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.devtestlab.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -235,7 +239,7 @@ export interface GetVirtualMachineOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the LabVirtualMachine
+     * The name of the virtual machine.
      */
     name: pulumi.Input<string>;
     /**

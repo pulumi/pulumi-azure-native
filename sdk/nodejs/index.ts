@@ -60,6 +60,7 @@ import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
 import * as community from "./community";
 import * as compute from "./compute";
+import * as computebulkactions from "./computebulkactions";
 import * as computelimit from "./computelimit";
 import * as computeschedule from "./computeschedule";
 import * as confidentialledger from "./confidentialledger";
@@ -107,6 +108,7 @@ import * as devopsinfrastructure from "./devopsinfrastructure";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
+import * as discovery from "./discovery";
 import * as dns from "./dns";
 import * as dnsresolver from "./dnsresolver";
 import * as domainregistration from "./domainregistration";
@@ -315,6 +317,7 @@ export {
     communication,
     community,
     compute,
+    computebulkactions,
     computelimit,
     computeschedule,
     confidentialledger,
@@ -362,6 +365,7 @@ export {
     devspaces,
     devtestlab,
     digitaltwins,
+    discovery,
     dns,
     dnsresolver,
     domainregistration,

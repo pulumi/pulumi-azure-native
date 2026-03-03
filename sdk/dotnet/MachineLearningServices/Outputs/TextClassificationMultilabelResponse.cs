@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.NlpVerticalLimitSettingsResponse? LimitSettings;
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         public readonly string? LogVerbosity;
         /// <summary>

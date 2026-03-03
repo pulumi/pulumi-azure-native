@@ -3146,7 +3146,7 @@ class ServicePlacementInvalidDomainPolicyArgs:
 
 class ServicePlacementNonPartiallyPlaceServicePolicyArgsDict(TypedDict):
     """
-    The type of placement policy for a service fabric service. Following are the possible values.
+    The name of the domain that should used for placement as per this policy.
     """
     type: pulumi.Input[_builtins.str]
     """
@@ -3159,7 +3159,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str]):
         """
-        The type of placement policy for a service fabric service. Following are the possible values.
+        The name of the domain that should used for placement as per this policy.
 
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
@@ -3182,7 +3182,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
 
 class ServicePlacementPreferPrimaryDomainPolicyArgsDict(TypedDict):
     """
-    Describes the policy to be used for placement of a Service Fabric service where the service's
+    Describes the policy to be used for placement of a Service Fabric service where the service's 
     Primary replicas should optimally be placed in a particular domain.
 
     This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -3207,7 +3207,7 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's
+        Describes the policy to be used for placement of a Service Fabric service where the service's 
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -3215,6 +3215,7 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
+
 
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.
@@ -3286,6 +3287,7 @@ class ServicePlacementRequireDomainDistributionPolicyArgs:
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
+
 
         :param pulumi.Input[_builtins.str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[_builtins.str] type: The type of placement policy for a service fabric service. Following are the possible values.

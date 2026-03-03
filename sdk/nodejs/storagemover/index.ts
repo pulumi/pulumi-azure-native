@@ -10,6 +10,11 @@ export type Agent = import("./agent").Agent;
 export const Agent: typeof import("./agent").Agent = null as any;
 utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
 
+export { ConnectionArgs } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+
 export { EndpointArgs } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
@@ -19,6 +24,11 @@ export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
 export const getAgent: typeof import("./getAgent").getAgent = null as any;
 export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
 utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
@@ -65,6 +75,8 @@ const _module = {
         switch (type) {
             case "azure-native:storagemover:Agent":
                 return new Agent(name, <any>undefined, { urn })
+            case "azure-native:storagemover:Connection":
+                return new Connection(name, <any>undefined, { urn })
             case "azure-native:storagemover:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:storagemover:JobDefinition":

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-08-31-preview. In version 2.x of the Azure Native provider, it used API version 2021-08-15.
  *
- * Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-08-15, 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**
@@ -145,7 +145,7 @@ export class CustomLocation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210315preview:CustomLocation" }, { type: "azure-native:extendedlocation/v20210815:CustomLocation" }, { type: "azure-native:extendedlocation/v20210831preview:CustomLocation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210315preview:CustomLocation" }, { type: "azure-native:extendedlocation/v20210815:CustomLocation" }, { type: "azure-native:extendedlocation/v20210831preview:CustomLocation" }, { type: "azure-native:extendedlocation/v20240915preview:CustomLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomLocation.__pulumiType, name, resourceInputs, opts);
     }

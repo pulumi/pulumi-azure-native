@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerlessEndpointResult:
-    def __init__(__self__, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, serverless_endpoint_properties=None, sku=None, system_data=None, tags=None, type=None):
+    """
+    Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    """
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -43,9 +46,9 @@ class GetServerlessEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if serverless_endpoint_properties and not isinstance(serverless_endpoint_properties, dict):
-            raise TypeError("Expected argument 'serverless_endpoint_properties' to be a dict")
-        pulumi.set(__self__, "serverless_endpoint_properties", serverless_endpoint_properties)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -108,12 +111,12 @@ class GetServerlessEndpointResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="serverlessEndpointProperties")
-    def serverless_endpoint_properties(self) -> 'outputs.ServerlessEndpointResponse':
+    @pulumi.getter
+    def properties(self) -> 'outputs.ServerlessEndpointPropertiesResponse':
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "serverless_endpoint_properties")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
@@ -160,7 +163,7 @@ class AwaitableGetServerlessEndpointResult(GetServerlessEndpointResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            serverless_endpoint_properties=self.serverless_endpoint_properties,
+            properties=self.properties,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -172,14 +175,16 @@ def get_serverless_endpoint(name: Optional[_builtins.str] = None,
                             workspace_name: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessEndpointResult:
     """
-    Uses Azure REST API version 2025-09-01.
+    Get Serverless Endpoint.
 
-    Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Serverless Endpoint name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['name'] = name
@@ -195,7 +200,7 @@ def get_serverless_endpoint(name: Optional[_builtins.str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        serverless_endpoint_properties=pulumi.get(__ret__, 'serverless_endpoint_properties'),
+        properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -205,14 +210,16 @@ def get_serverless_endpoint_output(name: Optional[pulumi.Input[_builtins.str]] =
                                    workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessEndpointResult]:
     """
-    Uses Azure REST API version 2025-09-01.
+    Get Serverless Endpoint.
 
-    Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Serverless Endpoint name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['name'] = name
@@ -227,7 +234,7 @@ def get_serverless_endpoint_output(name: Optional[pulumi.Input[_builtins.str]] =
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        serverless_endpoint_properties=pulumi.get(__response__, 'serverless_endpoint_properties'),
+        properties=pulumi.get(__response__, 'properties'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

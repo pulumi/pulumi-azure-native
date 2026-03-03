@@ -80,7 +80,7 @@ export class Lab extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly loadBalancerId: pulumi.Output<string>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
@@ -92,7 +92,7 @@ export class Lab extends pulumi.CustomResource {
      */
     declare public readonly mandatoryArtifactsResourceIdsWindows: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -122,11 +122,15 @@ export class Lab extends pulumi.CustomResource {
      */
     declare public readonly support: pulumi.Output<outputs.devtestlab.LabSupportPropertiesResponse | undefined>;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devtestlab.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -178,6 +182,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIpId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
             resourceInputs["vaultName"] = undefined /*out*/;
@@ -203,6 +208,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIpId"] = undefined /*out*/;
             resourceInputs["support"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
@@ -237,7 +243,7 @@ export interface LabArgs {
      */
     labStorageType?: pulumi.Input<string | enums.devtestlab.StorageType>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -267,7 +273,7 @@ export interface LabArgs {
      */
     support?: pulumi.Input<inputs.devtestlab.LabSupportPropertiesArgs>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

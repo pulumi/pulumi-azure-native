@@ -292,11 +292,11 @@ export interface ServiceArgs {
      */
     replicaCount?: pulumi.Input<number>;
     /**
-     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+     * The name of the Azure AI Search service associated with the specified resource group.
      */
     searchServiceName?: pulumi.Input<string>;
     /**

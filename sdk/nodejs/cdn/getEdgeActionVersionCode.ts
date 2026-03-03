@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * A long-running resource action.
+ * Get the version code for the edge action version.
  *
  * Uses Azure REST API version 2025-09-01-preview.
  *
@@ -49,7 +49,7 @@ export interface GetEdgeActionVersionCodeResult {
     readonly name: string;
 }
 /**
- * A long-running resource action.
+ * Get the version code for the edge action version.
  *
  * Uses Azure REST API version 2025-09-01-preview.
  *

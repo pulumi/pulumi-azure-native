@@ -27,7 +27,7 @@ class GetCustomImageResult:
     """
     A custom image.
     """
-    def __init__(__self__, author=None, azure_api_version=None, creation_date=None, custom_image_plan=None, data_disk_storage_info=None, description=None, id=None, is_plan_authorized=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
+    def __init__(__self__, author=None, azure_api_version=None, creation_date=None, custom_image_plan=None, data_disk_storage_info=None, description=None, id=None, is_plan_authorized=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -67,6 +67,9 @@ class GetCustomImageResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -135,7 +138,7 @@ class GetCustomImageResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -151,7 +154,7 @@ class GetCustomImageResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -175,7 +178,7 @@ class GetCustomImageResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -188,10 +191,18 @@ class GetCustomImageResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -199,7 +210,7 @@ class GetCustomImageResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -247,6 +258,7 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
             managed_snapshot_id=self.managed_snapshot_id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier,
@@ -292,6 +304,7 @@ def get_custom_image(expand: Optional[_builtins.str] = None,
         managed_snapshot_id=pulumi.get(__ret__, 'managed_snapshot_id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
@@ -334,6 +347,7 @@ def get_custom_image_output(expand: Optional[pulumi.Input[Optional[_builtins.str
         managed_snapshot_id=pulumi.get(__response__, 'managed_snapshot_id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier'),

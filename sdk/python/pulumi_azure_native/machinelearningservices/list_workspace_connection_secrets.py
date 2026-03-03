@@ -24,6 +24,9 @@ __all__ = [
 
 @pulumi.output_type
 class ListWorkspaceConnectionSecretsResult:
+    """
+    Concrete proxy resource types can be created by aliasing this type using a specific property type.
+    """
     def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -97,14 +100,16 @@ def list_workspace_connection_secrets(connection_name: Optional[_builtins.str] =
                                       workspace_name: Optional[_builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceConnectionSecretsResult:
     """
-    Uses Azure REST API version 2025-09-01.
+    List all the secrets of a machine learning workspaces connections.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str connection_name: Friendly name of the workspace connection
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
@@ -124,14 +129,16 @@ def list_workspace_connection_secrets_output(connection_name: Optional[pulumi.In
                                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceConnectionSecretsResult]:
     """
-    Uses Azure REST API version 2025-09-01.
+    List all the secrets of a machine learning workspaces connections.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str connection_name: Friendly name of the workspace connection
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name

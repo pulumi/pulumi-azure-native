@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Specifies the latest available operating system image version.
         /// </summary>
         public readonly string? LatestImageVersion;
+        /// <summary>
+        /// Metadata about the os patching.
+        /// </summary>
+        public readonly Outputs.OsPatchingStatusResponse OsPatchingStatus;
 
         [OutputConstructor]
         private ImageMetadataResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             bool? isLatestOsImageVersion,
 
-            string? latestImageVersion)
+            string? latestImageVersion,
+
+            Outputs.OsPatchingStatusResponse osPatchingStatus)
         {
             CurrentImageVersion = currentImageVersion;
             IsLatestOsImageVersion = isLatestOsImageVersion;
             LatestImageVersion = latestImageVersion;
+            OsPatchingStatus = osPatchingStatus;
         }
     }
 }

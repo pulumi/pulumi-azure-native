@@ -213,6 +213,8 @@ class AutoImportJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01.
 
+        Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,6 +239,8 @@ class AutoImportJob(pulumi.CustomResource):
         An auto import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
         Uses Azure REST API version 2025-07-01.
+
+        Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -318,7 +322,7 @@ class AutoImportJob(pulumi.CustomResource):
             __props__.__dict__["total_conflicts"] = None
             __props__.__dict__["total_errors"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20250701:AutoImportJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20250701:AutoImportJob"), pulumi.Alias(type_="azure-native:storagecache/v20260101:AutoImportJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoImportJob, __self__).__init__(
             'azure-native:storagecache:AutoImportJob',

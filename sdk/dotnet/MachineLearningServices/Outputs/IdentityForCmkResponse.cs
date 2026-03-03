@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Identity that will be used to access key vault for encryption at rest
+    /// Identity object used for encryption.
     /// </summary>
     [OutputType]
     public sealed class IdentityForCmkResponse
     {
         /// <summary>
-        /// The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        /// UserAssignedIdentity to be used to fetch the encryption key from keyVault
         /// </summary>
         public readonly string? UserAssignedIdentity;
 

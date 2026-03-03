@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// 
     /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2022-12-15-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-12-15-preview, 2025-09-01-preview, 2026-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20250901preview:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20260201preview:VirtualNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

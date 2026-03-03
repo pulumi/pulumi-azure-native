@@ -28,6 +28,7 @@ __all__ = [
     'EntityPropertiesResponse',
     'EvaluationRuleResponse',
     'HealthModelPropertiesResponse',
+    'HealthStateTransitionResponse',
     'IconDefinitionResponse',
     'LogAnalyticsQuerySignalDefinitionPropertiesResponse',
     'LogAnalyticsSignalGroupResponse',
@@ -39,6 +40,7 @@ __all__ = [
     'ResourceMetricSignalDefinitionPropertiesResponse',
     'SignalAssignmentResponse',
     'SignalGroupResponse',
+    'SignalHistoryDataPointResponse',
     'SystemDataResponse',
     'ThresholdRuleResponse',
     'UserAssignedIdentityResponse',
@@ -949,6 +951,63 @@ class HealthModelPropertiesResponse(dict):
         Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
         """
         return pulumi.get(self, "discovery")
+
+
+@pulumi.output_type
+class HealthStateTransitionResponse(dict):
+    """
+    A health state transition record
+    """
+    def __init__(__self__, *,
+                 new_state: _builtins.str,
+                 occurred_at: _builtins.str,
+                 previous_state: _builtins.str,
+                 reason: Optional[_builtins.str] = None):
+        """
+        A health state transition record
+
+        :param _builtins.str new_state: New health state after the transition
+        :param _builtins.str occurred_at: Timestamp when the transition occurred
+        :param _builtins.str previous_state: Previous health state before the transition
+        :param _builtins.str reason: Reason of the transition
+        """
+        pulumi.set(__self__, "new_state", new_state)
+        pulumi.set(__self__, "occurred_at", occurred_at)
+        pulumi.set(__self__, "previous_state", previous_state)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+
+    @_builtins.property
+    @pulumi.getter(name="newState")
+    def new_state(self) -> _builtins.str:
+        """
+        New health state after the transition
+        """
+        return pulumi.get(self, "new_state")
+
+    @_builtins.property
+    @pulumi.getter(name="occurredAt")
+    def occurred_at(self) -> _builtins.str:
+        """
+        Timestamp when the transition occurred
+        """
+        return pulumi.get(self, "occurred_at")
+
+    @_builtins.property
+    @pulumi.getter(name="previousState")
+    def previous_state(self) -> _builtins.str:
+        """
+        Previous health state before the transition
+        """
+        return pulumi.get(self, "previous_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def reason(self) -> Optional[_builtins.str]:
+        """
+        Reason of the transition
+        """
+        return pulumi.get(self, "reason")
 
 
 @pulumi.output_type
@@ -2089,6 +2148,64 @@ class SignalGroupResponse(dict):
         Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
         """
         return pulumi.get(self, "dependencies")
+
+
+@pulumi.output_type
+class SignalHistoryDataPointResponse(dict):
+    """
+    A data point in the signal time series
+    """
+    def __init__(__self__, *,
+                 health_state: _builtins.str,
+                 occurred_at: _builtins.str,
+                 additional_context: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.float] = None):
+        """
+        A data point in the signal time series
+
+        :param _builtins.str health_state: Health state at this point in time
+        :param _builtins.str occurred_at: Timestamp of the data point
+        :param _builtins.str additional_context: Additional context as provided by the submitter
+        :param _builtins.float value: Signal value at this point in time
+        """
+        pulumi.set(__self__, "health_state", health_state)
+        pulumi.set(__self__, "occurred_at", occurred_at)
+        if additional_context is not None:
+            pulumi.set(__self__, "additional_context", additional_context)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthState")
+    def health_state(self) -> _builtins.str:
+        """
+        Health state at this point in time
+        """
+        return pulumi.get(self, "health_state")
+
+    @_builtins.property
+    @pulumi.getter(name="occurredAt")
+    def occurred_at(self) -> _builtins.str:
+        """
+        Timestamp of the data point
+        """
+        return pulumi.get(self, "occurred_at")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalContext")
+    def additional_context(self) -> Optional[_builtins.str]:
+        """
+        Additional context as provided by the submitter
+        """
+        return pulumi.get(self, "additional_context")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.float]:
+        """
+        Signal value at this point in time
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

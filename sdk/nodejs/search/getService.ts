@@ -24,7 +24,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetServiceArgs {
     /**
-     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -171,7 +171,7 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
 
 export interface GetServiceOutputArgs {
     /**
-     * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

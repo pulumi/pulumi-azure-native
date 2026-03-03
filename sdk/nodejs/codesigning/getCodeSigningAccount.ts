@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a trusted Signing Account.
+ * Get an artifact Signing Account.
  *
  * Uses Azure REST API version 2024-09-30-preview.
  *
@@ -24,7 +24,7 @@ export function getCodeSigningAccount(args: GetCodeSigningAccountArgs, opts?: pu
 
 export interface GetCodeSigningAccountArgs {
     /**
-     * Trusted Signing account name.
+     * Artifact Signing account name.
      */
     accountName: string;
     /**
@@ -34,11 +34,11 @@ export interface GetCodeSigningAccountArgs {
 }
 
 /**
- * Trusted signing account resource.
+ * Artifact signing account resource.
  */
 export interface GetCodeSigningAccountResult {
     /**
-     * The URI of the trusted signing account which is used during signing files.
+     * The URI of the artifact signing account which is used during signing files.
      */
     readonly accountUri: string;
     /**
@@ -58,11 +58,11 @@ export interface GetCodeSigningAccountResult {
      */
     readonly name: string;
     /**
-     * Status of the current operation on trusted signing account.
+     * Status of the current operation on artifact signing account.
      */
     readonly provisioningState: string;
     /**
-     * SKU of the trusted signing account.
+     * SKU of the artifact signing account.
      */
     readonly sku?: outputs.codesigning.AccountSkuResponse;
     /**
@@ -79,7 +79,7 @@ export interface GetCodeSigningAccountResult {
     readonly type: string;
 }
 /**
- * Get a trusted Signing Account.
+ * Get an artifact Signing Account.
  *
  * Uses Azure REST API version 2024-09-30-preview.
  *
@@ -95,7 +95,7 @@ export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArg
 
 export interface GetCodeSigningAccountOutputArgs {
     /**
-     * Trusted Signing account name.
+     * Artifact Signing account name.
      */
     accountName: pulumi.Input<string>;
     /**

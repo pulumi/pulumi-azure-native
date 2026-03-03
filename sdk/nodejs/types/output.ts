@@ -1182,7 +1182,7 @@ export namespace alertsmanagement {
          */
         conditions?: outputs.alertsmanagement.ConditionResponse[];
         /**
-         * Description of alert processing rule.
+         * Actions to be applied.Description of alert processing rule.
          */
         description?: string;
         /**
@@ -1271,7 +1271,7 @@ export namespace alertsmanagement {
         /**
          * End time for recurrence.
          */
-        endTime: string;
+        endTime?: string;
         /**
          * Specifies when the recurrence should be applied.
          * Expected value is 'Daily'.
@@ -1280,7 +1280,7 @@ export namespace alertsmanagement {
         /**
          * Start time for recurrence.
          */
-        startTime: string;
+        startTime?: string;
     }
 
     /**
@@ -42251,6 +42251,24 @@ export namespace azurestackhci {
     }
 
     /**
+     * Data used when creating a disk or snapshot
+     */
+    export interface CreationDataResponse {
+        /**
+         * This enumerates the possible sources of a disk's creation
+         */
+        createOption: string;
+        /**
+         * ARM ID of the source resource used for disk creation. Required when createOption is Copy
+         */
+        sourceResourceId?: string;
+        /**
+         * Unique ID of the source resource used for disk creation. Read-only and not required for disk creation.
+         */
+        sourceUniqueId: string;
+    }
+
+    /**
      * Properties for a particular default extension category.
      */
     export interface DefaultExtensionDetailsResponse {
@@ -42491,6 +42509,54 @@ export namespace azurestackhci {
          * NIC Details of device
          */
         nicDetails?: outputs.azurestackhci.NicDetailResponse[];
+    }
+
+    /**
+     * Device details.
+     */
+    export interface DeviceDetailResponse {
+        /**
+         * Resource Id of group device belongs to.
+         */
+        claimedBy: string;
+        /**
+         * Resource Id of the device.
+         */
+        deviceResourceId?: string;
+    }
+
+    /**
+     * Properties for device pool.
+     */
+    export interface DevicePoolPropertiesResponse {
+        /**
+         * Unique, immutable resource id.
+         */
+        cloudId: string;
+        /**
+         * Custom Location Name for the pool, default: <DevicePoolName>-CL
+         */
+        customLocationName?: string;
+        /**
+         * Custom Location Resource Id for the pool
+         */
+        customLocationResourceId: string;
+        /**
+         * List of machines in device pool.
+         */
+        devices?: outputs.azurestackhci.DeviceDetailResponse[];
+        /**
+         * Managed resource group name for the pool
+         */
+        managedResourceGroup?: string;
+        /**
+         * operation status details for device pool.
+         */
+        operationDetails: outputs.azurestackhci.OperationDetailResponse[];
+        /**
+         * The provisioning state of a resource.
+         */
+        provisioningState: string;
     }
 
     /**
@@ -43475,6 +43541,114 @@ export namespace azurestackhci {
     }
 
     /**
+     * Defines the customer's intent for updating confidential VM properties
+     */
+    export interface HciConfigureCvmJobPropertiesResponse {
+        /**
+         * Defines the customer's intent for updating confidential VM properties
+         */
+        confidentialVmIntent: string;
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: string;
+        /**
+         * The UTC date and time at which the job completed.
+         */
+        endTimeUtc: string;
+        /**
+         * Unique, immutable job id.
+         */
+        jobId: string;
+        /**
+         * ClusterJob Type supported.
+         * Expected value is 'ConfigureCVM'.
+         */
+        jobType: "ConfigureCVM";
+        /**
+         * Job provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Reported properties for job
+         */
+        reportedProperties: outputs.azurestackhci.JobReportedPropertiesResponse;
+        /**
+         * The UTC date and time at which the job started.
+         */
+        startTimeUtc: string;
+        /**
+         * Status of Cluster job.
+         */
+        status: string;
+    }
+    /**
+     * hciConfigureCvmJobPropertiesResponseProvideDefaults sets the appropriate defaults for HciConfigureCvmJobPropertiesResponse
+     */
+    export function hciConfigureCvmJobPropertiesResponseProvideDefaults(val: HciConfigureCvmJobPropertiesResponse): HciConfigureCvmJobPropertiesResponse {
+        return {
+            ...val,
+            deploymentMode: (val.deploymentMode) ?? "Deploy",
+        };
+    }
+
+    /**
+     * Properties for configuring SDN integration intent for the cluster.
+     */
+    export interface HciConfigureSdnIntegrationJobPropertiesResponse {
+        /**
+         * Deployment mode to trigger job.
+         */
+        deploymentMode?: string;
+        /**
+         * The UTC date and time at which the job completed.
+         */
+        endTimeUtc: string;
+        /**
+         * Unique, immutable job id.
+         */
+        jobId: string;
+        /**
+         * ClusterJob Type supported.
+         * Expected value is 'ConfigureSdnIntegration'.
+         */
+        jobType: "ConfigureSdnIntegration";
+        /**
+         * Job provisioning state
+         */
+        provisioningState: string;
+        /**
+         * Reported properties for job
+         */
+        reportedProperties: outputs.azurestackhci.JobReportedPropertiesResponse;
+        /**
+         * Defines the customer's intent for configuring SDN integration
+         */
+        sdnIntegrationIntent: string;
+        /**
+         * A string identifier used to construct the Network Controller (NC) REST resource name. This prefix helps group and distinguish SDN-managed network components and must follow specific formatting rules.
+         */
+        sdnPrefix?: string;
+        /**
+         * The UTC date and time at which the job started.
+         */
+        startTimeUtc: string;
+        /**
+         * Status of Cluster job.
+         */
+        status: string;
+    }
+    /**
+     * hciConfigureSdnIntegrationJobPropertiesResponseProvideDefaults sets the appropriate defaults for HciConfigureSdnIntegrationJobPropertiesResponse
+     */
+    export function hciConfigureSdnIntegrationJobPropertiesResponseProvideDefaults(val: HciConfigureSdnIntegrationJobPropertiesResponse): HciConfigureSdnIntegrationJobPropertiesResponse {
+        return {
+            ...val,
+            deploymentMode: (val.deploymentMode) ?? "Deploy",
+        };
+    }
+
+    /**
      * Arc extension installed on edge device.
      */
     export interface HciEdgeDeviceArcExtensionResponse {
@@ -44097,6 +44271,24 @@ export namespace azurestackhci {
          * Region specific endpoint for relying party service.
          */
         relyingPartyServiceEndpoint: string;
+    }
+
+    /**
+     * Reported Properties for job triggered from cloud.
+     */
+    export interface JobReportedPropertiesResponse {
+        /**
+         * Deployment status of job.
+         */
+        deploymentStatus: outputs.azurestackhci.EceActionStatusResponse;
+        /**
+         * The percentage of the job that is complete.
+         */
+        percentComplete: number;
+        /**
+         * Validation status of job.
+         */
+        validationStatus: outputs.azurestackhci.EceActionStatusResponse;
     }
 
     /**
@@ -45758,6 +45950,68 @@ export namespace azurestackhci {
          * Site resource Id to be set during Edge Machine resource creation.
          */
         siteResourceId: string;
+    }
+
+    /**
+     * Properties under the snapshot resource
+     */
+    export interface SnapshotPropertiesResponse {
+        /**
+         * Data used when creating a snapshot
+         */
+        creationData?: outputs.azurestackhci.CreationDataResponse;
+        /**
+         * The size of the disk in bytes.
+         */
+        diskSizeBytes: number;
+        /**
+         * Provisioning state of the snapshot.
+         */
+        provisioningState: string;
+        /**
+         * The observed state of snapshots
+         */
+        status: outputs.azurestackhci.SnapshotStatusResponse;
+        /**
+         * The time when the snapshot was created.
+         */
+        timeCreated: string;
+        /**
+         * Unique identifier for the snapshot.
+         */
+        uniqueId: string;
+    }
+
+    /**
+     * Snapshot Status provisioning status
+     */
+    export interface SnapshotStatusProvisioningStatusResponse {
+        /**
+         * The ID of the operation performed on the snapshot
+         */
+        operationId?: string;
+        /**
+         * The status of the operation performed on the snapshot [Succeeded, Failed, InProgress]
+         */
+        status: string;
+    }
+
+    /**
+     * The observed state of snapshots
+     */
+    export interface SnapshotStatusResponse {
+        /**
+         * Snapshot provisioning error code
+         */
+        errorCode?: string;
+        /**
+         * Descriptive error message
+         */
+        errorMessage?: string;
+        /**
+         * Provisioning status of the snapshot
+         */
+        provisioningStatus?: outputs.azurestackhci.SnapshotStatusProvisioningStatusResponse;
     }
 
     /**
@@ -47932,6 +48186,9 @@ export namespace batch {
         uid?: number;
     }
 
+    /**
+     * The managed disk parameters.
+     */
     export interface ManagedDiskResponse {
         /**
          * Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
@@ -48094,6 +48351,9 @@ export namespace batch {
          * Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
          */
         ephemeralOSDiskSettings?: outputs.batch.DiffDiskSettingsResponse;
+        /**
+         * The managed disk parameters.
+         */
         managedDisk?: outputs.batch.ManagedDiskResponse;
         /**
          * Specifies whether writeAccelerator should be enabled or disabled on the disk.
@@ -56076,6 +56336,28 @@ export namespace cloudhealth {
     }
 
     /**
+     * A health state transition record
+     */
+    export interface HealthStateTransitionResponse {
+        /**
+         * New health state after the transition
+         */
+        newState: string;
+        /**
+         * Timestamp when the transition occurred
+         */
+        occurredAt: string;
+        /**
+         * Previous health state before the transition
+         */
+        previousState: string;
+        /**
+         * Reason of the transition
+         */
+        reason?: string;
+    }
+
+    /**
      * Visual icon definition of an entity
      */
     export interface IconDefinitionResponse {
@@ -56431,6 +56713,28 @@ export namespace cloudhealth {
             ...val,
             dependencies: (val.dependencies ? outputs.cloudhealth.dependenciesSignalGroupResponseProvideDefaults(val.dependencies) : undefined),
         };
+    }
+
+    /**
+     * A data point in the signal time series
+     */
+    export interface SignalHistoryDataPointResponse {
+        /**
+         * Additional context as provided by the submitter
+         */
+        additionalContext?: string;
+        /**
+         * Health state at this point in time
+         */
+        healthState: string;
+        /**
+         * Timestamp of the data point
+         */
+        occurredAt: string;
+        /**
+         * Signal value at this point in time
+         */
+        value?: number;
     }
 
     /**
@@ -57170,7 +57474,7 @@ export namespace cloudngfw {
 
 export namespace codesigning {
     /**
-     * SKU of the trusted signing account.
+     * SKU of the artifact signing account.
      */
     export interface AccountSkuResponse {
         /**
@@ -57562,35 +57866,9 @@ export namespace cognitiveservices {
     }
 
     /**
-     * Agent Reference resource
-     */
-    export interface AgentReferenceResourceResponse {
-        /**
-         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-         */
-        id: string;
-        /**
-         * The name of the resource
-         */
-        name: string;
-        /**
-         * [Required] Additional attributes of the entity.
-         */
-        properties: outputs.cognitiveservices.AgentReferenceResponse;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData: outputs.cognitiveservices.SystemDataResponse;
-        /**
-         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-         */
-        type: string;
-    }
-
-    /**
      * Type modeling a reference to a version of an agent definition.
      */
-    export interface AgentReferenceResponse {
+    export interface AgentReferencePropertiesResponse {
         /**
          * Gets the agent's unique identifier within the organization (subscription).
          */
@@ -57602,9 +57880,35 @@ export namespace cognitiveservices {
     }
 
     /**
+     * Agent Reference resource
+     */
+    export interface AgentReferenceResponse {
+        /**
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * [Required] Additional attributes of the entity.
+         */
+        properties: outputs.cognitiveservices.AgentReferencePropertiesResponse;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.cognitiveservices.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
      * Resource type representing an agentic application as a management construct.
      */
-    export interface AgenticApplicationResponse {
+    export interface AgenticApplicationPropertiesResponse {
         /**
          * The EntraId Agentic Blueprint of the application.
          */
@@ -57612,7 +57916,7 @@ export namespace cognitiveservices {
         /**
          * The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
          */
-        agents?: outputs.cognitiveservices.AgentReferenceResponse[];
+        agents?: outputs.cognitiveservices.AgentReferencePropertiesResponse[];
         /**
          * Gets or sets the authorization policy associated with this agentic application instance.
          */
@@ -64832,6 +65136,1641 @@ export namespace compute {
          * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
          */
         rebootSetting?: string;
+    }
+
+}
+
+export namespace computebulkactions {
+    /**
+     * Enables or disables a capability on the virtual machine or virtual machine scale set.
+     */
+    export interface AdditionalCapabilitiesResponse {
+        /**
+         * The flag that enables or disables hibernation capability on the VM.
+         */
+        hibernationEnabled?: boolean;
+        /**
+         * The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
+         */
+        ultraSSDEnabled?: boolean;
+    }
+
+    /**
+     * Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
+     */
+    export interface AdditionalUnattendContentResponse {
+        /**
+         * The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+         */
+        componentName?: string;
+        /**
+         * Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
+         */
+        content?: string;
+        /**
+         * The pass name. Currently, the only allowable value is OobeSystem.
+         */
+        passName?: string;
+        /**
+         * Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+         */
+        settingName?: string;
+    }
+
+    /**
+     * Specifies if Scheduled Events should be auto-approved when all instances are down.
+     */
+    export interface AllInstancesDownResponse {
+        /**
+         * Specifies if Scheduled Events should be auto-approved when all instances are down. Its default value is true.
+         */
+        automaticallyApprove?: boolean;
+    }
+
+    /**
+     * The API entity reference.
+     */
+    export interface ApiEntityReferenceResponse {
+        /**
+         * The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+         */
+        id?: string;
+    }
+
+    /**
+     * Contains the list of gallery applications that should be made available to the VM
+     */
+    export interface ApplicationProfileResponse {
+        /**
+         * Specifies the gallery applications that should be made available to the VM
+         */
+        galleryApplications?: outputs.computebulkactions.VMGalleryApplicationResponse[];
+    }
+
+    /**
+     * Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
+     */
+    export interface BootDiagnosticsResponse {
+        /**
+         * Whether boot diagnostics should be enabled on the Virtual Machine.
+         */
+        enabled?: boolean;
+        /**
+         * Uri of the storage account to use for placing the console output and screenshot. If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
+         */
+        storageUri?: string;
+    }
+
+    /**
+     * The parameters of a capacity reservation Profile.
+     */
+    export interface CapacityReservationProfileResponse {
+        /**
+         * Specifies the capacity reservation group resource id that should be used for allocating the virtual machine provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
+         */
+        capacityReservationGroup?: outputs.computebulkactions.SubResourceResponse;
+    }
+
+    /**
+     * Compute Profile to configure the Virtual Machines.
+     */
+    export interface ComputeProfileResponse {
+        /**
+         * Specifies the Microsoft.Compute API version to use when creating underlying Virtual Machines.
+         * The default value will be the latest supported computeApiVersion by LaunchBulkInstancesOperation.
+         */
+        computeApiVersion?: string;
+        /**
+         * Virtual Machine Extensions Array to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachine.json#/definitions/VirtualMachineExtension"
+         */
+        extensions?: outputs.computebulkactions.VirtualMachineExtensionResponse[];
+        /**
+         * Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachine.json#/definitions/VirtualMachineProperties"
+         */
+        virtualMachineProfile: outputs.computebulkactions.VirtualMachineProfileResponse;
+    }
+
+    /**
+     * Describes a data disk.
+     */
+    export interface DataDiskResponse {
+        /**
+         * Specifies the caching requirements. Possible values are: None, ReadOnly, ReadWrite. The defaulting behavior is: None for Standard storage. ReadOnly for Premium storage.
+         */
+        caching?: string;
+        /**
+         * Specifies how the virtual machine disk should be created. Possible values are Attach, FromImage, Empty, Copy, Restore.
+         */
+        createOption: string;
+        /**
+         * Specifies whether data disk should be deleted or detached upon VM deletion. Possible values are: Delete, Detach. The default value is set to Detach.
+         */
+        deleteOption?: string;
+        /**
+         * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: ForceDetach. This feature is still in preview. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+         */
+        detachOption?: string;
+        /**
+         * Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+         */
+        diskSizeGB?: number;
+        /**
+         * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+         */
+        image?: outputs.computebulkactions.VirtualHardDiskResponse;
+        /**
+         * Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+         */
+        lun: number;
+        /**
+         * The managed disk parameters.
+         */
+        managedDisk?: outputs.computebulkactions.ManagedDiskParametersResponse;
+        /**
+         * The disk name.
+         */
+        name?: string;
+        /**
+         * The source resource identifier. It can be a snapshot, or disk restore point from which to create a disk.
+         */
+        sourceResource?: outputs.computebulkactions.ApiEntityReferenceResponse;
+        /**
+         * Specifies whether the data disk is in process of detachment from the VirtualMachine/VirtualMachineScaleset.
+         */
+        toBeDetached?: boolean;
+        /**
+         * The virtual hard disk.
+         */
+        vhd?: outputs.computebulkactions.VirtualHardDiskResponse;
+        /**
+         * Specifies whether writeAccelerator should be enabled or disabled on the disk.
+         */
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    /**
+     * Specifies the boot diagnostic settings state. Minimum compute api-version: 2015-06-15.
+     */
+    export interface DiagnosticsProfileResponse {
+        /**
+         * Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. **NOTE**: If storageUri is being specified then ensure that the storage account is in the same region and subscription as the VM. You can easily view the output of your console log. Azure also enables you to see a screenshot of the VM from the hypervisor.
+         */
+        bootDiagnostics?: outputs.computebulkactions.BootDiagnosticsResponse;
+    }
+
+    /**
+     * Describes the parameters of ephemeral disk settings that can be specified for operating system disk. Note: The ephemeral disk settings can only be specified for managed disk.
+     */
+    export interface DiffDiskSettingsResponse {
+        /**
+         * Specifies the ephemeral disk settings for operating system disk.
+         */
+        option?: string;
+        /**
+         * Specifies the ephemeral disk placement for operating system disk. Possible values are: CacheDisk, ResourceDisk, NvmeDisk. The defaulting behavior is: CacheDisk if one is configured for the VM size otherwise ResourceDisk or NvmeDisk is used. Minimum api-version for NvmeDisk: 2024-03-01.
+         */
+        placement?: string;
+    }
+
+    /**
+     * Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. **Note:** The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
+     */
+    export interface DiskEncryptionSetParametersResponse {
+        /**
+         * The ID of the sub-resource.
+         */
+        id?: string;
+    }
+
+    /**
+     * Describes a Encryption Settings for a Disk
+     */
+    export interface DiskEncryptionSettingsResponse {
+        /**
+         * Specifies the location of the disk encryption key, which is a Key Vault Secret.
+         */
+        diskEncryptionKey?: outputs.computebulkactions.KeyVaultSecretReferenceResponse;
+        /**
+         * Specifies whether disk encryption should be enabled on the virtual machine.
+         */
+        enabled?: boolean;
+        /**
+         * Specifies the location of the key encryption key in Key Vault.
+         */
+        keyEncryptionKey?: outputs.computebulkactions.KeyVaultKeyReferenceResponse;
+    }
+
+    /**
+     * Specifies the Managed Identity used by ADE to get access token for keyvault operations.
+     */
+    export interface EncryptionIdentityResponse {
+        /**
+         * Specifies ARM Resource ID of one of the user identities associated with the VM.
+         */
+        userAssignedIdentityResourceId?: string;
+    }
+
+    /**
+     * Specifies eventGridAndResourceGraph related Scheduled Event related configurations.
+     */
+    export interface EventGridAndResourceGraphResponse {
+        /**
+         * Specifies if event grid and resource graph is enabled for Scheduled event related configurations.
+         */
+        enable?: boolean;
+        /**
+         * Specifies the api-version to determine which Scheduled Events configuration schema version will be delivered.
+         */
+        scheduledEventsApiVersion?: string;
+    }
+
+    /**
+     * Specifies particular host endpoint settings.
+     */
+    export interface HostEndpointSettingsResponse {
+        /**
+         * Specifies the InVMAccessControlProfileVersion resource id in the format of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/inVMAccessControlProfiles/{profile}/versions/{version}
+         */
+        inVMAccessControlProfileReferenceId?: string;
+        /**
+         * Specifies the execution mode. In Audit mode, the system acts as if it is enforcing the access control policy, including emitting access denial entries in the logs but it does not actually deny any requests to host endpoints. In Enforce mode, the system will enforce the access control and it is the recommended mode of operation.
+         */
+        mode?: string;
+    }
+
+    /**
+     * Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+     */
+    export interface ImageReferenceResponse {
+        /**
+         * Specified the community gallery image unique id for vm deployment. This can be fetched from community gallery image GET call.
+         */
+        communityGalleryImageId?: string;
+        /**
+         * The ID of the sub-resource.
+         */
+        id?: string;
+        /**
+         * Specifies the offer of the platform image or marketplace image used to create the virtual machine.
+         */
+        offer?: string;
+        /**
+         * The image publisher.
+         */
+        publisher?: string;
+        /**
+         * Specified the shared gallery image unique id for vm deployment. This can be fetched from shared gallery image GET call.
+         */
+        sharedGalleryImageId?: string;
+        /**
+         * The image SKU.
+         */
+        sku?: string;
+        /**
+         * Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available. Please do not use field 'version' for gallery image deployment, gallery image should always use 'id' field for deployment, to use 'latest' version of gallery image, just set '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}' in the 'id' field without version input.
+         */
+        version?: string;
+    }
+
+    /**
+     * Describes a reference to Key Vault Key
+     */
+    export interface KeyVaultKeyReferenceResponse {
+        /**
+         * The URL referencing a key encryption key in Key Vault.
+         */
+        keyUrl: string;
+        /**
+         * The relative URL of the Key Vault containing the key.
+         */
+        sourceVault: outputs.computebulkactions.SubResourceResponse;
+    }
+
+    /**
+     * Describes a reference to Key Vault Secret
+     */
+    export interface KeyVaultSecretReferenceResponse {
+        /**
+         * The URL referencing a secret in a Key Vault.
+         */
+        secretUrl: string;
+        /**
+         * The relative URL of the Key Vault containing the secret.
+         */
+        sourceVault: outputs.computebulkactions.SubResourceResponse;
+    }
+
+    /**
+     * Details of the LaunchBulkInstancesOperation.
+     */
+    export interface LaunchBulkInstancesOperationPropertiesResponse {
+        /**
+         * Total capacity to achieve. It can be in terms of VMs or vCPUs.
+         */
+        capacity: number;
+        /**
+         * Specifies capacity type for launching instances. It can be in terms of VMs or vCPUs.
+         */
+        capacityType?: string;
+        /**
+         * Compute Profile to configure the Virtual Machines.
+         */
+        computeProfile: outputs.computebulkactions.ComputeProfileResponse;
+        /**
+         * Configuration Options for Regular or Spot instances in LaunchBulkInstancesOperation.
+         */
+        priorityProfile: outputs.computebulkactions.PriorityProfileResponse;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Retry policy the user can pass
+         */
+        retryPolicy?: outputs.computebulkactions.RetryPolicyResponse;
+        /**
+         * Attributes to launch instances.
+         */
+        vmAttributes?: outputs.computebulkactions.VMAttributesResponse;
+        /**
+         * List of VM sizes supported for LaunchBulkInstancesOperation
+         */
+        vmSizesProfile?: outputs.computebulkactions.VmSizeProfileResponse[];
+        /**
+         * Zone Allocation Policy for launching instances.
+         */
+        zoneAllocationPolicy?: outputs.computebulkactions.ZoneAllocationPolicyResponse;
+    }
+
+    /**
+     * Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+     */
+    export interface LinuxConfigurationResponse {
+        /**
+         * Specifies whether password authentication should be disabled.
+         */
+        disablePasswordAuthentication?: boolean;
+        /**
+         * Indicates whether VMAgent Platform Updates is enabled for the Linux virtual machine. Default value is false.
+         */
+        enableVMAgentPlatformUpdates?: boolean;
+        /**
+         * [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
+         */
+        patchSettings?: outputs.computebulkactions.LinuxPatchSettingsResponse;
+        /**
+         * Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, default behavior is to set it to true. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+         */
+        provisionVMAgent?: boolean;
+        /**
+         * Specifies the ssh key configuration for a Linux OS.
+         */
+        ssh?: outputs.computebulkactions.SshConfigurationResponse;
+    }
+
+    /**
+     * Specifies settings related to VM Guest Patching on Linux.
+     */
+    export interface LinuxPatchSettingsResponse {
+        /**
+         * Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+         */
+        assessmentMode?: string;
+        /**
+         * Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Linux.
+         */
+        automaticByPlatformSettings?: outputs.computebulkactions.LinuxVMGuestPatchAutomaticByPlatformSettingsResponse;
+        /**
+         * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+         */
+        patchMode?: string;
+    }
+
+    /**
+     * Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Linux patch settings.
+     */
+    export interface LinuxVMGuestPatchAutomaticByPlatformSettingsResponse {
+        /**
+         * Enables customer to schedule patching without accidental upgrades
+         */
+        bypassPlatformSafetyChecksOnUserSchedule?: boolean;
+        /**
+         * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+         */
+        rebootSetting?: string;
+    }
+
+    /**
+     * The parameters of a managed disk.
+     */
+    export interface ManagedDiskParametersResponse {
+        /**
+         * Specifies the customer managed disk encryption set resource id for the managed disk.
+         */
+        diskEncryptionSet?: outputs.computebulkactions.DiskEncryptionSetParametersResponse;
+        /**
+         * The ID of the sub-resource.
+         */
+        id?: string;
+        /**
+         * Specifies the security profile for the managed disk.
+         */
+        securityProfile?: outputs.computebulkactions.VMDiskSecurityProfileResponse;
+        /**
+         * Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+         */
+        storageAccountType?: string;
+    }
+
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    export interface ManagedServiceIdentityResponse {
+        /**
+         * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+         */
+        tenantId: string;
+        /**
+         * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+         */
+        type: string;
+        /**
+         * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.computebulkactions.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * Describes a network interface reference properties.
+     */
+    export interface NetworkInterfaceReferencePropertiesResponse {
+        /**
+         * Specify what happens to the network interface when the VM is deleted
+         */
+        deleteOption?: string;
+        /**
+         * Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+         */
+        primary?: boolean;
+    }
+
+    /**
+     * Describes a network interface reference.
+     */
+    export interface NetworkInterfaceReferenceResponse {
+        /**
+         * The ID of the sub-resource.
+         */
+        id?: string;
+        /**
+         * Describes a network interface reference properties.
+         */
+        properties?: outputs.computebulkactions.NetworkInterfaceReferencePropertiesResponse;
+    }
+
+    /**
+     * Specifies the network interfaces or the networking configuration of the virtual machine.
+     */
+    export interface NetworkProfileResponse {
+        /**
+         * specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+         */
+        networkApiVersion?: string;
+        /**
+         * Specifies the networking configurations that will be used to create the virtual machine networking resources.
+         */
+        networkInterfaceConfigurations?: outputs.computebulkactions.VirtualMachineNetworkInterfaceConfigurationResponse[];
+        /**
+         * Specifies the list of resource Ids for the network interfaces associated with the virtual machine.
+         */
+        networkInterfaces?: outputs.computebulkactions.NetworkInterfaceReferenceResponse[];
+    }
+
+    /**
+     * Specifies information about the operating system disk used by the virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+     */
+    export interface OSDiskResponse {
+        /**
+         * Specifies the caching requirements. Possible values are: None, ReadOnly, ReadWrite. The defaulting behavior is: None for Standard storage. ReadOnly for Premium storage.
+         */
+        caching?: string;
+        /**
+         * Specifies how the virtual machine disk should be created. Possible values are Attach, FromImage. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+         */
+        createOption: string;
+        /**
+         * Specifies whether OS Disk should be deleted or detached upon VM deletion. Possible values are: Delete, Detach. The default value is set to Detach. For an ephemeral OS Disk, the default value is set to Delete. The user cannot change the delete option for an ephemeral OS Disk.
+         */
+        deleteOption?: string;
+        /**
+         * Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+         */
+        diffDiskSettings?: outputs.computebulkactions.DiffDiskSettingsResponse;
+        /**
+         * Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
+         */
+        diskSizeGB?: number;
+        /**
+         * Specifies the encryption settings for the OS Disk. Minimum compute api-version: 2015-06-15.
+         */
+        encryptionSettings?: outputs.computebulkactions.DiskEncryptionSettingsResponse;
+        /**
+         * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+         */
+        image?: outputs.computebulkactions.VirtualHardDiskResponse;
+        /**
+         * The managed disk parameters.
+         */
+        managedDisk?: outputs.computebulkactions.ManagedDiskParametersResponse;
+        /**
+         * The disk name.
+         */
+        name?: string;
+        /**
+         * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
+         */
+        osType?: string;
+        /**
+         * The virtual hard disk.
+         */
+        vhd?: outputs.computebulkactions.VirtualHardDiskResponse;
+        /**
+         * Specifies whether writeAccelerator should be enabled or disabled on the disk.
+         */
+        writeAcceleratorEnabled?: boolean;
+    }
+
+    /**
+     * Profile for the OS Image Scheduled event.
+     */
+    export interface OSImageNotificationProfileResponse {
+        /**
+         * Specifies whether the OS Image Scheduled event is enabled or disabled.
+         */
+        enable?: boolean;
+        /**
+         * Length of time a Virtual Machine being reimaged or having its OS upgraded will have to potentially approve the OS Image Scheduled Event before the event is auto approved (timed out). The configuration is specified in ISO 8601 format, and the value must be 15 minutes (PT15M)
+         */
+        notBeforeTimeout?: string;
+    }
+
+    /**
+     * Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+     */
+    export interface OSProfileResponse {
+        /**
+         * Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+         */
+        adminPassword?: string;
+        /**
+         * Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
+         */
+        adminUsername?: string;
+        /**
+         * Specifies whether extension operations should be allowed on the virtual machine. This may only be set to False when no extensions are present on the virtual machine.
+         */
+        allowExtensionOperations?: boolean;
+        /**
+         * Specifies the host OS name of the virtual machine. This name cannot be updated after the VM is created. **Max-length (Windows):** 15 characters. **Max-length (Linux):** 64 characters. For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
+         */
+        computerName?: string;
+        /**
+         * Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. **Note: Do not pass any secrets or passwords in customData property.** This property cannot be updated after the VM is created. The property 'customData' is passed to the VM to be saved as a file, for more information see [Custom Data on Azure VMs](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/). For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+         */
+        customData?: string;
+        /**
+         * Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+         */
+        linuxConfiguration?: outputs.computebulkactions.LinuxConfigurationResponse;
+        /**
+         * Optional property which must either be set to True or omitted.
+         */
+        requireGuestProvisionSignal?: boolean;
+        /**
+         * Specifies set of certificates that should be installed onto the virtual machine. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+         */
+        secrets?: outputs.computebulkactions.VaultSecretGroupResponse[];
+        /**
+         * Specifies Windows operating system settings on the virtual machine.
+         */
+        windowsConfiguration?: outputs.computebulkactions.WindowsConfigurationResponse;
+    }
+
+    /**
+     * Specifies settings related to VM Guest Patching on Windows.
+     */
+    export interface PatchSettingsResponse {
+        /**
+         * Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+         */
+        assessmentMode?: string;
+        /**
+         * Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Windows.
+         */
+        automaticByPlatformSettings?: outputs.computebulkactions.WindowsVMGuestPatchAutomaticByPlatformSettingsResponse;
+        /**
+         * Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
+         */
+        enableHotpatching?: boolean;
+        /**
+         * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true
+         */
+        patchMode?: string;
+    }
+
+    /**
+     * Plan for the resource.
+     */
+    export interface PlanResponse {
+        /**
+         * A user defined name of the 3rd Party Artifact that is being procured.
+         */
+        name: string;
+        /**
+         * The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+         */
+        product: string;
+        /**
+         * A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
+         */
+        promotionCode?: string;
+        /**
+         * The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
+         */
+        publisher: string;
+        /**
+         * The version of the desired product/artifact.
+         */
+        version?: string;
+    }
+
+    /**
+     * Contains properties that are applicable to both Spot and Regular.
+     */
+    export interface PriorityProfileResponse {
+        /**
+         * Allocation strategy to follow when determining the VM sizes distribution.
+         */
+        allocationStrategy?: string;
+        /**
+         * Eviction Policy to follow when evicting Spot VMs.
+         */
+        evictionPolicy?: string;
+        /**
+         * Price per hour of each Spot VM will never exceed this.
+         */
+        maxPricePerVM?: number;
+        /**
+         * Specifies the type of Virtual Machine.
+         */
+        type?: string;
+    }
+
+    /**
+     * Specifies ProxyAgent settings for the virtual machine or virtual machine scale set. Minimum api-version: 2023-09-01.
+     */
+    export interface ProxyAgentSettingsResponse {
+        /**
+         * Specify whether to implicitly install the ProxyAgent Extension. This option is currently applicable only for Linux Os.
+         */
+        addProxyAgentExtension?: boolean;
+        /**
+         * Specifies whether ProxyAgent feature should be enabled on the virtual machine or virtual machine scale set.
+         */
+        enabled?: boolean;
+        /**
+         * Specifies the IMDS endpoint settings while creating the virtual machine or virtual machine scale set. Minimum api-version: 2024-03-01.
+         */
+        imds?: outputs.computebulkactions.HostEndpointSettingsResponse;
+        /**
+         * Increase the value of this property allows users to reset the key used for securing communication channel between guest and host.
+         */
+        keyIncarnationId?: number;
+        /**
+         * Specifies the mode that ProxyAgent will execute on. Warning: this property has been deprecated, please specify 'mode' under particular hostendpoint setting.
+         */
+        mode?: string;
+        /**
+         * Specifies the Wire Server endpoint settings while creating the virtual machine or virtual machine scale set. Minimum api-version: 2024-03-01.
+         */
+        wireServer?: outputs.computebulkactions.HostEndpointSettingsResponse;
+    }
+
+    /**
+     * Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
+     */
+    export interface PublicIPAddressSkuResponse {
+        /**
+         * Specify public IP sku name
+         */
+        name?: string;
+        /**
+         * Specify public IP sku tier
+         */
+        tier?: string;
+    }
+
+    /**
+     * The retry policy for the user request
+     */
+    export interface RetryPolicyResponse {
+        /**
+         * Retry count for user request
+         */
+        retryCount?: number;
+        /**
+         * Retry window in minutes for user request
+         */
+        retryWindowInMinutes?: number;
+    }
+
+    /**
+     * Specifies additional publishing targets for scheduled events.
+     */
+    export interface ScheduledEventsAdditionalPublishingTargetsResponse {
+        /**
+         * The configuration parameters used while creating eventGridAndResourceGraph Scheduled Event setting.
+         */
+        eventGridAndResourceGraph?: outputs.computebulkactions.EventGridAndResourceGraphResponse;
+    }
+
+    /**
+     * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations.
+     */
+    export interface ScheduledEventsPolicyResponse {
+        /**
+         * The configuration parameters used while creating AllInstancesDown scheduled event setting creation.
+         */
+        allInstancesDown?: outputs.computebulkactions.AllInstancesDownResponse;
+        /**
+         * The configuration parameters used while publishing scheduledEventsAdditionalPublishingTargets.
+         */
+        scheduledEventsAdditionalPublishingTargets?: outputs.computebulkactions.ScheduledEventsAdditionalPublishingTargetsResponse;
+        /**
+         * The configuration parameters used while creating userInitiatedReboot scheduled event setting creation.
+         */
+        userInitiatedReboot?: outputs.computebulkactions.UserInitiatedRebootResponse;
+        /**
+         * The configuration parameters used while creating userInitiatedRedeploy scheduled event setting creation.
+         */
+        userInitiatedRedeploy?: outputs.computebulkactions.UserInitiatedRedeployResponse;
+    }
+
+    /**
+     * Profile for the scheduled events.
+     */
+    export interface ScheduledEventsProfileResponse {
+        /**
+         * Specifies OS Image Scheduled Event related configurations.
+         */
+        osImageNotificationProfile?: outputs.computebulkactions.OSImageNotificationProfileResponse;
+        /**
+         * Specifies Terminate Scheduled Event related configurations.
+         */
+        terminateNotificationProfile?: outputs.computebulkactions.TerminateNotificationProfileResponse;
+    }
+
+    /**
+     * Specifies the Security profile settings for the virtual machine or virtual machine scale set.
+     */
+    export interface SecurityProfileResponse {
+        /**
+         * This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. The default behavior is: The Encryption at host will be disabled unless this property is set to true for the resource.
+         */
+        encryptionAtHost?: boolean;
+        /**
+         * Specifies the Managed Identity used by ADE to get access token for keyvault operations.
+         */
+        encryptionIdentity?: outputs.computebulkactions.EncryptionIdentityResponse;
+        /**
+         * Specifies ProxyAgent settings while creating the virtual machine. Minimum compute api-version: 2023-09-01.
+         */
+        proxyAgentSettings?: outputs.computebulkactions.ProxyAgentSettingsResponse;
+        /**
+         * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+         */
+        securityType?: string;
+        /**
+         * Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum compute api-version: 2020-12-01.
+         */
+        uefiSettings?: outputs.computebulkactions.UefiSettingsResponse;
+    }
+
+    /**
+     * SSH configuration for Linux based VMs running on Azure
+     */
+    export interface SshConfigurationResponse {
+        /**
+         * The list of SSH public keys used to authenticate with linux based VMs.
+         */
+        publicKeys?: outputs.computebulkactions.SshPublicKeyResponse[];
+    }
+
+    /**
+     * Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+     */
+    export interface SshPublicKeyResponse {
+        /**
+         * SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+         */
+        keyData?: string;
+        /**
+         * Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+         */
+        path?: string;
+    }
+
+    /**
+     * Specifies the storage settings for the virtual machine disks.
+     */
+    export interface StorageProfileResponse {
+        /**
+         * Specifies the parameters that are used to add a data disk to a virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+         */
+        dataDisks?: outputs.computebulkactions.DataDiskResponse[];
+        /**
+         * Specifies the disk controller type configured for the VM. **Note:** This property will be set to the default disk controller type if not specified provided virtual machine is being created with 'hyperVGeneration' set to V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. Minimum api-version: 2022-08-01.
+         */
+        diskControllerType?: string;
+        /**
+         * Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+         */
+        imageReference?: outputs.computebulkactions.ImageReferenceResponse;
+        /**
+         * Specifies information about the operating system disk used by the virtual machine. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+         */
+        osDisk?: outputs.computebulkactions.OSDiskResponse;
+    }
+
+    /**
+     * Describes a reference to a sub-resource.
+     */
+    export interface SubResourceResponse {
+        /**
+         * The ID of the sub-resource.
+         */
+        id?: string;
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * Profile properties for the Terminate Scheduled event.
+     */
+    export interface TerminateNotificationProfileResponse {
+        /**
+         * Specifies whether the Terminate Scheduled event is enabled or disabled.
+         */
+        enable?: boolean;
+        /**
+         * Configurable length of time a Virtual Machine being deleted will have to potentially approve the Terminate Scheduled Event before the event is auto approved (timed out). The configuration must be specified in ISO 8601 format, the default value is 5 minutes (PT5M)
+         */
+        notBeforeTimeout?: string;
+    }
+
+    /**
+     * Specifies the security settings like secure boot and vTPM used while creating the virtual machine. Minimum api-version: 2020-12-01.
+     */
+    export interface UefiSettingsResponse {
+        /**
+         * Specifies whether secure boot should be enabled on the virtual machine. Minimum compute api-version: 2020-12-01.
+         */
+        secureBootEnabled?: boolean;
+        /**
+         * Specifies whether vTPM should be enabled on the virtual machine. Minimum compute api-version: 2020-12-01.
+         */
+        vTpmEnabled?: boolean;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
+     * Specifies Reboot related Scheduled Event related configurations.
+     */
+    export interface UserInitiatedRebootResponse {
+        /**
+         * Specifies Reboot Scheduled Event related configurations.
+         */
+        automaticallyApprove?: boolean;
+    }
+
+    /**
+     * Specifies Redeploy related Scheduled Event related configurations.
+     */
+    export interface UserInitiatedRedeployResponse {
+        /**
+         * Specifies Redeploy Scheduled Event related configurations.
+         */
+        automaticallyApprove?: boolean;
+    }
+
+    /**
+     * VMAttributes using double values.
+     */
+    export interface VMAttributeMinMaxDoubleResponse {
+        /**
+         * Maximum value. Must be greater than zero. Double.MaxValue(1.7976931348623157E+308).
+         */
+        max?: number;
+        /**
+         * Minimum value. If not specified, no minimum filter is applied.
+         */
+        min?: number;
+    }
+
+    /**
+     * While retrieving VMSizes from CRS, Min = 0 (uint.MinValue) if not specified, Max = 4294967295 (uint.MaxValue) if not specified. This allows to filter VMAttributes on all available VMSizes.
+     */
+    export interface VMAttributeMinMaxIntegerResponse {
+        /**
+         * Max VMSize from CRS, Max = 4294967295 (uint.MaxValue) if not specified.
+         */
+        max?: number;
+        /**
+         * Min VMSize from CRS, Min = 0 (uint.MinValue) if not specified.
+         */
+        min?: number;
+    }
+
+    /**
+     * VMAttributes that will be used to filter VMSizes which will be used to launch instances.
+     */
+    export interface VMAttributesResponse {
+        /**
+         * The range of accelerator count specified from min to max. Optional parameter. Either Min or Max is required if specified.
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+         */
+        acceleratorCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
+        /**
+         * The accelerator manufacturers specified as a list. 
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+         */
+        acceleratorManufacturers?: string[];
+        /**
+         * Specifies whether the VMSize supporting accelerator should be used to launch instances or not.
+         * acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+         */
+        acceleratorSupport?: string;
+        /**
+         * The accelerator types specified as a list. acceleratorSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If acceleratorSupport is "Excluded", this VMAttribute can not be used.
+         */
+        acceleratorTypes?: string[];
+        /**
+         * Specifies which VMSizes should be allowed while filtering on VMAttributes. Cannot be specified together with excludedVMSizes. Maximum of 10 VM sizes allowed. Optional parameter.
+         */
+        allowedVMSizes?: string[];
+        /**
+         * The VM architecture types specified as a list. Must be specified if VMAttributes are specified. Must be compatible with image used.
+         */
+        architectureTypes: string[];
+        /**
+         * Specifies whether the VMSize supporting burstable capability should be used to launch instances or not.
+         */
+        burstableSupport?: string;
+        /**
+         * The VM CPU manufacturers specified as a list. Optional parameter.
+         */
+        cpuManufacturers?: string[];
+        /**
+         * The range of data disk count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+         */
+        dataDiskCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
+        /**
+         * Specifies which VMSizes should be excluded while filtering on VMAttributes. Cannot be specified together with allowedVMSizes. Maximum of 10 VM sizes allowed. Optional parameter.
+         */
+        excludedVMSizes?: string[];
+        /**
+         * The hyperV generations specified as a list. Optional parameter.
+         */
+        hyperVGenerations?: string[];
+        /**
+         * The local storage disk types specified as a list. LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If localStorageSupport is "Excluded", this VMAttribute can not be used.
+         */
+        localStorageDiskTypes?: string[];
+        /**
+         * LocalStorageSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If localStorageSupport is "Excluded", this VMAttribute can not be used.
+         */
+        localStorageInGiB?: outputs.computebulkactions.VMAttributeMinMaxDoubleResponse;
+        /**
+         * Specifies whether the VMSize supporting local storage should be used to launch instances or not.
+         * Included - Default if not specified as most Azure VMs support local storage.
+         */
+        localStorageSupport?: string;
+        /**
+         * The range of memory specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
+         */
+        memoryInGiB: outputs.computebulkactions.VMAttributeMinMaxDoubleResponse;
+        /**
+         * The range of memory in GiB per vCPU specified from min to max. Optional parameter. Either Min or Max is required if specified.
+         */
+        memoryInGiBPerVCpu?: outputs.computebulkactions.VMAttributeMinMaxDoubleResponse;
+        /**
+         * The range of network bandwidth in Mbps specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+         */
+        networkBandwidthInMbps?: outputs.computebulkactions.VMAttributeMinMaxDoubleResponse;
+        /**
+         * The range of network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+         */
+        networkInterfaceCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
+        /**
+         * The range of RDMA (Remote Direct Memory Access) network interface count specified from Min to Max. Optional parameter. Either Min or Max is required if specified.
+         * rdmaSupport should be set to "Included" or "Required" to use this VMAttribute. 
+         * If rdmaSupport is "Excluded", this VMAttribute can not be used.
+         */
+        rdmaNetworkInterfaceCount?: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
+        /**
+         * Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build launch instances or not.
+         */
+        rdmaSupport?: string;
+        /**
+         * The range of vCpuCount specified from Min to Max. Must be specified if VMAttributes are specified, either Min or Max is required if specified.
+         */
+        vCpuCount: outputs.computebulkactions.VMAttributeMinMaxIntegerResponse;
+        /**
+         * The VM category specified as a list. Optional parameter.
+         */
+        vmCategories?: string[];
+    }
+
+    /**
+     * Specifies the security profile settings for the managed disk. **Note:** It can only be set for Confidential VMs.
+     */
+    export interface VMDiskSecurityProfileResponse {
+        /**
+         * Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.
+         */
+        diskEncryptionSet?: outputs.computebulkactions.DiskEncryptionSetParametersResponse;
+        /**
+         * Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
+         */
+        securityEncryptionType?: string;
+    }
+
+    /**
+     * Specifies the required information to reference a compute gallery application version
+     */
+    export interface VMGalleryApplicationResponse {
+        /**
+         * Optional, Specifies the uri to an azure blob that will replace the default configuration for the package if provided
+         */
+        configurationReference?: string;
+        /**
+         * If set to true, when a new Gallery Application version is available in PIR/SIG, it will be automatically updated for the VM/VMSS
+         */
+        enableAutomaticUpgrade?: boolean;
+        /**
+         * Optional, Specifies the order in which the packages have to be installed
+         */
+        order?: number;
+        /**
+         * Specifies the GalleryApplicationVersion resource id on the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/applications/{application}/versions/{version}
+         */
+        packageReferenceId: string;
+        /**
+         * Optional, Specifies a passthrough value for more generic context.
+         */
+        tags?: string;
+        /**
+         * Optional, If true, any failure for any operation in the VmApplication will fail the deployment
+         */
+        treatFailureAsDeploymentFailure?: boolean;
+    }
+
+    /**
+     * Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+     */
+    export interface VaultCertificateResponse {
+        /**
+         * For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+         */
+        certificateStore?: string;
+        /**
+         * This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  'data':'<Base64-encoded-certificate>',<br>  'dataType':'pfx',<br>  'password':'<pfx-file-password>'<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+         */
+        certificateUrl?: string;
+    }
+
+    /**
+     * Describes a set of certificates which are all in the same Key Vault.
+     */
+    export interface VaultSecretGroupResponse {
+        /**
+         * The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+         */
+        sourceVault?: outputs.computebulkactions.SubResourceResponse;
+        /**
+         * The list of key vault references in SourceVault which contain certificates.
+         */
+        vaultCertificates?: outputs.computebulkactions.VaultCertificateResponse[];
+    }
+
+    /**
+     * Describes the uri of a disk.
+     */
+    export interface VirtualHardDiskResponse {
+        /**
+         * Specifies the virtual hard disk's uri.
+         */
+        uri?: string;
+    }
+
+    /**
+     * Describes the properties of a Virtual Machine Extension.
+     */
+    export interface VirtualMachineExtensionPropertiesResponse {
+        /**
+         * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+         */
+        autoUpgradeMinorVersion?: boolean;
+        /**
+         * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
+         */
+        enableAutomaticUpgrade?: boolean;
+        /**
+         * How the extension handler should be forced to update even if the extension configuration has not changed.
+         */
+        forceUpdateTag?: string;
+        /**
+         * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+         */
+        protectedSettings?: any;
+        /**
+         * The extensions protected settings that are passed by reference, and consumed from key vault
+         */
+        protectedSettingsFromKeyVault?: outputs.computebulkactions.KeyVaultSecretReferenceResponse;
+        /**
+         * Collection of extension names after which this extension needs to be provisioned.
+         */
+        provisionAfterExtensions?: string[];
+        /**
+         * The name of the extension handler publisher.
+         */
+        publisher?: string;
+        /**
+         * JSON formatted public settings for the extension.
+         */
+        settings?: any;
+        /**
+         * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+         */
+        suppressFailures?: boolean;
+        /**
+         * Specifies the type of the extension; an example is 'CustomScriptExtension'.
+         */
+        type?: string;
+        /**
+         * Specifies the version of the script handler.
+         */
+        typeHandlerVersion?: string;
+    }
+
+    /**
+     * Defines a virtual machine extension.
+     */
+    export interface VirtualMachineExtensionResponse {
+        /**
+         * The name of the virtual machine extension.
+         */
+        name: string;
+        /**
+         * Properties of the virtual machine extension.
+         */
+        properties: outputs.computebulkactions.VirtualMachineExtensionPropertiesResponse;
+    }
+
+    /**
+     * Contains the IP tag associated with the public IP address.
+     */
+    export interface VirtualMachineIpTagResponse {
+        /**
+         * IP tag type. Example: FirstPartyUsage.
+         */
+        ipTagType?: string;
+        /**
+         * IP tag associated with the public IP. Example: SQL, Storage etc.
+         */
+        tag?: string;
+    }
+
+    /**
+     * Describes a virtual machine network profile's IP configuration.
+     */
+    export interface VirtualMachineNetworkInterfaceConfigurationPropertiesResponse {
+        /**
+         * Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+         */
+        auxiliaryMode?: string;
+        /**
+         * Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+         */
+        auxiliarySku?: string;
+        /**
+         * Specify what happens to the network interface when the VM is deleted
+         */
+        deleteOption?: string;
+        /**
+         * Specifies whether the network interface is disabled for tcp state tracking.
+         */
+        disableTcpStateTracking?: boolean;
+        /**
+         * The dns settings to be applied on the network interfaces.
+         */
+        dnsSettings?: outputs.computebulkactions.VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponse;
+        /**
+         * The DSCP configuration for the network interface.
+         */
+        dscpConfiguration?: outputs.computebulkactions.SubResourceResponse;
+        /**
+         * Specifies whether the network interface is accelerated networking-enabled.
+         */
+        enableAcceleratedNetworking?: boolean;
+        /**
+         * Specifies whether the network interface is FPGA networking-enabled.
+         */
+        enableFpga?: boolean;
+        /**
+         * Whether IP forwarding enabled on this NIC.
+         */
+        enableIPForwarding?: boolean;
+        /**
+         * Specifies the IP configurations of the network interface.
+         */
+        ipConfigurations: outputs.computebulkactions.VirtualMachineNetworkInterfaceIPConfigurationResponse[];
+        /**
+         * The network security group.
+         */
+        networkSecurityGroup?: outputs.computebulkactions.SubResourceResponse;
+        /**
+         * Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+         */
+        primary?: boolean;
+    }
+
+    /**
+     * Describes a virtual machine network interface configurations.
+     */
+    export interface VirtualMachineNetworkInterfaceConfigurationResponse {
+        /**
+         * The network interface configuration name.
+         */
+        name: string;
+        /**
+         * Describes a virtual machine network profile's IP configuration.
+         */
+        properties?: outputs.computebulkactions.VirtualMachineNetworkInterfaceConfigurationPropertiesResponse;
+        /**
+         * Resource tags applied to the networkInterface address created by this NetworkInterfaceConfiguration
+         */
+        tags?: {[key: string]: string};
+    }
+
+    /**
+     * Describes a virtual machines network configuration's DNS settings.
+     */
+    export interface VirtualMachineNetworkInterfaceDnsSettingsConfigurationResponse {
+        /**
+         * List of DNS servers IP addresses
+         */
+        dnsServers?: string[];
+    }
+
+    /**
+     * Describes a virtual machine network interface IP configuration properties.
+     */
+    export interface VirtualMachineNetworkInterfaceIPConfigurationPropertiesResponse {
+        /**
+         * Specifies an array of references to backend address pools of application gateways. A virtual machine can reference backend address pools of multiple application gateways. Multiple virtual machines cannot use the same application gateway.
+         */
+        applicationGatewayBackendAddressPools?: outputs.computebulkactions.SubResourceResponse[];
+        /**
+         * Specifies an array of references to application security group.
+         */
+        applicationSecurityGroups?: outputs.computebulkactions.SubResourceResponse[];
+        /**
+         * Specifies an array of references to backend address pools of load balancers. A virtual machine can reference backend address pools of one public and one internal load balancer. [Multiple virtual machines cannot use the same basic sku load balancer].
+         */
+        loadBalancerBackendAddressPools?: outputs.computebulkactions.SubResourceResponse[];
+        /**
+         * Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+         */
+        primary?: boolean;
+        /**
+         * Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+         */
+        privateIPAddressVersion?: string;
+        /**
+         * The publicIPAddressConfiguration.
+         */
+        publicIPAddressConfiguration?: outputs.computebulkactions.VirtualMachinePublicIPAddressConfigurationResponse;
+        /**
+         * Specifies the identifier of the subnet.
+         */
+        subnet?: outputs.computebulkactions.SubResourceResponse;
+    }
+
+    /**
+     * Describes a virtual machine network profile's IP configuration.
+     */
+    export interface VirtualMachineNetworkInterfaceIPConfigurationResponse {
+        /**
+         * The IP configuration name.
+         */
+        name: string;
+        /**
+         * Describes a virtual machine network interface IP configuration properties.
+         */
+        properties?: outputs.computebulkactions.VirtualMachineNetworkInterfaceIPConfigurationPropertiesResponse;
+    }
+
+    /**
+     * Describes the properties of a Virtual Machine.
+     */
+    export interface VirtualMachineProfileResponse {
+        /**
+         * Specifies additional capabilities enabled or disabled on the virtual machine.
+         */
+        additionalCapabilities?: outputs.computebulkactions.AdditionalCapabilitiesResponse;
+        /**
+         * Specifies the gallery applications that should be made available to the VM.
+         */
+        applicationProfile?: outputs.computebulkactions.ApplicationProfileResponse;
+        /**
+         * Specifies information about the capacity reservation that is used to allocate virtual machine. Minimum compute api-version: 2021-04-01.
+         */
+        capacityReservation?: outputs.computebulkactions.CapacityReservationProfileResponse;
+        /**
+         * Specifies the boot diagnostic settings state. Minimum compute api-version: 2015-06-15.
+         */
+        diagnosticsProfile?: outputs.computebulkactions.DiagnosticsProfileResponse;
+        /**
+         * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). Minimum compute api-version: 2020-06-01.
+         */
+        extensionsTimeBudget?: string;
+        /**
+         * Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
+         */
+        licenseType?: string;
+        /**
+         * Specifies the network interfaces of the virtual machine.
+         */
+        networkProfile?: outputs.computebulkactions.NetworkProfileResponse;
+        /**
+         * Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+         */
+        osProfile?: outputs.computebulkactions.OSProfileResponse;
+        /**
+         * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+         */
+        scheduledEventsPolicy?: outputs.computebulkactions.ScheduledEventsPolicyResponse;
+        /**
+         * Specifies Scheduled Event related configurations.
+         */
+        scheduledEventsProfile?: outputs.computebulkactions.ScheduledEventsProfileResponse;
+        /**
+         * Specifies the Security related profile settings for the virtual machine.
+         */
+        securityProfile?: outputs.computebulkactions.SecurityProfileResponse;
+        /**
+         * Specifies the storage settings for the virtual machine disks.
+         */
+        storageProfile?: outputs.computebulkactions.StorageProfileResponse;
+        /**
+         * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum compute api-version: 2021-03-01.
+         */
+        userData?: string;
+    }
+
+    /**
+     * Describes a virtual machines IP Configuration's PublicIPAddress configuration
+     */
+    export interface VirtualMachinePublicIPAddressConfigurationPropertiesResponse {
+        /**
+         * Specify what happens to the public IP address when the VM is deleted
+         */
+        deleteOption?: string;
+        /**
+         * The dns settings to be applied on the publicIP addresses .
+         */
+        dnsSettings?: outputs.computebulkactions.VirtualMachinePublicIPAddressDnsSettingsConfigurationResponse;
+        /**
+         * The idle timeout of the public IP address.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * The list of IP tags associated with the public IP address.
+         */
+        ipTags?: outputs.computebulkactions.VirtualMachineIpTagResponse[];
+        /**
+         * Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+         */
+        publicIPAddressVersion?: string;
+        /**
+         * Specify the public IP allocation type
+         */
+        publicIPAllocationMethod?: string;
+        /**
+         * The PublicIPPrefix from which to allocate publicIP addresses.
+         */
+        publicIPPrefix?: outputs.computebulkactions.SubResourceResponse;
+    }
+
+    /**
+     * Describes a virtual machines IP Configuration's PublicIPAddress configuration
+     */
+    export interface VirtualMachinePublicIPAddressConfigurationResponse {
+        /**
+         * The publicIP address configuration name.
+         */
+        name: string;
+        /**
+         * Describes a virtual machines IP Configuration's PublicIPAddress configuration
+         */
+        properties?: outputs.computebulkactions.VirtualMachinePublicIPAddressConfigurationPropertiesResponse;
+        /**
+         * Describes the public IP Sku. It can only be set with OrchestrationMode as Flexible.
+         */
+        sku?: outputs.computebulkactions.PublicIPAddressSkuResponse;
+        /**
+         * Resource tags applied to the publicIP address created by this PublicIPAddressConfiguration
+         */
+        tags?: {[key: string]: string};
+    }
+
+    /**
+     * Describes a virtual machines network configuration's DNS settings.
+     */
+    export interface VirtualMachinePublicIPAddressDnsSettingsConfigurationResponse {
+        /**
+         * The Domain name label prefix of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the domain name label and vm network profile unique ID.
+         */
+        domainNameLabel: string;
+        /**
+         * The Domain name label scope of the PublicIPAddress resources that will be created. The generated name label is the concatenation of the hashed domain name label with policy according to the domain name label scope and vm network profile unique ID.
+         */
+        domainNameLabelScope?: string;
+    }
+
+    /**
+     * Specifications about a VM Size. This will also contain the corresponding rank and weight in future.
+     */
+    export interface VmSizeProfileResponse {
+        /**
+         * The Sku name (e.g. 'Standard_DS1_v2')
+         */
+        name: string;
+        /**
+         * The rank of the VM size. This is used with 'AllocationStrategy.Prioritized'
+         * The lower the number, the higher the priority. Starting with 0.
+         */
+        rank?: number;
+    }
+
+    /**
+     * Describes Windows Remote Management configuration of the VM
+     */
+    export interface WinRMConfigurationResponse {
+        /**
+         * The list of Windows Remote Management listeners
+         */
+        listeners?: outputs.computebulkactions.WinRMListenerResponse[];
+    }
+
+    /**
+     * Describes Protocol and thumbprint of Windows Remote Management listener
+     */
+    export interface WinRMListenerResponse {
+        /**
+         * This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+         */
+        certificateUrl?: string;
+        /**
+         * Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
+         */
+        protocol?: string;
+    }
+
+    /**
+     * Specifies Windows operating system settings on the virtual machine.
+     */
+    export interface WindowsConfigurationResponse {
+        /**
+         * Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+         */
+        additionalUnattendContent?: outputs.computebulkactions.AdditionalUnattendContentResponse[];
+        /**
+         * Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
+         */
+        enableAutomaticUpdates?: boolean;
+        /**
+         * [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
+         */
+        patchSettings?: outputs.computebulkactions.PatchSettingsResponse;
+        /**
+         * Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, it is set to true by default. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+         */
+        provisionVMAgent?: boolean;
+        /**
+         * Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+         */
+        timeZone?: string;
+        /**
+         * Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+         */
+        winRM?: outputs.computebulkactions.WinRMConfigurationResponse;
+    }
+
+    /**
+     * Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Windows patch settings.
+     */
+    export interface WindowsVMGuestPatchAutomaticByPlatformSettingsResponse {
+        /**
+         * Enables customer to schedule patching without accidental upgrades
+         */
+        bypassPlatformSafetyChecksOnUserSchedule?: boolean;
+        /**
+         * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+         */
+        rebootSetting?: string;
+    }
+
+    /**
+     * ZoneAllocationPolicy for LaunchBulkInstancesOperation.
+     */
+    export interface ZoneAllocationPolicyResponse {
+        /**
+         * Distribution strategy used for zone allocation policy.
+         */
+        distributionStrategy: string;
+        /**
+         * Zone preferences, required when zone distribution strategy is Prioritized.
+         */
+        zonePreferences?: outputs.computebulkactions.ZonePreferenceResponse[];
+    }
+
+    /**
+     * Zone preferences for LaunchBulkInstancesOperation zone allocation policy.
+     */
+    export interface ZonePreferenceResponse {
+        /**
+         *     The rank of the zone. This is used with 'Prioritized' ZoneDistributionStrategy.
+         *     The lower the number, the higher the priority, starting with 0.
+         *     0 is the highest rank. If not specified, defaults to lowest rank.
+         */
+        rank?: number;
+        /**
+         * Name of the zone.
+         */
+        zone: string;
     }
 
 }
@@ -75534,17 +77473,6 @@ export namespace cosmosdb {
         orderBy?: string;
     }
 
-    export interface ClusterResourceResponseEndPoints {
-        /**
-         * Ipv4 address of the endpoint
-         */
-        ipAddress?: string;
-        /**
-         * Port number
-         */
-        port?: number;
-    }
-
     /**
      * Properties of a managed Cassandra cluster.
      */
@@ -75621,56 +77549,6 @@ export namespace cosmosdb {
          * List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.
          */
         seedNodes: outputs.cosmosdb.SeedNodeResponse[];
-    }
-
-    /**
-     * Properties of a Garnet cache cluster.
-     */
-    export interface ClusterResourceResponsePropertiesV1 {
-        /**
-         * Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
-         */
-        allocationState?: string;
-        /**
-         * If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
-         */
-        availabilityZone?: boolean;
-        /**
-         * Type of the cluster. If set to Production, some operations might not be permitted on cluster.
-         */
-        clusterType?: string;
-        /**
-         * endpoints for clients to connect to the cluster.
-         */
-        endPoints: outputs.cosmosdb.ClusterResourceResponseEndPoints[];
-        /**
-         * Extensions to be added or updated on cluster.
-         */
-        extensions?: string[];
-        /**
-         * Number of nodes
-         */
-        nodeCount?: number;
-        /**
-         * Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
-         */
-        nodeSku?: string;
-        /**
-         * Error related to resource provisioning.
-         */
-        provisionError?: outputs.cosmosdb.ErrorDetailResponse;
-        /**
-         * The status of the resource at the time the operation was called.
-         */
-        provisioningState: string;
-        /**
-         * Number of copies of data maintained by the cluster
-         */
-        replicationFactor?: number;
-        /**
-         * Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
-         */
-        subnetId?: string;
     }
 
     /**
@@ -76163,6 +78041,67 @@ export namespace cosmosdb {
          * List of FullText Paths
          */
         fullTextPaths?: outputs.cosmosdb.FullTextPathResponse[];
+    }
+
+    export interface GarnetClusterResourceResponseEndPoints {
+        /**
+         * Ipv4 address of the endpoint
+         */
+        ipAddress?: string;
+        /**
+         * Port number
+         */
+        port?: number;
+    }
+
+    /**
+     * Properties of a Garnet cache cluster.
+     */
+    export interface GarnetClusterResourceResponseProperties {
+        /**
+         * Allocation state of the cluster and data center resources. Active implies the virtual machines of the cluster are allocated, deallocated implies virtual machines and resources are deallocated.
+         */
+        allocationState?: string;
+        /**
+         * If the data center has Availability Zone support, apply it to the Virtual Machine ScaleSet that host the garnet cluster virtual machines.
+         */
+        availabilityZone?: boolean;
+        /**
+         * Type of the cluster. If set to Production, some operations might not be permitted on cluster.
+         */
+        clusterType?: string;
+        /**
+         * endpoints for clients to connect to the cluster.
+         */
+        endPoints: outputs.cosmosdb.GarnetClusterResourceResponseEndPoints[];
+        /**
+         * Extensions to be added or updated on cluster.
+         */
+        extensions?: string[];
+        /**
+         * Number of nodes
+         */
+        nodeCount?: number;
+        /**
+         * Virtual Machine SKU used for clusters. Default value is Standard_DS14_v2
+         */
+        nodeSku?: string;
+        /**
+         * Error related to resource provisioning.
+         */
+        provisionError?: outputs.cosmosdb.ErrorDetailResponse;
+        /**
+         * The status of the resource at the time the operation was called.
+         */
+        provisioningState: string;
+        /**
+         * Number of copies of data maintained by the cluster
+         */
+        replicationFactor?: number;
+        /**
+         * Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<virtual network>/subnets/<subnet>'
+         */
+        subnetId?: string;
     }
 
     /**
@@ -124889,6 +126828,42 @@ export namespace desktopvirtualization {
     }
 
     /**
+     * Contains details on the failure.
+     */
+    export interface SessionHostHealthCheckFailureDetailsResponse {
+        /**
+         * Error code corresponding for the failure.
+         */
+        errorCode: number;
+        /**
+         * The timestamp of the last update.
+         */
+        lastHealthCheckDateTime: string;
+        /**
+         * Failure message: hints on what is wrong and how to recover.
+         */
+        message: string;
+    }
+
+    /**
+     * The report for session host information.
+     */
+    export interface SessionHostHealthCheckReportResponse {
+        /**
+         * Additional detailed information on the failure.
+         */
+        additionalFailureDetails: outputs.desktopvirtualization.SessionHostHealthCheckFailureDetailsResponse;
+        /**
+         * Represents the name of the health check operation performed.
+         */
+        healthCheckName: string;
+        /**
+         * Represents the Health state of the health check we performed.
+         */
+        healthCheckResult: string;
+    }
+
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     export interface SystemDataResponse {
@@ -127379,6 +129354,20 @@ export namespace deviceregistry {
     }
 
     /**
+     * Details of the Credential Policy.
+     */
+    export interface PolicyPropertiesResponse {
+        /**
+         * The certificate configuration.
+         */
+        certificate?: outputs.deviceregistry.CertificateConfigurationResponse;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+    }
+
+    /**
      * Defines the status config properties.
      */
     export interface StatusConfigResponse {
@@ -128344,7 +130333,7 @@ export namespace devtestlab {
      */
     export interface ApplicableScheduleResponse {
         /**
-         * The identifier of the resource.
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
          */
         id: string;
         /**
@@ -128360,15 +130349,19 @@ export namespace devtestlab {
          */
         location?: string;
         /**
-         * The name of the resource.
+         * The name of the resource
          */
         name: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.devtestlab.SystemDataResponse;
         /**
          * The tags of the resource.
          */
         tags?: {[key: string]: string};
         /**
-         * The type of the resource.
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -129147,15 +131140,15 @@ export namespace devtestlab {
          */
         hourlyRecurrence?: outputs.devtestlab.HourDetailsResponse;
         /**
-         * The identifier of the resource.
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
          */
         id: string;
         /**
-         * The location of the resource.
+         * The geo-location where the resource lives
          */
         location?: string;
         /**
-         * The name of the resource.
+         * The name of the resource
          */
         name: string;
         /**
@@ -129171,7 +131164,11 @@ export namespace devtestlab {
          */
         status?: string;
         /**
-         * The tags of the resource.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.devtestlab.SystemDataResponse;
+        /**
+         * Resource tags.
          */
         tags?: {[key: string]: string};
         /**
@@ -129187,7 +131184,7 @@ export namespace devtestlab {
          */
         timeZoneId?: string;
         /**
-         * The type of the resource.
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
         /**
@@ -129276,6 +131273,36 @@ export namespace devtestlab {
          * Backend ports that virtual machines on this subnet are allowed to expose
          */
         allowedPorts?: outputs.devtestlab.PortResponse[];
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
     }
 
     /**
@@ -129724,6 +131751,596 @@ export namespace digitaltwins {
          * The object id of the User Assigned Identity Resource.
          */
         principalId: string;
+    }
+
+}
+
+export namespace discovery {
+    /**
+     * The Azure NetApp Files properties.
+     */
+    export interface AzureNetAppFilesStoreResponse {
+        /**
+         * The kind of the backing storage store.
+         * Expected value is 'AzureNetAppFiles'.
+         */
+        kind: "AzureNetAppFiles";
+        /**
+         * The associated Azure NetApp Files volume ID.
+         */
+        netAppVolumeId: string;
+    }
+
+    /**
+     * The Azure storage blob properties.
+     */
+    export interface AzureStorageBlobStoreResponse {
+        /**
+         * The kind of the backing storage store.
+         * Expected value is 'AzureStorageBlob'.
+         */
+        kind: "AzureStorageBlob";
+        /**
+         * The associated Azure Storage Account ID.
+         */
+        storageAccountId: string;
+    }
+
+    /**
+     * Key Vault Properties with clientId selection
+     */
+    export interface BookshelfKeyVaultPropertiesResponse {
+        /**
+         * The client ID of the identity to use for accessing the Key Vault. Must be a workload identity assigned to the Bookshelf resource.
+         */
+        identityClientId: string;
+        /**
+         * The Key Name in Key Vault
+         */
+        keyName: string;
+        /**
+         * The Key Vault URI
+         */
+        keyVaultUri: string;
+        /**
+         * The Key Version in Key Vault
+         */
+        keyVersion?: string;
+    }
+
+    /**
+     * Bookshelf properties
+     */
+    export interface BookshelfPropertiesResponse {
+        /**
+         * The bookshelf data plane API URI
+         */
+        bookshelfUri: string;
+        /**
+         * Whether or not to use a customer managed key when encrypting data at rest
+         */
+        customerManagedKeys?: string;
+        /**
+         * The key to use for encrypting data at rest when customer managed keys are enabled. Required if Customer Managed Keys is enabled.
+         */
+        keyVaultProperties?: outputs.discovery.BookshelfKeyVaultPropertiesResponse;
+        /**
+         * The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
+         */
+        logAnalyticsClusterId?: string;
+        /**
+         * Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
+         */
+        managedOnBehalfOfConfiguration: outputs.discovery.WithMoboBrokerResourcesResponse;
+        /**
+         * The resource group for resources managed on behalf of customer.
+         */
+        managedResourceGroup: string;
+        /**
+         * List of private endpoint connections.
+         */
+        privateEndpointConnections: outputs.discovery.PrivateEndpointConnectionResponse[];
+        /**
+         * Private Endpoint Subnet ID for private endpoint connections.
+         */
+        privateEndpointSubnetId?: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
+         */
+        publicNetworkAccess?: string;
+        /**
+         * Search Subnet ID for search resources.
+         */
+        searchSubnetId?: string;
+        /**
+         * User assigned identity IDs to be used by knowledgebase workloads. The key value must be the resource ID of the identity resource.
+         */
+        workloadIdentities?: {[key: string]: outputs.discovery.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * Defines a deployment binding a specific model family to a user-defined deployment name for chat inference.
+     */
+    export interface ChatModelDeploymentPropertiesResponse {
+        /**
+         * Model format as published by the provider. Verify supported formats per region using the Model Catalog API.
+         */
+        modelFormat: string;
+        /**
+         * Canonical provider model name available in the selected region. Verify supported values per region using the Model Catalog API.
+         */
+        modelName: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * For user assigned identity resource property.
+     */
+    export interface IdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The resource ID of the user assigned identity.
+         */
+        id: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
+     * For Key Vault Key references
+     */
+    export interface KeyVaultPropertiesResponse {
+        /**
+         * The Key Name in Key Vault
+         */
+        keyName: string;
+        /**
+         * The Key Vault URI
+         */
+        keyVaultUri: string;
+        /**
+         * The Key Version in Key Vault
+         */
+        keyVersion?: string;
+    }
+
+    /**
+     * Managed-On-Behalf-Of broker resource. This resource is created by the Resource Provider to manage some resources on behalf of the user.
+     */
+    export interface MoboBrokerResourceResponse {
+        /**
+         * Resource identifier of a Managed-On-Behalf-Of broker resource
+         */
+        id?: string;
+    }
+
+    /**
+     * NodePool properties
+     */
+    export interface NodePoolPropertiesResponse {
+        /**
+         * The maximum number of nodes.
+         */
+        maxNodeCount: number;
+        /**
+         * The minimum number of nodes.
+         */
+        minNodeCount?: number;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+         */
+        scaleSetPriority?: string;
+        /**
+         * The node pool subnet.
+         */
+        subnetId: string;
+        /**
+         * The size of the underlying Azure VM.
+         */
+        vmSize: string;
+    }
+    /**
+     * nodePoolPropertiesResponseProvideDefaults sets the appropriate defaults for NodePoolPropertiesResponse
+     */
+    export function nodePoolPropertiesResponseProvideDefaults(val: NodePoolPropertiesResponse): NodePoolPropertiesResponse {
+        return {
+            ...val,
+            minNodeCount: (val.minNodeCount) ?? 0,
+            scaleSetPriority: (val.scaleSetPriority) ?? "Regular",
+        };
+    }
+
+    /**
+     * Properties of the private endpoint connection.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.discovery.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.discovery.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The private endpoint connection resource.
+     */
+    export interface PrivateEndpointConnectionResponse {
+        /**
+         * The group ids for the private endpoint resource.
+         */
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.discovery.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.discovery.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.discovery.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
+    /**
+     * Project properties
+     */
+    export interface ProjectPropertiesResponse {
+        /**
+         * Foundry project endpoint URI.
+         */
+        foundryProjectEndpoint: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Settings for the project.
+         */
+        settings?: outputs.discovery.ProjectSettingsResponse;
+        /**
+         * Allowed StorageContainers (Control plane resource references).
+         */
+        storageContainerIds?: string[];
+    }
+
+    /**
+     * Settings schema for the project
+     */
+    export interface ProjectSettingsResponse {
+        /**
+         * Default preferences to guide AI behaviors in this project.
+         */
+        behaviorPreferences?: string;
+    }
+
+    /**
+     * Storage Asset properties
+     */
+    export interface StorageAssetPropertiesResponse {
+        /**
+         * The description
+         */
+        description: string;
+        /**
+         * The path to the data within its parent container. This should be relative to the root of the parent container.
+         */
+        path?: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Storage Container properties
+     */
+    export interface StorageContainerPropertiesResponse {
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Storage store properties
+         */
+        storageStore: outputs.discovery.AzureNetAppFilesStoreResponse | outputs.discovery.AzureStorageBlobStoreResponse;
+    }
+
+    /**
+     * Dictionary of identity properties for the Supercomputer.
+     */
+    export interface SupercomputerIdentitiesResponse {
+        /**
+         * Cluster identity ID.
+         */
+        clusterIdentity: outputs.discovery.IdentityResponse;
+        /**
+         * Kubelet identity ID used by the supercomputer.
+         *       This identity is used by the supercomputer at node level to access Azure resources.
+         *       This identity must have ManagedIdentityOperator role on the clusterIdentity.
+         */
+        kubeletIdentity: outputs.discovery.IdentityResponse;
+        /**
+         * User assigned identity IDs to be used by workloads as federated credentials running on supercomputer. The key value must be the resource ID of the identity resource.
+         */
+        workloadIdentities?: {[key: string]: outputs.discovery.UserAssignedIdentityResponse};
+    }
+
+    /**
+     * Supercomputer properties
+     */
+    export interface SupercomputerPropertiesResponse {
+        /**
+         * Whether or not to use a customer managed key when encrypting data at rest
+         */
+        customerManagedKeys?: string;
+        /**
+         * Disk Encryption Set ID to use for Customer Managed Keys encryption. Required if Customer Managed Keys is enabled.
+         */
+        diskEncryptionSetId?: string;
+        /**
+         * Dictionary of identity properties.
+         */
+        identities: outputs.discovery.SupercomputerIdentitiesResponse;
+        /**
+         * The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
+         */
+        logAnalyticsClusterId?: string;
+        /**
+         * Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
+         */
+        managedOnBehalfOfConfiguration: outputs.discovery.WithMoboBrokerResourcesResponse;
+        /**
+         * The resource group for resources managed on behalf of customer.
+         */
+        managedResourceGroup: string;
+        /**
+         * System Subnet ID associated with AKS apiserver. Must be delegated to Microsoft.ContainerService/managedClusters.
+         *     It should have connectivity to the system subnet and nodepool subnets.
+         */
+        managementSubnetId?: string;
+        /**
+         * Network egress type provisioned for the supercomputer workloads.
+         *     Defaults to LoadBalancer if not specified.
+         *     If None is specified, the customer is responsible for providing outbound connectivity for Supercomputer functionality.
+         */
+        outboundType?: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * System Subnet ID associated with managed NodePool for system resources.
+         *     It should have connectivity to the child NodePool subnets.
+         */
+        subnetId: string;
+        /**
+         * The SKU to use for the system node pool.
+         */
+        systemSku?: string;
+    }
+    /**
+     * supercomputerPropertiesResponseProvideDefaults sets the appropriate defaults for SupercomputerPropertiesResponse
+     */
+    export function supercomputerPropertiesResponseProvideDefaults(val: SupercomputerPropertiesResponse): SupercomputerPropertiesResponse {
+        return {
+            ...val,
+            outboundType: (val.outboundType) ?? "LoadBalancer",
+        };
+    }
+
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    export interface SystemDataResponse {
+        /**
+         * The timestamp of resource creation (UTC).
+         */
+        createdAt?: string;
+        /**
+         * The identity that created the resource.
+         */
+        createdBy?: string;
+        /**
+         * The type of identity that created the resource.
+         */
+        createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
+        /**
+         * The identity that last modified the resource.
+         */
+        lastModifiedBy?: string;
+        /**
+         * The type of identity that last modified the resource.
+         */
+        lastModifiedByType?: string;
+    }
+
+    /**
+     * Discovery Tool list item properties
+     */
+    export interface ToolPropertiesResponse {
+        /**
+         * The JSON content for defining a resource
+         */
+        definitionContent: any;
+        /**
+         * Environment variables to make available
+         */
+        environmentVariables?: {[key: string]: string};
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * The version of a resource definition
+         */
+        version: string;
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponse {
+        /**
+         * The client ID of the assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the assigned identity.
+         */
+        principalId: string;
+    }
+
+    /**
+     * For tracking mobo resources
+     */
+    export interface WithMoboBrokerResourcesResponse {
+        /**
+         * Managed-On-Behalf-Of broker resources
+         */
+        moboBrokerResources: outputs.discovery.MoboBrokerResourceResponse[];
+    }
+
+    /**
+     * Workspace properties
+     */
+    export interface WorkspacePropertiesResponse {
+        /**
+         * Agent Subnet ID for agent resources.
+         */
+        agentSubnetId?: string;
+        /**
+         * Whether or not to use a customer managed key when encrypting data at rest
+         */
+        customerManagedKeys?: string;
+        /**
+         * The key to use for encrypting data at rest when customer managed keys are enabled.
+         */
+        keyVaultProperties?: outputs.discovery.KeyVaultPropertiesResponse;
+        /**
+         * The Log Analytics Cluster to use for debug logs. This is required when Customer Managed Keys are enabled.
+         */
+        logAnalyticsClusterId?: string;
+        /**
+         * Managed-On-Behalf-Of configuration properties. This configuration exists for the resources where a resource provider manages those resources on behalf of the resource owner.
+         */
+        managedOnBehalfOfConfiguration: outputs.discovery.WithMoboBrokerResourcesResponse;
+        /**
+         * The resource group for resources managed on behalf of customer.
+         */
+        managedResourceGroup: string;
+        /**
+         * List of private endpoint connections.
+         */
+        privateEndpointConnections: outputs.discovery.PrivateEndpointConnectionResponse[];
+        /**
+         * Private Endpoint Subnet ID for private endpoint connections.
+         */
+        privateEndpointSubnetId?: string;
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * Whether or not public network access is allowed for this resource. For security reasons, it is recommended to disable it whenever possible.
+         */
+        publicNetworkAccess?: string;
+        /**
+         * List of linked SuperComputers.
+         */
+        supercomputerIds?: string[];
+        /**
+         * workspace API endpoint Uri.
+         */
+        workspaceApiUri: string;
+        /**
+         * Identity IDs used for leveraging Workspace resources.
+         */
+        workspaceIdentity: outputs.discovery.IdentityResponse;
+        /**
+         * Function Subnet ID for workspace resources.
+         */
+        workspaceSubnetId?: string;
+        /**
+         * workspace User Interface Uri.
+         */
+        workspaceUiUri: string;
     }
 
 }
@@ -130252,6 +132869,34 @@ export namespace domainregistration {
 }
 
 export namespace durabletask {
+    /**
+     * The private endpoint resource.
+     */
+    export interface PrivateEndpointResponse {
+        /**
+         * The ARM identifier for private endpoint.
+         */
+        id: string;
+    }
+
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    export interface PrivateLinkServiceConnectionStateResponse {
+        /**
+         * A message indicating if changes on the service provider require any updates on the consumer.
+         */
+        actionsRequired?: string;
+        /**
+         * The reason for approval/rejection of the connection.
+         */
+        description?: string;
+        /**
+         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         */
+        status?: string;
+    }
+
     /**
      * The properties of a retention policy
      */
@@ -146553,6 +149198,30 @@ export namespace iotoperations {
     }
 
     /**
+     * AkriService properties.
+     */
+    export interface AkriServicePropertiesResponse {
+        /**
+         * The status of the last operation.
+         */
+        provisioningState: string;
+        /**
+         * The status for the service.
+         */
+        status: outputs.iotoperations.AkriServiceStatusResponse;
+    }
+
+    /**
+     * AkriService status.
+     */
+    export interface AkriServiceStatusResponse {
+        /**
+         * The health state of the AkriService.
+         */
+        healthState: outputs.iotoperations.ResourceHealthStatusResponse;
+    }
+
+    /**
      * Broker AuthorizationConfig properties
      */
     export interface AuthorizationConfigResponse {
@@ -148510,6 +151179,32 @@ export namespace iotoperations {
          * Tenant ID.
          */
         tenantId: string;
+    }
+
+    /**
+     * Represents the health state of a resource.
+     */
+    export interface ResourceHealthStatusResponse {
+        /**
+         * The timestamp (RFC3339) when the health status last changed.
+         */
+        lastTransitionTime: string;
+        /**
+         * The timestamp (RFC3339) when the health status was last updated, even if the status did not change.
+         */
+        lastUpdateTime: string;
+        /**
+         * A human-readable message describing the last transition.
+         */
+        message: string;
+        /**
+         * Unique, CamelCase reason code describing the cause of the last health state transition.
+         */
+        reasonCode: string;
+        /**
+         * The high-level health status of the resource.
+         */
+        status: string;
     }
 
     /**
@@ -156229,7 +158924,11 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -156240,16 +158939,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -156288,7 +158982,7 @@ export namespace machinelearningservices {
         /**
          * AKS properties
          */
-        properties?: outputs.machinelearningservices.AKSSchemaResponseProperties;
+        properties?: outputs.machinelearningservices.AKSSchemaPropertiesResponse;
         /**
          * Errors during provisioning
          */
@@ -156308,14 +159002,14 @@ export namespace machinelearningservices {
     export function aksresponseProvideDefaults(val: AKSResponse): AKSResponse {
         return {
             ...val,
-            properties: (val.properties ? outputs.machinelearningservices.aksschemaResponsePropertiesProvideDefaults(val.properties) : undefined),
+            properties: (val.properties ? outputs.machinelearningservices.aksschemaPropertiesResponseProvideDefaults(val.properties) : undefined),
         };
     }
 
     /**
      * AKS properties
      */
-    export interface AKSSchemaResponseProperties {
+    export interface AKSSchemaPropertiesResponse {
         /**
          * Number of agents
          */
@@ -156354,9 +159048,9 @@ export namespace machinelearningservices {
         systemServices: outputs.machinelearningservices.SystemServiceResponse[];
     }
     /**
-     * aksschemaResponsePropertiesProvideDefaults sets the appropriate defaults for AKSSchemaResponseProperties
+     * aksschemaPropertiesResponseProvideDefaults sets the appropriate defaults for AKSSchemaPropertiesResponse
      */
-    export function aksschemaResponsePropertiesProvideDefaults(val: AKSSchemaResponseProperties): AKSSchemaResponseProperties {
+    export function aksschemaPropertiesResponseProvideDefaults(val: AKSSchemaPropertiesResponse): AKSSchemaPropertiesResponse {
         return {
             ...val,
             clusterPurpose: (val.clusterPurpose) ?? "FastProd",
@@ -156374,8 +159068,12 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         credentials?: outputs.machinelearningservices.WorkspaceConnectionAccessKeyResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -156386,16 +159084,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     export interface AccountApiKeysResponse {
@@ -156416,8 +159109,15 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
+        /**
+         * Account key object for workspace connection credential.
+         */
         credentials?: outputs.machinelearningservices.WorkspaceConnectionAccountKeyResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -156428,16 +159128,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -156739,23 +159434,23 @@ export namespace machinelearningservices {
     /**
      * This connection type covers the generic ApiKey auth connection categories, for examples:
      * AzureOpenAI:
-     *     Category:= AzureOpenAI
-     *     AuthType:= ApiKey (as type discriminator)
-     *     Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-     *     Target:= {ApiBase}
-     *             
+     * Category:= AzureOpenAI
+     * AuthType:= ApiKey (as type discriminator)
+     * Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+     * Target:= {ApiBase}
+     *
      * CognitiveService:
-     *     Category:= CognitiveService
-     *     AuthType:= ApiKey (as type discriminator)
-     *     Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-     *     Target:= ServiceRegion={serviceRegion}
-     *             
+     * Category:= CognitiveService
+     * AuthType:= ApiKey (as type discriminator)
+     * Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+     * Target:= ServiceRegion={serviceRegion}
+     *
      * CognitiveSearch:
-     *     Category:= CognitiveSearch
-     *     AuthType:= ApiKey (as type discriminator)
-     *     Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-     *     Target:= {Endpoint}
-     *             
+     * Category:= CognitiveSearch
+     * AuthType:= ApiKey (as type discriminator)
+     * Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+     * Target:= {Endpoint}
+     *
      * Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
      */
     export interface ApiKeyAuthWorkspaceConnectionPropertiesResponse {
@@ -156768,11 +159463,15 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         /**
          * Api key object for workspace connection credential.
          */
         credentials?: outputs.machinelearningservices.WorkspaceConnectionApiKeyResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -156783,16 +159482,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -157647,7 +160341,7 @@ export namespace machinelearningservices {
     /**
      * Batch inference settings per deployment.
      */
-    export interface BatchDeploymentResponse {
+    export interface BatchDeploymentPropertiesResponse {
         /**
          * Code configuration for the endpoint deployment.
          */
@@ -157681,7 +160375,9 @@ export namespace machinelearningservices {
          */
         errorThreshold?: number;
         /**
-         * Logging level for batch inference operation.
+         * Log verbosity for batch inferencing.
+         * Increasing verbosity order for logging is : Warning, Info and Debug.
+         * The default value is Info.
          */
         loggingLevel?: string;
         /**
@@ -157699,7 +160395,7 @@ export namespace machinelearningservices {
          */
         model?: outputs.machinelearningservices.DataPathAssetReferenceResponse | outputs.machinelearningservices.IdAssetReferenceResponse | outputs.machinelearningservices.OutputPathAssetReferenceResponse;
         /**
-         * Indicates how the output will be organized.
+         * Enum to determine how batch inferencing will handle output
          */
         outputAction?: string;
         /**
@@ -157726,9 +160422,9 @@ export namespace machinelearningservices {
         retrySettings?: outputs.machinelearningservices.BatchRetrySettingsResponse;
     }
     /**
-     * batchDeploymentResponseProvideDefaults sets the appropriate defaults for BatchDeploymentResponse
+     * batchDeploymentPropertiesResponseProvideDefaults sets the appropriate defaults for BatchDeploymentPropertiesResponse
      */
-    export function batchDeploymentResponseProvideDefaults(val: BatchDeploymentResponse): BatchDeploymentResponse {
+    export function batchDeploymentPropertiesResponseProvideDefaults(val: BatchDeploymentPropertiesResponse): BatchDeploymentPropertiesResponse {
         return {
             ...val,
             errorThreshold: (val.errorThreshold) ?? -1,
@@ -157756,7 +160452,7 @@ export namespace machinelearningservices {
     /**
      * Batch endpoint configuration.
      */
-    export interface BatchEndpointResponse {
+    export interface BatchEndpointPropertiesResponse {
         /**
          * [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
          */
@@ -157849,9 +160545,6 @@ export namespace machinelearningservices {
         samplingAlgorithmType: "Bayesian";
     }
 
-    /**
-     * Describes the bind options for the container
-     */
     export interface BindOptionsResponse {
         /**
          * Indicate whether to create host path.
@@ -157892,7 +160585,11 @@ export namespace machinelearningservices {
         };
     }
 
-    export interface CapabilityHostResponse {
+    export interface CapabilityHostPropertiesResponse {
+        /**
+         * List of Aca Environment connections.
+         */
+        acaEnvironmentConnections?: string[];
         /**
          * List of AI services connections.
          */
@@ -157909,6 +160606,10 @@ export namespace machinelearningservices {
          * The asset description text.
          */
         description?: string;
+        /**
+         * List of messages containing errors.
+         */
+        messages: string[];
         /**
          * The asset property dictionary.
          */
@@ -157935,9 +160636,9 @@ export namespace machinelearningservices {
         vectorStoreConnections?: string[];
     }
     /**
-     * capabilityHostResponseProvideDefaults sets the appropriate defaults for CapabilityHostResponse
+     * capabilityHostPropertiesResponseProvideDefaults sets the appropriate defaults for CapabilityHostPropertiesResponse
      */
-    export function capabilityHostResponseProvideDefaults(val: CapabilityHostResponse): CapabilityHostResponse {
+    export function capabilityHostPropertiesResponseProvideDefaults(val: CapabilityHostPropertiesResponse): CapabilityHostPropertiesResponse {
         return {
             ...val,
             capabilityHostKind: (val.capabilityHostKind) ?? "Agents",
@@ -158051,7 +160752,7 @@ export namespace machinelearningservices {
          */
         limitSettings?: outputs.machinelearningservices.TableVerticalLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -158064,7 +160765,7 @@ export namespace machinelearningservices {
          */
         positiveLabel?: string;
         /**
-         * Primary metric for the task.
+         * Primary metrics for classification tasks.
          */
         primaryMetric?: string;
         /**
@@ -158249,7 +160950,7 @@ export namespace machinelearningservices {
     /**
      * Container for code asset versions.
      */
-    export interface CodeContainerResponse {
+    export interface CodeContainerPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -158280,9 +160981,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * codeContainerResponseProvideDefaults sets the appropriate defaults for CodeContainerResponse
+     * codeContainerPropertiesResponseProvideDefaults sets the appropriate defaults for CodeContainerPropertiesResponse
      */
-    export function codeContainerResponseProvideDefaults(val: CodeContainerResponse): CodeContainerResponse {
+    export function codeContainerPropertiesResponseProvideDefaults(val: CodeContainerPropertiesResponse): CodeContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -158292,7 +160993,7 @@ export namespace machinelearningservices {
     /**
      * Code asset version details.
      */
-    export interface CodeVersionResponse {
+    export interface CodeVersionPropertiesResponse {
         /**
          * Uri where code is located
          */
@@ -158323,9 +161024,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * codeVersionResponseProvideDefaults sets the appropriate defaults for CodeVersionResponse
+     * codeVersionPropertiesResponseProvideDefaults sets the appropriate defaults for CodeVersionPropertiesResponse
      */
-    export function codeVersionResponseProvideDefaults(val: CodeVersionResponse): CodeVersionResponse {
+    export function codeVersionPropertiesResponseProvideDefaults(val: CodeVersionPropertiesResponse): CodeVersionPropertiesResponse {
         return {
             ...val,
             isAnonymous: (val.isAnonymous) ?? false,
@@ -158521,7 +161222,7 @@ export namespace machinelearningservices {
      * Component container definition.
      * <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
      */
-    export interface ComponentContainerResponse {
+    export interface ComponentContainerPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -158552,9 +161253,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * componentContainerResponseProvideDefaults sets the appropriate defaults for ComponentContainerResponse
+     * componentContainerPropertiesResponseProvideDefaults sets the appropriate defaults for ComponentContainerPropertiesResponse
      */
-    export function componentContainerResponseProvideDefaults(val: ComponentContainerResponse): ComponentContainerResponse {
+    export function componentContainerPropertiesResponseProvideDefaults(val: ComponentContainerPropertiesResponse): ComponentContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -158564,7 +161265,7 @@ export namespace machinelearningservices {
     /**
      * Definition of a component version: defines resources that span component types.
      */
-    export interface ComponentVersionResponse {
+    export interface ComponentVersionPropertiesResponse {
         /**
          * Defines Component definition details.
          * <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
@@ -158596,9 +161297,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * componentVersionResponseProvideDefaults sets the appropriate defaults for ComponentVersionResponse
+     * componentVersionPropertiesResponseProvideDefaults sets the appropriate defaults for ComponentVersionPropertiesResponse
      */
-    export function componentVersionResponseProvideDefaults(val: ComponentVersionResponse): ComponentVersionResponse {
+    export function componentVersionPropertiesResponseProvideDefaults(val: ComponentVersionPropertiesResponse): ComponentVersionPropertiesResponse {
         return {
             ...val,
             isAnonymous: (val.isAnonymous) ?? false,
@@ -158730,6 +161431,10 @@ export namespace machinelearningservices {
          */
         mountAction?: string;
         /**
+         * Mount Mode.
+         */
+        mountMode?: string;
+        /**
          * name of the ComputeInstance data mount.
          */
         mountName?: string;
@@ -158836,9 +161541,17 @@ export namespace machinelearningservices {
          */
         enableNodePublicIp?: boolean;
         /**
+         * Enable SSO (single sign on). Possible values are: true, false.
+         */
+        enableSSO?: boolean;
+        /**
          * Collection of errors encountered on this ComputeInstance.
          */
         errors: outputs.machinelearningservices.ErrorResponseResponse[];
+        /**
+         * Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
+         */
+        idleTimeBeforeShutdown?: string;
         /**
          * The last operation on ComputeInstance.
          */
@@ -158888,6 +161601,7 @@ export namespace machinelearningservices {
             ...val,
             applicationSharingPolicy: (val.applicationSharingPolicy) ?? "Shared",
             computeInstanceAuthorizationType: (val.computeInstanceAuthorizationType) ?? "personal",
+            enableSSO: (val.enableSSO) ?? true,
             sshSettings: (val.sshSettings ? outputs.machinelearningservices.computeInstanceSshSettingsResponseProvideDefaults(val.sshSettings) : undefined),
         };
     }
@@ -159012,9 +161726,6 @@ export namespace machinelearningservices {
         weekDays?: string[];
     }
 
-    /**
-     * Compute runtime config for feature store type workspace.
-     */
     export interface ComputeRuntimeDtoResponse {
         sparkRuntimeVersion?: string;
     }
@@ -159146,9 +161857,6 @@ export namespace machinelearningservices {
     }
 
     export interface CosmosDbSettingsResponse {
-        /**
-         * The throughput of the collections in cosmosdb database
-         */
         collectionsThroughput?: number;
     }
 
@@ -159269,11 +161977,15 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         /**
          * Custom Keys credential object
          */
         credentials?: outputs.machinelearningservices.CustomKeysResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -159284,16 +161996,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     export interface CustomMetricThresholdResponse {
@@ -159318,7 +162025,7 @@ export namespace machinelearningservices {
          */
         jobInputType: "custom_model";
         /**
-         * Input Asset Delivery Mode.
+         * Enum to determine the input data delivery mode.
          */
         mode?: string;
         /**
@@ -159338,6 +162045,10 @@ export namespace machinelearningservices {
 
     export interface CustomModelJobOutputResponse {
         /**
+         * Output Asset Name.
+         */
+        assetName?: string;
+        /**
          * Description for the output.
          */
         description?: string;
@@ -159347,7 +162058,7 @@ export namespace machinelearningservices {
          */
         jobOutputType: "custom_model";
         /**
-         * Output Asset Delivery Mode.
+         * Output data delivery mode enums.
          */
         mode?: string;
         /**
@@ -159445,6 +162156,10 @@ export namespace machinelearningservices {
          */
         image?: outputs.machinelearningservices.ImageResponse;
         /**
+         * Describes the jupyter kernel settings for the image if its a custom environment
+         */
+        kernel?: outputs.machinelearningservices.JupyterKernelConfigResponse;
+        /**
          * Name of the Custom Service
          */
         name?: string;
@@ -159518,7 +162233,7 @@ export namespace machinelearningservices {
     /**
      * Container for data asset versions.
      */
-    export interface DataContainerResponse {
+    export interface DataContainerPropertiesResponse {
         /**
          * [Required] Specifies the type of data.
          */
@@ -159549,9 +162264,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * dataContainerResponseProvideDefaults sets the appropriate defaults for DataContainerResponse
+     * dataContainerPropertiesResponseProvideDefaults sets the appropriate defaults for DataContainerPropertiesResponse
      */
-    export function dataContainerResponseProvideDefaults(val: DataContainerResponse): DataContainerResponse {
+    export function dataContainerPropertiesResponseProvideDefaults(val: DataContainerPropertiesResponse): DataContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -159687,7 +162402,7 @@ export namespace machinelearningservices {
          * The time at which the compute was last modified.
          */
         modifiedOn: string;
-        properties?: outputs.machinelearningservices.DataLakeAnalyticsSchemaResponseProperties;
+        properties?: outputs.machinelearningservices.DataLakeAnalyticsSchemaPropertiesResponse;
         /**
          * Errors during provisioning
          */
@@ -159702,7 +162417,7 @@ export namespace machinelearningservices {
         resourceId?: string;
     }
 
-    export interface DataLakeAnalyticsSchemaResponseProperties {
+    export interface DataLakeAnalyticsSchemaPropertiesResponse {
         /**
          * DataLake Store Account Name
          */
@@ -159840,6 +162555,20 @@ export namespace machinelearningservices {
          * ARM resource id of the underlying compute
          */
         resourceId?: string;
+    }
+
+    /**
+     * Dataset reference object.
+     */
+    export interface DatasetReferenceResponse {
+        /**
+         * The fully qualified ARM id of the dataset reference.
+         */
+        id?: string;
+        /**
+         * The name of the dataset reference.
+         */
+        name?: string;
     }
 
     /**
@@ -160246,9 +162975,6 @@ export namespace machinelearningservices {
         platform?: outputs.machinelearningservices.DockerImagePlatformResponse;
     }
 
-    /**
-     * Docker container configuration
-     */
     export interface DockerResponse {
         /**
          * Indicate whether container shall run in privileged or non-privileged mode.
@@ -160256,34 +162982,34 @@ export namespace machinelearningservices {
         privileged?: boolean;
     }
 
-    export interface EncryptionKeyVaultPropertiesResponse {
-        /**
-         * For future use - The client id of the identity which will be used to access key vault.
-         */
-        identityClientId?: string;
-        /**
-         * Key vault uri to access the encryption key.
-         */
-        keyIdentifier: string;
-        /**
-         * The ArmId of the keyVault where the customer owned encryption key is present.
-         */
-        keyVaultArmId: string;
-    }
-
     export interface EncryptionPropertyResponse {
         /**
-         * The identity that will be used to access the key vault for encryption at rest.
+         * The byok cosmosdb account that customer brings to store customer's data
+         * with encryption
+         */
+        cosmosDbResourceId?: string;
+        /**
+         * Identity to be used with the keyVault
          */
         identity?: outputs.machinelearningservices.IdentityForCmkResponse;
         /**
-         * Customer Key vault properties.
+         * KeyVault details to do the encryption
          */
-        keyVaultProperties: outputs.machinelearningservices.EncryptionKeyVaultPropertiesResponse;
+        keyVaultProperties: outputs.machinelearningservices.KeyVaultPropertiesResponse;
+        /**
+         * The byok search account that customer brings to store customer's data
+         * with encryption
+         */
+        searchAccountResourceId?: string;
         /**
          * Indicates whether or not the encryption is enabled for the workspace.
          */
         status: string;
+        /**
+         * The byok storage account that customer brings to store customer's data
+         * with encryption
+         */
+        storageAccountResourceId?: string;
     }
 
     export interface EndpointDeploymentModelResponse {
@@ -160427,9 +163153,6 @@ export namespace machinelearningservices {
         renewalPeriod?: number;
     }
 
-    /**
-     * Describes the endpoint configuration for the container
-     */
     export interface EndpointResponse {
         /**
          * Host IP over which the application is exposed from the container
@@ -160478,7 +163201,7 @@ export namespace machinelearningservices {
     /**
      * Container for environment specification versions.
      */
-    export interface EnvironmentContainerResponse {
+    export interface EnvironmentContainerPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -160509,9 +163232,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * environmentContainerResponseProvideDefaults sets the appropriate defaults for EnvironmentContainerResponse
+     * environmentContainerPropertiesResponseProvideDefaults sets the appropriate defaults for EnvironmentContainerPropertiesResponse
      */
-    export function environmentContainerResponseProvideDefaults(val: EnvironmentContainerResponse): EnvironmentContainerResponse {
+    export function environmentContainerPropertiesResponseProvideDefaults(val: EnvironmentContainerPropertiesResponse): EnvironmentContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -160559,9 +163282,6 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
 
-    /**
-     * Environment Variables for the container
-     */
     export interface EnvironmentVariableResponse {
         /**
          * Type of the Environment Variable. Possible values are: local - For local variable
@@ -160585,9 +163305,9 @@ export namespace machinelearningservices {
     /**
      * Environment version details.
      */
-    export interface EnvironmentVersionResponse {
+    export interface EnvironmentVersionPropertiesResponse {
         /**
-         * Defines if image needs to be rebuilt based on base image changes.
+         * AutoRebuild setting for the derived image
          */
         autoRebuild?: string;
         /**
@@ -160626,7 +163346,7 @@ export namespace machinelearningservices {
          */
         isArchived?: boolean;
         /**
-         * The OS type of the environment.
+         * The type of operating system.
          */
         osType?: string;
         /**
@@ -160647,9 +163367,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * environmentVersionResponseProvideDefaults sets the appropriate defaults for EnvironmentVersionResponse
+     * environmentVersionPropertiesResponseProvideDefaults sets the appropriate defaults for EnvironmentVersionPropertiesResponse
      */
-    export function environmentVersionResponseProvideDefaults(val: EnvironmentVersionResponse): EnvironmentVersionResponse {
+    export function environmentVersionPropertiesResponseProvideDefaults(val: EnvironmentVersionPropertiesResponse): EnvironmentVersionPropertiesResponse {
         return {
             ...val,
             autoRebuild: (val.autoRebuild) ?? "Disabled",
@@ -160853,13 +163573,7 @@ export namespace machinelearningservices {
         };
     }
 
-    /**
-     * Settings for feature store type workspace.
-     */
     export interface FeatureStoreSettingsResponse {
-        /**
-         * Compute runtime config for feature store type workspace.
-         */
         computeRuntime?: outputs.machinelearningservices.ComputeRuntimeDtoResponse;
         offlineStoreConnectionName?: string;
         onlineStoreConnectionName?: string;
@@ -160894,7 +163608,7 @@ export namespace machinelearningservices {
     /**
      * DTO object representing feature set
      */
-    export interface FeaturesetContainerResponse {
+    export interface FeaturesetContainerPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -160925,9 +163639,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * featuresetContainerResponseProvideDefaults sets the appropriate defaults for FeaturesetContainerResponse
+     * featuresetContainerPropertiesResponseProvideDefaults sets the appropriate defaults for FeaturesetContainerPropertiesResponse
      */
-    export function featuresetContainerResponseProvideDefaults(val: FeaturesetContainerResponse): FeaturesetContainerResponse {
+    export function featuresetContainerPropertiesResponseProvideDefaults(val: FeaturesetContainerPropertiesResponse): FeaturesetContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -160999,7 +163713,7 @@ export namespace machinelearningservices {
     /**
      * DTO object representing feature set version
      */
-    export interface FeaturesetVersionResponse {
+    export interface FeaturesetVersionPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -161042,9 +163756,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * featuresetVersionResponseProvideDefaults sets the appropriate defaults for FeaturesetVersionResponse
+     * featuresetVersionPropertiesResponseProvideDefaults sets the appropriate defaults for FeaturesetVersionPropertiesResponse
      */
-    export function featuresetVersionResponseProvideDefaults(val: FeaturesetVersionResponse): FeaturesetVersionResponse {
+    export function featuresetVersionPropertiesResponseProvideDefaults(val: FeaturesetVersionPropertiesResponse): FeaturesetVersionPropertiesResponse {
         return {
             ...val,
             isAnonymous: (val.isAnonymous) ?? false,
@@ -161056,7 +163770,7 @@ export namespace machinelearningservices {
     /**
      * DTO object representing feature entity
      */
-    export interface FeaturestoreEntityContainerResponse {
+    export interface FeaturestoreEntityContainerPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -161087,9 +163801,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * featurestoreEntityContainerResponseProvideDefaults sets the appropriate defaults for FeaturestoreEntityContainerResponse
+     * featurestoreEntityContainerPropertiesResponseProvideDefaults sets the appropriate defaults for FeaturestoreEntityContainerPropertiesResponse
      */
-    export function featurestoreEntityContainerResponseProvideDefaults(val: FeaturestoreEntityContainerResponse): FeaturestoreEntityContainerResponse {
+    export function featurestoreEntityContainerPropertiesResponseProvideDefaults(val: FeaturestoreEntityContainerPropertiesResponse): FeaturestoreEntityContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -161099,7 +163813,7 @@ export namespace machinelearningservices {
     /**
      * DTO object representing feature entity version
      */
-    export interface FeaturestoreEntityVersionResponse {
+    export interface FeaturestoreEntityVersionPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -161134,9 +163848,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * featurestoreEntityVersionResponseProvideDefaults sets the appropriate defaults for FeaturestoreEntityVersionResponse
+     * featurestoreEntityVersionPropertiesResponseProvideDefaults sets the appropriate defaults for FeaturestoreEntityVersionPropertiesResponse
      */
-    export function featurestoreEntityVersionResponseProvideDefaults(val: FeaturestoreEntityVersionResponse): FeaturestoreEntityVersionResponse {
+    export function featurestoreEntityVersionPropertiesResponseProvideDefaults(val: FeaturestoreEntityVersionPropertiesResponse): FeaturestoreEntityVersionPropertiesResponse {
         return {
             ...val,
             isAnonymous: (val.isAnonymous) ?? false,
@@ -161199,7 +163913,7 @@ export namespace machinelearningservices {
          */
         limitSettings?: outputs.machinelearningservices.TableVerticalLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -161208,7 +163922,7 @@ export namespace machinelearningservices {
          */
         nCrossValidations?: outputs.machinelearningservices.AutoNCrossValidationsResponse | outputs.machinelearningservices.CustomNCrossValidationsResponse;
         /**
-         * Primary metric for forecasting task.
+         * Primary metrics for Forecasting task.
          */
         primaryMetric?: string;
         /**
@@ -161288,7 +164002,7 @@ export namespace machinelearningservices {
          */
         cvStepSize?: number;
         /**
-         * Flag for generating lags for the numeric features with 'auto' or null.
+         * Flag for generating lags for the numeric features.
          */
         featureLags?: string;
         /**
@@ -161309,8 +164023,7 @@ export namespace machinelearningservices {
          */
         shortSeriesHandlingConfig?: string;
         /**
-         * The function to be used to aggregate the time series target column to conform to a user specified frequency.
-         * If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+         * Target aggregate function.
          */
         targetAggregateFunction?: string;
         /**
@@ -161588,11 +164301,11 @@ export namespace machinelearningservices {
     }
 
     /**
-     * Identity that will be used to access key vault for encryption at rest
+     * Identity object used for encryption.
      */
     export interface IdentityForCmkResponse {
         /**
-         * The ArmId of the user assigned identity that will be used to access the customer managed key vault
+         * UserAssignedIdentity to be used to fetch the encryption key from keyVault
          */
         userAssignedIdentity?: string;
     }
@@ -161629,7 +164342,7 @@ export namespace machinelearningservices {
          */
         limitSettings: outputs.machinelearningservices.ImageLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -161637,7 +164350,7 @@ export namespace machinelearningservices {
          */
         modelSettings?: outputs.machinelearningservices.ImageModelSettingsClassificationResponse;
         /**
-         * Primary metric to optimize for this task.
+         * Primary metrics for classification multilabel tasks.
          */
         primaryMetric?: string;
         /**
@@ -161698,7 +164411,7 @@ export namespace machinelearningservices {
          */
         limitSettings: outputs.machinelearningservices.ImageLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -161706,7 +164419,7 @@ export namespace machinelearningservices {
          */
         modelSettings?: outputs.machinelearningservices.ImageModelSettingsClassificationResponse;
         /**
-         * Primary metric to optimize for this task.
+         * Primary metrics for classification tasks.
          */
         primaryMetric?: string;
         /**
@@ -161767,7 +164480,7 @@ export namespace machinelearningservices {
          */
         limitSettings: outputs.machinelearningservices.ImageLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -161775,7 +164488,7 @@ export namespace machinelearningservices {
          */
         modelSettings?: outputs.machinelearningservices.ImageModelSettingsObjectDetectionResponse;
         /**
-         * Primary metric to optimize for this task.
+         * Primary metrics for InstanceSegmentation tasks.
          */
         primaryMetric?: string;
         /**
@@ -161871,6 +164584,10 @@ export namespace machinelearningservices {
          * Specifies the latest available operating system image version.
          */
         latestImageVersion?: string;
+        /**
+         * Metadata about the os patching.
+         */
+        osPatchingStatus: outputs.machinelearningservices.OsPatchingStatusResponse;
     }
 
     /**
@@ -162318,7 +165035,7 @@ export namespace machinelearningservices {
          */
         learningRate?: number;
         /**
-         * Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+         * Learning rate scheduler enum.
          */
         learningRateScheduler?: string;
         /**
@@ -162344,7 +165061,7 @@ export namespace machinelearningservices {
          */
         numberOfWorkers?: number;
         /**
-         * Type of optimizer.
+         * Stochastic optimizer for image models.
          */
         optimizer?: string;
         /**
@@ -162507,7 +165224,7 @@ export namespace machinelearningservices {
          */
         learningRate?: number;
         /**
-         * Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+         * Learning rate scheduler enum.
          */
         learningRateScheduler?: string;
         /**
@@ -162529,9 +165246,7 @@ export namespace machinelearningservices {
          */
         modelName?: string;
         /**
-         * Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-         * Note: training run may get into CUDA OOM if the model size is too big.
-         * Note: This settings is only supported for the 'yolov5' algorithm.
+         * Image model size.
          */
         modelSize?: string;
         /**
@@ -162561,7 +165276,7 @@ export namespace machinelearningservices {
          */
         numberOfWorkers?: number;
         /**
-         * Type of optimizer.
+         * Stochastic optimizer for image models.
          */
         optimizer?: string;
         /**
@@ -162606,7 +165321,7 @@ export namespace machinelearningservices {
          */
         validationIouThreshold?: number;
         /**
-         * Metric computation method to use for validation metrics.
+         * Metric computation method to use for validation metrics in image tasks.
          */
         validationMetricType?: string;
         /**
@@ -162646,7 +165361,7 @@ export namespace machinelearningservices {
          */
         limitSettings: outputs.machinelearningservices.ImageLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -162654,7 +165369,7 @@ export namespace machinelearningservices {
          */
         modelSettings?: outputs.machinelearningservices.ImageModelSettingsObjectDetectionResponse;
         /**
-         * Primary metric to optimize for this task.
+         * Primary metrics for Image ObjectDetection task.
          */
         primaryMetric?: string;
         /**
@@ -162705,18 +165420,19 @@ export namespace machinelearningservices {
         };
     }
 
-    /**
-     * Describes the Image Specifications
-     */
     export interface ImageResponse {
         /**
-         * Image reference
+         * Image reference URL if type is docker. Environment name if type is azureml
          */
         reference?: string;
         /**
-         * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+         * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
          */
         type?: string;
+        /**
+         * Version of image being used. If latest then skip this field
+         */
+        version?: string;
     }
     /**
      * imageResponseProvideDefaults sets the appropriate defaults for ImageResponse
@@ -162902,23 +165618,9 @@ export namespace machinelearningservices {
     }
 
     /**
-     * Instance type schema.
-     */
-    export interface InstanceTypeSchemaResponse {
-        /**
-         * Node Selector
-         */
-        nodeSelector?: {[key: string]: string};
-        /**
-         * Resource requests/limits for this instance type
-         */
-        resources?: outputs.machinelearningservices.InstanceTypeSchemaResponseResources;
-    }
-
-    /**
      * Resource requests/limits for this instance type
      */
-    export interface InstanceTypeSchemaResponseResources {
+    export interface InstanceTypeSchemaResourcesResponse {
         /**
          * Resource limits for this instance type
          */
@@ -162929,11 +165631,29 @@ export namespace machinelearningservices {
         requests?: {[key: string]: string};
     }
 
+    /**
+     * Instance type schema.
+     */
+    export interface InstanceTypeSchemaResponse {
+        /**
+         * Node Selector
+         */
+        nodeSelector?: {[key: string]: string};
+        /**
+         * Resource requests/limits for this instance type
+         */
+        resources?: outputs.machinelearningservices.InstanceTypeSchemaResourcesResponse;
+    }
+
     export interface JobResourceConfigurationResponse {
         /**
          * Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
          */
         dockerArgs?: string;
+        /**
+         * Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+         */
+        dockerArgsList?: string[];
         /**
          * Optional number of instances or nodes used by the compute target.
          */
@@ -162971,7 +165691,7 @@ export namespace machinelearningservices {
         /**
          * [Required] Defines Schedule action definition details.
          */
-        jobBaseProperties: outputs.machinelearningservices.AutoMLJobResponse | outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.PipelineJobResponse | outputs.machinelearningservices.SparkJobResponse | outputs.machinelearningservices.SweepJobResponse;
+        jobDefinition: outputs.machinelearningservices.AutoMLJobResponse | outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.PipelineJobResponse | outputs.machinelearningservices.SparkJobResponse | outputs.machinelearningservices.SweepJobResponse;
     }
 
     /**
@@ -163010,6 +165730,43 @@ export namespace machinelearningservices {
     }
 
     /**
+     * Jupyter kernel configuration.
+     */
+    export interface JupyterKernelConfigResponse {
+        /**
+         * Argument to the the runtime
+         */
+        argv?: string[];
+        /**
+         * Display name of the kernel
+         */
+        displayName?: string;
+        /**
+         * Language of the kernel [Example value: python]
+         */
+        language?: string;
+    }
+
+    /**
+     * Customer Key vault properties.
+     */
+    export interface KeyVaultPropertiesResponse {
+        /**
+         * Currently, we support only SystemAssigned MSI.
+         * We need this when we support UserAssignedIdentities
+         */
+        identityClientId?: string;
+        /**
+         * KeyVault key identifier to encrypt the data
+         */
+        keyIdentifier: string;
+        /**
+         * KeyVault Arm Id that contains the data encryption key
+         */
+        keyVaultArmId: string;
+    }
+
+    /**
      * Properties specific to a KubernetesOnlineDeployment.
      */
     export interface KubernetesOnlineDeploymentResponse {
@@ -163034,7 +165791,7 @@ export namespace machinelearningservices {
          */
         description?: string;
         /**
-         * If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+         * Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
          */
         egressPublicNetworkAccess?: string;
         /**
@@ -163523,7 +166280,13 @@ export namespace machinelearningservices {
     }
 
     export interface ListNotebookKeysResultResponse {
+        /**
+         * The primary access key of the Notebook
+         */
         primaryAccessKey: string;
+        /**
+         * The secondary access key of the Notebook
+         */
         secondaryAccessKey: string;
     }
 
@@ -163587,7 +166350,7 @@ export namespace machinelearningservices {
          */
         jobInputType: "mlflow_model";
         /**
-         * Input Asset Delivery Mode.
+         * Enum to determine the input data delivery mode.
          */
         mode?: string;
         /**
@@ -163607,6 +166370,10 @@ export namespace machinelearningservices {
 
     export interface MLFlowModelJobOutputResponse {
         /**
+         * Output Asset Name.
+         */
+        assetName?: string;
+        /**
          * Description for the output.
          */
         description?: string;
@@ -163616,7 +166383,7 @@ export namespace machinelearningservices {
          */
         jobOutputType: "mlflow_model";
         /**
-         * Output Asset Delivery Mode.
+         * Output data delivery mode enums.
          */
         mode?: string;
         /**
@@ -163694,7 +166461,7 @@ export namespace machinelearningservices {
          */
         jobInputType: "mltable";
         /**
-         * Input Asset Delivery Mode.
+         * Enum to determine the input data delivery mode.
          */
         mode?: string;
         /**
@@ -163714,6 +166481,10 @@ export namespace machinelearningservices {
 
     export interface MLTableJobOutputResponse {
         /**
+         * Output Asset Name.
+         */
+        assetName?: string;
+        /**
          * Description for the output.
          */
         description?: string;
@@ -163723,7 +166494,7 @@ export namespace machinelearningservices {
          */
         jobOutputType: "mltable";
         /**
-         * Output Asset Delivery Mode.
+         * Output data delivery mode enums.
          */
         mode?: string;
         /**
@@ -163766,8 +166537,12 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         credentials?: outputs.machinelearningservices.WorkspaceConnectionManagedIdentityResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -163778,16 +166553,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -163829,17 +166599,13 @@ export namespace machinelearningservices {
      */
     export interface ManagedNetworkSettingsResponse {
         /**
-         * A flag to indicate if monitoring needs to be enabled for the managed network firewall.
-         */
-        enableFirewallLog?: boolean;
-        /**
          * A flag to indicate if monitoring needs to be enabled for the managed network.
          */
         enableNetworkMonitor?: boolean;
         /**
          * Public IP address assigned to the Azure Firewall.
          */
-        firewallPublicIpAddress?: string;
+        firewallPublicIpAddress: string;
         /**
          * Firewall Sku used for FQDN Rules
          */
@@ -163853,6 +166619,9 @@ export namespace machinelearningservices {
          */
         managedNetworkKind?: string;
         networkId: string;
+        /**
+         * Dictionary of <OutboundRule>
+         */
         outboundRules?: {[key: string]: outputs.machinelearningservices.FqdnOutboundRuleResponse | outputs.machinelearningservices.PrivateEndpointOutboundRuleResponse | outputs.machinelearningservices.ServiceTagOutboundRuleResponse};
         /**
          * Status of the Provisioning for the managed network of a machine learning workspace.
@@ -163865,7 +166634,6 @@ export namespace machinelearningservices {
     export function managedNetworkSettingsResponseProvideDefaults(val: ManagedNetworkSettingsResponse): ManagedNetworkSettingsResponse {
         return {
             ...val,
-            enableFirewallLog: (val.enableFirewallLog) ?? false,
             enableNetworkMonitor: (val.enableNetworkMonitor) ?? false,
         };
     }
@@ -163891,7 +166659,7 @@ export namespace machinelearningservices {
          */
         description?: string;
         /**
-         * If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+         * Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
          */
         egressPublicNetworkAccess?: string;
         /**
@@ -163993,7 +166761,7 @@ export namespace machinelearningservices {
         /**
          * Identity principal Id
          */
-        principalId: string;
+        principalId?: string;
     }
 
     /**
@@ -164043,7 +166811,7 @@ export namespace machinelearningservices {
         publisherId: string;
     }
 
-    export interface MarketplaceSubscriptionResponse {
+    export interface MarketplaceSubscriptionPropertiesResponse {
         /**
          * Marketplace Plan associated with the Marketplace Subscription.
          */
@@ -164134,7 +166902,7 @@ export namespace machinelearningservices {
         };
     }
 
-    export interface ModelContainerResponse {
+    export interface ModelContainerPropertiesResponse {
         /**
          * The asset description text.
          */
@@ -164165,9 +166933,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * modelContainerResponseProvideDefaults sets the appropriate defaults for ModelContainerResponse
+     * modelContainerPropertiesResponseProvideDefaults sets the appropriate defaults for ModelContainerPropertiesResponse
      */
-    export function modelContainerResponseProvideDefaults(val: ModelContainerResponse): ModelContainerResponse {
+    export function modelContainerPropertiesResponseProvideDefaults(val: ModelContainerPropertiesResponse): ModelContainerPropertiesResponse {
         return {
             ...val,
             isArchived: (val.isArchived) ?? false,
@@ -164184,7 +166952,11 @@ export namespace machinelearningservices {
     /**
      * Model asset version details.
      */
-    export interface ModelVersionResponse {
+    export interface ModelVersionPropertiesResponse {
+        /**
+         * Array of dataset references
+         */
+        datasets?: outputs.machinelearningservices.DatasetReferenceResponse[];
         /**
          * The asset description text.
          */
@@ -164231,9 +167003,9 @@ export namespace machinelearningservices {
         tags?: {[key: string]: string};
     }
     /**
-     * modelVersionResponseProvideDefaults sets the appropriate defaults for ModelVersionResponse
+     * modelVersionPropertiesResponseProvideDefaults sets the appropriate defaults for ModelVersionPropertiesResponse
      */
-    export function modelVersionResponseProvideDefaults(val: ModelVersionResponse): ModelVersionResponse {
+    export function modelVersionPropertiesResponseProvideDefaults(val: ModelVersionPropertiesResponse): ModelVersionPropertiesResponse {
         return {
             ...val,
             isAnonymous: (val.isAnonymous) ?? false,
@@ -164413,7 +167185,11 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -164424,16 +167200,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -164454,6 +167225,7 @@ export namespace machinelearningservices {
 
     export interface NotebookResourceInfoResponse {
         fqdn?: string;
+        isPrivateLinkEnabled?: boolean;
         /**
          * The error that occurs when preparing notebook.
          */
@@ -164540,12 +167312,16 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         /**
          * ClientId and ClientSecret are required. Other properties are optional
          * depending on each OAuth2 provider's implementation.
          */
         credentials?: outputs.machinelearningservices.WorkspaceConnectionOAuth2Response;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -164556,16 +167332,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -164641,7 +167412,7 @@ export namespace machinelearningservices {
     /**
      * Online endpoint configuration
      */
-    export interface OnlineEndpointResponse {
+    export interface OnlineEndpointPropertiesResponse {
         /**
          * [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
          */
@@ -164668,7 +167439,7 @@ export namespace machinelearningservices {
          */
         provisioningState: string;
         /**
-         * Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+         * Enum to determine whether PublicNetworkAccess is Enabled or Disabled.
          */
         publicNetworkAccess?: string;
         /**
@@ -164685,9 +167456,9 @@ export namespace machinelearningservices {
         traffic?: {[key: string]: number};
     }
     /**
-     * onlineEndpointResponseProvideDefaults sets the appropriate defaults for OnlineEndpointResponse
+     * onlineEndpointPropertiesResponseProvideDefaults sets the appropriate defaults for OnlineEndpointPropertiesResponse
      */
-    export function onlineEndpointResponseProvideDefaults(val: OnlineEndpointResponse): OnlineEndpointResponse {
+    export function onlineEndpointPropertiesResponseProvideDefaults(val: OnlineEndpointPropertiesResponse): OnlineEndpointPropertiesResponse {
         return {
             ...val,
             publicNetworkAccess: (val.publicNetworkAccess) ?? "Enabled",
@@ -164756,6 +167527,32 @@ export namespace machinelearningservices {
     }
 
     /**
+     * Returns metadata about the os patching.
+     */
+    export interface OsPatchingStatusResponse {
+        /**
+         * Time of the latest os patching.
+         */
+        latestPatchTime?: string;
+        /**
+         * Collection of errors encountered when doing os patching.
+         */
+        osPatchingErrors?: outputs.machinelearningservices.ErrorResponseResponse[];
+        /**
+         * The os patching status.
+         */
+        patchStatus?: string;
+        /**
+         * Specifies whether this compute instance is pending for reboot to finish os patching.
+         */
+        rebootPending?: boolean;
+        /**
+         * Time of scheduled reboot.
+         */
+        scheduledRebootTime?: string;
+    }
+
+    /**
      * Reference to an asset via its path in a job output.
      */
     export interface OutputPathAssetReferenceResponse {
@@ -164784,8 +167581,12 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         credentials?: outputs.machinelearningservices.WorkspaceConnectionPersonalAccessTokenResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -164796,16 +167597,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     export interface PasswordResponse {
@@ -164955,11 +167751,11 @@ export namespace machinelearningservices {
          */
         id: string;
         /**
-         * The identity of the resource.
+         * The managed service identities assigned to this resource.
          */
         identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
         /**
-         * Specifies the location of the resource.
+         * *Same as workspace location.
          */
         location?: string;
         /**
@@ -164967,28 +167763,25 @@ export namespace machinelearningservices {
          */
         name: string;
         /**
-         * The resource of private end point.
+         * The Private Endpoint resource.
          */
-        privateEndpoint?: outputs.machinelearningservices.PrivateEndpointResponse;
+        privateEndpoint?: outputs.machinelearningservices.WorkspacePrivateEndpointResourceResponse;
         /**
-         * A collection of information about the state of the connection between service consumer and provider.
+         * The connection state.
          */
-        privateLinkServiceConnectionState: outputs.machinelearningservices.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState?: outputs.machinelearningservices.PrivateLinkServiceConnectionStateResponse;
         /**
-         * The provisioning state of the private endpoint connection resource.
+         * The current provisioning state.
          */
         provisioningState: string;
         /**
-         * The sku of the workspace.
+         * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
          */
         sku?: outputs.machinelearningservices.SkuResponse;
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
         systemData: outputs.machinelearningservices.SystemDataResponse;
-        /**
-         * Contains resource tags defined as key/value pairs.
-         */
         tags?: {[key: string]: string};
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -165000,6 +167793,9 @@ export namespace machinelearningservices {
      * Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
      */
     export interface PrivateEndpointDestinationResponse {
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         serviceResourceId?: string;
         sparkEnabled?: boolean;
         /**
@@ -165053,29 +167849,19 @@ export namespace machinelearningservices {
     }
 
     /**
-     * The Private Endpoint resource.
-     */
-    export interface PrivateEndpointResponse {
-        /**
-         * The ARM identifier for Private Endpoint
-         */
-        id: string;
-    }
-
-    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     export interface PrivateLinkServiceConnectionStateResponse {
         /**
-         * A message indicating if changes on the service provider require any updates on the consumer.
+         * Some RP chose "None". Other RPs use this for region expansion.
          */
         actionsRequired?: string;
         /**
-         * The reason for approval/rejection of the connection.
+         * User-defined message that, per NRP doc, may be used for approval-related message.
          */
         description?: string;
         /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         * Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -> Approved (Service provider approves the connection request)\r\nPending -> Rejected (Service provider rejects the connection request)\r\nPending -> Disconnected (Service provider deletes the connection)\r\nApproved -> Rejected (Service provider rejects the approved connection)\r\nApproved -> Disconnected (Service provider deletes the connection)\r\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -> Disconnected (Service provider deletes the connection)
          */
         status?: string;
     }
@@ -165157,7 +167943,7 @@ export namespace machinelearningservices {
 
     export interface QueueSettingsResponse {
         /**
-         * Controls the compute job tier
+         * Enum to determine the job tier.
          */
         jobTier?: string;
     }
@@ -165384,19 +168170,34 @@ export namespace machinelearningservices {
     }
 
     export interface RegistryListCredentialsResultResponse {
+        /**
+         * The location of the workspace ACR
+         */
         location: string;
         passwords?: outputs.machinelearningservices.PasswordResponse[];
+        /**
+         * The username of the workspace ACR
+         */
         username: string;
     }
 
     /**
-     * Properties of the Private Endpoint Connection
+     * Private endpoint connection definition.
      */
-    export interface RegistryPrivateEndpointConnectionPropertiesResponse {
+    export interface RegistryPrivateEndpointConnectionResponse {
         /**
          * The group ids
          */
         groupIds?: string[];
+        /**
+         * This is the private endpoint connection name created on SRP
+         * Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
+         */
+        id?: string;
+        /**
+         * Same as workspace location.
+         */
+        location?: string;
         /**
          * The PE network resource that is linked to this PE connection.
          */
@@ -165409,25 +168210,6 @@ export namespace machinelearningservices {
          * The connection state.
          */
         registryPrivateLinkServiceConnectionState?: outputs.machinelearningservices.RegistryPrivateLinkServiceConnectionStateResponse;
-    }
-
-    /**
-     * Private endpoint connection definition.
-     */
-    export interface RegistryPrivateEndpointConnectionResponse {
-        /**
-         * This is the private endpoint connection name created on SRP
-         * Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
-         */
-        id?: string;
-        /**
-         * Same as workspace location.
-         */
-        location?: string;
-        /**
-         * Properties of the Private Endpoint Connection
-         */
-        properties?: outputs.machinelearningservices.RegistryPrivateEndpointConnectionPropertiesResponse;
     }
 
     /**
@@ -165467,45 +168249,6 @@ export namespace machinelearningservices {
     }
 
     /**
-     * Details of the Registry
-     */
-    export interface RegistryResponse {
-        /**
-         * Discovery URL for the Registry
-         */
-        discoveryUrl?: string;
-        /**
-         * IntellectualPropertyPublisher for the registry
-         */
-        intellectualPropertyPublisher?: string;
-        /**
-         * ResourceId of the managed RG if the registry has system created resources
-         */
-        managedResourceGroup?: outputs.machinelearningservices.ArmResourceIdResponse;
-        /**
-         * Managed resource group specific settings
-         */
-        managedResourceGroupSettings?: outputs.machinelearningservices.ManagedResourceGroupSettingsResponse;
-        /**
-         * MLFlow Registry URI for the Registry
-         */
-        mlFlowRegistryUri?: string;
-        /**
-         * Is the Registry accessible from the internet?
-         * Possible values: "Enabled" or "Disabled"
-         */
-        publicNetworkAccess?: string;
-        /**
-         * Details of each region the registry is in
-         */
-        regionDetails?: outputs.machinelearningservices.RegistryRegionArmDetailsResponse[];
-        /**
-         * Private endpoint connections info used for pending connections in private link portal
-         */
-        registryPrivateEndpointConnections?: outputs.machinelearningservices.RegistryPrivateEndpointConnectionResponse[];
-    }
-
-    /**
      * Regression task in AutoML Table vertical.
      */
     export interface RegressionResponse {
@@ -165522,7 +168265,7 @@ export namespace machinelearningservices {
          */
         limitSettings?: outputs.machinelearningservices.TableVerticalLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -165531,7 +168274,7 @@ export namespace machinelearningservices {
          */
         nCrossValidations?: outputs.machinelearningservices.AutoNCrossValidationsResponse | outputs.machinelearningservices.CustomNCrossValidationsResponse;
         /**
-         * Primary metric for regression task.
+         * Primary metrics for Regression task.
          */
         primaryMetric?: string;
         /**
@@ -165754,8 +168497,12 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         credentials?: outputs.machinelearningservices.WorkspaceConnectionSharedAccessSignatureResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -165766,16 +168513,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -165857,7 +168599,7 @@ export namespace machinelearningservices {
     /**
      * Base definition of a schedule
      */
-    export interface ScheduleResponse {
+    export interface SchedulePropertiesResponse {
         /**
          * [Required] Specifies the action of the schedule
          */
@@ -165892,9 +168634,9 @@ export namespace machinelearningservices {
         trigger: outputs.machinelearningservices.CronTriggerResponse | outputs.machinelearningservices.RecurrenceTriggerResponse;
     }
     /**
-     * scheduleResponseProvideDefaults sets the appropriate defaults for ScheduleResponse
+     * schedulePropertiesResponseProvideDefaults sets the appropriate defaults for SchedulePropertiesResponse
      */
-    export function scheduleResponseProvideDefaults(val: ScheduleResponse): ScheduleResponse {
+    export function schedulePropertiesResponseProvideDefaults(val: SchedulePropertiesResponse): SchedulePropertiesResponse {
         return {
             ...val,
             isEnabled: (val.isEnabled) ?? true,
@@ -165914,7 +168656,7 @@ export namespace machinelearningservices {
          */
         scriptData?: string;
         /**
-         * The storage source of the script: workspace.
+         * The storage source of the script: inline, workspace.
          */
         scriptSource?: string;
         /**
@@ -165963,7 +168705,7 @@ export namespace machinelearningservices {
         serverlessComputeNoPublicIP?: boolean;
     }
 
-    export interface ServerlessEndpointResponse {
+    export interface ServerlessEndpointPropertiesResponse {
         /**
          * [Required] Specifies the authentication mode for the Serverless endpoint.
          */
@@ -165989,7 +168731,7 @@ export namespace machinelearningservices {
          */
         modelSettings?: outputs.machinelearningservices.ModelSettingsResponse;
         /**
-         * Provisioning state for the endpoint.
+         * State of endpoint provisioning.
          */
         provisioningState: string;
     }
@@ -166017,9 +168759,6 @@ export namespace machinelearningservices {
     }
 
     export interface ServiceManagedResourcesSettingsResponse {
-        /**
-         * The settings for the service managed cosmosdb account.
-         */
         cosmosDb?: outputs.machinelearningservices.CosmosDbSettingsResponse;
     }
 
@@ -166033,8 +168772,12 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         credentials?: outputs.machinelearningservices.WorkspaceConnectionServicePrincipalResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -166045,16 +168788,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -166095,7 +168833,7 @@ export namespace machinelearningservices {
         /**
          * Optional, if provided, the ServiceTag property will be ignored.
          */
-        addressPrefixes: string[];
+        addressPrefixes?: string[];
         portRanges?: string;
         protocol?: string;
         serviceTag?: string;
@@ -166141,23 +168879,23 @@ export namespace machinelearningservices {
 
     export interface SharedPrivateLinkResourceResponse {
         /**
-         * The private link resource group id.
+         * group id of the private link
          */
         groupId?: string;
         /**
-         * Unique name of the private link.
+         * Unique name of the private link
          */
         name?: string;
         /**
-         * The resource id that private link links to.
+         * the resource id that private link links to
          */
         privateLinkResourceId?: string;
         /**
-         * Request message.
+         * Request message
          */
         requestMessage?: string;
         /**
-         * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+         * Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -> Approved (Service provider approves the connection request)\r\nPending -> Rejected (Service provider rejects the connection request)\r\nPending -> Disconnected (Service provider deletes the connection)\r\nApproved -> Rejected (Service provider rejects the approved connection)\r\nApproved -> Disconnected (Service provider deletes the connection)\r\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -> Disconnected (Service provider deletes the connection)
          */
         status?: string;
     }
@@ -166433,7 +169171,7 @@ export namespace machinelearningservices {
          */
         stackMetaLearnerTrainPercentage?: number;
         /**
-         * The meta-learner is a model trained on the output of the individual heterogeneous models.
+         * The meta-learner is a model trained on the output of the individual heterogeneous models.\r\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\r\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
          */
         stackMetaLearnerType?: string;
     }
@@ -166660,55 +169398,7 @@ export namespace machinelearningservices {
         };
     }
 
-    /**
-     * A SynapseSpark compute.
-     */
-    export interface SynapseSparkResponse {
-        /**
-         * Location for the underlying compute
-         */
-        computeLocation?: string;
-        /**
-         * The type of compute
-         * Expected value is 'SynapseSpark'.
-         */
-        computeType: "SynapseSpark";
-        /**
-         * The time at which the compute was created.
-         */
-        createdOn: string;
-        /**
-         * The description of the Machine Learning compute.
-         */
-        description?: string;
-        /**
-         * Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-         */
-        disableLocalAuth?: boolean;
-        /**
-         * Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
-         */
-        isAttachedCompute: boolean;
-        /**
-         * The time at which the compute was last modified.
-         */
-        modifiedOn: string;
-        properties?: outputs.machinelearningservices.SynapseSparkResponseProperties;
-        /**
-         * Errors during provisioning
-         */
-        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
-        /**
-         * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
-         */
-        provisioningState: string;
-        /**
-         * ARM resource id of the underlying compute
-         */
-        resourceId?: string;
-    }
-
-    export interface SynapseSparkResponseProperties {
+    export interface SynapseSparkPropertiesResponse {
         /**
          * Auto pause properties.
          */
@@ -166749,6 +169439,54 @@ export namespace machinelearningservices {
          * Name of Azure Machine Learning workspace.
          */
         workspaceName?: string;
+    }
+
+    /**
+     * A SynapseSpark compute.
+     */
+    export interface SynapseSparkResponse {
+        /**
+         * Location for the underlying compute
+         */
+        computeLocation?: string;
+        /**
+         * The type of compute
+         * Expected value is 'SynapseSpark'.
+         */
+        computeType: "SynapseSpark";
+        /**
+         * The time at which the compute was created.
+         */
+        createdOn: string;
+        /**
+         * The description of the Machine Learning compute.
+         */
+        description?: string;
+        /**
+         * Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+         */
+        disableLocalAuth?: boolean;
+        /**
+         * Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.
+         */
+        isAttachedCompute: boolean;
+        /**
+         * The time at which the compute was last modified.
+         */
+        modifiedOn: string;
+        properties?: outputs.machinelearningservices.SynapseSparkPropertiesResponse;
+        /**
+         * Errors during provisioning
+         */
+        provisioningErrors: outputs.machinelearningservices.ErrorResponseResponse[];
+        /**
+         * The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+         */
+        provisioningState: string;
+        /**
+         * ARM resource id of the underlying compute
+         */
+        resourceId?: string;
     }
 
     export interface SystemCreatedAcrAccountResponse {
@@ -167013,7 +169751,7 @@ export namespace machinelearningservices {
          */
         limitSettings?: outputs.machinelearningservices.NlpVerticalLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -167067,11 +169805,11 @@ export namespace machinelearningservices {
          */
         limitSettings?: outputs.machinelearningservices.NlpVerticalLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
-         * Primary metric for Text-Classification task.
+         * Primary metrics for classification tasks.
          */
         primaryMetric?: string;
         /**
@@ -167122,7 +169860,7 @@ export namespace machinelearningservices {
          */
         limitSettings?: outputs.machinelearningservices.NlpVerticalLimitSettingsResponse;
         /**
-         * Log verbosity for the job.
+         * Enum for setting log verbosity.
          */
         logVerbosity?: string;
         /**
@@ -167162,9 +169900,6 @@ export namespace machinelearningservices {
         };
     }
 
-    /**
-     * Describes the tmpfs options for the container
-     */
     export interface TmpfsOptionsResponse {
         /**
          * Mention the Tmpfs size
@@ -167243,7 +169978,7 @@ export namespace machinelearningservices {
          */
         jobInputType: "triton_model";
         /**
-         * Input Asset Delivery Mode.
+         * Enum to determine the input data delivery mode.
          */
         mode?: string;
         /**
@@ -167263,6 +169998,10 @@ export namespace machinelearningservices {
 
     export interface TritonModelJobOutputResponse {
         /**
+         * Output Asset Name.
+         */
+        assetName?: string;
+        /**
          * Description for the output.
          */
         description?: string;
@@ -167272,7 +170011,7 @@ export namespace machinelearningservices {
          */
         jobOutputType: "triton_model";
         /**
-         * Output Asset Delivery Mode.
+         * Output data delivery mode enums.
          */
         mode?: string;
         /**
@@ -167380,7 +170119,7 @@ export namespace machinelearningservices {
          */
         jobInputType: "uri_file";
         /**
-         * Input Asset Delivery Mode.
+         * Enum to determine the input data delivery mode.
          */
         mode?: string;
         /**
@@ -167400,6 +170139,10 @@ export namespace machinelearningservices {
 
     export interface UriFileJobOutputResponse {
         /**
+         * Output Asset Name.
+         */
+        assetName?: string;
+        /**
          * Description for the output.
          */
         description?: string;
@@ -167409,7 +170152,7 @@ export namespace machinelearningservices {
          */
         jobOutputType: "uri_file";
         /**
-         * Output Asset Delivery Mode.
+         * Output data delivery mode enums.
          */
         mode?: string;
         /**
@@ -167483,7 +170226,7 @@ export namespace machinelearningservices {
          */
         jobInputType: "uri_folder";
         /**
-         * Input Asset Delivery Mode.
+         * Enum to determine the input data delivery mode.
          */
         mode?: string;
         /**
@@ -167503,6 +170246,10 @@ export namespace machinelearningservices {
 
     export interface UriFolderJobOutputResponse {
         /**
+         * Output Asset Name.
+         */
+        assetName?: string;
+        /**
          * Description for the output.
          */
         description?: string;
@@ -167512,7 +170259,7 @@ export namespace machinelearningservices {
          */
         jobOutputType: "uri_folder";
         /**
-         * Output Asset Delivery Mode.
+         * Output data delivery mode enums.
          */
         mode?: string;
         /**
@@ -167621,8 +170368,12 @@ export namespace machinelearningservices {
          * Category of the connection
          */
         category?: string;
+        /**
+         * A type definition that refers the id to an Azure Resource Manager resource.
+         */
         createdByWorkspaceArmId: string;
         credentials?: outputs.machinelearningservices.WorkspaceConnectionUsernamePasswordResponse;
+        error?: string;
         expiryTime?: string;
         /**
          * Group based on connection category
@@ -167633,16 +170384,11 @@ export namespace machinelearningservices {
          * Store user metadata for this connection
          */
         metadata?: {[key: string]: string};
+        peRequirement?: string;
+        peStatus?: string;
         sharedUserList?: string[];
         target?: string;
-        /**
-         * Value details of the workspace connection.
-         */
-        value?: string;
-        /**
-         * format for the workspace connection value
-         */
-        valueFormat?: string;
+        useWorkspaceManagedIdentity?: boolean;
     }
 
     /**
@@ -167688,7 +170434,7 @@ export namespace machinelearningservices {
          * The time at which the compute was last modified.
          */
         modifiedOn: string;
-        properties?: outputs.machinelearningservices.VirtualMachineSchemaResponseProperties;
+        properties?: outputs.machinelearningservices.VirtualMachineSchemaPropertiesResponse;
         /**
          * Errors during provisioning
          */
@@ -167703,7 +170449,7 @@ export namespace machinelearningservices {
         resourceId?: string;
     }
 
-    export interface VirtualMachineSchemaResponseProperties {
+    export interface VirtualMachineSchemaPropertiesResponse {
         /**
          * Public IP address of the virtual machine.
          */
@@ -167802,9 +170548,6 @@ export namespace machinelearningservices {
         username?: string;
     }
 
-    /**
-     * Describes the volume configuration for the container
-     */
     export interface VolumeDefinitionResponse {
         /**
          * Bind Options of the mount
@@ -167849,9 +170592,6 @@ export namespace machinelearningservices {
         };
     }
 
-    /**
-     * Describes the volume options for the container
-     */
     export interface VolumeOptionsResponse {
         /**
          * Indicate whether volume is nocopy
@@ -167864,6 +170604,9 @@ export namespace machinelearningservices {
         secretAccessKey?: string;
     }
 
+    /**
+     * Account key object for workspace connection credential.
+     */
     export interface WorkspaceConnectionAccountKeyResponse {
         key?: string;
     }
@@ -167944,6 +170687,20 @@ export namespace machinelearningservices {
     export interface WorkspaceHubConfigResponse {
         additionalWorkspaceStorageAccounts?: string[];
         defaultWorkspaceResourceGroup?: string;
+    }
+
+    /**
+     * The Private Endpoint resource.
+     */
+    export interface WorkspacePrivateEndpointResourceResponse {
+        /**
+         * e.g. /subscriptions/{networkSubscriptionId}/resourceGroups/{rgName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}
+         */
+        id: string;
+        /**
+         * The subnetId that the private endpoint is connected to.
+         */
+        subnetArmId: string;
     }
 
 }
@@ -171327,6 +174084,19 @@ export namespace marketplace {
          * Stack type (classic or arm)
          */
         stackType: string;
+    }
+
+    export interface ProductResponse {
+        description?: string;
+        displayName?: string;
+        pricingTypes?: string[];
+        productType?: string;
+        publisherDisplayName?: string;
+        ratingAverage?: number;
+        smallIconUri?: string;
+        storeFronts?: string[];
+        summary?: string;
+        uniqueProductId?: string;
     }
 
     export interface RuleResponse {
@@ -193784,6 +196554,48 @@ export namespace networkcloud {
         adminGroupObjectIds: string[];
     }
 
+    export interface AccessBridgeEndpointResponse {
+        /**
+         * The fully qualified domain name used to describe the certificate name for the endpoint.
+         */
+        fqdn: string;
+        /**
+         * The IPv4 address associated with the endpoint.
+         */
+        ipv4Address: string;
+        /**
+         * The IPv6 address associated with the endpoint.
+         */
+        ipv6Address: string;
+        /**
+         * The name that identifies the type of endpoint (for example VIP or host).
+         */
+        name: string;
+    }
+
+    export interface AccessBridgeSecurityRuleResponse {
+        /**
+         * The user provided value describing this rule.
+         */
+        description?: string;
+        /**
+         * The direction of allowed network traffic based on the rule.
+         */
+        direction: string;
+        /**
+         * The set of IPv4 addresses permitted as the source or destination of the security rule. For as single address, utilize a /32 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 10.10.10.10-10.10.10.20 or 10.10.10.10/24.
+         */
+        ipv4Addresses?: string[];
+        /**
+         * The set of IPv6 addresses permitted as the source or destination of the security rule. For as single address, utilize a /128 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 2001:db8:abcd::1-2001:db8:abcd::ff or 2001:db8:abcd::1/64.
+         */
+        ipv6Addresses?: string[];
+        /**
+         * The source or destination port or port range. Example 24562 or 24562-24570.
+         */
+        port: string;
+    }
+
     export interface AdministrativeCredentialsResponse {
         /**
          * The password of the administrator of the device used during initialization.
@@ -194454,6 +197266,17 @@ export namespace networkcloud {
         value: string;
     }
 
+    export interface KubernetesVersionValueResponse {
+        /**
+         * Additional description for the Kubernetes version.
+         */
+        description: string;
+        /**
+         * The Kubernetes version identifier.
+         */
+        version: string;
+    }
+
     export interface L2NetworkAttachmentConfigurationResponse {
         /**
          * The resource ID of the network that is being configured for attachment.
@@ -195121,7 +197944,7 @@ export namespace networkfunction {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    export interface TrackedResourceResponseSystemData {
+    export interface SystemDataResponse {
         /**
          * The timestamp of resource creation (UTC).
          */
@@ -195134,6 +197957,10 @@ export namespace networkfunction {
          * The type of identity that created the resource.
          */
         createdByType?: string;
+        /**
+         * The timestamp of resource last modification (UTC)
+         */
+        lastModifiedAt?: string;
         /**
          * The identity that last modified the resource.
          */
@@ -201485,7 +204312,7 @@ export namespace purview {
     /**
      * Gets or sets the status of the account.
      */
-    export interface AccountPropertiesResponseAccountStatus {
+    export interface AccountPropertiesAccountStatusResponse {
         /**
          * Gets the account status code.
          */
@@ -201493,13 +204320,13 @@ export namespace purview {
         /**
          * Gets the account error details.
          */
-        errorDetails: outputs.purview.AccountStatusResponseErrorDetails;
+        errorDetails: outputs.purview.AccountStatusErrorDetailsResponse;
     }
 
     /**
      * The URIs that are the public endpoints of the account.
      */
-    export interface AccountPropertiesResponseEndpoints {
+    export interface AccountPropertiesEndpointsResponse {
         /**
          * Gets the catalog endpoint.
          */
@@ -201513,7 +204340,7 @@ export namespace purview {
     /**
      * Gets the resource identifiers of the managed resources.
      */
-    export interface AccountPropertiesResponseManagedResources {
+    export interface AccountPropertiesManagedResourcesResponse {
         /**
          * Gets the managed event hub namespace resource identifier.
          */
@@ -201529,9 +204356,9 @@ export namespace purview {
     }
 
     /**
-     * Gets or sets the Sku.
+     * The Sku
      */
-    export interface AccountResponseSku {
+    export interface AccountSkuResponse {
         /**
          * Gets or sets the sku capacity.
          */
@@ -201545,7 +204372,7 @@ export namespace purview {
     /**
      * Gets the account error details.
      */
-    export interface AccountStatusResponseErrorDetails {
+    export interface AccountStatusErrorDetailsResponse {
         /**
          * Gets or sets the code.
          */
@@ -201656,11 +204483,11 @@ export namespace purview {
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * Gets or sets the identifier.
+         * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
          */
         id: string;
         /**
-         * Gets or sets the name.
+         * The name of the resource
          */
         name: string;
         /**
@@ -201676,11 +204503,11 @@ export namespace purview {
          */
         provisioningState: string;
         /**
-         * Metadata pertaining to creation and last modification of the resource.
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
-        systemData: outputs.purview.ProxyResourceResponseSystemData;
+        systemData: outputs.purview.SystemDataResponse;
         /**
-         * Gets or sets the type.
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
         type: string;
     }
@@ -201716,61 +204543,31 @@ export namespace purview {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    export interface ProxyResourceResponseSystemData {
+    export interface SystemDataResponse {
         /**
          * The timestamp of resource creation (UTC).
          */
-        createdAt: string;
+        createdAt?: string;
         /**
          * The identity that created the resource.
          */
-        createdBy: string;
+        createdBy?: string;
         /**
          * The type of identity that created the resource.
          */
-        createdByType: string;
+        createdByType?: string;
         /**
-         * The timestamp of the last modification the resource (UTC).
+         * The timestamp of resource last modification (UTC)
          */
-        lastModifiedAt: string;
-        /**
-         * The identity that last modified the resource.
-         */
-        lastModifiedBy: string;
-        /**
-         * The type of identity that last modified the resource.
-         */
-        lastModifiedByType: string;
-    }
-
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    export interface TrackedResourceResponseSystemData {
-        /**
-         * The timestamp of resource creation (UTC).
-         */
-        createdAt: string;
-        /**
-         * The identity that created the resource.
-         */
-        createdBy: string;
-        /**
-         * The type of identity that created the resource.
-         */
-        createdByType: string;
-        /**
-         * The timestamp of the last modification the resource (UTC).
-         */
-        lastModifiedAt: string;
+        lastModifiedAt?: string;
         /**
          * The identity that last modified the resource.
          */
-        lastModifiedBy: string;
+        lastModifiedBy?: string;
         /**
          * The type of identity that last modified the resource.
          */
-        lastModifiedByType: string;
+        lastModifiedByType?: string;
     }
 
     /**
@@ -213982,15 +216779,15 @@ export namespace resources {
      */
     export interface ActionOnUnmanageResponse {
         /**
-         * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+         * Specifies an action for a newly unmanaged resource management group.
          */
         managementGroups?: string;
         /**
-         * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+         * Specifies an action for a newly unmanaged resource group.
          */
         resourceGroups?: string;
         /**
-         * Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+         * Specifies an action for a newly unmanaged resource.
          */
         resources: string;
         /**
@@ -214600,7 +217397,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error?: outputs.resources.ErrorDetailResponse;
+        error: outputs.resources.ErrorDetailResponse;
         /**
          * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
          */
@@ -215007,7 +217804,7 @@ export namespace resources {
         /**
          * The error detail.
          */
-        error?: outputs.resources.ErrorDetailResponse;
+        error: outputs.resources.ErrorDetailResponse;
         /**
          * The ARM Resource ID of a resource managed by the deployment stack.
          */
@@ -216828,40 +219625,9 @@ export namespace search {
     }
 
     /**
-     * Describes the properties of an existing private endpoint connection to the search service.
-     */
-    export interface PrivateEndpointConnectionPropertiesResponse {
-        /**
-         * The group ID of the Azure resource for which the private link service is for.
-         */
-        groupId?: string;
-        /**
-         * The private endpoint resource from Microsoft.Network provider.
-         */
-        privateEndpoint?: outputs.search.PrivateEndpointConnectionPropertiesResponsePrivateEndpoint;
-        /**
-         * Describes the current state of an existing Azure Private Link service connection to the private endpoint.
-         */
-        privateLinkServiceConnectionState?: outputs.search.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState;
-        /**
-         * The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
-         */
-        provisioningState?: string;
-    }
-    /**
-     * privateEndpointConnectionPropertiesResponseProvideDefaults sets the appropriate defaults for PrivateEndpointConnectionPropertiesResponse
-     */
-    export function privateEndpointConnectionPropertiesResponseProvideDefaults(val: PrivateEndpointConnectionPropertiesResponse): PrivateEndpointConnectionPropertiesResponse {
-        return {
-            ...val,
-            privateLinkServiceConnectionState: (val.privateLinkServiceConnectionState ? outputs.search.privateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateProvideDefaults(val.privateLinkServiceConnectionState) : undefined),
-        };
-    }
-
-    /**
      * The private endpoint resource from Microsoft.Network provider.
      */
-    export interface PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
+    export interface PrivateEndpointConnectionPropertiesPrivateEndpointResponse {
         /**
          * The resource ID of the private endpoint resource from Microsoft.Network provider.
          */
@@ -216871,7 +219637,7 @@ export namespace search {
     /**
      * Describes the current state of an existing Azure Private Link service connection to the private endpoint.
      */
-    export interface PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
+    export interface PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse {
         /**
          * A description of any extra actions that may be required.
          */
@@ -216886,12 +219652,43 @@ export namespace search {
         status?: string;
     }
     /**
-     * privateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateProvideDefaults sets the appropriate defaults for PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState
+     * privateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponseProvideDefaults sets the appropriate defaults for PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse
      */
-    export function privateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateProvideDefaults(val: PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState): PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
+    export function privateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponseProvideDefaults(val: PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse): PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse {
         return {
             ...val,
             actionsRequired: (val.actionsRequired) ?? "None",
+        };
+    }
+
+    /**
+     * Describes the properties of an existing private endpoint connection to the search service.
+     */
+    export interface PrivateEndpointConnectionPropertiesResponse {
+        /**
+         * The group ID of the Azure resource for which the private link service is for.
+         */
+        groupId?: string;
+        /**
+         * The private endpoint resource from Microsoft.Network provider.
+         */
+        privateEndpoint?: outputs.search.PrivateEndpointConnectionPropertiesPrivateEndpointResponse;
+        /**
+         * Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+         */
+        privateLinkServiceConnectionState?: outputs.search.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
+         */
+        provisioningState?: string;
+    }
+    /**
+     * privateEndpointConnectionPropertiesResponseProvideDefaults sets the appropriate defaults for PrivateEndpointConnectionPropertiesResponse
+     */
+    export function privateEndpointConnectionPropertiesResponseProvideDefaults(val: PrivateEndpointConnectionPropertiesResponse): PrivateEndpointConnectionPropertiesResponse {
+        return {
+            ...val,
+            privateLinkServiceConnectionState: (val.privateLinkServiceConnectionState ? outputs.search.privateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateResponseProvideDefaults(val.privateLinkServiceConnectionState) : undefined),
         };
     }
 
@@ -217499,68 +220296,6 @@ export namespace security {
          * The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
          */
         propertyType?: string;
-    }
-
-    /**
-     * AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
-     */
-    export interface AwAssumeRoleAuthenticationDetailsPropertiesResponse {
-        /**
-         * The ID of the cloud account
-         */
-        accountId: string;
-        /**
-         * State of the multi-cloud connector
-         */
-        authenticationProvisioningState: string;
-        /**
-         * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-         * Expected value is 'awsAssumeRole'.
-         */
-        authenticationType: "awsAssumeRole";
-        /**
-         * Assumed role ID is an identifier that you can use to create temporary security credentials.
-         */
-        awsAssumeRoleArn: string;
-        /**
-         * A unique identifier that is required when you assume a role in another account.
-         */
-        awsExternalId: string;
-        /**
-         * The permissions detected in the cloud account.
-         */
-        grantedPermissions: string[];
-    }
-
-    /**
-     * AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
-     */
-    export interface AwsCredsAuthenticationDetailsPropertiesResponse {
-        /**
-         * The ID of the cloud account
-         */
-        accountId: string;
-        /**
-         * State of the multi-cloud connector
-         */
-        authenticationProvisioningState: string;
-        /**
-         * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-         * Expected value is 'awsCreds'.
-         */
-        authenticationType: "awsCreds";
-        /**
-         * Public key element of the AWS credential object (write only)
-         */
-        awsAccessKeyId: string;
-        /**
-         * Secret key element of the AWS credential object (write only)
-         */
-        awsSecretAccessKey: string;
-        /**
-         * The permissions detected in the cloud account.
-         */
-        grantedPermissions: string[];
     }
 
     /**
@@ -219030,69 +221765,6 @@ export namespace security {
     }
 
     /**
-     * GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
-     */
-    export interface GcpCredentialsDetailsPropertiesResponse {
-        /**
-         * Auth provider x509 certificate URL field of the API key (write only)
-         */
-        authProviderX509CertUrl: string;
-        /**
-         * Auth URI field of the API key (write only)
-         */
-        authUri: string;
-        /**
-         * State of the multi-cloud connector
-         */
-        authenticationProvisioningState: string;
-        /**
-         * Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-         * Expected value is 'gcpCredentials'.
-         */
-        authenticationType: "gcpCredentials";
-        /**
-         * Client email field of the API key (write only)
-         */
-        clientEmail: string;
-        /**
-         * Client ID field of the API key (write only)
-         */
-        clientId: string;
-        /**
-         * Client x509 certificate URL field of the API key (write only)
-         */
-        clientX509CertUrl: string;
-        /**
-         * The permissions detected in the cloud account.
-         */
-        grantedPermissions: string[];
-        /**
-         * The organization ID of the GCP cloud account
-         */
-        organizationId: string;
-        /**
-         * Private key field of the API key (write only)
-         */
-        privateKey: string;
-        /**
-         * Private key ID field of the API key (write only)
-         */
-        privateKeyId: string;
-        /**
-         * Project ID field of the API key (write only)
-         */
-        projectId: string;
-        /**
-         * Token URI field of the API key (write only)
-         */
-        tokenUri: string;
-        /**
-         * Type field of the API key (write only)
-         */
-        type: string;
-    }
-
-    /**
      * The gcpOrganization data for the member account
      */
     export interface GcpOrganizationalDataMemberResponse {
@@ -219431,36 +222103,6 @@ export namespace security {
          * The source value e.g. tag key like owner name or email address
          */
         value?: string;
-    }
-
-    /**
-     * Settings for hybrid compute management
-     */
-    export interface HybridComputeSettingsPropertiesResponse {
-        /**
-         * Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-         */
-        autoProvision: string;
-        /**
-         * State of the service principal and its secret
-         */
-        hybridComputeProvisioningState: string;
-        /**
-         * For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-         */
-        proxyServer?: outputs.security.ProxyServerPropertiesResponse;
-        /**
-         * The location where the metadata of machines will be stored
-         */
-        region?: string;
-        /**
-         * The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-         */
-        resourceGroupName?: string;
-        /**
-         * An object to access resources that are secured by an Azure AD tenant.
-         */
-        servicePrincipal?: outputs.security.ServicePrincipalPropertiesResponse;
     }
 
     /**
@@ -219832,20 +222474,6 @@ export namespace security {
     }
 
     /**
-     * For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-     */
-    export interface ProxyServerPropertiesResponse {
-        /**
-         * Proxy server IP
-         */
-        ip?: string;
-        /**
-         * Proxy server port
-         */
-        port?: string;
-    }
-
-    /**
      * The type of IoT Security recommendation.
      */
     export interface RecommendationConfigurationPropertiesResponse {
@@ -220014,20 +222642,6 @@ export namespace security {
          * Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
          */
         operationStatus: outputs.security.OperationStatusResponse;
-    }
-
-    /**
-     * Details of the service principal.
-     */
-    export interface ServicePrincipalPropertiesResponse {
-        /**
-         * Application ID of service principal.
-         */
-        applicationId?: string;
-        /**
-         * A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-         */
-        secret?: string;
     }
 
     /**
@@ -224186,7 +226800,7 @@ export namespace servicefabric {
     }
 
     /**
-     * The type of placement policy for a service fabric service. Following are the possible values.
+     * The name of the domain that should used for placement as per this policy.
      */
     export interface ServicePlacementNonPartiallyPlaceServicePolicyResponse {
         /**
@@ -224197,7 +226811,7 @@ export namespace servicefabric {
     }
 
     /**
-     * Describes the policy to be used for placement of a Service Fabric service where the service's
+     * Describes the policy to be used for placement of a Service Fabric service where the service's 
      * Primary replicas should optimally be placed in a particular domain.
      *
      * This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -224545,7 +227159,7 @@ export namespace servicefabric {
          */
         createdByType?: string;
         /**
-         * The timestamp of resource last modification (UTC)
+         * The timestamp of resource last modification (UTC).
          */
         lastModifiedAt?: string;
         /**
@@ -232398,6 +235012,40 @@ export namespace storagemover {
          * The Azure Resource ID of the storage account.
          */
         storageAccountResourceId: string;
+    }
+
+    /**
+     * Properties of the Connection resource.
+     */
+    export interface ConnectionPropertiesResponse {
+        /**
+         * The connection status.
+         */
+        connectionStatus: string;
+        /**
+         * A description for the Connection.
+         */
+        description?: string;
+        /**
+         * List of job definitions associated with this connection.
+         */
+        jobList?: string[];
+        /**
+         * The PrivateEndpointName associated with the connection.
+         */
+        privateEndpointName: string;
+        /**
+         * The privateEndpoint resource Id
+         */
+        privateEndpointResourceId: string;
+        /**
+         * The PrivateLinkServiceId for the connection.
+         */
+        privateLinkServiceId: string;
+        /**
+         * The provisioning state of this resource.
+         */
+        provisioningState: string;
     }
 
     /**

@@ -52,6 +52,8 @@ __all__ = [
     'AkriConnectorsServiceAccountAuthenticationResponse',
     'AkriConnectorsServiceAccountTokenSettingsResponse',
     'AkriConnectorsTagResponse',
+    'AkriServicePropertiesResponse',
+    'AkriServiceStatusResponse',
     'AuthorizationConfigResponse',
     'AuthorizationRuleResponse',
     'BackendChainResponse',
@@ -140,6 +142,7 @@ __all__ = [
     'RegistryEndpointTrustedSigningKeySecretResponse',
     'RegistryEndpointUserAssignedIdentityAuthenticationResponse',
     'RegistryEndpointUserAssignedManagedIdentitySettingsResponse',
+    'ResourceHealthStatusResponse',
     'SanForCertResponse',
     'SchemaRegistryRefResponse',
     'SelfCheckResponse',
@@ -2498,6 +2501,97 @@ class AkriConnectorsTagResponse(dict):
         Expected value is 'Tag'.
         """
         return pulumi.get(self, "tag_digest_type")
+
+
+@pulumi.output_type
+class AkriServicePropertiesResponse(dict):
+    """
+    AkriService properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriServicePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriServicePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriServicePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.AkriServiceStatusResponse'):
+        """
+        AkriService properties.
+
+        :param _builtins.str provisioning_state: The status of the last operation.
+        :param 'AkriServiceStatusResponse' status: The status for the service.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.AkriServiceStatusResponse':
+        """
+        The status for the service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class AkriServiceStatusResponse(dict):
+    """
+    AkriService status.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthState":
+            suggest = "health_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AkriServiceStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AkriServiceStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AkriServiceStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_state: 'outputs.ResourceHealthStatusResponse'):
+        """
+        AkriService status.
+
+        :param 'ResourceHealthStatusResponse' health_state: The health state of the AkriService.
+        """
+        pulumi.set(__self__, "health_state", health_state)
+
+    @_builtins.property
+    @pulumi.getter(name="healthState")
+    def health_state(self) -> 'outputs.ResourceHealthStatusResponse':
+        """
+        The health state of the AkriService.
+        """
+        return pulumi.get(self, "health_state")
 
 
 @pulumi.output_type
@@ -8111,6 +8205,94 @@ class RegistryEndpointUserAssignedManagedIdentitySettingsResponse(dict):
         Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
         """
         return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class ResourceHealthStatusResponse(dict):
+    """
+    Represents the health state of a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastTransitionTime":
+            suggest = "last_transition_time"
+        elif key == "lastUpdateTime":
+            suggest = "last_update_time"
+        elif key == "reasonCode":
+            suggest = "reason_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceHealthStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceHealthStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceHealthStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_transition_time: _builtins.str,
+                 last_update_time: _builtins.str,
+                 message: _builtins.str,
+                 reason_code: _builtins.str,
+                 status: _builtins.str):
+        """
+        Represents the health state of a resource.
+
+        :param _builtins.str last_transition_time: The timestamp (RFC3339) when the health status last changed.
+        :param _builtins.str last_update_time: The timestamp (RFC3339) when the health status was last updated, even if the status did not change.
+        :param _builtins.str message: A human-readable message describing the last transition.
+        :param _builtins.str reason_code: Unique, CamelCase reason code describing the cause of the last health state transition.
+        :param _builtins.str status: The high-level health status of the resource.
+        """
+        pulumi.set(__self__, "last_transition_time", last_transition_time)
+        pulumi.set(__self__, "last_update_time", last_update_time)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "reason_code", reason_code)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="lastTransitionTime")
+    def last_transition_time(self) -> _builtins.str:
+        """
+        The timestamp (RFC3339) when the health status last changed.
+        """
+        return pulumi.get(self, "last_transition_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdateTime")
+    def last_update_time(self) -> _builtins.str:
+        """
+        The timestamp (RFC3339) when the health status was last updated, even if the status did not change.
+        """
+        return pulumi.get(self, "last_update_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        A human-readable message describing the last transition.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter(name="reasonCode")
+    def reason_code(self) -> _builtins.str:
+        """
+        Unique, CamelCase reason code describing the cause of the last health state transition.
+        """
+        return pulumi.get(self, "reason_code")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The high-level health status of the resource.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

@@ -16,22 +16,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class ManagedNetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag to indicate if monitoring needs to be enabled for the managed network firewall.
-        /// </summary>
-        [Input("enableFirewallLog")]
-        public Input<bool>? EnableFirewallLog { get; set; }
-
-        /// <summary>
         /// A flag to indicate if monitoring needs to be enabled for the managed network.
         /// </summary>
         [Input("enableNetworkMonitor")]
         public Input<bool>? EnableNetworkMonitor { get; set; }
-
-        /// <summary>
-        /// Public IP address assigned to the Azure Firewall.
-        /// </summary>
-        [Input("firewallPublicIpAddress")]
-        public Input<string>? FirewallPublicIpAddress { get; set; }
 
         /// <summary>
         /// Firewall Sku used for FQDN Rules
@@ -53,6 +41,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         [Input("outboundRules")]
         private InputMap<object>? _outboundRules;
+
+        /// <summary>
+        /// Dictionary of &lt;OutboundRule&gt;
+        /// </summary>
         public InputMap<object> OutboundRules
         {
             get => _outboundRules ?? (_outboundRules = new InputMap<object>());
@@ -67,7 +59,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public ManagedNetworkSettingsArgs()
         {
-            EnableFirewallLog = false;
             EnableNetworkMonitor = false;
         }
         public static new ManagedNetworkSettingsArgs Empty => new ManagedNetworkSettingsArgs();

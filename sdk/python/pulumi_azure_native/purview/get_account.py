@@ -112,7 +112,7 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter(name="accountStatus")
-    def account_status(self) -> 'outputs.AccountPropertiesResponseAccountStatus':
+    def account_status(self) -> 'outputs.AccountPropertiesAccountStatusResponse':
         """
         Gets or sets the status of the account.
         """
@@ -168,7 +168,7 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> 'outputs.AccountPropertiesResponseEndpoints':
+    def endpoints(self) -> 'outputs.AccountPropertiesEndpointsResponse':
         """
         The URIs that are the public endpoints of the account.
         """
@@ -186,7 +186,7 @@ class GetAccountResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Gets or sets the identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -210,7 +210,7 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        Gets or sets the location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -232,7 +232,7 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter(name="managedResources")
-    def managed_resources(self) -> 'outputs.AccountPropertiesResponseManagedResources':
+    def managed_resources(self) -> 'outputs.AccountPropertiesManagedResourcesResponse':
         """
         Gets the resource identifiers of the managed resources.
         """
@@ -258,7 +258,7 @@ class GetAccountResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Gets or sets the name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -288,7 +288,7 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional['outputs.AccountResponseSku']:
+    def sku(self) -> Optional['outputs.AccountSkuResponse']:
         """
         Gets or sets the Sku.
         """
@@ -296,9 +296,9 @@ class GetAccountResult:
 
     @_builtins.property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.TrackedResourceResponseSystemData':
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -306,7 +306,7 @@ class GetAccountResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Tags on the azure resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -322,7 +322,7 @@ class GetAccountResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Gets or sets the type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -374,7 +374,7 @@ def get_account(account_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str account_name: The name of the account.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -422,7 +422,7 @@ def get_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = Non
 
 
     :param _builtins.str account_name: The name of the account.
-    :param _builtins.str resource_group_name: The resource group name.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name

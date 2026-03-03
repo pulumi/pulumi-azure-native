@@ -16,40 +16,40 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MarketplaceSubscriptionInitArgs', 'MarketplaceSubscription']
+__all__ = ['MarketplaceSubscriptionArgs', 'MarketplaceSubscription']
 
 @pulumi.input_type
-class MarketplaceSubscriptionInitArgs:
+class MarketplaceSubscriptionArgs:
     def __init__(__self__, *,
-                 marketplace_subscription_properties: pulumi.Input['MarketplaceSubscriptionArgs'],
+                 properties: pulumi.Input['MarketplaceSubscriptionPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MarketplaceSubscription resource.
 
-        :param pulumi.Input['MarketplaceSubscriptionArgs'] marketplace_subscription_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['MarketplaceSubscriptionPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[_builtins.str] name: Marketplace Subscription name.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input[_builtins.str] name: Container name.
         """
-        pulumi.set(__self__, "marketplace_subscription_properties", marketplace_subscription_properties)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
-    @pulumi.getter(name="marketplaceSubscriptionProperties")
-    def marketplace_subscription_properties(self) -> pulumi.Input['MarketplaceSubscriptionArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['MarketplaceSubscriptionPropertiesArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "marketplace_subscription_properties")
+        return pulumi.get(self, "properties")
 
-    @marketplace_subscription_properties.setter
-    def marketplace_subscription_properties(self, value: pulumi.Input['MarketplaceSubscriptionArgs']):
-        pulumi.set(self, "marketplace_subscription_properties", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['MarketplaceSubscriptionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,7 +67,7 @@ class MarketplaceSubscriptionInitArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -79,7 +79,7 @@ class MarketplaceSubscriptionInitArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Marketplace Subscription name.
+        Container name.
         """
         return pulumi.get(self, "name")
 
@@ -94,47 +94,47 @@ class MarketplaceSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 marketplace_subscription_properties: Optional[pulumi.Input[Union['MarketplaceSubscriptionArgs', 'MarketplaceSubscriptionArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MarketplaceSubscriptionPropertiesArgs', 'MarketplaceSubscriptionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MarketplaceSubscriptionArgs', 'MarketplaceSubscriptionArgsDict']] marketplace_subscription_properties: [Required] Additional attributes of the entity.
-        :param pulumi.Input[_builtins.str] name: Marketplace Subscription name.
+        :param pulumi.Input[_builtins.str] name: Container name.
+        :param pulumi.Input[Union['MarketplaceSubscriptionPropertiesArgs', 'MarketplaceSubscriptionPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MarketplaceSubscriptionInitArgs,
+                 args: MarketplaceSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
-        :param MarketplaceSubscriptionInitArgs args: The arguments to use to populate this resource's properties.
+        :param MarketplaceSubscriptionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MarketplaceSubscriptionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MarketplaceSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -143,8 +143,8 @@ class MarketplaceSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 marketplace_subscription_properties: Optional[pulumi.Input[Union['MarketplaceSubscriptionArgs', 'MarketplaceSubscriptionArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MarketplaceSubscriptionPropertiesArgs', 'MarketplaceSubscriptionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -154,12 +154,12 @@ class MarketplaceSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MarketplaceSubscriptionInitArgs.__new__(MarketplaceSubscriptionInitArgs)
+            __props__ = MarketplaceSubscriptionArgs.__new__(MarketplaceSubscriptionArgs)
 
-            if marketplace_subscription_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'marketplace_subscription_properties'")
-            __props__.__dict__["marketplace_subscription_properties"] = marketplace_subscription_properties
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -169,7 +169,7 @@ class MarketplaceSubscription(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:MarketplaceSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:MarketplaceSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MarketplaceSubscription, __self__).__init__(
             'azure-native:machinelearningservices:MarketplaceSubscription',
@@ -191,11 +191,11 @@ class MarketplaceSubscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = MarketplaceSubscriptionInitArgs.__new__(MarketplaceSubscriptionInitArgs)
+        __props__ = MarketplaceSubscriptionArgs.__new__(MarketplaceSubscriptionArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["marketplace_subscription_properties"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return MarketplaceSubscription(resource_name, opts=opts, __props__=__props__)
@@ -209,20 +209,20 @@ class MarketplaceSubscription(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="marketplaceSubscriptionProperties")
-    def marketplace_subscription_properties(self) -> pulumi.Output['outputs.MarketplaceSubscriptionResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "marketplace_subscription_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.MarketplaceSubscriptionPropertiesResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// [Required] Additional attributes of the entity.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.AgenticApplicationResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.AgenticApplicationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// [Required] Additional attributes of the entity.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.AgenticApplicationArgs> Properties { get; set; } = null!;
+        public Input<Inputs.AgenticApplicationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

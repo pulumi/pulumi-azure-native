@@ -57,9 +57,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
+        /// Enable SSO (single sign on). Possible values are: true, false.
+        /// </summary>
+        public readonly bool? EnableSSO;
+        /// <summary>
         /// Collection of errors encountered on this ComputeInstance.
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorResponseResponse> Errors;
+        /// <summary>
+        /// Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
+        /// </summary>
+        public readonly string? IdleTimeBeforeShutdown;
         /// <summary>
         /// The last operation on ComputeInstance.
         /// </summary>
@@ -123,7 +131,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             bool? enableNodePublicIp,
 
+            bool? enableSSO,
+
             ImmutableArray<Outputs.ErrorResponseResponse> errors,
+
+            string? idleTimeBeforeShutdown,
 
             Outputs.ComputeInstanceLastOperationResponse lastOperation,
 
@@ -155,7 +167,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             DataDisks = dataDisks;
             DataMounts = dataMounts;
             EnableNodePublicIp = enableNodePublicIp;
+            EnableSSO = enableSSO;
             Errors = errors;
+            IdleTimeBeforeShutdown = idleTimeBeforeShutdown;
             LastOperation = lastOperation;
             OsImageMetadata = osImageMetadata;
             PersonalComputeInstanceSettings = personalComputeInstanceSettings;

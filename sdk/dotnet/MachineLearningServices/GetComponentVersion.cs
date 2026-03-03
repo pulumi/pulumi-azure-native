@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetComponentVersion
     {
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Get version.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetComponentVersionResult> InvokeAsync(GetComponentVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("azure-native:machinelearningservices:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Get version.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("azure-native:machinelearningservices:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Get version.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("azure-native:machinelearningservices:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
@@ -116,10 +116,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.ComponentVersionResponse ComponentVersionProperties;
-        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -127,6 +123,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.ComponentVersionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -140,20 +140,20 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetComponentVersionResult(
             string azureApiVersion,
 
-            Outputs.ComponentVersionResponse componentVersionProperties,
-
             string id,
 
             string name,
+
+            Outputs.ComponentVersionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            ComponentVersionProperties = componentVersionProperties;
             Id = id;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

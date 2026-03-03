@@ -125,6 +125,7 @@ from .get_route_filter import *
 from .get_route_filter_rule import *
 from .get_route_map import *
 from .get_route_table import *
+from .get_routing_configuration import *
 from .get_routing_intent import *
 from .get_routing_rule import *
 from .get_routing_rule_collection import *
@@ -244,6 +245,7 @@ from .route_filter import *
 from .route_filter_rule import *
 from .route_map import *
 from .route_table import *
+from .routing_configuration import *
 from .routing_intent import *
 from .routing_rule import *
 from .routing_rule_collection import *

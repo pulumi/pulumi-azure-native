@@ -15,10 +15,20 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
+export { ClusterJobArgs } from "./clusterJob";
+export type ClusterJob = import("./clusterJob").ClusterJob;
+export const ClusterJob: typeof import("./clusterJob").ClusterJob = null as any;
+utilities.lazyLoad(exports, ["ClusterJob"], () => require("./clusterJob"));
+
 export { DeploymentSettingArgs } from "./deploymentSetting";
 export type DeploymentSetting = import("./deploymentSetting").DeploymentSetting;
 export const DeploymentSetting: typeof import("./deploymentSetting").DeploymentSetting = null as any;
 utilities.lazyLoad(exports, ["DeploymentSetting"], () => require("./deploymentSetting"));
+
+export { DevicePoolArgs } from "./devicePool";
+export type DevicePool = import("./devicePool").DevicePool;
+export const DevicePool: typeof import("./devicePool").DevicePool = null as any;
+utilities.lazyLoad(exports, ["DevicePool"], () => require("./devicePool"));
 
 export { EdgeMachineArgs } from "./edgeMachine";
 export type EdgeMachine = import("./edgeMachine").EdgeMachine;
@@ -50,10 +60,20 @@ export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
+export { GetClusterJobArgs, GetClusterJobResult, GetClusterJobOutputArgs } from "./getClusterJob";
+export const getClusterJob: typeof import("./getClusterJob").getClusterJob = null as any;
+export const getClusterJobOutput: typeof import("./getClusterJob").getClusterJobOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterJob","getClusterJobOutput"], () => require("./getClusterJob"));
+
 export { GetDeploymentSettingArgs, GetDeploymentSettingResult, GetDeploymentSettingOutputArgs } from "./getDeploymentSetting";
 export const getDeploymentSetting: typeof import("./getDeploymentSetting").getDeploymentSetting = null as any;
 export const getDeploymentSettingOutput: typeof import("./getDeploymentSetting").getDeploymentSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getDeploymentSetting","getDeploymentSettingOutput"], () => require("./getDeploymentSetting"));
+
+export { GetDevicePoolArgs, GetDevicePoolResult, GetDevicePoolOutputArgs } from "./getDevicePool";
+export const getDevicePool: typeof import("./getDevicePool").getDevicePool = null as any;
+export const getDevicePoolOutput: typeof import("./getDevicePool").getDevicePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getDevicePool","getDevicePoolOutput"], () => require("./getDevicePool"));
 
 export { GetEdgeMachineArgs, GetEdgeMachineResult, GetEdgeMachineOutputArgs } from "./getEdgeMachine";
 export const getEdgeMachine: typeof import("./getEdgeMachine").getEdgeMachine = null as any;
@@ -144,6 +164,11 @@ export { GetSecuritySettingArgs, GetSecuritySettingResult, GetSecuritySettingOut
 export const getSecuritySetting: typeof import("./getSecuritySetting").getSecuritySetting = null as any;
 export const getSecuritySettingOutput: typeof import("./getSecuritySetting").getSecuritySettingOutput = null as any;
 utilities.lazyLoad(exports, ["getSecuritySetting","getSecuritySettingOutput"], () => require("./getSecuritySetting"));
+
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
 
 export { GetStorageContainerArgs, GetStorageContainerResult, GetStorageContainerOutputArgs } from "./getStorageContainer";
 export const getStorageContainer: typeof import("./getStorageContainer").getStorageContainer = null as any;
@@ -260,6 +285,11 @@ export type SecuritySetting = import("./securitySetting").SecuritySetting;
 export const SecuritySetting: typeof import("./securitySetting").SecuritySetting = null as any;
 utilities.lazyLoad(exports, ["SecuritySetting"], () => require("./securitySetting"));
 
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 export { StorageContainerArgs } from "./storageContainer";
 export type StorageContainer = import("./storageContainer").StorageContainer;
 export const StorageContainer: typeof import("./storageContainer").StorageContainer = null as any;
@@ -317,8 +347,12 @@ const _module = {
                 return new ArcSetting(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:ClusterJob":
+                return new ClusterJob(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:DeploymentSetting":
                 return new DeploymentSetting(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:DevicePool":
+                return new DevicePool(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:EdgeMachine":
                 return new EdgeMachine(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:EdgeMachineJob":
@@ -355,6 +389,8 @@ const _module = {
                 return new SecurityRule(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:SecuritySetting":
                 return new SecuritySetting(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:StorageContainer":
                 return new StorageContainer(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Update":

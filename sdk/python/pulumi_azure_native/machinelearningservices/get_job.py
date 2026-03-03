@@ -27,19 +27,19 @@ class GetJobResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, azure_api_version=None, id=None, job_base_properties=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if job_base_properties and not isinstance(job_base_properties, dict):
-            raise TypeError("Expected argument 'job_base_properties' to be a dict")
-        pulumi.set(__self__, "job_base_properties", job_base_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -64,20 +64,20 @@ class GetJobResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
-    @pulumi.getter(name="jobBaseProperties")
-    def job_base_properties(self) -> Any:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "job_base_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Any:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -104,8 +104,8 @@ class AwaitableGetJobResult(GetJobResult):
         return GetJobResult(
             azure_api_version=self.azure_api_version,
             id=self.id,
-            job_base_properties=self.job_base_properties,
             name=self.name,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -115,16 +115,16 @@ def get_job(id: Optional[_builtins.str] = None,
             workspace_name: Optional[_builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
-    Azure Resource Manager resource envelope.
+    Gets a Job by name/id.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str id: The name and identifier for the Job. This is case-sensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['id'] = id
@@ -136,8 +136,8 @@ def get_job(id: Optional[_builtins.str] = None,
     return AwaitableGetJobResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
-        job_base_properties=pulumi.get(__ret__, 'job_base_properties'),
         name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_job_output(id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -145,16 +145,16 @@ def get_job_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                    workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
-    Azure Resource Manager resource envelope.
+    Gets a Job by name/id.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str id: The name and identifier for the Job. This is case-sensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['id'] = id
@@ -165,7 +165,7 @@ def get_job_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetJobResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
-        job_base_properties=pulumi.get(__response__, 'job_base_properties'),
         name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

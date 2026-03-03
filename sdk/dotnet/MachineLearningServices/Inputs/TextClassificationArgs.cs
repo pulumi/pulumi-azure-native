@@ -29,13 +29,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.NlpVerticalLimitSettingsArgs>? LimitSettings { get; set; }
 
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         [Input("logVerbosity")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.LogVerbosity>? LogVerbosity { get; set; }
 
         /// <summary>
-        /// Primary metric for Text-Classification task.
+        /// Primary metrics for classification tasks.
         /// </summary>
         [Input("primaryMetric")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ClassificationPrimaryMetrics>? PrimaryMetric { get; set; }

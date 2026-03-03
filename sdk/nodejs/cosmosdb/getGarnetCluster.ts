@@ -54,7 +54,7 @@ export interface GetGarnetClusterResult {
     /**
      * Properties of a Garnet cache cluster.
      */
-    readonly properties: outputs.cosmosdb.ClusterResourceResponseProperties;
+    readonly properties: outputs.cosmosdb.GarnetClusterResourceResponseProperties;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

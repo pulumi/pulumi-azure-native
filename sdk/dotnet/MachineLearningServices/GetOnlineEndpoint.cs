@@ -12,25 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetOnlineEndpoint
     {
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Get Online Endpoint.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetOnlineEndpointResult> InvokeAsync(GetOnlineEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Get Online Endpoint.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOnlineEndpointResult> Invoke(GetOnlineEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Get Online Endpoint.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetOnlineEndpointResult> Invoke(GetOnlineEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointInvokeArgs(), options.WithDefaults());
@@ -52,7 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -78,7 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -120,7 +126,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Outputs.OnlineEndpointResponse OnlineEndpointProperties;
+        public readonly Outputs.OnlineEndpointPropertiesResponse Properties;
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
@@ -152,7 +158,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Outputs.OnlineEndpointResponse onlineEndpointProperties,
+            Outputs.OnlineEndpointPropertiesResponse properties,
 
             Outputs.SkuResponse? sku,
 
@@ -168,7 +174,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             Kind = kind;
             Location = location;
             Name = name;
-            OnlineEndpointProperties = onlineEndpointProperties;
+            Properties = properties;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

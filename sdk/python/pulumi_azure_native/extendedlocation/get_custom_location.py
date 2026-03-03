@@ -226,7 +226,7 @@ def get_custom_location(resource_group_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-08-31-preview.
 
-    Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-08-15, 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -262,7 +262,7 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[_built
 
     Uses Azure REST API version 2021-08-31-preview.
 
-    Other available API versions: 2021-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-08-15, 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

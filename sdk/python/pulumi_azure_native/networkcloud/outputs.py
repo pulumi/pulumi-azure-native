@@ -18,6 +18,8 @@ from ._enums import *
 
 __all__ = [
     'AadConfigurationResponse',
+    'AccessBridgeEndpointResponse',
+    'AccessBridgeSecurityRuleResponse',
     'AdministrativeCredentialsResponse',
     'AdministratorConfigurationResponse',
     'AgentOptionsResponse',
@@ -50,6 +52,7 @@ __all__ = [
     'KeySetUserStatusResponse',
     'KubernetesClusterNodeResponse',
     'KubernetesLabelResponse',
+    'KubernetesVersionValueResponse',
     'L2NetworkAttachmentConfigurationResponse',
     'L2ServiceLoadBalancerConfigurationResponse',
     'L3NetworkAttachmentConfigurationResponse',
@@ -113,6 +116,160 @@ class AadConfigurationResponse(dict):
         The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
+
+
+@pulumi.output_type
+class AccessBridgeEndpointResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Address":
+            suggest = "ipv4_address"
+        elif key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessBridgeEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessBridgeEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessBridgeEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: _builtins.str,
+                 ipv4_address: _builtins.str,
+                 ipv6_address: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.str fqdn: The fully qualified domain name used to describe the certificate name for the endpoint.
+        :param _builtins.str ipv4_address: The IPv4 address associated with the endpoint.
+        :param _builtins.str ipv6_address: The IPv6 address associated with the endpoint.
+        :param _builtins.str name: The name that identifies the type of endpoint (for example VIP or host).
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "ipv4_address", ipv4_address)
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdn(self) -> _builtins.str:
+        """
+        The fully qualified domain name used to describe the certificate name for the endpoint.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> _builtins.str:
+        """
+        The IPv4 address associated with the endpoint.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> _builtins.str:
+        """
+        The IPv6 address associated with the endpoint.
+        """
+        return pulumi.get(self, "ipv6_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name that identifies the type of endpoint (for example VIP or host).
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AccessBridgeSecurityRuleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+        elif key == "ipv6Addresses":
+            suggest = "ipv6_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessBridgeSecurityRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessBridgeSecurityRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessBridgeSecurityRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direction: _builtins.str,
+                 port: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 ipv4_addresses: Optional[Sequence[_builtins.str]] = None,
+                 ipv6_addresses: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str direction: The direction of allowed network traffic based on the rule.
+        :param _builtins.str port: The source or destination port or port range. Example 24562 or 24562-24570.
+        :param _builtins.str description: The user provided value describing this rule.
+        :param Sequence[_builtins.str] ipv4_addresses: The set of IPv4 addresses permitted as the source or destination of the security rule. For as single address, utilize a /32 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 10.10.10.10-10.10.10.20 or 10.10.10.10/24.
+        :param Sequence[_builtins.str] ipv6_addresses: The set of IPv6 addresses permitted as the source or destination of the security rule. For as single address, utilize a /128 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 2001:db8:abcd::1-2001:db8:abcd::ff or 2001:db8:abcd::1/64.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "port", port)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> _builtins.str:
+        """
+        The direction of allowed network traffic based on the rule.
+        """
+        return pulumi.get(self, "direction")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.str:
+        """
+        The source or destination port or port range. Example 24562 or 24562-24570.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The user provided value describing this rule.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The set of IPv4 addresses permitted as the source or destination of the security rule. For as single address, utilize a /32 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 10.10.10.10-10.10.10.20 or 10.10.10.10/24.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The set of IPv6 addresses permitted as the source or destination of the security rule. For as single address, utilize a /128 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 2001:db8:abcd::1-2001:db8:abcd::ff or 2001:db8:abcd::1/64.
+        """
+        return pulumi.get(self, "ipv6_addresses")
 
 
 @pulumi.output_type
@@ -2403,6 +2560,35 @@ class KubernetesLabelResponse(dict):
         The value of the label or taint.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class KubernetesVersionValueResponse(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 version: _builtins.str):
+        """
+        :param _builtins.str description: Additional description for the Kubernetes version.
+        :param _builtins.str version: The Kubernetes version identifier.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Additional description for the Kubernetes version.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The Kubernetes version identifier.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

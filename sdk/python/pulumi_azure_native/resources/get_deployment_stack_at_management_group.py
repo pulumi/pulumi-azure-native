@@ -191,7 +191,7 @@ class GetDeploymentStackAtManagementGroupResult:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorDetailResponse']:
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         The error detail.
         """
@@ -338,7 +338,7 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[_bu
 
 
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
-    :param _builtins.str management_group_id: The name of the management group. The name is case insensitive.
+    :param _builtins.str management_group_id: The management group ID.
     """
     __args__ = dict()
     __args__['deploymentStackName'] = deployment_stack_name
@@ -383,7 +383,7 @@ def get_deployment_stack_at_management_group_output(deployment_stack_name: Optio
 
 
     :param _builtins.str deployment_stack_name: Name of the deployment stack.
-    :param _builtins.str management_group_id: The name of the management group. The name is case insensitive.
+    :param _builtins.str management_group_id: The management group ID.
     """
     __args__ = dict()
     __args__['deploymentStackName'] = deployment_stack_name

@@ -20,6 +20,7 @@ __all__ = [
     'NewNotificationsResponse',
     'PlanNotificationDetailsResponse',
     'PlanResponse',
+    'ProductResponse',
     'RuleResponse',
     'StopSellOffersPlansNotificationsListPropertiesResponse',
     'SystemDataResponse',
@@ -242,6 +243,122 @@ class PlanResponse(dict):
         Plan accessibility
         """
         return pulumi.get(self, "accessibility")
+
+
+@pulumi.output_type
+class ProductResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "pricingTypes":
+            suggest = "pricing_types"
+        elif key == "productType":
+            suggest = "product_type"
+        elif key == "publisherDisplayName":
+            suggest = "publisher_display_name"
+        elif key == "ratingAverage":
+            suggest = "rating_average"
+        elif key == "smallIconUri":
+            suggest = "small_icon_uri"
+        elif key == "storeFronts":
+            suggest = "store_fronts"
+        elif key == "uniqueProductId":
+            suggest = "unique_product_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProductResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProductResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProductResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None,
+                 pricing_types: Optional[Sequence[_builtins.str]] = None,
+                 product_type: Optional[_builtins.str] = None,
+                 publisher_display_name: Optional[_builtins.str] = None,
+                 rating_average: Optional[_builtins.float] = None,
+                 small_icon_uri: Optional[_builtins.str] = None,
+                 store_fronts: Optional[Sequence[_builtins.str]] = None,
+                 summary: Optional[_builtins.str] = None,
+                 unique_product_id: Optional[_builtins.str] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if pricing_types is not None:
+            pulumi.set(__self__, "pricing_types", pricing_types)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if publisher_display_name is not None:
+            pulumi.set(__self__, "publisher_display_name", publisher_display_name)
+        if rating_average is not None:
+            pulumi.set(__self__, "rating_average", rating_average)
+        if small_icon_uri is not None:
+            pulumi.set(__self__, "small_icon_uri", small_icon_uri)
+        if store_fronts is not None:
+            pulumi.set(__self__, "store_fronts", store_fronts)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if unique_product_id is not None:
+            pulumi.set(__self__, "unique_product_id", unique_product_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="pricingTypes")
+    def pricing_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "pricing_types")
+
+    @_builtins.property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "product_type")
+
+    @_builtins.property
+    @pulumi.getter(name="publisherDisplayName")
+    def publisher_display_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "publisher_display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ratingAverage")
+    def rating_average(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "rating_average")
+
+    @_builtins.property
+    @pulumi.getter(name="smallIconUri")
+    def small_icon_uri(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "small_icon_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="storeFronts")
+    def store_fronts(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "store_fronts")
+
+    @_builtins.property
+    @pulumi.getter
+    def summary(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "summary")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueProductId")
+    def unique_product_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "unique_product_id")
 
 
 @pulumi.output_type

@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Settings for feature store type workspace.
-    /// </summary>
     [OutputType]
     public sealed class FeatureStoreSettingsResponse
     {
-        /// <summary>
-        /// Compute runtime config for feature store type workspace.
-        /// </summary>
         public readonly Outputs.ComputeRuntimeDtoResponse? ComputeRuntime;
         public readonly string? OfflineStoreConnectionName;
         public readonly string? OnlineStoreConnectionName;

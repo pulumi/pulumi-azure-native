@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get a MigrationEntityGroup
  *
  * Uses Azure REST API version 2025-03-30-preview.
+ *
+ * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMigrationEntityGroup(args: GetMigrationEntityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationEntityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +75,8 @@ export interface GetMigrationEntityGroupResult {
  * Get a MigrationEntityGroup
  *
  * Uses Azure REST API version 2025-03-30-preview.
+ *
+ * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMigrationEntityGroupOutput(args: GetMigrationEntityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationEntityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

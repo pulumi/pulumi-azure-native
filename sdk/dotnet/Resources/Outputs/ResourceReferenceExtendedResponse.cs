@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// The error detail.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// The ARM Resource ID of a resource managed by the deployment stack.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
         [OutputConstructor]
         private ResourceReferenceExtendedResponse(
-            Outputs.ErrorDetailResponse? error,
+            Outputs.ErrorDetailResponse error,
 
             string id)
         {

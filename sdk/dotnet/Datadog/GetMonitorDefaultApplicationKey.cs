@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Datadog
         /// Get the default application key.
         /// 
         /// Uses Azure REST API version 2025-11-03-preview.
+        /// 
+        /// Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMonitorDefaultApplicationKeyResult> InvokeAsync(GetMonitorDefaultApplicationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultApplicationKeyResult>("azure-native:datadog:getMonitorDefaultApplicationKey", args ?? new GetMonitorDefaultApplicationKeyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Datadog
         /// Get the default application key.
         /// 
         /// Uses Azure REST API version 2025-11-03-preview.
+        /// 
+        /// Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitorDefaultApplicationKeyResult> Invoke(GetMonitorDefaultApplicationKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultApplicationKeyResult>("azure-native:datadog:getMonitorDefaultApplicationKey", args ?? new GetMonitorDefaultApplicationKeyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Datadog
         /// Get the default application key.
         /// 
         /// Uses Azure REST API version 2025-11-03-preview.
+        /// 
+        /// Other available API versions: 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMonitorDefaultApplicationKeyResult> Invoke(GetMonitorDefaultApplicationKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultApplicationKeyResult>("azure-native:datadog:getMonitorDefaultApplicationKey", args ?? new GetMonitorDefaultApplicationKeyInvokeArgs(), options.WithDefaults());

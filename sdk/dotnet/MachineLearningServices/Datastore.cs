@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// 
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
@@ -26,16 +26,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("datastoreProperties")]
-        public Output<object> DatastoreProperties { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDatastore" },
                 },
             };
@@ -127,16 +128,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("datastoreProperties", required: true)]
-        public object DatastoreProperties { get; set; } = null!;
-
-        /// <summary>
         /// Datastore name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("properties", required: true)]
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -151,7 +152,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<bool>? SkipValidation { get; set; }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

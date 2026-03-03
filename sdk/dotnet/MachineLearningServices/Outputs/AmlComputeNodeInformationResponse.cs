@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// SSH port number of the node.
         /// </summary>
-        public readonly double Port;
+        public readonly int Port;
         /// <summary>
         /// Private IP address of the compute node.
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string nodeState,
 
-            double port,
+            int port,
 
             string privateIpAddress,
 

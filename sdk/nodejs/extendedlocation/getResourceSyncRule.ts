@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  *
  * Uses Azure REST API version 2021-08-31-preview.
+ *
+ * Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getResourceSyncRule(args: GetResourceSyncRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceSyncRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,6 +91,8 @@ export interface GetResourceSyncRuleResult {
  * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  *
  * Uses Azure REST API version 2021-08-31-preview.
+ *
+ * Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceSyncRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

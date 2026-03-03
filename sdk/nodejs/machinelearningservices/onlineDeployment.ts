@@ -8,9 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ *
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OnlineDeployment extends pulumi.CustomResource {
     /**
@@ -62,7 +64,7 @@ export class OnlineDeployment extends pulumi.CustomResource {
     /**
      * [Required] Additional attributes of the entity.
      */
-    declare public readonly onlineDeploymentProperties: pulumi.Output<outputs.machinelearningservices.KubernetesOnlineDeploymentResponse | outputs.machinelearningservices.ManagedOnlineDeploymentResponse>;
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.KubernetesOnlineDeploymentResponse | outputs.machinelearningservices.ManagedOnlineDeploymentResponse>;
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
@@ -94,8 +96,8 @@ export class OnlineDeployment extends pulumi.CustomResource {
             if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (args?.onlineDeploymentProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'onlineDeploymentProperties'");
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -108,7 +110,7 @@ export class OnlineDeployment extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["onlineDeploymentProperties"] = args?.onlineDeploymentProperties;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -123,14 +125,14 @@ export class OnlineDeployment extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["onlineDeploymentProperties"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220501:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220601preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221001:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230401:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230401preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230601preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230801preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20231001:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240101preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240401:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20241001:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250101preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250401:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250401preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250601:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250701preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250901:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20251001preview:OnlineDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220501:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20220601preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221001:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20221201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230201preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230401:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230401preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230601preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20230801preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20231001:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240101preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240401:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20240701preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20241001:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20241001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250101preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250401:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250401preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250601:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250701preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20250901:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20251001preview:OnlineDeployment" }, { type: "azure-native:machinelearningservices/v20251201:OnlineDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnlineDeployment.__pulumiType, name, resourceInputs, opts);
     }
@@ -145,7 +147,7 @@ export interface OnlineDeploymentArgs {
      */
     deploymentName?: pulumi.Input<string>;
     /**
-     * Inference endpoint name.
+     * Online Endpoint name.
      */
     endpointName: pulumi.Input<string>;
     /**
@@ -163,7 +165,7 @@ export interface OnlineDeploymentArgs {
     /**
      * [Required] Additional attributes of the entity.
      */
-    onlineDeploymentProperties: pulumi.Input<inputs.machinelearningservices.KubernetesOnlineDeploymentArgs | inputs.machinelearningservices.ManagedOnlineDeploymentArgs>;
+    properties: pulumi.Input<inputs.machinelearningservices.KubernetesOnlineDeploymentArgs | inputs.machinelearningservices.ManagedOnlineDeploymentArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -177,7 +179,7 @@ export interface OnlineDeploymentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

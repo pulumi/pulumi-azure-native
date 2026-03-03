@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetMarketplaceSubscription
     {
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Get container.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMarketplaceSubscriptionResult> InvokeAsync(GetMarketplaceSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Get container.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMarketplaceSubscriptionResult> Invoke(GetMarketplaceSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Get container.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMarketplaceSubscriptionResult> Invoke(GetMarketplaceSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -108,13 +108,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.MarketplaceSubscriptionResponse MarketplaceSubscriptionProperties;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.MarketplaceSubscriptionPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -130,9 +130,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            Outputs.MarketplaceSubscriptionResponse marketplaceSubscriptionProperties,
-
             string name,
+
+            Outputs.MarketplaceSubscriptionPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
-            MarketplaceSubscriptionProperties = marketplaceSubscriptionProperties;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

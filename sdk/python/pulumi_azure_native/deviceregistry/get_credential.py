@@ -142,6 +142,8 @@ def get_credential(namespace_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-11-01-preview.
 
+    Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str namespace_name: The name of the namespace.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -168,6 +170,8 @@ def get_credential_output(namespace_name: Optional[pulumi.Input[_builtins.str]] 
     Get a Credential
 
     Uses Azure REST API version 2025-11-01-preview.
+
+    Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str namespace_name: The name of the namespace.

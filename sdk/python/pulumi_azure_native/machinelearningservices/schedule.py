@@ -17,28 +17,40 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ScheduleInitArgs', 'Schedule']
+__all__ = ['ScheduleArgs', 'Schedule']
 
 @pulumi.input_type
-class ScheduleInitArgs:
+class ScheduleArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['SchedulePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schedule_properties: pulumi.Input['ScheduleArgs'],
                  workspace_name: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
 
+        :param pulumi.Input['SchedulePropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ScheduleArgs'] schedule_properties: [Required] Additional attributes of the entity.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] name: Schedule name.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedule_properties", schedule_properties)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['SchedulePropertiesArgs']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['SchedulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -53,22 +65,10 @@ class ScheduleInitArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="scheduleProperties")
-    def schedule_properties(self) -> pulumi.Input['ScheduleArgs']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "schedule_properties")
-
-    @schedule_properties.setter
-    def schedule_properties(self, value: pulumi.Input['ScheduleArgs']):
-        pulumi.set(self, "schedule_properties", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -96,46 +96,46 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_properties: Optional[pulumi.Input[Union['ScheduleArgs', 'ScheduleArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Schedule name.
+        :param pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['ScheduleArgs', 'ScheduleArgsDict']] schedule_properties: [Required] Additional attributes of the entity.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduleInitArgs,
+                 args: ScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
-        :param ScheduleInitArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -145,8 +145,8 @@ class Schedule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_properties: Optional[pulumi.Input[Union['ScheduleArgs', 'ScheduleArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -155,22 +155,22 @@ class Schedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduleInitArgs.__new__(ScheduleInitArgs)
+            __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schedule_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_properties'")
-            __props__.__dict__["schedule_properties"] = schedule_properties
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:Schedule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-native:machinelearningservices:Schedule',
@@ -192,11 +192,11 @@ class Schedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ScheduleInitArgs.__new__(ScheduleInitArgs)
+        __props__ = ScheduleArgs.__new__(ScheduleArgs)
 
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["schedule_properties"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Schedule(resource_name, opts=opts, __props__=__props__)
@@ -218,12 +218,12 @@ class Schedule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="scheduleProperties")
-    def schedule_properties(self) -> pulumi.Output['outputs.ScheduleResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.SchedulePropertiesResponse']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "schedule_properties")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

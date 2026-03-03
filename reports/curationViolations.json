@@ -88,6 +88,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "CloudHealth",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "CodeSigning",
     "Detail": "expected tracking stable but found preview"
   },
@@ -98,6 +102,10 @@
   {
     "ModuleName": "Communication",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "ComputeBulkActions",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "ComputeSchedule",
@@ -192,10 +200,6 @@
     "Detail": "expected no additions but found some"
   },
   {
-    "ModuleName": "DesktopVirtualization",
-    "Detail": "expected additions but found none"
-  },
-  {
     "ModuleName": "DevCenter",
     "Detail": "expected tracking preview but found stable"
   },
@@ -218,6 +222,10 @@
   {
     "ModuleName": "DeviceRegistry",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "ModuleName": "Discovery",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "ModuleName": "Dns",
@@ -258,6 +266,10 @@
   {
     "ModuleName": "FileShares",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "FileShares",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "FluidRelay",
@@ -396,6 +408,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "Marketplace",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "Mission",
     "Detail": "expected tracking stable but found preview"
   },
@@ -418,6 +434,10 @@
   {
     "ModuleName": "NetworkCloud",
     "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "ModuleName": "NetworkCloud",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "NotificationHubs",
@@ -522,6 +542,10 @@
   {
     "ModuleName": "StorageDiscovery",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "StorageMover",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "Subscription",

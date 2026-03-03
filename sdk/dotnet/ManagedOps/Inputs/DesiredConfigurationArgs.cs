@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.ManagedOps.Inputs
         /// Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
         /// </summary>
         [Input("defenderCspm")]
-        public InputUnion<string, Pulumi.AzureNative.ManagedOps.DefenderCspm>? DefenderCspm { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ManagedOps.DesiredEnablementState>? DefenderCspm { get; set; }
 
         /// <summary>
         /// Desired enablement state of the Defender For Servers service.
         /// </summary>
         [Input("defenderForServers")]
-        public InputUnion<string, Pulumi.AzureNative.ManagedOps.DefenderForServers>? DefenderForServers { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ManagedOps.DesiredEnablementState>? DefenderForServers { get; set; }
 
         /// <summary>
         /// User assigned Managed Identity used to perform operations on machines managed by Ops360.

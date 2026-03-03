@@ -22,6 +22,8 @@ __all__ = [
     'AzureStorageBlobContainerEndpointPropertiesArgsDict',
     'AzureStorageSmbFileShareEndpointPropertiesArgs',
     'AzureStorageSmbFileShareEndpointPropertiesArgsDict',
+    'ConnectionPropertiesArgs',
+    'ConnectionPropertiesArgsDict',
     'NfsMountEndpointPropertiesArgs',
     'NfsMountEndpointPropertiesArgsDict',
     'SmbMountEndpointPropertiesArgs',
@@ -296,6 +298,79 @@ class AzureStorageSmbFileShareEndpointPropertiesArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+
+class ConnectionPropertiesArgsDict(TypedDict):
+    """
+    Properties of the Connection resource.
+    """
+    private_link_service_id: pulumi.Input[_builtins.str]
+    """
+    The PrivateLinkServiceId for the connection.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the Connection.
+    """
+    job_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of job definitions associated with this connection.
+    """
+
+@pulumi.input_type
+class ConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_id: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Properties of the Connection resource.
+
+        :param pulumi.Input[_builtins.str] private_link_service_id: The PrivateLinkServiceId for the connection.
+        :param pulumi.Input[_builtins.str] description: A description for the Connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] job_list: List of job definitions associated with this connection.
+        """
+        pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if job_list is not None:
+            pulumi.set(__self__, "job_list", job_list)
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceId")
+    def private_link_service_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The PrivateLinkServiceId for the connection.
+        """
+        return pulumi.get(self, "private_link_service_id")
+
+    @private_link_service_id.setter
+    def private_link_service_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_link_service_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A description for the Connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobList")
+    def job_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of job definitions associated with this connection.
+        """
+        return pulumi.get(self, "job_list")
+
+    @job_list.setter
+    def job_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "job_list", value)
 
 
 class NfsMountEndpointPropertiesArgsDict(TypedDict):

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Cdn
     public static class GetEdgeActionVersionCode
     {
         /// <summary>
-        /// A long-running resource action.
+        /// Get the version code for the edge action version.
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Cdn
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEdgeActionVersionCodeResult>("azure-native:cdn:getEdgeActionVersionCode", args ?? new GetEdgeActionVersionCodeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A long-running resource action.
+        /// Get the version code for the edge action version.
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Cdn
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeActionVersionCodeResult>("azure-native:cdn:getEdgeActionVersionCode", args ?? new GetEdgeActionVersionCodeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A long-running resource action.
+        /// Get the version code for the edge action version.
         /// 
         /// Uses Azure REST API version 2025-09-01-preview.
         /// 

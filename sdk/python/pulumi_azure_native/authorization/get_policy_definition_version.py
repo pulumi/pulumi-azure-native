@@ -202,7 +202,7 @@ def get_policy_definition_version(policy_definition_name: Optional[_builtins.str
 
     Uses Azure REST API version 2025-01-01.
 
-    Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str policy_definition_name: The name of the policy definition.
@@ -236,7 +236,7 @@ def get_policy_definition_version_output(policy_definition_name: Optional[pulumi
 
     Uses Azure REST API version 2025-01-01.
 
-    Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str policy_definition_name: The name of the policy definition.

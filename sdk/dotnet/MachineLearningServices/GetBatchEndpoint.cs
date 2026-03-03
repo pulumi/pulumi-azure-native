@@ -12,25 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetBatchEndpoint
     {
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Gets a batch inference endpoint by name.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBatchEndpointResult> InvokeAsync(GetBatchEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Gets a batch inference endpoint by name.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBatchEndpointResult> Invoke(GetBatchEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Gets a batch inference endpoint by name.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBatchEndpointResult> Invoke(GetBatchEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithDefaults());
@@ -52,7 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -78,7 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -97,10 +103,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The Azure API version of the resource.
         /// </summary>
         public readonly string AzureApiVersion;
-        /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.BatchEndpointResponse BatchEndpointProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -122,6 +124,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.BatchEndpointPropertiesResponse Properties;
+        /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -142,8 +148,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetBatchEndpointResult(
             string azureApiVersion,
 
-            Outputs.BatchEndpointResponse batchEndpointProperties,
-
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
+            Outputs.BatchEndpointPropertiesResponse properties,
+
             Outputs.SkuResponse? sku,
 
             Outputs.SystemDataResponse systemData,
@@ -163,12 +169,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            BatchEndpointProperties = batchEndpointProperties;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
+            Properties = properties;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

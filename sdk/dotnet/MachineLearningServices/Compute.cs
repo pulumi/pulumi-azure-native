@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
     /// 
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Compute")]
     public partial class Compute : global::Pulumi.CustomResource
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Compute properties
+        /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
         public Output<object> Properties { get; private set; } = null!;
@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:Compute" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:Compute" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:Compute" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -185,7 +186,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Compute properties
+        /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
         public object? Properties { get; set; }
@@ -215,7 +216,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Properties of a Garnet cache cluster.
         /// </summary>
-        public readonly Outputs.ClusterResourceResponseProperties Properties;
+        public readonly Outputs.GarnetClusterResourceResponseProperties Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.CosmosDB
 
             string name,
 
-            Outputs.ClusterResourceResponseProperties properties,
+            Outputs.GarnetClusterResourceResponseProperties properties,
 
             Outputs.SystemDataResponse systemData,
 

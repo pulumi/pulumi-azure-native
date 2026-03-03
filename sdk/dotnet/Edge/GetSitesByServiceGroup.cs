@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Edge
     public static class GetSitesByServiceGroup
     {
         /// <summary>
-        /// Get Site at SG scope
+        /// Get a Site
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Edge
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesByServiceGroupResult>("azure-native:edge:getSitesByServiceGroup", args ?? new GetSitesByServiceGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get Site at SG scope
+        /// Get a Site
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Edge
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesByServiceGroupResult>("azure-native:edge:getSitesByServiceGroup", args ?? new GetSitesByServiceGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get Site at SG scope
+        /// Get a Site
         /// 
         /// Uses Azure REST API version 2025-03-01-preview.
         /// 

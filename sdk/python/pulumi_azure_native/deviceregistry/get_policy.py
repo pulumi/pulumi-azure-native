@@ -27,13 +27,10 @@ class GetPolicyResult:
     """
     A Credential Policy
     """
-    def __init__(__self__, azure_api_version=None, certificate=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
-        if certificate and not isinstance(certificate, dict):
-            raise TypeError("Expected argument 'certificate' to be a dict")
-        pulumi.set(__self__, "certificate", certificate)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,9 +40,9 @@ class GetPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -66,14 +63,6 @@ class GetPolicyResult:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.CertificateConfigurationResponse']:
-        """
-        The certificate configuration.
-        """
-        return pulumi.get(self, "certificate")
-
-    @_builtins.property
-    @pulumi.getter
     def id(self) -> _builtins.str:
         """
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -82,7 +71,7 @@ class GetPolicyResult:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> _builtins.str:
+    def location(self) -> Optional[_builtins.str]:
         """
         The geo-location where the resource lives
         """
@@ -97,12 +86,12 @@ class GetPolicyResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> _builtins.str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.PolicyPropertiesResponse':
         """
-        The status of the last operation.
+        The RP-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -136,11 +125,10 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             yield self
         return GetPolicyResult(
             azure_api_version=self.azure_api_version,
-            certificate=self.certificate,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -154,6 +142,8 @@ def get_policy(namespace_name: Optional[_builtins.str] = None,
     Get a Policy
 
     Uses Azure REST API version 2025-11-01-preview.
+
+    Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str namespace_name: The name of the namespace.
@@ -169,11 +159,10 @@ def get_policy(namespace_name: Optional[_builtins.str] = None,
 
     return AwaitableGetPolicyResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
-        certificate=pulumi.get(__ret__, 'certificate'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -185,6 +174,8 @@ def get_policy_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = No
     Get a Policy
 
     Uses Azure REST API version 2025-11-01-preview.
+
+    Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str namespace_name: The name of the namespace.
@@ -199,11 +190,10 @@ def get_policy_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
-        certificate=pulumi.get(__response__, 'certificate'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetOnlineDeploymentResult:
-    def __init__(__self__, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, online_deployment_properties=None, sku=None, system_data=None, tags=None, type=None):
+    """
+    Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    """
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -43,9 +46,9 @@ class GetOnlineDeploymentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if online_deployment_properties and not isinstance(online_deployment_properties, dict):
-            raise TypeError("Expected argument 'online_deployment_properties' to be a dict")
-        pulumi.set(__self__, "online_deployment_properties", online_deployment_properties)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -108,12 +111,12 @@ class GetOnlineDeploymentResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="onlineDeploymentProperties")
-    def online_deployment_properties(self) -> Any:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "online_deployment_properties")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter
@@ -160,7 +163,7 @@ class AwaitableGetOnlineDeploymentResult(GetOnlineDeploymentResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
-            online_deployment_properties=self.online_deployment_properties,
+            properties=self.properties,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -173,15 +176,17 @@ def get_online_deployment(deployment_name: Optional[_builtins.str] = None,
                           workspace_name: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOnlineDeploymentResult:
     """
-    Uses Azure REST API version 2025-09-01.
+    Get Inference Deployment Deployment.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str deployment_name: Inference Endpoint Deployment name.
-    :param _builtins.str endpoint_name: Inference endpoint name.
+    :param _builtins.str endpoint_name: Online Endpoint name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
@@ -198,7 +203,7 @@ def get_online_deployment(deployment_name: Optional[_builtins.str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        online_deployment_properties=pulumi.get(__ret__, 'online_deployment_properties'),
+        properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -209,15 +214,17 @@ def get_online_deployment_output(deployment_name: Optional[pulumi.Input[_builtin
                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineDeploymentResult]:
     """
-    Uses Azure REST API version 2025-09-01.
+    Get Inference Deployment Deployment.
 
-    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str deployment_name: Inference Endpoint Deployment name.
-    :param _builtins.str endpoint_name: Inference endpoint name.
+    :param _builtins.str endpoint_name: Online Endpoint name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
@@ -233,7 +240,7 @@ def get_online_deployment_output(deployment_name: Optional[pulumi.Input[_builtin
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        online_deployment_properties=pulumi.get(__response__, 'online_deployment_properties'),
+        properties=pulumi.get(__response__, 'properties'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

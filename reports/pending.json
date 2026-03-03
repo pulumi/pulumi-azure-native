@@ -113,7 +113,9 @@
     "2024-09-01-preview",
     "2024-12-01-preview",
     "2025-01-01",
-    "2025-03-01"
+    "2025-03-01",
+    "2025-11-01",
+    "2025-12-01-preview"
   ],
   "Automanage": [],
   "Automation": [
@@ -169,11 +171,16 @@
     "2025-10-01",
     "2025-11-01-preview",
     "2025-12-01-preview",
-    "2026-02-01"
+    "2026-02-01",
+    "2026-02-01-preview",
+    "2026-02-15-preview",
+    "2026-03-01-preview"
   ],
   "AzureTerraform": [],
   "BareMetalInfrastructure": [],
-  "Batch": [],
+  "Batch": [
+    "2025-06-01"
+  ],
   "Billing": [],
   "BillingBenefits": [
     "2025-05-01-preview",
@@ -206,7 +213,8 @@
   ],
   "Cloudngfw": [
     "2025-07-07-preview",
-    "2025-10-08"
+    "2025-10-08",
+    "2026-01-26-preview"
   ],
   "CodeSigning": [
     "2025-10-13"
@@ -243,6 +251,7 @@
     "2025-03-03",
     "2025-04-01"
   ],
+  "ComputeBulkActions": [],
   "ComputeLimit": [],
   "ComputeSchedule": [
     "2026-01-01-preview"
@@ -289,7 +298,8 @@
     "2025-04-01",
     "2025-05-01-preview",
     "2025-06-01-preview",
-    "2025-11-01"
+    "2025-11-01",
+    "2026-01-01-preview"
   ],
   "ContainerService": [
     "2020-04-01",
@@ -578,7 +588,8 @@
     "2024-03-01",
     "2025-01-07",
     "2025-06-11",
-    "2025-11-03-preview"
+    "2025-11-03-preview",
+    "2025-12-26-preview"
   ],
   "DelegatedNetwork": [],
   "DependencyMap": [
@@ -593,7 +604,8 @@
     "2025-04-01-preview",
     "2025-08-01-preview",
     "2025-09-01-preview",
-    "2025-11-01-preview"
+    "2025-11-01-preview",
+    "2026-01-01-preview"
   ],
   "DevCenter": [
     "2024-02-01",
@@ -626,10 +638,14 @@
     "2024-11-01",
     "2025-07-01-preview",
     "2025-10-01",
-    "2025-11-01-preview"
+    "2025-11-01-preview",
+    "2026-03-01-preview",
+    "2026-04-01",
+    "2026-11-01-preview"
   ],
   "DeviceUpdate": [],
   "DigitalTwins": [],
+  "Discovery": [],
   "Dns": [],
   "DnsResolver": [
     "2025-05-01",
@@ -640,7 +656,8 @@
   ],
   "DurableTask": [
     "2025-04-01-preview",
-    "2025-11-01"
+    "2025-11-01",
+    "2026-02-01"
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
@@ -649,7 +666,8 @@
     "2025-03-01-preview",
     "2025-06-01",
     "2025-06-01-preview",
-    "2025-08-01"
+    "2025-08-01",
+    "2026-03-15"
   ],
   "EdgeMarketplace": [
     "2023-08-01-preview",
@@ -690,12 +708,16 @@
     "2024-05-01-preview",
     "2025-05-01-preview"
   ],
-  "ExtendedLocation": [],
+  "ExtendedLocation": [
+    "2024-09-15-preview"
+  ],
   "Fabric": [
     "2025-01-15-preview"
   ],
   "Features": [],
-  "FileShares": [],
+  "FileShares": [
+    "2025-09-01-preview"
+  ],
   "FluidRelay": [
     "2025-06-20-preview"
   ],
@@ -785,7 +807,8 @@
   "IoTCentral": [],
   "IoTFirmwareDefense": [
     "2025-04-01-preview",
-    "2025-08-02"
+    "2025-08-02",
+    "2025-12-01-preview"
   ],
   "IoTHub": [
     "2023-06-30-preview",
@@ -794,14 +817,17 @@
   "IoTOperations": [
     "2025-04-01",
     "2025-07-01-preview",
-    "2025-10-01"
+    "2025-10-01",
+    "2026-03-01"
   ],
   "IoTOperationsDataProcessor": [],
   "IoTOperationsMQ": [],
   "IoTOperationsOrchestrator": [],
   "KeyVault": [
     "2024-12-01-preview",
-    "2025-05-01"
+    "2025-05-01",
+    "2026-02-01",
+    "2026-03-01-preview"
   ],
   "Kubernetes": [
     "2021-10-01",
@@ -850,7 +876,8 @@
     "2024-12-01-preview",
     "2025-07-01-preview",
     "2025-09-01",
-    "2026-01-01-preview"
+    "2026-01-01-preview",
+    "2026-02-01-preview"
   ],
   "Logic": [
     "2015-08-01-preview",
@@ -894,7 +921,8 @@
     "2025-06-01",
     "2025-07-01-preview",
     "2025-09-01",
-    "2025-10-01-preview"
+    "2025-10-01-preview",
+    "2025-12-01"
   ],
   "Maintenance": [],
   "ManagedIdentity": [
@@ -927,6 +955,7 @@
     "2025-10-01-preview"
   ],
   "Marketplace": [
+    "2023-03-01-preview",
     "2025-01-01"
   ],
   "MarketplaceNotifications": [],
@@ -948,7 +977,8 @@
     "2024-01-01-preview",
     "2024-01-15",
     "2024-03-03-preview",
-    "2025-03-30-preview"
+    "2025-03-30-preview",
+    "2025-12-01-preview"
   ],
   "Mission": [],
   "MongoCluster": [
@@ -997,7 +1027,11 @@
     "2024-03-11",
     "2024-10-01-preview",
     "2025-01-01-preview",
-    "2025-05-03-preview"
+    "2025-03-01-preview",
+    "2025-05-03-preview",
+    "2025-10-03-preview",
+    "2026-01-01",
+    "2026-03-01"
   ],
   "MySQLDiscovery": [],
   "NetApp": [
@@ -1026,7 +1060,9 @@
     "2025-08-01",
     "2025-08-01-preview",
     "2025-09-01",
-    "2025-09-01-preview"
+    "2025-09-01-preview",
+    "2025-12-01",
+    "2025-12-15-preview"
   ],
   "Network": [
     "2019-04-01",
@@ -1058,6 +1094,7 @@
     "2022-09-01",
     "2022-11-01",
     "2023-02-01",
+    "2023-03-01-preview",
     "2023-04-01",
     "2023-05-01",
     "2023-06-01",
@@ -1079,7 +1116,8 @@
   ],
   "NetworkCloud": [
     "2025-07-01-preview",
-    "2025-09-01"
+    "2025-09-01",
+    "2026-01-01-preview"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
@@ -1170,7 +1208,8 @@
     "2025-01-01",
     "2025-02-01",
     "2025-02-28-preview",
-    "2025-08-01"
+    "2025-08-01",
+    "2026-01-01-preview"
   ],
   "RedHatOpenShift": [
     "2024-08-12-preview",
@@ -1266,7 +1305,7 @@
     "2025-01-01",
     "2025-02-01-preview",
     "2025-03-01",
-    "2025-05-04-preview",
+    "2025-05-04",
     "2025-06-01",
     "2025-07-01-preview",
     "2025-09-01-preview",
@@ -1311,7 +1350,9 @@
     "2024-11-01-preview",
     "2025-03-01-preview",
     "2025-06-01-preview",
-    "2025-10-01-preview"
+    "2025-10-01-preview",
+    "2026-02-01",
+    "2026-03-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [
@@ -1369,7 +1410,8 @@
   "StorageActions": [],
   "StorageCache": [
     "2024-07-01",
-    "2025-07-01"
+    "2025-07-01",
+    "2026-01-01"
   ],
   "StorageDiscovery": [
     "2025-09-01"

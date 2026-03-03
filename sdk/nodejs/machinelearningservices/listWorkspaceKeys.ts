@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+ * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry.
  *
- * Uses Azure REST API version 2025-09-01.
+ * Uses Azure REST API version 2025-12-01.
  *
- * Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,24 +28,33 @@ export interface ListWorkspaceKeysArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: string;
 }
 
 export interface ListWorkspaceKeysResult {
+    /**
+     * The access key of the workspace app insights
+     */
     readonly appInsightsInstrumentationKey: string;
-    readonly containerRegistryCredentials: outputs.machinelearningservices.RegistryListCredentialsResultResponse;
-    readonly notebookAccessKeys: outputs.machinelearningservices.ListNotebookKeysResultResponse;
+    readonly containerRegistryCredentials?: outputs.machinelearningservices.RegistryListCredentialsResultResponse;
+    readonly notebookAccessKeys?: outputs.machinelearningservices.ListNotebookKeysResultResponse;
+    /**
+     * The arm Id key of the workspace storage
+     */
+    readonly userStorageArmId: string;
+    /**
+     * The access key of the workspace storage
+     */
     readonly userStorageKey: string;
-    readonly userStorageResourceId: string;
 }
 /**
- * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
+ * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry.
  *
- * Uses Azure REST API version 2025-09-01.
+ * Uses Azure REST API version 2025-12-01.
  *
- * Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,7 +70,7 @@ export interface ListWorkspaceKeysOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

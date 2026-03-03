@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class PrivateEndpointDestinationResponse
     {
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         public readonly string? ServiceResourceId;
         public readonly bool? SparkEnabled;
         /// <summary>

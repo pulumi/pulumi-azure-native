@@ -68,6 +68,9 @@
   "ManufacturingPlatform": [
     "2025-03-01"
   ],
+  "Migrate": [
+    "2022-05-01-preview"
+  ],
   "ProgrammableConnectivity": [
     "2024-01-15-preview"
   ],

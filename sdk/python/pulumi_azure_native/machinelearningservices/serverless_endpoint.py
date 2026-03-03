@@ -17,13 +17,13 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ServerlessEndpointInitArgs', 'ServerlessEndpoint']
+__all__ = ['ServerlessEndpointArgs', 'ServerlessEndpoint']
 
 @pulumi.input_type
-class ServerlessEndpointInitArgs:
+class ServerlessEndpointArgs:
     def __init__(__self__, *,
+                 properties: pulumi.Input['ServerlessEndpointPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 serverless_endpoint_properties: pulumi.Input['ServerlessEndpointArgs'],
                  workspace_name: pulumi.Input[_builtins.str],
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,9 +34,9 @@ class ServerlessEndpointInitArgs:
         """
         The set of arguments for constructing a ServerlessEndpoint resource.
 
+        :param pulumi.Input['ServerlessEndpointPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ServerlessEndpointArgs'] serverless_endpoint_properties: [Required] Additional attributes of the entity.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -44,8 +44,8 @@ class ServerlessEndpointInitArgs:
         :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serverless_endpoint_properties", serverless_endpoint_properties)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -61,6 +61,18 @@ class ServerlessEndpointInitArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ServerlessEndpointPropertiesArgs']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ServerlessEndpointPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -73,22 +85,10 @@ class ServerlessEndpointInitArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="serverlessEndpointProperties")
-    def serverless_endpoint_properties(self) -> pulumi.Input['ServerlessEndpointArgs']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "serverless_endpoint_properties")
-
-    @serverless_endpoint_properties.setter
-    def serverless_endpoint_properties(self, value: pulumi.Input['ServerlessEndpointArgs']):
-        pulumi.set(self, "serverless_endpoint_properties", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -179,16 +179,18 @@ class ServerlessEndpoint(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ServerlessEndpointPropertiesArgs', 'ServerlessEndpointPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_endpoint_properties: Optional[pulumi.Input[Union['ServerlessEndpointArgs', 'ServerlessEndpointArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+        Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
-        Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+
+        Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
 
@@ -199,33 +201,35 @@ class ServerlessEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] name: Serverless Endpoint name.
+        :param pulumi.Input[Union['ServerlessEndpointPropertiesArgs', 'ServerlessEndpointPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['ServerlessEndpointArgs', 'ServerlessEndpointArgsDict']] serverless_endpoint_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerlessEndpointInitArgs,
+                 args: ServerlessEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+        Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
-        Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+
+        Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
 
 
         :param str resource_name: The name of the resource.
-        :param ServerlessEndpointInitArgs args: The arguments to use to populate this resource's properties.
+        :param ServerlessEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerlessEndpointInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerlessEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -238,8 +242,8 @@ class ServerlessEndpoint(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ServerlessEndpointPropertiesArgs', 'ServerlessEndpointPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 serverless_endpoint_properties: Optional[pulumi.Input[Union['ServerlessEndpointArgs', 'ServerlessEndpointArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -250,18 +254,18 @@ class ServerlessEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerlessEndpointInitArgs.__new__(ServerlessEndpointInitArgs)
+            __props__ = ServerlessEndpointArgs.__new__(ServerlessEndpointArgs)
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if serverless_endpoint_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'serverless_endpoint_properties'")
-            __props__.__dict__["serverless_endpoint_properties"] = serverless_endpoint_properties
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:
@@ -270,7 +274,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:ServerlessEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:ServerlessEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerlessEndpoint, __self__).__init__(
             'azure-native:machinelearningservices:ServerlessEndpoint',
@@ -292,14 +296,14 @@ class ServerlessEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ServerlessEndpointInitArgs.__new__(ServerlessEndpointInitArgs)
+        __props__ = ServerlessEndpointArgs.__new__(ServerlessEndpointArgs)
 
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["serverless_endpoint_properties"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -347,12 +351,12 @@ class ServerlessEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="serverlessEndpointProperties")
-    def serverless_endpoint_properties(self) -> pulumi.Output['outputs.ServerlessEndpointResponse']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ServerlessEndpointPropertiesResponse']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "serverless_endpoint_properties")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter

@@ -15,6 +15,11 @@ export const getPrivateStoreCollectionOffer: typeof import("./getPrivateStoreCol
 export const getPrivateStoreCollectionOfferOutput: typeof import("./getPrivateStoreCollectionOffer").getPrivateStoreCollectionOfferOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateStoreCollectionOffer","getPrivateStoreCollectionOfferOutput"], () => require("./getPrivateStoreCollectionOffer"));
 
+export { GetUserSolutionArgs, GetUserSolutionResult, GetUserSolutionOutputArgs } from "./getUserSolution";
+export const getUserSolution: typeof import("./getUserSolution").getUserSolution = null as any;
+export const getUserSolutionOutput: typeof import("./getUserSolution").getUserSolutionOutput = null as any;
+utilities.lazyLoad(exports, ["getUserSolution","getUserSolutionOutput"], () => require("./getUserSolution"));
+
 export { ListPrivateStoreNewPlansNotificationsArgs, ListPrivateStoreNewPlansNotificationsResult, ListPrivateStoreNewPlansNotificationsOutputArgs } from "./listPrivateStoreNewPlansNotifications";
 export const listPrivateStoreNewPlansNotifications: typeof import("./listPrivateStoreNewPlansNotifications").listPrivateStoreNewPlansNotifications = null as any;
 export const listPrivateStoreNewPlansNotificationsOutput: typeof import("./listPrivateStoreNewPlansNotifications").listPrivateStoreNewPlansNotificationsOutput = null as any;
@@ -40,6 +45,11 @@ export type PrivateStoreCollectionOffer = import("./privateStoreCollectionOffer"
 export const PrivateStoreCollectionOffer: typeof import("./privateStoreCollectionOffer").PrivateStoreCollectionOffer = null as any;
 utilities.lazyLoad(exports, ["PrivateStoreCollectionOffer"], () => require("./privateStoreCollectionOffer"));
 
+export { UserSolutionArgs } from "./userSolution";
+export type UserSolution = import("./userSolution").UserSolution;
+export const UserSolution: typeof import("./userSolution").UserSolution = null as any;
+utilities.lazyLoad(exports, ["UserSolution"], () => require("./userSolution"));
+
 
 // Export enums:
 export * from "../types/enums/marketplace";
@@ -52,6 +62,8 @@ const _module = {
                 return new PrivateStoreCollection(name, <any>undefined, { urn })
             case "azure-native:marketplace:PrivateStoreCollectionOffer":
                 return new PrivateStoreCollectionOffer(name, <any>undefined, { urn })
+            case "azure-native:marketplace:UserSolution":
+                return new UserSolution(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

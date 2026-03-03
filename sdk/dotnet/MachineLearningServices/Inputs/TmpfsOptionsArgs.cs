@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Describes the tmpfs options for the container
-    /// </summary>
     public sealed class TmpfsOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

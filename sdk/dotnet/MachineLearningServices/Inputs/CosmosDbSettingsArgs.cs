@@ -12,9 +12,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
     public sealed class CosmosDbSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The throughput of the collections in cosmosdb database
-        /// </summary>
         [Input("collectionsThroughput")]
         public Input<int>? CollectionsThroughput { get; set; }
 

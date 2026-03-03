@@ -1918,6 +1918,139 @@
     "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
   },
   {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Caches_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}",
+    "GeneratedName": "Cache",
+    "DisambiguatedName": "CapacityPoolCache"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Caches_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}",
+    "GeneratedName": "Cache",
+    "DisambiguatedName": "CapacityPoolCache"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Caches_ListPeeringPassphrases",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases",
+    "GeneratedName": "CachePeeringPassphrases",
+    "DisambiguatedName": "CapacityPoolCachePeeringPassphrases"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Buckets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName}",
+    "GeneratedName": "Bucket",
+    "DisambiguatedName": "CapacityPoolBucket"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Buckets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName}",
+    "GeneratedName": "Bucket",
+    "DisambiguatedName": "CapacityPoolBucket"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Volumes_ListGetGroupIdListForLdapUser",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser",
+    "GeneratedName": "VolumeGroupIdForLdapUser",
+    "DisambiguatedName": "CapacityPoolVolumeGroupIdForLdapUser"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Volumes_ListQuotaReport",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listQuotaReport",
+    "GeneratedName": "VolumeQuotaReport",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaReport"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Volumes_ListReplications",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications",
+    "GeneratedName": "VolumeReplications",
+    "DisambiguatedName": "CapacityPoolVolumeReplications"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "Subvolumes_GetMetadata",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata",
+    "GeneratedName": "SubvolumeMetadata",
+    "DisambiguatedName": "CapacityPoolSubvolumeMetadata"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/preview/2025-12-15-preview/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2019-05-01/netapp.json",
     "OperationID": "Pools_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
@@ -4621,6 +4754,104 @@
   },
   {
     "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-09-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Pools_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}",
+    "GeneratedName": "Pool",
+    "DisambiguatedName": "CapacityPool"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Volumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}",
+    "GeneratedName": "Volume",
+    "DisambiguatedName": "CapacityPoolVolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Volumes_ListGetGroupIdListForLdapUser",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/getGroupIdListForLdapUser",
+    "GeneratedName": "VolumeGroupIdForLdapUser",
+    "DisambiguatedName": "CapacityPoolVolumeGroupIdForLdapUser"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Volumes_ListQuotaReport",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listQuotaReport",
+    "GeneratedName": "VolumeQuotaReport",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaReport"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Volumes_ListReplications",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/listReplications",
+    "GeneratedName": "VolumeReplications",
+    "DisambiguatedName": "CapacityPoolVolumeReplications"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Snapshots_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}",
+    "GeneratedName": "Snapshot",
+    "DisambiguatedName": "CapacityPoolSnapshot"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Subvolumes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}",
+    "GeneratedName": "Subvolume",
+    "DisambiguatedName": "CapacityPoolSubvolume"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "Subvolumes_GetMetadata",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/subvolumes/{subvolumeName}/getMetadata",
+    "GeneratedName": "SubvolumeMetadata",
+    "DisambiguatedName": "CapacityPoolSubvolumeMetadata"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
+    "OperationID": "VolumeQuotaRules_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
+    "GeneratedName": "VolumeQuotaRule",
+    "DisambiguatedName": "CapacityPoolVolumeQuotaRule"
+  },
+  {
+    "FileLocation": "specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable/2025-12-01/netapp.json",
     "OperationID": "VolumeQuotaRules_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/volumeQuotaRules/{volumeQuotaRuleName}",
     "GeneratedName": "VolumeQuotaRule",
@@ -5901,6 +6132,230 @@
     "DisambiguatedName": "ManagedClusterService"
   },
   {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2024-11-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-03-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-06-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/preview/2025-10-01-preview/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
     "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2021-05-01/managedapplication.json",
     "OperationID": "ApplicationTypes_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
@@ -6065,6 +6520,62 @@
     "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2024-04-01/managedapplication.json",
     "OperationID": "Services_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/stable/2026-02-01/servicefabricmanagedclusters.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedClusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
     "GeneratedName": "Service",
     "DisambiguatedName": "ManagedClusterService"
   }

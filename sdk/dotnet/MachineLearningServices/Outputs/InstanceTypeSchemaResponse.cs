@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Resource requests/limits for this instance type
         /// </summary>
-        public readonly Outputs.InstanceTypeSchemaResponseResources? Resources;
+        public readonly Outputs.InstanceTypeSchemaResourcesResponse? Resources;
 
         [OutputConstructor]
         private InstanceTypeSchemaResponse(
             ImmutableDictionary<string, string>? nodeSelector,
 
-            Outputs.InstanceTypeSchemaResponseResources? resources)
+            Outputs.InstanceTypeSchemaResourcesResponse? resources)
         {
             NodeSelector = nodeSelector;
             Resources = resources;

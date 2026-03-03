@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Monitor
         /// Get issue properties
         /// 
         /// Uses Azure REST API version 2025-05-03-preview.
+        /// 
+        /// Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIssueResult> InvokeAsync(GetIssueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIssueResult>("azure-native:monitor:getIssue", args ?? new GetIssueArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Monitor
         /// Get issue properties
         /// 
         /// Uses Azure REST API version 2025-05-03-preview.
+        /// 
+        /// Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIssueResult> Invoke(GetIssueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIssueResult>("azure-native:monitor:getIssue", args ?? new GetIssueInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Monitor
         /// Get issue properties
         /// 
         /// Uses Azure REST API version 2025-05-03-preview.
+        /// 
+        /// Other available API versions: 2025-10-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIssueResult> Invoke(GetIssueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIssueResult>("azure-native:monitor:getIssue", args ?? new GetIssueInvokeArgs(), options.WithDefaults());

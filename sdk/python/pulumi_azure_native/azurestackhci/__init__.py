@@ -9,14 +9,18 @@ import typing
 from ._enums import *
 from .arc_setting import *
 from .cluster import *
+from .cluster_job import *
 from .deployment_setting import *
+from .device_pool import *
 from .edge_machine import *
 from .edge_machine_job import *
 from .extension import *
 from .gallery_image import *
 from .get_arc_setting import *
 from .get_cluster import *
+from .get_cluster_job import *
 from .get_deployment_setting import *
+from .get_device_pool import *
 from .get_edge_machine import *
 from .get_edge_machine_job import *
 from .get_extension import *
@@ -35,6 +39,7 @@ from .get_network_security_group import *
 from .get_public_ip_address import *
 from .get_security_rule import *
 from .get_security_setting import *
+from .get_snapshot import *
 from .get_storage_container import *
 from .get_update import *
 from .get_update_run import *
@@ -58,6 +63,7 @@ from .network_security_group import *
 from .public_ip_address import *
 from .security_rule import *
 from .security_setting import *
+from .snapshot import *
 from .storage_container import *
 from .update import *
 from .update_run import *

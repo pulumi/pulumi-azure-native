@@ -26,6 +26,8 @@ __all__ = [
     'BackendAddressPoolArgsDict',
     'ClusterDesiredPropertiesArgs',
     'ClusterDesiredPropertiesArgsDict',
+    'CreationDataArgs',
+    'CreationDataArgsDict',
     'DeploymentClusterArgs',
     'DeploymentClusterArgsDict',
     'DeploymentConfigurationArgs',
@@ -36,6 +38,10 @@ __all__ = [
     'DeploymentSecuritySettingsArgsDict',
     'DeviceConfigurationArgs',
     'DeviceConfigurationArgsDict',
+    'DeviceDetailArgs',
+    'DeviceDetailArgsDict',
+    'DevicePoolPropertiesArgs',
+    'DevicePoolPropertiesArgsDict',
     'DownloadOsJobPropertiesArgs',
     'DownloadOsJobPropertiesArgsDict',
     'DownloadOsProfileArgs',
@@ -64,6 +70,10 @@ __all__ = [
     'GuestCredentialArgsDict',
     'HciCollectLogJobPropertiesArgs',
     'HciCollectLogJobPropertiesArgsDict',
+    'HciConfigureCvmJobPropertiesArgs',
+    'HciConfigureCvmJobPropertiesArgsDict',
+    'HciConfigureSdnIntegrationJobPropertiesArgs',
+    'HciConfigureSdnIntegrationJobPropertiesArgsDict',
     'HciEdgeDevicePropertiesArgs',
     'HciEdgeDevicePropertiesArgsDict',
     'HciRemoteSupportJobPropertiesArgs',
@@ -184,6 +194,8 @@ __all__ = [
     'ServiceConfigurationArgsDict',
     'SiteDetailsArgs',
     'SiteDetailsArgsDict',
+    'SnapshotPropertiesArgs',
+    'SnapshotPropertiesArgsDict',
     'SoftwareAssurancePropertiesArgs',
     'SoftwareAssurancePropertiesArgsDict',
     'SshConfigurationArgs',
@@ -602,6 +614,59 @@ class ClusterDesiredPropertiesArgs:
     @windows_server_subscription.setter
     def windows_server_subscription(self, value: Optional[pulumi.Input[Union[_builtins.str, 'WindowsServerSubscription']]]):
         pulumi.set(self, "windows_server_subscription", value)
+
+
+class CreationDataArgsDict(TypedDict):
+    """
+    Data used when creating a disk or snapshot
+    """
+    create_option: pulumi.Input[Union[_builtins.str, 'DiskCreateOption']]
+    """
+    This enumerates the possible sources of a disk's creation
+    """
+    source_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARM ID of the source resource used for disk creation. Required when createOption is Copy
+    """
+
+@pulumi.input_type
+class CreationDataArgs:
+    def __init__(__self__, *,
+                 create_option: pulumi.Input[Union[_builtins.str, 'DiskCreateOption']],
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Data used when creating a disk or snapshot
+
+        :param pulumi.Input[Union[_builtins.str, 'DiskCreateOption']] create_option: This enumerates the possible sources of a disk's creation
+        :param pulumi.Input[_builtins.str] source_resource_id: ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> pulumi.Input[Union[_builtins.str, 'DiskCreateOption']]:
+        """
+        This enumerates the possible sources of a disk's creation
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: pulumi.Input[Union[_builtins.str, 'DiskCreateOption']]):
+        pulumi.set(self, "create_option", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_resource_id", value)
 
 
 class DeploymentClusterArgsDict(TypedDict):
@@ -1351,6 +1416,114 @@ class DeviceConfigurationArgs:
     @nic_details.setter
     def nic_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NicDetailArgs']]]]):
         pulumi.set(self, "nic_details", value)
+
+
+class DeviceDetailArgsDict(TypedDict):
+    """
+    Device details.
+    """
+    device_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource Id of the device.
+    """
+
+@pulumi.input_type
+class DeviceDetailArgs:
+    def __init__(__self__, *,
+                 device_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Device details.
+
+        :param pulumi.Input[_builtins.str] device_resource_id: Resource Id of the device.
+        """
+        if device_resource_id is not None:
+            pulumi.set(__self__, "device_resource_id", device_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceResourceId")
+    def device_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Resource Id of the device.
+        """
+        return pulumi.get(self, "device_resource_id")
+
+    @device_resource_id.setter
+    def device_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "device_resource_id", value)
+
+
+class DevicePoolPropertiesArgsDict(TypedDict):
+    """
+    Properties for device pool.
+    """
+    custom_location_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom Location Name for the pool, default: <DevicePoolName>-CL
+    """
+    devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeviceDetailArgsDict']]]]
+    """
+    List of machines in device pool.
+    """
+    managed_resource_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Managed resource group name for the pool
+    """
+
+@pulumi.input_type
+class DevicePoolPropertiesArgs:
+    def __init__(__self__, *,
+                 custom_location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDetailArgs']]]] = None,
+                 managed_resource_group: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Properties for device pool.
+
+        :param pulumi.Input[_builtins.str] custom_location_name: Custom Location Name for the pool, default: <DevicePoolName>-CL
+        :param pulumi.Input[Sequence[pulumi.Input['DeviceDetailArgs']]] devices: List of machines in device pool.
+        :param pulumi.Input[_builtins.str] managed_resource_group: Managed resource group name for the pool
+        """
+        if custom_location_name is not None:
+            pulumi.set(__self__, "custom_location_name", custom_location_name)
+        if devices is not None:
+            pulumi.set(__self__, "devices", devices)
+        if managed_resource_group is not None:
+            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
+
+    @_builtins.property
+    @pulumi.getter(name="customLocationName")
+    def custom_location_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Custom Location Name for the pool, default: <DevicePoolName>-CL
+        """
+        return pulumi.get(self, "custom_location_name")
+
+    @custom_location_name.setter
+    def custom_location_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_location_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDetailArgs']]]]:
+        """
+        List of machines in device pool.
+        """
+        return pulumi.get(self, "devices")
+
+    @devices.setter
+    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDetailArgs']]]]):
+        pulumi.set(self, "devices", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedResourceGroup")
+    def managed_resource_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Managed resource group name for the pool
+        """
+        return pulumi.get(self, "managed_resource_group")
+
+    @managed_resource_group.setter
+    def managed_resource_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_resource_group", value)
 
 
 class DownloadOsJobPropertiesArgsDict(TypedDict):
@@ -2520,6 +2693,180 @@ class HciCollectLogJobPropertiesArgs:
     @deployment_mode.setter
     def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
         pulumi.set(self, "deployment_mode", value)
+
+
+class HciConfigureCvmJobPropertiesArgsDict(TypedDict):
+    """
+    Defines the customer's intent for updating confidential VM properties
+    """
+    confidential_vm_intent: pulumi.Input[Union[_builtins.str, 'ConfidentialVmIntent']]
+    """
+    Defines the customer's intent for updating confidential VM properties
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    ClusterJob Type supported.
+    Expected value is 'ConfigureCVM'.
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
+
+@pulumi.input_type
+class HciConfigureCvmJobPropertiesArgs:
+    def __init__(__self__, *,
+                 confidential_vm_intent: pulumi.Input[Union[_builtins.str, 'ConfidentialVmIntent']],
+                 job_type: pulumi.Input[_builtins.str],
+                 deployment_mode: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]] = None):
+        """
+        Defines the customer's intent for updating confidential VM properties
+
+        :param pulumi.Input[Union[_builtins.str, 'ConfidentialVmIntent']] confidential_vm_intent: Defines the customer's intent for updating confidential VM properties
+        :param pulumi.Input[_builtins.str] job_type: ClusterJob Type supported.
+               Expected value is 'ConfigureCVM'.
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "confidential_vm_intent", confidential_vm_intent)
+        pulumi.set(__self__, "job_type", 'ConfigureCVM')
+        if deployment_mode is None:
+            deployment_mode = 'Deploy'
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="confidentialVmIntent")
+    def confidential_vm_intent(self) -> pulumi.Input[Union[_builtins.str, 'ConfidentialVmIntent']]:
+        """
+        Defines the customer's intent for updating confidential VM properties
+        """
+        return pulumi.get(self, "confidential_vm_intent")
+
+    @confidential_vm_intent.setter
+    def confidential_vm_intent(self, value: pulumi.Input[Union[_builtins.str, 'ConfidentialVmIntent']]):
+        pulumi.set(self, "confidential_vm_intent", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        ClusterJob Type supported.
+        Expected value is 'ConfigureCVM'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+
+class HciConfigureSdnIntegrationJobPropertiesArgsDict(TypedDict):
+    """
+    Properties for configuring SDN integration intent for the cluster.
+    """
+    job_type: pulumi.Input[_builtins.str]
+    """
+    ClusterJob Type supported.
+    Expected value is 'ConfigureSdnIntegration'.
+    """
+    sdn_integration_intent: pulumi.Input[Union[_builtins.str, 'SdnIntegrationIntent']]
+    """
+    Defines the customer's intent for configuring SDN integration
+    """
+    deployment_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]
+    """
+    Deployment mode to trigger job.
+    """
+    sdn_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string identifier used to construct the Network Controller (NC) REST resource name. This prefix helps group and distinguish SDN-managed network components and must follow specific formatting rules.
+    """
+
+@pulumi.input_type
+class HciConfigureSdnIntegrationJobPropertiesArgs:
+    def __init__(__self__, *,
+                 job_type: pulumi.Input[_builtins.str],
+                 sdn_integration_intent: pulumi.Input[Union[_builtins.str, 'SdnIntegrationIntent']],
+                 deployment_mode: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]] = None,
+                 sdn_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Properties for configuring SDN integration intent for the cluster.
+
+        :param pulumi.Input[_builtins.str] job_type: ClusterJob Type supported.
+               Expected value is 'ConfigureSdnIntegration'.
+        :param pulumi.Input[Union[_builtins.str, 'SdnIntegrationIntent']] sdn_integration_intent: Defines the customer's intent for configuring SDN integration
+        :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: Deployment mode to trigger job.
+        :param pulumi.Input[_builtins.str] sdn_prefix: A string identifier used to construct the Network Controller (NC) REST resource name. This prefix helps group and distinguish SDN-managed network components and must follow specific formatting rules.
+        """
+        pulumi.set(__self__, "job_type", 'ConfigureSdnIntegration')
+        pulumi.set(__self__, "sdn_integration_intent", sdn_integration_intent)
+        if deployment_mode is None:
+            deployment_mode = 'Deploy'
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if sdn_prefix is not None:
+            pulumi.set(__self__, "sdn_prefix", sdn_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        ClusterJob Type supported.
+        Expected value is 'ConfigureSdnIntegration'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @job_type.setter
+    def job_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "job_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sdnIntegrationIntent")
+    def sdn_integration_intent(self) -> pulumi.Input[Union[_builtins.str, 'SdnIntegrationIntent']]:
+        """
+        Defines the customer's intent for configuring SDN integration
+        """
+        return pulumi.get(self, "sdn_integration_intent")
+
+    @sdn_integration_intent.setter
+    def sdn_integration_intent(self, value: pulumi.Input[Union[_builtins.str, 'SdnIntegrationIntent']]):
+        pulumi.set(self, "sdn_integration_intent", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @deployment_mode.setter
+    def deployment_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeploymentMode']]]):
+        pulumi.set(self, "deployment_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sdnPrefix")
+    def sdn_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string identifier used to construct the Network Controller (NC) REST resource name. This prefix helps group and distinguish SDN-managed network components and must follow specific formatting rules.
+        """
+        return pulumi.get(self, "sdn_prefix")
+
+    @sdn_prefix.setter
+    def sdn_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sdn_prefix", value)
 
 
 class HciEdgeDevicePropertiesArgsDict(TypedDict):
@@ -6807,6 +7154,40 @@ class SiteDetailsArgs:
     @device_configuration.setter
     def device_configuration(self, value: Optional[pulumi.Input['TargetDeviceConfigurationArgs']]):
         pulumi.set(self, "device_configuration", value)
+
+
+class SnapshotPropertiesArgsDict(TypedDict):
+    """
+    Properties under the snapshot resource
+    """
+    creation_data: NotRequired[pulumi.Input['CreationDataArgsDict']]
+    """
+    Data used when creating a snapshot
+    """
+
+@pulumi.input_type
+class SnapshotPropertiesArgs:
+    def __init__(__self__, *,
+                 creation_data: Optional[pulumi.Input['CreationDataArgs']] = None):
+        """
+        Properties under the snapshot resource
+
+        :param pulumi.Input['CreationDataArgs'] creation_data: Data used when creating a snapshot
+        """
+        if creation_data is not None:
+            pulumi.set(__self__, "creation_data", creation_data)
+
+    @_builtins.property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> Optional[pulumi.Input['CreationDataArgs']]:
+        """
+        Data used when creating a snapshot
+        """
+        return pulumi.get(self, "creation_data")
+
+    @creation_data.setter
+    def creation_data(self, value: Optional[pulumi.Input['CreationDataArgs']]):
+        pulumi.set(self, "creation_data", value)
 
 
 class SoftwareAssurancePropertiesArgsDict(TypedDict):

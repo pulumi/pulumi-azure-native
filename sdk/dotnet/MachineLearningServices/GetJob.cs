@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetJob
     {
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Gets a Job by name/id.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:machinelearningservices:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Gets a Job by name/id.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:machinelearningservices:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Azure Resource Manager resource envelope.
+        /// Gets a Job by name/id.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:machinelearningservices:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -108,13 +108,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly object JobBaseProperties;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly object Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -130,9 +130,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string id,
 
-            object jobBaseProperties,
-
             string name,
+
+            object properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         {
             AzureApiVersion = azureApiVersion;
             Id = id;
-            JobBaseProperties = jobBaseProperties;
             Name = name;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

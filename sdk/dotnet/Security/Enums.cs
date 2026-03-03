@@ -310,43 +310,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-    /// </summary>
-    [EnumType]
-    public readonly struct AutoProvision : IEquatable<AutoProvision>
-    {
-        private readonly string _value;
-
-        private AutoProvision(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Install missing Azure Arc agents on machines automatically
-        /// </summary>
-        public static AutoProvision On { get; } = new AutoProvision("On");
-        /// <summary>
-        /// Do not install Azure Arc agent on the machines automatically
-        /// </summary>
-        public static AutoProvision Off { get; } = new AutoProvision("Off");
-
-        public static bool operator ==(AutoProvision left, AutoProvision right) => left.Equals(right);
-        public static bool operator !=(AutoProvision left, AutoProvision right) => !left.Equals(right);
-
-        public static explicit operator string(AutoProvision value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AutoProvision other && Equals(other);
-        public bool Equals(AutoProvision other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The categories of resource that is at risk when the assessment is unhealthy
     /// </summary>
     [EnumType]
@@ -1951,37 +1914,6 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SubPlan other && Equals(other);
         public bool Equals(SubPlan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Relevant cloud for the custom assessment automation.
-    /// </summary>
-    [EnumType]
-    public readonly struct SupportedCloudEnum : IEquatable<SupportedCloudEnum>
-    {
-        private readonly string _value;
-
-        private SupportedCloudEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SupportedCloudEnum AWS { get; } = new SupportedCloudEnum("AWS");
-        public static SupportedCloudEnum GCP { get; } = new SupportedCloudEnum("GCP");
-
-        public static bool operator ==(SupportedCloudEnum left, SupportedCloudEnum right) => left.Equals(right);
-        public static bool operator !=(SupportedCloudEnum left, SupportedCloudEnum right) => !left.Equals(right);
-
-        public static explicit operator string(SupportedCloudEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SupportedCloudEnum other && Equals(other);
-        public bool Equals(SupportedCloudEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

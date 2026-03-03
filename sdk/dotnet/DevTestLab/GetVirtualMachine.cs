@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the LabVirtualMachine
+        /// The name of the virtual machine.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the LabVirtualMachine
+        /// The name of the virtual machine.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -194,11 +194,11 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string LastKnownPowerState;
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -250,11 +250,15 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? StorageType;
         /// <summary>
-        /// The tags of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -344,6 +348,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? storageType,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -390,6 +396,7 @@ namespace Pulumi.AzureNative.DevTestLab
             Size = size;
             SshKey = sshKey;
             StorageType = storageType;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UniqueIdentifier = uniqueIdentifier;

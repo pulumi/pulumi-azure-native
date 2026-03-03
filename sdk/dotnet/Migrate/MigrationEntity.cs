@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Migrate
     /// Migration Entity resource.
     /// 
     /// Uses Azure REST API version 2025-03-30-preview.
+    /// 
+    /// Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrationEntity")]
     public partial class MigrationEntity : global::Pulumi.CustomResource
@@ -79,6 +81,7 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20250330preview:MigrationEntity" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20251201preview:MigrationEntity" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

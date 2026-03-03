@@ -13,23 +13,23 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     /// <summary>
     /// This connection type covers the generic ApiKey auth connection categories, for examples:
     /// AzureOpenAI:
-    ///     Category:= AzureOpenAI
-    ///     AuthType:= ApiKey (as type discriminator)
-    ///     Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-    ///     Target:= {ApiBase}
-    ///             
+    /// Category:= AzureOpenAI
+    /// AuthType:= ApiKey (as type discriminator)
+    /// Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    /// Target:= {ApiBase}
+    /// 
     /// CognitiveService:
-    ///     Category:= CognitiveService
-    ///     AuthType:= ApiKey (as type discriminator)
-    ///     Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-    ///     Target:= ServiceRegion={serviceRegion}
-    ///             
+    /// Category:= CognitiveService
+    /// AuthType:= ApiKey (as type discriminator)
+    /// Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    /// Target:= ServiceRegion={serviceRegion}
+    /// 
     /// CognitiveSearch:
-    ///     Category:= CognitiveSearch
-    ///     AuthType:= ApiKey (as type discriminator)
-    ///     Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-    ///     Target:= {Endpoint}
-    ///             
+    /// Category:= CognitiveSearch
+    /// AuthType:= ApiKey (as type discriminator)
+    /// Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    /// Target:= {Endpoint}
+    /// 
     /// Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
     /// </summary>
     [OutputType]
@@ -44,11 +44,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Category of the connection
         /// </summary>
         public readonly string? Category;
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         public readonly string CreatedByWorkspaceArmId;
         /// <summary>
         /// Api key object for workspace connection credential.
         /// </summary>
         public readonly Outputs.WorkspaceConnectionApiKeyResponse? Credentials;
+        public readonly string? Error;
         public readonly string? ExpiryTime;
         /// <summary>
         /// Group based on connection category
@@ -59,16 +63,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Store user metadata for this connection
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
+        public readonly string? PeRequirement;
+        public readonly string? PeStatus;
         public readonly ImmutableArray<string> SharedUserList;
         public readonly string? Target;
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        public readonly string? Value;
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        public readonly string? ValueFormat;
+        public readonly bool? UseWorkspaceManagedIdentity;
 
         [OutputConstructor]
         private ApiKeyAuthWorkspaceConnectionPropertiesResponse(
@@ -80,6 +79,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.WorkspaceConnectionApiKeyResponse? credentials,
 
+            string? error,
+
             string? expiryTime,
 
             string group,
@@ -88,26 +89,30 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, string>? metadata,
 
+            string? peRequirement,
+
+            string? peStatus,
+
             ImmutableArray<string> sharedUserList,
 
             string? target,
 
-            string? value,
-
-            string? valueFormat)
+            bool? useWorkspaceManagedIdentity)
         {
             AuthType = authType;
             Category = category;
             CreatedByWorkspaceArmId = createdByWorkspaceArmId;
             Credentials = credentials;
+            Error = error;
             ExpiryTime = expiryTime;
             Group = group;
             IsSharedToAll = isSharedToAll;
             Metadata = metadata;
+            PeRequirement = peRequirement;
+            PeStatus = peStatus;
             SharedUserList = sharedUserList;
             Target = target;
-            Value = value;
-            ValueFormat = valueFormat;
+            UseWorkspaceManagedIdentity = useWorkspaceManagedIdentity;
         }
     }
 }

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Describes the volume options for the container
-    /// </summary>
     public sealed class VolumeOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

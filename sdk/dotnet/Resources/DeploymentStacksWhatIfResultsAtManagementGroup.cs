@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Resources
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the management group. The name is case insensitive.
+        /// The management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;

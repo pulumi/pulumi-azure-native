@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.ImageLimitSettingsArgs> LimitSettings { get; set; } = null!;
 
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         [Input("logVerbosity")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.LogVerbosity>? LogVerbosity { get; set; }
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.ImageModelSettingsObjectDetectionArgs>? ModelSettings { get; set; }
 
         /// <summary>
-        /// Primary metric to optimize for this task.
+        /// Primary metrics for Image ObjectDetection task.
         /// </summary>
         [Input("primaryMetric")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ObjectDetectionPrimaryMetrics>? PrimaryMetric { get; set; }

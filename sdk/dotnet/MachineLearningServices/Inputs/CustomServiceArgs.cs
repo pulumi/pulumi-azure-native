@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.ImageArgs>? Image { get; set; }
 
         /// <summary>
+        /// Describes the jupyter kernel settings for the image if its a custom environment
+        /// </summary>
+        [Input("kernel")]
+        public Input<Inputs.JupyterKernelConfigArgs>? Kernel { get; set; }
+
+        /// <summary>
         /// Name of the Custom Service
         /// </summary>
         [Input("name")]

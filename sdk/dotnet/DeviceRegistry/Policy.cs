@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// A Credential Policy
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
+    /// 
+    /// Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
@@ -24,16 +26,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The certificate configuration.
-        /// </summary>
-        [Output("certificate")]
-        public Output<Outputs.CertificateConfigurationResponse?> Certificate { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -42,10 +38,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the last operation.
+        /// The RP-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -91,6 +87,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20251101preview:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20260301preview:Policy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,12 +112,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The certificate configuration.
-        /// </summary>
-        [Input("certificate")]
-        public Input<Inputs.CertificateConfigurationArgs>? Certificate { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -137,6 +128,12 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
+
+        /// <summary>
+        /// The RP-specific properties for this resource.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.PolicyPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

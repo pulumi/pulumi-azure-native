@@ -21,35 +21,35 @@ __all__ = ['RegistryModelContainerArgs', 'RegistryModelContainer']
 @pulumi.input_type
 class RegistryModelContainerArgs:
     def __init__(__self__, *,
-                 model_container_properties: pulumi.Input['ModelContainerArgs'],
+                 properties: pulumi.Input['ModelContainerPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  model_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryModelContainer resource.
 
-        :param pulumi.Input['ModelContainerArgs'] model_container_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['ModelContainerPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] model_name: Container name.
+        :param pulumi.Input[_builtins.str] model_name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "model_container_properties", model_container_properties)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if model_name is not None:
             pulumi.set(__self__, "model_name", model_name)
 
     @_builtins.property
-    @pulumi.getter(name="modelContainerProperties")
-    def model_container_properties(self) -> pulumi.Input['ModelContainerArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ModelContainerPropertiesArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "model_container_properties")
+        return pulumi.get(self, "properties")
 
-    @model_container_properties.setter
-    def model_container_properties(self, value: pulumi.Input['ModelContainerArgs']):
-        pulumi.set(self, "model_container_properties", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['ModelContainerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -79,7 +79,7 @@ class RegistryModelContainerArgs:
     @pulumi.getter(name="modelName")
     def model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Container name.
+        Container name. This is case-sensitive.
         """
         return pulumi.get(self, "model_name")
 
@@ -94,23 +94,23 @@ class RegistryModelContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 model_container_properties: Optional[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]] = None,
                  model_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ModelContainerPropertiesArgs', 'ModelContainerPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']] model_container_properties: [Required] Additional attributes of the entity.
-        :param pulumi.Input[_builtins.str] model_name: Container name.
+        :param pulumi.Input[_builtins.str] model_name: Container name. This is case-sensitive.
+        :param pulumi.Input[Union['ModelContainerPropertiesArgs', 'ModelContainerPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -123,9 +123,9 @@ class RegistryModelContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -143,8 +143,8 @@ class RegistryModelContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 model_container_properties: Optional[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]] = None,
                  model_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ModelContainerPropertiesArgs', 'ModelContainerPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -156,10 +156,10 @@ class RegistryModelContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistryModelContainerArgs.__new__(RegistryModelContainerArgs)
 
-            if model_container_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'model_container_properties'")
-            __props__.__dict__["model_container_properties"] = model_container_properties
             __props__.__dict__["model_name"] = model_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
@@ -170,7 +170,7 @@ class RegistryModelContainer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:RegistryModelContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:RegistryModelContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:RegistryModelContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistryModelContainer, __self__).__init__(
             'azure-native:machinelearningservices:RegistryModelContainer',
@@ -195,8 +195,8 @@ class RegistryModelContainer(pulumi.CustomResource):
         __props__ = RegistryModelContainerArgs.__new__(RegistryModelContainerArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["model_container_properties"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RegistryModelContainer(resource_name, opts=opts, __props__=__props__)
@@ -210,20 +210,20 @@ class RegistryModelContainer(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="modelContainerProperties")
-    def model_container_properties(self) -> pulumi.Output['outputs.ModelContainerResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "model_container_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.ModelContainerPropertiesResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

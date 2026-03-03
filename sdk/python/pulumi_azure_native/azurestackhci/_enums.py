@@ -10,9 +10,11 @@ __all__ = [
     'AvailabilityType',
     'CloudInitDataSource',
     'ComplianceAssignmentType',
+    'ConfidentialVmIntent',
     'DeploymentMode',
     'DeviceKind',
     'DiagnosticLevel',
+    'DiskCreateOption',
     'DiskFileFormat',
     'EceSecrets',
     'EdgeDeviceKind',
@@ -21,6 +23,7 @@ __all__ = [
     'ExtendedLocationTypes',
     'GpuAssignmentTypeEnum',
     'HciEdgeDeviceJobType',
+    'HciJobType',
     'HyperVGeneration',
     'IPPoolTypeEnum',
     'InboundNATRuleProtocol',
@@ -44,6 +47,7 @@ __all__ = [
     'RemoteSupportAccessLevel',
     'RemoteSupportType',
     'ResourceIdentityType',
+    'SdnIntegrationIntent',
     'SecretType',
     'SecurityEncryptionType',
     'SecurityRuleAccess',
@@ -100,6 +104,21 @@ class ComplianceAssignmentType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:ConfidentialVmIntent")
+class ConfidentialVmIntent(_builtins.str, Enum):
+    """
+    Defines the customer's intent for updating confidential VM properties
+    """
+    ENABLE = "Enable"
+    """
+    Indicates that the customer intends to enable CVM support on the cluster.
+    """
+    DISABLE = "Disable"
+    """
+    Indicates that the customer intends to disable CVM support on the cluster.
+    """
+
+
 @pulumi.type_token("azure-native:azurestackhci:DeploymentMode")
 class DeploymentMode(_builtins.str, Enum):
     """
@@ -134,6 +153,21 @@ class DiagnosticLevel(_builtins.str, Enum):
     OFF = "Off"
     BASIC = "Basic"
     ENHANCED = "Enhanced"
+
+
+@pulumi.type_token("azure-native:azurestackhci:DiskCreateOption")
+class DiskCreateOption(_builtins.str, Enum):
+    """
+    This enumerates the possible sources of a disk's creation
+    """
+    COPY = "Copy"
+    """
+    Create a disk by copying from a source resource
+    """
+    EMPTY = "Empty"
+    """
+    Create an empty disk
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:DiskFileFormat")
@@ -261,6 +295,21 @@ class HciEdgeDeviceJobType(_builtins.str, Enum):
     REMOTE_SUPPORT = "RemoteSupport"
     """
     Job to provide remote support to the device.
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:HciJobType")
+class HciJobType(_builtins.str, Enum):
+    """
+    Job Type to support polymorphic resource.
+    """
+    CONFIGURE_CVM = "ConfigureCVM"
+    """
+    Job to CVM  intent for the cluster.
+    """
+    CONFIGURE_SDN_INTEGRATION = "ConfigureSdnIntegration"
+    """
+    Job to configure SDN (Software Defined Networking) integration for the cluster.
     """
 
 
@@ -597,6 +646,21 @@ class ResourceIdentityType(_builtins.str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+@pulumi.type_token("azure-native:azurestackhci:SdnIntegrationIntent")
+class SdnIntegrationIntent(_builtins.str, Enum):
+    """
+    Defines the customer's intent for configuring SDN integration
+    """
+    ENABLE = "Enable"
+    """
+    Enable SDN integration for the deployment.
+    """
+    DISABLE = "Disable"
+    """
+    Disable SDN integration for the deployment.
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:SecretType")

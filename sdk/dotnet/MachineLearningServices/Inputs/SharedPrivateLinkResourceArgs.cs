@@ -13,34 +13,34 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class SharedPrivateLinkResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The private link resource group id.
+        /// group id of the private link
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// Unique name of the private link.
+        /// Unique name of the private link
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource id that private link links to.
+        /// the resource id that private link links to
         /// </summary>
         [Input("privateLinkResourceId")]
         public Input<string>? PrivateLinkResourceId { get; set; }
 
         /// <summary>
-        /// Request message.
+        /// Request message
         /// </summary>
         [Input("requestMessage")]
         public Input<string>? RequestMessage { get; set; }
 
         /// <summary>
-        /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        /// Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -&gt; Approved (Service provider approves the connection request)\r\nPending -&gt; Rejected (Service provider rejects the connection request)\r\nPending -&gt; Disconnected (Service provider deletes the connection)\r\nApproved -&gt; Rejected (Service provider rejects the approved connection)\r\nApproved -&gt; Disconnected (Service provider deletes the connection)\r\nRejected -&gt; Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -&gt; Disconnected (Service provider deletes the connection)
         /// </summary>
         [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EndpointServiceConnectionStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourceArgs()
         {

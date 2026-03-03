@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-08-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVariableValueAtManagementGroupResult> InvokeAsync(GetVariableValueAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableValueAtManagementGroupResult>("azure-native:authorization:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-08-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVariableValueAtManagementGroupResult> Invoke(GetVariableValueAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Authorization
         /// 
         /// Uses Azure REST API version 2022-08-01-preview.
         /// 
-        /// Other available API versions: 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVariableValueAtManagementGroupResult> Invoke(GetVariableValueAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueAtManagementGroupResult>("azure-native:authorization:getVariableValueAtManagementGroup", args ?? new GetVariableValueAtManagementGroupInvokeArgs(), options.WithDefaults());

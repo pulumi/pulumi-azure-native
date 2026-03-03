@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class ListNotebookKeysResultResponse
     {
+        /// <summary>
+        /// The primary access key of the Notebook
+        /// </summary>
         public readonly string PrimaryAccessKey;
+        /// <summary>
+        /// The secondary access key of the Notebook
+        /// </summary>
         public readonly string SecondaryAccessKey;
 
         [OutputConstructor]

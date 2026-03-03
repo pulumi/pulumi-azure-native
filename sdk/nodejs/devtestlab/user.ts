@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Profile of a lab user.
+ * A user profile.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
  */
@@ -52,11 +52,11 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.devtestlab.UserIdentityResponse | undefined>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     declare public readonly location: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -68,11 +68,15 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly secretStore: pulumi.Output<outputs.devtestlab.UserSecretStoreResponse | undefined>;
     /**
-     * The tags of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devtestlab.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -107,6 +111,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
@@ -117,6 +122,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["secretStore"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
@@ -141,11 +147,11 @@ export interface UserArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The location of the resource.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the User
+     * The name of the user profile.
      */
     name?: pulumi.Input<string>;
     /**
@@ -157,7 +163,7 @@ export interface UserArgs {
      */
     secretStore?: pulumi.Input<inputs.devtestlab.UserSecretStoreArgs>;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

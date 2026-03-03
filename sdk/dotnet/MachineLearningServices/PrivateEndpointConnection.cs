@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// 
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -26,13 +26,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the location of the resource.
+        /// *Same as workspace location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -44,25 +44,25 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
+        /// The Private Endpoint resource.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.WorkspacePrivateEndpointResourceResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
+        /// The connection state.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
+        /// The current provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The sku of the workspace.
+        /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
@@ -73,9 +73,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -149,6 +146,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,28 +171,28 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the location of the resource.
+        /// *Same as workspace location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the private endpoint connection associated with the workspace
+        /// NRP Private Endpoint Connection Name
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
+        /// The connection state.
         /// </summary>
-        [Input("privateLinkServiceConnectionState", required: true)]
-        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -203,17 +201,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku of the workspace.
+        /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -221,7 +215,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

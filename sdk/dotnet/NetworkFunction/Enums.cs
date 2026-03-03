@@ -20,6 +20,9 @@ namespace Pulumi.AzureNative.NetworkFunction
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AzureMonitor
+        /// </summary>
         public static DestinationType AzureMonitor { get; } = new DestinationType("AzureMonitor");
 
         public static bool operator ==(DestinationType left, DestinationType right) => left.Equals(right);
@@ -50,6 +53,9 @@ namespace Pulumi.AzureNative.NetworkFunction
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// IPFIX
+        /// </summary>
         public static EmissionType IPFIX { get; } = new EmissionType("IPFIX");
 
         public static bool operator ==(EmissionType left, EmissionType right) => left.Equals(right);
@@ -80,6 +86,9 @@ namespace Pulumi.AzureNative.NetworkFunction
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// IPFIX
+        /// </summary>
         public static IngestionType IPFIX { get; } = new IngestionType("IPFIX");
 
         public static bool operator ==(IngestionType left, IngestionType right) => left.Equals(right);
@@ -110,6 +119,9 @@ namespace Pulumi.AzureNative.NetworkFunction
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Resource
+        /// </summary>
         public static SourceType Resource { get; } = new SourceType("Resource");
 
         public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);

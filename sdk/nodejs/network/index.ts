@@ -595,6 +595,11 @@ export const getRouteTable: typeof import("./getRouteTable").getRouteTable = nul
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
 
+export { GetRoutingConfigurationArgs, GetRoutingConfigurationResult, GetRoutingConfigurationOutputArgs } from "./getRoutingConfiguration";
+export const getRoutingConfiguration: typeof import("./getRoutingConfiguration").getRoutingConfiguration = null as any;
+export const getRoutingConfigurationOutput: typeof import("./getRoutingConfiguration").getRoutingConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getRoutingConfiguration","getRoutingConfigurationOutput"], () => require("./getRoutingConfiguration"));
+
 export { GetRoutingIntentArgs, GetRoutingIntentResult, GetRoutingIntentOutputArgs } from "./getRoutingIntent";
 export const getRoutingIntent: typeof import("./getRoutingIntent").getRoutingIntent = null as any;
 export const getRoutingIntentOutput: typeof import("./getRoutingIntent").getRoutingIntentOutput = null as any;
@@ -1190,6 +1195,11 @@ export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
 utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
 
+export { RoutingConfigurationArgs } from "./routingConfiguration";
+export type RoutingConfiguration = import("./routingConfiguration").RoutingConfiguration;
+export const RoutingConfiguration: typeof import("./routingConfiguration").RoutingConfiguration = null as any;
+utilities.lazyLoad(exports, ["RoutingConfiguration"], () => require("./routingConfiguration"));
+
 export { RoutingIntentArgs } from "./routingIntent";
 export type RoutingIntent = import("./routingIntent").RoutingIntent;
 export const RoutingIntent: typeof import("./routingIntent").RoutingIntent = null as any;
@@ -1558,6 +1568,8 @@ const _module = {
                 return new RouteMap(name, <any>undefined, { urn })
             case "azure-native:network:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
+            case "azure-native:network:RoutingConfiguration":
+                return new RoutingConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:RoutingIntent":
                 return new RoutingIntent(name, <any>undefined, { urn })
             case "azure-native:network:RoutingRule":

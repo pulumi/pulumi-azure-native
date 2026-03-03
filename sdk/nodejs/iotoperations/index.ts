@@ -15,6 +15,11 @@ export type AkriConnectorTemplate = import("./akriConnectorTemplate").AkriConnec
 export const AkriConnectorTemplate: typeof import("./akriConnectorTemplate").AkriConnectorTemplate = null as any;
 utilities.lazyLoad(exports, ["AkriConnectorTemplate"], () => require("./akriConnectorTemplate"));
 
+export { AkriServiceArgs } from "./akriService";
+export type AkriService = import("./akriService").AkriService;
+export const AkriService: typeof import("./akriService").AkriService = null as any;
+utilities.lazyLoad(exports, ["AkriService"], () => require("./akriService"));
+
 export { BrokerArgs } from "./broker";
 export type Broker = import("./broker").Broker;
 export const Broker: typeof import("./broker").Broker = null as any;
@@ -64,6 +69,11 @@ export { GetAkriConnectorTemplateArgs, GetAkriConnectorTemplateResult, GetAkriCo
 export const getAkriConnectorTemplate: typeof import("./getAkriConnectorTemplate").getAkriConnectorTemplate = null as any;
 export const getAkriConnectorTemplateOutput: typeof import("./getAkriConnectorTemplate").getAkriConnectorTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getAkriConnectorTemplate","getAkriConnectorTemplateOutput"], () => require("./getAkriConnectorTemplate"));
+
+export { GetAkriServiceArgs, GetAkriServiceResult, GetAkriServiceOutputArgs } from "./getAkriService";
+export const getAkriService: typeof import("./getAkriService").getAkriService = null as any;
+export const getAkriServiceOutput: typeof import("./getAkriService").getAkriServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getAkriService","getAkriServiceOutput"], () => require("./getAkriService"));
 
 export { GetBrokerArgs, GetBrokerResult, GetBrokerOutputArgs } from "./getBroker";
 export const getBroker: typeof import("./getBroker").getBroker = null as any;
@@ -137,6 +147,8 @@ const _module = {
                 return new AkriConnector(name, <any>undefined, { urn })
             case "azure-native:iotoperations:AkriConnectorTemplate":
                 return new AkriConnectorTemplate(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:AkriService":
+                return new AkriService(name, <any>undefined, { urn })
             case "azure-native:iotoperations:Broker":
                 return new Broker(name, <any>undefined, { urn })
             case "azure-native:iotoperations:BrokerAuthentication":

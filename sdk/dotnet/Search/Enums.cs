@@ -578,7 +578,7 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static SkuName Standard2 { get; } = new SkuName("standard2");
         /// <summary>
-        ///  The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+        /// The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
         /// </summary>
         public static SkuName Standard3 { get; } = new SkuName("standard3");
         /// <summary>

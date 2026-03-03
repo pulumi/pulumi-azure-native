@@ -38,7 +38,7 @@ export const AutoRebuildSetting = {
 } as const;
 
 /**
- * Defines if image needs to be rebuilt based on base image changes.
+ * AutoRebuild setting for the derived image
  */
 export type AutoRebuildSetting = (typeof AutoRebuildSetting)[keyof typeof AutoRebuildSetting];
 
@@ -59,7 +59,9 @@ export const BatchLoggingLevel = {
 } as const;
 
 /**
- * Logging level for batch inference operation.
+ * Log verbosity for batch inferencing.
+ * Increasing verbosity order for logging is : Warning, Info and Debug.
+ * The default value is Info.
  */
 export type BatchLoggingLevel = (typeof BatchLoggingLevel)[keyof typeof BatchLoggingLevel];
 
@@ -69,7 +71,7 @@ export const BatchOutputAction = {
 } as const;
 
 /**
- * Indicates how the output will be organized.
+ * Enum to determine how batch inferencing will handle output
  */
 export type BatchOutputAction = (typeof BatchOutputAction)[keyof typeof BatchOutputAction];
 
@@ -294,7 +296,7 @@ export const ClassificationMultilabelPrimaryMetrics = {
 } as const;
 
 /**
- * Primary metric to optimize for this task.
+ * Primary metrics for classification multilabel tasks.
  */
 export type ClassificationMultilabelPrimaryMetrics = (typeof ClassificationMultilabelPrimaryMetrics)[keyof typeof ClassificationMultilabelPrimaryMetrics];
 
@@ -326,7 +328,7 @@ export const ClassificationPrimaryMetrics = {
 } as const;
 
 /**
- * Primary metric for Text-Classification task.
+ * Primary metrics for classification tasks.
  */
 export type ClassificationPrimaryMetrics = (typeof ClassificationPrimaryMetrics)[keyof typeof ClassificationPrimaryMetrics];
 
@@ -465,6 +467,13 @@ export const ConnectionAuthType = {
     CustomKeys: "CustomKeys",
     OAuth2: "OAuth2",
     AAD: "AAD",
+    DelegatedSAS: "DelegatedSAS",
+    ProjectManagedIdentity: "ProjectManagedIdentity",
+    AccountManagedIdentity: "AccountManagedIdentity",
+    UserEntraToken: "UserEntraToken",
+    AgentUserImpersonation: "AgentUserImpersonation",
+    AgenticIdentityToken: "AgenticIdentityToken",
+    AgenticUser: "AgenticUser",
 } as const;
 
 /**
@@ -478,11 +487,13 @@ export const ConnectionCategory = {
     Git: "Git",
     S3: "S3",
     Snowflake: "Snowflake",
+    AzureKeyVault: "AzureKeyVault",
     AzureSqlDb: "AzureSqlDb",
     AzureSynapseAnalytics: "AzureSynapseAnalytics",
     AzureMySqlDb: "AzureMySqlDb",
     AzurePostgresDb: "AzurePostgresDb",
     ADLSGen2: "ADLSGen2",
+    AzureContainerAppEnvironment: "AzureContainerAppEnvironment",
     Redis: "Redis",
     ApiKey: "ApiKey",
     AzureOpenAI: "AzureOpenAI",
@@ -491,6 +502,7 @@ export const ConnectionCategory = {
     CognitiveService: "CognitiveService",
     CustomKeys: "CustomKeys",
     AzureBlob: "AzureBlob",
+    AzureStorageAccount: "AzureStorageAccount",
     AzureOneLake: "AzureOneLake",
     CosmosDb: "CosmosDb",
     CosmosDbMongoDbApi: "CosmosDbMongoDbApi",
@@ -528,6 +540,7 @@ export const ConnectionCategory = {
     Teradata: "Teradata",
     Vertica: "Vertica",
     Pinecone: "Pinecone",
+    Databricks: "Databricks",
     Cassandra: "Cassandra",
     Couchbase: "Couchbase",
     MongoDbV2: "MongoDbV2",
@@ -543,6 +556,7 @@ export const ConnectionCategory = {
     ODataRest: "ODataRest",
     Odbc: "Odbc",
     GenericRest: "GenericRest",
+    RemoteTool: "RemoteTool",
     AmazonMws: "AmazonMws",
     Concur: "Concur",
     Dynamics: "Dynamics",
@@ -573,11 +587,21 @@ export const ConnectionCategory = {
     Zoho: "Zoho",
     GenericContainerRegistry: "GenericContainerRegistry",
     Elasticsearch: "Elasticsearch",
+    AppInsights: "AppInsights",
+    AppConfig: "AppConfig",
     OpenAI: "OpenAI",
     Serp: "Serp",
     BingLLMSearch: "BingLLMSearch",
     Serverless: "Serverless",
     ManagedOnlineEndpoint: "ManagedOnlineEndpoint",
+    ApiManagement: "ApiManagement",
+    ModelGateway: "ModelGateway",
+    GroundingWithBingSearch: "GroundingWithBingSearch",
+    GroundingWithCustomSearch: "GroundingWithCustomSearch",
+    Sharepoint: "Sharepoint",
+    MicrosoftFabric: "MicrosoftFabric",
+    PowerPlatformEnvironment: "PowerPlatformEnvironment",
+    RemoteA2A: "RemoteA2A",
 } as const;
 
 /**
@@ -658,7 +682,7 @@ export const DatastoreType = {
 } as const;
 
 /**
- * [Required] Storage type backing the datastore.
+ * Enum to determine the datastore contents type.
  */
 export type DatastoreType = (typeof DatastoreType)[keyof typeof DatastoreType];
 
@@ -727,7 +751,7 @@ export const EgressPublicNetworkAccessType = {
 } as const;
 
 /**
- * If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+ * Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
  */
 export type EgressPublicNetworkAccessType = (typeof EgressPublicNetworkAccessType)[keyof typeof EgressPublicNetworkAccessType];
 
@@ -779,10 +803,11 @@ export const EndpointServiceConnectionStatus = {
     Pending: "Pending",
     Rejected: "Rejected",
     Disconnected: "Disconnected",
+    Timeout: "Timeout",
 } as const;
 
 /**
- * Connection status of the service consumer with the service provider
+ * Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -> Approved (Service provider approves the connection request)\r\nPending -> Rejected (Service provider rejects the connection request)\r\nPending -> Disconnected (Service provider deletes the connection)\r\nApproved -> Rejected (Service provider rejects the approved connection)\r\nApproved -> Disconnected (Service provider deletes the connection)\r\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -> Disconnected (Service provider deletes the connection)
  */
 export type EndpointServiceConnectionStatus = (typeof EndpointServiceConnectionStatus)[keyof typeof EndpointServiceConnectionStatus];
 
@@ -851,7 +876,7 @@ export const FeatureLags = {
 } as const;
 
 /**
- * Flag for generating lags for the numeric features with 'auto' or null.
+ * Flag for generating lags for the numeric features.
  */
 export type FeatureLags = (typeof FeatureLags)[keyof typeof FeatureLags];
 
@@ -1016,7 +1041,7 @@ export const ForecastingPrimaryMetrics = {
 } as const;
 
 /**
- * Primary metric for forecasting task.
+ * Primary metrics for Forecasting task.
  */
 export type ForecastingPrimaryMetrics = (typeof ForecastingPrimaryMetrics)[keyof typeof ForecastingPrimaryMetrics];
 
@@ -1070,7 +1095,7 @@ export const ImageType = {
 } as const;
 
 /**
- * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+ * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
  */
 export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
@@ -1094,7 +1119,7 @@ export const InputDeliveryMode = {
 } as const;
 
 /**
- * Input Asset Delivery Mode.
+ * Enum to determine the input data delivery mode.
  */
 export type InputDeliveryMode = (typeof InputDeliveryMode)[keyof typeof InputDeliveryMode];
 
@@ -1107,7 +1132,7 @@ export const InstanceSegmentationPrimaryMetrics = {
 } as const;
 
 /**
- * Primary metric to optimize for this task.
+ * Primary metrics for InstanceSegmentation tasks.
  */
 export type InstanceSegmentationPrimaryMetrics = (typeof InstanceSegmentationPrimaryMetrics)[keyof typeof InstanceSegmentationPrimaryMetrics];
 
@@ -1170,7 +1195,7 @@ export const JobTier = {
 } as const;
 
 /**
- * Controls the compute job tier
+ * Enum to determine the job tier.
  */
 export type JobTier = (typeof JobTier)[keyof typeof JobTier];
 
@@ -1203,7 +1228,7 @@ export const LearningRateScheduler = {
 } as const;
 
 /**
- * Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+ * Learning rate scheduler enum.
  */
 export type LearningRateScheduler = (typeof LearningRateScheduler)[keyof typeof LearningRateScheduler];
 
@@ -1254,7 +1279,7 @@ export const LogVerbosity = {
 } as const;
 
 /**
- * Log verbosity for the job.
+ * Enum for setting log verbosity.
  */
 export type LogVerbosity = (typeof LogVerbosity)[keyof typeof LogVerbosity];
 
@@ -1287,6 +1312,22 @@ export const ManagedNetworkStatus = {
  * Status for the managed network of a machine learning workspace.
  */
 export type ManagedNetworkStatus = (typeof ManagedNetworkStatus)[keyof typeof ManagedNetworkStatus];
+
+export const ManagedPERequirement = {
+    Required: "Required",
+    NotRequired: "NotRequired",
+    NotApplicable: "NotApplicable",
+} as const;
+
+export type ManagedPERequirement = (typeof ManagedPERequirement)[keyof typeof ManagedPERequirement];
+
+export const ManagedPEStatus = {
+    Inactive: "Inactive",
+    Active: "Active",
+    NotApplicable: "NotApplicable",
+} as const;
+
+export type ManagedPEStatus = (typeof ManagedPEStatus)[keyof typeof ManagedPEStatus];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -1346,9 +1387,7 @@ export const ModelSize = {
 } as const;
 
 /**
- * Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
- * Note: training run may get into CUDA OOM if the model size is too big.
- * Note: This settings is only supported for the 'yolov5' algorithm.
+ * Image model size.
  */
 export type ModelSize = (typeof ModelSize)[keyof typeof ModelSize];
 
@@ -1595,7 +1634,7 @@ export const ObjectDetectionPrimaryMetrics = {
 } as const;
 
 /**
- * Primary metric to optimize for this task.
+ * Primary metrics for Image ObjectDetection task.
  */
 export type ObjectDetectionPrimaryMetrics = (typeof ObjectDetectionPrimaryMetrics)[keyof typeof ObjectDetectionPrimaryMetrics];
 
@@ -1614,7 +1653,7 @@ export const OperatingSystemType = {
 } as const;
 
 /**
- * The OS type of the environment.
+ * The type of operating system.
  */
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
@@ -1635,22 +1674,9 @@ export const OutputDeliveryMode = {
 } as const;
 
 /**
- * Output Asset Delivery Mode.
+ * Output data delivery mode enums.
  */
 export type OutputDeliveryMode = (typeof OutputDeliveryMode)[keyof typeof OutputDeliveryMode];
-
-export const PrivateEndpointServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-    Timeout: "Timeout",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const Protocol = {
     Tcp: "tcp",
@@ -1663,23 +1689,13 @@ export const Protocol = {
  */
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
-export const PublicNetworkAccess = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Whether requests from Public Network are allowed.
- */
-export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
-
 export const PublicNetworkAccessType = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+ * Whether requests from Public Network are allowed.
  */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
@@ -1837,7 +1853,7 @@ export const RegressionPrimaryMetrics = {
 } as const;
 
 /**
- * Primary metric for regression task.
+ * Primary metrics for Regression task.
  */
 export type RegressionPrimaryMetrics = (typeof RegressionPrimaryMetrics)[keyof typeof RegressionPrimaryMetrics];
 
@@ -2009,6 +2025,8 @@ export type SecretsType = (typeof SecretsType)[keyof typeof SecretsType];
 
 export const ServerlessInferenceEndpointAuthMode = {
     Key: "Key",
+    AAD: "AAD",
+    KeyAndAAD: "KeyAndAAD",
 } as const;
 
 /**
@@ -2138,7 +2156,7 @@ export const StackMetaLearnerType = {
 } as const;
 
 /**
- * The meta-learner is a model trained on the output of the individual heterogeneous models.
+ * The meta-learner is a model trained on the output of the individual heterogeneous models.\r\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\r\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
  */
 export type StackMetaLearnerType = (typeof StackMetaLearnerType)[keyof typeof StackMetaLearnerType];
 
@@ -2162,7 +2180,7 @@ export const StochasticOptimizer = {
 } as const;
 
 /**
- * Type of optimizer.
+ * Stochastic optimizer for image models.
  */
 export type StochasticOptimizer = (typeof StochasticOptimizer)[keyof typeof StochasticOptimizer];
 
@@ -2189,8 +2207,7 @@ export const TargetAggregationFunction = {
 } as const;
 
 /**
- * The function to be used to aggregate the time series target column to conform to a user specified frequency.
- * If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+ * Target aggregate function.
  */
 export type TargetAggregationFunction = (typeof TargetAggregationFunction)[keyof typeof TargetAggregationFunction];
 
@@ -2298,7 +2315,7 @@ export const TriggerType = {
 } as const;
 
 /**
- * [Required] 
+ * [Required]
  */
 export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
@@ -2336,18 +2353,9 @@ export const ValidationMetricType = {
 } as const;
 
 /**
- * Metric computation method to use for validation metrics.
+ * Metric computation method to use for validation metrics in image tasks.
  */
 export type ValidationMetricType = (typeof ValidationMetricType)[keyof typeof ValidationMetricType];
-
-export const ValueFormat = {
-    JSON: "JSON",
-} as const;
-
-/**
- * format for the workspace connection value
- */
-export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
 
 export const VmPriority = {
     Dedicated: "Dedicated",

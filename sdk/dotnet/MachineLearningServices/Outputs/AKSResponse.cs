@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// AKS properties
         /// </summary>
-        public readonly Outputs.AKSSchemaResponseProperties? Properties;
+        public readonly Outputs.AKSSchemaPropertiesResponse? Properties;
         /// <summary>
         /// Errors during provisioning
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string modifiedOn,
 
-            Outputs.AKSSchemaResponseProperties? properties,
+            Outputs.AKSSchemaPropertiesResponse? properties,
 
             ImmutableArray<Outputs.ErrorResponseResponse> provisioningErrors,
 

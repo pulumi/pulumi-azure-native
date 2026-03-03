@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
         /// <summary>
-        /// A message indicating if changes on the service provider require any updates on the consumer.
+        /// Some RP chose "None". Other RPs use this for region expansion.
         /// </summary>
         public readonly string? ActionsRequired;
         /// <summary>
-        /// The reason for approval/rejection of the connection.
+        /// User-defined message that, per NRP doc, may be used for approval-related message.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        /// Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -&gt; Approved (Service provider approves the connection request)\r\nPending -&gt; Rejected (Service provider rejects the connection request)\r\nPending -&gt; Disconnected (Service provider deletes the connection)\r\nApproved -&gt; Rejected (Service provider rejects the approved connection)\r\nApproved -&gt; Disconnected (Service provider deletes the connection)\r\nRejected -&gt; Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -&gt; Disconnected (Service provider deletes the connection)
         /// </summary>
         public readonly string? Status;
 

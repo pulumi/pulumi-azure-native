@@ -13,6 +13,8 @@ from .entity import *
 from .get_authentication_setting import *
 from .get_discovery_rule import *
 from .get_entity import *
+from .get_entity_history import *
+from .get_entity_signal_history import *
 from .get_health_model import *
 from .get_relationship import *
 from .get_signal_definition import *

@@ -24,6 +24,7 @@ __all__ = [
     'ClusterDesiredPropertiesResponse',
     'ClusterNodeResponse',
     'ClusterReportedPropertiesResponse',
+    'CreationDataResponse',
     'DefaultExtensionDetailsResponse',
     'DeploymentClusterResponse',
     'DeploymentConfigurationResponse',
@@ -31,6 +32,8 @@ __all__ = [
     'DeploymentSecuritySettingsResponse',
     'DeploymentStepResponse',
     'DeviceConfigurationResponse',
+    'DeviceDetailResponse',
+    'DevicePoolPropertiesResponse',
     'DownloadOsJobPropertiesResponse',
     'DownloadOsProfileResponse',
     'DownloadRequestResponse',
@@ -68,6 +71,8 @@ __all__ = [
     'GuestCredentialResponse',
     'HardwareProfileResponse',
     'HciCollectLogJobPropertiesResponse',
+    'HciConfigureCvmJobPropertiesResponse',
+    'HciConfigureSdnIntegrationJobPropertiesResponse',
     'HciEdgeDeviceArcExtensionResponse',
     'HciEdgeDevicePropertiesResponse',
     'HciNetworkProfileResponse',
@@ -94,6 +99,7 @@ __all__ = [
     'IpAddressRangeResponse',
     'IpPoolsResponse',
     'IsolatedVmAttestationConfigurationResponse',
+    'JobReportedPropertiesResponse',
     'LoadBalancerBackendAddressPoolReferenceResponse',
     'LoadBalancerBackendAddressPropertiesResponse',
     'LoadBalancerBackendAddressResponse',
@@ -170,6 +176,9 @@ __all__ = [
     'SecurityComplianceStatusResponse',
     'ServiceConfigurationResponse',
     'SiteDetailsResponse',
+    'SnapshotPropertiesResponse',
+    'SnapshotStatusProvisioningStatusResponse',
+    'SnapshotStatusResponse',
     'SoftwareAssurancePropertiesResponse',
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
@@ -905,6 +914,73 @@ class ClusterReportedPropertiesResponse(dict):
         Level of diagnostic data emitted by the cluster.
         """
         return pulumi.get(self, "diagnostic_level")
+
+
+@pulumi.output_type
+class CreationDataResponse(dict):
+    """
+    Data used when creating a disk or snapshot
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "sourceUniqueId":
+            suggest = "source_unique_id"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreationDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreationDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_option: _builtins.str,
+                 source_unique_id: _builtins.str,
+                 source_resource_id: Optional[_builtins.str] = None):
+        """
+        Data used when creating a disk or snapshot
+
+        :param _builtins.str create_option: This enumerates the possible sources of a disk's creation
+        :param _builtins.str source_unique_id: Unique ID of the source resource used for disk creation. Read-only and not required for disk creation.
+        :param _builtins.str source_resource_id: ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "source_unique_id", source_unique_id)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> _builtins.str:
+        """
+        This enumerates the possible sources of a disk's creation
+        """
+        return pulumi.get(self, "create_option")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceUniqueId")
+    def source_unique_id(self) -> _builtins.str:
+        """
+        Unique ID of the source resource used for disk creation. Read-only and not required for disk creation.
+        """
+        return pulumi.get(self, "source_unique_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[_builtins.str]:
+        """
+        ARM ID of the source resource used for disk creation. Required when createOption is Copy
+        """
+        return pulumi.get(self, "source_resource_id")
 
 
 @pulumi.output_type
@@ -1681,6 +1757,179 @@ class DeviceConfigurationResponse(dict):
         NIC Details of device
         """
         return pulumi.get(self, "nic_details")
+
+
+@pulumi.output_type
+class DeviceDetailResponse(dict):
+    """
+    Device details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimedBy":
+            suggest = "claimed_by"
+        elif key == "deviceResourceId":
+            suggest = "device_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claimed_by: _builtins.str,
+                 device_resource_id: Optional[_builtins.str] = None):
+        """
+        Device details.
+
+        :param _builtins.str claimed_by: Resource Id of group device belongs to.
+        :param _builtins.str device_resource_id: Resource Id of the device.
+        """
+        pulumi.set(__self__, "claimed_by", claimed_by)
+        if device_resource_id is not None:
+            pulumi.set(__self__, "device_resource_id", device_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="claimedBy")
+    def claimed_by(self) -> _builtins.str:
+        """
+        Resource Id of group device belongs to.
+        """
+        return pulumi.get(self, "claimed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceResourceId")
+    def device_resource_id(self) -> Optional[_builtins.str]:
+        """
+        Resource Id of the device.
+        """
+        return pulumi.get(self, "device_resource_id")
+
+
+@pulumi.output_type
+class DevicePoolPropertiesResponse(dict):
+    """
+    Properties for device pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudId":
+            suggest = "cloud_id"
+        elif key == "customLocationResourceId":
+            suggest = "custom_location_resource_id"
+        elif key == "operationDetails":
+            suggest = "operation_details"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "customLocationName":
+            suggest = "custom_location_name"
+        elif key == "managedResourceGroup":
+            suggest = "managed_resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevicePoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevicePoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevicePoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_id: _builtins.str,
+                 custom_location_resource_id: _builtins.str,
+                 operation_details: Sequence['outputs.OperationDetailResponse'],
+                 provisioning_state: _builtins.str,
+                 custom_location_name: Optional[_builtins.str] = None,
+                 devices: Optional[Sequence['outputs.DeviceDetailResponse']] = None,
+                 managed_resource_group: Optional[_builtins.str] = None):
+        """
+        Properties for device pool.
+
+        :param _builtins.str cloud_id: Unique, immutable resource id.
+        :param _builtins.str custom_location_resource_id: Custom Location Resource Id for the pool
+        :param Sequence['OperationDetailResponse'] operation_details: operation status details for device pool.
+        :param _builtins.str provisioning_state: The provisioning state of a resource.
+        :param _builtins.str custom_location_name: Custom Location Name for the pool, default: <DevicePoolName>-CL
+        :param Sequence['DeviceDetailResponse'] devices: List of machines in device pool.
+        :param _builtins.str managed_resource_group: Managed resource group name for the pool
+        """
+        pulumi.set(__self__, "cloud_id", cloud_id)
+        pulumi.set(__self__, "custom_location_resource_id", custom_location_resource_id)
+        pulumi.set(__self__, "operation_details", operation_details)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if custom_location_name is not None:
+            pulumi.set(__self__, "custom_location_name", custom_location_name)
+        if devices is not None:
+            pulumi.set(__self__, "devices", devices)
+        if managed_resource_group is not None:
+            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> _builtins.str:
+        """
+        Unique, immutable resource id.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customLocationResourceId")
+    def custom_location_resource_id(self) -> _builtins.str:
+        """
+        Custom Location Resource Id for the pool
+        """
+        return pulumi.get(self, "custom_location_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="operationDetails")
+    def operation_details(self) -> Sequence['outputs.OperationDetailResponse']:
+        """
+        operation status details for device pool.
+        """
+        return pulumi.get(self, "operation_details")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of a resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="customLocationName")
+    def custom_location_name(self) -> Optional[_builtins.str]:
+        """
+        Custom Location Name for the pool, default: <DevicePoolName>-CL
+        """
+        return pulumi.get(self, "custom_location_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def devices(self) -> Optional[Sequence['outputs.DeviceDetailResponse']]:
+        """
+        List of machines in device pool.
+        """
+        return pulumi.get(self, "devices")
+
+    @_builtins.property
+    @pulumi.getter(name="managedResourceGroup")
+    def managed_resource_group(self) -> Optional[_builtins.str]:
+        """
+        Managed resource group name for the pool
+        """
+        return pulumi.get(self, "managed_resource_group")
 
 
 @pulumi.output_type
@@ -4899,6 +5148,314 @@ class HciCollectLogJobPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class HciConfigureCvmJobPropertiesResponse(dict):
+    """
+    Defines the customer's intent for updating confidential VM properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidentialVmIntent":
+            suggest = "confidential_vm_intent"
+        elif key == "endTimeUtc":
+            suggest = "end_time_utc"
+        elif key == "jobId":
+            suggest = "job_id"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "reportedProperties":
+            suggest = "reported_properties"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "deploymentMode":
+            suggest = "deployment_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HciConfigureCvmJobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HciConfigureCvmJobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HciConfigureCvmJobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidential_vm_intent: _builtins.str,
+                 end_time_utc: _builtins.str,
+                 job_id: _builtins.str,
+                 job_type: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 reported_properties: 'outputs.JobReportedPropertiesResponse',
+                 start_time_utc: _builtins.str,
+                 status: _builtins.str,
+                 deployment_mode: Optional[_builtins.str] = None):
+        """
+        Defines the customer's intent for updating confidential VM properties
+
+        :param _builtins.str confidential_vm_intent: Defines the customer's intent for updating confidential VM properties
+        :param _builtins.str end_time_utc: The UTC date and time at which the job completed.
+        :param _builtins.str job_id: Unique, immutable job id.
+        :param _builtins.str job_type: ClusterJob Type supported.
+               Expected value is 'ConfigureCVM'.
+        :param _builtins.str provisioning_state: Job provisioning state
+        :param 'JobReportedPropertiesResponse' reported_properties: Reported properties for job
+        :param _builtins.str start_time_utc: The UTC date and time at which the job started.
+        :param _builtins.str status: Status of Cluster job.
+        :param _builtins.str deployment_mode: Deployment mode to trigger job.
+        """
+        pulumi.set(__self__, "confidential_vm_intent", confidential_vm_intent)
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "job_type", 'ConfigureCVM')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "reported_properties", reported_properties)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "status", status)
+        if deployment_mode is None:
+            deployment_mode = 'Deploy'
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="confidentialVmIntent")
+    def confidential_vm_intent(self) -> _builtins.str:
+        """
+        Defines the customer's intent for updating confidential VM properties
+        """
+        return pulumi.get(self, "confidential_vm_intent")
+
+    @_builtins.property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> _builtins.str:
+        """
+        The UTC date and time at which the job completed.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @_builtins.property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> _builtins.str:
+        """
+        Unique, immutable job id.
+        """
+        return pulumi.get(self, "job_id")
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> _builtins.str:
+        """
+        ClusterJob Type supported.
+        Expected value is 'ConfigureCVM'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Job provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="reportedProperties")
+    def reported_properties(self) -> 'outputs.JobReportedPropertiesResponse':
+        """
+        Reported properties for job
+        """
+        return pulumi.get(self, "reported_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> _builtins.str:
+        """
+        The UTC date and time at which the job started.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of Cluster job.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[_builtins.str]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+
+@pulumi.output_type
+class HciConfigureSdnIntegrationJobPropertiesResponse(dict):
+    """
+    Properties for configuring SDN integration intent for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTimeUtc":
+            suggest = "end_time_utc"
+        elif key == "jobId":
+            suggest = "job_id"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "reportedProperties":
+            suggest = "reported_properties"
+        elif key == "sdnIntegrationIntent":
+            suggest = "sdn_integration_intent"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "deploymentMode":
+            suggest = "deployment_mode"
+        elif key == "sdnPrefix":
+            suggest = "sdn_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HciConfigureSdnIntegrationJobPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HciConfigureSdnIntegrationJobPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HciConfigureSdnIntegrationJobPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time_utc: _builtins.str,
+                 job_id: _builtins.str,
+                 job_type: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 reported_properties: 'outputs.JobReportedPropertiesResponse',
+                 sdn_integration_intent: _builtins.str,
+                 start_time_utc: _builtins.str,
+                 status: _builtins.str,
+                 deployment_mode: Optional[_builtins.str] = None,
+                 sdn_prefix: Optional[_builtins.str] = None):
+        """
+        Properties for configuring SDN integration intent for the cluster.
+
+        :param _builtins.str end_time_utc: The UTC date and time at which the job completed.
+        :param _builtins.str job_id: Unique, immutable job id.
+        :param _builtins.str job_type: ClusterJob Type supported.
+               Expected value is 'ConfigureSdnIntegration'.
+        :param _builtins.str provisioning_state: Job provisioning state
+        :param 'JobReportedPropertiesResponse' reported_properties: Reported properties for job
+        :param _builtins.str sdn_integration_intent: Defines the customer's intent for configuring SDN integration
+        :param _builtins.str start_time_utc: The UTC date and time at which the job started.
+        :param _builtins.str status: Status of Cluster job.
+        :param _builtins.str deployment_mode: Deployment mode to trigger job.
+        :param _builtins.str sdn_prefix: A string identifier used to construct the Network Controller (NC) REST resource name. This prefix helps group and distinguish SDN-managed network components and must follow specific formatting rules.
+        """
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "job_type", 'ConfigureSdnIntegration')
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "reported_properties", reported_properties)
+        pulumi.set(__self__, "sdn_integration_intent", sdn_integration_intent)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "status", status)
+        if deployment_mode is None:
+            deployment_mode = 'Deploy'
+        if deployment_mode is not None:
+            pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if sdn_prefix is not None:
+            pulumi.set(__self__, "sdn_prefix", sdn_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="endTimeUtc")
+    def end_time_utc(self) -> _builtins.str:
+        """
+        The UTC date and time at which the job completed.
+        """
+        return pulumi.get(self, "end_time_utc")
+
+    @_builtins.property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> _builtins.str:
+        """
+        Unique, immutable job id.
+        """
+        return pulumi.get(self, "job_id")
+
+    @_builtins.property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> _builtins.str:
+        """
+        ClusterJob Type supported.
+        Expected value is 'ConfigureSdnIntegration'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Job provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="reportedProperties")
+    def reported_properties(self) -> 'outputs.JobReportedPropertiesResponse':
+        """
+        Reported properties for job
+        """
+        return pulumi.get(self, "reported_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="sdnIntegrationIntent")
+    def sdn_integration_intent(self) -> _builtins.str:
+        """
+        Defines the customer's intent for configuring SDN integration
+        """
+        return pulumi.get(self, "sdn_integration_intent")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> _builtins.str:
+        """
+        The UTC date and time at which the job started.
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of Cluster job.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentMode")
+    def deployment_mode(self) -> Optional[_builtins.str]:
+        """
+        Deployment mode to trigger job.
+        """
+        return pulumi.get(self, "deployment_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="sdnPrefix")
+    def sdn_prefix(self) -> Optional[_builtins.str]:
+        """
+        A string identifier used to construct the Network Controller (NC) REST resource name. This prefix helps group and distinguish SDN-managed network components and must follow specific formatting rules.
+        """
+        return pulumi.get(self, "sdn_prefix")
+
+
+@pulumi.output_type
 class HciEdgeDeviceArcExtensionResponse(dict):
     """
     Arc extension installed on edge device.
@@ -7022,6 +7579,72 @@ class IsolatedVmAttestationConfigurationResponse(dict):
         Region specific endpoint for relying party service.
         """
         return pulumi.get(self, "relying_party_service_endpoint")
+
+
+@pulumi.output_type
+class JobReportedPropertiesResponse(dict):
+    """
+    Reported Properties for job triggered from cloud.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "percentComplete":
+            suggest = "percent_complete"
+        elif key == "validationStatus":
+            suggest = "validation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobReportedPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobReportedPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_status: 'outputs.EceActionStatusResponse',
+                 percent_complete: _builtins.int,
+                 validation_status: 'outputs.EceActionStatusResponse'):
+        """
+        Reported Properties for job triggered from cloud.
+
+        :param 'EceActionStatusResponse' deployment_status: Deployment status of job.
+        :param _builtins.int percent_complete: The percentage of the job that is complete.
+        :param 'EceActionStatusResponse' validation_status: Validation status of job.
+        """
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "percent_complete", percent_complete)
+        pulumi.set(__self__, "validation_status", validation_status)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> 'outputs.EceActionStatusResponse':
+        """
+        Deployment status of job.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @_builtins.property
+    @pulumi.getter(name="percentComplete")
+    def percent_complete(self) -> _builtins.int:
+        """
+        The percentage of the job that is complete.
+        """
+        return pulumi.get(self, "percent_complete")
+
+    @_builtins.property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> 'outputs.EceActionStatusResponse':
+        """
+        Validation status of job.
+        """
+        return pulumi.get(self, "validation_status")
 
 
 @pulumi.output_type
@@ -12534,6 +13157,231 @@ class SiteDetailsResponse(dict):
         Edge Device configuration received from site common configuration.
         """
         return pulumi.get(self, "device_configuration")
+
+
+@pulumi.output_type
+class SnapshotPropertiesResponse(dict):
+    """
+    Properties under the snapshot resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeBytes":
+            suggest = "disk_size_bytes"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "timeCreated":
+            suggest = "time_created"
+        elif key == "uniqueId":
+            suggest = "unique_id"
+        elif key == "creationData":
+            suggest = "creation_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_size_bytes: _builtins.float,
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.SnapshotStatusResponse',
+                 time_created: _builtins.str,
+                 unique_id: _builtins.str,
+                 creation_data: Optional['outputs.CreationDataResponse'] = None):
+        """
+        Properties under the snapshot resource
+
+        :param _builtins.float disk_size_bytes: The size of the disk in bytes.
+        :param _builtins.str provisioning_state: Provisioning state of the snapshot.
+        :param 'SnapshotStatusResponse' status: The observed state of snapshots
+        :param _builtins.str time_created: The time when the snapshot was created.
+        :param _builtins.str unique_id: Unique identifier for the snapshot.
+        :param 'CreationDataResponse' creation_data: Data used when creating a snapshot
+        """
+        pulumi.set(__self__, "disk_size_bytes", disk_size_bytes)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time_created", time_created)
+        pulumi.set(__self__, "unique_id", unique_id)
+        if creation_data is not None:
+            pulumi.set(__self__, "creation_data", creation_data)
+
+    @_builtins.property
+    @pulumi.getter(name="diskSizeBytes")
+    def disk_size_bytes(self) -> _builtins.float:
+        """
+        The size of the disk in bytes.
+        """
+        return pulumi.get(self, "disk_size_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the snapshot.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.SnapshotStatusResponse':
+        """
+        The observed state of snapshots
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> _builtins.str:
+        """
+        The time when the snapshot was created.
+        """
+        return pulumi.get(self, "time_created")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueId")
+    def unique_id(self) -> _builtins.str:
+        """
+        Unique identifier for the snapshot.
+        """
+        return pulumi.get(self, "unique_id")
+
+    @_builtins.property
+    @pulumi.getter(name="creationData")
+    def creation_data(self) -> Optional['outputs.CreationDataResponse']:
+        """
+        Data used when creating a snapshot
+        """
+        return pulumi.get(self, "creation_data")
+
+
+@pulumi.output_type
+class SnapshotStatusProvisioningStatusResponse(dict):
+    """
+    Snapshot Status provisioning status
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotStatusProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotStatusProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotStatusProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 operation_id: Optional[_builtins.str] = None):
+        """
+        Snapshot Status provisioning status
+
+        :param _builtins.str status: The status of the operation performed on the snapshot [Succeeded, Failed, InProgress]
+        :param _builtins.str operation_id: The ID of the operation performed on the snapshot
+        """
+        pulumi.set(__self__, "status", status)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the operation performed on the snapshot [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the operation performed on the snapshot
+        """
+        return pulumi.get(self, "operation_id")
+
+
+@pulumi.output_type
+class SnapshotStatusResponse(dict):
+    """
+    The observed state of snapshots
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[_builtins.str] = None,
+                 error_message: Optional[_builtins.str] = None,
+                 provisioning_status: Optional['outputs.SnapshotStatusProvisioningStatusResponse'] = None):
+        """
+        The observed state of snapshots
+
+        :param _builtins.str error_code: Snapshot provisioning error code
+        :param _builtins.str error_message: Descriptive error message
+        :param 'SnapshotStatusProvisioningStatusResponse' provisioning_status: Provisioning status of the snapshot
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[_builtins.str]:
+        """
+        Snapshot provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.SnapshotStatusProvisioningStatusResponse']:
+        """
+        Provisioning status of the snapshot
+        """
+        return pulumi.get(self, "provisioning_status")
 
 
 @pulumi.output_type

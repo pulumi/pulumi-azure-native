@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Purview.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the Sku.
+    /// The Sku
     /// </summary>
     public sealed class AccountSkuArgs : global::Pulumi.ResourceArgs
     {

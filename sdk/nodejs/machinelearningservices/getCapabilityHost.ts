@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure Resource Manager resource envelope.
+ * Get capabilityHost.
  *
- * Uses Azure REST API version 2025-09-01.
+ * Uses Azure REST API version 2025-12-01.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCapabilityHost(args: GetCapabilityHostArgs, opts?: pulumi.InvokeOptions): Promise<GetCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +33,7 @@ export interface GetCapabilityHostArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: string;
 }
@@ -47,10 +47,6 @@ export interface GetCapabilityHostResult {
      */
     readonly azureApiVersion: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly capabilityHostProperties: outputs.machinelearningservices.CapabilityHostResponse;
-    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -58,6 +54,10 @@ export interface GetCapabilityHostResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly properties: outputs.machinelearningservices.CapabilityHostPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -68,11 +68,11 @@ export interface GetCapabilityHostResult {
     readonly type: string;
 }
 /**
- * Azure Resource Manager resource envelope.
+ * Get capabilityHost.
  *
- * Uses Azure REST API version 2025-09-01.
+ * Uses Azure REST API version 2025-12-01.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getCapabilityHostOutput(args: GetCapabilityHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetCapabilityHostOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

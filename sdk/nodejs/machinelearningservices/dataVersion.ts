@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DataVersion extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class DataVersion extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly dataVersionBaseProperties: pulumi.Output<outputs.machinelearningservices.MLTableDataResponse | outputs.machinelearningservices.UriFileDataVersionResponse | outputs.machinelearningservices.UriFolderDataVersionResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.MLTableDataResponse | outputs.machinelearningservices.UriFileDataVersionResponse | outputs.machinelearningservices.UriFolderDataVersionResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,11 +73,11 @@ export class DataVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataVersionBaseProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataVersionBaseProperties'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -85,8 +85,8 @@ export class DataVersion extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["dataVersionBaseProperties"] = args?.dataVersionBaseProperties;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["version"] = args?.version;
             resourceInputs["workspaceName"] = args?.workspaceName;
@@ -95,13 +95,13 @@ export class DataVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["dataVersionBaseProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220501:DataVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20231001:DataVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20240401:DataVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20241001:DataVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250101preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250401:DataVersion" }, { type: "azure-native:machinelearningservices/v20250401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250601:DataVersion" }, { type: "azure-native:machinelearningservices/v20250701preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250901:DataVersion" }, { type: "azure-native:machinelearningservices/v20251001preview:DataVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220501:DataVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20231001:DataVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20240401:DataVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20241001:DataVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250101preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250401:DataVersion" }, { type: "azure-native:machinelearningservices/v20250401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250601:DataVersion" }, { type: "azure-native:machinelearningservices/v20250701preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20250901:DataVersion" }, { type: "azure-native:machinelearningservices/v20251001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20251201:DataVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -112,13 +112,13 @@ export class DataVersion extends pulumi.CustomResource {
  */
 export interface DataVersionArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    dataVersionBaseProperties: pulumi.Input<inputs.machinelearningservices.MLTableDataArgs | inputs.machinelearningservices.UriFileDataVersionArgs | inputs.machinelearningservices.UriFolderDataVersionArgs>;
-    /**
      * Container name.
      */
     name: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.MLTableDataArgs | inputs.machinelearningservices.UriFileDataVersionArgs | inputs.machinelearningservices.UriFolderDataVersionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,7 +29,7 @@ export interface GetSitesBySubscriptionArgs {
 }
 
 /**
- * Site as ARM Resource
+ * Site as Extension Resource
  */
 export interface GetSitesBySubscriptionResult {
     /**

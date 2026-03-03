@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly int? CvStepSize;
         /// <summary>
-        /// Flag for generating lags for the numeric features with 'auto' or null.
+        /// Flag for generating lags for the numeric features.
         /// </summary>
         public readonly string? FeatureLags;
         /// <summary>
@@ -49,8 +49,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? ShortSeriesHandlingConfig;
         /// <summary>
-        /// The function to be used to aggregate the time series target column to conform to a user specified frequency.
-        /// If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+        /// Target aggregate function.
         /// </summary>
         public readonly string? TargetAggregateFunction;
         /// <summary>

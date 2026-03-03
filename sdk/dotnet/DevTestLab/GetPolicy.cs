@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Schedule
+        /// The name of the Policy
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Schedule
+        /// The name of the Policy
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? FactName;
         /// <summary>
-        /// The identifier of the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -162,6 +162,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? Status;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -170,7 +174,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? Threshold;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -202,6 +206,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             string? status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? threshold,
@@ -221,6 +227,7 @@ namespace Pulumi.AzureNative.DevTestLab
             Name = name;
             ProvisioningState = provisioningState;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Threshold = threshold;
             Type = type;

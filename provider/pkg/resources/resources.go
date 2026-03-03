@@ -602,7 +602,8 @@ func handleResourceNameSpecialCases(resourceName, operationID, path string, majo
 
 	// ServiceFabric introduced managed clusters in a new folder 'servicefabricmanagedclusters' but
 	// in the same Microsoft.ServiceFabric namespace. We need to disambiguate some resource names.
-	if strings.Contains(path, "ServiceFabric/managedclusters") &&
+	// Note: older specs use lowercase 'managedclusters', newer TypeSpec-generated specs use 'managedClusters'.
+	if strings.Contains(lowerPath, "servicefabric/managedclusters") &&
 		(resourceName == "Application" ||
 			resourceName == "ApplicationType" ||
 			resourceName == "ApplicationTypeVersion" ||

@@ -24,28 +24,52 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryResult:
-    def __init__(__self__, azure_api_version=None, id=None, identity=None, kind=None, location=None, name=None, registry_properties=None, sku=None, system_data=None, tags=None, type=None):
+    """
+    Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    """
+    def __init__(__self__, azure_api_version=None, discovery_url=None, id=None, identity=None, intellectual_property_publisher=None, kind=None, location=None, managed_resource_group=None, managed_resource_group_settings=None, ml_flow_registry_uri=None, name=None, public_network_access=None, region_details=None, registry_private_endpoint_connections=None, sku=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if discovery_url and not isinstance(discovery_url, str):
+            raise TypeError("Expected argument 'discovery_url' to be a str")
+        pulumi.set(__self__, "discovery_url", discovery_url)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if intellectual_property_publisher and not isinstance(intellectual_property_publisher, str):
+            raise TypeError("Expected argument 'intellectual_property_publisher' to be a str")
+        pulumi.set(__self__, "intellectual_property_publisher", intellectual_property_publisher)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_resource_group and not isinstance(managed_resource_group, dict):
+            raise TypeError("Expected argument 'managed_resource_group' to be a dict")
+        pulumi.set(__self__, "managed_resource_group", managed_resource_group)
+        if managed_resource_group_settings and not isinstance(managed_resource_group_settings, dict):
+            raise TypeError("Expected argument 'managed_resource_group_settings' to be a dict")
+        pulumi.set(__self__, "managed_resource_group_settings", managed_resource_group_settings)
+        if ml_flow_registry_uri and not isinstance(ml_flow_registry_uri, str):
+            raise TypeError("Expected argument 'ml_flow_registry_uri' to be a str")
+        pulumi.set(__self__, "ml_flow_registry_uri", ml_flow_registry_uri)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if registry_properties and not isinstance(registry_properties, dict):
-            raise TypeError("Expected argument 'registry_properties' to be a dict")
-        pulumi.set(__self__, "registry_properties", registry_properties)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
+        if region_details and not isinstance(region_details, list):
+            raise TypeError("Expected argument 'region_details' to be a list")
+        pulumi.set(__self__, "region_details", region_details)
+        if registry_private_endpoint_connections and not isinstance(registry_private_endpoint_connections, list):
+            raise TypeError("Expected argument 'registry_private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -68,6 +92,14 @@ class GetRegistryResult:
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> Optional[_builtins.str]:
+        """
+        Discovery URL for the Registry
+        """
+        return pulumi.get(self, "discovery_url")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -82,6 +114,14 @@ class GetRegistryResult:
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="intellectualPropertyPublisher")
+    def intellectual_property_publisher(self) -> Optional[_builtins.str]:
+        """
+        IntellectualPropertyPublisher for the registry
+        """
+        return pulumi.get(self, "intellectual_property_publisher")
 
     @_builtins.property
     @pulumi.getter
@@ -100,6 +140,30 @@ class GetRegistryResult:
         return pulumi.get(self, "location")
 
     @_builtins.property
+    @pulumi.getter(name="managedResourceGroup")
+    def managed_resource_group(self) -> Optional['outputs.ArmResourceIdResponse']:
+        """
+        ResourceId of the managed RG if the registry has system created resources
+        """
+        return pulumi.get(self, "managed_resource_group")
+
+    @_builtins.property
+    @pulumi.getter(name="managedResourceGroupSettings")
+    def managed_resource_group_settings(self) -> Optional['outputs.ManagedResourceGroupSettingsResponse']:
+        """
+        Managed resource group specific settings
+        """
+        return pulumi.get(self, "managed_resource_group_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="mlFlowRegistryUri")
+    def ml_flow_registry_uri(self) -> Optional[_builtins.str]:
+        """
+        MLFlow Registry URI for the Registry
+        """
+        return pulumi.get(self, "ml_flow_registry_uri")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
@@ -108,12 +172,29 @@ class GetRegistryResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="registryProperties")
-    def registry_properties(self) -> 'outputs.RegistryResponse':
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[_builtins.str]:
         """
-        [Required] Additional attributes of the entity.
+        Is the Registry accessible from the internet?
+        Possible values: "Enabled" or "Disabled"
         """
-        return pulumi.get(self, "registry_properties")
+        return pulumi.get(self, "public_network_access")
+
+    @_builtins.property
+    @pulumi.getter(name="regionDetails")
+    def region_details(self) -> Optional[Sequence['outputs.RegistryRegionArmDetailsResponse']]:
+        """
+        Details of each region the registry is in
+        """
+        return pulumi.get(self, "region_details")
+
+    @_builtins.property
+    @pulumi.getter(name="registryPrivateEndpointConnections")
+    def registry_private_endpoint_connections(self) -> Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections info used for pending connections in private link portal
+        """
+        return pulumi.get(self, "registry_private_endpoint_connections")
 
     @_builtins.property
     @pulumi.getter
@@ -155,12 +236,19 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             yield self
         return GetRegistryResult(
             azure_api_version=self.azure_api_version,
+            discovery_url=self.discovery_url,
             id=self.id,
             identity=self.identity,
+            intellectual_property_publisher=self.intellectual_property_publisher,
             kind=self.kind,
             location=self.location,
+            managed_resource_group=self.managed_resource_group,
+            managed_resource_group_settings=self.managed_resource_group_settings,
+            ml_flow_registry_uri=self.ml_flow_registry_uri,
             name=self.name,
-            registry_properties=self.registry_properties,
+            public_network_access=self.public_network_access,
+            region_details=self.region_details,
+            registry_private_endpoint_connections=self.registry_private_endpoint_connections,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -171,9 +259,11 @@ def get_registry(registry_name: Optional[_builtins.str] = None,
                  resource_group_name: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
     """
-    Uses Azure REST API version 2025-09-01.
+    Get registry
 
-    Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str registry_name: Name of Azure Machine Learning registry. This is case-insensitive
@@ -187,12 +277,19 @@ def get_registry(registry_name: Optional[_builtins.str] = None,
 
     return AwaitableGetRegistryResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        discovery_url=pulumi.get(__ret__, 'discovery_url'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        intellectual_property_publisher=pulumi.get(__ret__, 'intellectual_property_publisher'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        managed_resource_group=pulumi.get(__ret__, 'managed_resource_group'),
+        managed_resource_group_settings=pulumi.get(__ret__, 'managed_resource_group_settings'),
+        ml_flow_registry_uri=pulumi.get(__ret__, 'ml_flow_registry_uri'),
         name=pulumi.get(__ret__, 'name'),
-        registry_properties=pulumi.get(__ret__, 'registry_properties'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        region_details=pulumi.get(__ret__, 'region_details'),
+        registry_private_endpoint_connections=pulumi.get(__ret__, 'registry_private_endpoint_connections'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -201,9 +298,11 @@ def get_registry_output(registry_name: Optional[pulumi.Input[_builtins.str]] = N
                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryResult]:
     """
-    Uses Azure REST API version 2025-09-01.
+    Get registry
 
-    Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Uses Azure REST API version 2025-12-01.
+
+    Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str registry_name: Name of Azure Machine Learning registry. This is case-insensitive
@@ -216,12 +315,19 @@ def get_registry_output(registry_name: Optional[pulumi.Input[_builtins.str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
     return __ret__.apply(lambda __response__: GetRegistryResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        discovery_url=pulumi.get(__response__, 'discovery_url'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        intellectual_property_publisher=pulumi.get(__response__, 'intellectual_property_publisher'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
+        managed_resource_group=pulumi.get(__response__, 'managed_resource_group'),
+        managed_resource_group_settings=pulumi.get(__response__, 'managed_resource_group_settings'),
+        ml_flow_registry_uri=pulumi.get(__response__, 'ml_flow_registry_uri'),
         name=pulumi.get(__response__, 'name'),
-        registry_properties=pulumi.get(__response__, 'registry_properties'),
+        public_network_access=pulumi.get(__response__, 'public_network_access'),
+        region_details=pulumi.get(__response__, 'region_details'),
+        registry_private_endpoint_connections=pulumi.get(__response__, 'registry_private_endpoint_connections'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

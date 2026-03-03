@@ -14,23 +14,23 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class SharedPrivateLinkResourceResponse
     {
         /// <summary>
-        /// The private link resource group id.
+        /// group id of the private link
         /// </summary>
         public readonly string? GroupId;
         /// <summary>
-        /// Unique name of the private link.
+        /// Unique name of the private link
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The resource id that private link links to.
+        /// the resource id that private link links to
         /// </summary>
         public readonly string? PrivateLinkResourceId;
         /// <summary>
-        /// Request message.
+        /// Request message
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        /// Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -&gt; Approved (Service provider approves the connection request)\r\nPending -&gt; Rejected (Service provider rejects the connection request)\r\nPending -&gt; Disconnected (Service provider deletes the connection)\r\nApproved -&gt; Rejected (Service provider rejects the approved connection)\r\nApproved -&gt; Disconnected (Service provider deletes the connection)\r\nRejected -&gt; Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -&gt; Disconnected (Service provider deletes the connection)
         /// </summary>
         public readonly string? Status;
 
