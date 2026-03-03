@@ -200,6 +200,11 @@ export const listPolicySetDefinitionVersionAllBuiltins: typeof import("./listPol
 export const listPolicySetDefinitionVersionAllBuiltinsOutput: typeof import("./listPolicySetDefinitionVersionAllBuiltins").listPolicySetDefinitionVersionAllBuiltinsOutput = null as any;
 utilities.lazyLoad(exports, ["listPolicySetDefinitionVersionAllBuiltins","listPolicySetDefinitionVersionAllBuiltinsOutput"], () => require("./listPolicySetDefinitionVersionAllBuiltins"));
 
+export { ListSubscriptionsArgs, ListSubscriptionsResult, ListSubscriptionsOutputArgs } from "./listSubscriptions";
+export const listSubscriptions: typeof import("./listSubscriptions").listSubscriptions = null as any;
+export const listSubscriptionsOutput: typeof import("./listSubscriptions").listSubscriptionsOutput = null as any;
+utilities.lazyLoad(exports, ["listSubscriptions","listSubscriptionsOutput"], () => require("./listSubscriptions"));
+
 export { ManagementLockAtResourceGroupLevelArgs } from "./managementLockAtResourceGroupLevel";
 export type ManagementLockAtResourceGroupLevel = import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel;
 export const ManagementLockAtResourceGroupLevel: typeof import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel = null as any;

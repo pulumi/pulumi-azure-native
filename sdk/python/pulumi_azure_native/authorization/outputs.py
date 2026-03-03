@@ -30,6 +30,7 @@ __all__ = [
     'ExpandedPropertiesResponseScope',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
+    'ManagedByTenantResponse',
     'ManagementLockOwnerResponse',
     'NonComplianceMessageResponse',
     'OverrideResponse',
@@ -65,6 +66,8 @@ __all__ = [
     'RoleManagementPolicyPimOnlyModeRuleResponse',
     'RoleManagementPolicyRuleTargetResponse',
     'SelectorResponse',
+    'SubscriptionPoliciesResponse',
+    'SubscriptionResponse',
     'SystemDataResponse',
     'UserSetResponse',
     'UsersOrServicePrincipalSetResponse',
@@ -1277,6 +1280,30 @@ class IdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class ManagedByTenantResponse(dict):
+    """
+    Information about a tenant managing the subscription.
+    """
+    def __init__(__self__, *,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        Information about a tenant managing the subscription.
+
+        :param _builtins.str tenant_id: The tenant ID of the managing tenant.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The tenant ID of the managing tenant.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -3888,6 +3915,174 @@ class SelectorResponse(dict):
         The list of values to filter out.
         """
         return pulumi.get(self, "not_in")
+
+
+@pulumi.output_type
+class SubscriptionPoliciesResponse(dict):
+    """
+    Subscription policies.
+    """
+    def __init__(__self__, *,
+                 location_placement_id: Optional[_builtins.str] = None,
+                 quota_id: Optional[_builtins.str] = None,
+                 spending_limit: Optional[_builtins.str] = None):
+        """
+        Subscription policies.
+
+        :param _builtins.str location_placement_id: The subscription location placement ID.
+        :param _builtins.str quota_id: The subscription quota ID.
+        :param _builtins.str spending_limit: The subscription spending limit.
+        """
+        if location_placement_id is not None:
+            pulumi.set(__self__, "location_placement_id", location_placement_id)
+        if quota_id is not None:
+            pulumi.set(__self__, "quota_id", quota_id)
+        if spending_limit is not None:
+            pulumi.set(__self__, "spending_limit", spending_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="locationPlacementId")
+    def location_placement_id(self) -> Optional[_builtins.str]:
+        """
+        The subscription location placement ID.
+        """
+        return pulumi.get(self, "location_placement_id")
+
+    @_builtins.property
+    @pulumi.getter(name="quotaId")
+    def quota_id(self) -> Optional[_builtins.str]:
+        """
+        The subscription quota ID.
+        """
+        return pulumi.get(self, "quota_id")
+
+    @_builtins.property
+    @pulumi.getter(name="spendingLimit")
+    def spending_limit(self) -> Optional[_builtins.str]:
+        """
+        The subscription spending limit.
+        """
+        return pulumi.get(self, "spending_limit")
+
+
+@pulumi.output_type
+class SubscriptionResponse(dict):
+    """
+    Subscription information.
+    """
+    def __init__(__self__, *,
+                 authorization_source: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 managed_by_tenants: Optional[Sequence['outputs.ManagedByTenantResponse']] = None,
+                 state: Optional[_builtins.str] = None,
+                 subscription_id: Optional[_builtins.str] = None,
+                 subscription_policies: Optional['outputs.SubscriptionPoliciesResponse'] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        Subscription information.
+
+        :param _builtins.str authorization_source: The authorization source of the request.
+        :param _builtins.str display_name: The subscription display name.
+        :param _builtins.str id: The fully qualified ID for the subscription.
+        :param Sequence['ManagedByTenantResponse'] managed_by_tenants: An array containing the tenants managing the subscription.
+        :param _builtins.str state: The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
+        :param _builtins.str subscription_id: The subscription ID.
+        :param 'SubscriptionPoliciesResponse' subscription_policies: The subscription policies.
+        :param Mapping[str, _builtins.str] tags: The tags attached to the subscription.
+        :param _builtins.str tenant_id: The subscription tenant ID.
+        """
+        if authorization_source is not None:
+            pulumi.set(__self__, "authorization_source", authorization_source)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if managed_by_tenants is not None:
+            pulumi.set(__self__, "managed_by_tenants", managed_by_tenants)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if subscription_policies is not None:
+            pulumi.set(__self__, "subscription_policies", subscription_policies)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationSource")
+    def authorization_source(self) -> Optional[_builtins.str]:
+        """
+        The authorization source of the request.
+        """
+        return pulumi.get(self, "authorization_source")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The subscription display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified ID for the subscription.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="managedByTenants")
+    def managed_by_tenants(self) -> Optional[Sequence['outputs.ManagedByTenantResponse']]:
+        """
+        An array containing the tenants managing the subscription.
+        """
+        return pulumi.get(self, "managed_by_tenants")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        """
+        The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[_builtins.str]:
+        """
+        The subscription ID.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionPolicies")
+    def subscription_policies(self) -> Optional['outputs.SubscriptionPoliciesResponse']:
+        """
+        The subscription policies.
+        """
+        return pulumi.get(self, "subscription_policies")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags attached to the subscription.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The subscription tenant ID.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
