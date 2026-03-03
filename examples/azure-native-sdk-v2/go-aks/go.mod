@@ -5,9 +5,9 @@ go 1.24.7
 toolchain go1.24.13
 
 require (
-	github.com/pulumi/pulumi-azuread/sdk/v5 v5.53.7
+	github.com/pulumi/pulumi-azuread/sdk/v6 v6.8.1
 	github.com/pulumi/pulumi-random/sdk/v4 v4.19.1
-	github.com/pulumi/pulumi-tls/sdk/v4 v4.11.1
+	github.com/pulumi/pulumi-tls/sdk/v5 v5.3.0
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 )
 
