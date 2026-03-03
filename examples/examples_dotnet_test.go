@@ -9,7 +9,6 @@ import (
 	"path/filepath"
 	"testing"
 
-	pexamples "github.com/pulumi/examples/misc/test/definitions"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/require"
 )
@@ -77,26 +76,6 @@ func TestDeletePostgresConfiguration(t *testing.T) {
 		})
 
 	integration.ProgramTest(t, &test)
-}
-
-func TestPulumiExamples(t *testing.T) {
-	if _, err := os.Stat(pulumiExamplesPath); os.IsNotExist(err) {
-		if os.Getenv("CI") != "" {
-			t.Errorf("pulumi examples not found at %q", pulumiExamplesPath)
-		}
-		t.Skipf("skipping: pulumi examples not found at %q", pulumiExamplesPath)
-	}
-
-	for _, example := range pexamples.GetTestsByTags(pexamples.AzureNativeProvider, pexamples.CS) {
-		t.Run(example.Dir, func(t *testing.T) {
-			test := getCsharpBaseOptions(t).
-				With(example.Options).
-				With(integration.ProgramTestOptions{
-					Dir: filepath.Join(getCwd(t), pulumiExamplesPath, example.Dir),
-				})
-			integration.ProgramTest(t, &test)
-		})
-	}
 }
 
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {

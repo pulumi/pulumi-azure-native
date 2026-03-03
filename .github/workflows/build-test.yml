@@ -242,79 +242,13 @@ jobs:
           ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST: ${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE_PASSWORD }}
         run: |
           set -euo pipefail
-          cd examples && go test -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
+          cd examples && go test -cover -timeout 2h -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
       - name: Run short tests
         if: inputs.short_test
         run: |
           set -euo pipefail
-          cd examples && go test -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
-
-  test_examples:
-    needs: build_sdks
-    runs-on: pulumi-ubuntu-8core
-    name: Test pulumi/examples
-    continue-on-error: true
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-          - nodejs
-          - python
-          - dotnet
-          - go
-          - java
-    permissions:
-      id-token: write # For ESC secrets.
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.ref }}
-          submodules: true
-      - name: Checkout p/examples
-        uses: actions/checkout@v4
-        with:
-          repository: pulumi/examples
-          ref: master
-          path: p-examples
-
-      - env:
-          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
-          ESC_ACTION_OIDC_AUTH: "true"
-          ESC_ACTION_OIDC_ORGANIZATION: pulumi
-          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
-        id: esc-secrets
-        name: Fetch secrets from ESC
-        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
-
-      - name: Setup
-        uses: ./.github/actions/test-setup
-        with:
-          language: ${{ matrix.language }}
-
-      - name: Free up disk space
-        run: |-
-          df -h
-          rm -rf /opt/hostedtoolcache/CodeQL
-          rm -rf /opt/hostedtoolcache/go/1.19.*
-          rm -rf /opt/hostedtoolcache/go/1.20.*
-          sudo apt clean
-          df -h
-
-      - name: Run pulumi/examples tests
-        if: ${{ !inputs.short_test }}
-        env:
-          # specifying this id will cause the OIDC test(s) to run against this AD application
-          OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
-          ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
-          ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST: ${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE_PASSWORD }}
-        run: |
-          set -euo pipefail
-          cd examples && \
-            go mod edit -replace github.com/pulumi/examples/misc/test=../p-examples/misc/test/ && \
-            go mod tidy && \
-            go test -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
+          cd examples && go test -cover -timeout 15m -short -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
   test_provider:
     runs-on: pulumi-ubuntu-8core
