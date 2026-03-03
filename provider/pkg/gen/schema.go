@@ -706,12 +706,11 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata, i
 		Inputs: &pschema.ObjectTypeSpec{
 			Properties: map[string]pschema.PropertySpec{
 				"apiVersion": {
-					Description: "The API version to use for the request (e.g., '2022-12-01').",
+					Description: "The API version to use for the request. Defaults to '2022-12-01'.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 			},
-			Type:     "object",
-			Required: []string{"apiVersion"},
+			Type: "object",
 		},
 		Outputs: &pschema.ObjectTypeSpec{
 			Description: "Subscription list operation response.",

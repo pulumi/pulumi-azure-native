@@ -10,7 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.
  */
-export function listSubscriptions(args: ListSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionsResult> {
+export function listSubscriptions(args?: ListSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<ListSubscriptionsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:listSubscriptions", {
         "apiVersion": args.apiVersion,
@@ -19,9 +20,9 @@ export function listSubscriptions(args: ListSubscriptionsArgs, opts?: pulumi.Inv
 
 export interface ListSubscriptionsArgs {
     /**
-     * The API version to use for the request (e.g., '2022-12-01').
+     * The API version to use for the request. Defaults to '2022-12-01'.
      */
-    apiVersion: string;
+    apiVersion?: string;
 }
 
 /**
@@ -40,7 +41,8 @@ export interface ListSubscriptionsResult {
 /**
  * Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.
  */
-export function listSubscriptionsOutput(args: ListSubscriptionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSubscriptionsResult> {
+export function listSubscriptionsOutput(args?: ListSubscriptionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSubscriptionsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:listSubscriptions", {
         "apiVersion": args.apiVersion,
@@ -49,7 +51,7 @@ export function listSubscriptionsOutput(args: ListSubscriptionsOutputArgs, opts?
 
 export interface ListSubscriptionsOutputArgs {
     /**
-     * The API version to use for the request (e.g., '2022-12-01').
+     * The API version to use for the request. Defaults to '2022-12-01'.
      */
-    apiVersion: pulumi.Input<string>;
+    apiVersion?: pulumi.Input<string>;
 }

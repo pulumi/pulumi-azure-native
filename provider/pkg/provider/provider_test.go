@@ -392,6 +392,37 @@ func TestInvokeListSubscriptions(t *testing.T) {
 	assert.Equal(t, "", outputs["nextLink"].StringValue())
 }
 
+func TestInvokeListSubscriptionsDefaultApiVersion(t *testing.T) {
+	mockClient := &az.MockAzureClient{
+		GetResponse: map[string]any{
+			"value":    []any{},
+			"nextLink": "",
+		},
+	}
+
+	p := azureNativeProvider{
+		azureClient: mockClient,
+	}
+
+	// No apiVersion provided - should default to 2022-12-01
+	args, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(map[string]interface{}{}),
+		plugin.MarshalOptions{KeepUnknowns: true, SkipNulls: true},
+	)
+	require.NoError(t, err)
+
+	resp, err := p.Invoke(context.Background(), &rpc.InvokeRequest{
+		Tok:  "azure-native:authorization:listSubscriptions",
+		Args: args,
+	})
+	require.NoError(t, err)
+	require.NotNil(t, resp)
+
+	// Verify the default API version was used
+	require.Len(t, mockClient.GetApiVersions, 1)
+	assert.Equal(t, "2022-12-01", mockClient.GetApiVersions[0])
+}
+
 func TestReader(t *testing.T) {
 	t.Run("custom Read", func(t *testing.T) {
 		var customReads []string

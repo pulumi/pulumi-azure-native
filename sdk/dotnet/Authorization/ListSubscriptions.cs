@@ -14,13 +14,13 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.
         /// </summary>
-        public static Task<ListSubscriptionsResult> InvokeAsync(ListSubscriptionsArgs args, InvokeOptions? options = null)
+        public static Task<ListSubscriptionsResult> InvokeAsync(ListSubscriptionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSubscriptionsResult>("azure-native:authorization:listSubscriptions", args ?? new ListSubscriptionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.
         /// </summary>
-        public static Output<ListSubscriptionsResult> Invoke(ListSubscriptionsInvokeArgs args, InvokeOptions? options = null)
+        public static Output<ListSubscriptionsResult> Invoke(ListSubscriptionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubscriptionsResult>("azure-native:authorization:listSubscriptions", args ?? new ListSubscriptionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class ListSubscriptionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API version to use for the request (e.g., '2022-12-01').
+        /// The API version to use for the request. Defaults to '2022-12-01'.
         /// </summary>
-        [Input("apiVersion", required: true)]
-        public string ApiVersion { get; set; } = null!;
+        [Input("apiVersion")]
+        public string? ApiVersion { get; set; }
 
         public ListSubscriptionsArgs()
         {
@@ -48,10 +48,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class ListSubscriptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The API version to use for the request (e.g., '2022-12-01').
+        /// The API version to use for the request. Defaults to '2022-12-01'.
         /// </summary>
-        [Input("apiVersion", required: true)]
-        public Input<string> ApiVersion { get; set; } = null!;
+        [Input("apiVersion")]
+        public Input<string>? ApiVersion { get; set; }
 
         public ListSubscriptionsInvokeArgs()
         {
