@@ -343,6 +343,55 @@ func TestInvokeResponseToOutputs(t *testing.T) {
 	})
 }
 
+func TestInvokeListSubscriptions(t *testing.T) {
+	mockClient := &az.MockAzureClient{
+		GetResponse: map[string]any{
+			"value": []any{
+				map[string]any{
+					"id":             "/subscriptions/sub-123",
+					"subscriptionId": "sub-123",
+					"displayName":    "Test Subscription",
+					"state":          "Enabled",
+					"tenantId":       "tenant-456",
+				},
+			},
+			"nextLink": "",
+		},
+	}
+
+	p := azureNativeProvider{
+		azureClient: mockClient,
+	}
+
+	args, err := plugin.MarshalProperties(
+		resource.NewPropertyMapFromMap(map[string]interface{}{
+			"apiVersion": "2022-12-01",
+		}),
+		plugin.MarshalOptions{KeepUnknowns: true, SkipNulls: true},
+	)
+	require.NoError(t, err)
+
+	resp, err := p.Invoke(context.Background(), &rpc.InvokeRequest{
+		Tok:  "azure-native:authorization:listSubscriptions",
+		Args: args,
+	})
+	require.NoError(t, err)
+	require.NotNil(t, resp)
+	require.NotNil(t, resp.Return)
+
+	// Verify the mock was called with the correct arguments
+	require.Len(t, mockClient.GetIds, 1)
+	assert.Equal(t, "/subscriptions", mockClient.GetIds[0])
+	require.Len(t, mockClient.GetApiVersions, 1)
+	assert.Equal(t, "2022-12-01", mockClient.GetApiVersions[0])
+
+	// Verify the response is marshalled correctly
+	outputs, err := plugin.UnmarshalProperties(resp.Return, plugin.MarshalOptions{KeepUnknowns: true, SkipNulls: true})
+	require.NoError(t, err)
+	assert.True(t, outputs["value"].IsArray())
+	assert.Equal(t, "", outputs["nextLink"].StringValue())
+}
+
 func TestReader(t *testing.T) {
 	t.Run("custom Read", func(t *testing.T) {
 		var customReads []string
