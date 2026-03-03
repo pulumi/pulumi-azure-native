@@ -26,7 +26,7 @@ class GetWorkspacePolicyFragmentResult:
     """
     Policy fragment contract details.
     """
-    def __init__(__self__, azure_api_version=None, description=None, format=None, id=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, description=None, format=None, id=None, name=None, provisioning_state=None, type=None, value=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -42,6 +42,9 @@ class GetWorkspacePolicyFragmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -90,6 +93,14 @@ class GetWorkspacePolicyFragmentResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
@@ -117,6 +128,7 @@ class AwaitableGetWorkspacePolicyFragmentResult(GetWorkspacePolicyFragmentResult
             format=self.format,
             id=self.id,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             type=self.type,
             value=self.value)
 
@@ -130,9 +142,9 @@ def get_workspace_policy_fragment(format: Optional[_builtins.str] = None,
     """
     Gets a policy fragment.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str format: Policy fragment content format.
@@ -156,6 +168,7 @@ def get_workspace_policy_fragment(format: Optional[_builtins.str] = None,
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_workspace_policy_fragment_output(format: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -167,9 +180,9 @@ def get_workspace_policy_fragment_output(format: Optional[pulumi.Input[Optional[
     """
     Gets a policy fragment.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str format: Policy fragment content format.
@@ -192,5 +205,6 @@ def get_workspace_policy_fragment_output(format: Optional[pulumi.Input[Optional[
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         type=pulumi.get(__response__, 'type'),
         value=pulumi.get(__response__, 'value')))

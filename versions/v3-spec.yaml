@@ -36,25 +36,15 @@ ApiCenter:
     additions:
         ApiSource: 2024-06-01-preview
 ApiManagement:
-    tracking: 2022-09-01-preview
+    tracking: "2024-05-01"
     additions:
-        ApiGateway: 2024-06-01-preview
-        ApiGatewayConfigConnection: 2024-06-01-preview
         ApiGatewayHostnameBinding: 2025-03-01-preview
         ApiTool: 2025-03-01-preview
         ClientApplication: 2024-10-01-preview
         ClientApplicationProductLink: 2024-10-01-preview
-        PolicyRestriction: 2024-06-01-preview
         Schema: 2021-04-01-preview
-        WorkspaceApiDiagnostic: 2024-06-01-preview
-        WorkspaceBackend: 2024-06-01-preview
-        WorkspaceCertificate: 2024-06-01-preview
-        WorkspaceDiagnostic: 2024-06-01-preview
-        WorkspaceLogger: 2024-06-01-preview
         listClientApplicationSecrets: 2024-10-01-preview
         listDelegationSettingSecrets: "2021-08-01"
-        listGatewayDebugCredentials: 2024-06-01-preview
-        listGatewayTrace: 2024-06-01-preview
 App:
     tracking: 2025-02-02-preview
 AppComplianceAutomation:

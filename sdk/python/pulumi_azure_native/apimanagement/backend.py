@@ -22,40 +22,41 @@ __all__ = ['BackendArgs', 'Backend']
 @pulumi.input_type
 class BackendArgs:
     def __init__(__self__, *,
-                 protocol: pulumi.Input[Union[_builtins.str, 'BackendProtocol']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 url: pulumi.Input[_builtins.str],
                  backend_id: Optional[pulumi.Input[_builtins.str]] = None,
                  circuit_breaker: Optional[pulumi.Input['BackendCircuitBreakerArgs']] = None,
                  credentials: Optional[pulumi.Input['BackendCredentialsContractArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool: Optional[pulumi.Input['BackendBaseParametersPoolArgs']] = None,
                  properties: Optional[pulumi.Input['BackendPropertiesArgs']] = None,
+                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]] = None,
                  proxy: Optional[pulumi.Input['BackendProxyContractArgs']] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
-                 tls: Optional[pulumi.Input['BackendTlsPropertiesArgs']] = None):
+                 tls: Optional[pulumi.Input['BackendTlsPropertiesArgs']] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'BackendType']]] = None,
+                 url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Backend resource.
 
-        :param pulumi.Input[Union[_builtins.str, 'BackendProtocol']] protocol: Backend communication protocol.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] url: Runtime Url of the Backend.
         :param pulumi.Input[_builtins.str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input['BackendCircuitBreakerArgs'] circuit_breaker: Backend Circuit Breaker Configuration
         :param pulumi.Input['BackendCredentialsContractArgs'] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[_builtins.str] description: Backend Description.
         :param pulumi.Input['BackendPropertiesArgs'] properties: Backend Properties contract
+        :param pulumi.Input[Union[_builtins.str, 'BackendProtocol']] protocol: Backend communication protocol. Required when backend type is 'Single'.
         :param pulumi.Input['BackendProxyContractArgs'] proxy: Backend gateway Contract Properties
         :param pulumi.Input[_builtins.str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         :param pulumi.Input[_builtins.str] title: Backend Title.
         :param pulumi.Input['BackendTlsPropertiesArgs'] tls: Backend TLS Properties
+        :param pulumi.Input[Union[_builtins.str, 'BackendType']] type: Type of the backend. A backend can be either Single or Pool.
+        :param pulumi.Input[_builtins.str] url: Runtime Url of the Backend. Required when backend type is 'Single'.
         """
-        pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "url", url)
         if backend_id is not None:
             pulumi.set(__self__, "backend_id", backend_id)
         if circuit_breaker is not None:
@@ -64,8 +65,12 @@ class BackendArgs:
             pulumi.set(__self__, "credentials", credentials)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if pool is not None:
+            pulumi.set(__self__, "pool", pool)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if proxy is not None:
             pulumi.set(__self__, "proxy", proxy)
         if resource_id is not None:
@@ -74,18 +79,10 @@ class BackendArgs:
             pulumi.set(__self__, "title", title)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
-
-    @_builtins.property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'BackendProtocol']]:
-        """
-        Backend communication protocol.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'BackendProtocol']]):
-        pulumi.set(self, "protocol", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -110,18 +107,6 @@ class BackendArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[_builtins.str]:
-        """
-        Runtime Url of the Backend.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="backendId")
@@ -173,6 +158,15 @@ class BackendArgs:
 
     @_builtins.property
     @pulumi.getter
+    def pool(self) -> Optional[pulumi.Input['BackendBaseParametersPoolArgs']]:
+        return pulumi.get(self, "pool")
+
+    @pool.setter
+    def pool(self, value: Optional[pulumi.Input['BackendBaseParametersPoolArgs']]):
+        pulumi.set(self, "pool", value)
+
+    @_builtins.property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['BackendPropertiesArgs']]:
         """
         Backend Properties contract
@@ -182,6 +176,18 @@ class BackendArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['BackendPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]]:
+        """
+        Backend communication protocol. Required when backend type is 'Single'.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]]):
+        pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
@@ -231,6 +237,30 @@ class BackendArgs:
     def tls(self, value: Optional[pulumi.Input['BackendTlsPropertiesArgs']]):
         pulumi.set(self, "tls", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BackendType']]]:
+        """
+        Type of the backend. A backend can be either Single or Pool.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'BackendType']]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Runtime Url of the Backend. Required when backend type is 'Single'.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.type_token("azure-native:apimanagement:Backend")
 class Backend(pulumi.CustomResource):
@@ -242,6 +272,7 @@ class Backend(pulumi.CustomResource):
                  circuit_breaker: Optional[pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool: Optional[pulumi.Input[Union['BackendBaseParametersPoolArgs', 'BackendBaseParametersPoolArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]] = None,
                  proxy: Optional[pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']]] = None,
@@ -250,14 +281,15 @@ class Backend(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
                  tls: Optional[pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'BackendType']]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Backend details.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -267,14 +299,15 @@ class Backend(pulumi.CustomResource):
         :param pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[_builtins.str] description: Backend Description.
         :param pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']] properties: Backend Properties contract
-        :param pulumi.Input[Union[_builtins.str, 'BackendProtocol']] protocol: Backend communication protocol.
+        :param pulumi.Input[Union[_builtins.str, 'BackendProtocol']] protocol: Backend communication protocol. Required when backend type is 'Single'.
         :param pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']] proxy: Backend gateway Contract Properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] title: Backend Title.
         :param pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']] tls: Backend TLS Properties
-        :param pulumi.Input[_builtins.str] url: Runtime Url of the Backend.
+        :param pulumi.Input[Union[_builtins.str, 'BackendType']] type: Type of the backend. A backend can be either Single or Pool.
+        :param pulumi.Input[_builtins.str] url: Runtime Url of the Backend. Required when backend type is 'Single'.
         """
         ...
     @overload
@@ -285,9 +318,9 @@ class Backend(pulumi.CustomResource):
         """
         Backend details.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -309,6 +342,7 @@ class Backend(pulumi.CustomResource):
                  circuit_breaker: Optional[pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool: Optional[pulumi.Input[Union['BackendBaseParametersPoolArgs', 'BackendBaseParametersPoolArgsDict']]] = None,
                  properties: Optional[pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[Union[_builtins.str, 'BackendProtocol']]] = None,
                  proxy: Optional[pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']]] = None,
@@ -317,6 +351,7 @@ class Backend(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
                  tls: Optional[pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'BackendType']]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -331,9 +366,8 @@ class Backend(pulumi.CustomResource):
             __props__.__dict__["circuit_breaker"] = circuit_breaker
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
+            __props__.__dict__["pool"] = pool
             __props__.__dict__["properties"] = properties
-            if protocol is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
@@ -345,12 +379,10 @@ class Backend(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["title"] = title
             __props__.__dict__["tls"] = tls
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
+            __props__.__dict__["type"] = type
             __props__.__dict__["url"] = url
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:Backend"), pulumi.Alias(type_="azure-native:apimanagement/v20250301preview:Backend")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backend, __self__).__init__(
@@ -380,6 +412,7 @@ class Backend(pulumi.CustomResource):
         __props__.__dict__["credentials"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["pool"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["proxy"] = None
@@ -432,6 +465,11 @@ class Backend(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    def pool(self) -> pulumi.Output[Optional['outputs.BackendBaseParametersResponsePool']]:
+        return pulumi.get(self, "pool")
+
+    @_builtins.property
+    @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.BackendPropertiesResponse']:
         """
         Backend Properties contract
@@ -440,9 +478,9 @@ class Backend(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[_builtins.str]:
+    def protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Backend communication protocol.
+        Backend communication protocol. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "protocol")
 
@@ -488,9 +526,9 @@ class Backend(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> pulumi.Output[_builtins.str]:
+    def url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Runtime Url of the Backend.
+        Runtime Url of the Backend. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "url")
 

@@ -23,6 +23,7 @@ class AuthorizationAccessPolicyArgs:
                  authorization_provider_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authorization_access_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  object_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
@@ -33,6 +34,7 @@ class AuthorizationAccessPolicyArgs:
         :param pulumi.Input[_builtins.str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] app_ids: The allowed Azure Active Directory Application IDs
         :param pulumi.Input[_builtins.str] authorization_access_policy_id: Identifier of the authorization access policy.
         :param pulumi.Input[_builtins.str] object_id: The Object Id
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant Id
@@ -41,6 +43,8 @@ class AuthorizationAccessPolicyArgs:
         pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if app_ids is not None:
+            pulumi.set(__self__, "app_ids", app_ids)
         if authorization_access_policy_id is not None:
             pulumi.set(__self__, "authorization_access_policy_id", authorization_access_policy_id)
         if object_id is not None:
@@ -97,6 +101,18 @@ class AuthorizationAccessPolicyArgs:
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="appIds")
+    def app_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The allowed Azure Active Directory Application IDs
+        """
+        return pulumi.get(self, "app_ids")
+
+    @app_ids.setter
+    def app_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "app_ids", value)
+
+    @_builtins.property
     @pulumi.getter(name="authorizationAccessPolicyId")
     def authorization_access_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -139,6 +155,7 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authorization_access_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
                  authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -150,13 +167,14 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         """
         Authorization access policy contract.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] app_ids: The allowed Azure Active Directory Application IDs
         :param pulumi.Input[_builtins.str] authorization_access_policy_id: Identifier of the authorization access policy.
         :param pulumi.Input[_builtins.str] authorization_id: Identifier of the authorization.
         :param pulumi.Input[_builtins.str] authorization_provider_id: Identifier of the authorization provider.
@@ -174,9 +192,9 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         """
         Authorization access policy contract.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -194,6 +212,7 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  authorization_access_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
                  authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -210,6 +229,7 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthorizationAccessPolicyArgs.__new__(AuthorizationAccessPolicyArgs)
 
+            __props__.__dict__["app_ids"] = app_ids
             __props__.__dict__["authorization_access_policy_id"] = authorization_access_policy_id
             if authorization_id is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_id'")
@@ -252,12 +272,21 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
 
         __props__ = AuthorizationAccessPolicyArgs.__new__(AuthorizationAccessPolicyArgs)
 
+        __props__.__dict__["app_ids"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return AuthorizationAccessPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="appIds")
+    def app_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The allowed Azure Active Directory Application IDs
+        """
+        return pulumi.get(self, "app_ids")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")

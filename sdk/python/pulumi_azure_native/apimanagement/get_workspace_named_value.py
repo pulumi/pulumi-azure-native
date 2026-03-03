@@ -27,7 +27,7 @@ class GetWorkspaceNamedValueResult:
     """
     NamedValue details.
     """
-    def __init__(__self__, azure_api_version=None, display_name=None, id=None, key_vault=None, name=None, secret=None, tags=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, display_name=None, id=None, key_vault=None, name=None, provisioning_state=None, secret=None, tags=None, type=None, value=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -43,6 +43,9 @@ class GetWorkspaceNamedValueResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if secret and not isinstance(secret, bool):
             raise TypeError("Expected argument 'secret' to be a bool")
         pulumi.set(__self__, "secret", secret)
@@ -97,6 +100,14 @@ class GetWorkspaceNamedValueResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
     @pulumi.getter
     def secret(self) -> Optional[_builtins.bool]:
         """
@@ -140,6 +151,7 @@ class AwaitableGetWorkspaceNamedValueResult(GetWorkspaceNamedValueResult):
             id=self.id,
             key_vault=self.key_vault,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             secret=self.secret,
             tags=self.tags,
             type=self.type,
@@ -154,9 +166,9 @@ def get_workspace_named_value(named_value_id: Optional[_builtins.str] = None,
     """
     Gets the details of the named value specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str named_value_id: Identifier of the NamedValue.
@@ -178,6 +190,7 @@ def get_workspace_named_value(named_value_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         key_vault=pulumi.get(__ret__, 'key_vault'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         secret=pulumi.get(__ret__, 'secret'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
@@ -190,9 +203,9 @@ def get_workspace_named_value_output(named_value_id: Optional[pulumi.Input[_buil
     """
     Gets the details of the named value specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str named_value_id: Identifier of the NamedValue.
@@ -213,6 +226,7 @@ def get_workspace_named_value_output(named_value_id: Optional[pulumi.Input[_buil
         id=pulumi.get(__response__, 'id'),
         key_vault=pulumi.get(__response__, 'key_vault'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         secret=pulumi.get(__response__, 'secret'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// API details.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApi")]
     public partial class WorkspaceApi : global::Pulumi.CustomResource
@@ -126,6 +126,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
@@ -292,7 +298,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Format of the Content in which the API is getting imported.
+        /// Format of the Content in which the API is getting imported. New formats can be added in the future
         /// </summary>
         [Input("format")]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.ContentFormat>? Format { get; set; }
@@ -350,7 +356,8 @@ namespace Pulumi.AzureNative.ApiManagement
         ///  * `http` creates a REST API 
         ///  * `soap` creates a SOAP pass-through API  
         ///  * `websocket` creates websocket API 
-        ///  * `graphql` creates GraphQL API.
+        ///  * `graphql` creates GraphQL API. 
+        ///  New types can be added in the future.
         /// </summary>
         [Input("soapApiType")]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.SoapApiType>? SoapApiType { get; set; }

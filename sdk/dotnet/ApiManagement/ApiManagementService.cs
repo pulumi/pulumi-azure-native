@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// A single API Management service resource in List or Get response.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
-    /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource
@@ -44,6 +44,12 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<ImmutableArray<Outputs.CertificateConfigurationResponse>> Certificates { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration API configuration of the API Management service.
+        /// </summary>
+        [Output("configurationApi")]
+        public Output<Outputs.ConfigurationApiResponse?> ConfigurationApi { get; private set; } = null!;
+
+        /// <summary>
         /// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         /// </summary>
         [Output("createdAtUtc")]
@@ -54,6 +60,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("customProperties")]
         public Output<ImmutableDictionary<string, string>?> CustomProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of developer portal in this API Management service.
+        /// </summary>
+        [Output("developerPortalStatus")]
+        public Output<string?> DeveloperPortalStatus { get; private set; } = null!;
 
         /// <summary>
         /// DEveloper Portal endpoint URL of the API Management service.
@@ -102,6 +114,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ApiManagementServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of legacy portal in the API Management service.
+        /// </summary>
+        [Output("legacyPortalStatus")]
+        public Output<string?> LegacyPortalStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -361,6 +379,12 @@ namespace Pulumi.AzureNative.ApiManagement
             set => _certificates = value;
         }
 
+        /// <summary>
+        /// Configuration API configuration of the API Management service.
+        /// </summary>
+        [Input("configurationApi")]
+        public Input<Inputs.ConfigurationApiArgs>? ConfigurationApi { get; set; }
+
         [Input("customProperties")]
         private InputMap<string>? _customProperties;
 
@@ -372,6 +396,12 @@ namespace Pulumi.AzureNative.ApiManagement
             get => _customProperties ?? (_customProperties = new InputMap<string>());
             set => _customProperties = value;
         }
+
+        /// <summary>
+        /// Status of developer portal in this API Management service.
+        /// </summary>
+        [Input("developerPortalStatus")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.DeveloperPortalStatus>? DeveloperPortalStatus { get; set; }
 
         /// <summary>
         /// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
@@ -402,6 +432,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApiManagementServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Status of legacy portal in the API Management service.
+        /// </summary>
+        [Input("legacyPortalStatus")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.LegacyPortalStatus>? LegacyPortalStatus { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -519,8 +555,10 @@ namespace Pulumi.AzureNative.ApiManagement
 
         public ApiManagementServiceArgs()
         {
+            DeveloperPortalStatus = "Enabled";
             DisableGateway = false;
             EnableClientCertificate = false;
+            LegacyPortalStatus = "Enabled";
             NatGatewayState = "Disabled";
             Restore = false;
             VirtualNetworkType = "None";

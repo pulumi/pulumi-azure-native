@@ -135,9 +135,9 @@ class GlobalSchema(pulumi.CustomResource):
         """
         Global Schema Contract details.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -158,9 +158,9 @@ class GlobalSchema(pulumi.CustomResource):
         """
         Global Schema Contract details.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -207,6 +207,7 @@ class GlobalSchema(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20250301preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement:Schema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -235,6 +236,7 @@ class GlobalSchema(pulumi.CustomResource):
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["schema_type"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["value"] = None
@@ -263,6 +265,14 @@ class GlobalSchema(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="schemaType")

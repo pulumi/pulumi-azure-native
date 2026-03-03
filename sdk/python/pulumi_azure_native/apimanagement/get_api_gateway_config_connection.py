@@ -152,9 +152,9 @@ def get_api_gateway_config_connection(config_connection_name: Optional[_builtins
     """
     Gets an API Management gateway config connection resource description.
 
-    Uses Azure REST API version 2024-06-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str config_connection_name: The name of the API Management gateway config connection.
@@ -185,9 +185,9 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
     """
     Gets an API Management gateway config connection resource description.
 
-    Uses Azure REST API version 2024-06-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str config_connection_name: The name of the API Management gateway config connection.

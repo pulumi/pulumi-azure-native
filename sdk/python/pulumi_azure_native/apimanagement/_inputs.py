@@ -74,6 +74,8 @@ __all__ = [
     'CircuitBreakerFailureConditionArgsDict',
     'CircuitBreakerRuleArgs',
     'CircuitBreakerRuleArgsDict',
+    'ConfigurationApiArgs',
+    'ConfigurationApiArgsDict',
     'DataMaskingEntityArgs',
     'DataMaskingEntityArgsDict',
     'DataMaskingArgs',
@@ -90,10 +92,6 @@ __all__ = [
     'HttpMessageDiagnosticArgsDict',
     'KeyVaultContractCreatePropertiesArgs',
     'KeyVaultContractCreatePropertiesArgsDict',
-    'LLMDiagnosticSettingsArgs',
-    'LLMDiagnosticSettingsArgsDict',
-    'LLMMessageDiagnosticSettingsArgs',
-    'LLMMessageDiagnosticSettingsArgsDict',
     'OAuth2AuthenticationSettingsContractArgs',
     'OAuth2AuthenticationSettingsContractArgsDict',
     'OpenIdAuthenticationSettingsContractArgs',
@@ -2139,6 +2137,42 @@ class CircuitBreakerRuleArgs:
         pulumi.set(self, "trip_duration", value)
 
 
+class ConfigurationApiArgsDict(TypedDict):
+    """
+    Information regarding the Configuration API of the API Management service.
+    """
+    legacy_api: NotRequired[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]]
+    """
+    Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
+    """
+
+@pulumi.input_type
+class ConfigurationApiArgs:
+    def __init__(__self__, *,
+                 legacy_api: Optional[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]] = None):
+        """
+        Information regarding the Configuration API of the API Management service.
+
+        :param pulumi.Input[Union[_builtins.str, 'LegacyApiState']] legacy_api: Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
+        """
+        if legacy_api is None:
+            legacy_api = 'Enabled'
+        if legacy_api is not None:
+            pulumi.set(__self__, "legacy_api", legacy_api)
+
+    @_builtins.property
+    @pulumi.getter(name="legacyApi")
+    def legacy_api(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]]:
+        """
+        Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
+        """
+        return pulumi.get(self, "legacy_api")
+
+    @legacy_api.setter
+    def legacy_api(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LegacyApiState']]]):
+        pulumi.set(self, "legacy_api", value)
+
+
 class DataMaskingEntityArgsDict(TypedDict):
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DataMaskingMode']]]
     """
@@ -2775,134 +2809,6 @@ class KeyVaultContractCreatePropertiesArgs:
     @secret_identifier.setter
     def secret_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_identifier", value)
-
-
-class LLMDiagnosticSettingsArgsDict(TypedDict):
-    """
-    Diagnostic settings for Large Language Models
-    """
-    logs: NotRequired[pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']]]
-    """
-    Specifies whether default diagnostic should be enabled for Large Language Models or not.
-    """
-    requests: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
-    """
-    Diagnostic settings for Large Language Models requests.
-    """
-    responses: NotRequired[pulumi.Input['LLMMessageDiagnosticSettingsArgsDict']]
-    """
-    Diagnostic settings for Large Language Models responses.
-    """
-
-@pulumi.input_type
-class LLMDiagnosticSettingsArgs:
-    def __init__(__self__, *,
-                 logs: Optional[pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']]] = None,
-                 requests: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']] = None,
-                 responses: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']] = None):
-        """
-        Diagnostic settings for Large Language Models
-
-        :param pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']] logs: Specifies whether default diagnostic should be enabled for Large Language Models or not.
-        :param pulumi.Input['LLMMessageDiagnosticSettingsArgs'] requests: Diagnostic settings for Large Language Models requests.
-        :param pulumi.Input['LLMMessageDiagnosticSettingsArgs'] responses: Diagnostic settings for Large Language Models responses.
-        """
-        if logs is not None:
-            pulumi.set(__self__, "logs", logs)
-        if requests is not None:
-            pulumi.set(__self__, "requests", requests)
-        if responses is not None:
-            pulumi.set(__self__, "responses", responses)
-
-    @_builtins.property
-    @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']]]:
-        """
-        Specifies whether default diagnostic should be enabled for Large Language Models or not.
-        """
-        return pulumi.get(self, "logs")
-
-    @logs.setter
-    def logs(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LlmDiagnosticSettings']]]):
-        pulumi.set(self, "logs", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]:
-        """
-        Diagnostic settings for Large Language Models requests.
-        """
-        return pulumi.get(self, "requests")
-
-    @requests.setter
-    def requests(self, value: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]):
-        pulumi.set(self, "requests", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def responses(self) -> Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]:
-        """
-        Diagnostic settings for Large Language Models responses.
-        """
-        return pulumi.get(self, "responses")
-
-    @responses.setter
-    def responses(self, value: Optional[pulumi.Input['LLMMessageDiagnosticSettingsArgs']]):
-        pulumi.set(self, "responses", value)
-
-
-class LLMMessageDiagnosticSettingsArgsDict(TypedDict):
-    """
-    Diagnostic settings for Large Language Models Messages
-    """
-    max_size_in_bytes: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Maximum size of message to logs in bytes. The default size is 32KB.
-    """
-    messages: NotRequired[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]]
-    """
-    Specifies which message should be logged. Currently there is only 'all' option.
-    """
-
-@pulumi.input_type
-class LLMMessageDiagnosticSettingsArgs:
-    def __init__(__self__, *,
-                 max_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 messages: Optional[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]] = None):
-        """
-        Diagnostic settings for Large Language Models Messages
-
-        :param pulumi.Input[_builtins.int] max_size_in_bytes: Maximum size of message to logs in bytes. The default size is 32KB.
-        :param pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']] messages: Specifies which message should be logged. Currently there is only 'all' option.
-        """
-        if max_size_in_bytes is not None:
-            pulumi.set(__self__, "max_size_in_bytes", max_size_in_bytes)
-        if messages is not None:
-            pulumi.set(__self__, "messages", messages)
-
-    @_builtins.property
-    @pulumi.getter(name="maxSizeInBytes")
-    def max_size_in_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Maximum size of message to logs in bytes. The default size is 32KB.
-        """
-        return pulumi.get(self, "max_size_in_bytes")
-
-    @max_size_in_bytes.setter
-    def max_size_in_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "max_size_in_bytes", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def messages(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]]:
-        """
-        Specifies which message should be logged. Currently there is only 'all' option.
-        """
-        return pulumi.get(self, "messages")
-
-    @messages.setter
-    def messages(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LlmMessageLogTypes']]]):
-        pulumi.set(self, "messages", value)
 
 
 class OAuth2AuthenticationSettingsContractArgsDict(TypedDict):

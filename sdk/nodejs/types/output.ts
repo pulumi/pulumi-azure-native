@@ -2735,6 +2735,25 @@ export namespace apimanagement {
         expiresAt: string;
     }
 
+    /**
+     * Information regarding the Configuration API of the API Management service.
+     */
+    export interface ConfigurationApiResponse {
+        /**
+         * Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
+         */
+        legacyApi?: string;
+    }
+    /**
+     * configurationApiResponseProvideDefaults sets the appropriate defaults for ConfigurationApiResponse
+     */
+    export function configurationApiResponseProvideDefaults(val: ConfigurationApiResponse): ConfigurationApiResponse {
+        return {
+            ...val,
+            legacyApi: (val.legacyApi) ?? "Enabled",
+        };
+    }
+
     export interface DataMaskingEntityResponse {
         /**
          * Data masking mode.
@@ -2992,38 +3011,6 @@ export namespace apimanagement {
          * Last time secret was accessed. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
          */
         timeStampUtc?: string;
-    }
-
-    /**
-     * Diagnostic settings for Large Language Models
-     */
-    export interface LLMDiagnosticSettingsResponse {
-        /**
-         * Specifies whether default diagnostic should be enabled for Large Language Models or not.
-         */
-        logs?: string;
-        /**
-         * Diagnostic settings for Large Language Models requests.
-         */
-        requests?: outputs.apimanagement.LLMMessageDiagnosticSettingsResponse;
-        /**
-         * Diagnostic settings for Large Language Models responses.
-         */
-        responses?: outputs.apimanagement.LLMMessageDiagnosticSettingsResponse;
-    }
-
-    /**
-     * Diagnostic settings for Large Language Models Messages
-     */
-    export interface LLMMessageDiagnosticSettingsResponse {
-        /**
-         * Maximum size of message to logs in bytes. The default size is 32KB.
-         */
-        maxSizeInBytes?: number;
-        /**
-         * Specifies which message should be logged. Currently there is only 'all' option.
-         */
-        messages?: string;
     }
 
     /**

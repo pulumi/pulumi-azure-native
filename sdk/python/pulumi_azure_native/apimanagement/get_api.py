@@ -27,7 +27,7 @@ class GetApiResult:
     """
     API details.
     """
-    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, azure_api_version=None, contact=None, description=None, display_name=None, id=None, is_current=None, is_online=None, license=None, name=None, path=None, protocols=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, terms_of_service_url=None, type=None):
+    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, azure_api_version=None, contact=None, description=None, display_name=None, id=None, is_current=None, is_online=None, license=None, name=None, path=None, protocols=None, provisioning_state=None, service_url=None, source_api_id=None, subscription_key_parameter_names=None, subscription_required=None, terms_of_service_url=None, type=None):
         if api_revision and not isinstance(api_revision, str):
             raise TypeError("Expected argument 'api_revision' to be a str")
         pulumi.set(__self__, "api_revision", api_revision)
@@ -85,6 +85,9 @@ class GetApiResult:
         if protocols and not isinstance(protocols, list):
             raise TypeError("Expected argument 'protocols' to be a list")
         pulumi.set(__self__, "protocols", protocols)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if service_url and not isinstance(service_url, str):
             raise TypeError("Expected argument 'service_url' to be a str")
         pulumi.set(__self__, "service_url", service_url)
@@ -257,6 +260,14 @@ class GetApiResult:
         return pulumi.get(self, "protocols")
 
     @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
     @pulumi.getter(name="serviceUrl")
     def service_url(self) -> Optional[_builtins.str]:
         """
@@ -330,6 +341,7 @@ class AwaitableGetApiResult(GetApiResult):
             name=self.name,
             path=self.path,
             protocols=self.protocols,
+            provisioning_state=self.provisioning_state,
             service_url=self.service_url,
             source_api_id=self.source_api_id,
             subscription_key_parameter_names=self.subscription_key_parameter_names,
@@ -345,9 +357,9 @@ def get_api(api_id: Optional[_builtins.str] = None,
     """
     Gets the details of the API specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -381,6 +393,7 @@ def get_api(api_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         path=pulumi.get(__ret__, 'path'),
         protocols=pulumi.get(__ret__, 'protocols'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         service_url=pulumi.get(__ret__, 'service_url'),
         source_api_id=pulumi.get(__ret__, 'source_api_id'),
         subscription_key_parameter_names=pulumi.get(__ret__, 'subscription_key_parameter_names'),
@@ -394,9 +407,9 @@ def get_api_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Gets the details of the API specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -429,6 +442,7 @@ def get_api_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         path=pulumi.get(__response__, 'path'),
         protocols=pulumi.get(__response__, 'protocols'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         service_url=pulumi.get(__response__, 'service_url'),
         source_api_id=pulumi.get(__response__, 'source_api_id'),
         subscription_key_parameter_names=pulumi.get(__response__, 'subscription_key_parameter_names'),

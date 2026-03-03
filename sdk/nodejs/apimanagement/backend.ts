@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Backend details.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Backend extends pulumi.CustomResource {
     /**
@@ -61,14 +61,15 @@ export class Backend extends pulumi.CustomResource {
      * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly pool: pulumi.Output<outputs.apimanagement.BackendBaseParametersResponsePool | undefined>;
     /**
      * Backend Properties contract
      */
     declare public readonly properties: pulumi.Output<outputs.apimanagement.BackendPropertiesResponse>;
     /**
-     * Backend communication protocol.
+     * Backend communication protocol. Required when backend type is 'Single'.
      */
-    declare public readonly protocol: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * Backend gateway Contract Properties
      */
@@ -88,11 +89,11 @@ export class Backend extends pulumi.CustomResource {
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    declare public /*out*/ readonly type: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
-     * Runtime Url of the Backend.
+     * Runtime Url of the Backend. Required when backend type is 'Single'.
      */
-    declare public readonly url: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string | undefined>;
 
     /**
      * Create a Backend resource with the given unique name, arguments, and options.
@@ -105,22 +106,17 @@ export class Backend extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.protocol === undefined && !opts.urn) {
-                throw new Error("Missing required property 'protocol'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (args?.url === undefined && !opts.urn) {
-                throw new Error("Missing required property 'url'");
-            }
             resourceInputs["backendId"] = args?.backendId;
             resourceInputs["circuitBreaker"] = args?.circuitBreaker;
             resourceInputs["credentials"] = args?.credentials;
             resourceInputs["description"] = args?.description;
+            resourceInputs["pool"] = args?.pool;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["protocol"] = args?.protocol;
             resourceInputs["proxy"] = args?.proxy;
@@ -129,16 +125,17 @@ export class Backend extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["title"] = args?.title;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.apimanagement.backendTlsPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["type"] = args?.type;
             resourceInputs["url"] = args?.url;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitBreaker"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pool"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["proxy"] = undefined /*out*/;
@@ -175,14 +172,15 @@ export interface BackendArgs {
      * Backend Description.
      */
     description?: pulumi.Input<string>;
+    pool?: pulumi.Input<inputs.apimanagement.BackendBaseParametersPoolArgs>;
     /**
      * Backend Properties contract
      */
     properties?: pulumi.Input<inputs.apimanagement.BackendPropertiesArgs>;
     /**
-     * Backend communication protocol.
+     * Backend communication protocol. Required when backend type is 'Single'.
      */
-    protocol: pulumi.Input<string | enums.apimanagement.BackendProtocol>;
+    protocol?: pulumi.Input<string | enums.apimanagement.BackendProtocol>;
     /**
      * Backend gateway Contract Properties
      */
@@ -208,7 +206,11 @@ export interface BackendArgs {
      */
     tls?: pulumi.Input<inputs.apimanagement.BackendTlsPropertiesArgs>;
     /**
-     * Runtime Url of the Backend.
+     * Type of the backend. A backend can be either Single or Pool.
      */
-    url: pulumi.Input<string>;
+    type?: pulumi.Input<string | enums.apimanagement.BackendType>;
+    /**
+     * Runtime Url of the Backend. Required when backend type is 'Single'.
+     */
+    url?: pulumi.Input<string>;
 }

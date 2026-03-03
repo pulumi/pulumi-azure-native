@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Diagnostic details.
     /// 
-    /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApiDiagnostic")]
     public partial class WorkspaceApiDiagnostic : global::Pulumi.CustomResource
@@ -48,12 +48,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("httpCorrelationProtocol")]
         public Output<string?> HttpCorrelationProtocol { get; private set; } = null!;
-
-        /// <summary>
-        /// Large Language Models diagnostic settings
-        /// </summary>
-        [Output("largeLanguageModel")]
-        public Output<Outputs.LLMDiagnosticSettingsResponse?> LargeLanguageModel { get; private set; } = null!;
 
         /// <summary>
         /// Log the ClientIP. Default is false.
@@ -191,12 +185,6 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("httpCorrelationProtocol")]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
-
-        /// <summary>
-        /// Large Language Models diagnostic settings
-        /// </summary>
-        [Input("largeLanguageModel")]
-        public Input<Inputs.LLMDiagnosticSettingsArgs>? LargeLanguageModel { get; set; }
 
         /// <summary>
         /// Log the ClientIP. Default is false.

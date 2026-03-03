@@ -298,23 +298,23 @@ ApiCenter:
         RpNamespace: Microsoft.ApiCenter
 ApiManagement:
     Api:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
         RpNamespace: Microsoft.ApiManagement
     ApiDiagnostic:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}
         RpNamespace: Microsoft.ApiManagement
     ApiGateway:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apigateway.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apigateway.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}
         RpNamespace: Microsoft.ApiManagement
     ApiGatewayConfigConnection:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimgatewayConfigConnections.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgatewayConfigConnections.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/configConnections/{configConnectionName}
         RpNamespace: Microsoft.ApiManagement
     ApiGatewayHostnameBinding:
@@ -323,53 +323,53 @@ ApiManagement:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/hostnameBindings/{hostnameBindingName}
         RpNamespace: Microsoft.ApiManagement
     ApiIssue:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}
         RpNamespace: Microsoft.ApiManagement
     ApiIssueAttachment:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}/attachments/{attachmentId}
         RpNamespace: Microsoft.ApiManagement
     ApiIssueComment:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}/comments/{commentId}
         RpNamespace: Microsoft.ApiManagement
     ApiManagementService:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimdeployment.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimdeployment.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}
         RpNamespace: Microsoft.ApiManagement
     ApiOperation:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}
         RpNamespace: Microsoft.ApiManagement
     ApiOperationPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     ApiPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     ApiRelease:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}
         RpNamespace: Microsoft.ApiManagement
     ApiSchema:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}
         RpNamespace: Microsoft.ApiManagement
     ApiTagDescription:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId}
         RpNamespace: Microsoft.ApiManagement
     ApiTool:
@@ -378,48 +378,48 @@ ApiManagement:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tools/{toolId}
         RpNamespace: Microsoft.ApiManagement
     ApiVersionSet:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapiversionsets.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapiversionsets.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apiVersionSets/{versionSetId}
         RpNamespace: Microsoft.ApiManagement
     ApiWiki:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default
         RpNamespace: Microsoft.ApiManagement
     Authorization:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimauthorizationproviders.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimauthorizationproviders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}/authorizations/{authorizationId}
         RpNamespace: Microsoft.ApiManagement
     AuthorizationAccessPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimauthorizationproviders.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimauthorizationproviders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}/authorizations/{authorizationId}/accessPolicies/{authorizationAccessPolicyId}
         RpNamespace: Microsoft.ApiManagement
     AuthorizationProvider:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimauthorizationproviders.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimauthorizationproviders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}
         RpNamespace: Microsoft.ApiManagement
     AuthorizationServer:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimauthorizationservers.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimauthorizationservers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}
         RpNamespace: Microsoft.ApiManagement
     Backend:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimbackends.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimbackends.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}
         RpNamespace: Microsoft.ApiManagement
     Cache:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimcaches.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimcaches.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/caches/{cacheId}
         RpNamespace: Microsoft.ApiManagement
     Certificate:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimcertificates.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimcertificates.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
         RpNamespace: Microsoft.ApiManagement
     ClientApplication:
@@ -433,158 +433,158 @@ ApiManagement:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId}/productLinks/{clientApplicationProductLinkId}
         RpNamespace: Microsoft.ApiManagement
     ContentItem:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimcontenttypes.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimcontenttypes.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}/contentItems/{contentItemId}
         RpNamespace: Microsoft.ApiManagement
     ContentType:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimcontenttypes.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimcontenttypes.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/contentTypes/{contentTypeId}
         RpNamespace: Microsoft.ApiManagement
     Diagnostic:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimdiagnostics.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimdiagnostics.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}
         RpNamespace: Microsoft.ApiManagement
     Documentation:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimdocumentations.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimdocumentations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/documentations/{documentationId}
         RpNamespace: Microsoft.ApiManagement
     EmailTemplate:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimemailtemplates.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimemailtemplates.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/templates/{templateName}
         RpNamespace: Microsoft.ApiManagement
     Gateway:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
         RpNamespace: Microsoft.ApiManagement
     GatewayApiEntityTag:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}
         RpNamespace: Microsoft.ApiManagement
     GatewayCertificateAuthority:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}
         RpNamespace: Microsoft.ApiManagement
     GatewayHostnameConfiguration:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
         RpNamespace: Microsoft.ApiManagement
     GlobalSchema:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimschema.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimschema.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/schemas/{schemaId}
         RpNamespace: Microsoft.ApiManagement
     GraphQLApiResolver:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}
         RpNamespace: Microsoft.ApiManagement
     GraphQLApiResolverPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     Group:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgroups.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}
         RpNamespace: Microsoft.ApiManagement
     GroupUser:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgroups.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgroups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}
         RpNamespace: Microsoft.ApiManagement
     IdentityProvider:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimidentityprovider.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimidentityprovider.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/identityProviders/{identityProviderName}
         RpNamespace: Microsoft.ApiManagement
     Logger:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimloggers.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimloggers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}
         RpNamespace: Microsoft.ApiManagement
     NamedValue:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimnamedvalues.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimnamedvalues.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/namedValues/{namedValueId}
         RpNamespace: Microsoft.ApiManagement
     NotificationRecipientEmail:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimnotifications.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimnotifications.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/notifications/{notificationName}/recipientEmails/{email}
         RpNamespace: Microsoft.ApiManagement
     NotificationRecipientUser:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimnotifications.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimnotifications.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/notifications/{notificationName}/recipientUsers/{userId}
         RpNamespace: Microsoft.ApiManagement
     OpenIdConnectProvider:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimopenidconnectproviders.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimopenidconnectproviders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/openidConnectProviders/{opid}
         RpNamespace: Microsoft.ApiManagement
     Policy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimpolicies.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimpolicies.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     PolicyFragment:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimpolicyfragments.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimpolicyfragments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policyFragments/{id}
         RpNamespace: Microsoft.ApiManagement
     PolicyRestriction:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimpolicyrestrictions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimpolicyrestrictions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policyRestrictions/{policyRestrictionId}
         RpNamespace: Microsoft.ApiManagement
     PrivateEndpointConnectionByName:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimprivatelink.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimprivatelink.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.ApiManagement
     Product:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
         RpNamespace: Microsoft.ApiManagement
     ProductApi:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}
         RpNamespace: Microsoft.ApiManagement
     ProductApiLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks/{apiLinkId}
         RpNamespace: Microsoft.ApiManagement
     ProductGroup:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}
         RpNamespace: Microsoft.ApiManagement
     ProductGroupLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks/{groupLinkId}
         RpNamespace: Microsoft.ApiManagement
     ProductPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     ProductWiki:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default
         RpNamespace: Microsoft.ApiManagement
     Schema:
@@ -593,223 +593,223 @@ ApiManagement:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/schemas/{schemaId}
         RpNamespace: Microsoft.ApiManagement
     Subscription:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimsubscriptions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimsubscriptions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}
         RpNamespace: Microsoft.ApiManagement
     Tag:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimtags.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimtags.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}
         RpNamespace: Microsoft.ApiManagement
     TagApiLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimtags.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimtags.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks/{apiLinkId}
         RpNamespace: Microsoft.ApiManagement
     TagByApi:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags/{tagId}
         RpNamespace: Microsoft.ApiManagement
     TagByOperation:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimapis.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimapis.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}/tags/{tagId}
         RpNamespace: Microsoft.ApiManagement
     TagByProduct:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimproducts.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimproducts.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}
         RpNamespace: Microsoft.ApiManagement
     TagOperationLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimtags.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimtags.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}
         RpNamespace: Microsoft.ApiManagement
     TagProductLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimtags.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimtags.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks/{productLinkId}
         RpNamespace: Microsoft.ApiManagement
     User:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimusers.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimusers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
         RpNamespace: Microsoft.ApiManagement
     Workspace:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApi:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiDiagnostic:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimworkspacediagnostics.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspacediagnostics.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/diagnostics/{diagnosticId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiOperation:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiOperationPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiRelease:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/releases/{releaseId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiSchema:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/schemas/{schemaId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceApiVersionSet:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceBackend:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimworkspacebackends.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspacebackends.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/backends/{backendId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceCertificate:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimworkspacecertificates.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspacecertificates.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/certificates/{certificateId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceDiagnostic:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimworkspacediagnostics.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspacediagnostics.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/diagnostics/{diagnosticId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceGlobalSchema:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceGroup:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceGroupUser:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}/users/{userId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceLogger:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimworkspaceloggers.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaceloggers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/loggers/{loggerId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceNamedValue:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceNotificationRecipientEmail:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}/recipientEmails/{email}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceNotificationRecipientUser:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}/recipientUsers/{userId}
         RpNamespace: Microsoft.ApiManagement
     WorkspacePolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     WorkspacePolicyFragment:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceProduct:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceProductApiLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}/apiLinks/{apiLinkId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceProductGroupLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}/groupLinks/{groupLinkId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceProductPolicy:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}/policies/{policyId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceSubscription:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceTag:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceTagApiLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}/apiLinks/{apiLinkId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceTagOperationLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}/operationLinks/{operationLinkId}
         RpNamespace: Microsoft.ApiManagement
     WorkspaceTagProductLink:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}/productLinks/{productLinkId}
         RpNamespace: Microsoft.ApiManagement
     getApiManagementServiceDomainOwnershipIdentifier:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimdeployment.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimdeployment.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier
         RpNamespace: Microsoft.ApiManagement
     getApiManagementServiceSsoToken:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimdeployment.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimdeployment.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/getssotoken
         RpNamespace: Microsoft.ApiManagement
     getAuthorizationLoginLinkPost:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimauthorizationproviders.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimauthorizationproviders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}/authorizations/{authorizationId}/getLoginLinks
         RpNamespace: Microsoft.ApiManagement
     getUserSharedAccessToken:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimusers.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimusers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/token
         RpNamespace: Microsoft.ApiManagement
     listAuthorizationServerSecrets:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimauthorizationservers.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimauthorizationservers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationServers/{authsid}/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listClientApplicationSecrets:
@@ -823,63 +823,63 @@ ApiManagement:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/portalsettings/delegation/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listGatewayDebugCredentials:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listDebugCredentials
         RpNamespace: Microsoft.ApiManagement
     listGatewayKeys:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listKeys
         RpNamespace: Microsoft.ApiManagement
     listGatewayTrace:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2024-06-01-preview/apimgateways.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimgateways.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listTrace
         RpNamespace: Microsoft.ApiManagement
     listIdentityProviderSecrets:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimidentityprovider.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimidentityprovider.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/identityProviders/{identityProviderName}/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listNamedValue:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimnamedvalues.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimnamedvalues.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/namedValues/{namedValueId}/listValue
         RpNamespace: Microsoft.ApiManagement
     listOpenIdConnectProviderSecrets:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimopenidconnectproviders.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimopenidconnectproviders.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/openidConnectProviders/{opid}/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listPolicyFragmentReferences:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimpolicyfragments.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimpolicyfragments.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policyFragments/{id}/listReferences
         RpNamespace: Microsoft.ApiManagement
     listSubscriptionSecrets:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimsubscriptions.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimsubscriptions.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listTenantAccessSecrets:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimtenant.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimtenant.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tenant/{accessName}/listSecrets
         RpNamespace: Microsoft.ApiManagement
     listWorkspaceNamedValue:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}/listValue
         RpNamespace: Microsoft.ApiManagement
     listWorkspacePolicyFragmentReferences:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}/listReferences
         RpNamespace: Microsoft.ApiManagement
     listWorkspaceSubscriptionSecrets:
-        ApiVersion: 2022-09-01-preview
-        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/preview/2022-09-01-preview/apimworkspaces.json
+        ApiVersion: "2024-05-01"
+        SpecFilePath: specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01/apimworkspaces.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}/listSecrets
         RpNamespace: Microsoft.ApiManagement
 App:
