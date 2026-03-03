@@ -34,7 +34,7 @@ func getLocation(t *testing.T) string {
 	return azureLocation
 }
 
-func azureNativeBinary(t *testing.T) string {
+func azureNativeBinaryDir(t *testing.T) string {
 	binPath, err := filepath.Abs("../bin")
 	if err != nil {
 		t.Fatal(err)
@@ -99,7 +99,7 @@ func skipIfShort(t *testing.T) {
 
 func createTest(t *testing.T, source string, options ...opttest.Option) *pulumitest.PulumiTest {
 	opts := []opttest.Option{
-		opttest.LocalProviderPath("azure-native", azureNativeBinary(t)),
+		opttest.LocalProviderPath("azure-native", azureNativeBinaryDir(t)),
 	}
 	opts = append(opts, options...)
 	pt := pulumitest.NewPulumiTest(t,
@@ -226,13 +226,30 @@ func TestRoleAssignmentRefreshAfterVaultDeletion(t *testing.T) {
 	assert.Empty(t, result.StdErr, "refresh should not have any errors in stderr")
 }
 
-func updatePulumiYAML(t *testing.T, test *pulumitest.PulumiTest, contents map[string]any) {
+func updatePulumiYAML(t *testing.T, workDir string, contents map[string]any) {
 	contentsInYAML, err := yaml.Marshal(contents)
 	require.NoError(t, err, "marshalling contents to YAML should not error")
-	workingDir := test.WorkingDir()
-	yamlPath := filepath.Join(workingDir, "Pulumi.yaml")
+	yamlPath := filepath.Join(workDir, "Pulumi.yaml")
 	err = os.WriteFile(yamlPath, contentsInYAML, 0644)
 	require.NoError(t, err, "writing updated Pulumi.yaml should not error")
+}
+
+type tempProj struct {
+	dir  string
+	name string
+}
+
+func tempProject(t *testing.T) tempProj {
+	tempDir := t.TempDir()
+	projectName := fmt.Sprintf("empty-program-%s", filepath.Base(tempDir))
+	updatePulumiYAML(t, tempDir, map[string]any{
+		"name":    projectName,
+		"runtime": "yaml",
+	})
+	return tempProj{
+		dir:  tempDir,
+		name: projectName,
+	}
 }
 
 // This is a test to verify that adding the isHnsEnabled property to a storage account
@@ -240,15 +257,15 @@ func updatePulumiYAML(t *testing.T, test *pulumitest.PulumiTest, contents map[st
 // in fact, adding a property that defaults to false should not cause any changes at all since
 // the default value is the same as what we are setting it to.
 func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) {
-	dir := filepath.Join(getCwd(t), "storageaccount-hns")
-	azureBinaryPath := azureNativeBinary(t)
-	test := createTest(t, dir)
+	proj := tempProject(t)
+	azureBinaryDir := azureNativeBinaryDir(t)
+	test := createTest(t, proj.dir)
 
 	plugins := map[string]any{
 		"providers": []interface{}{
 			map[string]any{
 				"name": "azure-native",
-				"path": azureBinaryPath,
+				"path": azureBinaryDir,
 			},
 		},
 	}
@@ -268,7 +285,7 @@ func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) 
 	}
 
 	program := map[string]any{
-		"name":    "storageaccount-hns",
+		"name":    proj.name,
 		"runtime": "yaml",
 		"resources": map[string]any{
 			"resourcegroup": map[string]any{
@@ -280,7 +297,7 @@ func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) 
 	}
 
 	// initial program
-	updatePulumiYAML(t, test, program)
+	updatePulumiYAML(t, test.WorkingDir(), program)
 
 	// Deploy the storage account
 	upResult := test.Up(t)
@@ -291,7 +308,7 @@ func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) 
 	storageAccountProperties["isHnsEnabled"] = false
 
 	// Update the program with the new property
-	updatePulumiYAML(t, test, program)
+	updatePulumiYAML(t, test.WorkingDir(), program)
 
 	preview := test.Preview(t)
 	t.Logf("Preview STDOUT: \n%s", preview.StdOut)
