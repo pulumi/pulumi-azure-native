@@ -121,30 +121,6 @@ class LinkedSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-06-01-preview.
 
-        ## Example Usage
-        ### Create or update a Linked Subscription.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_subscription = azure_native.azurestack.LinkedSubscription("linkedSubscription",
-            linked_subscription_id="104fbb77-2b0e-476a-83de-65ad8acd1f0b",
-            linked_subscription_name="testLinkedSubscription",
-            location="eastus",
-            registration_resource_id="/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
-            resource_group="azurestack")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestack:LinkedSubscription testLinkedSubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/linkedSubscriptions/{linkedSubscriptionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,30 +140,6 @@ class LinkedSubscription(pulumi.CustomResource):
         Linked Subscription information.
 
         Uses Azure REST API version 2020-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-06-01-preview.
-
-        ## Example Usage
-        ### Create or update a Linked Subscription.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_subscription = azure_native.azurestack.LinkedSubscription("linkedSubscription",
-            linked_subscription_id="104fbb77-2b0e-476a-83de-65ad8acd1f0b",
-            linked_subscription_name="testLinkedSubscription",
-            location="eastus",
-            registration_resource_id="/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
-            resource_group="azurestack")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestack:LinkedSubscription testLinkedSubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/linkedSubscriptions/{linkedSubscriptionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

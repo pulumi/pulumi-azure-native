@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-11-01. In version 2.x of the Azure Native provider, it used API version 2021-10-01-preview.
  *
  * Other available API versions: 2021-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native contoso [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Employees_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const employee = new azure_native.contoso.Employee("employee", {
- *     employeeName: "9KF-f-8b",
- *     location: "itajgxyqozseoygnl",
- *     properties: {
- *         age: 30,
- *         city: "gydhnntudughbmxlkyzrskcdkotrxn",
- *         profile: "ms",
- *     },
- *     resourceGroupName: "rgopenapi",
- *     tags: {
- *         key2913: "urperxmkkhhkp",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:contoso:Employee xepyxhpb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Contoso/employees/{employeeName} 
- * ```
  */
 export class Employee extends pulumi.CustomResource {
     /**

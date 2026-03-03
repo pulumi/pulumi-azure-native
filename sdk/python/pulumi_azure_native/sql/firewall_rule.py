@@ -139,44 +139,6 @@ class FirewallRule(pulumi.CustomResource):
 
         Other available API versions: 2014-04-01, 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a firewall rule max/min
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.sql.FirewallRule("firewallRule",
-            end_ip_address="0.0.0.3",
-            firewall_rule_name="firewallrulecrudtest-5370",
-            resource_group_name="firewallrulecrudtest-12",
-            server_name="firewallrulecrudtest-6285",
-            start_ip_address="0.0.0.3")
-
-        ```
-        ### Update a firewall rule max/min
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.sql.FirewallRule("firewallRule",
-            end_ip_address="0.0.0.1",
-            firewall_rule_name="firewallrulecrudtest-3927",
-            resource_group_name="firewallrulecrudtest-12",
-            server_name="firewallrulecrudtest-6285",
-            start_ip_address="0.0.0.1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:FirewallRule firewallrulecrudtest-3927 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/firewallRules/{firewallRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,44 +161,6 @@ class FirewallRule(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2014-04-01, 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a firewall rule max/min
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.sql.FirewallRule("firewallRule",
-            end_ip_address="0.0.0.3",
-            firewall_rule_name="firewallrulecrudtest-5370",
-            resource_group_name="firewallrulecrudtest-12",
-            server_name="firewallrulecrudtest-6285",
-            start_ip_address="0.0.0.3")
-
-        ```
-        ### Update a firewall rule max/min
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        firewall_rule = azure_native.sql.FirewallRule("firewallRule",
-            end_ip_address="0.0.0.1",
-            firewall_rule_name="firewallrulecrudtest-3927",
-            resource_group_name="firewallrulecrudtest-12",
-            server_name="firewallrulecrudtest-6285",
-            start_ip_address="0.0.0.1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:FirewallRule firewallrulecrudtest-3927 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/firewallRules/{firewallRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

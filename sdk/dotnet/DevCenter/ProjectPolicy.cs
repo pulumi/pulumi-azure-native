@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.DevCenter
     /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
     /// Other available API versions: 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ProjectPolicies_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var projectPolicy = new AzureNative.DevCenter.ProjectPolicy("projectPolicy", new()
-    ///     {
-    ///         DevCenterName = "Contoso",
-    ///         ProjectPolicyName = "DevOnlyResources",
-    ///         ResourceGroupName = "rg1",
-    ///         ResourcePolicies = new[]
-    ///         {
-    ///             new AzureNative.DevCenter.Inputs.ResourcePolicyArgs
-    ///             {
-    ///                 Resources = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff1/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/attachednetworks/network-westus3",
-    ///             },
-    ///         },
-    ///         Scopes = new[]
-    ///         {
-    ///             "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff1/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:devcenter:ProjectPolicy DevOnlyResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devcenters/{devCenterName}/projectPolicies/{projectPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectPolicy")]
     public partial class ProjectPolicy : global::Pulumi.CustomResource

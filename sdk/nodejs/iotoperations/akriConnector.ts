@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### AkriConnector_CreateOrUpdate_MaximumSet
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const akriConnector = new azure_native.iotoperations.AkriConnector("akriConnector", {
- *     akriConnectorTemplateName: "resource-name123",
- *     connectorName: "resource-name123",
- *     extendedLocation: {
- *         name: "subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup123/providers/Microsoft.ExtendedLocation/customLocations/resource-name123",
- *         type: azure_native.iotoperations.ExtendedLocationType.CustomLocation,
- *     },
- *     instanceName: "resource-name123",
- *     resourceGroupName: "rgiotoperations",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:iotoperations:AkriConnector resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperations/instances/{instanceName}/akriConnectorTemplates/{akriConnectorTemplateName}/connectors/{connectorName} 
- * ```
  */
 export class AkriConnector extends pulumi.CustomResource {
     /**

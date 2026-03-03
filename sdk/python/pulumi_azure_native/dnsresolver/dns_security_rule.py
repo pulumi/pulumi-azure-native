@@ -190,41 +190,6 @@ class DnsSecurityRule(pulumi.CustomResource):
 
         Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Upsert DNS security rule
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dns_security_rule = azure_native.dnsresolver.DnsSecurityRule("dnsSecurityRule",
-            action={
-                "action_type": azure_native.dnsresolver.ActionType.BLOCK,
-                "block_response_code": azure_native.dnsresolver.BlockResponseCode.SERVFAIL,
-            },
-            dns_resolver_domain_lists=[{
-                "id": "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolverDomainLists/sampleDnsResolverDomainList",
-            }],
-            dns_resolver_policy_name="sampleDnsResolverPolicy",
-            dns_security_rule_name="sampleDnsSecurityRule",
-            dns_security_rule_state=azure_native.dnsresolver.DnsSecurityRuleState.ENABLED,
-            location="westus2",
-            priority=100,
-            resource_group_name="sampleResourceGroup",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dnsresolver:DnsSecurityRule sampleDnsSecurityRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolverPolicies/{dnsResolverPolicyName}/dnsSecurityRules/{dnsSecurityRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,41 +215,6 @@ class DnsSecurityRule(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Upsert DNS security rule
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dns_security_rule = azure_native.dnsresolver.DnsSecurityRule("dnsSecurityRule",
-            action={
-                "action_type": azure_native.dnsresolver.ActionType.BLOCK,
-                "block_response_code": azure_native.dnsresolver.BlockResponseCode.SERVFAIL,
-            },
-            dns_resolver_domain_lists=[{
-                "id": "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolverDomainLists/sampleDnsResolverDomainList",
-            }],
-            dns_resolver_policy_name="sampleDnsResolverPolicy",
-            dns_security_rule_name="sampleDnsSecurityRule",
-            dns_security_rule_state=azure_native.dnsresolver.DnsSecurityRuleState.ENABLED,
-            location="westus2",
-            priority=100,
-            resource_group_name="sampleResourceGroup",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dnsresolver:DnsSecurityRule sampleDnsSecurityRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolverPolicies/{dnsResolverPolicyName}/dnsSecurityRules/{dnsSecurityRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2024-02-01.
     /// 
     /// Other available API versions: 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Replication protection Cluster.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var replicationProtectionCluster = new AzureNative.RecoveryServices.ReplicationProtectionCluster("replicationProtectionCluster", new()
-    ///     {
-    ///         FabricName = "eastus",
-    ///         Properties = new AzureNative.RecoveryServices.Inputs.ReplicationProtectionClusterPropertiesArgs
-    ///         {
-    ///             PolicyId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/24-hour-retention-policy",
-    ///             ProviderSpecificDetails = new AzureNative.RecoveryServices.Inputs.A2AReplicationProtectionClusterDetailsArgs
-    ///             {
-    ///                 InstanceType = "A2A",
-    ///             },
-    ///             RecoveryContainerId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/centraluseuap/replicationProtectionContainers/centraluseuap-container",
-    ///         },
-    ///         ProtectionContainerName = "eastus-container",
-    ///         ReplicationProtectionClusterName = "cluster12",
-    ///         ResourceGroupName = "resourceGroupPS1",
-    ///         ResourceName = "vault1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:recoveryservices:ReplicationProtectionCluster cluster12 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectionClusters/{replicationProtectionClusterName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationProtectionCluster")]
     public partial class ReplicationProtectionCluster : global::Pulumi.CustomResource

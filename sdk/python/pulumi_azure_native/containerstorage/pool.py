@@ -191,50 +191,6 @@ class Pool(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
-        ## Example Usage
-        ### Pools_CreateOrUpdate_Ephemeral
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pool = azure_native.containerstorage.Pool("pool",
-            assignments=[{
-                "id": "/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
-            }],
-            location="eastus",
-            pool_name="test-pool",
-            pool_type={
-                "ephemeral_disk": {
-                    "replicas": 3,
-                },
-            },
-            reclaim_policy=azure_native.containerstorage.ReclaimPolicy.DELETE,
-            resource_group_name="test-rg",
-            resources={
-                "requests": {
-                    "storage": 15578,
-                },
-            },
-            tags={
-                "key1888": "value1888",
-            },
-            zones=[
-                azure_native.containerstorage.Zone.ZONE1,
-                azure_native.containerstorage.Zone.ZONE2,
-                azure_native.containerstorage.Zone.ZONE3,
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerstorage:Pool test-pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,50 +214,6 @@ class Pool(pulumi.CustomResource):
         Pool resource
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
-
-        ## Example Usage
-        ### Pools_CreateOrUpdate_Ephemeral
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pool = azure_native.containerstorage.Pool("pool",
-            assignments=[{
-                "id": "/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
-            }],
-            location="eastus",
-            pool_name="test-pool",
-            pool_type={
-                "ephemeral_disk": {
-                    "replicas": 3,
-                },
-            },
-            reclaim_policy=azure_native.containerstorage.ReclaimPolicy.DELETE,
-            resource_group_name="test-rg",
-            resources={
-                "requests": {
-                    "storage": 15578,
-                },
-            },
-            tags={
-                "key1888": "value1888",
-            },
-            zones=[
-                azure_native.containerstorage.Zone.ZONE1,
-                azure_native.containerstorage.Zone.ZONE2,
-                azure_native.containerstorage.Zone.ZONE3,
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerstorage:Pool test-pool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

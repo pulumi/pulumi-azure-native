@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.Migrate
     /// A private endpoint connection for a project.
     /// 
     /// Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
-    /// 
-    /// ## Example Usage
-    /// ### PrivateEndpointConnections_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateEndpointConnection = new AzureNative.Migrate.PrivateEndpointConnection("privateEndpointConnection", new()
-    ///     {
-    ///         ETag = "\"00009300-0000-0300-0000-602b967b0000\"",
-    ///         PrivateEndpointConnectionName = "custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
-    ///         ProjectName = "abgoyalWEselfhostb72bproject",
-    ///         Properties = new AzureNative.Migrate.Inputs.PrivateEndpointConnectionPropertiesArgs
-    ///         {
-    ///             PrivateLinkServiceConnectionState = new AzureNative.Migrate.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///             {
-    ///                 ActionsRequired = "",
-    ///                 Status = AzureNative.Migrate.PrivateEndpointServiceConnectionStatus.Approved,
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "abgoyal-westEurope",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:PrivateEndpointConnection custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentprojects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

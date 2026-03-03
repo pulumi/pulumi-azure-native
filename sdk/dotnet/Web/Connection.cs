@@ -15,45 +15,6 @@ namespace Pulumi.AzureNative.Web
     /// Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
     /// 
     /// Other available API versions: 2015-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Replace a connection
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var connection = new AzureNative.Web.Connection("connection", new()
-    ///     {
-    ///         ConnectionName = "testManagedApi",
-    ///         Properties = new AzureNative.Web.Inputs.ApiConnectionDefinitionPropertiesArgs
-    ///         {
-    ///             Api = new AzureNative.Web.Inputs.ApiReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
-    ///             },
-    ///             CustomParameterValues = null,
-    ///             DisplayName = "testManagedApi",
-    ///             ParameterValues = null,
-    ///         },
-    ///         ResourceGroupName = "testResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:web:Connection testManagedApi-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

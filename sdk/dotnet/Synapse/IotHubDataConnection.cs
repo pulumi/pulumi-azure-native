@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.Synapse
     /// Class representing an iot hub data connection.
     /// 
     /// Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### KustoPoolDataConnectionsCreateOrUpdate.json
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var iotHubDataConnection = new AzureNative.Synapse.IotHubDataConnection("iotHubDataConnection", new()
-    ///     {
-    ///         DataConnectionName = "DataConnections8",
-    ///         DatabaseName = "KustoDatabase8",
-    ///         KustoPoolName = "kustoclusterrptest4",
-    ///         ResourceGroupName = "kustorptest",
-    ///         WorkspaceName = "synapseWorkspaceName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:synapse:IotHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IotHubDataConnection")]
     public partial class IotHubDataConnection : global::Pulumi.CustomResource

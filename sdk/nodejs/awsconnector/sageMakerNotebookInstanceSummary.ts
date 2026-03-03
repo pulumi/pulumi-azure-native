@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### SageMakerNotebookInstanceSummaries_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sageMakerNotebookInstanceSummary = new azure_native.awsconnector.SageMakerNotebookInstanceSummary("sageMakerNotebookInstanceSummary", {
- *     location: "khdjmafoabcvhksslfjtzlyh",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "ncvgnrtwmjxungpgrodvsy",
- *         awsAccountId: "ymlnxodvrwztwew",
- *         awsProperties: {
- *             additionalCodeRepositories: ["pkjwtq"],
- *             creationTime: "2024-10-08T03:50:00.672Z",
- *             defaultCodeRepository: "edbiryeqsbvjcqmwygujvl",
- *             instanceType: {
- *                 value: azure_native.awsconnector.InstanceType.MlC42xlarge,
- *             },
- *             lastModifiedTime: "2024-10-08T03:50:00.673Z",
- *             notebookInstanceArn: "wxrcvukcvvtd",
- *             notebookInstanceLifecycleConfigName: "t",
- *             notebookInstanceName: "nwemhcydnbtwmti",
- *             notebookInstanceStatus: {
- *                 value: azure_native.awsconnector.NotebookInstanceStatus.Deleting,
- *             },
- *             url: "ricclxhpsojfujeolzbg",
- *         },
- *         awsRegion: "oqykvfkrsmwkvszj",
- *         awsSourceSchema: "gqddonfcsn",
- *         awsTags: {
- *             key4152: "dujjfkuxcm",
- *         },
- *         publicCloudConnectorsResourceId: "khlyjmgts",
- *         publicCloudResourceName: "ocd",
- *     },
- *     resourceGroupName: "rgsageMakerNotebookInstanceSummary",
- *     tags: {
- *         key9470: "aluoxfdglqvvkktxeg",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:SageMakerNotebookInstanceSummary aoqcxtngqqormdennckxrrafoeh /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerNotebookInstanceSummaries/{name} 
- * ```
  */
 export class SageMakerNotebookInstanceSummary extends pulumi.CustomResource {
     /**

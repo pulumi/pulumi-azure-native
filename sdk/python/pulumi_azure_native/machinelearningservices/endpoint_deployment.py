@@ -117,38 +117,6 @@ class EndpointDeployment(pulumi.CustomResource):
 
         Other available API versions: 2024-01-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create Endpoint Deployment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        endpoint_deployment = azure_native.machinelearningservices.EndpointDeployment("endpointDeployment",
-            deployment_name="text-davinci-003",
-            endpoint_name="Azure.OpenAI",
-            properties={
-                "model": {
-                    "format": "OpenAI",
-                    "name": "text-davinci-003",
-                    "version": "1",
-                },
-                "type": "Azure.OpenAI",
-                "version_upgrade_option": azure_native.machinelearningservices.DeploymentModelVersionUpgradeOption.ONCE_NEW_DEFAULT_VERSION_AVAILABLE,
-            },
-            resource_group_name="resourceGroup-1",
-            workspace_name="testworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:EndpointDeployment text-davinci-003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/deployments/{deploymentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,38 +135,6 @@ class EndpointDeployment(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
 
         Other available API versions: 2024-01-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create Endpoint Deployment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        endpoint_deployment = azure_native.machinelearningservices.EndpointDeployment("endpointDeployment",
-            deployment_name="text-davinci-003",
-            endpoint_name="Azure.OpenAI",
-            properties={
-                "model": {
-                    "format": "OpenAI",
-                    "name": "text-davinci-003",
-                    "version": "1",
-                },
-                "type": "Azure.OpenAI",
-                "version_upgrade_option": azure_native.machinelearningservices.DeploymentModelVersionUpgradeOption.ONCE_NEW_DEFAULT_VERSION_AVAILABLE,
-            },
-            resource_group_name="resourceGroup-1",
-            workspace_name="testworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:EndpointDeployment text-davinci-003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/deployments/{deploymentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

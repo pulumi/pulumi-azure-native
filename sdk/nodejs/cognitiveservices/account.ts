@@ -10,73 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
  *
- * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+ * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.cognitiveservices.Account("account", {
- *     accountName: "testCreate1",
- *     identity: {
- *         type: azure_native.cognitiveservices.ResourceIdentityType.SystemAssigned,
- *     },
- *     kind: "Emotion",
- *     location: "West US",
- *     properties: {
- *         encryption: {
- *             keySource: azure_native.cognitiveservices.KeySource.Microsoft_KeyVault,
- *             keyVaultProperties: {
- *                 keyName: "KeyName",
- *                 keyVaultUri: "https://pltfrmscrts-use-pc-dev.vault.azure.net/",
- *                 keyVersion: "891CF236-D241-4738-9462-D506AF493DFA",
- *             },
- *         },
- *         userOwnedStorage: [{
- *             resourceId: "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
- *         }],
- *     },
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "S0",
- *     },
- * });
- *
- * ```
- * ### Create Account Min
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.cognitiveservices.Account("account", {
- *     accountName: "testCreate1",
- *     identity: {
- *         type: azure_native.cognitiveservices.ResourceIdentityType.SystemAssigned,
- *     },
- *     kind: "CognitiveServices",
- *     location: "West US",
- *     properties: {},
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: "S0",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:Account testCreate1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName} 
- * ```
+ * Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Account extends pulumi.CustomResource {
     /**

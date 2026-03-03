@@ -176,9 +176,9 @@ def get_shared_commitment_plan(commitment_plan_name: Optional[_builtins.str] = N
     """
     Returns a Cognitive Services commitment plan specified by the parameters.
 
-    Uses Azure REST API version 2024-10-01.
+    Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
@@ -208,9 +208,9 @@ def get_shared_commitment_plan_output(commitment_plan_name: Optional[pulumi.Inpu
     """
     Returns a Cognitive Services commitment plan specified by the parameters.
 
-    Uses Azure REST API version 2024-10-01.
+    Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01, 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account

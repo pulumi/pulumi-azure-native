@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Represents the serial port of the parent resource.
  *
  * Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
- *
- * ## Example Usage
- * ### Create a new serial port resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serialPort = new azure_native.serialconsole.SerialPort("serialPort", {
- *     parentResource: "myVM",
- *     parentResourceType: "virtualMachines",
- *     resourceGroupName: "myResourceGroup",
- *     resourceProviderNamespace: "Microsoft.Compute",
- *     serialPort: "0",
- *     state: azure_native.serialconsole.SerialPortState.Enabled,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:serialconsole:SerialPort 0 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourceType}/{parentResource}/providers/Microsoft.SerialConsole/serialPorts/{serialPort} 
- * ```
  */
 export class SerialPort extends pulumi.CustomResource {
     /**

@@ -13,43 +13,6 @@ namespace Pulumi.AzureNative.MySQLDiscovery
     /// The MySQLSite resource definition.
     /// 
     /// Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
-    /// 
-    /// ## Example Usage
-    /// ### MySQLSites_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mySQLSite = new AzureNative.MySQLDiscovery.MySQLSite("mySQLSite", new()
-    ///     {
-    ///         ExtendedLocation = new AzureNative.MySQLDiscovery.Inputs.ExtendedLocationArgs
-    ///         {
-    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
-    ///             Type = "customLocation",
-    ///         },
-    ///         Location = "East US",
-    ///         MasterSiteId = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.OffAzure/MasterSites/xxx",
-    ///         MigrateProjectId = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourcegroups/demoRG/providers/microsoft.migrate/migrateprojects/xxx",
-    ///         ResourceGroupName = "testrg",
-    ///         SiteName = "testSite",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:mysqldiscovery:MySQLSite testSite /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MySQLDiscovery/MySQLSites/{siteName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mysqldiscovery:MySQLSite")]
     public partial class MySQLSite : global::Pulumi.CustomResource

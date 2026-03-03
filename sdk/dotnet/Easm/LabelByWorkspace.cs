@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.Easm
     /// Label details
     /// 
     /// Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Labels
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var labelByWorkspace = new AzureNative.Easm.LabelByWorkspace("labelByWorkspace", new()
-    ///     {
-    ///         LabelName = "ThisisaLabel",
-    ///         ResourceGroupName = "dummyrg",
-    ///         WorkspaceName = "ThisisaWorkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:easm:LabelByWorkspace ThisisaLabel /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Easm/workspaces/{workspaceName}/labels/{labelName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:easm:LabelByWorkspace")]
     public partial class LabelByWorkspace : global::Pulumi.CustomResource

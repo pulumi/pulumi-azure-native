@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.Confluent
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2024-07-01.
     /// 
     /// Other available API versions: 2025-07-17-preview, 2025-08-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native confluent [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Cluster_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var organizationClusterById = new AzureNative.Confluent.OrganizationClusterById("organizationClusterById", new()
-    ///     {
-    ///         ClusterId = "cluster-1",
-    ///         EnvironmentId = "env-1",
-    ///         OrganizationName = "myOrganization",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Spec = new AzureNative.Confluent.Inputs.SCClusterSpecEntityArgs
-    ///         {
-    ///             Environment = new AzureNative.Confluent.Inputs.SCClusterNetworkEnvironmentEntityArgs
-    ///             {
-    ///                 Id = "env-1",
-    ///             },
-    ///             Package = AzureNative.Confluent.Package.ESSENTIALS,
-    ///             Region = "us-east4",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:confluent:OrganizationClusterById cluster-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Confluent/organizations/{organizationName}/environments/{environmentId}/clusters/{clusterId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:OrganizationClusterById")]
     public partial class OrganizationClusterById : global::Pulumi.CustomResource

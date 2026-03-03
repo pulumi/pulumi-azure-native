@@ -226,46 +226,6 @@ class DscConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or Update Configuration
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dsc_configuration = azure_native.automation.DscConfiguration("dscConfiguration",
-            automation_account_name="myAutomationAccount18",
-            configuration_name="SetupServer",
-            description="sample configuration",
-            location="East US 2",
-            name="SetupServer",
-            resource_group_name="rg",
-            source={
-                "hash": {
-                    "algorithm": "sha256",
-                    "value": "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
-                },
-                "type": azure_native.automation.ContentSourceType.EMBEDDED_CONTENT,
-                "value": \"\"\"Configuration SetupServer {\\x0d
-            Node localhost {\\x0d
-                                       WindowsFeature IIS {\\x0d
-                                       Name = "Web-Server";\\x0d
-                    Ensure = "Present"\\x0d
-                }\\x0d
-            }\\x0d
-        }\"\"\",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:DscConfiguration SetupServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/configurations/{configurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,46 +253,6 @@ class DscConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
         Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or Update Configuration
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dsc_configuration = azure_native.automation.DscConfiguration("dscConfiguration",
-            automation_account_name="myAutomationAccount18",
-            configuration_name="SetupServer",
-            description="sample configuration",
-            location="East US 2",
-            name="SetupServer",
-            resource_group_name="rg",
-            source={
-                "hash": {
-                    "algorithm": "sha256",
-                    "value": "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
-                },
-                "type": azure_native.automation.ContentSourceType.EMBEDDED_CONTENT,
-                "value": \"\"\"Configuration SetupServer {\\x0d
-            Node localhost {\\x0d
-                                       WindowsFeature IIS {\\x0d
-                                       Name = "Web-Server";\\x0d
-                    Ensure = "Present"\\x0d
-                }\\x0d
-            }\\x0d
-        }\"\"\",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:DscConfiguration SetupServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/configurations/{configurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

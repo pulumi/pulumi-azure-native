@@ -13,40 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
  *
  * Other available API versions: 2023-07-01-preview, 2024-05-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### KeyGroups_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const keyGroup = new azure_native.cdn.KeyGroup("keyGroup", {
- *     keyGroupName: "kg1",
- *     keyReferences: [
- *         {
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1",
- *         },
- *         {
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret2",
- *         },
- *         {
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret3",
- *         },
- *     ],
- *     profileName: "profile1",
- *     resourceGroupName: "RG",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cdn:KeyGroup kg1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/keyGroups/{keyGroupName} 
- * ```
  */
 export class KeyGroup extends pulumi.CustomResource {
     /**

@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Markup rule
  *
  * Uses Azure REST API version 2022-10-05-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdatePrivateMarkupRules
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const markupRule = new azure_native.costmanagement.MarkupRule("markupRule", {
- *     billingAccountId: "2af90bea-080c-438c-8977-17cddd5f115a:ef5ce3cf-f5af-4fcb-a5ed-c376e1d6d2b6",
- *     billingProfileId: "cbf78278-f4b8-43d9-8f13-47112da1c63e",
- *     customerDetails: {
- *         billingAccountId: "cff9aa6d-941c-43f2-b6cb-1d2bb34a02b4:780237f3-1aa6-4159-943b-498e0d647dd9",
- *         billingProfileId: "08eeecee-efb2-40d5-817c-0a254d2e042c",
- *     },
- *     description: "Markup rule for year 2022",
- *     endDate: "2022-12-31T00:00:00Z",
- *     name: "markup-2022",
- *     percentage: 5,
- *     startDate: "2022-01-01T00:00:00Z",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:costmanagement:MarkupRule markup-2022 /providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.CostManagement/markupRules/{name} 
- * ```
  */
 export class MarkupRule extends pulumi.CustomResource {
     /**

@@ -120,30 +120,6 @@ class SingleServerConfiguration(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
-        ## Example Usage
-        ### ConfigurationCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_configuration = azure_native.dbforpostgresql.SingleServerConfiguration("singleServerConfiguration",
-            configuration_name="array_nulls",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            source="user-override",
-            value="off")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerConfiguration array_nulls /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/configurations/{configurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,30 +139,6 @@ class SingleServerConfiguration(pulumi.CustomResource):
         Represents a Configuration.
 
         Uses Azure REST API version 2017-12-01.
-
-        ## Example Usage
-        ### ConfigurationCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_configuration = azure_native.dbforpostgresql.SingleServerConfiguration("singleServerConfiguration",
-            configuration_name="array_nulls",
-            resource_group_name="TestGroup",
-            server_name="testserver",
-            source="user-override",
-            value="off")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerConfiguration array_nulls /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/configurations/{configurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

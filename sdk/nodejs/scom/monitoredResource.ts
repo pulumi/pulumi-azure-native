@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * A monitored resource.
  *
  * Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
- *
- * ## Example Usage
- * ### MonitoredResources_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const monitoredResource = new azure_native.scom.MonitoredResource("monitoredResource", {
- *     instanceName: "myInstance",
- *     monitoredResourceName: "d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
- *     resourceGroupName: "myResGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:scom:MonitoredResource d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/monitoredResources/{monitoredResourceName} 
- * ```
  */
 export class MonitoredResource extends pulumi.CustomResource {
     /**

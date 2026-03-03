@@ -159,48 +159,6 @@ class RouteMap(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### RouteMapPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        route_map = azure_native.network.RouteMap("routeMap",
-            associated_inbound_connections=["/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1"],
-            associated_outbound_connections=[],
-            resource_group_name="rg1",
-            route_map_name="routeMap1",
-            rules=[{
-                "actions": [{
-                    "parameters": [{
-                        "as_path": ["22334"],
-                        "community": [],
-                        "route_prefix": [],
-                    }],
-                    "type": azure_native.network.RouteMapActionType.ADD,
-                }],
-                "match_criteria": [{
-                    "as_path": [],
-                    "community": [],
-                    "match_condition": azure_native.network.RouteMapMatchCondition.CONTAINS,
-                    "route_prefix": ["10.0.0.0/8"],
-                }],
-                "name": "rule1",
-                "next_step_if_matched": azure_native.network.NextStep.CONTINUE_,
-            }],
-            virtual_hub_name="virtualHub1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:RouteMap routeMap1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps/{routeMapName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,48 +182,6 @@ class RouteMap(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### RouteMapPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        route_map = azure_native.network.RouteMap("routeMap",
-            associated_inbound_connections=["/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1"],
-            associated_outbound_connections=[],
-            resource_group_name="rg1",
-            route_map_name="routeMap1",
-            rules=[{
-                "actions": [{
-                    "parameters": [{
-                        "as_path": ["22334"],
-                        "community": [],
-                        "route_prefix": [],
-                    }],
-                    "type": azure_native.network.RouteMapActionType.ADD,
-                }],
-                "match_criteria": [{
-                    "as_path": [],
-                    "community": [],
-                    "match_condition": azure_native.network.RouteMapMatchCondition.CONTAINS,
-                    "route_prefix": ["10.0.0.0/8"],
-                }],
-                "name": "rule1",
-                "next_step_if_matched": azure_native.network.NextStep.CONTINUE_,
-            }],
-            virtual_hub_name="virtualHub1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:RouteMap routeMap1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps/{routeMapName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

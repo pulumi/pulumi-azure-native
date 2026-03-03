@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Ec2AccountAttributes_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ec2AccountAttribute = new azure_native.awsconnector.Ec2AccountAttribute("ec2AccountAttribute", {
- *     location: "mxywielgbokfdxxwuudnbwzjcf",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "ttwi",
- *         awsAccountId: "jzeepmbcwiwakwsvqakkaz",
- *         awsProperties: {
- *             attributeName: "vsrccnoksnxyyisrlfzkuj",
- *             attributeValues: [{
- *                 attributeValue: "lvlyhjnivtpgkbt",
- *             }],
- *         },
- *         awsRegion: "ojtquhkurhjtoocjpjyibb",
- *         awsSourceSchema: "njukzwmmwgmvurer",
- *         awsTags: {
- *             key2779: "qzjyzsygumaykisfigqlypvu",
- *         },
- *         publicCloudConnectorsResourceId: "rmmqxjdxoe",
- *         publicCloudResourceName: "lhdzqjxtfagnhbdjev",
- *     },
- *     resourceGroupName: "rgec2AccountAttribute",
- *     tags: {
- *         key6022: "psppjmksguimpyjugsfgrp",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Ec2AccountAttribute gwbo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2AccountAttributes/{name} 
- * ```
  */
 export class Ec2AccountAttribute extends pulumi.CustomResource {
     /**

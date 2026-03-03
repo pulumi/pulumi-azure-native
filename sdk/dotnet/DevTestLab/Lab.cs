@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A lab.
     /// 
     /// Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-    /// 
-    /// ## Example Usage
-    /// ### Labs_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lab = new AzureNative.DevTestLab.Lab("lab", new()
-    ///     {
-    ///         LabStorageType = "{Standard|Premium}",
-    ///         Location = "{location}",
-    ///         Name = "{labName}",
-    ///         ResourceGroupName = "resourceGroupName",
-    ///         Tags = 
-    ///         {
-    ///             { "tagName1", "tagValue1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:devtestlab:Lab {labName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Lab")]
     public partial class Lab : global::Pulumi.CustomResource

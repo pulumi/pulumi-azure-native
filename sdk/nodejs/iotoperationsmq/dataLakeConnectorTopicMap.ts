@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * MQ dataLakeConnector/topicMap resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
- *
- * ## Example Usage
- * ### DataLakeConnectorTopicMap_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dataLakeConnectorTopicMap = new azure_native.iotoperationsmq.DataLakeConnectorTopicMap("dataLakeConnectorTopicMap", {
- *     dataLakeConnectorName: "E9gU89-1QnIG7-IP8qOQLV-",
- *     dataLakeConnectorRef: "zirczjfua",
- *     extendedLocation: {
- *         name: "an",
- *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
- *     },
- *     location: "wjmgeh",
- *     mapping: {
- *         allowedLatencySecs: 25407,
- *         clientId: "gyjduryceozwqyjdrxhrtwuw",
- *         maxMessagesPerBatch: 1581641880,
- *         messagePayloadType: "pwhpwzqlzlhdrozpqziipvjqrnipo",
- *         mqttSourceTopic: "mtac",
- *         qos: 2,
- *         table: {
- *             schema: [{
- *                 format: azure_native.iotoperationsmq.DeltaTableFormatEnum.Boolean,
- *                 mapping: "lfnyjp",
- *                 name: "hejqncdsueoerueffbaqix",
- *                 optional: true,
- *             }],
- *             tableName: "qyvzigmefvxwyjqksofyrstn",
- *             tablePath: "cyrkvxsjhbhwjegmhzyixchkdnxe",
- *         },
- *     },
- *     mqName: "rc-8Z--2m-MU",
- *     resourceGroupName: "rgiotoperationsmq",
- *     tags: {},
- *     topicMapName: "17-",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:iotoperationsmq:DataLakeConnectorTopicMap l /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/dataLakeConnector/{dataLakeConnectorName}/topicMap/{topicMapName} 
- * ```
  */
 export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
     /**

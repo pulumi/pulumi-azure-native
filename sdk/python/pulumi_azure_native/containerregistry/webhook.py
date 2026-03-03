@@ -207,39 +207,6 @@ class Webhook(pulumi.CustomResource):
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### WebhookCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        webhook = azure_native.containerregistry.Webhook("webhook",
-            actions=[azure_native.containerregistry.WebhookAction.PUSH],
-            custom_headers={
-                "Authorization": "******",
-            },
-            location="westus",
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            scope="myRepository",
-            service_uri="http://myservice.com",
-            status=azure_native.containerregistry.WebhookStatus.ENABLED,
-            tags={
-                "key": "value",
-            },
-            webhook_name="myWebhook")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:Webhook myWebhook /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/webhooks/{webhookName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,39 +233,6 @@ class Webhook(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
         Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-09-01, 2021-12-01-preview, 2022-02-01-preview, 2022-12-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### WebhookCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        webhook = azure_native.containerregistry.Webhook("webhook",
-            actions=[azure_native.containerregistry.WebhookAction.PUSH],
-            custom_headers={
-                "Authorization": "******",
-            },
-            location="westus",
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            scope="myRepository",
-            service_uri="http://myservice.com",
-            status=azure_native.containerregistry.WebhookStatus.ENABLED,
-            tags={
-                "key": "value",
-            },
-            webhook_name="myWebhook")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:Webhook myWebhook /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/webhooks/{webhookName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

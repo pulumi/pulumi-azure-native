@@ -15,59 +15,6 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates a recovery plan with the given details.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var replicationRecoveryPlan = new AzureNative.RecoveryServices.ReplicationRecoveryPlan("replicationRecoveryPlan", new()
-    ///     {
-    ///         Properties = new AzureNative.RecoveryServices.Inputs.CreateRecoveryPlanInputPropertiesArgs
-    ///         {
-    ///             FailoverDeploymentModel = AzureNative.RecoveryServices.FailoverDeploymentModel.ResourceManager,
-    ///             Groups = new[]
-    ///             {
-    ///                 new AzureNative.RecoveryServices.Inputs.RecoveryPlanGroupArgs
-    ///                 {
-    ///                     EndGroupActions = new() { },
-    ///                     GroupType = AzureNative.RecoveryServices.RecoveryPlanGroupType.Boot,
-    ///                     ReplicationProtectedItems = new[]
-    ///                     {
-    ///                         new AzureNative.RecoveryServices.Inputs.RecoveryPlanProtectedItemArgs
-    ///                         {
-    ///                             Id = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
-    ///                             VirtualMachineId = "f8491e4f-817a-40dd-a90c-af773978c75b",
-    ///                         },
-    ///                     },
-    ///                     StartGroupActions = new() { },
-    ///                 },
-    ///             },
-    ///             PrimaryFabricId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
-    ///             RecoveryFabricId = "Microsoft Azure",
-    ///         },
-    ///         RecoveryPlanName = "RPtest1",
-    ///         ResourceGroupName = "resourceGroupPS1",
-    ///         ResourceName = "vault1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:recoveryservices:ReplicationRecoveryPlan RPtest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource

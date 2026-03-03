@@ -240,35 +240,6 @@ class MachineExtension(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
-        ## Example Usage
-        ### Create or Update a Machine Extension (PUT)
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        machine_extension = azure_native.azurestackhci.MachineExtension("machineExtension",
-            extension_name="CustomScriptExtension",
-            location="eastus2euap",
-            name="myMachine",
-            publisher="Microsoft.Compute",
-            resource_group_name="myResourceGroup",
-            settings={
-                "commandToExecute": "powershell.exe -c \\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\"",
-            },
-            type="CustomScriptExtension",
-            type_handler_version="1.10")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{name}/extensions/{extensionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,35 +266,6 @@ class MachineExtension(pulumi.CustomResource):
         Describes a Machine Extension.
 
         Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
-
-        ## Example Usage
-        ### Create or Update a Machine Extension (PUT)
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        machine_extension = azure_native.azurestackhci.MachineExtension("machineExtension",
-            extension_name="CustomScriptExtension",
-            location="eastus2euap",
-            name="myMachine",
-            publisher="Microsoft.Compute",
-            resource_group_name="myResourceGroup",
-            settings={
-                "commandToExecute": "powershell.exe -c \\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\"",
-            },
-            type="CustomScriptExtension",
-            type_handler_version="1.10")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{name}/extensions/{extensionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -123,37 +123,6 @@ class InstanceDetails(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
-        ## Example Usage
-        ### Create instance
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        instance_details = azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails",
-            administration={
-                "members": [
-                    "azsdktest@microsoft.com",
-                    "azsdktest2@microsoft.com",
-                ],
-            },
-            instance_name="azsdktest",
-            location="West US",
-            resource_group_name="TestRG",
-            tags={
-                "testKey": "testValue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dynamics365fraudprotection:InstanceDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,37 +142,6 @@ class InstanceDetails(pulumi.CustomResource):
         Represents an instance of a DFP instance resource.
 
         Uses Azure REST API version 2021-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
-
-        ## Example Usage
-        ### Create instance
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        instance_details = azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails",
-            administration={
-                "members": [
-                    "azsdktest@microsoft.com",
-                    "azsdktest2@microsoft.com",
-                ],
-            },
-            instance_name="azsdktest",
-            location="West US",
-            resource_group_name="TestRG",
-            tags={
-                "testKey": "testValue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dynamics365fraudprotection:InstanceDetails azsdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -120,34 +120,6 @@ class ProfileAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### ProfileAgents_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        profile_agent = azure_native.cdn.ProfileAgent("profileAgent",
-            agent_name="agent1",
-            custom_domains=[{
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
-            }],
-            profile_name="profile1",
-            resource_group_name="RG",
-            web_agent={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:ProfileAgent agent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,34 +139,6 @@ class ProfileAgent(pulumi.CustomResource):
         An agent link (web agent association) within a CDN profile.
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### ProfileAgents_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        profile_agent = azure_native.cdn.ProfileAgent("profileAgent",
-            agent_name="agent1",
-            custom_domains=[{
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
-            }],
-            profile_name="profile1",
-            resource_group_name="RG",
-            web_agent={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:ProfileAgent agent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

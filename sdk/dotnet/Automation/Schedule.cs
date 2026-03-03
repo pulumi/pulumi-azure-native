@@ -15,43 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a schedule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var schedule = new AzureNative.Automation.Schedule("schedule", new()
-    ///     {
-    ///         AdvancedSchedule = null,
-    ///         AutomationAccountName = "myAutomationAccount33",
-    ///         Description = "my description of schedule goes here",
-    ///         ExpiryTime = "2017-04-01T17:28:57.2494819Z",
-    ///         Frequency = AzureNative.Automation.ScheduleFrequency.Hour,
-    ///         Interval = 1,
-    ///         Name = "mySchedule",
-    ///         ResourceGroupName = "rg",
-    ///         ScheduleName = "mySchedule",
-    ///         StartTime = "2017-03-27T17:28:57.2494819Z",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:Schedule mySchedule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/schedules/{scheduleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

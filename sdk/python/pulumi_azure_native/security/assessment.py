@@ -158,33 +158,6 @@ class Assessment(pulumi.CustomResource):
 
         Other available API versions: 2019-01-01-preview, 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create security recommendation task on a resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assessment = azure_native.security.Assessment("assessment",
-            assessment_name="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
-            resource_details={
-                "source": "Azure",
-            },
-            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
-            status={
-                "code": azure_native.security.AssessmentStatusCode.HEALTHY,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{resourceId}/providers/Microsoft.Security/assessments/{assessmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,33 +181,6 @@ class Assessment(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2019-01-01-preview, 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create security recommendation task on a resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assessment = azure_native.security.Assessment("assessment",
-            assessment_name="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
-            resource_details={
-                "source": "Azure",
-            },
-            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
-            status={
-                "code": azure_native.security.AssessmentStatusCode.HEALTHY,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{resourceId}/providers/Microsoft.Security/assessments/{assessmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

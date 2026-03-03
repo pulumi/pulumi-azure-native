@@ -105,32 +105,6 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-20-preview.
 
-        ## Example Usage
-        ### Put Private Endpoint Connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fluid_relay_private_endpoint_connection = azure_native.fluidrelay.FluidRelayPrivateEndpointConnection("fluidRelayPrivateEndpointConnection",
-            fluid_relay_server_name="myFluidRelayServer",
-            private_endpoint_connection_name="myPrivateEndpointConnection",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.fluidrelay.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fluidrelay:FluidRelayPrivateEndpointConnection myPrivateEndpointConnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,32 +123,6 @@ class FluidRelayPrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection resource.
 
         Uses Azure REST API version 2025-06-20-preview.
-
-        ## Example Usage
-        ### Put Private Endpoint Connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fluid_relay_private_endpoint_connection = azure_native.fluidrelay.FluidRelayPrivateEndpointConnection("fluidRelayPrivateEndpointConnection",
-            fluid_relay_server_name="myFluidRelayServer",
-            private_endpoint_connection_name="myPrivateEndpointConnection",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.fluidrelay.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:fluidrelay:FluidRelayPrivateEndpointConnection myPrivateEndpointConnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

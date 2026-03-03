@@ -12,44 +12,6 @@ import * as utilities from "../utilities";
  * AzureLargeStorageInstance properties)
  *
  * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
- *
- * ## Example Usage
- * ### AzureLargeStorageInstance_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const azureLargeStorageInstance = new azure_native.azurelargeinstance.AzureLargeStorageInstance("azureLargeStorageInstance", {
- *     azureLargeStorageInstanceName: "myAzureLargeStorageInstance",
- *     azureLargeStorageInstanceUniqueIdentifier: "23415635-4d7e-41dc-9598-8194f22c24e9",
- *     location: "westus2",
- *     resourceGroupName: "myResourceGroup",
- *     storageProperties: {
- *         generation: "Gen4",
- *         hardwareType: "NetApp",
- *         offeringType: "EPIC",
- *         storageBillingProperties: {
- *             billingMode: "PAYG",
- *             sku: "",
- *         },
- *         storageType: "FC",
- *         workloadType: "ODB",
- *     },
- *     tags: {
- *         key: "value",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azurelargeinstance:AzureLargeStorageInstance myAzureLargeStorageInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeStorageInstances/{azureLargeStorageInstanceName} 
- * ```
  */
 export class AzureLargeStorageInstance extends pulumi.CustomResource {
     /**

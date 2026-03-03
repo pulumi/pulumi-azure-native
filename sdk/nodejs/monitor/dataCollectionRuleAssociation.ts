@@ -13,29 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-06-01.
  *
  * Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update association
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dataCollectionRuleAssociation = new azure_native.monitor.DataCollectionRuleAssociation("dataCollectionRuleAssociation", {
- *     associationName: "myAssociation",
- *     dataCollectionRuleId: "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
- *     resourceUri: "subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:monitor:DataCollectionRuleAssociation myAssociation /{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{associationName} 
- * ```
  */
 export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**

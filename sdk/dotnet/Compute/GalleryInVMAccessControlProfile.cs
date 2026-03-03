@@ -15,42 +15,6 @@ namespace Pulumi.AzureNative.Compute
     /// Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2024-03-03.
     /// 
     /// Other available API versions: 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a gallery inVMAccessControlProfile.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var galleryInVMAccessControlProfile = new AzureNative.Compute.GalleryInVMAccessControlProfile("galleryInVMAccessControlProfile", new()
-    ///     {
-    ///         GalleryName = "myGalleryName",
-    ///         InVMAccessControlProfileName = "myInVMAccessControlProfileName",
-    ///         Location = "West US",
-    ///         Properties = new AzureNative.Compute.Inputs.GalleryInVMAccessControlProfilePropertiesArgs
-    ///         {
-    ///             ApplicableHostEndpoint = AzureNative.Compute.EndpointTypes.WireServer,
-    ///             OsType = AzureNative.Compute.OperatingSystemTypes.Linux,
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:compute:GalleryInVMAccessControlProfile myInVMAccessControlProfileName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/inVMAccessControlProfiles/{inVMAccessControlProfileName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryInVMAccessControlProfile")]
     public partial class GalleryInVMAccessControlProfile : global::Pulumi.CustomResource

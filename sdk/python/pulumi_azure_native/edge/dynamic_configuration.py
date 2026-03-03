@@ -107,31 +107,6 @@ class DynamicConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DynamicConfigurations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dynamic_configuration = azure_native.edge.DynamicConfiguration("dynamicConfiguration",
-            configuration_name="parameterName",
-            dynamic_configuration_name="parameterName",
-            properties={
-                "current_version": "ltpwymdbybbjdgyuumsfh",
-            },
-            resource_group_name="rgconfigurations")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:DynamicConfiguration v /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configurations/{configurationName}/dynamicConfigurations/{dynamicConfigurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,31 +127,6 @@ class DynamicConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DynamicConfigurations_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dynamic_configuration = azure_native.edge.DynamicConfiguration("dynamicConfiguration",
-            configuration_name="parameterName",
-            dynamic_configuration_name="parameterName",
-            properties={
-                "current_version": "ltpwymdbybbjdgyuumsfh",
-            },
-            resource_group_name="rgconfigurations")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:DynamicConfiguration v /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/configurations/{configurationName}/dynamicConfigurations/{dynamicConfigurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

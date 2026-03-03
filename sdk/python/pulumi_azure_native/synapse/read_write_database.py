@@ -172,32 +172,6 @@ class ReadWriteDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
-        ## Example Usage
-        ### KustoPoolDatabasesCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        read_write_database = azure_native.synapse.ReadWriteDatabase("readWriteDatabase",
-            database_name="KustoDatabase8",
-            kind="ReadWrite",
-            kusto_pool_name="kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            soft_delete_period="P1D",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,32 +195,6 @@ class ReadWriteDatabase(pulumi.CustomResource):
         Class representing a read write database.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-
-        ## Example Usage
-        ### KustoPoolDatabasesCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        read_write_database = azure_native.synapse.ReadWriteDatabase("readWriteDatabase",
-            database_name="KustoDatabase8",
-            kind="ReadWrite",
-            kusto_pool_name="kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            soft_delete_period="P1D",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

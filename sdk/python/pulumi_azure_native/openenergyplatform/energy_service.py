@@ -117,27 +117,6 @@ class EnergyService(pulumi.CustomResource):
         """
         Uses Azure REST API version 2022-04-04-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-04-preview.
 
-        ## Example Usage
-        ### OepResource_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        energy_service = azure_native.openenergyplatform.EnergyService("energyService",
-            resource_group_name="DummyResourceGroupName",
-            resource_name_="DummyResourceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenEnergyPlatform/energyServices/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,27 +133,6 @@ class EnergyService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Uses Azure REST API version 2022-04-04-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-04-preview.
-
-        ## Example Usage
-        ### OepResource_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        energy_service = azure_native.openenergyplatform.EnergyService("energyService",
-            resource_group_name="DummyResourceGroupName",
-            resource_name_="DummyResourceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OpenEnergyPlatform/energyServices/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

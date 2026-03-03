@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01.
  *
  * Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### autoExportJobs_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const autoExportJob = new azure_native.storagecache.AutoExportJob("autoExportJob", {
- *     amlFilesystemName: "fs1",
- *     autoExportJobName: "job1",
- *     autoExportPrefixes: ["/"],
- *     location: "eastus",
- *     resourceGroupName: "scgroup",
- *     tags: {
- *         Dept: "ContosoAds",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagecache:AutoExportJob job1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/autoExportJobs/{autoExportJobName} 
- * ```
  */
 export class AutoExportJob extends pulumi.CustomResource {
     /**

@@ -13,43 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-22-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-27-preview.
  *
  * Other available API versions: 2023-10-27-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native chaos [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update a private access resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateAccess = new azure_native.chaos.PrivateAccess("privateAccess", {
- *     location: "centraluseuap",
- *     privateAccessName: "myPrivateAccess",
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- * ### Create or Update a private access resource with publicNetworkAccess
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateAccess = new azure_native.chaos.PrivateAccess("privateAccess", {
- *     location: "centraluseuap",
- *     privateAccessName: "myPrivateAccess",
- *     publicNetworkAccess: azure_native.chaos.PublicNetworkAccessOption.Enabled,
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:chaos:PrivateAccess myPrivateAccess /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/privateAccesses/{privateAccessName} 
- * ```
  */
 export class PrivateAccess extends pulumi.CustomResource {
     /**

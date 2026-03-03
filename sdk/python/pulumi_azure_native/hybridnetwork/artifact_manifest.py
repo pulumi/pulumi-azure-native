@@ -158,44 +158,6 @@ class ArtifactManifest(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update the artifact manifest resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        artifact_manifest = azure_native.hybridnetwork.ArtifactManifest("artifactManifest",
-            artifact_manifest_name="TestManifest",
-            artifact_store_name="TestArtifactStore",
-            location="eastus",
-            properties={
-                "artifacts": [
-                    {
-                        "artifact_name": "fed-rbac",
-                        "artifact_type": azure_native.hybridnetwork.ArtifactType.OCI_ARTIFACT,
-                        "artifact_version": "1.0.0",
-                    },
-                    {
-                        "artifact_name": "nginx",
-                        "artifact_type": azure_native.hybridnetwork.ArtifactType.OCI_ARTIFACT,
-                        "artifact_version": "v1",
-                    },
-                ],
-            },
-            publisher_name="TestPublisher",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:ArtifactManifest TestManifest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/artifactStores/{artifactStoreName}/artifactManifests/{artifactManifestName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,44 +181,6 @@ class ArtifactManifest(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update the artifact manifest resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        artifact_manifest = azure_native.hybridnetwork.ArtifactManifest("artifactManifest",
-            artifact_manifest_name="TestManifest",
-            artifact_store_name="TestArtifactStore",
-            location="eastus",
-            properties={
-                "artifacts": [
-                    {
-                        "artifact_name": "fed-rbac",
-                        "artifact_type": azure_native.hybridnetwork.ArtifactType.OCI_ARTIFACT,
-                        "artifact_version": "1.0.0",
-                    },
-                    {
-                        "artifact_name": "nginx",
-                        "artifact_type": azure_native.hybridnetwork.ArtifactType.OCI_ARTIFACT,
-                        "artifact_version": "v1",
-                    },
-                ],
-            },
-            publisher_name="TestPublisher",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:ArtifactManifest TestManifest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/artifactStores/{artifactStoreName}/artifactManifests/{artifactManifestName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

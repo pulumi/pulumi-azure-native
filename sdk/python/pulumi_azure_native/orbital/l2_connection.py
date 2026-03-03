@@ -188,43 +188,6 @@ class L2Connection(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create L2 Connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        l2_connection = azure_native.orbital.L2Connection("l2Connection",
-            edge_site={
-                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/edgeSites/es1",
-            },
-            ground_station={
-                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/groundStations/gs1",
-            },
-            ground_station_partner_router={
-                "name": "customerName-SiteName-01",
-            },
-            l2_connection_name="connection1",
-            location="westus",
-            name="customerName-SiteName-01",
-            resource_group_name="rg1",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            },
-            vlan_id=200)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:orbital:L2Connection connection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/l2Connections/{l2ConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,43 +213,6 @@ class L2Connection(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01-preview.
 
         Other available API versions: 2024-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native orbital [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create L2 Connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        l2_connection = azure_native.orbital.L2Connection("l2Connection",
-            edge_site={
-                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/edgeSites/es1",
-            },
-            ground_station={
-                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/groundStations/gs1",
-            },
-            ground_station_partner_router={
-                "name": "customerName-SiteName-01",
-            },
-            l2_connection_name="connection1",
-            location="westus",
-            name="customerName-SiteName-01",
-            resource_group_name="rg1",
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            },
-            vlan_id=200)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:orbital:L2Connection connection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/l2Connections/{l2ConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

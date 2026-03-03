@@ -13,56 +13,6 @@ namespace Pulumi.AzureNative.Blueprint
     /// Represents a published blueprint.
     /// 
     /// Uses Azure REST API version 2018-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PublishedManagementGroupBlueprint_Publish
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var publishedBlueprint = new AzureNative.Blueprint.PublishedBlueprint("publishedBlueprint", new()
-    ///     {
-    ///         BlueprintName = "simpleBlueprint",
-    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
-    ///         VersionId = "v2",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### PublishedSubscriptionBlueprint_Publish
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var publishedBlueprint = new AzureNative.Blueprint.PublishedBlueprint("publishedBlueprint", new()
-    ///     {
-    ///         BlueprintName = "simpleBlueprint",
-    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
-    ///         VersionId = "v2",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:blueprint:PublishedBlueprint v2 /{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:PublishedBlueprint")]
     public partial class PublishedBlueprint : global::Pulumi.CustomResource

@@ -121,30 +121,6 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a firewall rule of the mongo cluster
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mongo_cluster_firewall_rule = azure_native.cosmosdb.MongoClusterFirewallRule("mongoClusterFirewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            mongo_cluster_name="myMongoCluster",
-            resource_group_name="TestGroup",
-            start_ip_address="0.0.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:MongoClusterFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,30 +142,6 @@ class MongoClusterFirewallRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-15-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a firewall rule of the mongo cluster
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mongo_cluster_firewall_rule = azure_native.cosmosdb.MongoClusterFirewallRule("mongoClusterFirewallRule",
-            end_ip_address="255.255.255.255",
-            firewall_rule_name="rule1",
-            mongo_cluster_name="myMongoCluster",
-            resource_group_name="TestGroup",
-            start_ip_address="0.0.0.0")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:MongoClusterFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

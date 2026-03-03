@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Server backup properties
     /// 
     /// Uses Azure REST API version 2025-06-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create backup for a server
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var longRunningBackup = new AzureNative.DBforMySQL.LongRunningBackup("longRunningBackup", new()
-    ///     {
-    ///         BackupName = "testback",
-    ///         ResourceGroupName = "TestGroup",
-    ///         ServerName = "mysqltestserver",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbformysql:LongRunningBackup customer_20220507t073755_bb392c3b-17c6-4d3f-9742-8479ca87b3ac_mybackup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/backupsV2/{backupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:LongRunningBackup")]
     public partial class LongRunningBackup : global::Pulumi.CustomResource

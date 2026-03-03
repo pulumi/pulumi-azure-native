@@ -139,36 +139,6 @@ class Package(pulumi.CustomResource):
 
         Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a package
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        package = azure_native.automation.Package("package",
-            automation_account_name="myAutomationAccount33",
-            content_link={
-                "content_hash": {
-                    "algorithm": "sha265",
-                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
-                },
-                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
-            },
-            package_name="OmsCompositeResources",
-            resource_group_name="rg",
-            runtime_environment_name="runtimeEnvironmentName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:Package OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}/packages/{packageName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,36 +161,6 @@ class Package(pulumi.CustomResource):
         Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
 
         Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a package
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        package = azure_native.automation.Package("package",
-            automation_account_name="myAutomationAccount33",
-            content_link={
-                "content_hash": {
-                    "algorithm": "sha265",
-                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
-                },
-                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
-            },
-            package_name="OmsCompositeResources",
-            resource_group_name="rg",
-            runtime_environment_name="runtimeEnvironmentName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:Package OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName}/packages/{packageName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

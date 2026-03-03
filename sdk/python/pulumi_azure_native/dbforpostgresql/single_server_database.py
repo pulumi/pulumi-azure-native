@@ -120,30 +120,6 @@ class SingleServerDatabase(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-12-01.
 
-        ## Example Usage
-        ### DatabaseCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_database = azure_native.dbforpostgresql.SingleServerDatabase("singleServerDatabase",
-            charset="UTF8",
-            collation="English_United States.1252",
-            database_name="db1",
-            resource_group_name="TestGroup",
-            server_name="testserver")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerDatabase db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/databases/{databaseName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,30 +139,6 @@ class SingleServerDatabase(pulumi.CustomResource):
         Represents a Database.
 
         Uses Azure REST API version 2017-12-01.
-
-        ## Example Usage
-        ### DatabaseCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        single_server_database = azure_native.dbforpostgresql.SingleServerDatabase("singleServerDatabase",
-            charset="UTF8",
-            collation="English_United States.1252",
-            database_name="db1",
-            resource_group_name="TestGroup",
-            server_name="testserver")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:SingleServerDatabase db1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/databases/{databaseName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

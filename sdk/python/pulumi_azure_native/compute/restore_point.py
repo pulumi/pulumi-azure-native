@@ -176,46 +176,6 @@ class RestorePoint(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Copy a restore point to a different region
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        restore_point = azure_native.compute.RestorePoint("restorePoint",
-            resource_group_name="myResourceGroup",
-            restore_point_collection_name="rpcName",
-            restore_point_name="rpName",
-            source_restore_point={
-                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
-            })
-
-        ```
-        ### Create a restore point
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        restore_point = azure_native.compute.RestorePoint("restorePoint",
-            exclude_disks=[{
-                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
-            }],
-            resource_group_name="myResourceGroup",
-            restore_point_collection_name="rpcName",
-            restore_point_name="rpName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:RestorePoint rpName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,46 +200,6 @@ class RestorePoint(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Copy a restore point to a different region
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        restore_point = azure_native.compute.RestorePoint("restorePoint",
-            resource_group_name="myResourceGroup",
-            restore_point_collection_name="rpcName",
-            restore_point_name="rpName",
-            source_restore_point={
-                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
-            })
-
-        ```
-        ### Create a restore point
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        restore_point = azure_native.compute.RestorePoint("restorePoint",
-            exclude_disks=[{
-                "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
-            }],
-            resource_group_name="myResourceGroup",
-            restore_point_collection_name="rpcName",
-            restore_point_name="rpName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:RestorePoint rpName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/restorePointCollections/{restorePointCollectionName}/restorePoints/{restorePointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

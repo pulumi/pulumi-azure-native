@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.CostManagement
     /// Tag Inheritance Setting definition.
     /// 
     /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-10-05-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdateSettingByScope
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tagInheritanceSetting = new AzureNative.CostManagement.TagInheritanceSetting("tagInheritanceSetting", new()
-    ///     {
-    ///         Kind = "taginheritance",
-    ///         Properties = new AzureNative.CostManagement.Inputs.TagInheritancePropertiesArgs
-    ///         {
-    ///             PreferContainerTags = false,
-    ///         },
-    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
-    ///         Type = "taginheritance",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:costmanagement:TagInheritanceSetting taginheritance /{scope}/providers/Microsoft.CostManagement/settings/{type} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:TagInheritanceSetting")]
     public partial class TagInheritanceSetting : global::Pulumi.CustomResource

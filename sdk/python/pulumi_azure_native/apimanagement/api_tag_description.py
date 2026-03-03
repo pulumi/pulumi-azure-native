@@ -155,32 +155,6 @@ class ApiTagDescription(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateApiTagDescription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_tag_description = azure_native.apimanagement.ApiTagDescription("apiTagDescription",
-            api_id="5931a75ae4bbd512a88c680b",
-            description="Some description that will be displayed for operation's tag if the tag is assigned to operation of the API",
-            external_docs_description="Description of the external docs resource",
-            external_docs_url="http://some.url/additionaldoc",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            tag_description_id="tagId1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiTagDescription tagId1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,32 +178,6 @@ class ApiTagDescription(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateApiTagDescription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_tag_description = azure_native.apimanagement.ApiTagDescription("apiTagDescription",
-            api_id="5931a75ae4bbd512a88c680b",
-            description="Some description that will be displayed for operation's tag if the tag is assigned to operation of the API",
-            external_docs_description="Description of the external docs resource",
-            external_docs_url="http://some.url/additionaldoc",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            tag_description_id="tagId1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiTagDescription tagId1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

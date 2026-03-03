@@ -13,46 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ServiceConfigurationsPutSSH
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serviceConfiguration = new azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration", {
- *     endpointName: "default",
- *     port: 22,
- *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
- *     serviceConfigurationName: "SSH",
- *     serviceName: azure_native.hybridconnectivity.ServiceName.SSH,
- * });
- *
- * ```
- * ### ServiceConfigurationsPutWAC
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serviceConfiguration = new azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration", {
- *     endpointName: "default",
- *     port: 6516,
- *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
- *     serviceConfigurationName: "WAC",
- *     serviceName: azure_native.hybridconnectivity.ServiceName.WAC,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hybridconnectivity:ServiceConfiguration myresource1 /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName}/serviceConfigurations/{serviceConfigurationName} 
- * ```
  */
 export class ServiceConfiguration extends pulumi.CustomResource {
     /**

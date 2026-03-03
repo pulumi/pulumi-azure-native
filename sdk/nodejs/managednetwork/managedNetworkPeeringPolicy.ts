@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * The Managed Network Peering Policy resource
  *
  * Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
- *
- * ## Example Usage
- * ### ManagedNetworkPeeringPoliciesPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const managedNetworkPeeringPolicy = new azure_native.managednetwork.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy", {
- *     managedNetworkName: "myManagedNetwork",
- *     managedNetworkPeeringPolicyName: "myHubAndSpoke",
- *     properties: {
- *         hub: {
- *             id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
- *         },
- *         spokes: [{
- *             id: "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
- *         }],
- *         type: azure_native.managednetwork.Type.HubAndSpokeTopology,
- *     },
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:managednetwork:ManagedNetworkPeeringPolicy myHubAndSpoke /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetwork/managedNetworks/{managedNetworkName}/managedNetworkPeeringPolicies/{managedNetworkPeeringPolicyName} 
- * ```
  */
 export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
     /**

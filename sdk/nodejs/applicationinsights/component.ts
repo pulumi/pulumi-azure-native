@@ -13,52 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2020-02-02.
  *
  * Other available API versions: 2015-05-01, 2018-05-01-preview, 2020-02-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ComponentCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const component = new azure_native.applicationinsights.Component("component", {
- *     applicationType: azure_native.applicationinsights.ApplicationType.Web,
- *     flowType: azure_native.applicationinsights.FlowType.Bluefield,
- *     kind: "web",
- *     location: "South Central US",
- *     requestSource: azure_native.applicationinsights.RequestSource.Rest,
- *     resourceGroupName: "my-resource-group",
- *     resourceName: "my-component",
- *     workspaceResourceId: "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
- * });
- *
- * ```
- * ### ComponentUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const component = new azure_native.applicationinsights.Component("component", {
- *     kind: "web",
- *     location: "South Central US",
- *     resourceGroupName: "my-resource-group",
- *     resourceName: "my-component",
- *     tags: {
- *         ApplicationGatewayType: "Internal-Only",
- *         BillingEntity: "Self",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:applicationinsights:Component my-component /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName} 
- * ```
  */
 export class Component extends pulumi.CustomResource {
     /**

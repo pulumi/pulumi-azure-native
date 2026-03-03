@@ -15,48 +15,6 @@ namespace Pulumi.AzureNative.FrontDoor
     /// Uses Azure REST API version 2019-11-01.
     /// 
     /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Creates an Experiment
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var experiment = new AzureNative.FrontDoor.Experiment("experiment", new()
-    ///     {
-    ///         Description = "this is my first experiment!",
-    ///         EnabledState = AzureNative.FrontDoor.State.Enabled,
-    ///         EndpointA = new AzureNative.FrontDoor.Inputs.EndpointArgs
-    ///         {
-    ///             Endpoint = "endpointA.net",
-    ///             Name = "endpoint A",
-    ///         },
-    ///         EndpointB = new AzureNative.FrontDoor.Inputs.EndpointArgs
-    ///         {
-    ///             Endpoint = "endpointB.net",
-    ///             Name = "endpoint B",
-    ///         },
-    ///         ExperimentName = "MyExperiment",
-    ///         ProfileName = "MyProfile",
-    ///         ResourceGroupName = "MyResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:frontdoor:Experiment MyExperiment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName}/Experiments/{experimentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource

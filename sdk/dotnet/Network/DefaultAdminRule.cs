@@ -13,60 +13,6 @@ namespace Pulumi.AzureNative.Network
     /// Network default admin rule.
     /// 
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create a admin rule with network group as source or destination
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultAdminRule = new AzureNative.Network.DefaultAdminRule("defaultAdminRule", new()
-    ///     {
-    ///         ConfigurationName = "myTestSecurityConfig",
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         ResourceGroupName = "rg1",
-    ///         RuleCollectionName = "testRuleCollection",
-    ///         RuleName = "SampleAdminRule",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create an admin rule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultAdminRule = new AzureNative.Network.DefaultAdminRule("defaultAdminRule", new()
-    ///     {
-    ///         ConfigurationName = "myTestSecurityConfig",
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         ResourceGroupName = "rg1",
-    ///         RuleCollectionName = "testRuleCollection",
-    ///         RuleName = "SampleAdminRule",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:network:DefaultAdminRule SampleAdminRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DefaultAdminRule")]
     public partial class DefaultAdminRule : global::Pulumi.CustomResource

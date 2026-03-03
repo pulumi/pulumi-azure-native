@@ -13,45 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-10-01. In version 2.x of the Azure Native provider, it used API version 2022-02-01.
  *
  * Other available API versions: 2022-02-01, 2022-07-01-preview, 2022-08-01-preview, 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sqlvirtualmachine [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Creates or updates a SQL virtual machine group.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sqlVirtualMachineGroup = new azure_native.sqlvirtualmachine.SqlVirtualMachineGroup("sqlVirtualMachineGroup", {
- *     location: "northeurope",
- *     resourceGroupName: "testrg",
- *     sqlImageOffer: "SQL2016-WS2016",
- *     sqlImageSku: azure_native.sqlvirtualmachine.SqlVmGroupImageSku.Enterprise,
- *     sqlVirtualMachineGroupName: "testvmgroup",
- *     tags: {
- *         mytag: "myval",
- *     },
- *     wsfcDomainProfile: {
- *         clusterBootstrapAccount: "testrpadmin",
- *         clusterOperatorAccount: "testrp@testdomain.com",
- *         clusterSubnetType: azure_native.sqlvirtualmachine.ClusterSubnetType.MultiSubnet,
- *         domainFqdn: "testdomain.com",
- *         isSqlServiceAccountGmsa: false,
- *         ouPath: "OU=WSCluster,DC=testdomain,DC=com",
- *         sqlServiceAccount: "sqlservice@testdomain.com",
- *         storageAccountPrimaryKey: "<primary storage access key>",
- *         storageAccountUrl: "https://storgact.blob.core.windows.net/",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:sqlvirtualmachine:SqlVirtualMachineGroup testvmgroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/{sqlVirtualMachineGroupName} 
- * ```
  */
 export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     /**

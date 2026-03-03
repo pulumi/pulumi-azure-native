@@ -241,43 +241,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a Smart Detector alert rule
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        smart_detector_alert_rule = azure_native.alertsmanagement.SmartDetectorAlertRule("smartDetectorAlertRule",
-            action_groups={
-                "custom_email_subject": "My custom email subject",
-                "custom_webhook_payload": "{\\"AlertRuleName\\":\\"#alertrulename\\"}",
-                "group_ids": ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup"],
-            },
-            alert_rule_name="MyAlertRule",
-            description="Sample smart detector alert rule description",
-            detector={
-                "id": "VMMemoryLeak",
-            },
-            frequency="PT5M",
-            resource_group_name="MyAlertRules",
-            scope=["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1"],
-            severity=azure_native.alertsmanagement.Severity.SEV3,
-            state=azure_native.alertsmanagement.AlertRuleState.ENABLED,
-            throttling={
-                "duration": "PT20M",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:alertsmanagement:SmartDetectorAlertRule MyAlertRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules/{alertRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,43 +269,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         Uses Azure REST API version 2021-04-01. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
 
         Other available API versions: 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native alertsmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a Smart Detector alert rule
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        smart_detector_alert_rule = azure_native.alertsmanagement.SmartDetectorAlertRule("smartDetectorAlertRule",
-            action_groups={
-                "custom_email_subject": "My custom email subject",
-                "custom_webhook_payload": "{\\"AlertRuleName\\":\\"#alertrulename\\"}",
-                "group_ids": ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup"],
-            },
-            alert_rule_name="MyAlertRule",
-            description="Sample smart detector alert rule description",
-            detector={
-                "id": "VMMemoryLeak",
-            },
-            frequency="PT5M",
-            resource_group_name="MyAlertRules",
-            scope=["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1"],
-            severity=azure_native.alertsmanagement.Severity.SEV3,
-            state=azure_native.alertsmanagement.AlertRuleState.ENABLED,
-            throttling={
-                "duration": "PT20M",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:alertsmanagement:SmartDetectorAlertRule MyAlertRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules/{alertRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.EventGrid
     /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
     /// 
     /// Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PartnerTopics_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var partnerTopic = new AzureNative.EventGrid.PartnerTopic("partnerTopic", new()
-    ///     {
-    ///         ExpirationTimeIfNotActivatedUtc = "2022-03-23T23:06:13.109Z",
-    ///         Location = "westus2",
-    ///         MessageForActivation = "Example message for activation",
-    ///         PartnerRegistrationImmutableId = "6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
-    ///         PartnerTopicFriendlyDescription = "Example description",
-    ///         PartnerTopicName = "examplePartnerTopicName1",
-    ///         ResourceGroupName = "examplerg",
-    ///         Source = "ContosoCorp.Accounts.User1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:eventgrid:PartnerTopic examplePartnerTopicName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerTopics/{partnerTopicName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerTopic")]
     public partial class PartnerTopic : global::Pulumi.CustomResource

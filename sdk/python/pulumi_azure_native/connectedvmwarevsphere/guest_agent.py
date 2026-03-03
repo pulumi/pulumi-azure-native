@@ -159,37 +159,6 @@ class GuestAgent(pulumi.CustomResource):
 
         Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateGuestAgent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_agent = azure_native.connectedvmwarevsphere.GuestAgent("guestAgent",
-            credentials={
-                "password": "<password>",
-                "username": "tempuser",
-            },
-            http_proxy_config={
-                "https_proxy": "http://192.1.2.3:8080",
-            },
-            name="default",
-            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
-            provisioning_action=azure_native.connectedvmwarevsphere.ProvisioningAction.INSTALL,
-            resource_group_name="testrg",
-            virtual_machine_name="ContosoVm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:connectedvmwarevsphere:GuestAgent default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/guestAgents/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,37 +182,6 @@ class GuestAgent(pulumi.CustomResource):
         Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
 
         Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateGuestAgent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_agent = azure_native.connectedvmwarevsphere.GuestAgent("guestAgent",
-            credentials={
-                "password": "<password>",
-                "username": "tempuser",
-            },
-            http_proxy_config={
-                "https_proxy": "http://192.1.2.3:8080",
-            },
-            name="default",
-            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
-            provisioning_action=azure_native.connectedvmwarevsphere.ProvisioningAction.INSTALL,
-            resource_group_name="testrg",
-            virtual_machine_name="ContosoVm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:connectedvmwarevsphere:GuestAgent default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/guestAgents/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

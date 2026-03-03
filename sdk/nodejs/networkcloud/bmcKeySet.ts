@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update baseboard management controller key set of cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const bmcKeySet = new azure_native.networkcloud.BmcKeySet("bmcKeySet", {
- *     azureGroupId: "f110271b-XXXX-4163-9b99-214d91660f0e",
- *     bmcKeySetName: "bmcKeySetName",
- *     clusterName: "clusterName",
- *     expiration: "2022-12-31T23:59:59.008Z",
- *     extendedLocation: {
- *         name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
- *         type: "CustomLocation",
- *     },
- *     location: "location",
- *     privilegeLevel: azure_native.networkcloud.BmcKeySetPrivilegeLevel.Administrator,
- *     resourceGroupName: "resourceGroupName",
- *     tags: {
- *         key1: "myvalue1",
- *         key2: "myvalue2",
- *     },
- *     userList: [
- *         {
- *             azureUserName: "userABC",
- *             description: "Needs access for troubleshooting as a part of the support team",
- *             sshPublicKey: {
- *                 keyData: "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
- *             },
- *             userPrincipalName: "userABC@contoso.com",
- *         },
- *         {
- *             azureUserName: "userXYZ",
- *             description: "Needs access for troubleshooting as a part of the support team",
- *             sshPublicKey: {
- *                 keyData: "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
- *             },
- *             userPrincipalName: "userABC@contoso.com",
- *         },
- *     ],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:networkcloud:BmcKeySet bmcKeySetName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bmcKeySets/{bmcKeySetName} 
- * ```
  */
 export class BmcKeySet extends pulumi.CustomResource {
     /**

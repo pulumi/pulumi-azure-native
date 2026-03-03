@@ -345,13 +345,6 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
         Android Policy entity for Intune MAM.
 
         Uses Azure REST API version 2015-01-14-preview. In version 2.x of the Azure Native provider, it used API version 2015-01-14-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:intune:AndroidMAMPolicyByName myresource1 /providers/Microsoft.Intune/locations/{hostName}/androidPolicies/{policyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -371,13 +364,6 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
         Android Policy entity for Intune MAM.
 
         Uses Azure REST API version 2015-01-14-preview. In version 2.x of the Azure Native provider, it used API version 2015-01-14-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:intune:AndroidMAMPolicyByName myresource1 /providers/Microsoft.Intune/locations/{hostName}/androidPolicies/{policyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

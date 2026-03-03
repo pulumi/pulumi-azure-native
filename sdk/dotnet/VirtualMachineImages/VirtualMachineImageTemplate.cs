@@ -15,13 +15,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     /// Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-07-01.
     /// 
     /// Other available API versions: 2022-07-01, 2023-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native virtualmachineimages [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:virtualmachineimages:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VirtualMachineImages/imageTemplates/{imageTemplateName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource

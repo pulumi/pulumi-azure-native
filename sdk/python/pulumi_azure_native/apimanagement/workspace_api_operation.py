@@ -255,58 +255,6 @@ class WorkspaceApiOperation(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceApiOperation
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_api_operation = azure_native.apimanagement.WorkspaceApiOperation("workspaceApiOperation",
-            api_id="PetStoreTemplate2",
-            description="This can only be done by the logged in user.",
-            display_name="createUser2",
-            method="POST",
-            operation_id="newoperations",
-            request={
-                "description": "Created user object",
-                "headers": [],
-                "query_parameters": [],
-                "representations": [{
-                    "content_type": "application/json",
-                    "schema_id": "592f6c1d0af5840ca8897f0c",
-                    "type_name": "User",
-                }],
-            },
-            resource_group_name="rg1",
-            responses=[{
-                "description": "successful operation",
-                "headers": [],
-                "representations": [
-                    {
-                        "content_type": "application/xml",
-                    },
-                    {
-                        "content_type": "application/json",
-                    },
-                ],
-                "status_code": 200,
-            }],
-            service_name="apimService1",
-            template_parameters=[],
-            url_template="/user1",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceApiOperation newoperations /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,58 +284,6 @@ class WorkspaceApiOperation(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceApiOperation
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_api_operation = azure_native.apimanagement.WorkspaceApiOperation("workspaceApiOperation",
-            api_id="PetStoreTemplate2",
-            description="This can only be done by the logged in user.",
-            display_name="createUser2",
-            method="POST",
-            operation_id="newoperations",
-            request={
-                "description": "Created user object",
-                "headers": [],
-                "query_parameters": [],
-                "representations": [{
-                    "content_type": "application/json",
-                    "schema_id": "592f6c1d0af5840ca8897f0c",
-                    "type_name": "User",
-                }],
-            },
-            resource_group_name="rg1",
-            responses=[{
-                "description": "successful operation",
-                "headers": [],
-                "representations": [
-                    {
-                        "content_type": "application/xml",
-                    },
-                    {
-                        "content_type": "application/json",
-                    },
-                ],
-                "status_code": 200,
-            }],
-            service_name="apimService1",
-            template_parameters=[],
-            url_template="/user1",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceApiOperation newoperations /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

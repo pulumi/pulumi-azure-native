@@ -13,60 +13,6 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### IamPolicyVersions_CreateOrReplace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var iamPolicyVersion = new AzureNative.AwsConnector.IamPolicyVersion("iamPolicyVersion", new()
-    ///     {
-    ///         Location = "wtyx",
-    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-    ///         Properties = new AzureNative.AwsConnector.Inputs.IamPolicyVersionPropertiesArgs
-    ///         {
-    ///             Arn = "mszogqxtswvseqggugfxstkwivx",
-    ///             AwsAccountId = "xiv",
-    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsIamPolicyVersionPropertiesArgs
-    ///             {
-    ///                 CreateDate = "2024-10-08T03:54:21.310Z",
-    ///                 Document = "bpzfzhilykgroobhu",
-    ///                 IsDefaultVersion = true,
-    ///                 VersionId = "mjxbhpksrctdbegeyhrsyveoyre",
-    ///             },
-    ///             AwsRegion = "bhdamksbkmvjl",
-    ///             AwsSourceSchema = "ljldtynekavvptoqhcvqdklc",
-    ///             AwsTags = 
-    ///             {
-    ///                 { "key2871", "ejkpbbvnwx" },
-    ///             },
-    ///             PublicCloudConnectorsResourceId = "hqotja",
-    ///             PublicCloudResourceName = "mphznssuferlzunnbjbl",
-    ///         },
-    ///         ResourceGroupName = "rgiamPolicyVersion",
-    ///         Tags = 
-    ///         {
-    ///             { "key6034", "pkrkyrharhnjqfubytfj" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:awsconnector:IamPolicyVersion pxmszonagtyamfsohnjjijhi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamPolicyVersions/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:IamPolicyVersion")]
     public partial class IamPolicyVersion : global::Pulumi.CustomResource

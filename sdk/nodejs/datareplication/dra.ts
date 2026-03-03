@@ -11,48 +11,6 @@ import * as utilities from "../utilities";
  * Dra model.
  *
  * Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
- *
- * ## Example Usage
- * ### Dra_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dra = new azure_native.datareplication.Dra("dra", {
- *     fabricAgentName: "M",
- *     fabricName: "wPR",
- *     properties: {
- *         authenticationIdentity: {
- *             aadAuthority: "bubwwbowfhdmujrt",
- *             applicationId: "cwktzrwajuvfyyymfstpey",
- *             audience: "dkjobanyqgzenivyxhvavottpc",
- *             objectId: "khsiaqfbpuhp",
- *             tenantId: "joclkkdovixwapephhxaqtefubhhmq",
- *         },
- *         customProperties: {},
- *         machineId: "envzcoijbqhtrpncbjbhk",
- *         machineName: "y",
- *         resourceAccessIdentity: {
- *             aadAuthority: "bubwwbowfhdmujrt",
- *             applicationId: "cwktzrwajuvfyyymfstpey",
- *             audience: "dkjobanyqgzenivyxhvavottpc",
- *             objectId: "khsiaqfbpuhp",
- *             tenantId: "joclkkdovixwapephhxaqtefubhhmq",
- *         },
- *     },
- *     resourceGroupName: "rgrecoveryservicesdatareplication",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datareplication:Dra ioxmwhzrzdilxivkvhpvzexl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName} 
- * ```
  */
 export class Dra extends pulumi.CustomResource {
     /**

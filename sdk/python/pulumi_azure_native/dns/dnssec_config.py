@@ -70,27 +70,6 @@ class DnssecConfig(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview.
 
-        ## Example Usage
-        ### Create DnssecConfig
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dnssec_config = azure_native.dns.DnssecConfig("dnssecConfig",
-            resource_group_name="rg1",
-            zone_name="zone1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dns:DnssecConfig default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/dnssecConfigs/default 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,27 +86,6 @@ class DnssecConfig(pulumi.CustomResource):
         Represents the DNSSEC configuration.
 
         Uses Azure REST API version 2023-07-01-preview.
-
-        ## Example Usage
-        ### Create DnssecConfig
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dnssec_config = azure_native.dns.DnssecConfig("dnssecConfig",
-            resource_group_name="rg1",
-            zone_name="zone1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dns:DnssecConfig default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/dnssecConfigs/default 
-        ```
 
 
         :param str resource_name: The name of the resource.

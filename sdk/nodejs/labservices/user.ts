@@ -13,31 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
  * Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### putUser
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const user = new azure_native.labservices.User("user", {
- *     additionalUsageQuota: "PT10H",
- *     email: "testuser@contoso.com",
- *     labName: "testlab",
- *     resourceGroupName: "testrg123",
- *     userName: "testuser",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:labservices:User default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/users/{userName} 
- * ```
  */
 export class User extends pulumi.CustomResource {
     /**

@@ -15,64 +15,6 @@ namespace Pulumi.AzureNative.LabServices
     /// Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### putLabPlan
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var labPlan = new AzureNative.LabServices.LabPlan("labPlan", new()
-    ///     {
-    ///         DefaultAutoShutdownProfile = new AzureNative.LabServices.Inputs.AutoShutdownProfileArgs
-    ///         {
-    ///             DisconnectDelay = "PT5M",
-    ///             IdleDelay = "PT5M",
-    ///             NoConnectDelay = "PT5M",
-    ///             ShutdownOnDisconnect = AzureNative.LabServices.EnableState.Enabled,
-    ///             ShutdownOnIdle = AzureNative.LabServices.ShutdownOnIdleMode.UserAbsence,
-    ///             ShutdownWhenNotConnected = AzureNative.LabServices.EnableState.Enabled,
-    ///         },
-    ///         DefaultConnectionProfile = new AzureNative.LabServices.Inputs.ConnectionProfileArgs
-    ///         {
-    ///             ClientRdpAccess = AzureNative.LabServices.ConnectionType.Public,
-    ///             ClientSshAccess = AzureNative.LabServices.ConnectionType.Public,
-    ///             WebRdpAccess = AzureNative.LabServices.ConnectionType.None,
-    ///             WebSshAccess = AzureNative.LabServices.ConnectionType.None,
-    ///         },
-    ///         DefaultNetworkProfile = new AzureNative.LabServices.Inputs.LabPlanNetworkProfileArgs
-    ///         {
-    ///             SubnetId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
-    ///         },
-    ///         LabPlanName = "testlabplan",
-    ///         Location = "westus",
-    ///         ResourceGroupName = "testrg123",
-    ///         SharedGalleryId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Compute/galleries/testsig",
-    ///         SupportInfo = new AzureNative.LabServices.Inputs.SupportInfoArgs
-    ///         {
-    ///             Email = "help@contoso.com",
-    ///             Instructions = "Contact support for help.",
-    ///             Phone = "+1-202-555-0123",
-    ///             Url = "help.contoso.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:labservices:LabPlan testlabplan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labPlans/{labPlanName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:LabPlan")]
     public partial class LabPlan : global::Pulumi.CustomResource

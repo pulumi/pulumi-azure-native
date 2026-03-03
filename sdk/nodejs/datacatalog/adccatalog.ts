@@ -11,44 +11,6 @@ import * as utilities from "../utilities";
  * Azure Data Catalog.
  *
  * Uses Azure REST API version 2016-03-30. In version 2.x of the Azure Native provider, it used API version 2016-03-30.
- *
- * ## Example Usage
- * ### Create Azure Data Catalog Service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const adcCatalog = new azure_native.datacatalog.ADCCatalog("adcCatalog", {
- *     admins: [{
- *         objectId: "99999999-9999-9999-999999999999",
- *         upn: "myupn@microsoft.com",
- *     }],
- *     catalogName: "exampleCatalog",
- *     enableAutomaticUnitAdjustment: false,
- *     location: "North US",
- *     resourceGroupName: "exampleResourceGroup",
- *     sku: azure_native.datacatalog.SkuType.Standard,
- *     tags: {
- *         mykey: "myvalue",
- *         mykey2: "myvalue2",
- *     },
- *     units: 1,
- *     users: [{
- *         objectId: "99999999-9999-9999-999999999999",
- *         upn: "myupn@microsoft.com",
- *     }],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datacatalog:ADCCatalog exampleCatalog /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataCatalog/catalogs/{catalogName} 
- * ```
  */
 export class ADCCatalog extends pulumi.CustomResource {
     /**

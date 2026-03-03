@@ -161,42 +161,6 @@ class MachineLearningDataset(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
 
-        ## Example Usage
-        ### Create Dataset
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        machine_learning_dataset = azure_native.machinelearningservices.MachineLearningDataset("machineLearningDataset",
-            dataset_name="datasetName123",
-            dataset_type=azure_native.machinelearningservices.DatasetType.FILE,
-            parameters={
-                "path": {
-                    "data_path": {
-                        "datastore_name": "testblobfromarm",
-                        "relative_path": "UI/03-26-2020_083359_UTC/latin1encoding.csv",
-                    },
-                },
-            },
-            registration={
-                "description": "test description",
-                "name": "datasetName123",
-            },
-            resource_group_name="acjain-mleastUS2",
-            skip_validation=False,
-            workspace_name="acjain-mleastUS2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:MachineLearningDataset datasetName123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datasets/{datasetName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,42 +180,6 @@ class MachineLearningDataset(pulumi.CustomResource):
         Machine Learning dataset object wrapped into ARM resource envelope.
 
         Uses Azure REST API version 2020-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-05-01-preview.
-
-        ## Example Usage
-        ### Create Dataset
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        machine_learning_dataset = azure_native.machinelearningservices.MachineLearningDataset("machineLearningDataset",
-            dataset_name="datasetName123",
-            dataset_type=azure_native.machinelearningservices.DatasetType.FILE,
-            parameters={
-                "path": {
-                    "data_path": {
-                        "datastore_name": "testblobfromarm",
-                        "relative_path": "UI/03-26-2020_083359_UTC/latin1encoding.csv",
-                    },
-                },
-            },
-            registration={
-                "description": "test description",
-                "name": "datasetName123",
-            },
-            resource_group_name="acjain-mleastUS2",
-            skip_validation=False,
-            workspace_name="acjain-mleastUS2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:MachineLearningDataset datasetName123 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datasets/{datasetName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

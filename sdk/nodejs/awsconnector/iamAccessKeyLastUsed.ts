@@ -11,48 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamAccessKeyLastUseds_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamAccessKeyLastUsed = new azure_native.awsconnector.IamAccessKeyLastUsed("iamAccessKeyLastUsed", {
- *     location: "rdt",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "xfaoulngosrepqegvmfzqcmenfiwv",
- *         awsAccountId: "lturmpd",
- *         awsProperties: {
- *             lastUsedDate: "2024-10-08T03:48:57.755Z",
- *             region: "av",
- *             serviceName: "vhyurov",
- *         },
- *         awsRegion: "epaxtviqtrqqnghkgfkqhuqee",
- *         awsSourceSchema: "enepzx",
- *         awsTags: {
- *             key9162: "xrhekznmreqitxxw",
- *         },
- *         publicCloudConnectorsResourceId: "rwbbz",
- *         publicCloudResourceName: "cttx",
- *     },
- *     resourceGroupName: "rgiamAccessKeyLastUsed",
- *     tags: {
- *         key2981: "xwkwghlklv",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamAccessKeyLastUsed wtidcpjujjyhczp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyLastUseds/{name} 
- * ```
  */
 export class IamAccessKeyLastUsed extends pulumi.CustomResource {
     /**

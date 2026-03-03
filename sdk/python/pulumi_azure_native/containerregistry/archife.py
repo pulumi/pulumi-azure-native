@@ -154,35 +154,6 @@ class Archife(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ArchiveCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        archife = azure_native.containerregistry.Archife("archife",
-            archive_name="myArchiveName",
-            package_source={
-                "type": azure_native.containerregistry.PackageSourceType.REMOTE,
-                "url": "string",
-            },
-            package_type="rpm",
-            published_version="string",
-            registry_name="myRegistry",
-            repository_endpoint_prefix="string",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:Archife myArchiveName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/packages/{packageType}/archives/{archiveName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,35 +176,6 @@ class Archife(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ArchiveCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        archife = azure_native.containerregistry.Archife("archife",
-            archive_name="myArchiveName",
-            package_source={
-                "type": azure_native.containerregistry.PackageSourceType.REMOTE,
-                "url": "string",
-            },
-            package_type="rpm",
-            published_version="string",
-            registry_name="myRegistry",
-            repository_endpoint_prefix="string",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:Archife myArchiveName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/packages/{packageType}/archives/{archiveName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

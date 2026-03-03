@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// A Credential Resource
     /// 
     /// Uses Azure REST API version 2025-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrReplace_Credentials
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var credential = new AzureNative.DeviceRegistry.Credential("credential", new()
-    ///     {
-    ///         Location = "East US 2",
-    ///         NamespaceName = "mynamespace",
-    ///         ResourceGroupName = "rgdeviceregistry",
-    ///         Tags = 
-    ///         {
-    ///             { "key7121", "mtdjqipusqaqhdvekrknyjeo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceregistry:Credential default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Credential")]
     public partial class Credential : global::Pulumi.CustomResource

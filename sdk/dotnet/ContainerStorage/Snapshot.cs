@@ -13,37 +13,6 @@ namespace Pulumi.AzureNative.ContainerStorage
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Snapshots_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var snapshot = new AzureNative.ContainerStorage.Snapshot("snapshot", new()
-    ///     {
-    ///         PoolName = "test-pool",
-    ///         ResourceGroupName = "test-rg",
-    ///         SnapshotName = "test-snapshot",
-    ///         Source = "C0C6I6",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:containerstorage:Snapshot test-snapshot /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerStorage/pools/{poolName}/snapshots/{snapshotName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource

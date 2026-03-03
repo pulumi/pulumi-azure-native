@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  *
  * Uses Azure REST API version 2024-09-01.
- *
- * ## Example Usage
- * ### AuthorizedApplications_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const authorizedApplication = new azure_native.providerhub.AuthorizedApplication("authorizedApplication", {
- *     applicationId: "760505bf-dcfa-4311-b890-18da392a00b2",
- *     properties: {
- *         dataAuthorizations: [{
- *             resourceTypes: ["*"],
- *             role: azure_native.providerhub.Role.ServiceOwner,
- *         }],
- *         providerAuthorization: {
- *             managedByRoleDefinitionId: "1a3b5c7d-8e9f-10g1-1h12-i13j14k1",
- *             roleDefinitionId: "123456bf-gkur-2098-b890-98da392a00b2",
- *         },
- *     },
- *     providerNamespace: "Microsoft.Contoso",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:providerhub:AuthorizedApplication Microsoft.Contoso/760505bf-dcfa-4311-b890-18da392a00b2 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/authorizedApplications/{applicationId} 
- * ```
  */
 export class AuthorizedApplication extends pulumi.CustomResource {
     /**

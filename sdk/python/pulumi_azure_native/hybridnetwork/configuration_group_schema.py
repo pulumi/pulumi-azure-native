@@ -141,33 +141,6 @@ class ConfigurationGroupSchema(pulumi.CustomResource):
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update the network function definition group
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_group_schema = azure_native.hybridnetwork.ConfigurationGroupSchema("configurationGroupSchema",
-            configuration_group_schema_name="testConfigurationGroupSchema",
-            location="westUs2",
-            properties={
-                "description": "Schema with no secrets",
-                "schema_definition": "{\\"type\\":\\"object\\",\\"properties\\":{\\"interconnect-groups\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\"},\\"international-interconnects\\":{\\"type\\":\\"array\\",\\"item\\":{\\"type\\":\\"string\\"}},\\"domestic-interconnects\\":{\\"type\\":\\"array\\",\\"item\\":{\\"type\\":\\"string\\"}}}}},\\"interconnect-group-assignments\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"ssc\\":{\\"type\\":\\"string\\"},\\"interconnects-interconnects\\":{\\"type\\":\\"string\\"}}}}},\\"required\\":[\\"interconnect-groups\\",\\"interconnect-group-assignments\\"]}",
-            },
-            publisher_name="testPublisher",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:ConfigurationGroupSchema testConfigurationGroupSchema /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/configurationGroupSchemas/{configurationGroupSchemaName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,33 +163,6 @@ class ConfigurationGroupSchema(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
 
         Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update the network function definition group
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_group_schema = azure_native.hybridnetwork.ConfigurationGroupSchema("configurationGroupSchema",
-            configuration_group_schema_name="testConfigurationGroupSchema",
-            location="westUs2",
-            properties={
-                "description": "Schema with no secrets",
-                "schema_definition": "{\\"type\\":\\"object\\",\\"properties\\":{\\"interconnect-groups\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"name\\":{\\"type\\":\\"string\\"},\\"international-interconnects\\":{\\"type\\":\\"array\\",\\"item\\":{\\"type\\":\\"string\\"}},\\"domestic-interconnects\\":{\\"type\\":\\"array\\",\\"item\\":{\\"type\\":\\"string\\"}}}}},\\"interconnect-group-assignments\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"type\\":\\"object\\",\\"properties\\":{\\"ssc\\":{\\"type\\":\\"string\\"},\\"interconnects-interconnects\\":{\\"type\\":\\"string\\"}}}}},\\"required\\":[\\"interconnect-groups\\",\\"interconnect-group-assignments\\"]}",
-            },
-            publisher_name="testPublisher",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:ConfigurationGroupSchema testConfigurationGroupSchema /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/configurationGroupSchemas/{configurationGroupSchemaName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

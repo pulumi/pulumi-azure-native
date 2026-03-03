@@ -140,36 +140,6 @@ class GalleryScript(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-03.
 
-        ## Example Usage
-        ### Create or update a simple gallery Script.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gallery_script = azure_native.compute.GalleryScript("galleryScript",
-            gallery_name="myGalleryName",
-            gallery_script_name="myGalleryScriptName",
-            location="West US",
-            properties={
-                "description": "This is the gallery script description.",
-                "eula": "This is the gallery script EULA.",
-                "privacy_statement_uri": "{myPrivacyStatementUri}",
-                "release_note_uri": "{myReleaseNoteUri}",
-                "supported_os_type": azure_native.compute.OperatingSystemTypes.WINDOWS,
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:GalleryScript myGalleryScriptName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,36 +160,6 @@ class GalleryScript(pulumi.CustomResource):
         Specifies information about the gallery Script Definition that you want to create or update.
 
         Uses Azure REST API version 2025-03-03.
-
-        ## Example Usage
-        ### Create or update a simple gallery Script.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gallery_script = azure_native.compute.GalleryScript("galleryScript",
-            gallery_name="myGalleryName",
-            gallery_script_name="myGalleryScriptName",
-            location="West US",
-            properties={
-                "description": "This is the gallery script description.",
-                "eula": "This is the gallery script EULA.",
-                "privacy_statement_uri": "{myPrivacyStatementUri}",
-                "release_note_uri": "{myReleaseNoteUri}",
-                "supported_os_type": azure_native.compute.OperatingSystemTypes.WINDOWS,
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:GalleryScript myGalleryScriptName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

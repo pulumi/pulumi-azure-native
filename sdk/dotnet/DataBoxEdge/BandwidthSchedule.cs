@@ -15,44 +15,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
     /// 
     /// Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### BandwidthSchedulePut
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bandwidthSchedule = new AzureNative.DataBoxEdge.BandwidthSchedule("bandwidthSchedule", new()
-    ///     {
-    ///         Days = new[]
-    ///         {
-    ///             AzureNative.DataBoxEdge.DayOfWeek.Sunday,
-    ///             AzureNative.DataBoxEdge.DayOfWeek.Monday,
-    ///         },
-    ///         DeviceName = "testedgedevice",
-    ///         Name = "bandwidth-1",
-    ///         RateInMbps = 100,
-    ///         ResourceGroupName = "GroupForEdgeAutomation",
-    ///         Start = "0:0:0",
-    ///         Stop = "13:59:0",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:databoxedge:BandwidthSchedule bandwidth-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/bandwidthSchedules/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:BandwidthSchedule")]
     public partial class BandwidthSchedule : global::Pulumi.CustomResource

@@ -397,47 +397,6 @@ class Update(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Put a specific update
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        update = azure_native.azurestackhci.Update("update",
-            additional_properties="additional properties",
-            availability_type=azure_native.azurestackhci.AvailabilityType.LOCAL,
-            cluster_name="testcluster",
-            description="AzS Update 4.2203.2.32",
-            display_name="AzS Update - 4.2203.2.32",
-            installed_date="2022-04-06T14:08:18.254Z",
-            notify_message="Brief message with instructions for updates of AvailabilityType Notify",
-            package_path="\\\\\\\\SU1FileServer\\\\SU1_Infrastructure_2\\\\Updates\\\\Packages\\\\Microsoft4.2203.2.32",
-            package_size_in_mb=18858,
-            package_type="Infrastructure",
-            prerequisites=[{
-                "package_name": "update package name",
-                "update_type": "update type",
-                "version": "prerequisite version",
-            }],
-            progress_percentage=0,
-            publisher="Microsoft",
-            release_link="https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
-            resource_group_name="testrg",
-            state=azure_native.azurestackhci.State.INSTALLED,
-            update_name="Microsoft4.2203.2.32",
-            version="4.2203.2.32")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:Update Microsoft4.2203.2.32 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -475,47 +434,6 @@ class Update(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Put a specific update
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        update = azure_native.azurestackhci.Update("update",
-            additional_properties="additional properties",
-            availability_type=azure_native.azurestackhci.AvailabilityType.LOCAL,
-            cluster_name="testcluster",
-            description="AzS Update 4.2203.2.32",
-            display_name="AzS Update - 4.2203.2.32",
-            installed_date="2022-04-06T14:08:18.254Z",
-            notify_message="Brief message with instructions for updates of AvailabilityType Notify",
-            package_path="\\\\\\\\SU1FileServer\\\\SU1_Infrastructure_2\\\\Updates\\\\Packages\\\\Microsoft4.2203.2.32",
-            package_size_in_mb=18858,
-            package_type="Infrastructure",
-            prerequisites=[{
-                "package_name": "update package name",
-                "update_type": "update type",
-                "version": "prerequisite version",
-            }],
-            progress_percentage=0,
-            publisher="Microsoft",
-            release_link="https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
-            resource_group_name="testrg",
-            state=azure_native.azurestackhci.State.INSTALLED,
-            update_name="Microsoft4.2203.2.32",
-            version="4.2203.2.32")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:Update Microsoft4.2203.2.32 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/updates/{updateName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

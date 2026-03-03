@@ -142,40 +142,6 @@ class Modeling(pulumi.CustomResource):
 
         Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update Modeling resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        modeling = azure_native.recommendationsservice.Modeling("modeling",
-            account_name="sampleAccount",
-            location="West US",
-            modeling_name="c1",
-            properties={
-                "features": azure_native.recommendationsservice.ModelingFeatures.STANDARD,
-                "frequency": azure_native.recommendationsservice.ModelingFrequency.HIGH,
-                "input_data": {
-                    "connection_string": "https://storageAccount.blob.core.windows.net/container/root",
-                },
-                "size": azure_native.recommendationsservice.ModelingSize.MEDIUM,
-            },
-            resource_group_name="rg",
-            tags={
-                "Environment": "Prod",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:recommendationsservice:Modeling c1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecommendationsService/accounts/{accountName}/modeling/{modelingName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,40 +164,6 @@ class Modeling(pulumi.CustomResource):
         Uses Azure REST API version 2022-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-02-01.
 
         Other available API versions: 2022-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recommendationsservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update Modeling resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        modeling = azure_native.recommendationsservice.Modeling("modeling",
-            account_name="sampleAccount",
-            location="West US",
-            modeling_name="c1",
-            properties={
-                "features": azure_native.recommendationsservice.ModelingFeatures.STANDARD,
-                "frequency": azure_native.recommendationsservice.ModelingFrequency.HIGH,
-                "input_data": {
-                    "connection_string": "https://storageAccount.blob.core.windows.net/container/root",
-                },
-                "size": azure_native.recommendationsservice.ModelingSize.MEDIUM,
-            },
-            resource_group_name="rg",
-            tags={
-                "Environment": "Prod",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:recommendationsservice:Modeling c1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecommendationsService/accounts/{accountName}/modeling/{modelingName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

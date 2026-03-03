@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Plans_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const planMember = new azure_native.devcenter.PlanMember("planMember", {
- *     memberId: "d702f662-b3f2-4796-9e8c-13c22378ced3",
- *     memberName: "d702f662-b3f2-4796-9e8c-13c22378ced3",
- *     memberType: azure_native.devcenter.PlanMemberType.User,
- *     planName: "ContosoPlan",
- *     resourceGroupName: "rg1",
- *     tags: {
- *         CostCode: "12345",
- *     },
- *     tier: "Standard",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devcenter:PlanMember d702f662-b3f2-4796-9e8c-13c22378ced3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/plans/{planName}/members/{memberName} 
- * ```
  */
 export class PlanMember extends pulumi.CustomResource {
     /**

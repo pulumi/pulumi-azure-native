@@ -87,28 +87,6 @@ class Association(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-        ## Example Usage
-        ### Create or update an association
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        association = azure_native.customproviders.Association("association",
-            association_name="associationName",
-            scope="scope",
-            target_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customproviders:Association associationName /{scope}/providers/Microsoft.CustomProviders/associations/{associationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,28 +104,6 @@ class Association(pulumi.CustomResource):
         The resource definition of this association.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
-        ## Example Usage
-        ### Create or update an association
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        association = azure_native.customproviders.Association("association",
-            association_name="associationName",
-            scope="scope",
-            target_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customproviders:Association associationName /{scope}/providers/Microsoft.CustomProviders/associations/{associationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

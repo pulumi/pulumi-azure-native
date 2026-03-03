@@ -13,41 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
  *
  * Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create orchestrator instance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const orchestratorInstanceServiceDetails = new azure_native.delegatednetwork.OrchestratorInstanceServiceDetails("orchestratorInstanceServiceDetails", {
- *     apiServerEndpoint: "https://testk8s.cloudapp.net",
- *     clusterRootCA: "ddsadsad344mfdsfdl",
- *     controllerDetails: {
- *         id: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller",
- *     },
- *     identity: {
- *         type: azure_native.delegatednetwork.ResourceIdentityType.SystemAssigned,
- *     },
- *     kind: azure_native.delegatednetwork.OrchestratorKind.Kubernetes,
- *     location: "West US",
- *     orchestratorAppId: "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
- *     orchestratorTenantId: "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
- *     privateLinkResourceId: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/privateLinkServices/plresource1",
- *     resourceGroupName: "TestRG",
- *     resourceName: "testk8s1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:delegatednetwork:OrchestratorInstanceServiceDetails testk8s1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/orchestrators/{resourceName} 
- * ```
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**

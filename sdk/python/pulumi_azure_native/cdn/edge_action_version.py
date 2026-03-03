@@ -156,31 +156,6 @@ class EdgeActionVersion(pulumi.CustomResource):
 
         Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateEdgeActionVersion
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        edge_action_version = azure_native.cdn.EdgeActionVersion("edgeActionVersion",
-            deployment_type=azure_native.cdn.EdgeActionVersionDeploymentType.ZIP,
-            edge_action_name="edgeAction1",
-            is_default_version=azure_native.cdn.EdgeActionIsDefaultVersion.TRUE,
-            location="global",
-            resource_group_name="testrg",
-            version="version2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:EdgeActionVersion version2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,31 +179,6 @@ class EdgeActionVersion(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01-preview.
 
         Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateEdgeActionVersion
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        edge_action_version = azure_native.cdn.EdgeActionVersion("edgeActionVersion",
-            deployment_type=azure_native.cdn.EdgeActionVersionDeploymentType.ZIP,
-            edge_action_name="edgeAction1",
-            is_default_version=azure_native.cdn.EdgeActionIsDefaultVersion.TRUE,
-            location="global",
-            resource_group_name="testrg",
-            version="version2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:EdgeActionVersion version2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version} 
-        ```
 
 
         :param str resource_name: The name of the resource.

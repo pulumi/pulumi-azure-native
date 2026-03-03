@@ -126,31 +126,6 @@ class Pipeline(pulumi.CustomResource):
 
         Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates or updates the pipeline resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pipeline = azure_native.azuredatatransfer.Pipeline("pipeline",
-            location="East US",
-            pipeline_name="testPipeline",
-            properties={
-                "remote_cloud": "testdc",
-            },
-            resource_group_name="testRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azuredatatransfer:Pipeline myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,31 +147,6 @@ class Pipeline(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-27. In version 2.x of the Azure Native provider, it used API version 2023-10-11-preview.
 
         Other available API versions: 2023-10-11-preview, 2024-01-25, 2024-05-07, 2024-09-11, 2025-03-01-preview, 2025-04-11-preview, 2025-05-21, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates or updates the pipeline resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        pipeline = azure_native.azuredatatransfer.Pipeline("pipeline",
-            location="East US",
-            pipeline_name="testPipeline",
-            properties={
-                "remote_cloud": "testdc",
-            },
-            resource_group_name="testRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azuredatatransfer:Pipeline myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

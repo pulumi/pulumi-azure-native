@@ -203,51 +203,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a workload group with all properties specified.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_pool_workload_group = azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup",
-            importance="normal",
-            max_resource_percent=100,
-            max_resource_percent_per_request=3,
-            min_resource_percent=0,
-            min_resource_percent_per_request=3,
-            query_execution_timeout=0,
-            resource_group_name="sqlcrudtest-6852",
-            sql_pool_name="sqlcrudtest-9187",
-            workload_group_name="smallrc",
-            workspace_name="sqlcrudtest-2080")
-
-        ```
-        ### Create a workload group with the required properties specified.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_pool_workload_group = azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup",
-            max_resource_percent=100,
-            min_resource_percent=0,
-            min_resource_percent_per_request=3,
-            resource_group_name="sqlcrudtest-6852",
-            sql_pool_name="sqlcrudtest-9187",
-            workload_group_name="smallrc",
-            workspace_name="sqlcrudtest-2080")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:SqlPoolWorkloadGroup smallrc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/workloadGroups/{workloadGroupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,51 +229,6 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a workload group with all properties specified.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_pool_workload_group = azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup",
-            importance="normal",
-            max_resource_percent=100,
-            max_resource_percent_per_request=3,
-            min_resource_percent=0,
-            min_resource_percent_per_request=3,
-            query_execution_timeout=0,
-            resource_group_name="sqlcrudtest-6852",
-            sql_pool_name="sqlcrudtest-9187",
-            workload_group_name="smallrc",
-            workspace_name="sqlcrudtest-2080")
-
-        ```
-        ### Create a workload group with the required properties specified.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sql_pool_workload_group = azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup",
-            max_resource_percent=100,
-            min_resource_percent=0,
-            min_resource_percent_per_request=3,
-            resource_group_name="sqlcrudtest-6852",
-            sql_pool_name="sqlcrudtest-9187",
-            workload_group_name="smallrc",
-            workspace_name="sqlcrudtest-2080")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:SqlPoolWorkloadGroup smallrc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/workloadGroups/{workloadGroupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

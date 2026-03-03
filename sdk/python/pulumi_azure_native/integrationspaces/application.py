@@ -156,47 +156,6 @@ class Application(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
 
-        ## Example Usage
-        ### CreateOrUpdateApplication
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application = azure_native.integrationspaces.Application("application",
-            application_name="Application1",
-            description="This is the user provided description of the application.",
-            location="CentralUS",
-            resource_group_name="testrg",
-            space_name="Space1",
-            tags={
-                "key1": "Value1",
-            },
-            tracking_data_stores={
-                "dataStoreName1": {
-                    "data_store_ingestion_uri": "https://ingest-someClusterName.someRegionName.kusto.windows.net",
-                    "data_store_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
-                    "data_store_uri": "https://someClusterName.someRegionName.kusto.windows.net",
-                    "database_name": "testDatabase1",
-                },
-                "dataStoreName2": {
-                    "data_store_ingestion_uri": "https://ingest-someClusterName.someRegionName.kusto.windows.net",
-                    "data_store_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
-                    "data_store_uri": "https://someClusterName.someRegionName.kusto.windows.net",
-                    "database_name": "testDatabase1",
-                },
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:integrationspaces:Application Application1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,47 +177,6 @@ class Application(pulumi.CustomResource):
         An integration application under space.
 
         Uses Azure REST API version 2023-11-14-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-14-preview.
-
-        ## Example Usage
-        ### CreateOrUpdateApplication
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application = azure_native.integrationspaces.Application("application",
-            application_name="Application1",
-            description="This is the user provided description of the application.",
-            location="CentralUS",
-            resource_group_name="testrg",
-            space_name="Space1",
-            tags={
-                "key1": "Value1",
-            },
-            tracking_data_stores={
-                "dataStoreName1": {
-                    "data_store_ingestion_uri": "https://ingest-someClusterName.someRegionName.kusto.windows.net",
-                    "data_store_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
-                    "data_store_uri": "https://someClusterName.someRegionName.kusto.windows.net",
-                    "database_name": "testDatabase1",
-                },
-                "dataStoreName2": {
-                    "data_store_ingestion_uri": "https://ingest-someClusterName.someRegionName.kusto.windows.net",
-                    "data_store_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
-                    "data_store_uri": "https://someClusterName.someRegionName.kusto.windows.net",
-                    "database_name": "testDatabase1",
-                },
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:integrationspaces:Application Application1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IntegrationSpaces/spaces/{spaceName}/applications/{applicationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

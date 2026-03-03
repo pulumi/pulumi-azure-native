@@ -13,63 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-04-01, 2024-05-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a policy definition version at management group level
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const policyDefinitionVersionAtManagementGroup = new azure_native.authorization.PolicyDefinitionVersionAtManagementGroup("policyDefinitionVersionAtManagementGroup", {
- *     description: "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
- *     displayName: "Enforce resource naming convention",
- *     managementGroupName: "MyManagementGroup",
- *     metadata: {
- *         category: "Naming",
- *     },
- *     mode: "All",
- *     parameters: {
- *         prefix: {
- *             metadata: {
- *                 description: "Resource name prefix",
- *                 displayName: "Prefix",
- *             },
- *             type: azure_native.authorization.ParameterType.String,
- *         },
- *         suffix: {
- *             metadata: {
- *                 description: "Resource name suffix",
- *                 displayName: "Suffix",
- *             },
- *             type: azure_native.authorization.ParameterType.String,
- *         },
- *     },
- *     policyDefinitionName: "ResourceNaming",
- *     policyDefinitionVersion: "1.2.1",
- *     policyRule: {
- *         "if": {
- *             not: {
- *                 field: "name",
- *                 like: "[concat(parameters('prefix'), '*', parameters('suffix'))]",
- *             },
- *         },
- *         then: {
- *             effect: "deny",
- *         },
- *     },
- *     version: "1.2.1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:authorization:PolicyDefinitionVersionAtManagementGroup 1.2.1 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}/versions/{policyDefinitionVersion} 
- * ```
  */
 export class PolicyDefinitionVersionAtManagementGroup extends pulumi.CustomResource {
     /**

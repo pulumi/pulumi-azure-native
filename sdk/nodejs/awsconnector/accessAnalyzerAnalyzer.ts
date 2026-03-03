@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### AccessAnalyzerAnalyzers_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const accessAnalyzerAnalyzer = new azure_native.awsconnector.AccessAnalyzerAnalyzer("accessAnalyzerAnalyzer", {
- *     location: "jpcbvhsspnqhnreartkjyr",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "dgzbebaorvepu",
- *         awsAccountId: "pvsawejgihtmvcjqnob",
- *         awsProperties: {
- *             analyzerConfiguration: {
- *                 unusedAccessAge: 29,
- *             },
- *             analyzerName: "owom",
- *             archiveRules: [{
- *                 filter: [{}],
- *                 ruleName: "hvfnklcbuefkibrtayx",
- *             }],
- *             arn: "bmt",
- *             tags: [{
- *                 key: "xeapsjw",
- *                 value: "mtcjrbabaynnrmqttjf",
- *             }],
- *             type: "vswmvhmkyxepqkvvksbglssmrgg",
- *         },
- *         awsRegion: "edosnsqdwcvgl",
- *         awsSourceSchema: "ur",
- *         awsTags: {
- *             key746: "ux",
- *         },
- *         publicCloudConnectorsResourceId: "qfefhuzrkvg",
- *         publicCloudResourceName: "euuddejz",
- *     },
- *     resourceGroupName: "rgaccessAnalyzerAnalyzer",
- *     tags: {
- *         key5531: "fkyuwvyhzd",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:AccessAnalyzerAnalyzer ufpyfqqujqkhoaysswb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/accessAnalyzerAnalyzers/{name} 
- * ```
  */
 export class AccessAnalyzerAnalyzer extends pulumi.CustomResource {
     /**

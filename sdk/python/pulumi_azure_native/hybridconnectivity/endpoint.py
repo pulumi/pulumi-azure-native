@@ -107,41 +107,6 @@ class Endpoint(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### HybridConnectivityEndpointsPutCustom
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
-            endpoint_name="custom",
-            resource_id="/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
-            type=azure_native.hybridconnectivity.Type.CUSTOM)
-
-        ```
-        ### HybridConnectivityEndpointsPutDefault
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
-            endpoint_name="default",
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
-            type=azure_native.hybridconnectivity.Type.DEFAULT)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridconnectivity:Endpoint default /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,41 +127,6 @@ class Endpoint(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
 
         Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### HybridConnectivityEndpointsPutCustom
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
-            endpoint_name="custom",
-            resource_id="/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
-            type=azure_native.hybridconnectivity.Type.CUSTOM)
-
-        ```
-        ### HybridConnectivityEndpointsPutDefault
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
-            endpoint_name="default",
-            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
-            type=azure_native.hybridconnectivity.Type.DEFAULT)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridconnectivity:Endpoint default /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

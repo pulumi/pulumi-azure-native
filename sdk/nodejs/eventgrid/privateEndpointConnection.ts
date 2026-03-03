@@ -11,35 +11,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
  *
  * Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### PrivateEndpointConnections_Update
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.eventgrid.PrivateEndpointConnection("privateEndpointConnection", {
- *     parentName: "exampletopic1",
- *     parentType: "topics",
- *     privateEndpointConnectionName: "BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
- *     privateLinkServiceConnectionState: {
- *         actionsRequired: "None",
- *         description: "approving connection",
- *         status: azure_native.eventgrid.PersistedConnectionStatus.Approved,
- *     },
- *     resourceGroupName: "examplerg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:eventgrid:PrivateEndpointConnection BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/{parentType}/{parentName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -15,37 +15,6 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-11-01, 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Put Frontend
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var frontendsInterface = new AzureNative.ServiceNetworking.FrontendsInterface("frontendsInterface", new()
-    ///     {
-    ///         FrontendName = "fe1",
-    ///         Location = "NorthCentralUS",
-    ///         ResourceGroupName = "rg1",
-    ///         TrafficControllerName = "tc1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:servicenetworking:FrontendsInterface fe1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/frontends/{frontendName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:FrontendsInterface")]
     public partial class FrontendsInterface : global::Pulumi.CustomResource

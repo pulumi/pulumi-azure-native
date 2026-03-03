@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * Data Manager For Agriculture ARM Resource.
  *
  * Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
- *
- * ## Example Usage
- * ### DataManagerForAgricultureResources_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dataManagerForAgricultureResource = new azure_native.agfoodplatform.DataManagerForAgricultureResource("dataManagerForAgricultureResource", {
- *     dataManagerForAgricultureResourceName: "examples-farmbeatsResourceName",
- *     location: "eastus2",
- *     resourceGroupName: "examples-rg",
- *     tags: {
- *         key1: "value1",
- *         key2: "value2",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:agfoodplatform:DataManagerForAgricultureResource examples-farmbeatsResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName} 
- * ```
  */
 export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**

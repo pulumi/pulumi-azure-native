@@ -13,38 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
  *
  * Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a simple gallery image.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const galleryImage = new azure_native.compute.GalleryImage("galleryImage", {
- *     galleryImageName: "myGalleryImageName",
- *     galleryName: "myGalleryName",
- *     hyperVGeneration: azure_native.compute.HyperVGeneration.V1,
- *     identifier: {
- *         offer: "myOfferName",
- *         publisher: "myPublisherName",
- *         sku: "mySkuName",
- *     },
- *     location: "West US",
- *     osState: azure_native.compute.OperatingSystemStateTypes.Generalized,
- *     osType: azure_native.compute.OperatingSystemTypes.Windows,
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
- * ```
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

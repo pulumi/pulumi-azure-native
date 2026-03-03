@@ -13,68 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
  *
  * Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update App Resiliency
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const appResiliency = new azure_native.app.AppResiliency("appResiliency", {
- *     appName: "testcontainerApp0",
- *     circuitBreakerPolicy: {
- *         consecutiveErrors: 5,
- *         intervalInSeconds: 10,
- *         maxEjectionPercent: 50,
- *     },
- *     httpConnectionPool: {
- *         http1MaxPendingRequests: 1024,
- *         http2MaxRequests: 1024,
- *     },
- *     httpRetryPolicy: {
- *         errors: [
- *             "5xx",
- *             "connect-failure",
- *             "reset",
- *             "retriable-headers",
- *             "retriable-status-codes",
- *         ],
- *         headers: [{
- *             header: "X-Content-Type",
- *             prefixMatch: "GOATS",
- *         }],
- *         httpStatusCodes: [
- *             502,
- *             503,
- *         ],
- *         initialDelayInMilliseconds: 1000,
- *         maxIntervalInMilliseconds: 10000,
- *         maxRetries: 5,
- *     },
- *     name: "resiliency-policy-1",
- *     resourceGroupName: "rg",
- *     tcpConnectionPool: {
- *         maxConnections: 100,
- *     },
- *     tcpRetryPolicy: {
- *         maxConnectAttempts: 3,
- *     },
- *     timeoutPolicy: {
- *         connectionTimeoutInSeconds: 5,
- *         responseTimeoutInSeconds: 15,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:app:AppResiliency resiliency-policy-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{appName}/resiliencyPolicies/{name} 
- * ```
  */
 export class AppResiliency extends pulumi.CustomResource {
     /**

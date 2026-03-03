@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Uses Azure REST API version 2025-08-01.
     /// 
     /// Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Add a server administrator associated to a Microsoft Entra principal.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var administratorsMicrosoftEntra = new AzureNative.DBforPostgreSQL.AdministratorsMicrosoftEntra("administratorsMicrosoftEntra", new()
-    ///     {
-    ///         ObjectId = "oooooooo-oooo-oooo-oooo-oooooooooooo",
-    ///         PrincipalName = "exampleuser@contoso.com",
-    ///         PrincipalType = "User",
-    ///         ResourceGroupName = "exampleresourcegroup",
-    ///         ServerName = "exampleserver",
-    ///         TenantId = "tttttttt-tttt-tttt-tttt-tttttttttttt",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbforpostgresql:AdministratorsMicrosoftEntra myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:AdministratorsMicrosoftEntra")]
     public partial class AdministratorsMicrosoftEntra : global::Pulumi.CustomResource

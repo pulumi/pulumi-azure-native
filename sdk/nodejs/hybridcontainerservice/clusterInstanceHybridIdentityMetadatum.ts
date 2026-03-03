@@ -13,29 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01.
  *
  * Other available API versions: 2023-11-15-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateHybridIdentityMetadata
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const clusterInstanceHybridIdentityMetadatum = new azure_native.hybridcontainerservice.ClusterInstanceHybridIdentityMetadatum("clusterInstanceHybridIdentityMetadatum", {
- *     connectedClusterResourceUri: "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/test-hybridakscluster",
- *     publicKey: "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
- *     resourceUid: "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum default /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default 
- * ```
  */
 export class ClusterInstanceHybridIdentityMetadatum extends pulumi.CustomResource {
     /**

@@ -123,67 +123,6 @@ class ElasticLoadBalancingV2LoadBalancer(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### ElasticLoadBalancingV2LoadBalancers_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_load_balancing_v2_load_balancer = azure_native.awsconnector.ElasticLoadBalancingV2LoadBalancer("elasticLoadBalancingV2LoadBalancer",
-            location="zrpnzixidbktdxtkovhvkklslaw",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "kojgsx",
-                "aws_account_id": "eopxqyapnygxz",
-                "aws_properties": {
-                    "canonical_hosted_zone_id": "cpniwdbqzfxrbtnzkthjyohnbtq",
-                    "dns_name": "mafoyhxa",
-                    "enforce_security_group_inbound_rules_on_private_link_traffic": "gsefdpgmvnyizvpidgxdedsusstsmi",
-                    "ip_address_type": "ghelcjykqvyqrwtwydiwleni",
-                    "load_balancer_arn": "tswueurcdm",
-                    "load_balancer_attributes": [{
-                        "key": "jmpasivxkgcqvadmp",
-                        "value": "cbsgvwtlyhuclvjpye",
-                    }],
-                    "load_balancer_full_name": "kmxzisdeike",
-                    "load_balancer_name": "bdspilcwdpibhmnlbygrgaebhvbz",
-                    "name": "erwqxzfowfkksnodfytvnnyefbdsc",
-                    "scheme": "nqjwo",
-                    "security_groups": ["tavqrnlv"],
-                    "subnet_mappings": [{
-                        "subnet_id": "igo",
-                    }],
-                    "subnets": ["xqblkoljy"],
-                    "tags": [{
-                        "key": "eaenshgcpimgwtmxvu",
-                        "value": "vxqjrslimcsyqfkfmjiqjcht",
-                    }],
-                    "type": "ywggrkrojayvb",
-                },
-                "aws_region": "dplxwlbvhvz",
-                "aws_source_schema": "lnmi",
-                "aws_tags": {
-                    "key1771": "wqbrpppfj",
-                },
-                "public_cloud_connectors_resource_id": "udwcmojnxevoeyr",
-                "public_cloud_resource_name": "oicaxqhgvlybdl",
-            },
-            resource_group_name="rgelasticLoadBalancingV2LoadBalancer",
-            tags={
-                "key4383": "on",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ElasticLoadBalancingV2LoadBalancer elnktjtdysq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2LoadBalancers/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,67 +142,6 @@ class ElasticLoadBalancingV2LoadBalancer(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### ElasticLoadBalancingV2LoadBalancers_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_load_balancing_v2_load_balancer = azure_native.awsconnector.ElasticLoadBalancingV2LoadBalancer("elasticLoadBalancingV2LoadBalancer",
-            location="zrpnzixidbktdxtkovhvkklslaw",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "kojgsx",
-                "aws_account_id": "eopxqyapnygxz",
-                "aws_properties": {
-                    "canonical_hosted_zone_id": "cpniwdbqzfxrbtnzkthjyohnbtq",
-                    "dns_name": "mafoyhxa",
-                    "enforce_security_group_inbound_rules_on_private_link_traffic": "gsefdpgmvnyizvpidgxdedsusstsmi",
-                    "ip_address_type": "ghelcjykqvyqrwtwydiwleni",
-                    "load_balancer_arn": "tswueurcdm",
-                    "load_balancer_attributes": [{
-                        "key": "jmpasivxkgcqvadmp",
-                        "value": "cbsgvwtlyhuclvjpye",
-                    }],
-                    "load_balancer_full_name": "kmxzisdeike",
-                    "load_balancer_name": "bdspilcwdpibhmnlbygrgaebhvbz",
-                    "name": "erwqxzfowfkksnodfytvnnyefbdsc",
-                    "scheme": "nqjwo",
-                    "security_groups": ["tavqrnlv"],
-                    "subnet_mappings": [{
-                        "subnet_id": "igo",
-                    }],
-                    "subnets": ["xqblkoljy"],
-                    "tags": [{
-                        "key": "eaenshgcpimgwtmxvu",
-                        "value": "vxqjrslimcsyqfkfmjiqjcht",
-                    }],
-                    "type": "ywggrkrojayvb",
-                },
-                "aws_region": "dplxwlbvhvz",
-                "aws_source_schema": "lnmi",
-                "aws_tags": {
-                    "key1771": "wqbrpppfj",
-                },
-                "public_cloud_connectors_resource_id": "udwcmojnxevoeyr",
-                "public_cloud_resource_name": "oicaxqhgvlybdl",
-            },
-            resource_group_name="rgelasticLoadBalancingV2LoadBalancer",
-            tags={
-                "key4383": "on",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ElasticLoadBalancingV2LoadBalancer elnktjtdysq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticLoadBalancingV2LoadBalancers/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

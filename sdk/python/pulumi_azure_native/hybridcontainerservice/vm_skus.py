@@ -75,30 +75,6 @@ class VMSkus(pulumi.CustomResource):
 
         Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PutVMSkus
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        vm_skus = azure_native.hybridcontainerservice.VMSkus("vmSkus",
-            custom_location_resource_uri="subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
-            extended_location={
-                "name": "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
-                "type": azure_native.hybridcontainerservice.ExtendedLocationTypes.CUSTOM_LOCATION,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcontainerservice:VMSkus default /{customLocationResourceUri}/providers/Microsoft.HybridContainerService/skus/default 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,30 +93,6 @@ class VMSkus(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview.
 
         Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutVMSkus
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        vm_skus = azure_native.hybridcontainerservice.VMSkus("vmSkus",
-            custom_location_resource_uri="subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
-            extended_location={
-                "name": "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
-                "type": azure_native.hybridcontainerservice.ExtendedLocationTypes.CUSTOM_LOCATION,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcontainerservice:VMSkus default /{customLocationResourceUri}/providers/Microsoft.HybridContainerService/skus/default 
-        ```
 
 
         :param str resource_name: The name of the resource.

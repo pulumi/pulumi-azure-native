@@ -502,64 +502,6 @@ class HostPool(pulumi.CustomResource):
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### HostPool_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        host_pool = azure_native.desktopvirtualization.HostPool("hostPool",
-            agent_update={
-                "maintenance_window_time_zone": "Alaskan Standard Time",
-                "maintenance_windows": [
-                    {
-                        "day_of_week": azure_native.desktopvirtualization.DayOfWeek.FRIDAY,
-                        "hour": 7,
-                    },
-                    {
-                        "day_of_week": azure_native.desktopvirtualization.DayOfWeek.SATURDAY,
-                        "hour": 8,
-                    },
-                ],
-                "type": azure_native.desktopvirtualization.SessionHostComponentUpdateType.SCHEDULED,
-                "use_session_host_local_time": False,
-            },
-            description="des1",
-            friendly_name="friendly",
-            host_pool_name="hostPool1",
-            host_pool_type=azure_native.desktopvirtualization.HostPoolType.POOLED,
-            load_balancer_type=azure_native.desktopvirtualization.LoadBalancerType.BREADTH_FIRST,
-            location="centralus",
-            max_session_limit=999999,
-            personal_desktop_assignment_type=azure_native.desktopvirtualization.PersonalDesktopAssignmentType.AUTOMATIC,
-            preferred_app_group_type=azure_native.desktopvirtualization.PreferredAppGroupType.DESKTOP,
-            registration_info={
-                "expiration_time": "2020-10-01T14:01:54.9571247Z",
-                "registration_token_operation": azure_native.desktopvirtualization.RegistrationTokenOperation.UPDATE,
-            },
-            resource_group_name="resourceGroup1",
-            sso_client_id="client",
-            sso_client_secret_key_vault_path="https://keyvault/secret",
-            sso_secret_type=azure_native.desktopvirtualization.SSOSecretType.SHARED_KEY,
-            ssoadfs_authority="https://adfs",
-            start_vm_on_connect=False,
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            },
-            vm_template="{json:json}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:desktopvirtualization:HostPool hostPool1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -601,64 +543,6 @@ class HostPool(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-03. In version 2.x of the Azure Native provider, it used API version 2022-09-09.
 
         Other available API versions: 2022-09-09, 2022-10-14-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-08-preview, 2024-08-08-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-04-01-preview, 2025-08-01-preview, 2025-09-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native desktopvirtualization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### HostPool_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        host_pool = azure_native.desktopvirtualization.HostPool("hostPool",
-            agent_update={
-                "maintenance_window_time_zone": "Alaskan Standard Time",
-                "maintenance_windows": [
-                    {
-                        "day_of_week": azure_native.desktopvirtualization.DayOfWeek.FRIDAY,
-                        "hour": 7,
-                    },
-                    {
-                        "day_of_week": azure_native.desktopvirtualization.DayOfWeek.SATURDAY,
-                        "hour": 8,
-                    },
-                ],
-                "type": azure_native.desktopvirtualization.SessionHostComponentUpdateType.SCHEDULED,
-                "use_session_host_local_time": False,
-            },
-            description="des1",
-            friendly_name="friendly",
-            host_pool_name="hostPool1",
-            host_pool_type=azure_native.desktopvirtualization.HostPoolType.POOLED,
-            load_balancer_type=azure_native.desktopvirtualization.LoadBalancerType.BREADTH_FIRST,
-            location="centralus",
-            max_session_limit=999999,
-            personal_desktop_assignment_type=azure_native.desktopvirtualization.PersonalDesktopAssignmentType.AUTOMATIC,
-            preferred_app_group_type=azure_native.desktopvirtualization.PreferredAppGroupType.DESKTOP,
-            registration_info={
-                "expiration_time": "2020-10-01T14:01:54.9571247Z",
-                "registration_token_operation": azure_native.desktopvirtualization.RegistrationTokenOperation.UPDATE,
-            },
-            resource_group_name="resourceGroup1",
-            sso_client_id="client",
-            sso_client_secret_key_vault_path="https://keyvault/secret",
-            sso_secret_type=azure_native.desktopvirtualization.SSOSecretType.SHARED_KEY,
-            ssoadfs_authority="https://adfs",
-            start_vm_on_connect=False,
-            tags={
-                "tag1": "value1",
-                "tag2": "value2",
-            },
-            vm_template="{json:json}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:desktopvirtualization:HostPool hostPool1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

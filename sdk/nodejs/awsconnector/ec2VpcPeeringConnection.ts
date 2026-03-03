@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Ec2VpcPeeringConnections_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ec2VpcPeeringConnection = new azure_native.awsconnector.Ec2VpcPeeringConnection("ec2VpcPeeringConnection", {
- *     location: "lqfmwbb",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "dxhchlgpyvhsexomfqaj",
- *         awsAccountId: "digeyffuemunjngxz",
- *         awsProperties: {
- *             id: "emsfznbbfejdwouyracpg",
- *             peerOwnerId: "ddjymdvquwsrdt",
- *             peerRegion: "qcbhjmbddzbcs",
- *             peerRoleArn: "kaophgngiqxorpifcluz",
- *             peerVpcId: "ccurncyuawhicumwcxxnmuq",
- *             tags: [{
- *                 key: "quljgbamnwrovfxsxjeyymnt",
- *                 value: "xgzluroiobmj",
- *             }],
- *             vpcId: "lkitywfkos",
- *         },
- *         awsRegion: "qgrfrceaszbzvo",
- *         awsSourceSchema: "pfevychrftkuamvlorm",
- *         awsTags: {
- *             key8493: "juqefkwaorgfmwqzktgjos",
- *         },
- *         publicCloudConnectorsResourceId: "jlenaffdnxswiytzyfvbfjfghuf",
- *         publicCloudResourceName: "ackzpztj",
- *     },
- *     resourceGroupName: "rgec2VPCPeeringConnection",
- *     tags: {
- *         key6160: "pgblenahxpyuppjtrhgaqsoabsr",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Ec2VpcPeeringConnection iqnkjibwefldpplqrvzjt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2VPCPeeringConnections/{name} 
- * ```
  */
 export class Ec2VpcPeeringConnection extends pulumi.CustomResource {
     /**

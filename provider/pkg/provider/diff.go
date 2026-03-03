@@ -537,6 +537,24 @@ func sameManagedClusterSku(oldMap resource.PropertyMap, newMap resource.Property
 	return sameName && sameTier
 }
 
+// azureResourcePropertyDefaultValue looks up the default value of a property from the resource schema.
+// If we need to make exceptions for certain properties on specific resource types,
+// we can add more logic here and customize that behaviour.
+func azureResourcePropertyDefaultValue(res resources.AzureAPIResource, property string) (any, bool) {
+	if prop, found := res.LookupProperty(property); found {
+		if prop.Default == nil && prop.Type == "boolean" {
+			// For boolean properties without a default value specified in the schema,
+			// we treat the default value as false unless otherwise needs to inferred from
+			// the resource type
+			return false, true
+		}
+
+		return prop.Default, true
+	}
+
+	return nil, false
+}
+
 // calculateChangesAndReplacements compares a property diff with the old and new inputs and the
 // previous state. It returns a list of properties that will change, and a list of properties
 // that will be replaced. In some cases, entries of the diff may not lead to any change or
@@ -560,6 +578,17 @@ func calculateChangesAndReplacements(
 			outputValue, hasOutput := oldState[key]
 			if !hasOldInput && hasNewInput && hasOutput && reflect.DeepEqual(newInputValue, outputValue) {
 				v.Kind = rpc.PropertyDiff_ADD
+			} else if !hasOldInput && hasNewInput && !hasOutput {
+				// New property is added to inputs, doesn't exist in old state/output
+				// checks if the new value is the same as the default value from the azure specs
+				// if so, it is not a replacement but a no-op
+				propertyDefault, found := azureResourcePropertyDefaultValue(res, k)
+				if found && propertyDefault != nil && reflect.DeepEqual(newInputValue.V, propertyDefault) {
+					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue.V)
+					continue
+				} else {
+					replaces = append(replaces, k)
+				}
 			} else {
 				replaces = append(replaces, k)
 			}
@@ -571,9 +600,9 @@ func calculateChangesAndReplacements(
 			if !hasOldInput && hasNewInput {
 				// If this is a new property that is merely being initialized with its default
 				// value, we don't need to show a noisy diff.
-				prop, found := res.LookupProperty(k)
-				if found && prop.Default != nil && reflect.DeepEqual(newInputValue.V, prop.Default) {
-					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue)
+				propertyDefault, found := azureResourcePropertyDefaultValue(res, k)
+				if found && propertyDefault != nil && reflect.DeepEqual(newInputValue.V, propertyDefault) {
+					logging.V(9).Infof("Skipping diff for %s, property with default value %v is added", k, newInputValue.V)
 					continue
 				}
 			}

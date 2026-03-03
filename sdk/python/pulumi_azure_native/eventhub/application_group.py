@@ -141,50 +141,6 @@ class ApplicationGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApplicationGroupCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application_group = azure_native.eventhub.ApplicationGroup("applicationGroup",
-            application_group_name="appGroup1",
-            client_app_group_identifier="SASKeyName=KeyName",
-            is_enabled=True,
-            namespace_name="contoso-ua-test-eh-system-1",
-            policies=[
-                {
-                    "metric_id": azure_native.eventhub.MetricId.INCOMING_MESSAGES,
-                    "name": "ThrottlingPolicy1",
-                    "rate_limit_threshold": 7912,
-                    "type": "ThrottlingPolicy",
-                },
-                {
-                    "metric_id": azure_native.eventhub.MetricId.INCOMING_BYTES,
-                    "name": "ThrottlingPolicy2",
-                    "rate_limit_threshold": 3951729,
-                    "type": "ThrottlingPolicy",
-                },
-                {
-                    "metric_id": azure_native.eventhub.MetricId.OUTGOING_BYTES,
-                    "name": "ThrottlingPolicy3",
-                    "rate_limit_threshold": 245175,
-                    "type": "ThrottlingPolicy",
-                },
-            ],
-            resource_group_name="contosotest")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventhub:ApplicationGroup appGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/applicationGroups/{applicationGroupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,50 +163,6 @@ class ApplicationGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
 
         Other available API versions: 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApplicationGroupCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application_group = azure_native.eventhub.ApplicationGroup("applicationGroup",
-            application_group_name="appGroup1",
-            client_app_group_identifier="SASKeyName=KeyName",
-            is_enabled=True,
-            namespace_name="contoso-ua-test-eh-system-1",
-            policies=[
-                {
-                    "metric_id": azure_native.eventhub.MetricId.INCOMING_MESSAGES,
-                    "name": "ThrottlingPolicy1",
-                    "rate_limit_threshold": 7912,
-                    "type": "ThrottlingPolicy",
-                },
-                {
-                    "metric_id": azure_native.eventhub.MetricId.INCOMING_BYTES,
-                    "name": "ThrottlingPolicy2",
-                    "rate_limit_threshold": 3951729,
-                    "type": "ThrottlingPolicy",
-                },
-                {
-                    "metric_id": azure_native.eventhub.MetricId.OUTGOING_BYTES,
-                    "name": "ThrottlingPolicy3",
-                    "rate_limit_threshold": 245175,
-                    "type": "ThrottlingPolicy",
-                },
-            ],
-            resource_group_name="contosotest")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventhub:ApplicationGroup appGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/applicationGroups/{applicationGroupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Security Application over a given scope
  *
  * Uses Azure REST API version 2022-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-01-preview.
- *
- * ## Example Usage
- * ### Create Application
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const securityConnectorApplication = new azure_native.security.SecurityConnectorApplication("securityConnectorApplication", {
- *     applicationId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
- *     description: "An application on critical GCP recommendations",
- *     displayName: "GCP Admin's application",
- *     resourceGroupName: "gcpResourceGroup",
- *     securityConnectorName: "gcpconnector",
- *     sourceResourceType: azure_native.security.ApplicationSourceResourceType.Assessments,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:security:SecurityConnectorApplication 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName}/providers/Microsoft.Security/applications/{applicationId} 
- * ```
  */
 export class SecurityConnectorApplication extends pulumi.CustomResource {
     /**

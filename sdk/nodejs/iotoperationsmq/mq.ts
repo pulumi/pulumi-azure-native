@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * MQ resource
  *
  * Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
- *
- * ## Example Usage
- * ### Mq_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const mq = new azure_native.iotoperationsmq.Mq("mq", {
- *     extendedLocation: {
- *         name: "an",
- *         type: azure_native.iotoperationsmq.ExtendedLocationType.CustomLocation,
- *     },
- *     location: "qayqiarqxjennoyvglovxrdiccscq",
- *     mqName: "-MK0Vqe3K7Ji",
- *     resourceGroupName: "rgiotoperationsmq",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:iotoperationsmq:Mq mogfqcmgwpsw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName} 
- * ```
  */
 export class Mq extends pulumi.CustomResource {
     /**

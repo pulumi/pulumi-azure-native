@@ -173,31 +173,6 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create Certificate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        app_service_certificate_order_certificate = azure_native.certificateregistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate",
-            certificate_order_name="SampleCertificateOrderName",
-            key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
-            key_vault_secret_name="SampleSecretName1",
-            location="Global",
-            name="SampleCertName1",
-            resource_group_name="testrg123")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrderCertificate SampleCertName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,31 +197,6 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native certificateregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create Certificate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        app_service_certificate_order_certificate = azure_native.certificateregistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate",
-            certificate_order_name="SampleCertificateOrderName",
-            key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
-            key_vault_secret_name="SampleSecretName1",
-            location="Global",
-            name="SampleCertName1",
-            resource_group_name="testrg123")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrderCertificate SampleCertName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

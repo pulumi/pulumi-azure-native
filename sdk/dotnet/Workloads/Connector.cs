@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.Workloads
     /// Define the connector resource.
     /// 
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create a connector resource.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var connector = new AzureNative.Workloads.Connector("connector", new()
-    ///     {
-    ///         ConnectorName = "C1",
-    ///         Location = "westcentralus",
-    ///         ResourceGroupName = "test-rg",
-    ///         SourceResourceId = "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00",
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:workloads:Connector C1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/connectors/{connectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

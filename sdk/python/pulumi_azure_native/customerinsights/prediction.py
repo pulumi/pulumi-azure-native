@@ -302,49 +302,6 @@ class Prediction(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-        ## Example Usage
-        ### Predictions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        prediction = azure_native.customerinsights.Prediction("prediction",
-            auto_analyze=True,
-            description={
-                "en-us": "sdktest",
-            },
-            display_name={
-                "en-us": "sdktest",
-            },
-            grades=[],
-            hub_name="sdkTestHub",
-            involved_interaction_types=[],
-            involved_kpi_types=[],
-            involved_relationships=[],
-            mappings={
-                "grade": "sdktest_Grade",
-                "reason": "sdktest_Reason",
-                "score": "sdktest_Score",
-            },
-            negative_outcome_expression="Customers.FirstName = 'Mike'",
-            positive_outcome_expression="Customers.FirstName = 'David'",
-            prediction_name="sdktest",
-            primary_profile_type="Customers",
-            resource_group_name="TestHubRG",
-            scope_expression="*",
-            score_label="score label")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/predictions/{predictionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,49 +332,6 @@ class Prediction(pulumi.CustomResource):
         The prediction resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
-        ## Example Usage
-        ### Predictions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        prediction = azure_native.customerinsights.Prediction("prediction",
-            auto_analyze=True,
-            description={
-                "en-us": "sdktest",
-            },
-            display_name={
-                "en-us": "sdktest",
-            },
-            grades=[],
-            hub_name="sdkTestHub",
-            involved_interaction_types=[],
-            involved_kpi_types=[],
-            involved_relationships=[],
-            mappings={
-                "grade": "sdktest_Grade",
-                "reason": "sdktest_Reason",
-                "score": "sdktest_Score",
-            },
-            negative_outcome_expression="Customers.FirstName = 'Mike'",
-            positive_outcome_expression="Customers.FirstName = 'David'",
-            prediction_name="sdktest",
-            primary_profile_type="Customers",
-            resource_group_name="TestHubRG",
-            scope_expression="*",
-            score_label="score label")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/predictions/{predictionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

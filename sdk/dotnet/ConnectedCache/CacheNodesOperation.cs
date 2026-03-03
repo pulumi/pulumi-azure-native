@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.ConnectedCache
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
     /// Uses Azure REST API version 2023-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CacheNodesOperations_CreateorUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cacheNodesOperation = new AzureNative.ConnectedCache.CacheNodesOperation("cacheNodesOperation", new()
-    ///     {
-    ///         CustomerResourceName = "lwrsyhvfpcfrwrim",
-    ///         Location = "westus",
-    ///         Properties = new AzureNative.ConnectedCache.Inputs.CacheNodeOldResponseArgs
-    ///         {
-    ///             StatusCode = "movtzupooyhdqk",
-    ///             StatusDetails = "quuziibkwtgf",
-    ///             StatusText = "bjnsrpzaofjntleoesjwammgbi",
-    ///         },
-    ///         ResourceGroupName = "rgConnectedCache",
-    ///         Tags = 
-    ///         {
-    ///             { "key8256", "oreqiywrjkmate" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:connectedcache:CacheNodesOperation MCCTPTest2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedCache/cacheNodes/{customerResourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedcache:CacheNodesOperation")]
     public partial class CacheNodesOperation : global::Pulumi.CustomResource

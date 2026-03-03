@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * Representation of a Garnet cache cluster.
  *
  * Uses Azure REST API version 2025-11-01-preview.
- *
- * ## Example Usage
- * ### CosmosDBGarnetClusterCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const garnetCluster = new azure_native.cosmosdb.GarnetCluster("garnetCluster", {
- *     clusterName: "garnet-prod",
- *     location: "West US",
- *     properties: {
- *         nodeCount: 4,
- *         nodeSku: "Standard_DS13_v2",
- *         replicationFactor: 2,
- *         subnetId: "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
- *     },
- *     resourceGroupName: "garnet-prod-rg",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cosmosdb:GarnetCluster garnet-prod /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/garnetClusters/{clusterName} 
- * ```
  */
 export class GarnetCluster extends pulumi.CustomResource {
     /**

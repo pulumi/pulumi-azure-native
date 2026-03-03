@@ -160,45 +160,6 @@ class Address(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateAddress
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        address = azure_native.edgeorder.Address("address",
-            address_classification=azure_native.edgeorder.AddressClassification.SHIPPING,
-            address_name="TestAddressName2",
-            contact_details={
-                "contact_name": "XXXX XXXX",
-                "email_list": ["xxxx@xxxx.xxx"],
-                "phone": "0000000000",
-                "phone_extension": "",
-            },
-            location="eastus",
-            resource_group_name="YourResourceGroupName",
-            shipping_address={
-                "address_type": azure_native.edgeorder.AddressType.NONE,
-                "city": "San Francisco",
-                "company_name": "Microsoft",
-                "country": "US",
-                "postal_code": "94107",
-                "state_or_province": "CA",
-                "street_address1": "16 TOWNSEND ST",
-                "street_address2": "UNIT 1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edgeorder:Address TestAddressName2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/addresses/{addressName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,45 +183,6 @@ class Address(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
         Other available API versions: 2022-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgeorder [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateAddress
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        address = azure_native.edgeorder.Address("address",
-            address_classification=azure_native.edgeorder.AddressClassification.SHIPPING,
-            address_name="TestAddressName2",
-            contact_details={
-                "contact_name": "XXXX XXXX",
-                "email_list": ["xxxx@xxxx.xxx"],
-                "phone": "0000000000",
-                "phone_extension": "",
-            },
-            location="eastus",
-            resource_group_name="YourResourceGroupName",
-            shipping_address={
-                "address_type": azure_native.edgeorder.AddressType.NONE,
-                "city": "San Francisco",
-                "company_name": "Microsoft",
-                "country": "US",
-                "postal_code": "94107",
-                "state_or_province": "CA",
-                "street_address1": "16 TOWNSEND ST",
-                "street_address2": "UNIT 1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edgeorder:Address TestAddressName2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EdgeOrder/addresses/{addressName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

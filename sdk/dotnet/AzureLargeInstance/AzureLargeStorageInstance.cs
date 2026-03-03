@@ -14,54 +14,6 @@ namespace Pulumi.AzureNative.AzureLargeInstance
     /// AzureLargeStorageInstance properties)
     /// 
     /// Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### AzureLargeStorageInstance_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var azureLargeStorageInstance = new AzureNative.AzureLargeInstance.AzureLargeStorageInstance("azureLargeStorageInstance", new()
-    ///     {
-    ///         AzureLargeStorageInstanceName = "myAzureLargeStorageInstance",
-    ///         AzureLargeStorageInstanceUniqueIdentifier = "23415635-4d7e-41dc-9598-8194f22c24e9",
-    ///         Location = "westus2",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         StorageProperties = new AzureNative.AzureLargeInstance.Inputs.StoragePropertiesArgs
-    ///         {
-    ///             Generation = "Gen4",
-    ///             HardwareType = "NetApp",
-    ///             OfferingType = "EPIC",
-    ///             StorageBillingProperties = new AzureNative.AzureLargeInstance.Inputs.StorageBillingPropertiesArgs
-    ///             {
-    ///                 BillingMode = "PAYG",
-    ///                 Sku = "",
-    ///             },
-    ///             StorageType = "FC",
-    ///             WorkloadType = "ODB",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurelargeinstance:AzureLargeStorageInstance myAzureLargeStorageInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeStorageInstances/{azureLargeStorageInstanceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurelargeinstance:AzureLargeStorageInstance")]
     public partial class AzureLargeStorageInstance : global::Pulumi.CustomResource

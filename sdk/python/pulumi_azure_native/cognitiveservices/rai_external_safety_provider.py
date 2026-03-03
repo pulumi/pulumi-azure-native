@@ -90,35 +90,6 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-10-01-preview.
 
-        ## Example Usage
-        ### PutRaiExternalSafetyProvider
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        rai_external_safety_provider = azure_native.cognitiveservices.RaiExternalSafetyProvider("raiExternalSafetyProvider",
-            properties={
-                "key_vault_uri": "https://example.vault.azure.net",
-                "managed_identity": "00000000-0000-0000-0000-000000000000",
-                "mode": "sync",
-                "provider_id": "00000000-0000-0000-0000-000000000000",
-                "provider_name": "safetyProviderName",
-                "secret_name": "mySecretName",
-                "url": "https://example.webhook.endpoint",
-            },
-            safety_provider_name="safetyProviderName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cognitiveservices:RaiExternalSafetyProvider safetyProviderName /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiExternalSafetyProviders/{safetyProviderName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,35 +107,6 @@ class RaiExternalSafetyProvider(pulumi.CustomResource):
         Cognitive Services Rai External Safety provider Schema.
 
         Uses Azure REST API version 2025-10-01-preview.
-
-        ## Example Usage
-        ### PutRaiExternalSafetyProvider
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        rai_external_safety_provider = azure_native.cognitiveservices.RaiExternalSafetyProvider("raiExternalSafetyProvider",
-            properties={
-                "key_vault_uri": "https://example.vault.azure.net",
-                "managed_identity": "00000000-0000-0000-0000-000000000000",
-                "mode": "sync",
-                "provider_id": "00000000-0000-0000-0000-000000000000",
-                "provider_name": "safetyProviderName",
-                "secret_name": "mySecretName",
-                "url": "https://example.webhook.endpoint",
-            },
-            safety_provider_name="safetyProviderName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cognitiveservices:RaiExternalSafetyProvider safetyProviderName /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiExternalSafetyProviders/{safetyProviderName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

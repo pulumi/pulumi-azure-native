@@ -13,40 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### TransitHub_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const transitHub = new azure_native.mission.TransitHub("transitHub", {
- *     communityName: "TestMyCommunity",
- *     location: "westcentralus",
- *     resourceGroupName: "rgopenapi",
- *     state: azure_native.mission.TransitHubState.PendingApproval,
- *     tags: {
- *         Tag1: "Value1",
- *     },
- *     transitHubName: "TestThName",
- *     transitOption: {
- *         params: {
- *             scaleUnits: 1,
- *         },
- *         type: azure_native.mission.TransitOptionType.ExpressRoute,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:mission:TransitHub TestThName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/communities/{communityName}/transitHubs/{transitHubName} 
- * ```
  */
 export class TransitHub extends pulumi.CustomResource {
     /**

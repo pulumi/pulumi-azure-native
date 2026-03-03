@@ -249,33 +249,6 @@ class PartnerTopic(pulumi.CustomResource):
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PartnerTopics_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        partner_topic = azure_native.eventgrid.PartnerTopic("partnerTopic",
-            expiration_time_if_not_activated_utc="2022-03-23T23:06:13.109Z",
-            location="westus2",
-            message_for_activation="Example message for activation",
-            partner_registration_immutable_id="6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
-            partner_topic_friendly_description="Example description",
-            partner_topic_name="examplePartnerTopicName1",
-            resource_group_name="examplerg",
-            source="ContosoCorp.Accounts.User1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:PartnerTopic examplePartnerTopicName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerTopics/{partnerTopicName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,33 +279,6 @@ class PartnerTopic(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2022-06-15.
 
         Other available API versions: 2022-06-15, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PartnerTopics_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        partner_topic = azure_native.eventgrid.PartnerTopic("partnerTopic",
-            expiration_time_if_not_activated_utc="2022-03-23T23:06:13.109Z",
-            location="westus2",
-            message_for_activation="Example message for activation",
-            partner_registration_immutable_id="6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
-            partner_topic_friendly_description="Example description",
-            partner_topic_name="examplePartnerTopicName1",
-            resource_group_name="examplerg",
-            source="ContosoCorp.Accounts.User1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:PartnerTopic examplePartnerTopicName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerTopics/{partnerTopicName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

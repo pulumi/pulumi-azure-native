@@ -15,51 +15,6 @@ namespace Pulumi.AzureNative.Cdn
     /// Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
     /// 
     /// Other available API versions: 2023-07-01-preview, 2024-05-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### KeyGroups_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var keyGroup = new AzureNative.Cdn.KeyGroup("keyGroup", new()
-    ///     {
-    ///         KeyGroupName = "kg1",
-    ///         KeyReferences = new[]
-    ///         {
-    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1",
-    ///             },
-    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret2",
-    ///             },
-    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret3",
-    ///             },
-    ///         },
-    ///         ProfileName = "profile1",
-    ///         ResourceGroupName = "RG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cdn:KeyGroup kg1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/keyGroups/{keyGroupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:KeyGroup")]
     public partial class KeyGroup : global::Pulumi.CustomResource

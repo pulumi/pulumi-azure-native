@@ -11,60 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Ec2Vpcs_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ec2Vpc = new azure_native.awsconnector.Ec2Vpc("ec2Vpc", {
- *     location: "bcrtgodiyozdsiqbhdvsaaog",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "isskkecektndkosbruasgvkakzf",
- *         awsAccountId: "vskthos",
- *         awsProperties: {
- *             cidrBlock: "amstuguadqkmlmofdszmxhgssf",
- *             cidrBlockAssociations: ["ykwdexxzxjxowuuawym"],
- *             defaultNetworkAcl: "lhtepidfpfsyxksnvekueeyvw",
- *             defaultSecurityGroup: "qtqgizvsvzdqxmbwwpmtcnqlfuh",
- *             enableDnsHostnames: true,
- *             enableDnsSupport: true,
- *             instanceTenancy: "haqdsdkgbjmnwdgamqs",
- *             ipv4IpamPoolId: "ldzbfvpzpwudqtdyb",
- *             ipv4NetmaskLength: 21,
- *             ipv6CidrBlocks: ["q"],
- *             tags: [{
- *                 key: "dn",
- *                 value: "tqvkxdrwsaxvxwckrpqk",
- *             }],
- *             vpcId: "wqqqqmtbgzmdfmkiaoyjdkavuzzzzw",
- *         },
- *         awsRegion: "paraxj",
- *         awsSourceSchema: "vnjplxwhapuaydjjdqiaqfvbfjam",
- *         awsTags: {
- *             key96: "hjcp",
- *         },
- *         publicCloudConnectorsResourceId: "hpzdeuzmjfwatmynigq",
- *         publicCloudResourceName: "qjwdilmlbbam",
- *     },
- *     resourceGroupName: "rgec2Vpc",
- *     tags: {
- *         key2430: "wsbwsruiakoihittdhcmmwrjmft",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Ec2Vpc dey /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Vpcs/{name} 
- * ```
  */
 export class Ec2Vpc extends pulumi.CustomResource {
     /**

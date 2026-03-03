@@ -107,31 +107,6 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
 
         Other available API versions: 2020-06-30-preview, 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update configuration profile assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_profile_assignment = azure_native.automanage.ConfigurationProfileAssignment("configurationProfileAssignment",
-            configuration_profile_assignment_name="default",
-            properties={
-                "configuration_profile": "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
-            },
-            resource_group_name="myResourceGroupName",
-            vm_name="myVMName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automanage:ConfigurationProfileAssignment default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.Automanage/configurationProfileAssignments/{configurationProfileAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,31 +127,6 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2022-05-04. In version 2.x of the Azure Native provider, it used API version 2022-05-04.
 
         Other available API versions: 2020-06-30-preview, 2021-04-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automanage [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update configuration profile assignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_profile_assignment = azure_native.automanage.ConfigurationProfileAssignment("configurationProfileAssignment",
-            configuration_profile_assignment_name="default",
-            properties={
-                "configuration_profile": "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
-            },
-            resource_group_name="myResourceGroupName",
-            vm_name="myVMName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automanage:ConfigurationProfileAssignment default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.Automanage/configurationProfileAssignments/{configurationProfileAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

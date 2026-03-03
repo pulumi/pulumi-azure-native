@@ -13,39 +13,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Migrate Project REST Resource.
     /// 
     /// Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### MigrateProjects_Put
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var migrateProject = new AzureNative.Migrate.MigrateProject("migrateProject", new()
-    ///     {
-    ///         ETag = "\"b701c73a-0000-0000-0000-59c12ff00000\"",
-    ///         Location = "Southeast Asia",
-    ///         MigrateProjectName = "project01",
-    ///         Properties = null,
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:MigrateProject project01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateProject")]
     public partial class MigrateProject : global::Pulumi.CustomResource

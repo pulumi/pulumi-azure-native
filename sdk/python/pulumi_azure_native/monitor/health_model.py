@@ -156,13 +156,6 @@ class HealthModel(pulumi.CustomResource):
         A HealthModel resource
 
         Uses Azure REST API version 2025-05-03-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:HealthModel model1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -185,13 +178,6 @@ class HealthModel(pulumi.CustomResource):
         A HealthModel resource
 
         Uses Azure REST API version 2025-05-03-preview.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:HealthModel model1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

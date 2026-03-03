@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.Relay
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
     /// 
     /// Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### RelayCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var wcfRelay = new AzureNative.Relay.WCFRelay("wcfRelay", new()
-    ///     {
-    ///         NamespaceName = "example-RelayNamespace-9953",
-    ///         RelayName = "example-Relay-Wcf-1194",
-    ///         RelayType = AzureNative.Relay.Relaytype.NetTcp,
-    ///         RequiresClientAuthorization = true,
-    ///         RequiresTransportSecurity = true,
-    ///         ResourceGroupName = "resourcegroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:relay:WCFRelay example-Relay-Wcf-1194 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:WCFRelay")]
     public partial class WCFRelay : global::Pulumi.CustomResource

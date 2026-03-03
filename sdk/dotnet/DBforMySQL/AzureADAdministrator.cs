@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Uses Azure REST API version 2023-12-30. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
     /// Other available API versions: 2022-01-01, 2023-06-01-preview, 2023-06-30, 2024-12-01-preview, 2024-12-30, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create an azure ad administrator
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var azureADAdministrator = new AzureNative.DBforMySQL.AzureADAdministrator("azureADAdministrator", new()
-    ///     {
-    ///         AdministratorName = "ActiveDirectory",
-    ///         AdministratorType = AzureNative.DBforMySQL.AdministratorType.ActiveDirectory,
-    ///         IdentityResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
-    ///         Login = "bob@contoso.com",
-    ///         ResourceGroupName = "testrg",
-    ///         ServerName = "mysqltestsvc4",
-    ///         Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-    ///         TenantId = "c12b7025-bfe2-46c1-b463-993b5e4cd467",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbformysql:AzureADAdministrator ActiveDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/administrators/{administratorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:AzureADAdministrator")]
     public partial class AzureADAdministrator : global::Pulumi.CustomResource

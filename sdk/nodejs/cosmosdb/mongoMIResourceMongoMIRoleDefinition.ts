@@ -13,42 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CosmosDBMongoMIRoleDefinitionCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const mongoMIResourceMongoMIRoleDefinition = new azure_native.cosmosdb.MongoMIResourceMongoMIRoleDefinition("mongoMIResourceMongoMIRoleDefinition", {
- *     accountName: "myAccountName",
- *     assignableScopes: [
- *         "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
- *         "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
- *     ],
- *     permissions: [{
- *         dataActions: [
- *             "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/create",
- *             "Microsoft.DocumentDB/databaseAccounts/mongoMIDatabases/containers/entities/read",
- *         ],
- *         notDataActions: [],
- *     }],
- *     resourceGroupName: "myResourceGroupName",
- *     roleDefinitionId: "myRoleDefinitionId",
- *     roleName: "myRoleName",
- *     type: azure_native.cosmosdb.RoleDefinitionType.CustomRole,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cosmosdb:MongoMIResourceMongoMIRoleDefinition myRoleDefinitionId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongoMIRoleDefinitions/{roleDefinitionId} 
- * ```
  */
 export class MongoMIResourceMongoMIRoleDefinition extends pulumi.CustomResource {
     /**

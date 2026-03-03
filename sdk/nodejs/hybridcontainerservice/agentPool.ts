@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * The agentPool resource definition
  *
  * Uses Azure REST API version 2022-09-01-preview.
- *
- * ## Example Usage
- * ### PutAgentPool
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const agentPool = new azure_native.hybridcontainerservice.AgentPool("agentPool", {
- *     agentPoolName: "test-hybridaksnodepool",
- *     count: 1,
- *     location: "westus",
- *     osType: azure_native.hybridcontainerservice.OsType.Linux,
- *     resourceGroupName: "test-arcappliance-resgrp",
- *     resourceName: "test-hybridakscluster",
- *     vmSize: "Standard_A4_v2",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hybridcontainerservice:AgentPool test-hybridaksnodepool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/agentPools/{agentPoolName} 
- * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

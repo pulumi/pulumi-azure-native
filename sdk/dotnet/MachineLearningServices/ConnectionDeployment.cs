@@ -13,48 +13,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-04-01-preview.
     /// 
     /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Azure OpenAI Connection Deployment
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var connectionDeployment = new AzureNative.MachineLearningServices.ConnectionDeployment("connectionDeployment", new()
-    ///     {
-    ///         ConnectionName = "testConnection",
-    ///         DeploymentName = "text-davinci-003",
-    ///         Properties = new AzureNative.MachineLearningServices.Inputs.OpenAIEndpointDeploymentResourcePropertiesArgs
-    ///         {
-    ///             Model = new AzureNative.MachineLearningServices.Inputs.EndpointDeploymentModelArgs
-    ///             {
-    ///                 Format = "OpenAI",
-    ///                 Name = "text-davinci-003",
-    ///                 Version = "1",
-    ///             },
-    ///             Type = "Azure.OpenAI",
-    ///             VersionUpgradeOption = AzureNative.MachineLearningServices.DeploymentModelVersionUpgradeOption.OnceNewDefaultVersionAvailable,
-    ///         },
-    ///         ResourceGroupName = "resourceGroup-1",
-    ///         WorkspaceName = "testworkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:machinelearningservices:ConnectionDeployment text-davinci-003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/deployments/{deploymentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionDeployment")]
     public partial class ConnectionDeployment : global::Pulumi.CustomResource

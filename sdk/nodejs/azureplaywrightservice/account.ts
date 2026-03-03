@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Accounts_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.azureplaywrightservice.Account("account", {
- *     accountName: "myPlaywrightAccount",
- *     location: "westus",
- *     regionalAffinity: azure_native.azureplaywrightservice.EnablementStatus.Enabled,
- *     resourceGroupName: "dummyrg",
- *     tags: {
- *         Team: "Dev Exp",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azureplaywrightservice:Account myPlaywrightAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzurePlaywrightService/accounts/{accountName} 
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

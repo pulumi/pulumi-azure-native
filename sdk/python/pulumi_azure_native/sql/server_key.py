@@ -122,30 +122,6 @@ class ServerKey(pulumi.CustomResource):
 
         Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates or updates a server key
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_key = azure_native.sql.ServerKey("serverKey",
-            key_name="someVault_someKey_01234567890123456789012345678901",
-            resource_group_name="sqlcrudtest-7398",
-            server_key_type=azure_native.sql.ServerKeyType.AZURE_KEY_VAULT,
-            server_name="sqlcrudtest-4645",
-            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:ServerKey sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/keys/{keyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,30 +143,6 @@ class ServerKey(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2015-05-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2020-11-01-preview, 2021-02-01-preview, 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates or updates a server key
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_key = azure_native.sql.ServerKey("serverKey",
-            key_name="someVault_someKey_01234567890123456789012345678901",
-            resource_group_name="sqlcrudtest-7398",
-            server_key_type=azure_native.sql.ServerKeyType.AZURE_KEY_VAULT,
-            server_name="sqlcrudtest-4645",
-            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:ServerKey sqlcrudtest-4645 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/keys/{keyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

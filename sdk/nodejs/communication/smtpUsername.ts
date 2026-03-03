@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-09-01-preview.
  *
  * Other available API versions: 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateOrUpdate SmtpUsername resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const smtpUsername = new azure_native.communication.SmtpUsername("smtpUsername", {
- *     communicationServiceName: "contosoACSService",
- *     entraApplicationId: "aaaa1111-bbbb-2222-3333-aaaa111122bb",
- *     resourceGroupName: "contosoResourceGroup",
- *     smtpUsername: "smtpusername1",
- *     tenantId: "aaaa1111-bbbb-2222-3333-aaaa11112222",
- *     username: "newuser1@contoso.com",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:communication:SmtpUsername smtpusername1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName}/smtpUsernames/{smtpUsername} 
- * ```
  */
 export class SmtpUsername extends pulumi.CustomResource {
     /**

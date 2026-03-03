@@ -15,45 +15,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### AssessmentProjectsOperations_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assessmentProjectsOperation = new AzureNative.Migrate.AssessmentProjectsOperation("assessmentProjectsOperation", new()
-    ///     {
-    ///         AssessmentSolutionId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
-    ///         CustomerStorageAccountArmId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
-    ///         Location = "southeastasia",
-    ///         ProjectName = "sakanwar1204project",
-    ///         ProjectStatus = AzureNative.Migrate.ProjectStatus.Active,
-    ///         ProvisioningState = AzureNative.Migrate.ProvisioningState.Succeeded,
-    ///         PublicNetworkAccess = "Disabled",
-    ///         ResourceGroupName = "sakanwar",
-    ///         Tags = 
-    ///         {
-    ///             { "Migrate Project", "sakanwar-PE-SEA" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:AssessmentProjectsOperation sakanwar1204project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsOperation")]
     public partial class AssessmentProjectsOperation : global::Pulumi.CustomResource

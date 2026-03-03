@@ -15,52 +15,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### VmwareCollectorsOperations_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vmwareCollectorsOperation = new AzureNative.Migrate.VmwareCollectorsOperation("vmwareCollectorsOperation", new()
-    ///     {
-    ///         AgentProperties = new AzureNative.Migrate.Inputs.CollectorAgentPropertiesBaseArgs
-    ///         {
-    ///             Id = "fe243486-3318-41fa-aaba-c48b5df75308",
-    ///             LastHeartbeatUtc = "2022-03-29T12:10:08.9167289Z",
-    ///             SpnDetails = new AzureNative.Migrate.Inputs.CollectorAgentSpnPropertiesBaseArgs
-    ///             {
-    ///                 ApplicationId = "82b3e452-c0e8-4662-8347-58282925ae84",
-    ///                 Audience = "82b3e452-c0e8-4662-8347-58282925ae84",
-    ///                 Authority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///                 ObjectId = "3fc89111-1405-4938-9214-37aa4739401d",
-    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///             },
-    ///             Version = "1.0.8.383",
-    ///         },
-    ///         DiscoverySiteId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/VMwareSites/Vmware2744site",
-    ///         ProjectName = "app18700project",
-    ///         ProvisioningState = AzureNative.Migrate.ProvisioningState.Succeeded,
-    ///         ResourceGroupName = "ayagrawRG",
-    ///         VmWareCollectorName = "Vmware2258collector",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:VmwareCollectorsOperation Vmware2258collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/vmwarecollectors/{vmWareCollectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:VmwareCollectorsOperation")]
     public partial class VmwareCollectorsOperation : global::Pulumi.CustomResource

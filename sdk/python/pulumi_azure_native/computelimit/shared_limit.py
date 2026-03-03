@@ -71,27 +71,6 @@ class SharedLimit(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-15.
 
-        ## Example Usage
-        ### Create a shared limit
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        shared_limit = azure_native.computelimit.SharedLimit("sharedLimit",
-            location="eastus",
-            name="StandardDSv3Family")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:computelimit:SharedLimit StandardDSv3Family /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/sharedLimits/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,27 +87,6 @@ class SharedLimit(pulumi.CustomResource):
         Compute limits shared by the subscription.
 
         Uses Azure REST API version 2025-08-15.
-
-        ## Example Usage
-        ### Create a shared limit
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        shared_limit = azure_native.computelimit.SharedLimit("sharedLimit",
-            location="eastus",
-            name="StandardDSv3Family")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:computelimit:SharedLimit StandardDSv3Family /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/sharedLimits/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

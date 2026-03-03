@@ -108,35 +108,6 @@ class Certificate(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Certificates_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        certificate = azure_native.appplatform.Certificate("certificate",
-            certificate_name="mycertificate",
-            properties={
-                "auto_sync": azure_native.appplatform.KeyVaultCertificateAutoSync.ENABLED,
-                "cert_version": "08a219d06d874795a96db47e06fbb01e",
-                "key_vault_cert_name": "mycert",
-                "type": "KeyVaultCertificate",
-                "vault_uri": "https://myvault.vault.azure.net",
-            },
-            resource_group_name="myResourceGroup",
-            service_name="myservice")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appplatform:Certificate mycertificate /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/certificates/{certificateName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,35 +128,6 @@ class Certificate(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Certificates_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        certificate = azure_native.appplatform.Certificate("certificate",
-            certificate_name="mycertificate",
-            properties={
-                "auto_sync": azure_native.appplatform.KeyVaultCertificateAutoSync.ENABLED,
-                "cert_version": "08a219d06d874795a96db47e06fbb01e",
-                "key_vault_cert_name": "mycert",
-                "type": "KeyVaultCertificate",
-                "vault_uri": "https://myvault.vault.azure.net",
-            },
-            resource_group_name="myResourceGroup",
-            service_name="myservice")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appplatform:Certificate mycertificate /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/certificates/{certificateName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

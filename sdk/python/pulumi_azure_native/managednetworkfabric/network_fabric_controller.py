@@ -253,45 +253,6 @@ class NetworkFabricController(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### NetworkFabricControllers_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_fabric_controller = azure_native.managednetworkfabric.NetworkFabricController("networkFabricController",
-            annotation="annotation",
-            infrastructure_express_route_connections=[{
-                "express_route_authorization_key": "1234ABCD-0A1B-1234-5678-123456ABCDEF",
-                "express_route_circuit_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
-            }],
-            ipv4_address_space="172.253.0.0/19",
-            ipv6_address_space="::/60",
-            is_workload_management_network_enabled=azure_native.managednetworkfabric.IsWorkloadManagementNetworkEnabled.TRUE,
-            location="eastus",
-            managed_resource_group_configuration={
-                "location": "eastus",
-                "name": "managedResourceGroupName",
-            },
-            network_fabric_controller_name="example-networkController",
-            nfc_sku=azure_native.managednetworkfabric.NfcSku.STANDARD,
-            resource_group_name="example-rg",
-            workload_express_route_connections=[{
-                "express_route_authorization_key": "xxxxx",
-                "express_route_circuit_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:NetworkFabricController example-networkController /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/{networkFabricControllerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,45 +281,6 @@ class NetworkFabricController(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### NetworkFabricControllers_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_fabric_controller = azure_native.managednetworkfabric.NetworkFabricController("networkFabricController",
-            annotation="annotation",
-            infrastructure_express_route_connections=[{
-                "express_route_authorization_key": "1234ABCD-0A1B-1234-5678-123456ABCDEF",
-                "express_route_circuit_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
-            }],
-            ipv4_address_space="172.253.0.0/19",
-            ipv6_address_space="::/60",
-            is_workload_management_network_enabled=azure_native.managednetworkfabric.IsWorkloadManagementNetworkEnabled.TRUE,
-            location="eastus",
-            managed_resource_group_configuration={
-                "location": "eastus",
-                "name": "managedResourceGroupName",
-            },
-            network_fabric_controller_name="example-networkController",
-            nfc_sku=azure_native.managednetworkfabric.NfcSku.STANDARD,
-            resource_group_name="example-rg",
-            workload_express_route_connections=[{
-                "express_route_authorization_key": "xxxxx",
-                "express_route_circuit_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:NetworkFabricController example-networkController /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/{networkFabricControllerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

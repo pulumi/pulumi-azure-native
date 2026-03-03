@@ -123,35 +123,6 @@ class InvoiceSection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
 
-        ## Example Usage
-        ### InvoiceSectionsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        invoice_section = azure_native.billing.InvoiceSection("invoiceSection",
-            billing_account_name="00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
-            billing_profile_name="xxxx-xxxx-xxx-xxx",
-            invoice_section_name="invoice-section-1",
-            properties={
-                "display_name": "Invoice Section 1",
-                "tags": {
-                    "costCategory": "Support",
-                    "pcCode": "A123456",
-                },
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:billing:InvoiceSection invoice-section-1 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,35 +142,6 @@ class InvoiceSection(pulumi.CustomResource):
         An invoice section.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2024-04-01.
-
-        ## Example Usage
-        ### InvoiceSectionsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        invoice_section = azure_native.billing.InvoiceSection("invoiceSection",
-            billing_account_name="00000000-0000-0000-0000-000000000000:00000000-0000-0000-0000-000000000000_2019-05-31",
-            billing_profile_name="xxxx-xxxx-xxx-xxx",
-            invoice_section_name="invoice-section-1",
-            properties={
-                "display_name": "Invoice Section 1",
-                "tags": {
-                    "costCategory": "Support",
-                    "pcCode": "A123456",
-                },
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:billing:InvoiceSection invoice-section-1 /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the gallery Script Definition that you want to create or update.
     /// 
     /// Uses Azure REST API version 2025-03-03.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a simple gallery Script.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var galleryScript = new AzureNative.Compute.GalleryScript("galleryScript", new()
-    ///     {
-    ///         GalleryName = "myGalleryName",
-    ///         GalleryScriptName = "myGalleryScriptName",
-    ///         Location = "West US",
-    ///         Properties = new AzureNative.Compute.Inputs.GalleryScriptPropertiesArgs
-    ///         {
-    ///             Description = "This is the gallery script description.",
-    ///             Eula = "This is the gallery script EULA.",
-    ///             PrivacyStatementUri = "{myPrivacyStatementUri}",
-    ///             ReleaseNoteUri = "{myReleaseNoteUri}",
-    ///             SupportedOSType = AzureNative.Compute.OperatingSystemTypes.Windows,
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:compute:GalleryScript myGalleryScriptName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryScript")]
     public partial class GalleryScript : global::Pulumi.CustomResource

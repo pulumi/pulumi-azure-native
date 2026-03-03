@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.ApplicationInsights
     /// Properties that define a Continuous Export configuration.
     /// 
     /// Uses Azure REST API version 2015-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### ExportConfigurationUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exportConfiguration = new AzureNative.ApplicationInsights.ExportConfiguration("exportConfiguration", new()
-    ///     {
-    ///         DestinationAccountId = "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
-    ///         DestinationAddress = "https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&amp;sr=c&amp;sig=token",
-    ///         DestinationStorageLocationId = "eastus",
-    ///         DestinationStorageSubscriptionId = "subid",
-    ///         DestinationType = "Blob",
-    ///         ExportId = "uGOoki0jQsyEs3IdQ83Q4QsNr4=",
-    ///         IsEnabled = "true",
-    ///         NotificationQueueEnabled = "false",
-    ///         NotificationQueueUri = "",
-    ///         RecordTypes = "Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
-    ///         ResourceGroupName = "my-resource-group",
-    ///         ResourceName = "my-component",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:applicationinsights:ExportConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:applicationinsights:ExportConfiguration")]
     public partial class ExportConfiguration : global::Pulumi.CustomResource

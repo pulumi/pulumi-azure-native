@@ -15,44 +15,6 @@ namespace Pulumi.AzureNative.Mission
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### EnclaveConnection_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var enclaveConnection = new AzureNative.Mission.EnclaveConnection("enclaveConnection", new()
-    ///     {
-    ///         CommunityResourceId = "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
-    ///         DestinationEndpointId = "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/virtualenclaves/TestMyEnclave/enclaveendpoints/TestMyEnclaveEndpoint",
-    ///         EnclaveConnectionName = "TestMyEnclaveConnection",
-    ///         Location = "West US",
-    ///         ResourceGroupName = "rgopenapi",
-    ///         SourceCidr = "10.0.0.0/24",
-    ///         SourceResourceId = "/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
-    ///         Tags = 
-    ///         {
-    ///             { "sampletag", "samplevalue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:mission:EnclaveConnection TestMyEnclaveConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mission:EnclaveConnection")]
     public partial class EnclaveConnection : global::Pulumi.CustomResource

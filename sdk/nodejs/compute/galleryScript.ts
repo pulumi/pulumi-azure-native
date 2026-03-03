@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Specifies information about the gallery Script Definition that you want to create or update.
  *
  * Uses Azure REST API version 2025-03-03.
- *
- * ## Example Usage
- * ### Create or update a simple gallery Script.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const galleryScript = new azure_native.compute.GalleryScript("galleryScript", {
- *     galleryName: "myGalleryName",
- *     galleryScriptName: "myGalleryScriptName",
- *     location: "West US",
- *     properties: {
- *         description: "This is the gallery script description.",
- *         eula: "This is the gallery script EULA.",
- *         privacyStatementUri: "{myPrivacyStatementUri}",
- *         releaseNoteUri: "{myReleaseNoteUri}",
- *         supportedOSType: azure_native.compute.OperatingSystemTypes.Windows,
- *     },
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:compute:GalleryScript myGalleryScriptName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/scripts/{galleryScriptName} 
- * ```
  */
 export class GalleryScript extends pulumi.CustomResource {
     /**

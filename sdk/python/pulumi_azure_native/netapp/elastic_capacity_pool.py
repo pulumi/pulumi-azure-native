@@ -157,68 +157,6 @@ class ElasticCapacityPool(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### ElasticCapacityPools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_capacity_pool = azure_native.netapp.ElasticCapacityPool("elasticCapacityPool",
-            account_name="account1",
-            location="eastus",
-            pool_name="pool1",
-            properties={
-                "active_directory_config_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/activeDirectoryConfigs/activeDirectoryConfig1",
-                "service_level": azure_native.netapp.ElasticServiceLevel.ZONE_REDUNDANT,
-                "size": 4398046511104,
-                "subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
-            },
-            resource_group_name="myRG",
-            zones=[
-                "1",
-                "2",
-                "3",
-            ])
-
-        ```
-        ### ElasticCapacityPools_CreateOrUpdateCMK
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_capacity_pool = azure_native.netapp.ElasticCapacityPool("elasticCapacityPool",
-            account_name="account1",
-            location="eastus",
-            pool_name="pool1",
-            properties={
-                "active_directory_config_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/activeDirectoryConfigs/activeDirectoryConfig1",
-                "encryption": {
-                    "elastic_pool_encryption_key_source": azure_native.netapp.ElasticPoolEncryptionKeySource.NET_APP,
-                    "key_vault_private_endpoint_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault/privateEndpointConnections/myKeyVaultPec",
-                },
-                "service_level": azure_native.netapp.ElasticServiceLevel.ZONE_REDUNDANT,
-                "size": 4398046511104,
-                "subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
-            },
-            resource_group_name="myRG",
-            zones=[
-                "1",
-                "2",
-                "3",
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticCapacityPool account1/pool1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,68 +178,6 @@ class ElasticCapacityPool(pulumi.CustomResource):
         NetApp Elastic Capacity Pool resource
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### ElasticCapacityPools_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_capacity_pool = azure_native.netapp.ElasticCapacityPool("elasticCapacityPool",
-            account_name="account1",
-            location="eastus",
-            pool_name="pool1",
-            properties={
-                "active_directory_config_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/activeDirectoryConfigs/activeDirectoryConfig1",
-                "service_level": azure_native.netapp.ElasticServiceLevel.ZONE_REDUNDANT,
-                "size": 4398046511104,
-                "subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
-            },
-            resource_group_name="myRG",
-            zones=[
-                "1",
-                "2",
-                "3",
-            ])
-
-        ```
-        ### ElasticCapacityPools_CreateOrUpdateCMK
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_capacity_pool = azure_native.netapp.ElasticCapacityPool("elasticCapacityPool",
-            account_name="account1",
-            location="eastus",
-            pool_name="pool1",
-            properties={
-                "active_directory_config_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/activeDirectoryConfigs/activeDirectoryConfig1",
-                "encryption": {
-                    "elastic_pool_encryption_key_source": azure_native.netapp.ElasticPoolEncryptionKeySource.NET_APP,
-                    "key_vault_private_endpoint_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault/privateEndpointConnections/myKeyVaultPec",
-                },
-                "service_level": azure_native.netapp.ElasticServiceLevel.ZONE_REDUNDANT,
-                "size": 4398046511104,
-                "subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
-            },
-            resource_group_name="myRG",
-            zones=[
-                "1",
-                "2",
-                "3",
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticCapacityPool account1/pool1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticCapacityPools/{poolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -15,31 +15,6 @@ namespace Pulumi.AzureNative.TrafficManager
     /// Uses Azure REST API version 2022-04-01.
     /// 
     /// Other available API versions: 2017-09-01-preview, 2018-04-01, 2018-08-01, 2022-04-01-preview, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native trafficmanager [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### TrafficManagerUserMetricsKeys-PUT
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var trafficManagerUserMetricsKey = new AzureNative.TrafficManager.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey");
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:trafficmanager:TrafficManagerUserMetricsKey default /subscriptions/{subscriptionId}/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:trafficmanager:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : global::Pulumi.CustomResource

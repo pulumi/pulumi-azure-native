@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CosmosDBMongoMIRoleAssignmentCreateUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const mongoMIResourceMongoMIRoleAssignment = new azure_native.cosmosdb.MongoMIResourceMongoMIRoleAssignment("mongoMIResourceMongoMIRoleAssignment", {
- *     accountName: "myAccountName",
- *     principalId: "myPrincipalId",
- *     resourceGroupName: "myResourceGroupName",
- *     roleAssignmentId: "myRoleAssignmentId",
- *     roleDefinitionId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongoMIRoleDefinitions/myRoleDefinitionId",
- *     scope: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cosmosdb:MongoMIResourceMongoMIRoleAssignment myRoleAssignmentId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongoMIRoleAssignments/{roleAssignmentId} 
- * ```
  */
 export class MongoMIResourceMongoMIRoleAssignment extends pulumi.CustomResource {
     /**

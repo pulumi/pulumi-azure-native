@@ -13,39 +13,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// Represents a and external administrator to be created.
     /// 
     /// Uses Azure REST API version 2017-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### ServerAdministratorCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var singleServerServerAdministrator = new AzureNative.DBforPostgreSQL.SingleServerServerAdministrator("singleServerServerAdministrator", new()
-    ///     {
-    ///         AdministratorType = AzureNative.DBforPostgreSQL.AdministratorType.ActiveDirectory,
-    ///         Login = "bob@contoso.com",
-    ///         ResourceGroupName = "testrg",
-    ///         ServerName = "pgtestsvc4",
-    ///         Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-    ///         TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbforpostgresql:SingleServerServerAdministrator activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/administrators/activeDirectory 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:SingleServerServerAdministrator")]
     public partial class SingleServerServerAdministrator : global::Pulumi.CustomResource

@@ -278,40 +278,6 @@ class Source(pulumi.CustomResource):
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreditSourceCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        source = azure_native.billingbenefits.Source("source",
-            credit={
-                "amount": 20000,
-                "currency_code": "USD",
-                "grain": azure_native.billingbenefits.CommitmentGrain.FULL_TERM,
-            },
-            credit_name="credit_20231212",
-            impacted_billing_period="202304",
-            location="global",
-            resource_group_name="resource_group_name_01",
-            source_name="source_20231212",
-            source_resource_id="/subscriptions/{subId}",
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:billingbenefits:Source source_20231212 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/credits/{creditName}/sources/{sourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,40 +308,6 @@ class Source(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreditSourceCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        source = azure_native.billingbenefits.Source("source",
-            credit={
-                "amount": 20000,
-                "currency_code": "USD",
-                "grain": azure_native.billingbenefits.CommitmentGrain.FULL_TERM,
-            },
-            credit_name="credit_20231212",
-            impacted_billing_period="202304",
-            location="global",
-            resource_group_name="resource_group_name_01",
-            source_name="source_20231212",
-            source_resource_id="/subscriptions/{subId}",
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:billingbenefits:Source source_20231212 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/credits/{creditName}/sources/{sourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,44 +13,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Describes a Machine Extension.
     /// 
     /// Uses Azure REST API version 2022-12-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Create or Update a Machine Extension (PUT)
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var machineExtension = new AzureNative.AzureStackHCI.MachineExtension("machineExtension", new()
-    ///     {
-    ///         ExtensionName = "CustomScriptExtension",
-    ///         Location = "eastus2euap",
-    ///         Name = "myMachine",
-    ///         Publisher = "Microsoft.Compute",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Settings = new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["commandToExecute"] = "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
-    ///         },
-    ///         Type = "CustomScriptExtension",
-    ///         TypeHandlerVersion = "1.10",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurestackhci:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualMachines/{name}/extensions/{extensionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

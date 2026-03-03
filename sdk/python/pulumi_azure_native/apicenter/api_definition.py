@@ -170,33 +170,6 @@ class ApiDefinition(pulumi.CustomResource):
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiDefinitions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_definition = azure_native.apicenter.ApiDefinition("apiDefinition",
-            api_name="openapi",
-            definition_name="openapi",
-            description="Default spec",
-            resource_group_name="contoso-resources",
-            service_name="contoso",
-            title="OpenAPI",
-            version_name="2023-01-01",
-            workspace_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apicenter:ApiDefinition openapi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apis/{apiName}/versions/{versionName}/definitions/{definitionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,33 +194,6 @@ class ApiDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-15-preview. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
 
         Other available API versions: 2024-03-01, 2024-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apicenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiDefinitions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_definition = azure_native.apicenter.ApiDefinition("apiDefinition",
-            api_name="openapi",
-            definition_name="openapi",
-            description="Default spec",
-            resource_group_name="contoso-resources",
-            service_name="contoso",
-            title="OpenAPI",
-            version_name="2023-01-01",
-            workspace_name="default")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apicenter:ApiDefinition openapi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiCenter/services/{serviceName}/workspaces/{workspaceName}/apis/{apiName}/versions/{versionName}/definitions/{definitionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

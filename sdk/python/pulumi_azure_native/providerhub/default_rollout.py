@@ -92,40 +92,6 @@ class DefaultRollout(pulumi.CustomResource):
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DefaultRollouts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        default_rollout = azure_native.providerhub.DefaultRollout("defaultRollout",
-            properties={
-                "specification": {
-                    "canary": {
-                        "skip_regions": ["eastus2euap"],
-                    },
-                    "expedited_rollout": {
-                        "enabled": True,
-                    },
-                    "rest_of_the_world_group_two": {
-                        "wait_duration": "PT4H",
-                    },
-                },
-            },
-            provider_namespace="Microsoft.Contoso",
-            rollout_name="2020week10")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:DefaultRollout Microsoft.Contoso/2020week10 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/defaultRollouts/{rolloutName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,40 +111,6 @@ class DefaultRollout(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
 
         Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DefaultRollouts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        default_rollout = azure_native.providerhub.DefaultRollout("defaultRollout",
-            properties={
-                "specification": {
-                    "canary": {
-                        "skip_regions": ["eastus2euap"],
-                    },
-                    "expedited_rollout": {
-                        "enabled": True,
-                    },
-                    "rest_of_the_world_group_two": {
-                        "wait_duration": "PT4H",
-                    },
-                },
-            },
-            provider_namespace="Microsoft.Contoso",
-            rollout_name="2020week10")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:DefaultRollout Microsoft.Contoso/2020week10 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/defaultRollouts/{rolloutName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

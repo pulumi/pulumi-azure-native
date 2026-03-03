@@ -15,50 +15,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ServerCollectorsOperations_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serverCollectorsOperation = new AzureNative.Migrate.ServerCollectorsOperation("serverCollectorsOperation", new()
-    ///     {
-    ///         AgentProperties = new AzureNative.Migrate.Inputs.CollectorAgentPropertiesBaseArgs
-    ///         {
-    ///             Id = "498e4965-bbb1-47c2-8613-345baff9c509",
-    ///             SpnDetails = new AzureNative.Migrate.Inputs.CollectorAgentSpnPropertiesBaseArgs
-    ///             {
-    ///                 ApplicationId = "65153d2f-9afb-44e8-b3ca-1369150b7354",
-    ///                 Audience = "65153d2f-9afb-44e8-b3ca-1369150b7354",
-    ///                 Authority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///                 ObjectId = "ddde6f96-87c8-420b-9d4d-f16a5090519e",
-    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    ///             },
-    ///         },
-    ///         DiscoverySiteId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/ServerSites/walter7155site",
-    ///         ProjectName = "app18700project",
-    ///         ProvisioningState = AzureNative.Migrate.ProvisioningState.Succeeded,
-    ///         ResourceGroupName = "ayagrawRG",
-    ///         ServerCollectorName = "walter389fcollector",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:ServerCollectorsOperation walter389fcollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:ServerCollectorsOperation")]
     public partial class ServerCollectorsOperation : global::Pulumi.CustomResource

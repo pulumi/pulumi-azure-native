@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
     /// Uses Azure REST API version 2023-03-01-preview.
     /// 
     /// Other available API versions: 2017-08-21-preview, 2017-11-15, 2018-01-22, 2020-01-01, 2020-03-01, 2020-09-01-preview, 2021-10-15, 2022-02-05, 2022-12-12, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceprovisioningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### DPSCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var iotDpsResource = new AzureNative.DeviceProvisioningServices.IotDpsResource("iotDpsResource", new()
-    ///     {
-    ///         Location = "East US",
-    ///         Properties = new AzureNative.DeviceProvisioningServices.Inputs.IotDpsPropertiesDescriptionArgs
-    ///         {
-    ///             EnableDataResidency = false,
-    ///         },
-    ///         ProvisioningServiceName = "myFirstProvisioningService",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Sku = new AzureNative.DeviceProvisioningServices.Inputs.IotDpsSkuInfoArgs
-    ///         {
-    ///             Capacity = 1,
-    ///             Name = AzureNative.DeviceProvisioningServices.IotDpsSku.S1,
-    ///         },
-    ///         Tags = null,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:deviceprovisioningservices:IotDpsResource myFirstProvisioningService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceprovisioningservices:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource

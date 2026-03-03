@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Represents a and external administrator to be created.
  *
  * Uses Azure REST API version 2017-12-01.
- *
- * ## Example Usage
- * ### ServerAdministratorCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const singleServerServerAdministrator = new azure_native.dbformysql.SingleServerServerAdministrator("singleServerServerAdministrator", {
- *     administratorType: azure_native.dbformysql.AdministratorType.ActiveDirectory,
- *     login: "bob@contoso.com",
- *     resourceGroupName: "testrg",
- *     serverName: "mysqltestsvc4",
- *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
- *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbformysql:SingleServerServerAdministrator activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/administrators/activeDirectory 
- * ```
  */
 export class SingleServerServerAdministrator extends pulumi.CustomResource {
     /**

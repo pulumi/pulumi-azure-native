@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Define the connector resource.
  *
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
- *
- * ## Example Usage
- * ### Create a connector resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const connector = new azure_native.workloads.Connector("connector", {
- *     connectorName: "C1",
- *     location: "westcentralus",
- *     resourceGroupName: "test-rg",
- *     sourceResourceId: "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:workloads:Connector C1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/connectors/{connectorName} 
- * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

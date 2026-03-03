@@ -15,58 +15,6 @@ namespace Pulumi.AzureNative.Security
     /// Uses Azure REST API version 2023-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-01-01-preview.
     /// 
     /// Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create security contact data
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var securityContact = new AzureNative.Security.SecurityContact("securityContact", new()
-    ///     {
-    ///         Emails = "john@contoso.com;jane@contoso.com",
-    ///         IsEnabled = true,
-    ///         NotificationsByRole = new AzureNative.Security.Inputs.SecurityContactPropertiesNotificationsByRoleArgs
-    ///         {
-    ///             Roles = new[]
-    ///             {
-    ///                 AzureNative.Security.SecurityContactRole.Owner,
-    ///             },
-    ///             State = AzureNative.Security.State.On,
-    ///         },
-    ///         NotificationsSources = 
-    ///         {
-    ///             new AzureNative.Security.Inputs.NotificationsSourceAttackPathArgs
-    ///             {
-    ///                 MinimalRiskLevel = AzureNative.Security.MinimalRiskLevel.Critical,
-    ///                 SourceType = "AttackPath",
-    ///             },
-    ///             new AzureNative.Security.Inputs.NotificationsSourceAlertArgs
-    ///             {
-    ///                 MinimalSeverity = AzureNative.Security.MinimalSeverity.Medium,
-    ///                 SourceType = "Alert",
-    ///             },
-    ///         },
-    ///         Phone = "(214)275-4038",
-    ///         SecurityContactName = "default",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:security:SecurityContact default /subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityContact")]
     public partial class SecurityContact : global::Pulumi.CustomResource

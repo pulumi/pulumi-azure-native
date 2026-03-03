@@ -154,60 +154,6 @@ class ModernizeProject(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
-        ## Example Usage
-        ### ModernizeProject_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
-            identity={
-                "principal_id": "ins",
-                "tenant_id": "fjnu",
-                "type": azure_native.migrate.ResourceIdentityTypes.NONE,
-                "user_assigned_identities": {
-                    "key6848": {
-                        "client_id": "lvlngepacjdjryqmxuvfdxwtkc",
-                        "principal_id": "lumkynazsspljxiiwvz",
-                    },
-                },
-            },
-            location="nbqyuxrgrlhx",
-            modernize_project_name="b",
-            properties={
-                "migration_configuration": {
-                    "key_vault_resource_id": "vekhittkyogvwnqmggknv",
-                    "migration_solution_resource_id": "bglfkwtzvqmhwpddwpvtdzaleaioxo",
-                    "storage_account_resource_id": "dgcoticysafrpynyoxkgrspooiia",
-                },
-            },
-            resource_group_name="rgmigrateEngine",
-            tags={
-                "key8644": "wfyi",
-            })
-
-        ```
-        ### ModernizeProject_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
-            modernize_project_name="j",
-            resource_group_name="rgmigrateEngine")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:ModernizeProject qjtgfttacnihw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,60 +174,6 @@ class ModernizeProject(pulumi.CustomResource):
         ModernizeProject model.
 
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
-
-        ## Example Usage
-        ### ModernizeProject_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
-            identity={
-                "principal_id": "ins",
-                "tenant_id": "fjnu",
-                "type": azure_native.migrate.ResourceIdentityTypes.NONE,
-                "user_assigned_identities": {
-                    "key6848": {
-                        "client_id": "lvlngepacjdjryqmxuvfdxwtkc",
-                        "principal_id": "lumkynazsspljxiiwvz",
-                    },
-                },
-            },
-            location="nbqyuxrgrlhx",
-            modernize_project_name="b",
-            properties={
-                "migration_configuration": {
-                    "key_vault_resource_id": "vekhittkyogvwnqmggknv",
-                    "migration_solution_resource_id": "bglfkwtzvqmhwpddwpvtdzaleaioxo",
-                    "storage_account_resource_id": "dgcoticysafrpynyoxkgrspooiia",
-                },
-            },
-            resource_group_name="rgmigrateEngine",
-            tags={
-                "key8644": "wfyi",
-            })
-
-        ```
-        ### ModernizeProject_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
-            modernize_project_name="j",
-            resource_group_name="rgmigrateEngine")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:ModernizeProject qjtgfttacnihw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

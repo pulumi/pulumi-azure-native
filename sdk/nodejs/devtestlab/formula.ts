@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  * A formula for creating a VM, specifying an image base and other parameters
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
- *
- * ## Example Usage
- * ### Formulas_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const formula = new azure_native.devtestlab.Formula("formula", {
- *     description: "Formula using a Linux base",
- *     formulaContent: {
- *         allowClaim: false,
- *         artifacts: [{
- *             artifactId: "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
- *             parameters: [],
- *         }],
- *         disallowPublicIpAddress: true,
- *         galleryImageReference: {
- *             offer: "0001-com-ubuntu-server-groovy",
- *             osType: "Linux",
- *             publisher: "canonical",
- *             sku: "20_10",
- *             version: "latest",
- *         },
- *         isAuthenticationWithSshKey: false,
- *         labSubnetName: "Dtl{labName}Subnet",
- *         labVirtualNetworkId: "/virtualnetworks/dtl{labName}",
- *         location: "{location}",
- *         networkInterface: {
- *             sharedPublicIpAddressConfiguration: {
- *                 inboundNatRules: [{
- *                     backendPort: 22,
- *                     transportProtocol: azure_native.devtestlab.TransportProtocol.Tcp,
- *                 }],
- *             },
- *         },
- *         notes: "Ubuntu Server 20.10",
- *         size: "Standard_B1ms",
- *         storageType: "Standard",
- *         userName: "user",
- *     },
- *     labName: "{labName}",
- *     location: "{location}",
- *     name: "{formulaName}",
- *     resourceGroupName: "resourceGroupName",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devtestlab:Formula {formulaName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{name} 
- * ```
  */
 export class Formula extends pulumi.CustomResource {
     /**

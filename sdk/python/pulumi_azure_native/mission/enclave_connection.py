@@ -172,35 +172,6 @@ class EnclaveConnection(pulumi.CustomResource):
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### EnclaveConnection_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        enclave_connection = azure_native.mission.EnclaveConnection("enclaveConnection",
-            community_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
-            destination_endpoint_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/virtualenclaves/TestMyEnclave/enclaveendpoints/TestMyEnclaveEndpoint",
-            enclave_connection_name="TestMyEnclaveConnection",
-            location="West US",
-            resource_group_name="rgopenapi",
-            source_cidr="10.0.0.0/24",
-            source_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
-            tags={
-                "sampletag": "samplevalue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mission:EnclaveConnection TestMyEnclaveConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,35 +196,6 @@ class EnclaveConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### EnclaveConnection_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        enclave_connection = azure_native.mission.EnclaveConnection("enclaveConnection",
-            community_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/testrg/providers/Microsoft.Mission/communities/TestMyCommunity",
-            destination_endpoint_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/Microsoft.Mission/virtualenclaves/TestMyEnclave/enclaveendpoints/TestMyEnclaveEndpoint",
-            enclave_connection_name="TestMyEnclaveConnection",
-            location="West US",
-            resource_group_name="rgopenapi",
-            source_cidr="10.0.0.0/24",
-            source_resource_id="/subscriptions/c64f6eca-bdc5-4bc2-88d6-f8f1dc23f86c/resourceGroups/TestMyRg/providers/microsoft.mission/virtualenclaves/TestMyEnclave",
-            tags={
-                "sampletag": "samplevalue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:mission:EnclaveConnection TestMyEnclaveConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/enclaveConnections/{enclaveConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -15,69 +15,6 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CustomizedAccelerators_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var customizedAccelerator = new AzureNative.AppPlatform.CustomizedAccelerator("customizedAccelerator", new()
-    ///     {
-    ///         ApplicationAcceleratorName = "default",
-    ///         CustomizedAcceleratorName = "acc-name",
-    ///         Properties = new AzureNative.AppPlatform.Inputs.CustomizedAcceleratorPropertiesArgs
-    ///         {
-    ///             AcceleratorTags = new[]
-    ///             {
-    ///                 "tag-a",
-    ///                 "tag-b",
-    ///             },
-    ///             Description = "acc-desc",
-    ///             DisplayName = "acc-name",
-    ///             GitRepository = new AzureNative.AppPlatform.Inputs.AcceleratorGitRepositoryArgs
-    ///             {
-    ///                 AuthSetting = new AzureNative.AppPlatform.Inputs.AcceleratorSshSettingArgs
-    ///                 {
-    ///                     AuthType = "SSH",
-    ///                     HostKey = "git-auth-hostkey",
-    ///                     HostKeyAlgorithm = "git-auth-algorithm",
-    ///                     PrivateKey = "git-auth-privatekey",
-    ///                 },
-    ///                 Branch = "git-branch",
-    ///                 Commit = "12345",
-    ///                 GitTag = "git-tag",
-    ///                 IntervalInSeconds = 70,
-    ///                 Url = "git-url",
-    ///             },
-    ///             IconUrl = "acc-icon",
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         ServiceName = "myservice",
-    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
-    ///         {
-    ///             Capacity = 2,
-    ///             Name = "E0",
-    ///             Tier = "Enterprise",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:appplatform:CustomizedAccelerator default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/applicationAccelerators/{applicationAcceleratorName}/customizedAccelerators/{customizedAcceleratorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:CustomizedAccelerator")]
     public partial class CustomizedAccelerator : global::Pulumi.CustomResource

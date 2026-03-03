@@ -140,30 +140,6 @@ class CloudConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-        ## Example Usage
-        ### Create a Cloud Connector
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cloud_connector = azure_native.hybridcloud.CloudConnector("cloudConnector",
-            account_id="123456789012",
-            cloud_connector_name="123456789012",
-            cloud_type=azure_native.hybridcloud.CloudType.AWS,
-            location="West US",
-            resource_group_name="demo-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcloud:CloudConnector 123456789012 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnectors/{cloudConnectorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,30 +160,6 @@ class CloudConnector(pulumi.CustomResource):
         Cloud Connector resource.
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
-
-        ## Example Usage
-        ### Create a Cloud Connector
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cloud_connector = azure_native.hybridcloud.CloudConnector("cloudConnector",
-            account_id="123456789012",
-            cloud_connector_name="123456789012",
-            cloud_type=azure_native.hybridcloud.CloudType.AWS,
-            location="West US",
-            resource_group_name="demo-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcloud:CloudConnector 123456789012 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnectors/{cloudConnectorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

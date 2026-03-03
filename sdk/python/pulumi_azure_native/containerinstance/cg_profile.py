@@ -34,7 +34,7 @@ class CGProfileArgs:
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
                  ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']]] = None,
+                 priority: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]] = None,
                  restart_policy: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
                  security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
                  shutdown_grace_period: Optional[pulumi.Input[_builtins.str]] = None,
@@ -59,7 +59,7 @@ class CGProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]] init_containers: The init containers for a container group.
         :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
         :param pulumi.Input[_builtins.str] location: The resource location.
-        :param pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']] priority: The priority of the container group.
+        :param pulumi.Input[Union[_builtins.str, 'Priority']] priority: The priority of the container group.
         :param pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
                - `OnFailure` Restart on failure
@@ -261,14 +261,14 @@ class CGProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']]]:
+    def priority(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Priority']]]:
         """
         The priority of the container group.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']]]):
+    def priority(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
@@ -400,7 +400,7 @@ class CGProfile(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[Union['IpAddressArgs', 'IpAddressArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']]] = None,
+                 priority: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
                  security_context: Optional[pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
@@ -419,252 +419,6 @@ class CGProfile(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConfidentialContainerGroupProfile
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            confidential_compute_properties={
-                "cce_policy": "eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
-            },
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "confiimage",
-                "name": "accdemo",
-                "ports": [{
-                    "port": 8000,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "memory_in_gb": 1.5,
-                    },
-                },
-                "security_context": {
-                    "capabilities": {
-                        "add": ["CAP_NET_ADMIN"],
-                    },
-                    "privileged": False,
-                },
-            }],
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 8000,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PUBLIC,
-            },
-            location="westeurope",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            sku=azure_native.containerinstance.ContainerGroupSku.CONFIDENTIAL,
-            zones=["1"])
-
-        ```
-        ### ContainerGroupProfileCreateWithExtensions
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "nginx",
-                "name": "demo1",
-                "ports": [{
-                    "port": 80,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "memory_in_gb": 1.5,
-                    },
-                },
-            }],
-            extensions=[
-                {
-                    "extension_type": "kube-proxy",
-                    "name": "kube-proxy",
-                    "protected_settings": {
-                        "kubeConfig": "<kubeconfig encoded string>",
-                    },
-                    "settings": {
-                        "clusterCidr": "10.240.0.0/16",
-                        "kubeVersion": "v1.9.10",
-                    },
-                    "version": "1.0",
-                },
-                {
-                    "extension_type": "realtime-metrics",
-                    "name": "vk-realtime-metrics",
-                    "version": "1.0",
-                },
-            ],
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 80,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PRIVATE,
-            },
-            location="eastus2",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            zones=["1"])
-
-        ```
-        ### ContainerGroupProfileWithEncryptionProperties
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "nginx",
-                "name": "demo1",
-                "ports": [{
-                    "port": 80,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "memory_in_gb": 1.5,
-                    },
-                },
-            }],
-            encryption_properties={
-                "identity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity",
-                "key_name": "test-key",
-                "key_version": "<key version>",
-                "vault_base_url": "https://testkeyvault.vault.azure.net",
-            },
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 80,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PUBLIC,
-            },
-            location="eastus2",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            zones=["1"])
-
-        ```
-        ### ContainerGroupProfilesCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "nginx",
-                "name": "demo1",
-                "ports": [{
-                    "port": 80,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "gpu": {
-                            "count": 1,
-                            "sku": azure_native.containerinstance.GpuSku.K80,
-                        },
-                        "memory_in_gb": 1.5,
-                    },
-                },
-                "volume_mounts": [
-                    {
-                        "mount_path": "/mnt/volume1",
-                        "name": "volume1",
-                        "read_only": False,
-                    },
-                    {
-                        "mount_path": "/mnt/volume2",
-                        "name": "volume2",
-                        "read_only": False,
-                    },
-                    {
-                        "mount_path": "/mnt/volume3",
-                        "name": "volume3",
-                        "read_only": True,
-                    },
-                ],
-            }],
-            diagnostics={
-                "log_analytics": {
-                    "log_type": azure_native.containerinstance.LogAnalyticsLogType.CONTAINER_INSIGHTS,
-                    "metadata": {
-                        "pod-uuid": "test-metadata-value",
-                    },
-                    "workspace_id": "workspaceid",
-                    "workspace_key": "workspaceKey",
-                    "workspace_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg/providers/microsoft.operationalinsights/workspaces/workspace",
-                },
-            },
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 80,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PUBLIC,
-            },
-            location="west us",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            volumes=[
-                {
-                    "azure_file": {
-                        "share_name": "shareName",
-                        "storage_account_key": "accountKey",
-                        "storage_account_name": "accountName",
-                    },
-                    "name": "volume1",
-                },
-                {
-                    "empty_dir": {},
-                    "name": "volume2",
-                },
-                {
-                    "name": "volume3",
-                    "secret": {
-                        "secretKey1": "SecretValue1InBase64",
-                        "secretKey2": "SecretValue2InBase64",
-                    },
-                },
-            ],
-            zones=["1"])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerinstance:CGProfile demo1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -679,7 +433,7 @@ class CGProfile(pulumi.CustomResource):
         :param pulumi.Input[Union['IpAddressArgs', 'IpAddressArgsDict']] ip_address: The IP address type of the container group.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
-        :param pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']] priority: The priority of the container group.
+        :param pulumi.Input[Union[_builtins.str, 'Priority']] priority: The priority of the container group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
@@ -706,252 +460,6 @@ class CGProfile(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
 
         Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConfidentialContainerGroupProfile
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            confidential_compute_properties={
-                "cce_policy": "eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
-            },
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "confiimage",
-                "name": "accdemo",
-                "ports": [{
-                    "port": 8000,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "memory_in_gb": 1.5,
-                    },
-                },
-                "security_context": {
-                    "capabilities": {
-                        "add": ["CAP_NET_ADMIN"],
-                    },
-                    "privileged": False,
-                },
-            }],
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 8000,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PUBLIC,
-            },
-            location="westeurope",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            sku=azure_native.containerinstance.ContainerGroupSku.CONFIDENTIAL,
-            zones=["1"])
-
-        ```
-        ### ContainerGroupProfileCreateWithExtensions
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "nginx",
-                "name": "demo1",
-                "ports": [{
-                    "port": 80,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "memory_in_gb": 1.5,
-                    },
-                },
-            }],
-            extensions=[
-                {
-                    "extension_type": "kube-proxy",
-                    "name": "kube-proxy",
-                    "protected_settings": {
-                        "kubeConfig": "<kubeconfig encoded string>",
-                    },
-                    "settings": {
-                        "clusterCidr": "10.240.0.0/16",
-                        "kubeVersion": "v1.9.10",
-                    },
-                    "version": "1.0",
-                },
-                {
-                    "extension_type": "realtime-metrics",
-                    "name": "vk-realtime-metrics",
-                    "version": "1.0",
-                },
-            ],
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 80,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PRIVATE,
-            },
-            location="eastus2",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            zones=["1"])
-
-        ```
-        ### ContainerGroupProfileWithEncryptionProperties
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "nginx",
-                "name": "demo1",
-                "ports": [{
-                    "port": 80,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "memory_in_gb": 1.5,
-                    },
-                },
-            }],
-            encryption_properties={
-                "identity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity",
-                "key_name": "test-key",
-                "key_version": "<key version>",
-                "vault_base_url": "https://testkeyvault.vault.azure.net",
-            },
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 80,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PUBLIC,
-            },
-            location="eastus2",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            zones=["1"])
-
-        ```
-        ### ContainerGroupProfilesCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cg_profile = azure_native.containerinstance.CGProfile("cgProfile",
-            container_group_profile_name="demo1",
-            containers=[{
-                "command": [],
-                "environment_variables": [],
-                "image": "nginx",
-                "name": "demo1",
-                "ports": [{
-                    "port": 80,
-                }],
-                "resources": {
-                    "requests": {
-                        "cpu": 1,
-                        "gpu": {
-                            "count": 1,
-                            "sku": azure_native.containerinstance.GpuSku.K80,
-                        },
-                        "memory_in_gb": 1.5,
-                    },
-                },
-                "volume_mounts": [
-                    {
-                        "mount_path": "/mnt/volume1",
-                        "name": "volume1",
-                        "read_only": False,
-                    },
-                    {
-                        "mount_path": "/mnt/volume2",
-                        "name": "volume2",
-                        "read_only": False,
-                    },
-                    {
-                        "mount_path": "/mnt/volume3",
-                        "name": "volume3",
-                        "read_only": True,
-                    },
-                ],
-            }],
-            diagnostics={
-                "log_analytics": {
-                    "log_type": azure_native.containerinstance.LogAnalyticsLogType.CONTAINER_INSIGHTS,
-                    "metadata": {
-                        "pod-uuid": "test-metadata-value",
-                    },
-                    "workspace_id": "workspaceid",
-                    "workspace_key": "workspaceKey",
-                    "workspace_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg/providers/microsoft.operationalinsights/workspaces/workspace",
-                },
-            },
-            image_registry_credentials=[],
-            ip_address={
-                "ports": [{
-                    "port": 80,
-                    "protocol": azure_native.containerinstance.ContainerGroupNetworkProtocol.TCP,
-                }],
-                "type": azure_native.containerinstance.ContainerGroupIpAddressType.PUBLIC,
-            },
-            location="west us",
-            os_type=azure_native.containerinstance.OperatingSystemTypes.LINUX,
-            resource_group_name="demo",
-            volumes=[
-                {
-                    "azure_file": {
-                        "share_name": "shareName",
-                        "storage_account_key": "accountKey",
-                        "storage_account_name": "accountName",
-                    },
-                    "name": "volume1",
-                },
-                {
-                    "empty_dir": {},
-                    "name": "volume2",
-                },
-                {
-                    "name": "volume3",
-                    "secret": {
-                        "secretKey1": "SecretValue1InBase64",
-                        "secretKey2": "SecretValue2InBase64",
-                    },
-                },
-            ],
-            zones=["1"])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerinstance:CGProfile demo1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroupProfiles/{containerGroupProfileName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -980,7 +488,7 @@ class CGProfile(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[Union['IpAddressArgs', 'IpAddressArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None,
-                 priority: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupPriority']]] = None,
+                 priority: Optional[pulumi.Input[Union[_builtins.str, 'Priority']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[_builtins.str, 'ContainerGroupRestartPolicy']]] = None,
                  security_context: Optional[pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,

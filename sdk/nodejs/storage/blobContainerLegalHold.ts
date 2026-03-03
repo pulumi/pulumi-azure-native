@@ -6,13 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * .
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storage:BlobContainerLegalHold myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold 
- * ```
  */
 export class BlobContainerLegalHold extends pulumi.CustomResource {
     /**

@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01.
  *
  * Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Workflows_CreateOrUpdate_MaximumSet
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const workflow = new azure_native.edge.Workflow("workflow", {
- *     contextName: "testname",
- *     extendedLocation: {
- *         name: "szjrwimeqyiue",
- *         type: azure_native.edge.ExtendedLocationType.EdgeZone,
- *     },
- *     resourceGroupName: "rgconfigurationmanager",
- *     workflowName: "testname",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:edge:Workflow jcivjgtzcfdrfsq /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName}/workflows/{workflowName} 
- * ```
  */
 export class Workflow extends pulumi.CustomResource {
     /**

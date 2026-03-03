@@ -13,56 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
  *
  * Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update Certificate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const certificate = new azure_native.app.Certificate("certificate", {
- *     certificateName: "certificate-firendly-name",
- *     environmentName: "testcontainerenv",
- *     location: "East US",
- *     properties: {
- *         certificateType: azure_native.app.CertificateType.ImagePullTrustedCA,
- *         password: "private key password",
- *         value: "Y2VydA==",
- *     },
- *     resourceGroupName: "examplerg",
- * });
- *
- * ```
- * ### Create or Update Certificate using Managed Identity
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const certificate = new azure_native.app.Certificate("certificate", {
- *     certificateName: "certificate-firendly-name",
- *     environmentName: "testcontainerenv",
- *     location: "East US",
- *     properties: {
- *         certificateKeyVaultProperties: {
- *             identity: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
- *             keyVaultUrl: "https://xxxxxxxx.vault.azure.net/certificates/certName",
- *         },
- *         certificateType: azure_native.app.CertificateType.ServerSSLCertificate,
- *     },
- *     resourceGroupName: "examplerg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:app:Certificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{environmentName}/certificates/{certificateName} 
- * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

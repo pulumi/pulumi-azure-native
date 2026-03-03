@@ -107,34 +107,6 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        ## Example Usage
-        ### CreateGuestAgent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        vm_instance_guest_agent = azure_native.scvmm.VMInstanceGuestAgent("vmInstanceGuestAgent",
-            credentials={
-                "password": "<password>",
-                "username": "tempuser",
-            },
-            http_proxy_config={
-                "https_proxy": "http://192.1.2.3:8080",
-            },
-            provisioning_action=azure_native.scvmm.ProvisioningAction.INSTALL,
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scvmm:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,34 +125,6 @@ class VMInstanceGuestAgent(pulumi.CustomResource):
         Defines the GuestAgent.
 
         Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
-
-        ## Example Usage
-        ### CreateGuestAgent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        vm_instance_guest_agent = azure_native.scvmm.VMInstanceGuestAgent("vmInstanceGuestAgent",
-            credentials={
-                "password": "<password>",
-                "username": "tempuser",
-            },
-            http_proxy_config={
-                "https_proxy": "http://192.1.2.3:8080",
-            },
-            provisioning_action=azure_native.scvmm.ProvisioningAction.INSTALL,
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scvmm:VMInstanceGuestAgent default /{resourceUri}/providers/Microsoft.ScVmm/virtualMachineInstances/default/guestAgents/default 
-        ```
 
 
         :param str resource_name: The name of the resource.

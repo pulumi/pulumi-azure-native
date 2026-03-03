@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * An product resource belonging to a catalog resource.
  *
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
- *
- * ## Example Usage
- * ### Products_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const product = new azure_native.azuresphere.Product("product", {
- *     catalogName: "MyCatalog1",
- *     productName: "MyProduct1",
- *     resourceGroupName: "MyResourceGroup1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azuresphere:Product MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName} 
- * ```
  */
 export class Product extends pulumi.CustomResource {
     /**

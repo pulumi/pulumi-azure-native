@@ -13,31 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a V2 hybrid runbook worker
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const hybridRunbookWorker = new azure_native.automation.HybridRunbookWorker("hybridRunbookWorker", {
- *     automationAccountName: "testaccount",
- *     hybridRunbookWorkerGroupName: "TestHybridGroup",
- *     hybridRunbookWorkerId: "c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
- *     resourceGroupName: "rg",
- *     vmResourceId: "/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:automation:HybridRunbookWorker c010ad12-ef14-4a2a-aa9e-ef22c4745ddd /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}/hybridRunbookWorkers/{hybridRunbookWorkerId} 
- * ```
  */
 export class HybridRunbookWorker extends pulumi.CustomResource {
     /**

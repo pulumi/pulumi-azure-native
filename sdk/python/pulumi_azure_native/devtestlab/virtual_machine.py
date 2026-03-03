@@ -522,47 +522,6 @@ class VirtualMachine(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### VirtualMachines_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine = azure_native.devtestlab.VirtualMachine("virtualMachine",
-            allow_claim=True,
-            disallow_public_ip_address=True,
-            gallery_image_reference={
-                "offer": "UbuntuServer",
-                "os_type": "Linux",
-                "publisher": "Canonical",
-                "sku": "16.04-LTS",
-                "version": "Latest",
-            },
-            lab_name="{labName}",
-            lab_subnet_name="{virtualNetworkName}Subnet",
-            lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
-            location="{location}",
-            name="{vmName}",
-            password="{userPassword}",
-            resource_group_name="resourceGroupName",
-            size="Standard_A2_v2",
-            storage_type="Standard",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            user_name="{userName}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -605,47 +564,6 @@ class VirtualMachine(pulumi.CustomResource):
         A virtual machine.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### VirtualMachines_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine = azure_native.devtestlab.VirtualMachine("virtualMachine",
-            allow_claim=True,
-            disallow_public_ip_address=True,
-            gallery_image_reference={
-                "offer": "UbuntuServer",
-                "os_type": "Linux",
-                "publisher": "Canonical",
-                "sku": "16.04-LTS",
-                "version": "Latest",
-            },
-            lab_name="{labName}",
-            lab_subnet_name="{virtualNetworkName}Subnet",
-            lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
-            location="{location}",
-            name="{vmName}",
-            password="{userPassword}",
-            resource_group_name="resourceGroupName",
-            size="Standard_A2_v2",
-            storage_type="Standard",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            user_name="{userName}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

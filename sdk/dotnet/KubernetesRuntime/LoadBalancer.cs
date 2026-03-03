@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
     /// A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
     /// 
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
-    /// 
-    /// ## Example Usage
-    /// ### LoadBalancers_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var loadBalancer = new AzureNative.KubernetesRuntime.LoadBalancer("loadBalancer", new()
-    ///     {
-    ///         Addresses = new[]
-    ///         {
-    ///             "192.168.50.1/24",
-    ///             "192.168.51.2-192.168.51.10",
-    ///         },
-    ///         AdvertiseMode = AzureNative.KubernetesRuntime.AdvertiseMode.ARP,
-    ///         LoadBalancerName = "testlb",
-    ///         ResourceUri = "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
-    ///         ServiceSelector = 
-    ///         {
-    ///             { "app", "frontend" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:kubernetesruntime:LoadBalancer testlb /{resourceUri}/providers/Microsoft.KubernetesRuntime/loadBalancers/{loadBalancerName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesruntime:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource

@@ -11,40 +11,6 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create a private link association, associate scope to rmpl.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateLinkAssociation = new AzureNative.Authorization.PrivateLinkAssociation("privateLinkAssociation", new()
-    ///     {
-    ///         GroupId = "my-management-group",
-    ///         PlaId = "00000000-0000-0000-0000-000000000000",
-    ///         Properties = new AzureNative.Authorization.Inputs.PrivateLinkAssociationPropertiesArgs
-    ///         {
-    ///             PrivateLink = "00000000-0000-0000-0000-000000000000",
-    ///             PublicNetworkAccess = AzureNative.Authorization.PublicNetworkAccessOptions.Enabled,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:authorization:PrivateLinkAssociation my-pla /providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Authorization/privateLinkAssociations/{plaId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PrivateLinkAssociation")]
     public partial class PrivateLinkAssociation : global::Pulumi.CustomResource

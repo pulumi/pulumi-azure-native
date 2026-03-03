@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
  *
  * Uses Azure REST API version 2020-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-04-01-preview.
- *
- * ## Example Usage
- * ### ConfigurationProfile_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const configurationProfile = new azure_native.changeanalysis.ConfigurationProfile("configurationProfile", {profileName: "default"});
- *
- * ```
- * ### ConfigurationProfile_CreateWithIdentity
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const configurationProfile = new azure_native.changeanalysis.ConfigurationProfile("configurationProfile", {profileName: "default"});
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:changeanalysis:ConfigurationProfile default /subscriptions/{subscriptionId}/providers/Microsoft.ChangeAnalysis/profile/{profileName} 
- * ```
  */
 export class ConfigurationProfile extends pulumi.CustomResource {
     /**

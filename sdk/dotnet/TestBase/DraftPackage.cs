@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.TestBase
     /// The Test Base Draft Package resource.
     /// 
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### DraftPackageCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var draftPackage = new AzureNative.TestBase.DraftPackage("draftPackage", new()
-    ///     {
-    ///         AppFileName = "TestBaseM365DigitalClock.msi",
-    ///         ApplicationName = "contoso-package",
-    ///         DraftPackageName = "61d99543-14ff-47ae-bf03-8a8b8445502e",
-    ///         ResourceGroupName = "contoso-rg1",
-    ///         SourceType = AzureNative.TestBase.DraftPackageSourceType.Native,
-    ///         TestBaseAccountName = "contoso-testBaseAccount1",
-    ///         UseSample = false,
-    ///         Version = "1.0",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:testbase:DraftPackage 61d99543-14ff-47ae-bf03-8a8b8445502e /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/draftPackages/{draftPackageName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:DraftPackage")]
     public partial class DraftPackage : global::Pulumi.CustomResource

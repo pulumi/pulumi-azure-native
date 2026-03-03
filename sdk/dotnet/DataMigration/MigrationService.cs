@@ -15,56 +15,6 @@ namespace Pulumi.AzureNative.DataMigration
     /// Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-15-preview.
     /// 
     /// Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or Update Migration Service with maximum parameters.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var migrationService = new AzureNative.DataMigration.MigrationService("migrationService", new()
-    ///     {
-    ///         Location = "northeurope",
-    ///         MigrationServiceName = "testagent",
-    ///         ResourceGroupName = "testrg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create or Update Migration Service with minimum parameters.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var migrationService = new AzureNative.DataMigration.MigrationService("migrationService", new()
-    ///     {
-    ///         Location = "northeurope",
-    ///         MigrationServiceName = "testagent",
-    ///         ResourceGroupName = "testrg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datamigration:MigrationService testagent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataMigration/migrationServices/{migrationServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:MigrationService")]
     public partial class MigrationService : global::Pulumi.CustomResource

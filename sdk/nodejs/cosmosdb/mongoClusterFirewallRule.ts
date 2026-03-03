@@ -13,31 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-02-15-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-03-15-preview, 2023-09-15-preview, 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a firewall rule of the mongo cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const mongoClusterFirewallRule = new azure_native.cosmosdb.MongoClusterFirewallRule("mongoClusterFirewallRule", {
- *     endIpAddress: "255.255.255.255",
- *     firewallRuleName: "rule1",
- *     mongoClusterName: "myMongoCluster",
- *     resourceGroupName: "TestGroup",
- *     startIpAddress: "0.0.0.0",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cosmosdb:MongoClusterFirewallRule rule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName} 
- * ```
  */
 export class MongoClusterFirewallRule extends pulumi.CustomResource {
     /**

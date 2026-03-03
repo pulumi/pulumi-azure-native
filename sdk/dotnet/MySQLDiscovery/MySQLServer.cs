@@ -13,47 +13,6 @@ namespace Pulumi.AzureNative.MySQLDiscovery
     /// The MySQLServer resource definition.
     /// 
     /// Uses Azure REST API version 2024-09-30-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-30-preview.
-    /// 
-    /// ## Example Usage
-    /// ### MySQLServers_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mySQLServer = new AzureNative.MySQLDiscovery.MySQLServer("mySQLServer", new()
-    ///     {
-    ///         HostIp = new[]
-    ///         {
-    ///             "127.0.0.1",
-    ///             "127.0.0.2",
-    ///         },
-    ///         HostName = "test.mysql.server",
-    ///         MachineId = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourcegroups/demoRG/providers/Microsoft.OffAzure/serverSites/xxx/machines/xxx",
-    ///         MysqlVersion = "8.0",
-    ///         NumberOfDatabase = 16,
-    ///         PortNumber = "3306",
-    ///         ResourceGroupName = "testrg",
-    ///         ServerName = "testServerName",
-    ///         SiteName = "testSite",
-    ///         SupportStatus = AzureNative.MySQLDiscovery.SupportStatus.Mainstream,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:mysqldiscovery:MySQLServer testServerName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MySQLDiscovery/MySQLSites/{siteName}/MySQLServers/{serverName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mysqldiscovery:MySQLServer")]
     public partial class MySQLServer : global::Pulumi.CustomResource

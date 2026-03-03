@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The virtual network resource definition.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PutVirtualNetworkSubnet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var virtualNetworkSubnet = new AzureNative.AzureStackHCI.VirtualNetworkSubnet("virtualNetworkSubnet", new()
-    ///     {
-    ///         Properties = new AzureNative.AzureStackHCI.Inputs.VirtualNetworkSubnetPropertiesArgs
-    ///         {
-    ///             AddressPrefix = "10.0.0.0/28",
-    ///         },
-    ///         ResourceGroupName = "test-rg",
-    ///         SubnetName = "subnet1",
-    ///         VirtualNetworkName = "test-vnet",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurestackhci:VirtualNetworkSubnet subnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualNetworks/{virtualNetworkName}/subnets/{subnetName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualNetworkSubnet")]
     public partial class VirtualNetworkSubnet : global::Pulumi.CustomResource

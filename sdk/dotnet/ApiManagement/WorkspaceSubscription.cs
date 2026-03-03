@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateWorkspaceSubscription
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var workspaceSubscription = new AzureNative.ApiManagement.WorkspaceSubscription("workspaceSubscription", new()
-    ///     {
-    ///         DisplayName = "testsub",
-    ///         OwnerId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
-    ///         ResourceGroupName = "rg1",
-    ///         Scope = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/products/5600b59475ff190048060002",
-    ///         ServiceName = "apimService1",
-    ///         Sid = "testsub",
-    ///         WorkspaceId = "wks1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apimanagement:WorkspaceSubscription testsub /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceSubscription")]
     public partial class WorkspaceSubscription : global::Pulumi.CustomResource

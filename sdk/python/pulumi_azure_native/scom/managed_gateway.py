@@ -87,28 +87,6 @@ class ManagedGateway(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
 
-        ## Example Usage
-        ### ManagedGateway_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_gateway = azure_native.scom.ManagedGateway("managedGateway",
-            instance_name="myInstance",
-            managed_gateway_name="d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
-            resource_group_name="myResGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scom:ManagedGateway d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/managedGateways/{managedGatewayName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,28 +104,6 @@ class ManagedGateway(pulumi.CustomResource):
         A gateway resource.
 
         Uses Azure REST API version 2023-07-07-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-07-preview.
-
-        ## Example Usage
-        ### ManagedGateway_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_gateway = azure_native.scom.ManagedGateway("managedGateway",
-            instance_name="myInstance",
-            managed_gateway_name="d877b154-9a8d-4bfe-8a24-20682fcf2ed3",
-            resource_group_name="myResGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:scom:ManagedGateway d877b154-9a8d-4bfe-8a24-20682fcf2ed3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/managedGateways/{managedGatewayName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

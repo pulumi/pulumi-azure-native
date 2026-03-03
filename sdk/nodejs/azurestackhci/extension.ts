@@ -13,40 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create Arc Extension
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const extension = new azure_native.azurestackhci.Extension("extension", {
- *     arcSettingName: "default",
- *     clusterName: "myCluster",
- *     enableAutomaticUpgrade: false,
- *     extensionName: "MicrosoftMonitoringAgent",
- *     protectedSettings: {
- *         workspaceKey: "xx",
- *     },
- *     publisher: "Microsoft.Compute",
- *     resourceGroupName: "test-rg",
- *     settings: {
- *         workspaceId: "xx",
- *     },
- *     type: "MicrosoftMonitoringAgent",
- *     typeHandlerVersion: "1.10",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azurestackhci:Extension MicrosoftMonitoringAgent /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/arcSettings/{arcSettingName}/extensions/{extensionName} 
- * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

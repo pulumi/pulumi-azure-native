@@ -13,51 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-08-01. In version 2.x of the Azure Native provider, it used API version 2019-08-01.
  *
  * Other available API versions: 2017-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update a IoT security solution
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iotSecuritySolution = new azure_native.security.IotSecuritySolution("iotSecuritySolution", {
- *     disabledDataSources: [],
- *     displayName: "Solution Default",
- *     "export": [],
- *     iotHubs: ["/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"],
- *     location: "East Us",
- *     recommendationsConfiguration: [
- *         {
- *             recommendationType: azure_native.security.RecommendationType.IoT_OpenPorts,
- *             status: azure_native.security.RecommendationConfigStatus.Disabled,
- *         },
- *         {
- *             recommendationType: azure_native.security.RecommendationType.IoT_SharedCredentials,
- *             status: azure_native.security.RecommendationConfigStatus.Disabled,
- *         },
- *     ],
- *     resourceGroupName: "MyGroup",
- *     solutionName: "default",
- *     status: azure_native.security.SecuritySolutionStatus.Enabled,
- *     tags: {},
- *     unmaskedIpLoggingStatus: azure_native.security.UnmaskedIpLoggingStatus.Enabled,
- *     userDefinedResources: {
- *         query: "where type != \"microsoft.devices/iothubs\" | where name contains \"iot\"",
- *         querySubscriptions: ["075423e9-7d33-4166-8bdf-3920b04e3735"],
- *     },
- *     workspace: "/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:security:IotSecuritySolution default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/iotSecuritySolutions/{solutionName} 
- * ```
  */
 export class IotSecuritySolution extends pulumi.CustomResource {
     /**

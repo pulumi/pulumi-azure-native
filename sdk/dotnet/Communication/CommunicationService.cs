@@ -15,62 +15,6 @@ namespace Pulumi.AzureNative.Communication
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-31.
     /// 
     /// Other available API versions: 2023-03-31, 2023-04-01, 2023-04-01-preview, 2024-09-01-preview, 2025-05-01, 2025-05-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native communication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update resource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var communicationService = new AzureNative.Communication.CommunicationService("communicationService", new()
-    ///     {
-    ///         CommunicationServiceName = "MyCommunicationResource",
-    ///         DataLocation = "United States",
-    ///         Location = "Global",
-    ///         ResourceGroupName = "MyResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create or update resource with managed identity
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var communicationService = new AzureNative.Communication.CommunicationService("communicationService", new()
-    ///     {
-    ///         CommunicationServiceName = "MyCommunicationResource",
-    ///         DataLocation = "United States",
-    ///         Identity = new AzureNative.Communication.Inputs.ManagedServiceIdentityArgs
-    ///         {
-    ///             Type = AzureNative.Communication.ManagedServiceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "Global",
-    ///         ResourceGroupName = "MyResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:communication:CommunicationService MyCommunicationResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Communication/communicationServices/{communicationServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:CommunicationService")]
     public partial class CommunicationService : global::Pulumi.CustomResource

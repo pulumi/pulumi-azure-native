@@ -15,44 +15,6 @@ namespace Pulumi.AzureNative.DnsResolver
     /// Uses Azure REST API version 2023-07-01-preview.
     /// 
     /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Upsert virtual network link to a DNS forwarding ruleset
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var privateResolverVirtualNetworkLink = new AzureNative.DnsResolver.PrivateResolverVirtualNetworkLink("privateResolverVirtualNetworkLink", new()
-    ///     {
-    ///         DnsForwardingRulesetName = "sampleDnsForwardingRuleset",
-    ///         Metadata = 
-    ///         {
-    ///             { "additionalProp1", "value1" },
-    ///         },
-    ///         ResourceGroupName = "sampleResourceGroup",
-    ///         VirtualNetwork = new AzureNative.DnsResolver.Inputs.SubResourceArgs
-    ///         {
-    ///             Id = "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
-    ///         },
-    ///         VirtualNetworkLinkName = "sampleVirtualNetworkLink",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dnsresolver:PrivateResolverVirtualNetworkLink sampleVirtualNetworkLink /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dnsresolver:PrivateResolverVirtualNetworkLink")]
     public partial class PrivateResolverVirtualNetworkLink : global::Pulumi.CustomResource

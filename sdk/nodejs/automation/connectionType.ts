@@ -13,48 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update connection type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const connectionType = new azure_native.automation.ConnectionType("connectionType", {
- *     automationAccountName: "myAutomationAccount22",
- *     connectionTypeName: "myCT",
- *     fieldDefinitions: {
- *         myBoolField: {
- *             isEncrypted: false,
- *             isOptional: false,
- *             type: "bool",
- *         },
- *         myStringField: {
- *             isEncrypted: false,
- *             isOptional: false,
- *             type: "string",
- *         },
- *         myStringFieldEncrypted: {
- *             isEncrypted: true,
- *             isOptional: false,
- *             type: "string",
- *         },
- *     },
- *     isGlobal: false,
- *     name: "myCT",
- *     resourceGroupName: "rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:automation:ConnectionType myCT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/connectionTypes/{connectionTypeName} 
- * ```
  */
 export class ConnectionType extends pulumi.CustomResource {
     /**

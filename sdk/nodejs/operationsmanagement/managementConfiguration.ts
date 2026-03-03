@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * The container for solution.
  *
  * Uses Azure REST API version 2015-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2015-11-01-preview.
- *
- * ## Example Usage
- * ### ManagementConfigurationCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const managementConfiguration = new azure_native.operationsmanagement.ManagementConfiguration("managementConfiguration", {
- *     location: "East US",
- *     managementConfigurationName: "managementConfiguration1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:operationsmanagement:ManagementConfiguration managementConfiguration1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationsManagement/ManagementConfigurations/{managementConfigurationName} 
- * ```
  */
 export class ManagementConfiguration extends pulumi.CustomResource {
     /**

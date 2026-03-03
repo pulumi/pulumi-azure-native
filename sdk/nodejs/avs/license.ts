@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * A license resource
  *
  * Uses Azure REST API version 2025-09-01.
- *
- * ## Example Usage
- * ### Licenses_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const license = new azure_native.avs.License("license", {
- *     licenseName: "VmwareFirewall",
- *     privateCloudName: "cloud1",
- *     resourceGroupName: "group1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:avs:License VmwareFirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/licenses/{licenseName} 
- * ```
  */
 export class License extends pulumi.CustomResource {
     /**

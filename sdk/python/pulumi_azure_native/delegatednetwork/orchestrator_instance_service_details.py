@@ -243,40 +243,6 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
 
         Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create orchestrator instance
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        orchestrator_instance_service_details = azure_native.delegatednetwork.OrchestratorInstanceServiceDetails("orchestratorInstanceServiceDetails",
-            api_server_endpoint="https://testk8s.cloudapp.net",
-            cluster_root_ca="ddsadsad344mfdsfdl",
-            controller_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller",
-            },
-            identity={
-                "type": azure_native.delegatednetwork.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            kind=azure_native.delegatednetwork.OrchestratorKind.KUBERNETES,
-            location="West US",
-            orchestrator_app_id="546192d7-503f-477a-9cfe-4efc3ee2b6e1",
-            orchestrator_tenant_id="da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
-            private_link_resource_id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/privateLinkServices/plresource1",
-            resource_group_name="TestRG",
-            resource_name_="testk8s1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:delegatednetwork:OrchestratorInstanceServiceDetails testk8s1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/orchestrators/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,40 +271,6 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
         Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create orchestrator instance
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        orchestrator_instance_service_details = azure_native.delegatednetwork.OrchestratorInstanceServiceDetails("orchestratorInstanceServiceDetails",
-            api_server_endpoint="https://testk8s.cloudapp.net",
-            cluster_root_ca="ddsadsad344mfdsfdl",
-            controller_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller",
-            },
-            identity={
-                "type": azure_native.delegatednetwork.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            kind=azure_native.delegatednetwork.OrchestratorKind.KUBERNETES,
-            location="West US",
-            orchestrator_app_id="546192d7-503f-477a-9cfe-4efc3ee2b6e1",
-            orchestrator_tenant_id="da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
-            private_link_resource_id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/privateLinkServices/plresource1",
-            resource_group_name="TestRG",
-            resource_name_="testk8s1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:delegatednetwork:OrchestratorInstanceServiceDetails testk8s1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/orchestrators/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

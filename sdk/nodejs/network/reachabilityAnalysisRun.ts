@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
  *
  * Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ReachabilityAnalysisRunCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const reachabilityAnalysisRun = new azure_native.network.ReachabilityAnalysisRun("reachabilityAnalysisRun", {
- *     networkManagerName: "testNetworkManager",
- *     properties: {
- *         description: "A sample reachability analysis run",
- *         intentId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/verifierWorkspaces/testVerifierWorkspace1/reachabilityAnalysisIntents/testReachabilityAnalysisIntenant1",
- *     },
- *     reachabilityAnalysisRunName: "testAnalysisRunName",
- *     resourceGroupName: "rg1",
- *     workspaceName: "testWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:ReachabilityAnalysisRun testAnalysisRunName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName}/reachabilityAnalysisRuns/{reachabilityAnalysisRunName} 
- * ```
  */
 export class ReachabilityAnalysisRun extends pulumi.CustomResource {
     /**

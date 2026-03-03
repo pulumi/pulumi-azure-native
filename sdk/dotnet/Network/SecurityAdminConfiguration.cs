@@ -15,63 +15,6 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
     /// 
     /// Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create manual-mode security admin configuration
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var securityAdminConfiguration = new AzureNative.Network.SecurityAdminConfiguration("securityAdminConfiguration", new()
-    ///     {
-    ///         ConfigurationName = "myTestSecurityConfig",
-    ///         Description = "A configuration which will update any network groups ip addresses at commit times.",
-    ///         NetworkGroupAddressSpaceAggregationOption = AzureNative.Network.AddressSpaceAggregationOption.Manual,
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         ResourceGroupName = "rg1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create network manager security admin configuration
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var securityAdminConfiguration = new AzureNative.Network.SecurityAdminConfiguration("securityAdminConfiguration", new()
-    ///     {
-    ///         ApplyOnNetworkIntentPolicyBasedServices = new[]
-    ///         {
-    ///             AzureNative.Network.NetworkIntentPolicyBasedService.None,
-    ///         },
-    ///         ConfigurationName = "myTestSecurityConfig",
-    ///         Description = "A sample policy",
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         ResourceGroupName = "rg1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:network:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityAdminConfiguration")]
     public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource

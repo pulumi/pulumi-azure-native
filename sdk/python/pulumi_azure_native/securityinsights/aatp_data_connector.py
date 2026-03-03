@@ -140,64 +140,6 @@ class AATPDataConnector(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        ## Example Usage
-        ### Creates or updates a MicrosoftThreatIntelligence data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="c345bf40-8509-4ed2-b947-50cb773aaf04",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-        ### Creates or updates a PremiumMicrosoftDefenderForThreatIntelligence data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="8c569548-a86c-4fb4-8ae4-d1e35a6146f8",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-        ### Creates or updates an Office365 data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-        ### Creates or updates an Threat Intelligence Platform data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:securityinsights:AATPDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{dataConnectorId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,64 +161,6 @@ class AATPDataConnector(pulumi.CustomResource):
         Represents AATP (Azure Advanced Threat Protection) data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
-
-        ## Example Usage
-        ### Creates or updates a MicrosoftThreatIntelligence data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="c345bf40-8509-4ed2-b947-50cb773aaf04",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-        ### Creates or updates a PremiumMicrosoftDefenderForThreatIntelligence data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="8c569548-a86c-4fb4-8ae4-d1e35a6146f8",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-        ### Creates or updates an Office365 data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-        ### Creates or updates an Threat Intelligence Platform data connector.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        aatp_data_connector = azure_native.securityinsights.AATPDataConnector("aatpDataConnector",
-            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-            resource_group_name="myRg",
-            workspace_name="myWorkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:securityinsights:AATPDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{dataConnectorId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

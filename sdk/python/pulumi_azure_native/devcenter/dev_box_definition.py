@@ -191,36 +191,6 @@ class DevBoxDefinition(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DevBoxDefinitions_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dev_box_definition = azure_native.devcenter.DevBoxDefinition("devBoxDefinition",
-            dev_box_definition_name="WebDevBox",
-            dev_center_name="Contoso",
-            hibernate_support=azure_native.devcenter.HibernateSupport.ENABLED,
-            image_reference={
-                "id": "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
-            },
-            location="centralus",
-            resource_group_name="rg1",
-            sku={
-                "name": "Preview",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devcenter:DevBoxDefinition WebDevBox /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devcenters/{devCenterName}/devboxdefinitions/{devBoxDefinitionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,36 +216,6 @@ class DevBoxDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2024-02-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-08-01-preview, 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01, 2025-04-01-preview, 2025-07-01-preview, 2025-10-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DevBoxDefinitions_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dev_box_definition = azure_native.devcenter.DevBoxDefinition("devBoxDefinition",
-            dev_box_definition_name="WebDevBox",
-            dev_center_name="Contoso",
-            hibernate_support=azure_native.devcenter.HibernateSupport.ENABLED,
-            image_reference={
-                "id": "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
-            },
-            location="centralus",
-            resource_group_name="rg1",
-            sku={
-                "name": "Preview",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devcenter:DevBoxDefinition WebDevBox /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devcenters/{devCenterName}/devboxdefinitions/{devBoxDefinitionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

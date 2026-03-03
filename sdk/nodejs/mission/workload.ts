@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Workload_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const workload = new azure_native.mission.Workload("workload", {
- *     location: "westcentralus",
- *     resourceGroupCollection: [],
- *     resourceGroupName: "rgopenapi",
- *     tags: {
- *         TestKey: "TestValue",
- *     },
- *     virtualEnclaveName: "TestMyEnclave",
- *     workloadName: "TestMyWorkload",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:mission:Workload kxzylwqnmxtivpmupnlho /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/workloads/{workloadName} 
- * ```
  */
 export class Workload extends pulumi.CustomResource {
     /**

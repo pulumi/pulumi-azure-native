@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * A Credential Resource
  *
  * Uses Azure REST API version 2025-11-01-preview.
- *
- * ## Example Usage
- * ### CreateOrReplace_Credentials
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const credential = new azure_native.deviceregistry.Credential("credential", {
- *     location: "East US 2",
- *     namespaceName: "mynamespace",
- *     resourceGroupName: "rgdeviceregistry",
- *     tags: {
- *         key7121: "mtdjqipusqaqhdvekrknyjeo",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:deviceregistry:Credential default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default 
- * ```
  */
 export class Credential extends pulumi.CustomResource {
     /**

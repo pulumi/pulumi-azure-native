@@ -171,33 +171,6 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### KustoPoolPrincipalAssignmentsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kusto_pool_principal_assignment = azure_native.synapse.KustoPoolPrincipalAssignment("kustoPoolPrincipalAssignment",
-            kusto_pool_name="kustoclusterrptest4",
-            principal_assignment_name="kustoprincipal1",
-            principal_id="87654321-1234-1234-1234-123456789123",
-            principal_type=azure_native.synapse.PrincipalType.APP,
-            resource_group_name="kustorptest",
-            role=azure_native.synapse.ClusterPrincipalRole.ALL_DATABASES_ADMIN,
-            tenant_id="12345678-1234-1234-1234-123456789123",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:KustoPoolPrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/principalAssignments/{principalAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,33 +195,6 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### KustoPoolPrincipalAssignmentsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kusto_pool_principal_assignment = azure_native.synapse.KustoPoolPrincipalAssignment("kustoPoolPrincipalAssignment",
-            kusto_pool_name="kustoclusterrptest4",
-            principal_assignment_name="kustoprincipal1",
-            principal_id="87654321-1234-1234-1234-123456789123",
-            principal_type=azure_native.synapse.PrincipalType.APP,
-            resource_group_name="kustorptest",
-            role=azure_native.synapse.ClusterPrincipalRole.ALL_DATABASES_ADMIN,
-            tenant_id="12345678-1234-1234-1234-123456789123",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:KustoPoolPrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/kustoprincipal1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/principalAssignments/{principalAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -123,47 +123,6 @@ class IamMfaDevice(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### IamMfaDevices_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_mfa_device = azure_native.awsconnector.IamMfaDevice("iamMfaDevice",
-            location="ytpxpjmmspx",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "hbymjvsaxodse",
-                "aws_account_id": "tdapkqeuuvrrasue",
-                "aws_properties": {
-                    "enable_date": "2024-10-08T03:50:03.364Z",
-                    "serial_number": "ifphqcwiounuuootrnmxmm",
-                    "user_name": "jyjbnteckbccmmhbxjdk",
-                },
-                "aws_region": "uwyckzldxxj",
-                "aws_source_schema": "ibnflrkwkaswdrsmaqtegtnky",
-                "aws_tags": {
-                    "key581": "oqgcieddjmzl",
-                },
-                "public_cloud_connectors_resource_id": "jmcknwcktcj",
-                "public_cloud_resource_name": "vexrvwqtzdijlzwecmljscwepj",
-            },
-            resource_group_name="rgiamMFADevice",
-            tags={
-                "key9234": "eygqwhelmjvwcvgkzgfg",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamMfaDevice qaldgupkvxgpdkyumguetuizqtcgy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamMFADevices/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,47 +142,6 @@ class IamMfaDevice(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### IamMfaDevices_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_mfa_device = azure_native.awsconnector.IamMfaDevice("iamMfaDevice",
-            location="ytpxpjmmspx",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "hbymjvsaxodse",
-                "aws_account_id": "tdapkqeuuvrrasue",
-                "aws_properties": {
-                    "enable_date": "2024-10-08T03:50:03.364Z",
-                    "serial_number": "ifphqcwiounuuootrnmxmm",
-                    "user_name": "jyjbnteckbccmmhbxjdk",
-                },
-                "aws_region": "uwyckzldxxj",
-                "aws_source_schema": "ibnflrkwkaswdrsmaqtegtnky",
-                "aws_tags": {
-                    "key581": "oqgcieddjmzl",
-                },
-                "public_cloud_connectors_resource_id": "jmcknwcktcj",
-                "public_cloud_resource_name": "vexrvwqtzdijlzwecmljscwepj",
-            },
-            resource_group_name="rgiamMFADevice",
-            tags={
-                "key9234": "eygqwhelmjvwcvgkzgfg",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamMfaDevice qaldgupkvxgpdkyumguetuizqtcgy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamMFADevices/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

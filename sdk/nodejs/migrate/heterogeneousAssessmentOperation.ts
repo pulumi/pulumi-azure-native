@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Heterogeneous assessment resource.
  *
  * Uses Azure REST API version 2024-03-03-preview.
- *
- * ## Example Usage
- * ### HeterogeneousAssessmentOperations_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const heterogeneousAssessmentOperation = new azure_native.migrate.HeterogeneousAssessmentOperation("heterogeneousAssessmentOperation", {
- *     assessmentName: "assessmentName",
- *     projectName: "contosoProject",
- *     properties: {
- *         assessmentArmIds: ["gartykxgfvqccfs"],
- *     },
- *     resourceGroupName: "rgheterogeneousAssessments",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:HeterogeneousAssessmentOperation assessmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/heterogeneousAssessments/{assessmentName} 
- * ```
  */
 export class HeterogeneousAssessmentOperation extends pulumi.CustomResource {
     /**

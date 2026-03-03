@@ -1,0 +1,4 @@
+name: storageaccount-hns
+runtime: yaml
+description: Test YAML program of which the contents are replaced by the test
+resources: {}

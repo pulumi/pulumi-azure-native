@@ -142,51 +142,6 @@ class ManagedNamespace(pulumi.CustomResource):
 
         Other available API versions: 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create/Update Managed Namespace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_namespace = azure_native.containerservice.ManagedNamespace("managedNamespace",
-            managed_namespace_name="namespace1",
-            properties={
-                "adoption_policy": azure_native.containerservice.AdoptionPolicy.IF_IDENTICAL,
-                "annotations": {
-                    "annatationKey": "annatationValue",
-                },
-                "default_network_policy": {
-                    "egress": azure_native.containerservice.PolicyRule.ALLOW_ALL,
-                    "ingress": azure_native.containerservice.PolicyRule.ALLOW_SAME_NAMESPACE,
-                },
-                "default_resource_quota": {
-                    "cpu_limit": "3m",
-                    "cpu_request": "3m",
-                    "memory_limit": "5Gi",
-                    "memory_request": "5Gi",
-                },
-                "delete_policy": azure_native.containerservice.DeletePolicy.KEEP,
-                "labels": {
-                    "kubernetes.io/metadata.name": "true",
-                },
-            },
-            resource_group_name="rg1",
-            resource_name_="clustername1",
-            tags={
-                "tagKey1": "tagValue1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerservice:ManagedNamespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,51 +164,6 @@ class ManagedNamespace(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01.
 
         Other available API versions: 2025-03-02-preview, 2025-04-02-preview, 2025-05-02-preview, 2025-06-02-preview, 2025-07-02-preview, 2025-08-02-preview, 2025-09-02-preview, 2025-10-01, 2025-10-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create/Update Managed Namespace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        managed_namespace = azure_native.containerservice.ManagedNamespace("managedNamespace",
-            managed_namespace_name="namespace1",
-            properties={
-                "adoption_policy": azure_native.containerservice.AdoptionPolicy.IF_IDENTICAL,
-                "annotations": {
-                    "annatationKey": "annatationValue",
-                },
-                "default_network_policy": {
-                    "egress": azure_native.containerservice.PolicyRule.ALLOW_ALL,
-                    "ingress": azure_native.containerservice.PolicyRule.ALLOW_SAME_NAMESPACE,
-                },
-                "default_resource_quota": {
-                    "cpu_limit": "3m",
-                    "cpu_request": "3m",
-                    "memory_limit": "5Gi",
-                    "memory_request": "5Gi",
-                },
-                "delete_policy": azure_native.containerservice.DeletePolicy.KEEP,
-                "labels": {
-                    "kubernetes.io/metadata.name": "true",
-                },
-            },
-            resource_group_name="rg1",
-            resource_name_="clustername1",
-            tags={
-                "tagKey1": "tagValue1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerservice:ManagedNamespace namespace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

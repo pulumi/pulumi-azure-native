@@ -244,54 +244,6 @@ class AzureLargeInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
 
-        ## Example Usage
-        ### AzureLargeInstance_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_large_instance = azure_native.azurelargeinstance.AzureLargeInstance("azureLargeInstance",
-            azure_large_instance_id="23415635-4d7e-41dc-9598-8194f22c24e1",
-            azure_large_instance_name="myALInstance",
-            hardware_profile={
-                "azure_large_instance_size": azure_native.azurelargeinstance.AzureLargeInstanceSizeNamesEnum.S72,
-                "hardware_type": azure_native.azurelargeinstance.AzureLargeInstanceHardwareTypeNamesEnum.CISCO_UCS,
-            },
-            hw_revision="Rev 3",
-            location="westus",
-            network_profile={
-                "circuit_id": "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Network/expressRouteCircuit",
-                "network_interfaces": [{
-                    "ip_address": "100.100.100.100",
-                }],
-            },
-            os_profile={
-                "computer_name": "myComputerName",
-                "os_type": "SUSE",
-                "ssh_public_key": "{ssh-rsa public key}",
-                "version": "12 SP1",
-            },
-            power_state=azure_native.azurelargeinstance.AzureLargeInstancePowerStateEnum.STARTED,
-            proximity_placement_group="/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myplacementgroup",
-            resource_group_name="myResourceGroup",
-            storage_profile={
-                "nfs_ip_address": "200.200.200.200",
-            },
-            tags={
-                "testkey": "testvalue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurelargeinstance:AzureLargeInstance myALInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeInstances/{azureLargeInstanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,54 +271,6 @@ class AzureLargeInstance(pulumi.CustomResource):
         properties)
 
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
-
-        ## Example Usage
-        ### AzureLargeInstance_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_large_instance = azure_native.azurelargeinstance.AzureLargeInstance("azureLargeInstance",
-            azure_large_instance_id="23415635-4d7e-41dc-9598-8194f22c24e1",
-            azure_large_instance_name="myALInstance",
-            hardware_profile={
-                "azure_large_instance_size": azure_native.azurelargeinstance.AzureLargeInstanceSizeNamesEnum.S72,
-                "hardware_type": azure_native.azurelargeinstance.AzureLargeInstanceHardwareTypeNamesEnum.CISCO_UCS,
-            },
-            hw_revision="Rev 3",
-            location="westus",
-            network_profile={
-                "circuit_id": "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Network/expressRouteCircuit",
-                "network_interfaces": [{
-                    "ip_address": "100.100.100.100",
-                }],
-            },
-            os_profile={
-                "computer_name": "myComputerName",
-                "os_type": "SUSE",
-                "ssh_public_key": "{ssh-rsa public key}",
-                "version": "12 SP1",
-            },
-            power_state=azure_native.azurelargeinstance.AzureLargeInstancePowerStateEnum.STARTED,
-            proximity_placement_group="/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myplacementgroup",
-            resource_group_name="myResourceGroup",
-            storage_profile={
-                "nfs_ip_address": "200.200.200.200",
-            },
-            tags={
-                "testkey": "testvalue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurelargeinstance:AzureLargeInstance myALInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeInstances/{azureLargeInstanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

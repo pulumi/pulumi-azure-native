@@ -15,56 +15,6 @@ namespace Pulumi.AzureNative.Databricks
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
     /// Other available API versions: 2023-05-01, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create an Azure Databricks Access Connector with SystemAssigned Identity
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var accessConnector = new AzureNative.Databricks.AccessConnector("accessConnector", new()
-    ///     {
-    ///         ConnectorName = "myAccessConnector",
-    ///         Location = "westus",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create an Azure Databricks Access Connector with UserAssigned Identity
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var accessConnector = new AzureNative.Databricks.AccessConnector("accessConnector", new()
-    ///     {
-    ///         ConnectorName = "myAccessConnector",
-    ///         Location = "westus",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:databricks:AccessConnector myAccessConnector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/accessConnectors/{connectorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource

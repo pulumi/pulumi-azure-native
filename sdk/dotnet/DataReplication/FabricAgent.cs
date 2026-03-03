@@ -13,58 +13,6 @@ namespace Pulumi.AzureNative.DataReplication
     /// Fabric agent model.
     /// 
     /// Uses Azure REST API version 2024-09-01.
-    /// 
-    /// ## Example Usage
-    /// ### Puts the fabric agent
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fabricAgent = new AzureNative.DataReplication.FabricAgent("fabricAgent", new()
-    ///     {
-    ///         FabricAgentName = "M",
-    ///         FabricName = "wPR",
-    ///         Properties = new AzureNative.DataReplication.Inputs.FabricAgentModelPropertiesArgs
-    ///         {
-    ///             AuthenticationIdentity = new AzureNative.DataReplication.Inputs.IdentityModelArgs
-    ///             {
-    ///                 AadAuthority = "bubwwbowfhdmujrt",
-    ///                 ApplicationId = "cwktzrwajuvfyyymfstpey",
-    ///                 Audience = "dkjobanyqgzenivyxhvavottpc",
-    ///                 ObjectId = "khsiaqfbpuhp",
-    ///                 TenantId = "joclkkdovixwapephhxaqtefubhhmq",
-    ///             },
-    ///             CustomProperties = null,
-    ///             MachineId = "envzcoijbqhtrpncbjbhk",
-    ///             MachineName = "y",
-    ///             ResourceAccessIdentity = new AzureNative.DataReplication.Inputs.IdentityModelArgs
-    ///             {
-    ///                 AadAuthority = "bubwwbowfhdmujrt",
-    ///                 ApplicationId = "cwktzrwajuvfyyymfstpey",
-    ///                 Audience = "dkjobanyqgzenivyxhvavottpc",
-    ///                 ObjectId = "khsiaqfbpuhp",
-    ///                 TenantId = "joclkkdovixwapephhxaqtefubhhmq",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgswagger_2024-09-01",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datareplication:FabricAgent ioxmwhzrzdilxivkvhpvzexl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:FabricAgent")]
     public partial class FabricAgent : global::Pulumi.CustomResource

@@ -15,51 +15,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
     /// 
     /// Other available API versions: 2019-12-01-preview, 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview, 2025-03-01-preview, 2025-05-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ExportPipelineCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exportPipeline = new AzureNative.ContainerRegistry.ExportPipeline("exportPipeline", new()
-    ///     {
-    ///         ExportPipelineName = "myExportPipeline",
-    ///         Identity = new AzureNative.ContainerRegistry.Inputs.IdentityPropertiesArgs
-    ///         {
-    ///             Type = AzureNative.ContainerRegistry.ResourceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "westus",
-    ///         Options = new[]
-    ///         {
-    ///             AzureNative.ContainerRegistry.PipelineOptions.OverwriteBlobs,
-    ///         },
-    ///         RegistryName = "myRegistry",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Target = new AzureNative.ContainerRegistry.Inputs.ExportPipelineTargetPropertiesArgs
-    ///         {
-    ///             KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrexportsas",
-    ///             Type = "AzureStorageBlobContainer",
-    ///             Uri = "https://accountname.blob.core.windows.net/containername",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:containerregistry:ExportPipeline myExportPipeline /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/exportPipelines/{exportPipelineName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ExportPipeline")]
     public partial class ExportPipeline : global::Pulumi.CustomResource

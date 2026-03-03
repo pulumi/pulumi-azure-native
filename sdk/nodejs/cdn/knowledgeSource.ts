@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * Defines a knowledge source resource for a web agent.
  *
  * Uses Azure REST API version 2025-09-01-preview.
- *
- * ## Example Usage
- * ### Create or Update Knowledge Source
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const knowledgeSource = new azure_native.cdn.KnowledgeSource("knowledgeSource", {
- *     description: "Website knowledge source for FAQ content",
- *     knowledgeSourceName: "myKnowledgeSource1",
- *     resourceGroupName: "RG",
- *     sourceType: azure_native.cdn.KnowledgeSourceType.SchemaOrgMarkup,
- *     updateFrequency: azure_native.cdn.KnowledgeSourceUpdateFrequency.EverySixHours,
- *     url: "https://example.com/faq",
- *     webAgentName: "myWebAgent1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cdn:KnowledgeSource myKnowledgeSource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}/knowledgeSources/{knowledgeSourceName} 
- * ```
  */
 export class KnowledgeSource extends pulumi.CustomResource {
     /**

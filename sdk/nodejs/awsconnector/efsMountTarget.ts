@@ -11,50 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### EfsMountTargets_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const efsMountTarget = new azure_native.awsconnector.EfsMountTarget("efsMountTarget", {
- *     location: "xaybj",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "dtpqhenvexdxqcqscosxk",
- *         awsAccountId: "iwvssztfldgfir",
- *         awsProperties: {
- *             fileSystemId: "yyzhtbwsscfcaxuvdvmswchhxapky",
- *             id: "micgyhibjdexozpicbfsmpclu",
- *             ipAddress: "unspxdyqhrhlkstzmdrd",
- *             securityGroups: ["zxkzjhcwszqzfeogafiaub"],
- *             subnetId: "xbeontn",
- *         },
- *         awsRegion: "lyvbqubwsgdvarrauygfhw",
- *         awsSourceSchema: "gpkfqbbpywdedvyabzy",
- *         awsTags: {
- *             key5226: "lkjysnbiwwydewimdnpt",
- *         },
- *         publicCloudConnectorsResourceId: "rwszhgqustirkxkbk",
- *         publicCloudResourceName: "bezmotdonashggkeobrc",
- *     },
- *     resourceGroupName: "rgefsMountTarget",
- *     tags: {
- *         key3687: "zubuxs",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:EfsMountTarget vnjlwafk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/efsMountTargets/{name} 
- * ```
  */
 export class EfsMountTarget extends pulumi.CustomResource {
     /**

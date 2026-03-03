@@ -105,29 +105,6 @@ class ServerTrustCertificate(pulumi.CustomResource):
 
         Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create server trust certificate.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_trust_certificate = azure_native.sql.ServerTrustCertificate("serverTrustCertificate",
-            certificate_name="customerCertificateName",
-            managed_instance_name="testcl",
-            public_blob="308203AE30820296A0030201020210",
-            resource_group_name="testrg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:ServerTrustCertificate customerCertificateName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/serverTrustCertificates/{certificateName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,29 +125,6 @@ class ServerTrustCertificate(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-05-01-preview, 2021-08-01-preview, 2021-11-01, 2021-11-01-preview, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create server trust certificate.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_trust_certificate = azure_native.sql.ServerTrustCertificate("serverTrustCertificate",
-            certificate_name="customerCertificateName",
-            managed_instance_name="testcl",
-            public_blob="308203AE30820296A0030201020210",
-            resource_group_name="testrg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:ServerTrustCertificate customerCertificateName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/serverTrustCertificates/{certificateName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

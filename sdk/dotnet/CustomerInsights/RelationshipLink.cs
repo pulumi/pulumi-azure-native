@@ -13,62 +13,6 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// The relationship link resource format.
     /// 
     /// Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-    /// 
-    /// ## Example Usage
-    /// ### RelationshipLinks_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var relationshipLink = new AzureNative.CustomerInsights.RelationshipLink("relationshipLink", new()
-    ///     {
-    ///         Description = 
-    ///         {
-    ///             { "en-us", "Link Description" },
-    ///         },
-    ///         DisplayName = 
-    ///         {
-    ///             { "en-us", "Link DisplayName" },
-    ///         },
-    ///         HubName = "sdkTestHub",
-    ///         InteractionType = "testInteraction4332",
-    ///         ProfilePropertyReferences = new[]
-    ///         {
-    ///             new AzureNative.CustomerInsights.Inputs.ParticipantProfilePropertyReferenceArgs
-    ///             {
-    ///                 InteractionPropertyName = "profile1",
-    ///                 ProfilePropertyName = "ProfileId",
-    ///             },
-    ///         },
-    ///         RelatedProfilePropertyReferences = new[]
-    ///         {
-    ///             new AzureNative.CustomerInsights.Inputs.ParticipantProfilePropertyReferenceArgs
-    ///             {
-    ///                 InteractionPropertyName = "profile1",
-    ///                 ProfilePropertyName = "ProfileId",
-    ///             },
-    ///         },
-    ///         RelationshipLinkName = "Somelink",
-    ///         RelationshipName = "testProfile2326994",
-    ///         ResourceGroupName = "TestHubRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:customerinsights:RelationshipLink sdkTestHub/Somelink /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/relationshipLinks/{relationshipLinkName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:RelationshipLink")]
     public partial class RelationshipLink : global::Pulumi.CustomResource

@@ -13,44 +13,6 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp Elastic Backup Policy resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ElasticBackupPolicies_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var elasticBackupPolicy = new AzureNative.NetApp.ElasticBackupPolicy("elasticBackupPolicy", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         BackupPolicyName = "backupPolicyName",
-    ///         Location = "westus",
-    ///         Properties = new AzureNative.NetApp.Inputs.ElasticBackupPolicyPropertiesArgs
-    ///         {
-    ///             DailyBackupsToKeep = 10,
-    ///             MonthlyBackupsToKeep = 10,
-    ///             PolicyState = AzureNative.NetApp.ElasticBackupPolicyState.Enabled,
-    ///             WeeklyBackupsToKeep = 10,
-    ///         },
-    ///         ResourceGroupName = "myRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:ElasticBackupPolicy account1/backupPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupPolicies/{backupPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticBackupPolicy")]
     public partial class ElasticBackupPolicy : global::Pulumi.CustomResource

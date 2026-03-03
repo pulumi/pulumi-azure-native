@@ -261,57 +261,6 @@ class Schedule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### Schedules_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        schedule = azure_native.devtestlab.Schedule("schedule",
-            daily_recurrence={
-                "time": "{timeOfTheDayTheScheduleWillOccurEveryDay}",
-            },
-            hourly_recurrence={
-                "minute": 30,
-            },
-            lab_name="{labName}",
-            location="{location}",
-            name="{scheduleName}",
-            notification_settings={
-                "email_recipient": "{email}",
-                "notification_locale": "EN",
-                "status": "{Enabled|Disabled}",
-                "time_in_minutes": 15,
-                "webhook_url": "{webhookUrl}",
-            },
-            resource_group_name="resourceGroupName",
-            status="{Enabled|Disabled}",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
-            task_type="{myLabVmTaskType}",
-            time_zone_id="Pacific Standard Time",
-            weekly_recurrence={
-                "time": "{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
-                "weekdays": [
-                    "Monday",
-                    "Wednesday",
-                    "Friday",
-                ],
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/schedules/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -339,57 +288,6 @@ class Schedule(pulumi.CustomResource):
         A schedule.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### Schedules_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        schedule = azure_native.devtestlab.Schedule("schedule",
-            daily_recurrence={
-                "time": "{timeOfTheDayTheScheduleWillOccurEveryDay}",
-            },
-            hourly_recurrence={
-                "minute": 30,
-            },
-            lab_name="{labName}",
-            location="{location}",
-            name="{scheduleName}",
-            notification_settings={
-                "email_recipient": "{email}",
-                "notification_locale": "EN",
-                "status": "{Enabled|Disabled}",
-                "time_in_minutes": 15,
-                "webhook_url": "{webhookUrl}",
-            },
-            resource_group_name="resourceGroupName",
-            status="{Enabled|Disabled}",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
-            task_type="{myLabVmTaskType}",
-            time_zone_id="Pacific Standard Time",
-            weekly_recurrence={
-                "time": "{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
-                "weekdays": [
-                    "Monday",
-                    "Wednesday",
-                    "Friday",
-                ],
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/schedules/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

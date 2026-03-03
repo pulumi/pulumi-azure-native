@@ -175,32 +175,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### WorkspacePutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.machinelearningservices.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="{privateEndpointConnectionName}",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.machinelearningservices.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rg-1234",
-            workspace_name="testworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,32 +199,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### WorkspacePutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.machinelearningservices.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="{privateEndpointConnectionName}",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.machinelearningservices.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rg-1234",
-            workspace_name="testworkspace")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:machinelearningservices:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

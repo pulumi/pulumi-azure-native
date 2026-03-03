@@ -154,32 +154,6 @@ class ApiTool(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
-        ## Example Usage
-        ### ApiManagementCreateApiTool
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_tool = azure_native.apimanagement.ApiTool("apiTool",
-            api_id="github-mcp-api",
-            description="This is a MCP tool to create an issue in a github repository",
-            display_name="createIssue",
-            operation_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/github-rest-api/operations/createIssue",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            tool_id="createIssue")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiTool createIssue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tools/{toolId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,32 +175,6 @@ class ApiTool(pulumi.CustomResource):
         Tool details.
 
         Uses Azure REST API version 2025-03-01-preview.
-
-        ## Example Usage
-        ### ApiManagementCreateApiTool
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_tool = azure_native.apimanagement.ApiTool("apiTool",
-            api_id="github-mcp-api",
-            description="This is a MCP tool to create an issue in a github repository",
-            display_name="createIssue",
-            operation_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/github-rest-api/operations/createIssue",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            tool_id="createIssue")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiTool createIssue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tools/{toolId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -15,49 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
     /// Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a job schedule
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var jobSchedule = new AzureNative.Automation.JobSchedule("jobSchedule", new()
-    ///     {
-    ///         AutomationAccountName = "ContoseAutomationAccount",
-    ///         JobScheduleId = "0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
-    ///         Parameters = 
-    ///         {
-    ///             { "jobscheduletag01", "jobschedulevalue01" },
-    ///             { "jobscheduletag02", "jobschedulevalue02" },
-    ///         },
-    ///         ResourceGroupName = "rg",
-    ///         Runbook = new AzureNative.Automation.Inputs.RunbookAssociationPropertyArgs
-    ///         {
-    ///             Name = "TestRunbook",
-    ///         },
-    ///         Schedule = new AzureNative.Automation.Inputs.ScheduleAssociationPropertyArgs
-    ///         {
-    ///             Name = "ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:JobSchedule myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobSchedules/{jobScheduleId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:JobSchedule")]
     public partial class JobSchedule : global::Pulumi.CustomResource

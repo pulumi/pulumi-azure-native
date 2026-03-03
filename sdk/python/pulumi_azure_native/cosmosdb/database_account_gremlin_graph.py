@@ -139,67 +139,6 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDBGremlinGraphCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_account_gremlin_graph = azure_native.cosmosdb.DatabaseAccountGremlinGraph("databaseAccountGremlinGraph",
-            account_name="ddb1",
-            database_name="databaseName",
-            graph_name="graphName",
-            options={},
-            resource={
-                "conflict_resolution_policy": {
-                    "conflict_resolution_path": "/path",
-                    "mode": azure_native.cosmosdb.ConflictResolutionMode.LAST_WRITER_WINS,
-                },
-                "default_ttl": 100,
-                "id": "graphName",
-                "indexing_policy": {
-                    "automatic": True,
-                    "excluded_paths": [],
-                    "included_paths": [{
-                        "indexes": [
-                            {
-                                "data_type": azure_native.cosmosdb.DataType.STRING,
-                                "kind": azure_native.cosmosdb.IndexKind.RANGE,
-                                "precision": -1,
-                            },
-                            {
-                                "data_type": azure_native.cosmosdb.DataType.NUMBER,
-                                "kind": azure_native.cosmosdb.IndexKind.RANGE,
-                                "precision": -1,
-                            },
-                        ],
-                        "path": "/*",
-                    }],
-                    "indexing_mode": "Consistent",
-                },
-                "partition_key": {
-                    "kind": azure_native.cosmosdb.PartitionKind.HASH,
-                    "paths": ["/AccountNumber"],
-                },
-                "unique_key_policy": {
-                    "unique_keys": [{
-                        "paths": ["/testPath"],
-                    }],
-                },
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:DatabaseAccountGremlinGraph graphName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/gremlin/databases/{databaseName}/graphs/{graphName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,67 +161,6 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
         Uses Azure REST API version 2016-03-31.
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDBGremlinGraphCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_account_gremlin_graph = azure_native.cosmosdb.DatabaseAccountGremlinGraph("databaseAccountGremlinGraph",
-            account_name="ddb1",
-            database_name="databaseName",
-            graph_name="graphName",
-            options={},
-            resource={
-                "conflict_resolution_policy": {
-                    "conflict_resolution_path": "/path",
-                    "mode": azure_native.cosmosdb.ConflictResolutionMode.LAST_WRITER_WINS,
-                },
-                "default_ttl": 100,
-                "id": "graphName",
-                "indexing_policy": {
-                    "automatic": True,
-                    "excluded_paths": [],
-                    "included_paths": [{
-                        "indexes": [
-                            {
-                                "data_type": azure_native.cosmosdb.DataType.STRING,
-                                "kind": azure_native.cosmosdb.IndexKind.RANGE,
-                                "precision": -1,
-                            },
-                            {
-                                "data_type": azure_native.cosmosdb.DataType.NUMBER,
-                                "kind": azure_native.cosmosdb.IndexKind.RANGE,
-                                "precision": -1,
-                            },
-                        ],
-                        "path": "/*",
-                    }],
-                    "indexing_mode": "Consistent",
-                },
-                "partition_key": {
-                    "kind": azure_native.cosmosdb.PartitionKind.HASH,
-                    "paths": ["/AccountNumber"],
-                },
-                "unique_key_policy": {
-                    "unique_keys": [{
-                        "paths": ["/testPath"],
-                    }],
-                },
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:DatabaseAccountGremlinGraph graphName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/gremlin/databases/{databaseName}/graphs/{graphName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -16,8 +16,10 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"gopkg.in/yaml.v3"
 )
 
 const pulumiExamplesPath = "../p-examples"
@@ -32,13 +34,30 @@ func getLocation(t *testing.T) string {
 	return azureLocation
 }
 
-func azureNativeBinary(t *testing.T) opttest.Option {
+func azureNativeBinary(t *testing.T) string {
 	binPath, err := filepath.Abs("../bin")
 	if err != nil {
 		t.Fatal(err)
 	}
 	t.Logf("Using azure-native binary from %s", binPath)
-	return opttest.LocalProviderPath("azure-native", binPath)
+	files, err := os.ReadDir(binPath)
+	if err != nil {
+		t.Fatalf("failed to read directory %s: %v", binPath, err)
+	}
+
+	found := false
+	for _, file := range files {
+		if file.Name() == "pulumi-resource-azure-native" || file.Name() == "pulumi-resource-azure-native.exe" {
+			found = true
+			break
+		}
+	}
+
+	if !found {
+		t.Fatalf("could not find pulumi-resource-azure-native binary in %s, make sure to build the provider before running the tests", binPath)
+	}
+
+	return binPath
 }
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
@@ -78,10 +97,14 @@ func skipIfShort(t *testing.T) {
 	}
 }
 
-func createTest(t *testing.T, source string) *pulumitest.PulumiTest {
+func createTest(t *testing.T, source string, options ...opttest.Option) *pulumitest.PulumiTest {
+	opts := []opttest.Option{
+		opttest.LocalProviderPath("azure-native", azureNativeBinary(t)),
+	}
+	opts = append(opts, options...)
 	pt := pulumitest.NewPulumiTest(t,
 		source,
-		azureNativeBinary(t))
+		opts...)
 
 	pt.SetConfig(t, "azure-native:location", getLocation(t))
 	return pt
@@ -201,4 +224,79 @@ func TestRoleAssignmentRefreshAfterVaultDeletion(t *testing.T) {
 	result, err := pt.CurrentStack().Refresh(ctx)
 	assert.NoError(t, err, "refresh should not error")
 	assert.Empty(t, result.StdErr, "refresh should not have any errors in stderr")
+}
+
+func updatePulumiYAML(t *testing.T, test *pulumitest.PulumiTest, contents map[string]any) {
+	contentsInYAML, err := yaml.Marshal(contents)
+	require.NoError(t, err, "marshalling contents to YAML should not error")
+	workingDir := test.WorkingDir()
+	yamlPath := filepath.Join(workingDir, "Pulumi.yaml")
+	err = os.WriteFile(yamlPath, contentsInYAML, 0644)
+	require.NoError(t, err, "writing updated Pulumi.yaml should not error")
+}
+
+// This is a test to verify that adding the isHnsEnabled property to a storage account
+// does not cause replacements, since it defaults to false.
+// in fact, adding a property that defaults to false should not cause any changes at all since
+// the default value is the same as what we are setting it to.
+func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) {
+	dir := filepath.Join(getCwd(t), "storageaccount-hns")
+	azureBinaryPath := azureNativeBinary(t)
+	test := createTest(t, dir)
+
+	plugins := map[string]any{
+		"providers": []interface{}{
+			map[string]any{
+				"name": "azure-native",
+				"path": azureBinaryPath,
+			},
+		},
+	}
+
+	storageAccountProperties := map[string]any{
+		"resourceGroupName": "${resourcegroup.name}",
+		"location":          "${resourcegroup.location}",
+		"kind":              "StorageV2",
+		"sku": map[string]any{
+			"name": "Standard_LRS",
+		},
+	}
+
+	storageAccount := map[string]any{
+		"type":       "azure-native:storage:StorageAccount",
+		"properties": storageAccountProperties,
+	}
+
+	program := map[string]any{
+		"name":    "storageaccount-hns",
+		"runtime": "yaml",
+		"resources": map[string]any{
+			"resourcegroup": map[string]any{
+				"type": "azure-native:resources:ResourceGroup",
+			},
+			"storageaccount": storageAccount,
+		},
+		"plugins": plugins,
+	}
+
+	// initial program
+	updatePulumiYAML(t, test, program)
+
+	// Deploy the storage account
+	upResult := test.Up(t)
+	assert.Empty(t, upResult.StdErr, "up should not have any errors")
+	defer test.Destroy(t)
+
+	// Update the storage account to add the IsHnsEnabled property
+	storageAccountProperties["isHnsEnabled"] = false
+
+	// Update the program with the new property
+	updatePulumiYAML(t, test, program)
+
+	preview := test.Preview(t)
+	t.Logf("Preview STDOUT: \n%s", preview.StdOut)
+	assert.Equal(t, map[apitype.OpType]int{
+		// nothing has changed
+		apitype.OpSame: 3,
+	}, preview.ChangeSummary)
 }

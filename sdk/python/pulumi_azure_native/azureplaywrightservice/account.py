@@ -184,32 +184,6 @@ class Account(pulumi.CustomResource):
 
         Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Accounts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.azureplaywrightservice.Account("account",
-            account_name="myPlaywrightAccount",
-            location="westus",
-            regional_affinity=azure_native.azureplaywrightservice.EnablementStatus.ENABLED,
-            resource_group_name="dummyrg",
-            tags={
-                "Team": "Dev Exp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azureplaywrightservice:Account myPlaywrightAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzurePlaywrightService/accounts/{accountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,32 +208,6 @@ class Account(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
         Other available API versions: 2023-10-01-preview, 2024-02-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureplaywrightservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Accounts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.azureplaywrightservice.Account("account",
-            account_name="myPlaywrightAccount",
-            location="westus",
-            regional_affinity=azure_native.azureplaywrightservice.EnablementStatus.ENABLED,
-            resource_group_name="dummyrg",
-            tags={
-                "Team": "Dev Exp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azureplaywrightservice:Account myPlaywrightAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzurePlaywrightService/accounts/{accountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

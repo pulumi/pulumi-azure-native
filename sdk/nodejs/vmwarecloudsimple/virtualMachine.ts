@@ -11,50 +11,6 @@ import * as utilities from "../utilities";
  * Virtual machine model
  *
  * Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
- *
- * ## Example Usage
- * ### CreateVirtualMachine
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const virtualMachine = new azure_native.vmwarecloudsimple.VirtualMachine("virtualMachine", {
- *     amountOfRam: 4096,
- *     disks: [{
- *         controllerId: "1000",
- *         independenceMode: azure_native.vmwarecloudsimple.DiskIndependenceMode.Persistent,
- *         totalSize: 10485760,
- *         virtualDiskId: "2000",
- *     }],
- *     location: "westus2",
- *     nics: [{
- *         network: {
- *             id: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
- *         },
- *         nicType: azure_native.vmwarecloudsimple.NICType.E1000,
- *         powerOnBoot: true,
- *         virtualNicId: "4000",
- *     }],
- *     numberOfCores: 2,
- *     privateCloudId: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
- *     resourceGroupName: "myResourceGroup",
- *     resourcePool: {
- *         id: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
- *     },
- *     templateId: "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
- *     virtualMachineName: "myVirtualMachine",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:vmwarecloudsimple:VirtualMachine myVirtualMachine /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/virtualMachines/{virtualMachineName} 
- * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

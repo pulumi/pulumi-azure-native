@@ -13,63 +13,6 @@ namespace Pulumi.AzureNative.Datadog
     /// Uses Azure REST API version 2023-10-20. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
     /// Other available API versions: 2022-06-01, 2022-08-01, 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Monitors_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var monitor = new AzureNative.Datadog.Monitor("monitor", new()
-    ///     {
-    ///         Location = "West US",
-    ///         MonitorName = "myMonitor",
-    ///         Properties = new AzureNative.Datadog.Inputs.MonitorPropertiesArgs
-    ///         {
-    ///             DatadogOrganizationProperties = new AzureNative.Datadog.Inputs.DatadogOrganizationPropertiesArgs
-    ///             {
-    ///                 Cspm = false,
-    ///                 EnterpriseAppId = "00000000-0000-0000-0000-000000000000",
-    ///                 Id = "myOrg123",
-    ///                 LinkingAuthCode = "someAuthCode",
-    ///                 LinkingClientId = "00000000-0000-0000-0000-000000000000",
-    ///                 Name = "myOrg",
-    ///             },
-    ///             MonitoringStatus = AzureNative.Datadog.MonitoringStatus.Enabled,
-    ///             UserInfo = new AzureNative.Datadog.Inputs.UserInfoArgs
-    ///             {
-    ///                 EmailAddress = "alice@microsoft.com",
-    ///                 Name = "Alice",
-    ///                 PhoneNumber = "123-456-7890",
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         Sku = new AzureNative.Datadog.Inputs.ResourceSkuArgs
-    ///         {
-    ///             Name = "free_Monthly",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Dev" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datadog:Monitor myMonitor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource

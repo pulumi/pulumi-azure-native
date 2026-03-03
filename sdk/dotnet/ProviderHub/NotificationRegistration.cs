@@ -15,65 +15,6 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2021-09-01-preview.
     /// 
     /// Other available API versions: 2021-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native providerhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### NotificationRegistrations_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var notificationRegistration = new AzureNative.ProviderHub.NotificationRegistration("notificationRegistration", new()
-    ///     {
-    ///         NotificationRegistrationName = "fooNotificationRegistration",
-    ///         Properties = new AzureNative.ProviderHub.Inputs.NotificationRegistrationPropertiesArgs
-    ///         {
-    ///             IncludedEvents = new[]
-    ///             {
-    ///                 "*/write",
-    ///                 "Microsoft.Contoso/employees/delete",
-    ///             },
-    ///             MessageScope = AzureNative.ProviderHub.MessageScope.RegisteredSubscriptions,
-    ///             NotificationEndpoints = new[]
-    ///             {
-    ///                 new AzureNative.ProviderHub.Inputs.NotificationEndpointArgs
-    ///                 {
-    ///                     Locations = new[]
-    ///                     {
-    ///                         "",
-    ///                         "East US",
-    ///                     },
-    ///                     NotificationDestination = "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
-    ///                 },
-    ///                 new AzureNative.ProviderHub.Inputs.NotificationEndpointArgs
-    ///                 {
-    ///                     Locations = new[]
-    ///                     {
-    ///                         "North Europe",
-    ///                     },
-    ///                     NotificationDestination = "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
-    ///                 },
-    ///             },
-    ///             NotificationMode = AzureNative.ProviderHub.NotificationMode.EventHub,
-    ///         },
-    ///         ProviderNamespace = "Microsoft.Contoso",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:providerhub:NotificationRegistration fooNotificationRegistration /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/notificationRegistrations/{notificationRegistrationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:NotificationRegistration")]
     public partial class NotificationRegistration : global::Pulumi.CustomResource

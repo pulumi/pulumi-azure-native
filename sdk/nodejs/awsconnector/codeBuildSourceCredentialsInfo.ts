@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### CodeBuildSourceCredentialsInfos_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const codeBuildSourceCredentialsInfo = new azure_native.awsconnector.CodeBuildSourceCredentialsInfo("codeBuildSourceCredentialsInfo", {
- *     location: "ckmgfv",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "wdxdkxuukdnrlpqgkmmvfagzrwom",
- *         awsAccountId: "bgwhzakphzjipkxqwy",
- *         awsProperties: {
- *             arn: "ewe",
- *             authType: {
- *                 value: azure_native.awsconnector.AuthType.BASIC_AUTH,
- *             },
- *             resource: "cnzfvgfcneqgffgfclggx",
- *             serverType: {
- *                 value: azure_native.awsconnector.ServerType.BITBUCKET,
- *             },
- *         },
- *         awsRegion: "vywlxfetnso",
- *         awsSourceSchema: "rhibtnvrfkidnqhyynub",
- *         awsTags: {
- *             key3224: "eky",
- *         },
- *         publicCloudConnectorsResourceId: "cidijgvkoos",
- *         publicCloudResourceName: "uazcojlwlavznbfsrjzbtthat",
- *     },
- *     resourceGroupName: "rgcodeBuildSourceCredentialsInfo",
- *     tags: {
- *         key9473: "osnuolokdgmmhzpdajuqnguse",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:CodeBuildSourceCredentialsInfo abybajjjrfhfmlcj /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/codeBuildSourceCredentialsInfos/{name} 
- * ```
  */
 export class CodeBuildSourceCredentialsInfo extends pulumi.CustomResource {
     /**

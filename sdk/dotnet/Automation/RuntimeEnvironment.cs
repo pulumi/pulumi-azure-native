@@ -15,43 +15,6 @@ namespace Pulumi.AzureNative.Automation
     /// Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-15-preview.
     /// 
     /// Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update automation account
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var runtimeEnvironment = new AzureNative.Automation.RuntimeEnvironment("runtimeEnvironment", new()
-    ///     {
-    ///         AutomationAccountName = "myAutomationAccount9",
-    ///         DefaultPackages = 
-    ///         {
-    ///             { "Az", "8.3.0" },
-    ///         },
-    ///         Language = "PowerShell",
-    ///         Location = "East US 2",
-    ///         ResourceGroupName = "rg",
-    ///         RuntimeEnvironmentName = "myRuntimeEnvironmentName",
-    ///         Version = "7.1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:automation:RuntimeEnvironment myRuntimeEnvironmentName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/runtimeEnvironments/{runtimeEnvironmentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:RuntimeEnvironment")]
     public partial class RuntimeEnvironment : global::Pulumi.CustomResource

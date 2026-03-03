@@ -107,32 +107,6 @@ class ServerGroupPrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Approves or Rejects a Private Endpoint Connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_group_private_endpoint_connection = azure_native.dbforpostgresql.ServerGroupPrivateEndpointConnection("serverGroupPrivateEndpointConnection",
-            cluster_name="testcluster",
-            private_endpoint_connection_name="private-endpoint-connection-name",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": azure_native.dbforpostgresql.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="TestGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class ServerGroupPrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2023-03-02-preview.
 
         Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Approves or Rejects a Private Endpoint Connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_group_private_endpoint_connection = azure_native.dbforpostgresql.ServerGroupPrivateEndpointConnection("serverGroupPrivateEndpointConnection",
-            cluster_name="testcluster",
-            private_endpoint_connection_name="private-endpoint-connection-name",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": azure_native.dbforpostgresql.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="TestGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:ServerGroupPrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -300,58 +300,6 @@ class Route(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Routes_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        route = azure_native.cdn.Route("route",
-            cache_configuration={
-                "compression_settings": {
-                    "content_types_to_compress": [
-                        "text/html",
-                        "application/octet-stream",
-                    ],
-                    "is_compression_enabled": True,
-                },
-                "query_parameters": "querystring=test",
-                "query_string_caching_behavior": azure_native.cdn.AfdQueryStringCachingBehavior.IGNORE_SPECIFIED_QUERY_STRINGS,
-            },
-            custom_domains=[{
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
-            }],
-            enabled_state=azure_native.cdn.EnabledState.ENABLED,
-            endpoint_name="endpoint1",
-            forwarding_protocol=azure_native.cdn.ForwardingProtocol.MATCH_REQUEST,
-            https_redirect=azure_native.cdn.HttpsRedirect.ENABLED,
-            link_to_default_domain=azure_native.cdn.LinkToDefaultDomain.ENABLED,
-            origin_group={
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
-            },
-            patterns_to_match=["/*"],
-            profile_name="profile1",
-            resource_group_name="RG",
-            route_name="route1",
-            rule_sets=[{
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
-            }],
-            supported_protocols=[
-                azure_native.cdn.AFDEndpointProtocols.HTTPS,
-                azure_native.cdn.AFDEndpointProtocols.HTTP,
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:Route route1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/afdEndpoints/{endpointName}/routes/{routeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -383,58 +331,6 @@ class Route(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Routes_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        route = azure_native.cdn.Route("route",
-            cache_configuration={
-                "compression_settings": {
-                    "content_types_to_compress": [
-                        "text/html",
-                        "application/octet-stream",
-                    ],
-                    "is_compression_enabled": True,
-                },
-                "query_parameters": "querystring=test",
-                "query_string_caching_behavior": azure_native.cdn.AfdQueryStringCachingBehavior.IGNORE_SPECIFIED_QUERY_STRINGS,
-            },
-            custom_domains=[{
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
-            }],
-            enabled_state=azure_native.cdn.EnabledState.ENABLED,
-            endpoint_name="endpoint1",
-            forwarding_protocol=azure_native.cdn.ForwardingProtocol.MATCH_REQUEST,
-            https_redirect=azure_native.cdn.HttpsRedirect.ENABLED,
-            link_to_default_domain=azure_native.cdn.LinkToDefaultDomain.ENABLED,
-            origin_group={
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
-            },
-            patterns_to_match=["/*"],
-            profile_name="profile1",
-            resource_group_name="RG",
-            route_name="route1",
-            rule_sets=[{
-                "id": "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
-            }],
-            supported_protocols=[
-                azure_native.cdn.AFDEndpointProtocols.HTTPS,
-                azure_native.cdn.AFDEndpointProtocols.HTTP,
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:Route route1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/afdEndpoints/{endpointName}/routes/{routeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

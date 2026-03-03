@@ -211,42 +211,6 @@ class Linker(pulumi.CustomResource):
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PutLinker
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linker = azure_native.servicelinker.Linker("linker",
-            auth_info={
-                "auth_type": "secret",
-                "name": "name",
-                "secret_info": {
-                    "secret_type": "rawValue",
-                    "value": "secret",
-                },
-            },
-            linker_name="linkName",
-            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
-            target_service={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
-                "type": "AzureResource",
-            },
-            v_net_solution={
-                "type": azure_native.servicelinker.VNetSolutionType.SERVICE_ENDPOINT,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:servicelinker:Linker linkName /{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,42 +237,6 @@ class Linker(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01-preview.
 
         Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicelinker [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutLinker
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linker = azure_native.servicelinker.Linker("linker",
-            auth_info={
-                "auth_type": "secret",
-                "name": "name",
-                "secret_info": {
-                    "secret_type": "rawValue",
-                    "value": "secret",
-                },
-            },
-            linker_name="linkName",
-            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
-            target_service={
-                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
-                "type": "AzureResource",
-            },
-            v_net_solution={
-                "type": azure_native.servicelinker.VNetSolutionType.SERVICE_ENDPOINT,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:servicelinker:Linker linkName /{resourceUri}/providers/Microsoft.ServiceLinker/linkers/{linkerName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

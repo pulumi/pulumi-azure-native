@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
  * The view resource format.
  *
  * Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
- *
- * ## Example Usage
- * ### Views_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const view = new azure_native.customerinsights.View("view", {
- *     definition: "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
- *     displayName: {
- *         en: "some name",
- *     },
- *     hubName: "sdkTestHub",
- *     resourceGroupName: "TestHubRG",
- *     userId: "testUser",
- *     viewName: "testView",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:customerinsights:View sdkTestHub/testView /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/views/{viewName} 
- * ```
  */
 export class View extends pulumi.CustomResource {
     /**

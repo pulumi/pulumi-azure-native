@@ -125,69 +125,6 @@ class Dashboard(pulumi.CustomResource):
 
         Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a Dashboard
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dashboard = azure_native.portal.Dashboard("dashboard",
-            dashboard_name="testDashboard",
-            location="eastus",
-            properties={
-                "lenses": [
-                    {
-                        "order": 1,
-                        "parts": [
-                            {
-                                "position": {
-                                    "col_span": 3,
-                                    "row_span": 4,
-                                    "x": 1,
-                                    "y": 2,
-                                },
-                            },
-                            {
-                                "position": {
-                                    "col_span": 6,
-                                    "row_span": 6,
-                                    "x": 5,
-                                    "y": 5,
-                                },
-                            },
-                        ],
-                    },
-                    {
-                        "order": 2,
-                        "parts": [],
-                    },
-                ],
-                "metadata": {
-                    "metadata": {
-                        "ColSpan": 2,
-                        "RowSpan": 1,
-                        "X": 4,
-                        "Y": 3,
-                    },
-                },
-            },
-            resource_group_name="testRG",
-            tags={
-                "aKey": "aValue",
-                "anotherKey": "anotherValue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:portal:Dashboard testDashboard /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,69 +146,6 @@ class Dashboard(pulumi.CustomResource):
         Uses Azure REST API version 2022-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
 
         Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a Dashboard
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        dashboard = azure_native.portal.Dashboard("dashboard",
-            dashboard_name="testDashboard",
-            location="eastus",
-            properties={
-                "lenses": [
-                    {
-                        "order": 1,
-                        "parts": [
-                            {
-                                "position": {
-                                    "col_span": 3,
-                                    "row_span": 4,
-                                    "x": 1,
-                                    "y": 2,
-                                },
-                            },
-                            {
-                                "position": {
-                                    "col_span": 6,
-                                    "row_span": 6,
-                                    "x": 5,
-                                    "y": 5,
-                                },
-                            },
-                        ],
-                    },
-                    {
-                        "order": 2,
-                        "parts": [],
-                    },
-                ],
-                "metadata": {
-                    "metadata": {
-                        "ColSpan": 2,
-                        "RowSpan": 1,
-                        "X": 4,
-                        "Y": 3,
-                    },
-                },
-            },
-            resource_group_name="testRG",
-            tags={
-                "aKey": "aValue",
-                "anotherKey": "anotherValue",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:portal:Dashboard testDashboard /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

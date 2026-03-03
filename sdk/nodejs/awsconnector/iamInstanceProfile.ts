@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamInstanceProfiles_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamInstanceProfile = new azure_native.awsconnector.IamInstanceProfile("iamInstanceProfile", {
- *     location: "unn",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "djpzkfxattxqgrwdgl",
- *         awsAccountId: "zhhymhiivdmwoidycnqdtzarowwjm",
- *         awsProperties: {
- *             arn: "xfilqplkerenzrkykjnnoj",
- *             instanceProfileName: "ccstflwsxmpatrvscwxoukagqblzt",
- *             path: "edfwubhvvye",
- *             roles: ["nrvsijvbwdodraufvsxmbcbnm"],
- *         },
- *         awsRegion: "dwnkitebqhhqjrkjjlhtjryvhsuz",
- *         awsSourceSchema: "vitibwpeaozvgjcibxrqodn",
- *         awsTags: {
- *             key3394: "akkxrjgu",
- *         },
- *         publicCloudConnectorsResourceId: "opbcrtwimfuirxph",
- *         publicCloudResourceName: "qbxqhspttfymekhofojyqu",
- *     },
- *     resourceGroupName: "rgiamInstanceProfile",
- *     tags: {
- *         key6049: "bwwujf",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamInstanceProfile ynmvegpjcmemaimgdnca /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamInstanceProfiles/{name} 
- * ```
  */
 export class IamInstanceProfile extends pulumi.CustomResource {
     /**

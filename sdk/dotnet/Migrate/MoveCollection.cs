@@ -15,46 +15,6 @@ namespace Pulumi.AzureNative.Migrate
     /// Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2019-10-01-preview, 2021-01-01, 2021-08-01, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### MoveCollections_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var moveCollection = new AzureNative.Migrate.MoveCollection("moveCollection", new()
-    ///     {
-    ///         Identity = new AzureNative.Migrate.Inputs.IdentityArgs
-    ///         {
-    ///             Type = AzureNative.Migrate.ResourceIdentityType.SystemAssigned,
-    ///         },
-    ///         Location = "eastus2",
-    ///         MoveCollectionName = "movecollection1",
-    ///         Properties = new AzureNative.Migrate.Inputs.MoveCollectionPropertiesArgs
-    ///         {
-    ///             MoveType = AzureNative.Migrate.MoveType.RegionToRegion,
-    ///             SourceRegion = "eastus",
-    ///             TargetRegion = "westus",
-    ///         },
-    ///         ResourceGroupName = "rg1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:migrate:MoveCollection movecollection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MoveCollection")]
     public partial class MoveCollection : global::Pulumi.CustomResource

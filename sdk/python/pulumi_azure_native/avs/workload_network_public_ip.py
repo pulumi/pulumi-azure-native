@@ -123,30 +123,6 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### WorkloadNetworks_CreatePublicIP
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workload_network_public_ip = azure_native.avs.WorkloadNetworkPublicIP("workloadNetworkPublicIP",
-            display_name="publicIP1",
-            number_of_public_ips=32,
-            private_cloud_name="cloud1",
-            public_ip_id="publicIP1",
-            resource_group_name="group1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:avs:WorkloadNetworkPublicIP publicIP1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,30 +144,6 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
 
         Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### WorkloadNetworks_CreatePublicIP
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workload_network_public_ip = azure_native.avs.WorkloadNetworkPublicIP("workloadNetworkPublicIP",
-            display_name="publicIP1",
-            number_of_public_ips=32,
-            private_cloud_name="cloud1",
-            public_ip_id="publicIP1",
-            resource_group_name="group1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:avs:WorkloadNetworkPublicIP publicIP1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

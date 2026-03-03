@@ -11,47 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### KmsAliases_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const kmsAlias = new azure_native.awsconnector.KmsAlias("kmsAlias", {
- *     location: "zsrefx",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "seecdsob",
- *         awsAccountId: "mi",
- *         awsProperties: {
- *             aliasName: "qpqfyfsgzbqqqwohdqogpksketglb",
- *             targetKeyId: "fgiefgtmhdrvw",
- *         },
- *         awsRegion: "zofqccwhxvtaeqhhtqwmruhcjkro",
- *         awsSourceSchema: "iwkqjxnfjutfnhhocco",
- *         awsTags: {
- *             key6582: "wejhqyokgch",
- *         },
- *         publicCloudConnectorsResourceId: "n",
- *         publicCloudResourceName: "qrdvkbofzddttwvcfunr",
- *     },
- *     resourceGroupName: "rgkmsAlias",
- *     tags: {
- *         key1437: "lfgpfgxqkrvrlhnpwtzafonw",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:KmsAlias runvybddwo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/kmsAliases/{name} 
- * ```
  */
 export class KmsAlias extends pulumi.CustomResource {
     /**

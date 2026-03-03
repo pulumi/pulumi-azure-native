@@ -13,47 +13,6 @@ namespace Pulumi.AzureNative.Web
     /// A custom API
     /// 
     /// Uses Azure REST API version 2016-06-01. In version 2.x of the Azure Native provider, it used API version 2016-06-01.
-    /// 
-    /// ## Example Usage
-    /// ### Replace a custom API
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var customApi = new AzureNative.Web.CustomApi("customApi", new()
-    ///     {
-    ///         ApiName = "testCustomApi",
-    ///         Properties = new AzureNative.Web.Inputs.CustomApiPropertiesDefinitionArgs
-    ///         {
-    ///             ApiDefinitions = new AzureNative.Web.Inputs.ApiResourceDefinitionsArgs
-    ///             {
-    ///                 OriginalSwaggerUrl = "https://tempuri.org/swagger.json",
-    ///             },
-    ///             ApiType = AzureNative.Web.ApiType.Rest,
-    ///             Capabilities = new() { },
-    ///             Description = "",
-    ///             DisplayName = "testCustomApi",
-    ///             IconUri = "/testIcon.svg",
-    ///         },
-    ///         ResourceGroupName = "testResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:web:CustomApi testCustomApi /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/customApis/{apiName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:CustomApi")]
     public partial class CustomApi : global::Pulumi.CustomResource

@@ -123,69 +123,6 @@ class SecretsManagerSecret(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### SecretsManagerSecrets_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secrets_manager_secret = azure_native.awsconnector.SecretsManagerSecret("secretsManagerSecret",
-            location="balqdxuifwdmtcinyxjit",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "qxrdtehsmibehk",
-                "aws_account_id": "wtxdsgybisrqopffdhreyacjrysd",
-                "aws_properties": {
-                    "description": "esljjbmcrcqe",
-                    "generate_secret_string": {
-                        "exclude_characters": "hsixzpgawn",
-                        "exclude_lowercase": True,
-                        "exclude_numbers": True,
-                        "exclude_punctuation": True,
-                        "exclude_uppercase": True,
-                        "generate_string_key": "dxyswggnusnewllmvmoskwswk",
-                        "include_space": True,
-                        "password_length": 17,
-                        "require_each_included_type": True,
-                        "secret_string_template": "qgspiepreoyooekaprlglfjbvittue",
-                    },
-                    "id": "vpnzmovjfbrltixnsgeml",
-                    "kms_key_id": "vunob",
-                    "name": "jqmtr",
-                    "replica_regions": [{
-                        "kms_key_id": "bkyubkuxwbasjkguqm",
-                        "region": "m",
-                    }],
-                    "secret_string": "sbroa",
-                    "tags": [{
-                        "key": "ybodkythhxmehguhlrmodxhcduf",
-                        "value": "wrci",
-                    }],
-                },
-                "aws_region": "mw",
-                "aws_source_schema": "whhfrjfzgejfasbcycqe",
-                "aws_tags": {
-                    "key4141": "jdlhnhoxtob",
-                },
-                "public_cloud_connectors_resource_id": "osnofxgmgmrsc",
-                "public_cloud_resource_name": "wj",
-            },
-            resource_group_name="rgsecretsManagerSecret",
-            tags={
-                "key1461": "aqew",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:SecretsManagerSecret fhctmzwyqjl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/secretsManagerSecrets/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,69 +142,6 @@ class SecretsManagerSecret(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### SecretsManagerSecrets_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secrets_manager_secret = azure_native.awsconnector.SecretsManagerSecret("secretsManagerSecret",
-            location="balqdxuifwdmtcinyxjit",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "qxrdtehsmibehk",
-                "aws_account_id": "wtxdsgybisrqopffdhreyacjrysd",
-                "aws_properties": {
-                    "description": "esljjbmcrcqe",
-                    "generate_secret_string": {
-                        "exclude_characters": "hsixzpgawn",
-                        "exclude_lowercase": True,
-                        "exclude_numbers": True,
-                        "exclude_punctuation": True,
-                        "exclude_uppercase": True,
-                        "generate_string_key": "dxyswggnusnewllmvmoskwswk",
-                        "include_space": True,
-                        "password_length": 17,
-                        "require_each_included_type": True,
-                        "secret_string_template": "qgspiepreoyooekaprlglfjbvittue",
-                    },
-                    "id": "vpnzmovjfbrltixnsgeml",
-                    "kms_key_id": "vunob",
-                    "name": "jqmtr",
-                    "replica_regions": [{
-                        "kms_key_id": "bkyubkuxwbasjkguqm",
-                        "region": "m",
-                    }],
-                    "secret_string": "sbroa",
-                    "tags": [{
-                        "key": "ybodkythhxmehguhlrmodxhcduf",
-                        "value": "wrci",
-                    }],
-                },
-                "aws_region": "mw",
-                "aws_source_schema": "whhfrjfzgejfasbcycqe",
-                "aws_tags": {
-                    "key4141": "jdlhnhoxtob",
-                },
-                "public_cloud_connectors_resource_id": "osnofxgmgmrsc",
-                "public_cloud_resource_name": "wj",
-            },
-            resource_group_name="rgsecretsManagerSecret",
-            tags={
-                "key1461": "aqew",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:SecretsManagerSecret fhctmzwyqjl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/secretsManagerSecrets/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -11,45 +11,6 @@ import * as utilities from "../utilities";
  * Agent Deployment resource
  *
  * Uses Azure REST API version 2025-10-01-preview.
- *
- * ## Example Usage
- * ### Create or Update Agent Deployment.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const agentDeployment = new azure_native.cognitiveservices.AgentDeployment("agentDeployment", {
- *     accountName: "my-cognitive-services-account",
- *     appName: "agent-app-1",
- *     deploymentName: "deployment-1",
- *     projectName: "my-project",
- *     properties: {
- *         agents: [{
- *             agentId: "agent-123",
- *             agentName: "support-agent",
- *             agentVersion: "1.0.0",
- *         }],
- *         deploymentType: "Managed",
- *         displayName: "Production Deployment",
- *         protocols: [{
- *             protocol: azure_native.cognitiveservices.AgentProtocol.Agent,
- *             version: "1.0",
- *         }],
- *         state: azure_native.cognitiveservices.AgentDeploymentState.Starting,
- *     },
- *     resourceGroupName: "test-rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:AgentDeployment deployment-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{appName}/agentDeployments/{deploymentName} 
- * ```
  */
 export class AgentDeployment extends pulumi.CustomResource {
     /**

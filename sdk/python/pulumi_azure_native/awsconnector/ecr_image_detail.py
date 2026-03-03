@@ -124,66 +124,6 @@ class EcrImageDetail(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### EcrImageDetails_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ecr_image_detail = azure_native.awsconnector.EcrImageDetail("ecrImageDetail",
-            location="mpxszpyclsniahaoqerqewrzxyzcdt",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "dhvgwgtedzuiqdvgc",
-                "aws_account_id": "yqyxjsfibyscdhyofmyu",
-                "aws_properties": {
-                    "artifact_media_type": "ciuahpzw",
-                    "image_digest": "mfgr",
-                    "image_manifest_media_type": "arzsyssziqvvryqc",
-                    "image_pushed_at": "2024-10-08T03:51:24.487Z",
-                    "image_scan_findings_summary": {
-                        "finding_severity_counts": {
-                            "key9764": 10,
-                        },
-                        "image_scan_completed_at": "2024-10-08T03:51:24.488Z",
-                        "vulnerability_source_updated_at": "2024-10-08T03:51:24.488Z",
-                    },
-                    "image_scan_status": {
-                        "description": "kvsqwhxzrnciqybnl",
-                        "status": {
-                            "value": azure_native.awsconnector.ScanStatus.ACTIVE,
-                        },
-                    },
-                    "image_size_in_bytes": 18,
-                    "image_tags": ["bwikpoljnmaoewepiunoltcxlyxd"],
-                    "last_recorded_pull_time": "2024-10-08T03:51:24.488Z",
-                    "registry_id": "xpxtbbeejeosvtcvq",
-                    "repository_name": "abftxvvazyfekkcpo",
-                },
-                "aws_region": "atlamkemuqwaezwdsuavhaqo",
-                "aws_source_schema": "ibsdsdpuiqcwsdxqfn",
-                "aws_tags": {
-                    "key4659": "sgfdrvhgloyrvwyfqxyvzmhu",
-                },
-                "public_cloud_connectors_resource_id": "glrdicxdaktwlkvgvxurgww",
-                "public_cloud_resource_name": "gijthpfhduauuus",
-            },
-            resource_group_name="rgecrImageDetail",
-            tags={
-                "key9132": "faznbwmprsja",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:EcrImageDetail txgcvtvpadhbmhr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecrImageDetails/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,66 +143,6 @@ class EcrImageDetail(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### EcrImageDetails_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ecr_image_detail = azure_native.awsconnector.EcrImageDetail("ecrImageDetail",
-            location="mpxszpyclsniahaoqerqewrzxyzcdt",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "dhvgwgtedzuiqdvgc",
-                "aws_account_id": "yqyxjsfibyscdhyofmyu",
-                "aws_properties": {
-                    "artifact_media_type": "ciuahpzw",
-                    "image_digest": "mfgr",
-                    "image_manifest_media_type": "arzsyssziqvvryqc",
-                    "image_pushed_at": "2024-10-08T03:51:24.487Z",
-                    "image_scan_findings_summary": {
-                        "finding_severity_counts": {
-                            "key9764": 10,
-                        },
-                        "image_scan_completed_at": "2024-10-08T03:51:24.488Z",
-                        "vulnerability_source_updated_at": "2024-10-08T03:51:24.488Z",
-                    },
-                    "image_scan_status": {
-                        "description": "kvsqwhxzrnciqybnl",
-                        "status": {
-                            "value": azure_native.awsconnector.ScanStatus.ACTIVE,
-                        },
-                    },
-                    "image_size_in_bytes": 18,
-                    "image_tags": ["bwikpoljnmaoewepiunoltcxlyxd"],
-                    "last_recorded_pull_time": "2024-10-08T03:51:24.488Z",
-                    "registry_id": "xpxtbbeejeosvtcvq",
-                    "repository_name": "abftxvvazyfekkcpo",
-                },
-                "aws_region": "atlamkemuqwaezwdsuavhaqo",
-                "aws_source_schema": "ibsdsdpuiqcwsdxqfn",
-                "aws_tags": {
-                    "key4659": "sgfdrvhgloyrvwyfqxyvzmhu",
-                },
-                "public_cloud_connectors_resource_id": "glrdicxdaktwlkvgvxurgww",
-                "public_cloud_resource_name": "gijthpfhduauuus",
-            },
-            resource_group_name="rgecrImageDetail",
-            tags={
-                "key9132": "faznbwmprsja",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:EcrImageDetail txgcvtvpadhbmhr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ecrImageDetails/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

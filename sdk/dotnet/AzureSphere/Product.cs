@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.AzureSphere
     /// An product resource belonging to a catalog resource.
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Products_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var product = new AzureNative.AzureSphere.Product("product", new()
-    ///     {
-    ///         CatalogName = "MyCatalog1",
-    ///         ProductName = "MyProduct1",
-    ///         ResourceGroupName = "MyResourceGroup1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azuresphere:Product MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Product")]
     public partial class Product : global::Pulumi.CustomResource

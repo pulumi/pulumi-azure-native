@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// Uses Azure REST API version 2024-06-30-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-31-preview.
     /// 
     /// Other available API versions: 2022-08-31-preview, 2023-12-10-preview, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CloudHsmClusterPrivateEndpointConnection_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cloudHsmClusterPrivateEndpointConnection = new AzureNative.HardwareSecurityModules.CloudHsmClusterPrivateEndpointConnection("cloudHsmClusterPrivateEndpointConnection", new()
-    ///     {
-    ///         CloudHsmClusterName = "chsm1",
-    ///         PeConnectionName = "sample-pec",
-    ///         PrivateLinkServiceConnectionState = new AzureNative.HardwareSecurityModules.Inputs.PrivateLinkServiceConnectionStateArgs
-    ///         {
-    ///             Description = "My name is Joe and I'm approving this.",
-    ///             Status = AzureNative.HardwareSecurityModules.PrivateEndpointServiceConnectionStatus.Approved,
-    ///         },
-    ///         ResourceGroupName = "rgcloudhsm",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection sample-pec /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/{cloudHsmClusterName}/privateEndpointConnections/{peConnectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")]
     public partial class CloudHsmClusterPrivateEndpointConnection : global::Pulumi.CustomResource

@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
  *
  * Uses Azure REST API version 2019-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-11-01-preview.
- *
- * ## Example Usage
- * ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.datalakeanalytics.Account("account", {
- *     accountName: "contosoadla",
- *     computePolicies: [{
- *         maxDegreeOfParallelismPerJob: 1,
- *         minPriorityPerJob: 1,
- *         name: "test_policy",
- *         objectId: "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
- *         objectType: azure_native.datalakeanalytics.AADObjectType.User,
- *     }],
- *     dataLakeStoreAccounts: [{
- *         name: "test_adls",
- *         suffix: "test_suffix",
- *     }],
- *     defaultDataLakeStoreAccount: "test_adls",
- *     firewallAllowAzureIps: azure_native.datalakeanalytics.FirewallAllowAzureIpsState.Enabled,
- *     firewallRules: [{
- *         endIpAddress: "2.2.2.2",
- *         name: "test_rule",
- *         startIpAddress: "1.1.1.1",
- *     }],
- *     firewallState: azure_native.datalakeanalytics.FirewallState.Enabled,
- *     location: "eastus2",
- *     maxDegreeOfParallelism: 30,
- *     maxDegreeOfParallelismPerJob: 1,
- *     maxJobCount: 3,
- *     minPriorityPerJob: 1,
- *     newTier: azure_native.datalakeanalytics.TierType.Consumption,
- *     queryStoreRetention: 30,
- *     resourceGroupName: "contosorg",
- *     storageAccounts: [{
- *         accessKey: "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
- *         name: "test_storage",
- *         suffix: "test_suffix",
- *     }],
- *     tags: {
- *         test_key: "test_value",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datalakeanalytics:Account test_account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName} 
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

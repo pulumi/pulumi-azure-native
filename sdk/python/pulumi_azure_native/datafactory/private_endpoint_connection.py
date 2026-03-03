@@ -105,38 +105,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### Approves or rejects a private endpoint connection for a factory.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.datafactory.PrivateEndpointConnection("privateEndpointConnection",
-            factory_name="exampleFactoryName",
-            private_endpoint_connection_name="connection",
-            properties={
-                "private_endpoint": {
-                    "id": "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/privateEndpoints/myPrivateEndpoint",
-                },
-                "private_link_service_connection_state": {
-                    "actions_required": "",
-                    "description": "Approved by admin.",
-                    "status": "Approved",
-                },
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:PrivateEndpointConnection exampleFactoryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,38 +123,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Private Endpoint Connection ARM resource.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### Approves or rejects a private endpoint connection for a factory.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.datafactory.PrivateEndpointConnection("privateEndpointConnection",
-            factory_name="exampleFactoryName",
-            private_endpoint_connection_name="connection",
-            properties={
-                "private_endpoint": {
-                    "id": "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/privateEndpoints/myPrivateEndpoint",
-                },
-                "private_link_service_connection_state": {
-                    "actions_required": "",
-                    "description": "Approved by admin.",
-                    "status": "Approved",
-                },
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:PrivateEndpointConnection exampleFactoryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

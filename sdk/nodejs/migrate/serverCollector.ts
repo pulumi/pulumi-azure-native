@@ -9,42 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2019-10-01. In version 2.x of the Azure Native provider, it used API version 2019-10-01.
- *
- * ## Example Usage
- * ### ServerCollectors_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serverCollector = new azure_native.migrate.ServerCollector("serverCollector", {
- *     eTag: "\"00000606-0000-0d00-0000-605999bf0000\"",
- *     projectName: "app11141project",
- *     properties: {
- *         agentProperties: {
- *             spnDetails: {
- *                 applicationId: "ad9f701a-cc08-4421-b51f-b5762d58e9ba",
- *                 audience: "https://72f988bf-86f1-41af-91ab-2d7cd011db47/app23df4authandaccessaadapp",
- *                 authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
- *                 objectId: "b4975e42-9248-4a36-b99f-37eca377ea00",
- *                 tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
- *             },
- *         },
- *         discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/ServerSites/app21141site",
- *     },
- *     resourceGroupName: "pajindtest",
- *     serverCollectorName: "app23df4collector",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:ServerCollector app23df4collector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/servercollectors/{serverCollectorName} 
- * ```
  */
 export class ServerCollector extends pulumi.CustomResource {
     /**

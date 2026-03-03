@@ -123,54 +123,6 @@ class IamPasswordPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### IamPasswordPolicies_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_password_policy = azure_native.awsconnector.IamPasswordPolicy("iamPasswordPolicy",
-            location="zirvnbwoooczkma",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "irgrdslydjpuoyb",
-                "aws_account_id": "iiripspbzbqibqazbnef",
-                "aws_properties": {
-                    "allow_users_to_change_password": True,
-                    "expire_passwords": True,
-                    "hard_expiry": True,
-                    "max_password_age": 1,
-                    "minimum_password_length": 17,
-                    "password_reuse_prevention": 30,
-                    "require_lowercase_characters": True,
-                    "require_numbers": True,
-                    "require_symbols": True,
-                    "require_uppercase_characters": True,
-                },
-                "aws_region": "mqpdjjdzdwew",
-                "aws_source_schema": "gud",
-                "aws_tags": {
-                    "key6748": "bdnkhafiylgulql",
-                },
-                "public_cloud_connectors_resource_id": "zsyi",
-                "public_cloud_resource_name": "zuwprynvflpuik",
-            },
-            resource_group_name="rgiamPasswordPolicy",
-            tags={
-                "key5111": "zzliqszhvi",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamPasswordPolicy wlazqv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamPasswordPolicies/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,54 +142,6 @@ class IamPasswordPolicy(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### IamPasswordPolicies_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_password_policy = azure_native.awsconnector.IamPasswordPolicy("iamPasswordPolicy",
-            location="zirvnbwoooczkma",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "irgrdslydjpuoyb",
-                "aws_account_id": "iiripspbzbqibqazbnef",
-                "aws_properties": {
-                    "allow_users_to_change_password": True,
-                    "expire_passwords": True,
-                    "hard_expiry": True,
-                    "max_password_age": 1,
-                    "minimum_password_length": 17,
-                    "password_reuse_prevention": 30,
-                    "require_lowercase_characters": True,
-                    "require_numbers": True,
-                    "require_symbols": True,
-                    "require_uppercase_characters": True,
-                },
-                "aws_region": "mqpdjjdzdwew",
-                "aws_source_schema": "gud",
-                "aws_tags": {
-                    "key6748": "bdnkhafiylgulql",
-                },
-                "public_cloud_connectors_resource_id": "zsyi",
-                "public_cloud_resource_name": "zuwprynvflpuik",
-            },
-            resource_group_name="rgiamPasswordPolicy",
-            tags={
-                "key5111": "zzliqszhvi",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamPasswordPolicy wlazqv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamPasswordPolicies/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

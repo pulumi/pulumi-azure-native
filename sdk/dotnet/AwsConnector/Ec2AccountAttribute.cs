@@ -13,64 +13,6 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### Ec2AccountAttributes_CreateOrReplace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ec2AccountAttribute = new AzureNative.AwsConnector.Ec2AccountAttribute("ec2AccountAttribute", new()
-    ///     {
-    ///         Location = "mxywielgbokfdxxwuudnbwzjcf",
-    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-    ///         Properties = new AzureNative.AwsConnector.Inputs.Ec2AccountAttributePropertiesArgs
-    ///         {
-    ///             Arn = "ttwi",
-    ///             AwsAccountId = "jzeepmbcwiwakwsvqakkaz",
-    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsEc2AccountAttributePropertiesArgs
-    ///             {
-    ///                 AttributeName = "vsrccnoksnxyyisrlfzkuj",
-    ///                 AttributeValues = new[]
-    ///                 {
-    ///                     new AzureNative.AwsConnector.Inputs.AccountAttributeValueArgs
-    ///                     {
-    ///                         AttributeValue = "lvlyhjnivtpgkbt",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             AwsRegion = "ojtquhkurhjtoocjpjyibb",
-    ///             AwsSourceSchema = "njukzwmmwgmvurer",
-    ///             AwsTags = 
-    ///             {
-    ///                 { "key2779", "qzjyzsygumaykisfigqlypvu" },
-    ///             },
-    ///             PublicCloudConnectorsResourceId = "rmmqxjdxoe",
-    ///             PublicCloudResourceName = "lhdzqjxtfagnhbdjev",
-    ///         },
-    ///         ResourceGroupName = "rgec2AccountAttribute",
-    ///         Tags = 
-    ///         {
-    ///             { "key6022", "psppjmksguimpyjugsfgrp" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:awsconnector:Ec2AccountAttribute gwbo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2AccountAttributes/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:Ec2AccountAttribute")]
     public partial class Ec2AccountAttribute : global::Pulumi.CustomResource

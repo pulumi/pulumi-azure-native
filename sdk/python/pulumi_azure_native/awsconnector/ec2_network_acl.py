@@ -123,50 +123,6 @@ class Ec2NetworkAcl(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### Ec2NetworkAcls_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_network_acl = azure_native.awsconnector.Ec2NetworkAcl("ec2NetworkAcl",
-            location="fshtit",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "mwwchyidvtcm",
-                "aws_account_id": "nwnjrjumgvvtfndyaxyiwbugmdk",
-                "aws_properties": {
-                    "id": "qgxcaonshnjzgtrwpbtgtnec",
-                    "tags": [{
-                        "key": "ybqfvnnjihkyssxqqynvpdtbdt",
-                        "value": "szjckvzlsvasj",
-                    }],
-                    "vpc_id": "wifperjiuulltgxcljqwnaeyscd",
-                },
-                "aws_region": "zmntebskjciytwfcjyj",
-                "aws_source_schema": "hqiutsyaxzitfwtekhw",
-                "aws_tags": {
-                    "key8049": "yfihxfeqfujhxxqpzpttbewzztgdix",
-                },
-                "public_cloud_connectors_resource_id": "thejbzeletryigazixejsz",
-                "public_cloud_resource_name": "dniirwtrtuvjlcdcjq",
-            },
-            resource_group_name="rgec2NetworkAcl",
-            tags={
-                "key7602": "dffxjegkksnmrmfplzhq",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2NetworkAcl cvogwcrrjooylziw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2NetworkAcls/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,50 +142,6 @@ class Ec2NetworkAcl(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### Ec2NetworkAcls_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_network_acl = azure_native.awsconnector.Ec2NetworkAcl("ec2NetworkAcl",
-            location="fshtit",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "mwwchyidvtcm",
-                "aws_account_id": "nwnjrjumgvvtfndyaxyiwbugmdk",
-                "aws_properties": {
-                    "id": "qgxcaonshnjzgtrwpbtgtnec",
-                    "tags": [{
-                        "key": "ybqfvnnjihkyssxqqynvpdtbdt",
-                        "value": "szjckvzlsvasj",
-                    }],
-                    "vpc_id": "wifperjiuulltgxcljqwnaeyscd",
-                },
-                "aws_region": "zmntebskjciytwfcjyj",
-                "aws_source_schema": "hqiutsyaxzitfwtekhw",
-                "aws_tags": {
-                    "key8049": "yfihxfeqfujhxxqpzpttbewzztgdix",
-                },
-                "public_cloud_connectors_resource_id": "thejbzeletryigazixejsz",
-                "public_cloud_resource_name": "dniirwtrtuvjlcdcjq",
-            },
-            resource_group_name="rgec2NetworkAcl",
-            tags={
-                "key7602": "dffxjegkksnmrmfplzhq",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2NetworkAcl cvogwcrrjooylziw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2NetworkAcls/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

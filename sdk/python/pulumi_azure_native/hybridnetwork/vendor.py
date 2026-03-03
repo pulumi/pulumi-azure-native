@@ -55,25 +55,6 @@ class Vendor(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        ## Example Usage
-        ### Create or update Vendor resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        vendor = azure_native.hybridnetwork.Vendor("vendor", vendor_name="TestVendor")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:Vendor TestVendor /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,25 +70,6 @@ class Vendor(pulumi.CustomResource):
         Vendor resource.
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
-
-        ## Example Usage
-        ### Create or update Vendor resource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        vendor = azure_native.hybridnetwork.Vendor("vendor", vendor_name="TestVendor")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:Vendor TestVendor /subscriptions/{subscriptionId}/providers/Microsoft.HybridNetwork/vendors/{vendorName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

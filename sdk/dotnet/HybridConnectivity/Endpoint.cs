@@ -15,57 +15,6 @@ namespace Pulumi.AzureNative.HybridConnectivity
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
     /// 
     /// Other available API versions: 2023-03-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridconnectivity [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### HybridConnectivityEndpointsPutCustom
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var endpoint = new AzureNative.HybridConnectivity.Endpoint("endpoint", new()
-    ///     {
-    ///         EndpointName = "custom",
-    ///         ResourceId = "/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
-    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
-    ///         Type = AzureNative.HybridConnectivity.Type.Custom,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### HybridConnectivityEndpointsPutDefault
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var endpoint = new AzureNative.HybridConnectivity.Endpoint("endpoint", new()
-    ///     {
-    ///         EndpointName = "default",
-    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
-    ///         Type = AzureNative.HybridConnectivity.Type.@Default,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hybridconnectivity:Endpoint default /{resourceUri}/providers/Microsoft.HybridConnectivity/endpoints/{endpointName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

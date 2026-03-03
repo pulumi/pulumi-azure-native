@@ -15,57 +15,6 @@ namespace Pulumi.AzureNative.BotService
     /// Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
     /// 
     /// Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Connection Setting
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var botConnection = new AzureNative.BotService.BotConnection("botConnection", new()
-    ///     {
-    ///         ConnectionName = "sampleConnection",
-    ///         Location = "West US",
-    ///         Properties = new AzureNative.BotService.Inputs.ConnectionSettingPropertiesArgs
-    ///         {
-    ///             ClientId = "sampleclientid",
-    ///             ClientSecret = "samplesecret",
-    ///             Parameters = new[]
-    ///             {
-    ///                 new AzureNative.BotService.Inputs.ConnectionSettingParameterArgs
-    ///                 {
-    ///                     Key = "key1",
-    ///                     Value = "value1",
-    ///                 },
-    ///                 new AzureNative.BotService.Inputs.ConnectionSettingParameterArgs
-    ///                 {
-    ///                     Key = "key2",
-    ///                     Value = "value2",
-    ///                 },
-    ///             },
-    ///             Scopes = "samplescope",
-    ///             ServiceProviderId = "serviceproviderid",
-    ///         },
-    ///         ResourceGroupName = "OneResourceGroupName",
-    ///         ResourceName = "samplebotname",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:botservice:BotConnection sampleConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/connections/{connectionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:BotConnection")]
     public partial class BotConnection : global::Pulumi.CustomResource

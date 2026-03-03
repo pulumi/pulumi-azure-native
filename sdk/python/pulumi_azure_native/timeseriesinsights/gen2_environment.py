@@ -190,27 +190,6 @@ class Gen2Environment(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
-        ## Example Usage
-        ### EnvironmentsCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gen2_environment = azure_native.timeseriesinsights.Gen2Environment("gen2Environment",
-            environment_name="env1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:timeseriesinsights:Gen2Environment env1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,27 +214,6 @@ class Gen2Environment(pulumi.CustomResource):
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
-
-        ## Example Usage
-        ### EnvironmentsCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gen2_environment = azure_native.timeseriesinsights.Gen2Environment("gen2Environment",
-            environment_name="env1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:timeseriesinsights:Gen2Environment env1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

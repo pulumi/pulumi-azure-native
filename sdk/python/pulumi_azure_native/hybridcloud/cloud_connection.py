@@ -174,36 +174,6 @@ class CloudConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
-        ## Example Usage
-        ### Create a Cloud Connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cloud_connection = azure_native.hybridcloud.CloudConnection("cloudConnection",
-            cloud_connection_name="cloudconnection1",
-            cloud_connector={
-                "id": "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.HybridCloud/cloudConnectors/123456789012",
-            },
-            location="West US",
-            remote_resource_id="arn:aws:ec2:us-east-1:123456789012:VPNGateway/vgw-043da592550819c8a",
-            resource_group_name="demo-rg",
-            shared_key="password123",
-            virtual_hub={
-                "id": "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.Network/VirtualHubs/testHub",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcloud:CloudConnection cloudconnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnections/{cloudConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,36 +196,6 @@ class CloudConnection(pulumi.CustomResource):
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
 
         Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
-
-        ## Example Usage
-        ### Create a Cloud Connection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cloud_connection = azure_native.hybridcloud.CloudConnection("cloudConnection",
-            cloud_connection_name="cloudconnection1",
-            cloud_connector={
-                "id": "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.HybridCloud/cloudConnectors/123456789012",
-            },
-            location="West US",
-            remote_resource_id="arn:aws:ec2:us-east-1:123456789012:VPNGateway/vgw-043da592550819c8a",
-            resource_group_name="demo-rg",
-            shared_key="password123",
-            virtual_hub={
-                "id": "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.Network/VirtualHubs/testHub",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcloud:CloudConnection cloudconnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnections/{cloudConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

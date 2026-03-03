@@ -141,38 +141,6 @@ class InboundEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Upsert inbound endpoint for DNS resolver
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        inbound_endpoint = azure_native.dnsresolver.InboundEndpoint("inboundEndpoint",
-            dns_resolver_name="sampleDnsResolver",
-            inbound_endpoint_name="sampleInboundEndpoint",
-            ip_configurations=[{
-                "private_ip_allocation_method": azure_native.dnsresolver.IpAllocationMethod.DYNAMIC,
-                "subnet": {
-                    "id": "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
-                },
-            }],
-            location="westus2",
-            resource_group_name="sampleResourceGroup",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dnsresolver:InboundEndpoint sampleInboundEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}/inboundEndpoints/{inboundEndpointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,38 +163,6 @@ class InboundEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01-preview.
 
         Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Upsert inbound endpoint for DNS resolver
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        inbound_endpoint = azure_native.dnsresolver.InboundEndpoint("inboundEndpoint",
-            dns_resolver_name="sampleDnsResolver",
-            inbound_endpoint_name="sampleInboundEndpoint",
-            ip_configurations=[{
-                "private_ip_allocation_method": azure_native.dnsresolver.IpAllocationMethod.DYNAMIC,
-                "subnet": {
-                    "id": "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
-                },
-            }],
-            location="westus2",
-            resource_group_name="sampleResourceGroup",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dnsresolver:InboundEndpoint sampleInboundEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName}/inboundEndpoints/{inboundEndpointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

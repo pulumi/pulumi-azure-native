@@ -10,39 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope for Project CapabilityHost.
  *
- * Uses Azure REST API version 2025-04-01-preview.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateOrUpdate Project CapabilityHost.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const projectCapabilityHost = new azure_native.cognitiveservices.ProjectCapabilityHost("projectCapabilityHost", {
- *     accountName: "account-1",
- *     capabilityHostName: "capabilityHostName",
- *     projectCapabilityHostProperties: {
- *         aiServicesConnections: ["aoai_connection"],
- *         storageConnections: ["blob_connection"],
- *         threadStorageConnections: ["aca_connection"],
- *         vectorStoreConnections: ["acs_connection"],
- *     },
- *     projectName: "project-1",
- *     resourceGroupName: "test-rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:ProjectCapabilityHost capabilityHostName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/capabilityHosts/{capabilityHostName} 
- * ```
+ * Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ProjectCapabilityHost extends pulumi.CustomResource {
     /**

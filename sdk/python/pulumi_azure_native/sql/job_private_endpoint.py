@@ -120,30 +120,6 @@ class JobPrivateEndpoint(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create a private endpoint.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        job_private_endpoint = azure_native.sql.JobPrivateEndpoint("jobPrivateEndpoint",
-            job_agent_name="agent1",
-            private_endpoint_name="endpoint1",
-            resource_group_name="group1",
-            server_name="server1",
-            target_server_azure_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/targetserver1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:JobPrivateEndpoint endpoint1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/privateEndpoints/{privateEndpointName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,30 +141,6 @@ class JobPrivateEndpoint(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create a private endpoint.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        job_private_endpoint = azure_native.sql.JobPrivateEndpoint("jobPrivateEndpoint",
-            job_agent_name="agent1",
-            private_endpoint_name="endpoint1",
-            resource_group_name="group1",
-            server_name="server1",
-            target_server_azure_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/targetserver1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:JobPrivateEndpoint endpoint1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAgents/{jobAgentName}/privateEndpoints/{privateEndpointName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

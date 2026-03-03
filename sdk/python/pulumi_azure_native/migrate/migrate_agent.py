@@ -139,55 +139,6 @@ class MigrateAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
 
-        ## Example Usage
-        ### MigrateAgent_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migrate_agent = azure_native.migrate.MigrateAgent("migrateAgent",
-            agent_name="l",
-            modernize_project_name="rq1yec",
-            properties={
-                "authentication_identity": {
-                    "aad_authority": "isbicanvfefdaci",
-                    "application_id": "dibfqwjrnzikktkwe",
-                    "audience": "yrfxszjhkczoyfi",
-                    "object_id": "xfhhdosr",
-                    "tenant_id": "uwceuawplakwjswbvllffbsz",
-                },
-                "custom_properties": {},
-                "machine_id": "sihoniqzqfz",
-                "machine_name": "glhejppirkiamgxxro",
-            },
-            resource_group_name="rgmigrateEngine",
-            tags={
-                "key5560": "jgffrfcgjrm",
-            })
-
-        ```
-        ### MigrateAgent_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migrate_agent = azure_native.migrate.MigrateAgent("migrateAgent",
-            agent_name="e85v",
-            modernize_project_name="l77ak",
-            resource_group_name="rgmigrateEngine")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:MigrateAgent icysfvhjjgwhxx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/migrateAgents/{agentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,55 +159,6 @@ class MigrateAgent(pulumi.CustomResource):
         MigrateAgent model.
 
         Uses Azure REST API version 2022-05-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-01-preview.
-
-        ## Example Usage
-        ### MigrateAgent_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migrate_agent = azure_native.migrate.MigrateAgent("migrateAgent",
-            agent_name="l",
-            modernize_project_name="rq1yec",
-            properties={
-                "authentication_identity": {
-                    "aad_authority": "isbicanvfefdaci",
-                    "application_id": "dibfqwjrnzikktkwe",
-                    "audience": "yrfxszjhkczoyfi",
-                    "object_id": "xfhhdosr",
-                    "tenant_id": "uwceuawplakwjswbvllffbsz",
-                },
-                "custom_properties": {},
-                "machine_id": "sihoniqzqfz",
-                "machine_name": "glhejppirkiamgxxro",
-            },
-            resource_group_name="rgmigrateEngine",
-            tags={
-                "key5560": "jgffrfcgjrm",
-            })
-
-        ```
-        ### MigrateAgent_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migrate_agent = azure_native.migrate.MigrateAgent("migrateAgent",
-            agent_name="e85v",
-            modernize_project_name="l77ak",
-            resource_group_name="rgmigrateEngine")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:MigrateAgent icysfvhjjgwhxx /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/modernizeProjects/{modernizeProjectName}/migrateAgents/{agentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

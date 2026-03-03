@@ -15,53 +15,6 @@ namespace Pulumi.AzureNative.EventGrid
     /// Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
     /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Clients_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var client = new AzureNative.EventGrid.Client("client", new()
-    ///     {
-    ///         Attributes = new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["deviceTypes"] = new[]
-    ///             {
-    ///                 "Fan",
-    ///                 "Light",
-    ///                 "AC",
-    ///             },
-    ///             ["floor"] = 3,
-    ///             ["room"] = "345",
-    ///         },
-    ///         ClientCertificateAuthentication = new AzureNative.EventGrid.Inputs.ClientCertificateAuthenticationArgs
-    ///         {
-    ///             ValidationScheme = AzureNative.EventGrid.ClientCertificateValidationScheme.SubjectMatchesAuthenticationName,
-    ///         },
-    ///         ClientName = "exampleClientName1",
-    ///         Description = "This is a test client",
-    ///         NamespaceName = "exampleNamespaceName1",
-    ///         ResourceGroupName = "examplerg",
-    ///         State = AzureNative.EventGrid.ClientState.Enabled,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:eventgrid:Client exampleClientName1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/namespaces/{namespaceName}/clients/{clientName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Client")]
     public partial class Client : global::Pulumi.CustomResource

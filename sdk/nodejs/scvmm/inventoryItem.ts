@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-05-21-preview.
  *
  * Other available API versions: 2022-05-21-preview, 2023-10-07, 2024-06-01, 2025-03-13. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native scvmm [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateInventoryItem
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const inventoryItem = new azure_native.scvmm.InventoryItem("inventoryItem", {
- *     inventoryItemName: "12345678-1234-1234-1234-123456789abc",
- *     inventoryType: azure_native.scvmm.InventoryType.Cloud,
- *     resourceGroupName: "testrg",
- *     vmmServerName: "ContosoVMMServer",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:scvmm:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ScVmm/vmmServers/{vmmServerName}/inventoryItems/{inventoryItemName} 
- * ```
  */
 export class InventoryItem extends pulumi.CustomResource {
     /**

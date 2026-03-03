@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateWorkspaceApiVersionSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var workspaceApiVersionSet = new AzureNative.ApiManagement.WorkspaceApiVersionSet("workspaceApiVersionSet", new()
-    ///     {
-    ///         Description = "Version configuration",
-    ///         DisplayName = "api set 1",
-    ///         ResourceGroupName = "rg1",
-    ///         ServiceName = "apimService1",
-    ///         VersionSetId = "api1",
-    ///         VersioningScheme = AzureNative.ApiManagement.VersioningScheme.Segment,
-    ///         WorkspaceId = "wks1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apimanagement:WorkspaceApiVersionSet api1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApiVersionSet")]
     public partial class WorkspaceApiVersionSet : global::Pulumi.CustomResource

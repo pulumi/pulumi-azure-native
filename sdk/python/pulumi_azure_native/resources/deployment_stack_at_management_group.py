@@ -277,47 +277,6 @@ class DeploymentStackAtManagementGroup(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a management group Deployment stack
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        deployment_stack_at_management_group = azure_native.resources.DeploymentStackAtManagementGroup("deploymentStackAtManagementGroup",
-            action_on_unmanage={
-                "management_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DETACH,
-                "resource_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-                "resources": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-            },
-            deny_settings={
-                "apply_to_child_scopes": False,
-                "excluded_actions": ["action"],
-                "excluded_principals": ["principal"],
-                "mode": azure_native.resources.DenySettingsMode.DENY_DELETE,
-            },
-            deployment_stack_name="simpleDeploymentStack",
-            location="eastus",
-            management_group_id="myMg",
-            parameters={
-                "parameter1": {
-                    "value": "a string",
-                },
-            },
-            tags={
-                "tagkey": "tagVal",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:DeploymentStackAtManagementGroup simpleDeploymentStack /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,47 +307,6 @@ class DeploymentStackAtManagementGroup(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
 
         Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a management group Deployment stack
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        deployment_stack_at_management_group = azure_native.resources.DeploymentStackAtManagementGroup("deploymentStackAtManagementGroup",
-            action_on_unmanage={
-                "management_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DETACH,
-                "resource_groups": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-                "resources": azure_native.resources.DeploymentStacksDeleteDetachEnum.DELETE,
-            },
-            deny_settings={
-                "apply_to_child_scopes": False,
-                "excluded_actions": ["action"],
-                "excluded_principals": ["principal"],
-                "mode": azure_native.resources.DenySettingsMode.DENY_DELETE,
-            },
-            deployment_stack_name="simpleDeploymentStack",
-            location="eastus",
-            management_group_id="myMg",
-            parameters={
-                "parameter1": {
-                    "value": "a string",
-                },
-            },
-            tags={
-                "tagkey": "tagVal",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:DeploymentStackAtManagementGroup simpleDeploymentStack /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * The test base custom image resource.
  *
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
- *
- * ## Example Usage
- * ### CustomImageCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const customImage = new azure_native.testbase.CustomImage("customImage", {
- *     customImageName: "image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003",
- *     definitionName: "contoso-image-def",
- *     resourceGroupName: "contoso-rg1",
- *     source: azure_native.testbase.ImageSource.VHD,
- *     testBaseAccountName: "contoso-testBaseAccount1",
- *     versionName: "1.0.0",
- *     vhdId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/VHDs/vhd-00ac3ccd-1503-4ee5-aa26-26569cfafe88",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:testbase:CustomImage image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customImages/{customImageName} 
- * ```
  */
 export class CustomImage extends pulumi.CustomResource {
     /**

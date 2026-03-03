@@ -13,39 +13,6 @@ namespace Pulumi.AzureNative.SerialConsole
     /// Represents the serial port of the parent resource.
     /// 
     /// Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new serial port resource.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serialPort = new AzureNative.SerialConsole.SerialPort("serialPort", new()
-    ///     {
-    ///         ParentResource = "myVM",
-    ///         ParentResourceType = "virtualMachines",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         ResourceProviderNamespace = "Microsoft.Compute",
-    ///         SerialPort = "0",
-    ///         State = AzureNative.SerialConsole.SerialPortState.Enabled,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:serialconsole:SerialPort 0 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourceType}/{parentResource}/providers/Microsoft.SerialConsole/serialPorts/{serialPort} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:serialconsole:SerialPort")]
     public partial class SerialPort : global::Pulumi.CustomResource

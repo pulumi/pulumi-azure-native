@@ -176,33 +176,6 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PrivateStoreOffer_update
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_store_collection_offer = azure_native.marketplace.PrivateStoreCollectionOffer("privateStoreCollectionOffer",
-            collection_id="56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
-            e_tag="\\"9301f4fd-0000-0100-0000-5e248b350666\\"",
-            offer_id="marketplacetestthirdparty.md-test-third-party-2",
-            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406",
-            specific_plan_ids_limitation=[
-                "0001",
-                "0002",
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:marketplace:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/{privateStoreId}/collections/{collectionId}/offers/{offerId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,33 +200,6 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
         Uses Azure REST API version 2023-01-01. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
 
         Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native marketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PrivateStoreOffer_update
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_store_collection_offer = azure_native.marketplace.PrivateStoreCollectionOffer("privateStoreCollectionOffer",
-            collection_id="56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
-            e_tag="\\"9301f4fd-0000-0100-0000-5e248b350666\\"",
-            offer_id="marketplacetestthirdparty.md-test-third-party-2",
-            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406",
-            specific_plan_ids_limitation=[
-                "0001",
-                "0002",
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:marketplace:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/{privateStoreId}/collections/{collectionId}/offers/{offerId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

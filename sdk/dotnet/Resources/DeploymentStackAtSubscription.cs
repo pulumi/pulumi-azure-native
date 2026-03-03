@@ -15,65 +15,6 @@ namespace Pulumi.AzureNative.Resources
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01-preview.
     /// 
     /// Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a subscription Deployment stack
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var deploymentStackAtSubscription = new AzureNative.Resources.DeploymentStackAtSubscription("deploymentStackAtSubscription", new()
-    ///     {
-    ///         ActionOnUnmanage = new AzureNative.Resources.Inputs.ActionOnUnmanageArgs
-    ///         {
-    ///             ManagementGroups = AzureNative.Resources.DeploymentStacksDeleteDetachEnum.Detach,
-    ///             ResourceGroups = AzureNative.Resources.DeploymentStacksDeleteDetachEnum.Delete,
-    ///             Resources = AzureNative.Resources.DeploymentStacksDeleteDetachEnum.Delete,
-    ///         },
-    ///         DenySettings = new AzureNative.Resources.Inputs.DenySettingsArgs
-    ///         {
-    ///             ApplyToChildScopes = false,
-    ///             ExcludedActions = new[]
-    ///             {
-    ///                 "action",
-    ///             },
-    ///             ExcludedPrincipals = new[]
-    ///             {
-    ///                 "principal",
-    ///             },
-    ///             Mode = AzureNative.Resources.DenySettingsMode.DenyDelete,
-    ///         },
-    ///         DeploymentStackName = "simpleDeploymentStack",
-    ///         Location = "eastus",
-    ///         Parameters = 
-    ///         {
-    ///             { "parameter1", new AzureNative.Resources.Inputs.DeploymentParameterArgs
-    ///             {
-    ///                 Value = "a string",
-    ///             } },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "tagkey", "tagVal" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:resources:DeploymentStackAtSubscription simpleDeploymentStack /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentStackAtSubscription")]
     public partial class DeploymentStackAtSubscription : global::Pulumi.CustomResource

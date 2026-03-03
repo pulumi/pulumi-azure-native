@@ -13,36 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-05-15-preview. In version 2.x of the Azure Native provider, it used API version 2015-10-31.
  *
  * Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update webhook
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const webhook = new azure_native.automation.Webhook("webhook", {
- *     automationAccountName: "myAutomationAccount33",
- *     expiryTime: "2018-03-29T22:18:13.7002872Z",
- *     isEnabled: true,
- *     name: "TestWebhook",
- *     resourceGroupName: "rg",
- *     runbook: {
- *         name: "TestRunbook",
- *     },
- *     uri: "<uri>",
- *     webhookName: "TestWebhook",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:automation:Webhook TestWebhook /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/webhooks/{webhookName} 
- * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

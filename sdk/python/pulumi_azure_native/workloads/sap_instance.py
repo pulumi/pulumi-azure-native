@@ -121,33 +121,6 @@ class SapInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        ## Example Usage
-        ### Creates the SAP Instance resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_instance = azure_native.workloads.SapInstance("sapInstance",
-            location="eastus",
-            resource_group_name="test-rg",
-            sap_discovery_site_name="SampleSite",
-            sap_instance_name="MPP_MPP",
-            tags={
-                "property1": "value1",
-                "property2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:SapInstance MPP_MPP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,33 +140,6 @@ class SapInstance(pulumi.CustomResource):
         Define the SAP Instance resource.
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-
-        ## Example Usage
-        ### Creates the SAP Instance resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sap_instance = azure_native.workloads.SapInstance("sapInstance",
-            location="eastus",
-            resource_group_name="test-rg",
-            sap_discovery_site_name="SampleSite",
-            sap_instance_name="MPP_MPP",
-            tags={
-                "property1": "value1",
-                "property2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:SapInstance MPP_MPP /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

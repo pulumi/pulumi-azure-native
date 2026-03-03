@@ -125,39 +125,6 @@ class DeploymentAtScope(pulumi.CustomResource):
 
         Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create deployment at a given scope.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        deployment_at_scope = azure_native.resources.DeploymentAtScope("deploymentAtScope",
-            deployment_name="my-deployment",
-            location="eastus",
-            properties={
-                "mode": azure_native.resources.DeploymentMode.INCREMENTAL,
-                "parameters": {},
-                "template_link": {
-                    "uri": "https://example.com/exampleTemplate.json",
-                },
-            },
-            scope="providers/Microsoft.Management/managementGroups/my-management-group-id",
-            tags={
-                "tagKey1": "tag-value-1",
-                "tagKey2": "tag-value-2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:DeploymentAtScope my-deployment /{scope}/providers/Microsoft.Resources/deployments/{deploymentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,39 +146,6 @@ class DeploymentAtScope(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create deployment at a given scope.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        deployment_at_scope = azure_native.resources.DeploymentAtScope("deploymentAtScope",
-            deployment_name="my-deployment",
-            location="eastus",
-            properties={
-                "mode": azure_native.resources.DeploymentMode.INCREMENTAL,
-                "parameters": {},
-                "template_link": {
-                    "uri": "https://example.com/exampleTemplate.json",
-                },
-            },
-            scope="providers/Microsoft.Management/managementGroups/my-management-group-id",
-            tags={
-                "tagKey1": "tag-value-1",
-                "tagKey2": "tag-value-2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:DeploymentAtScope my-deployment /{scope}/providers/Microsoft.Resources/deployments/{deploymentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -123,33 +123,6 @@ class Mq(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        ## Example Usage
-        ### Mq_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mq = azure_native.iotoperationsmq.Mq("mq",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            location="qayqiarqxjennoyvglovxrdiccscq",
-            mq_name="-MK0Vqe3K7Ji",
-            resource_group_name="rgiotoperationsmq",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:Mq mogfqcmgwpsw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,33 +142,6 @@ class Mq(pulumi.CustomResource):
         MQ resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
-        ## Example Usage
-        ### Mq_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mq = azure_native.iotoperationsmq.Mq("mq",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            location="qayqiarqxjennoyvglovxrdiccscq",
-            mq_name="-MK0Vqe3K7Ji",
-            resource_group_name="rgiotoperationsmq",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:Mq mogfqcmgwpsw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

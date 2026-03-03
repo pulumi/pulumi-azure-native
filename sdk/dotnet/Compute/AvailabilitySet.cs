@@ -15,60 +15,6 @@ namespace Pulumi.AzureNative.Compute
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
     /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create an availability set with Scheduled Event Policy.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var availabilitySet = new AzureNative.Compute.AvailabilitySet("availabilitySet", new()
-    ///     {
-    ///         AvailabilitySetName = "myAvailabilitySet",
-    ///         Location = "westus",
-    ///         PlatformFaultDomainCount = 2,
-    ///         PlatformUpdateDomainCount = 20,
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Create an availability set.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var availabilitySet = new AzureNative.Compute.AvailabilitySet("availabilitySet", new()
-    ///     {
-    ///         AvailabilitySetName = "myAvailabilitySet",
-    ///         Location = "westus",
-    ///         PlatformFaultDomainCount = 2,
-    ///         PlatformUpdateDomainCount = 20,
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:compute:AvailabilitySet myAvailabilitySet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:AvailabilitySet")]
     public partial class AvailabilitySet : global::Pulumi.CustomResource

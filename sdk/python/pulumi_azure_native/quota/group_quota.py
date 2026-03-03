@@ -87,30 +87,6 @@ class GroupQuota(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### GroupQuotas_Put_Request_ForCompute
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        group_quota = azure_native.quota.GroupQuota("groupQuota",
-            group_quota_name="groupquota1",
-            management_group_id="E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
-            properties={
-                "display_name": "GroupQuota1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:quota:GroupQuota groupquota1 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Quota/groupQuotas/{groupQuotaName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,30 +105,6 @@ class GroupQuota(pulumi.CustomResource):
         Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### GroupQuotas_Put_Request_ForCompute
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        group_quota = azure_native.quota.GroupQuota("groupQuota",
-            group_quota_name="groupquota1",
-            management_group_id="E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
-            properties={
-                "display_name": "GroupQuota1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:quota:GroupQuota groupquota1 /providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Quota/groupQuotas/{groupQuotaName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

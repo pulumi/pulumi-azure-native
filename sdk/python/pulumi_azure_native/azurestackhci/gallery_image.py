@@ -261,35 +261,6 @@ class GalleryImage(pulumi.CustomResource):
 
         Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PutGalleryImage
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gallery_image = azure_native.azurestackhci.GalleryImage("galleryImage",
-            container_id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-storage-container",
-            extended_location={
-                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
-                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
-            },
-            gallery_image_name="test-gallery-image",
-            image_path="C:\\\\test.vhdx",
-            location="West US2",
-            os_type=azure_native.azurestackhci.OperatingSystemTypes.LINUX,
-            resource_group_name="test-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:GalleryImage test-gallery-image /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/galleryImages/{galleryImageName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,35 +290,6 @@ class GalleryImage(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
         Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutGalleryImage
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gallery_image = azure_native.azurestackhci.GalleryImage("galleryImage",
-            container_id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-storage-container",
-            extended_location={
-                "name": "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
-                "type": azure_native.azurestackhci.ExtendedLocationTypes.CUSTOM_LOCATION,
-            },
-            gallery_image_name="test-gallery-image",
-            image_path="C:\\\\test.vhdx",
-            location="West US2",
-            os_type=azure_native.azurestackhci.OperatingSystemTypes.LINUX,
-            resource_group_name="test-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:GalleryImage test-gallery-image /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/galleryImages/{galleryImageName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

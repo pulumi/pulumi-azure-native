@@ -13,42 +13,6 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
     /// EnterpriseKnowledgeGraph resource definition
     /// 
     /// Uses Azure REST API version 2018-12-03. In version 2.x of the Azure Native provider, it used API version 2018-12-03.
-    /// 
-    /// ## Example Usage
-    /// ### Create EnterpriseKnowledgeGraph
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var enterpriseKnowledgeGraph = new AzureNative.EnterpriseKnowledgeGraph.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", new()
-    ///     {
-    ///         Location = "West US",
-    ///         Properties = null,
-    ///         ResourceGroupName = "OneResourceGroupName",
-    ///         ResourceName = "sampleekgname",
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph samplename /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EnterpriseKnowledgeGraph/services/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:enterpriseknowledgegraph:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : global::Pulumi.CustomResource

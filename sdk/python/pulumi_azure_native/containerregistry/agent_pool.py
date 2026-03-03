@@ -193,35 +193,6 @@ class AgentPool(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### AgentPools_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        agent_pool = azure_native.containerregistry.AgentPool("agentPool",
-            agent_pool_name="myAgentPool",
-            count=1,
-            location="WESTUS",
-            os=azure_native.containerregistry.OS.LINUX,
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            tags={
-                "key": "value",
-            },
-            tier="S1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:AgentPool myAgentPool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/agentPools/{agentPoolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,35 +219,6 @@ class AgentPool(pulumi.CustomResource):
         Uses Azure REST API version 2019-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-06-01-preview.
 
         Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### AgentPools_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        agent_pool = azure_native.containerregistry.AgentPool("agentPool",
-            agent_pool_name="myAgentPool",
-            count=1,
-            location="WESTUS",
-            os=azure_native.containerregistry.OS.LINUX,
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup",
-            tags={
-                "key": "value",
-            },
-            tier="S1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:AgentPool myAgentPool /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/agentPools/{agentPoolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -108,49 +108,6 @@ class Springbootserver(pulumi.CustomResource):
 
         Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### springbootservers_CreateOrUpdate_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        springbootserver = azure_native.offazurespringboot.Springbootserver("springbootserver",
-            properties={
-                "errors": [],
-                "fqdn_and_ip_address_list": [],
-                "machine_arm_id": "fvfkiapbqsprnbzczdfmuryknrna",
-                "port": 10,
-                "server": "thhuxocfyqpeluqcgnypi",
-                "spring_boot_apps": 17,
-                "total_apps": 5,
-            },
-            resource_group_name="rgspringbootservers",
-            site_name="hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
-            springbootservers_name="zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn")
-
-        ```
-        ### springbootservers_CreateOrUpdate_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        springbootserver = azure_native.offazurespringboot.Springbootserver("springbootserver",
-            resource_group_name="rgspringbootservers",
-            site_name="hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
-            springbootservers_name="zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:offazurespringboot:Springbootserver licrobomiqalwnrti /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,49 +128,6 @@ class Springbootserver(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01-preview.
 
         Other available API versions: 2023-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazurespringboot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### springbootservers_CreateOrUpdate_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        springbootserver = azure_native.offazurespringboot.Springbootserver("springbootserver",
-            properties={
-                "errors": [],
-                "fqdn_and_ip_address_list": [],
-                "machine_arm_id": "fvfkiapbqsprnbzczdfmuryknrna",
-                "port": 10,
-                "server": "thhuxocfyqpeluqcgnypi",
-                "spring_boot_apps": 17,
-                "total_apps": 5,
-            },
-            resource_group_name="rgspringbootservers",
-            site_name="hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
-            springbootservers_name="zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn")
-
-        ```
-        ### springbootservers_CreateOrUpdate_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        springbootserver = azure_native.offazurespringboot.Springbootserver("springbootserver",
-            resource_group_name="rgspringbootservers",
-            site_name="hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
-            springbootservers_name="zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:offazurespringboot:Springbootserver licrobomiqalwnrti /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzureSpringBoot/springbootsites/{siteName}/springbootservers/{springbootserversName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,60 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateOrUpdate Registry Environment Version.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const registryEnvironmentVersion = new azure_native.machinelearningservices.RegistryEnvironmentVersion("registryEnvironmentVersion", {
- *     environmentName: "string",
- *     environmentVersionProperties: {
- *         build: {
- *             contextUri: "https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
- *             dockerfilePath: "prod/Dockerfile",
- *         },
- *         condaFile: "string",
- *         description: "string",
- *         image: "docker.io/tensorflow/serving:latest",
- *         inferenceConfig: {
- *             livenessRoute: {
- *                 path: "string",
- *                 port: 1,
- *             },
- *             readinessRoute: {
- *                 path: "string",
- *                 port: 1,
- *             },
- *             scoringRoute: {
- *                 path: "string",
- *                 port: 1,
- *             },
- *         },
- *         isAnonymous: false,
- *         properties: {
- *             string: "string",
- *         },
- *         tags: {
- *             string: "string",
- *         },
- *     },
- *     registryName: "my-aml-registry",
- *     resourceGroupName: "test-rg",
- *     version: "string",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:machinelearningservices:RegistryEnvironmentVersion string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/environments/{environmentName}/versions/{version} 
- * ```
  */
 export class RegistryEnvironmentVersion extends pulumi.CustomResource {
     /**

@@ -160,53 +160,6 @@ class Device(pulumi.CustomResource):
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### DataBoxEdgeDevicePut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        device = azure_native.databoxedge.Device("device",
-            device_name="testedgedevice",
-            location="WUS",
-            resource_group_name="GroupForEdgeAutomation",
-            sku={
-                "name": azure_native.databoxedge.SkuName.EDGE,
-                "tier": azure_native.databoxedge.SkuTier.STANDARD,
-            },
-            tags={})
-
-        ```
-        ### DataBoxEdgeDevicePutWithDataResidency
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        device = azure_native.databoxedge.Device("device",
-            data_residency={
-                "type": azure_native.databoxedge.DataResidencyType.ZONE_REPLICATION,
-            },
-            device_name="testedgedevice",
-            location="WUS",
-            resource_group_name="GroupForEdgeAutomation",
-            sku={
-                "name": azure_native.databoxedge.SkuName.EDGE,
-                "tier": azure_native.databoxedge.SkuTier.STANDARD,
-            },
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,53 +183,6 @@ class Device(pulumi.CustomResource):
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
 
         Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### DataBoxEdgeDevicePut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        device = azure_native.databoxedge.Device("device",
-            device_name="testedgedevice",
-            location="WUS",
-            resource_group_name="GroupForEdgeAutomation",
-            sku={
-                "name": azure_native.databoxedge.SkuName.EDGE,
-                "tier": azure_native.databoxedge.SkuTier.STANDARD,
-            },
-            tags={})
-
-        ```
-        ### DataBoxEdgeDevicePutWithDataResidency
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        device = azure_native.databoxedge.Device("device",
-            data_residency={
-                "type": azure_native.databoxedge.DataResidencyType.ZONE_REPLICATION,
-            },
-            device_name="testedgedevice",
-            location="WUS",
-            resource_group_name="GroupForEdgeAutomation",
-            sku={
-                "name": azure_native.databoxedge.SkuName.EDGE,
-                "tier": azure_native.databoxedge.SkuTier.STANDARD,
-            },
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:databoxedge:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

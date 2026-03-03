@@ -13,44 +13,6 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp Elastic Backup under an elastic Backup Vault
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ElasticBackups_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var elasticBackup = new AzureNative.NetApp.ElasticBackup("elasticBackup", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         BackupName = "backup1",
-    ///         BackupVaultName = "backupVault1",
-    ///         Properties = new AzureNative.NetApp.Inputs.ElasticBackupPropertiesArgs
-    ///         {
-    ///             ElasticSnapshotResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1/elasticSnapshots/snap1",
-    ///             ElasticVolumeResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/elasticAccounts/account1/elasticCapacityPools/pool1/elasticVolumes/volume1",
-    ///             Label = "myLabel",
-    ///             SnapshotUsage = AzureNative.NetApp.SnapshotUsage.UseExistingSnapshot,
-    ///         },
-    ///         ResourceGroupName = "myRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:ElasticBackup account1/backupVault1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName}/elasticBackups/{backupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticBackup")]
     public partial class ElasticBackup : global::Pulumi.CustomResource

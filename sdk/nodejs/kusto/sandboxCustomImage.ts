@@ -13,64 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-04-13. In version 2.x of the Azure Native provider, it used API version 2023-08-15.
  *
  * Other available API versions: 2023-08-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native kusto [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### KustoSandboxCustomImagesCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sandboxCustomImage = new azure_native.kusto.SandboxCustomImage("sandboxCustomImage", {
- *     clusterName: "kustoCluster",
- *     language: azure_native.kusto.Language.Python,
- *     languageVersion: "3.10.8",
- *     requirementsFileContent: "Requests",
- *     resourceGroupName: "kustorptest",
- *     sandboxCustomImageName: "customImage8",
- * });
- *
- * ```
- * ### KustoSandboxCustomImagesCreateOrUpdateWithCustomBaseImage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sandboxCustomImage = new azure_native.kusto.SandboxCustomImage("sandboxCustomImage", {
- *     baseImageName: "customImage1",
- *     clusterName: "kustoCluster",
- *     language: azure_native.kusto.Language.Python,
- *     requirementsFileContent: "Requests",
- *     resourceGroupName: "kustorptest",
- *     sandboxCustomImageName: "customImage2",
- * });
- *
- * ```
- * ### KustoSandboxCustomImagesCreateOrUpdateWithManagedBaseImage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sandboxCustomImage = new azure_native.kusto.SandboxCustomImage("sandboxCustomImage", {
- *     baseImageName: "Python3_10_8",
- *     clusterName: "kustoCluster",
- *     language: azure_native.kusto.Language.Python,
- *     requirementsFileContent: "Requests",
- *     resourceGroupName: "kustorptest",
- *     sandboxCustomImageName: "customImage2",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:kusto:SandboxCustomImage kustoCluster/customImage2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/sandboxCustomImages/{sandboxCustomImageName} 
- * ```
  */
 export class SandboxCustomImage extends pulumi.CustomResource {
     /**

@@ -15,43 +15,6 @@ namespace Pulumi.AzureNative.Security
     /// Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
     /// 
     /// Other available API versions: 2019-01-01-preview, 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create security recommendation task on a resource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assessment = new AzureNative.Security.Assessment("assessment", new()
-    ///     {
-    ///         AssessmentName = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
-    ///         ResourceDetails = new AzureNative.Security.Inputs.AzureResourceDetailsArgs
-    ///         {
-    ///             Source = "Azure",
-    ///         },
-    ///         ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
-    ///         Status = new AzureNative.Security.Inputs.AssessmentStatusArgs
-    ///         {
-    ///             Code = AzureNative.Security.AssessmentStatusCode.Healthy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:security:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /{resourceId}/providers/Microsoft.Security/assessments/{assessmentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

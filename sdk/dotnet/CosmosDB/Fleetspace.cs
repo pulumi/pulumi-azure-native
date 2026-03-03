@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.CosmosDB
     /// Uses Azure REST API version 2025-10-15.
     /// 
     /// Other available API versions: 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CosmosDB Fleetspace Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fleetspace = new AzureNative.CosmosDB.Fleetspace("fleetspace", new()
-    ///     {
-    ///         DataRegions = new[]
-    ///         {
-    ///             "westus2",
-    ///         },
-    ///         FleetName = "fleet1",
-    ///         FleetspaceApiKind = AzureNative.CosmosDB.FleetspaceApiKind.NoSQL,
-    ///         FleetspaceName = "fleetspace1",
-    ///         ResourceGroupName = "rg1",
-    ///         ServiceTier = AzureNative.CosmosDB.ServiceTier.GeneralPurpose,
-    ///         ThroughputPoolConfiguration = new AzureNative.CosmosDB.Inputs.FleetspacePropertiesThroughputPoolConfigurationArgs
-    ///         {
-    ///             MaxThroughput = 500000,
-    ///             MinThroughput = 100000,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cosmosdb:Fleetspace fleetspace1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/fleets/{fleetName}/fleetspaces/{fleetspaceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:Fleetspace")]
     public partial class Fleetspace : global::Pulumi.CustomResource

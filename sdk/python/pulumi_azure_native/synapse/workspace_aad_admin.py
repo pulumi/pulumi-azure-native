@@ -139,31 +139,6 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update workspace active directory admin
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_aad_admin = azure_native.synapse.WorkspaceAadAdmin("workspaceAadAdmin",
-            administrator_type="ActiveDirectory",
-            login="bob@contoso.com",
-            resource_group_name="resourceGroup1",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            workspace_name="workspace1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:WorkspaceAadAdmin activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/administrators/activeDirectory 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,31 +161,6 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update workspace active directory admin
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_aad_admin = azure_native.synapse.WorkspaceAadAdmin("workspaceAadAdmin",
-            administrator_type="ActiveDirectory",
-            login="bob@contoso.com",
-            resource_group_name="resourceGroup1",
-            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
-            workspace_name="workspace1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:WorkspaceAadAdmin activeDirectory /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/administrators/activeDirectory 
-        ```
 
 
         :param str resource_name: The name of the resource.

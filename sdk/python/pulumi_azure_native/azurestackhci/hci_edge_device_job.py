@@ -123,53 +123,6 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
 
-        ## Example Usage
-        ### EdgeDeviceJobs_CreateOrUpdate_CollectLog
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hci_edge_device_job = azure_native.azurestackhci.HciEdgeDeviceJob("hciEdgeDeviceJob",
-            edge_device_name="default",
-            jobs_name="collectLog",
-            kind="HCI",
-            properties={
-                "from_date": "2024-01-29T10:43:27.9471574Z",
-                "job_type": "CollectLog",
-                "to_date": "2024-01-29T10:43:27.9471574Z",
-            },
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1")
-
-        ```
-        ### EdgeDeviceJobs_CreateOrUpdate_RemoteSupport
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hci_edge_device_job = azure_native.azurestackhci.HciEdgeDeviceJob("hciEdgeDeviceJob",
-            edge_device_name="default",
-            jobs_name="collectLog",
-            kind="HCI",
-            properties={
-                "access_level": azure_native.azurestackhci.RemoteSupportAccessLevel.DIAGNOSTICS,
-                "expiration_timestamp": "2024-01-29T10:43:27.9471574Z",
-                "job_type": "RemoteSupport",
-                "type": azure_native.azurestackhci.RemoteSupportType.ENABLE,
-            },
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:HciEdgeDeviceJob collectLog /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName}/jobs/{jobsName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,53 +143,6 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
         Edge device job for Azure Stack HCI solution.
 
         Uses Azure REST API version 2024-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
-
-        ## Example Usage
-        ### EdgeDeviceJobs_CreateOrUpdate_CollectLog
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hci_edge_device_job = azure_native.azurestackhci.HciEdgeDeviceJob("hciEdgeDeviceJob",
-            edge_device_name="default",
-            jobs_name="collectLog",
-            kind="HCI",
-            properties={
-                "from_date": "2024-01-29T10:43:27.9471574Z",
-                "job_type": "CollectLog",
-                "to_date": "2024-01-29T10:43:27.9471574Z",
-            },
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1")
-
-        ```
-        ### EdgeDeviceJobs_CreateOrUpdate_RemoteSupport
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hci_edge_device_job = azure_native.azurestackhci.HciEdgeDeviceJob("hciEdgeDeviceJob",
-            edge_device_name="default",
-            jobs_name="collectLog",
-            kind="HCI",
-            properties={
-                "access_level": azure_native.azurestackhci.RemoteSupportAccessLevel.DIAGNOSTICS,
-                "expiration_timestamp": "2024-01-29T10:43:27.9471574Z",
-                "job_type": "RemoteSupport",
-                "type": azure_native.azurestackhci.RemoteSupportType.ENABLE,
-            },
-            resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:HciEdgeDeviceJob collectLog /{resourceUri}/providers/Microsoft.AzureStackHCI/edgeDevices/{edgeDeviceName}/jobs/{jobsName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

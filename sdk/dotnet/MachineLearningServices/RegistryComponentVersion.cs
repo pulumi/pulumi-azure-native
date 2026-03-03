@@ -15,54 +15,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
     /// Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### CreateOrUpdate Registry Component Version.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var registryComponentVersion = new AzureNative.MachineLearningServices.RegistryComponentVersion("registryComponentVersion", new()
-    ///     {
-    ///         ComponentName = "string",
-    ///         ComponentVersionProperties = new AzureNative.MachineLearningServices.Inputs.ComponentVersionArgs
-    ///         {
-    ///             ComponentSpec = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["8ced901b-d826-477d-bfef-329da9672513"] = null,
-    ///             },
-    ///             Description = "string",
-    ///             IsAnonymous = false,
-    ///             Properties = 
-    ///             {
-    ///                 { "string", "string" },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "string", "string" },
-    ///             },
-    ///         },
-    ///         RegistryName = "my-aml-registry",
-    ///         ResourceGroupName = "test-rg",
-    ///         Version = "string",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:machinelearningservices:RegistryComponentVersion string /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/components/{componentName}/versions/{version} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:RegistryComponentVersion")]
     public partial class RegistryComponentVersion : global::Pulumi.CustomResource

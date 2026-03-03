@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
  * Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### RelayHybridConnectionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const hybridConnection = new azure_native.relay.HybridConnection("hybridConnection", {
- *     hybridConnectionName: "example-Relay-Hybrid-01",
- *     namespaceName: "example-RelayNamespace-01",
- *     requiresClientAuthorization: true,
- *     resourceGroupName: "resourcegroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:relay:HybridConnection example-Relay-Hybrid-01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/hybridConnections/{hybridConnectionName} 
- * ```
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**

@@ -140,35 +140,6 @@ class ElasticBackupPolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### ElasticBackupPolicies_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_backup_policy = azure_native.netapp.ElasticBackupPolicy("elasticBackupPolicy",
-            account_name="account1",
-            backup_policy_name="backupPolicyName",
-            location="westus",
-            properties={
-                "daily_backups_to_keep": 10,
-                "monthly_backups_to_keep": 10,
-                "policy_state": azure_native.netapp.ElasticBackupPolicyState.ENABLED,
-                "weekly_backups_to_keep": 10,
-            },
-            resource_group_name="myRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticBackupPolicy account1/backupPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupPolicies/{backupPolicyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,35 +160,6 @@ class ElasticBackupPolicy(pulumi.CustomResource):
         NetApp Elastic Backup Policy resource
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### ElasticBackupPolicies_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        elastic_backup_policy = azure_native.netapp.ElasticBackupPolicy("elasticBackupPolicy",
-            account_name="account1",
-            backup_policy_name="backupPolicyName",
-            location="westus",
-            properties={
-                "daily_backups_to_keep": 10,
-                "monthly_backups_to_keep": 10,
-                "policy_state": azure_native.netapp.ElasticBackupPolicyState.ENABLED,
-                "weekly_backups_to_keep": 10,
-            },
-            resource_group_name="myRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:ElasticBackupPolicy account1/backupPolicyName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupPolicies/{backupPolicyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -141,31 +141,6 @@ class AdministratorsMicrosoftEntra(pulumi.CustomResource):
 
         Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Add a server administrator associated to a Microsoft Entra principal.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        administrators_microsoft_entra = azure_native.dbforpostgresql.AdministratorsMicrosoftEntra("administratorsMicrosoftEntra",
-            object_id="oooooooo-oooo-oooo-oooo-oooooooooooo",
-            principal_name="exampleuser@contoso.com",
-            principal_type="User",
-            resource_group_name="exampleresourcegroup",
-            server_name="exampleserver",
-            tenant_id="tttttttt-tttt-tttt-tttt-tttttttttttt")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:AdministratorsMicrosoftEntra myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,31 +163,6 @@ class AdministratorsMicrosoftEntra(pulumi.CustomResource):
         Uses Azure REST API version 2025-08-01.
 
         Other available API versions: 2025-06-01-preview, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Add a server administrator associated to a Microsoft Entra principal.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        administrators_microsoft_entra = azure_native.dbforpostgresql.AdministratorsMicrosoftEntra("administratorsMicrosoftEntra",
-            object_id="oooooooo-oooo-oooo-oooo-oooooooooooo",
-            principal_name="exampleuser@contoso.com",
-            principal_type="User",
-            resource_group_name="exampleresourcegroup",
-            server_name="exampleserver",
-            tenant_id="tttttttt-tttt-tttt-tttt-tttttttttttt")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:dbforpostgresql:AdministratorsMicrosoftEntra myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

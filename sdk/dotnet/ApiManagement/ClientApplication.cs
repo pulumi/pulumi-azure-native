@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2024-10-01-preview.
     /// 
     /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateProduct
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var clientApplication = new AzureNative.ApiManagement.ClientApplication("clientApplication", new()
-    ///     {
-    ///         ClientApplicationId = "testAppId",
-    ///         Description = "This is just an example application",
-    ///         DisplayName = "Test Application",
-    ///         OwnerId = "/users/userId",
-    ///         ResourceGroupName = "rg1",
-    ///         ServiceName = "apimService1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apimanagement:ClientApplication testAppId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/clientApplications/{clientApplicationId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ClientApplication")]
     public partial class ClientApplication : global::Pulumi.CustomResource

@@ -105,55 +105,6 @@ class LinkedService(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### LinkedServices_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.datafactory.LinkedService("linkedService",
-            factory_name="exampleFactoryName",
-            linked_service_name="exampleLinkedService",
-            properties={
-                "connection_string": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
-                },
-                "type": "AzureStorage",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-        ### LinkedServices_Update
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.datafactory.LinkedService("linkedService",
-            factory_name="exampleFactoryName",
-            linked_service_name="exampleLinkedService",
-            properties={
-                "connection_string": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
-                },
-                "description": "Example description",
-                "type": "AzureStorage",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,55 +123,6 @@ class LinkedService(pulumi.CustomResource):
         Linked service resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### LinkedServices_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.datafactory.LinkedService("linkedService",
-            factory_name="exampleFactoryName",
-            linked_service_name="exampleLinkedService",
-            properties={
-                "connection_string": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
-                },
-                "type": "AzureStorage",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-        ### LinkedServices_Update
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        linked_service = azure_native.datafactory.LinkedService("linkedService",
-            factory_name="exampleFactoryName",
-            linked_service_name="exampleLinkedService",
-            properties={
-                "connection_string": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
-                },
-                "description": "Example description",
-                "type": "AzureStorage",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedservices/{linkedServiceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

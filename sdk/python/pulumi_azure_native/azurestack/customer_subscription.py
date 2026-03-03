@@ -105,29 +105,6 @@ class CustomerSubscription(pulumi.CustomResource):
 
         Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates a new customer subscription under a registration.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        customer_subscription = azure_native.azurestack.CustomerSubscription("customerSubscription",
-            customer_subscription_name="E09A4E93-29A7-4EBA-A6D4-76202383F07F",
-            registration_name="testregistration",
-            resource_group="azurestack",
-            tenant_id="dbab3982-796f-4d03-9908-044c08aef8a2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestack:CustomerSubscription myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,29 +125,6 @@ class CustomerSubscription(pulumi.CustomResource):
         Uses Azure REST API version 2022-06-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2020-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestack [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates a new customer subscription under a registration.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        customer_subscription = azure_native.azurestack.CustomerSubscription("customerSubscription",
-            customer_subscription_name="E09A4E93-29A7-4EBA-A6D4-76202383F07F",
-            registration_name="testregistration",
-            resource_group="azurestack",
-            tenant_id="dbab3982-796f-4d03-9908-044c08aef8a2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestack:CustomerSubscription myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

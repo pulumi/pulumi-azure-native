@@ -107,31 +107,6 @@ class PrivateZone(pulumi.CustomResource):
 
         Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PUT Private DNS Zone
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_zone = azure_native.privatedns.PrivateZone("privateZone",
-            location="Global",
-            private_zone_name="privatezone1.com",
-            resource_group_name="resourceGroup1",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:privatedns:PrivateZone privatezone1.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,31 +127,6 @@ class PrivateZone(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01.
 
         Other available API versions: 2018-09-01, 2020-01-01, 2020-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native privatedns [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PUT Private DNS Zone
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_zone = azure_native.privatedns.PrivateZone("privateZone",
-            location="Global",
-            private_zone_name="privatezone1.com",
-            resource_group_name="resourceGroup1",
-            tags={
-                "key1": "value1",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:privatedns:PrivateZone privatezone1.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

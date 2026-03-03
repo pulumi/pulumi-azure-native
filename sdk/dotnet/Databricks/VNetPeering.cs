@@ -15,44 +15,6 @@ namespace Pulumi.AzureNative.Databricks
     /// Uses Azure REST API version 2024-05-01.
     /// 
     /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview, 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create vNet Peering for Workspace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vNetPeering = new AzureNative.Databricks.VNetPeering("vNetPeering", new()
-    ///     {
-    ///         AllowForwardedTraffic = false,
-    ///         AllowGatewayTransit = false,
-    ///         AllowVirtualNetworkAccess = true,
-    ///         PeeringName = "vNetPeeringTest",
-    ///         RemoteVirtualNetwork = new AzureNative.Databricks.Inputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs
-    ///         {
-    ///             Id = "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
-    ///         },
-    ///         ResourceGroupName = "subramantest",
-    ///         UseRemoteGateways = false,
-    ///         WorkspaceName = "adbworkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:databricks:VNetPeering vNetPeeringTest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/virtualNetworkPeerings/{peeringName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:VNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource

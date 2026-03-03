@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * The Connector model definition
  *
  * Uses Azure REST API version 2018-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-08-01-preview.
- *
- * ## Example Usage
- * ### Connector_Put
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const connector = new azure_native.costmanagement.Connector("connector", {
- *     connectorName: "AWSBillingAccount",
- *     credentialsKey: "arn:aws:iam::123456789012:role/AzureCostManagementRole",
- *     credentialsSecret: "external-id",
- *     displayName: "AWS-Consolidated-1",
- *     location: "westus",
- *     reportId: "HourlyWithResources",
- *     resourceGroupName: "rg1",
- *     status: azure_native.costmanagement.ConnectorStatus.Active,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:costmanagement:Connector AWSBillingAccount /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.CostManagement/connectors/{connectorName} 
- * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

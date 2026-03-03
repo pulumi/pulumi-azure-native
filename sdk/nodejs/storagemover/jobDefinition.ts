@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
  * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### JobDefinitions_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const jobDefinition = new azure_native.storagemover.JobDefinition("jobDefinition", {
- *     agentName: "migration-agent",
- *     copyMode: azure_native.storagemover.CopyMode.Additive,
- *     description: "Example Job Definition Description",
- *     jobDefinitionName: "examples-jobDefinitionName",
- *     projectName: "examples-projectName",
- *     resourceGroupName: "examples-rg",
- *     sourceName: "examples-sourceEndpointName",
- *     sourceSubpath: "/",
- *     storageMoverName: "examples-storageMoverName",
- *     targetName: "examples-targetEndpointName",
- *     targetSubpath: "/",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagemover:JobDefinition examples-jobDefinitionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageMover/storageMovers/{storageMoverName}/projects/{projectName}/jobDefinitions/{jobDefinitionName} 
- * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
  * Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const key = new azure_native.keyvault.Key("key", {
- *     keyName: "sample-key-name",
- *     properties: {
- *         kty: azure_native.keyvault.JsonWebKeyType.RSA,
- *     },
- *     resourceGroupName: "sample-group",
- *     vaultName: "sample-vault-name",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:keyvault:Key sample-key-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName} 
- * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

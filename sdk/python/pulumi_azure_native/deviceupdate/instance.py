@@ -174,38 +174,6 @@ class Instance(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
 
-        ## Example Usage
-        ### Creates or updates Instance
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        instance = azure_native.deviceupdate.Instance("instance",
-            account_name="contoso",
-            diagnostic_storage_properties={
-                "authentication_type": azure_native.deviceupdate.AuthenticationType.KEY_BASED,
-                "connection_string": "string",
-                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
-            },
-            enable_diagnostics=False,
-            instance_name="blue",
-            iot_hubs=[{
-                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
-            }],
-            location="westus2",
-            resource_group_name="test-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceupdate:Instance blue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/instances/{instanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,38 +196,6 @@ class Instance(pulumi.CustomResource):
         Device Update instance details.
 
         Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
-
-        ## Example Usage
-        ### Creates or updates Instance
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        instance = azure_native.deviceupdate.Instance("instance",
-            account_name="contoso",
-            diagnostic_storage_properties={
-                "authentication_type": azure_native.deviceupdate.AuthenticationType.KEY_BASED,
-                "connection_string": "string",
-                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
-            },
-            enable_diagnostics=False,
-            instance_name="blue",
-            iot_hubs=[{
-                "resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
-            }],
-            location="westus2",
-            resource_group_name="test-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceupdate:Instance blue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/instances/{instanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

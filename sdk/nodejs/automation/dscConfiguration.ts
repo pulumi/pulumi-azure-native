@@ -13,47 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
  * Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dscConfiguration = new azure_native.automation.DscConfiguration("dscConfiguration", {
- *     automationAccountName: "myAutomationAccount18",
- *     configurationName: "SetupServer",
- *     description: "sample configuration",
- *     location: "East US 2",
- *     name: "SetupServer",
- *     resourceGroupName: "rg",
- *     source: {
- *         hash: {
- *             algorithm: "sha256",
- *             value: "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
- *         },
- *         type: azure_native.automation.ContentSourceType.EmbeddedContent,
- *         value: `Configuration SetupServer {\x0d
- *     Node localhost {\x0d
- *                                WindowsFeature IIS {\x0d
- *                                Name = "Web-Server";\x0d
- *             Ensure = "Present"\x0d
- *         }\x0d
- *     }\x0d
- * }`,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:automation:DscConfiguration SetupServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/configurations/{configurationName} 
- * ```
  */
 export class DscConfiguration extends pulumi.CustomResource {
     /**

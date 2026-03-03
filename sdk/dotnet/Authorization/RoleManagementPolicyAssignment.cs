@@ -15,37 +15,6 @@ namespace Pulumi.AzureNative.Authorization
     /// Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
     /// 
     /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### PutRoleManagementPolicyAssignment
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var roleManagementPolicyAssignment = new AzureNative.Authorization.RoleManagementPolicyAssignment("roleManagementPolicyAssignment", new()
-    ///     {
-    ///         PolicyId = "/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9",
-    ///         RoleDefinitionId = "/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
-    ///         RoleManagementPolicyAssignmentName = "b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
-    ///         Scope = "providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:authorization:RoleManagementPolicyAssignment b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleManagementPolicyAssignment")]
     public partial class RoleManagementPolicyAssignment : global::Pulumi.CustomResource

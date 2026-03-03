@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.Monitor
     /// A discovery rule which automatically finds entities and relationships in a health model based on an Azure Resource Graph query
     /// 
     /// Uses Azure REST API version 2025-05-03-preview.
-    /// 
-    /// ## Example Usage
-    /// ### DiscoveryRules_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var discoveryRule = new AzureNative.Monitor.DiscoveryRule("discoveryRule", new()
-    ///     {
-    ///         AzureMonitorWorkspaceName = "myWorkspace",
-    ///         DiscoveryRuleName = "myDiscoveryRule",
-    ///         HealthModelName = "myHealthModel",
-    ///         Properties = new AzureNative.Monitor.Inputs.ResourceGraphQueryDiscoveryRulePropertiesArgs
-    ///         {
-    ///             AddRecommendedSignals = AzureNative.Monitor.DiscoveryRuleRecommendedSignalsBehavior.Enabled,
-    ///             AuthenticationSetting = "authSetting1",
-    ///             DiscoverRelationships = AzureNative.Monitor.DiscoveryRuleRelationshipDiscoveryBehavior.Enabled,
-    ///             DiscoveryRuleKind = "ResourceGraphQuery",
-    ///             DisplayName = "myDisplayName",
-    ///             ResourceGraphQuery = "resources | where subscriptionId == '7ddfffd7-9b32-40df-1234-828cbd55d6f4' | where resourceGroup == 'my-rg'",
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:monitor:DiscoveryRule myDiscoveryRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:DiscoveryRule")]
     public partial class DiscoveryRule : global::Pulumi.CustomResource

@@ -105,47 +105,6 @@ class FabricAgent(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### Puts the fabric agent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fabric_agent = azure_native.datareplication.FabricAgent("fabricAgent",
-            fabric_agent_name="M",
-            fabric_name="wPR",
-            properties={
-                "authentication_identity": {
-                    "aad_authority": "bubwwbowfhdmujrt",
-                    "application_id": "cwktzrwajuvfyyymfstpey",
-                    "audience": "dkjobanyqgzenivyxhvavottpc",
-                    "object_id": "khsiaqfbpuhp",
-                    "tenant_id": "joclkkdovixwapephhxaqtefubhhmq",
-                },
-                "custom_properties": {},
-                "machine_id": "envzcoijbqhtrpncbjbhk",
-                "machine_name": "y",
-                "resource_access_identity": {
-                    "aad_authority": "bubwwbowfhdmujrt",
-                    "application_id": "cwktzrwajuvfyyymfstpey",
-                    "audience": "dkjobanyqgzenivyxhvavottpc",
-                    "object_id": "khsiaqfbpuhp",
-                    "tenant_id": "joclkkdovixwapephhxaqtefubhhmq",
-                },
-            },
-            resource_group_name="rgswagger_2024-09-01")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datareplication:FabricAgent ioxmwhzrzdilxivkvhpvzexl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,47 +123,6 @@ class FabricAgent(pulumi.CustomResource):
         Fabric agent model.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### Puts the fabric agent
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        fabric_agent = azure_native.datareplication.FabricAgent("fabricAgent",
-            fabric_agent_name="M",
-            fabric_name="wPR",
-            properties={
-                "authentication_identity": {
-                    "aad_authority": "bubwwbowfhdmujrt",
-                    "application_id": "cwktzrwajuvfyyymfstpey",
-                    "audience": "dkjobanyqgzenivyxhvavottpc",
-                    "object_id": "khsiaqfbpuhp",
-                    "tenant_id": "joclkkdovixwapephhxaqtefubhhmq",
-                },
-                "custom_properties": {},
-                "machine_id": "envzcoijbqhtrpncbjbhk",
-                "machine_name": "y",
-                "resource_access_identity": {
-                    "aad_authority": "bubwwbowfhdmujrt",
-                    "application_id": "cwktzrwajuvfyyymfstpey",
-                    "audience": "dkjobanyqgzenivyxhvavottpc",
-                    "object_id": "khsiaqfbpuhp",
-                    "tenant_id": "joclkkdovixwapephhxaqtefubhhmq",
-                },
-            },
-            resource_group_name="rgswagger_2024-09-01")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datareplication:FabricAgent ioxmwhzrzdilxivkvhpvzexl /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName}/fabricAgents/{fabricAgentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

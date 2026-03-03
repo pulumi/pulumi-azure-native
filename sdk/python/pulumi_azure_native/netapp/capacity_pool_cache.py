@@ -172,48 +172,6 @@ class CapacityPoolCache(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### Caches_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        capacity_pool_cache = azure_native.netapp.CapacityPoolCache("capacityPoolCache",
-            account_name="account1",
-            cache_name="cache1",
-            location="eastus",
-            pool_name="pool1",
-            properties={
-                "cache_subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/cacheVnet/subnets/cacheSubnet1",
-                "encryption_key_source": azure_native.netapp.EncryptionKeySource.MICROSOFT_NET_APP,
-                "filepath": "cache-west-us2-01",
-                "ldap": azure_native.netapp.LdapState.ENABLED,
-                "ldap_server_type": azure_native.netapp.LdapServerType.OPEN_LDAP,
-                "origin_cluster_information": {
-                    "peer_addresses": [
-                        "192.0.2.10",
-                        "192.0.2.11",
-                    ],
-                    "peer_cluster_name": "cluster1",
-                    "peer_volume_name": "originvol1",
-                    "peer_vserver_name": "vserver1",
-                },
-                "peering_subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/icLifVnet/subnets/peeringSubnet1",
-                "size": 107374182400,
-            },
-            resource_group_name="myRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:CapacityPoolCache account1/pool1/cache1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,48 +194,6 @@ class CapacityPoolCache(pulumi.CustomResource):
         Cache resource
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### Caches_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        capacity_pool_cache = azure_native.netapp.CapacityPoolCache("capacityPoolCache",
-            account_name="account1",
-            cache_name="cache1",
-            location="eastus",
-            pool_name="pool1",
-            properties={
-                "cache_subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/cacheVnet/subnets/cacheSubnet1",
-                "encryption_key_source": azure_native.netapp.EncryptionKeySource.MICROSOFT_NET_APP,
-                "filepath": "cache-west-us2-01",
-                "ldap": azure_native.netapp.LdapState.ENABLED,
-                "ldap_server_type": azure_native.netapp.LdapServerType.OPEN_LDAP,
-                "origin_cluster_information": {
-                    "peer_addresses": [
-                        "192.0.2.10",
-                        "192.0.2.11",
-                    ],
-                    "peer_cluster_name": "cluster1",
-                    "peer_volume_name": "originvol1",
-                    "peer_vserver_name": "vserver1",
-                },
-                "peering_subnet_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/icLifVnet/subnets/peeringSubnet1",
-                "size": 107374182400,
-            },
-            resource_group_name="myRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:CapacityPoolCache account1/pool1/cache1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * Discovered Asset Endpoint Profile definition.
  *
  * Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
- *
- * ## Example Usage
- * ### Create_DiscoveredAssetEndpointProfile
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const discoveredAssetEndpointProfile = new azure_native.deviceregistry.DiscoveredAssetEndpointProfile("discoveredAssetEndpointProfile", {
- *     additionalConfiguration: "{\"foo\": \"bar\"}",
- *     discoveredAssetEndpointProfileName: "my-discoveredassetendpointprofile",
- *     discoveryId: "11111111-1111-1111-1111-111111111111",
- *     endpointProfileType: "myEndpointProfileType",
- *     extendedLocation: {
- *         name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
- *         type: "CustomLocation",
- *     },
- *     location: "West Europe",
- *     resourceGroupName: "myResourceGroup",
- *     supportedAuthenticationMethods: [
- *         azure_native.deviceregistry.AuthenticationMethod.Anonymous,
- *         azure_native.deviceregistry.AuthenticationMethod.Certificate,
- *         azure_native.deviceregistry.AuthenticationMethod.UsernamePassword,
- *     ],
- *     tags: {
- *         site: "building-1",
- *     },
- *     targetAddress: "https://www.example.com/myTargetAddress",
- *     version: 73766,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:deviceregistry:DiscoveredAssetEndpointProfile my-assetendpointprofile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/{discoveredAssetEndpointProfileName} 
- * ```
  */
 export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
     /**

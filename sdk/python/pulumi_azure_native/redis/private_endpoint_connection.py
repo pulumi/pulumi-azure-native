@@ -107,32 +107,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### RedisCachePutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.redis.PrivateEndpointConnection("privateEndpointConnection",
-            cache_name="cachetest01",
-            private_endpoint_connection_name="pectest01",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.redis.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rgtest01")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redis:PrivateEndpointConnection pectest01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{cacheName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01.
 
         Other available API versions: 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### RedisCachePutPrivateEndpointConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.redis.PrivateEndpointConnection("privateEndpointConnection",
-            cache_name="cachetest01",
-            private_endpoint_connection_name="pectest01",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.redis.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rgtest01")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redis:PrivateEndpointConnection pectest01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{cacheName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

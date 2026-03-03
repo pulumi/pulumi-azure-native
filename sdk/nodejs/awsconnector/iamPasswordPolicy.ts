@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### IamPasswordPolicies_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const iamPasswordPolicy = new azure_native.awsconnector.IamPasswordPolicy("iamPasswordPolicy", {
- *     location: "zirvnbwoooczkma",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "irgrdslydjpuoyb",
- *         awsAccountId: "iiripspbzbqibqazbnef",
- *         awsProperties: {
- *             allowUsersToChangePassword: true,
- *             expirePasswords: true,
- *             hardExpiry: true,
- *             maxPasswordAge: 1,
- *             minimumPasswordLength: 17,
- *             passwordReusePrevention: 30,
- *             requireLowercaseCharacters: true,
- *             requireNumbers: true,
- *             requireSymbols: true,
- *             requireUppercaseCharacters: true,
- *         },
- *         awsRegion: "mqpdjjdzdwew",
- *         awsSourceSchema: "gud",
- *         awsTags: {
- *             key6748: "bdnkhafiylgulql",
- *         },
- *         publicCloudConnectorsResourceId: "zsyi",
- *         publicCloudResourceName: "zuwprynvflpuik",
- *     },
- *     resourceGroupName: "rgiamPasswordPolicy",
- *     tags: {
- *         key5111: "zzliqszhvi",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:IamPasswordPolicy wlazqv /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamPasswordPolicies/{name} 
- * ```
  */
 export class IamPasswordPolicy extends pulumi.CustomResource {
     /**

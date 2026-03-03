@@ -105,32 +105,6 @@ class CredentialOperation(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### Credentials_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        credential_operation = azure_native.datafactory.CredentialOperation("credentialOperation",
-            credential_name="exampleCredential",
-            factory_name="exampleFactoryName",
-            properties={
-                "resource_id": "/subscriptions/12345678-1234-1234-1234-12345678abc/resourcegroups/exampleResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleUami",
-                "type": "ManagedIdentity",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:CredentialOperation exampleCredential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/credentials/{credentialName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,32 +123,6 @@ class CredentialOperation(pulumi.CustomResource):
         Credential resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### Credentials_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        credential_operation = azure_native.datafactory.CredentialOperation("credentialOperation",
-            credential_name="exampleCredential",
-            factory_name="exampleFactoryName",
-            properties={
-                "resource_id": "/subscriptions/12345678-1234-1234-1234-12345678abc/resourcegroups/exampleResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleUami",
-                "type": "ManagedIdentity",
-            },
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:CredentialOperation exampleCredential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/credentials/{credentialName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

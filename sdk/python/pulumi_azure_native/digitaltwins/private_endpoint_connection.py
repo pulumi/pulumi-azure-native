@@ -105,34 +105,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
 
-        ## Example Usage
-        ### Update the status of a private endpoint connection with the given name
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.digitaltwins.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="myPrivateConnection",
-            properties={
-                "private_link_service_connection_state": {
-                    "description": "Approved by johndoe@company.com.",
-                    "status": azure_native.digitaltwins.PrivateLinkServiceConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="resRg",
-            resource_name_="myDigitalTwinsService")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:digitaltwins:PrivateEndpointConnection myPrivateConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,34 +123,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection of a Digital Twin.
 
         Uses Azure REST API version 2023-01-31. In version 2.x of the Azure Native provider, it used API version 2023-01-31.
-
-        ## Example Usage
-        ### Update the status of a private endpoint connection with the given name
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.digitaltwins.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="myPrivateConnection",
-            properties={
-                "private_link_service_connection_state": {
-                    "description": "Approved by johndoe@company.com.",
-                    "status": azure_native.digitaltwins.PrivateLinkServiceConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="resRg",
-            resource_name_="myDigitalTwinsService")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:digitaltwins:PrivateEndpointConnection myPrivateConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

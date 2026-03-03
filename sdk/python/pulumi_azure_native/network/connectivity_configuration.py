@@ -191,42 +191,6 @@ class ConnectivityConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConnectivityConfigurationsPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connectivity_configuration = azure_native.network.ConnectivityConfiguration("connectivityConfiguration",
-            applies_to_groups=[{
-                "group_connectivity": azure_native.network.GroupConnectivity.NONE,
-                "is_global": azure_native.network.IsGlobal.FALSE,
-                "network_group_id": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
-                "use_hub_gateway": azure_native.network.UseHubGateway.TRUE,
-            }],
-            configuration_name="myTestConnectivityConfig",
-            connectivity_topology=azure_native.network.ConnectivityTopology.HUB_AND_SPOKE,
-            delete_existing_peering=azure_native.network.DeleteExistingPeering.TRUE,
-            description="Sample Configuration",
-            hubs=[{
-                "resource_id": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
-                "resource_type": "Microsoft.Network/virtualNetworks",
-            }],
-            is_global=azure_native.network.IsGlobal.TRUE,
-            network_manager_name="testNetworkManager",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:ConnectivityConfiguration myTestConnectivityConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations/{configurationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,42 +216,6 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
         Other available API versions: 2021-02-01-preview, 2022-01-01, 2022-02-01-preview, 2022-04-01-preview, 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConnectivityConfigurationsPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connectivity_configuration = azure_native.network.ConnectivityConfiguration("connectivityConfiguration",
-            applies_to_groups=[{
-                "group_connectivity": azure_native.network.GroupConnectivity.NONE,
-                "is_global": azure_native.network.IsGlobal.FALSE,
-                "network_group_id": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
-                "use_hub_gateway": azure_native.network.UseHubGateway.TRUE,
-            }],
-            configuration_name="myTestConnectivityConfig",
-            connectivity_topology=azure_native.network.ConnectivityTopology.HUB_AND_SPOKE,
-            delete_existing_peering=azure_native.network.DeleteExistingPeering.TRUE,
-            description="Sample Configuration",
-            hubs=[{
-                "resource_id": "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
-                "resource_type": "Microsoft.Network/virtualNetworks",
-            }],
-            is_global=azure_native.network.IsGlobal.TRUE,
-            network_manager_name="testNetworkManager",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:ConnectivityConfiguration myTestConnectivityConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations/{configurationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

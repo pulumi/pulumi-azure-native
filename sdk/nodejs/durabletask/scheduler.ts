@@ -13,39 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
  *
  * Other available API versions: 2025-04-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Schedulers_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const scheduler = new azure_native.durabletask.Scheduler("scheduler", {
- *     location: "northcentralus",
- *     properties: {
- *         ipAllowlist: ["10.0.0.0/8"],
- *         sku: {
- *             name: "Dedicated",
- *         },
- *     },
- *     resourceGroupName: "rgopenapi",
- *     schedulerName: "testscheduler",
- *     tags: {
- *         key2138: "fjaeecgnvqd",
- *         key7131: "ryohwcoiccwsnewjigfmijz",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:durabletask:Scheduler fwxpolhofploqzwdooyg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DurableTask/schedulers/{schedulerName} 
- * ```
  */
 export class Scheduler extends pulumi.CustomResource {
     /**

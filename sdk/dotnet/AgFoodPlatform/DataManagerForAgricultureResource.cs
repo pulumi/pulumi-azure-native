@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// Data Manager For Agriculture ARM Resource.
     /// 
     /// Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### DataManagerForAgricultureResources_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dataManagerForAgricultureResource = new AzureNative.AgFoodPlatform.DataManagerForAgricultureResource("dataManagerForAgricultureResource", new()
-    ///     {
-    ///         DataManagerForAgricultureResourceName = "examples-farmbeatsResourceName",
-    ///         Location = "eastus2",
-    ///         ResourceGroupName = "examples-rg",
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///             { "key2", "value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:agfoodplatform:DataManagerForAgricultureResource examples-farmbeatsResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:DataManagerForAgricultureResource")]
     public partial class DataManagerForAgricultureResource : global::Pulumi.CustomResource

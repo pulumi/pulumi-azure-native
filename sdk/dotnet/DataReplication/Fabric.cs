@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.DataReplication
     /// Uses Azure REST API version 2021-02-16-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-16-preview.
     /// 
     /// Other available API versions: 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datareplication [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Fabric_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fabric = new AzureNative.DataReplication.Fabric("fabric", new()
-    ///     {
-    ///         FabricName = "wPR",
-    ///         Location = "tqygutlpob",
-    ///         Properties = new AzureNative.DataReplication.Inputs.FabricModelPropertiesArgs
-    ///         {
-    ///             CustomProperties = 
-    ///             {
-    ///                 { "instanceType", "FabricModelCustomProperties" },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgrecoveryservicesdatareplication",
-    ///         Tags = 
-    ///         {
-    ///             { "key3917", "vgralu" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datareplication:Fabric rhojydcwjgvgexpdwswjib /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationFabrics/{fabricName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Fabric")]
     public partial class Fabric : global::Pulumi.CustomResource

@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Trigger details.
     /// 
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-    /// 
-    /// ## Example Usage
-    /// ### TriggerPut
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fileEventTrigger = new AzureNative.DataBoxEdge.FileEventTrigger("fileEventTrigger", new()
-    ///     {
-    ///         CustomContextTag = "CustomContextTags-1235346475",
-    ///         DeviceName = "testedgedevice",
-    ///         Kind = "FileEvent",
-    ///         Name = "trigger1",
-    ///         ResourceGroupName = "GroupForEdgeAutomation",
-    ///         SinkInfo = new AzureNative.DataBoxEdge.Inputs.RoleSinkInfoArgs
-    ///         {
-    ///             RoleId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
-    ///         },
-    ///         SourceInfo = new AzureNative.DataBoxEdge.Inputs.FileSourceInfoArgs
-    ///         {
-    ///             ShareId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:databoxedge:FileEventTrigger trigger1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/triggers/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:FileEventTrigger")]
     public partial class FileEventTrigger : global::Pulumi.CustomResource

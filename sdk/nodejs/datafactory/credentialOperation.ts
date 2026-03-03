@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * Credential resource type.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### Credentials_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const credentialOperation = new azure_native.datafactory.CredentialOperation("credentialOperation", {
- *     credentialName: "exampleCredential",
- *     factoryName: "exampleFactoryName",
- *     properties: {
- *         resourceId: "/subscriptions/12345678-1234-1234-1234-12345678abc/resourcegroups/exampleResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleUami",
- *         type: "ManagedIdentity",
- *     },
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datafactory:CredentialOperation exampleCredential /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/credentials/{credentialName} 
- * ```
  */
 export class CredentialOperation extends pulumi.CustomResource {
     /**

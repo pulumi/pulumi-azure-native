@@ -157,37 +157,6 @@ class JitRequest(pulumi.CustomResource):
 
         Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update jit request
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        jit_request = azure_native.solutions.JitRequest("jitRequest",
-            application_resource_id="/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
-            jit_authorization_policies=[{
-                "principal_id": "1db8e132e2934dbcb8e1178a61319491",
-                "role_definition_id": "ecd05a23-931a-4c38-a52b-ac7c4c583334",
-            }],
-            jit_request_name="myJitRequest",
-            jit_scheduling_policy={
-                "duration": "PT8H",
-                "start_time": "2021-04-22T05:48:30.6661804Z",
-                "type": azure_native.solutions.JitSchedulingType.ONCE,
-            },
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:solutions:JitRequest myJitRequest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/jitRequests/{jitRequestName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,37 +180,6 @@ class JitRequest(pulumi.CustomResource):
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
         Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update jit request
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        jit_request = azure_native.solutions.JitRequest("jitRequest",
-            application_resource_id="/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
-            jit_authorization_policies=[{
-                "principal_id": "1db8e132e2934dbcb8e1178a61319491",
-                "role_definition_id": "ecd05a23-931a-4c38-a52b-ac7c4c583334",
-            }],
-            jit_request_name="myJitRequest",
-            jit_scheduling_policy={
-                "duration": "PT8H",
-                "start_time": "2021-04-22T05:48:30.6661804Z",
-                "type": azure_native.solutions.JitSchedulingType.ONCE,
-            },
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:solutions:JitRequest myJitRequest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/jitRequests/{jitRequestName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

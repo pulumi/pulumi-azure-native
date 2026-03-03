@@ -13,45 +13,6 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// A Stream Analytics Cluster object
     /// 
     /// Uses Azure REST API version 2020-03-01. In version 2.x of the Azure Native provider, it used API version 2020-03-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create a new cluster
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cluster = new AzureNative.StreamAnalytics.Cluster("cluster", new()
-    ///     {
-    ///         ClusterName = "An Example Cluster",
-    ///         Location = "North US",
-    ///         ResourceGroupName = "sjrg",
-    ///         Sku = new AzureNative.StreamAnalytics.Inputs.ClusterSkuArgs
-    ///         {
-    ///             Capacity = 48,
-    ///             Name = AzureNative.StreamAnalytics.ClusterSkuName.Default,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:streamanalytics:Cluster An Example Cluster /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/clusters/{clusterName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

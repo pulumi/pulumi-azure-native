@@ -243,66 +243,6 @@ class ExternalNetwork(pulumi.CustomResource):
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ExternalNetworks_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        external_network = azure_native.managednetworkfabric.ExternalNetwork("externalNetwork",
-            annotation="annotation",
-            export_route_policy={
-                "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-                "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            },
-            export_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            external_network_name="example-externalnetwork",
-            import_route_policy={
-                "import_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-                "import_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            },
-            import_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            l3_isolation_domain_name="example-l3domain",
-            network_to_network_interconnect_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni",
-            option_a_properties={
-                "bfd_configuration": {
-                    "interval_in_milli_seconds": 300,
-                    "multiplier": 15,
-                },
-                "egress_acl_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-                "ingress_acl_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-                "mtu": 1500,
-                "peer_asn": 65047,
-                "primary_ipv4_prefix": "10.1.1.0/30",
-                "primary_ipv6_prefix": "3FFE:FFFF:0:CD30::a0/126",
-                "secondary_ipv4_prefix": "10.1.1.4/30",
-                "secondary_ipv6_prefix": "3FFE:FFFF:0:CD30::a4/126",
-                "vlan_id": 1001,
-            },
-            option_b_properties={
-                "export_route_targets": ["65046:10039"],
-                "import_route_targets": ["65046:10039"],
-                "route_targets": {
-                    "export_ipv4_route_targets": ["65046:10039"],
-                    "export_ipv6_route_targets": ["65046:10039"],
-                    "import_ipv4_route_targets": ["65046:10039"],
-                    "import_ipv6_route_targets": ["65046:10039"],
-                },
-            },
-            peering_option=azure_native.managednetworkfabric.PeeringOption.OPTION_A,
-            resource_group_name="example-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:ExternalNetwork example-externalnetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName}/externalNetworks/{externalNetworkName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,66 +271,6 @@ class ExternalNetwork(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-02-01-preview.
 
         Other available API versions: 2023-02-01-preview, 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ExternalNetworks_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        external_network = azure_native.managednetworkfabric.ExternalNetwork("externalNetwork",
-            annotation="annotation",
-            export_route_policy={
-                "export_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-                "export_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            },
-            export_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            external_network_name="example-externalnetwork",
-            import_route_policy={
-                "import_ipv4_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-                "import_ipv6_route_policy_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            },
-            import_route_policy_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
-            l3_isolation_domain_name="example-l3domain",
-            network_to_network_interconnect_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni",
-            option_a_properties={
-                "bfd_configuration": {
-                    "interval_in_milli_seconds": 300,
-                    "multiplier": 15,
-                },
-                "egress_acl_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-                "ingress_acl_id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accessControlLists/example-acl",
-                "mtu": 1500,
-                "peer_asn": 65047,
-                "primary_ipv4_prefix": "10.1.1.0/30",
-                "primary_ipv6_prefix": "3FFE:FFFF:0:CD30::a0/126",
-                "secondary_ipv4_prefix": "10.1.1.4/30",
-                "secondary_ipv6_prefix": "3FFE:FFFF:0:CD30::a4/126",
-                "vlan_id": 1001,
-            },
-            option_b_properties={
-                "export_route_targets": ["65046:10039"],
-                "import_route_targets": ["65046:10039"],
-                "route_targets": {
-                    "export_ipv4_route_targets": ["65046:10039"],
-                    "export_ipv6_route_targets": ["65046:10039"],
-                    "import_ipv4_route_targets": ["65046:10039"],
-                    "import_ipv6_route_targets": ["65046:10039"],
-                },
-            },
-            peering_option=azure_native.managednetworkfabric.PeeringOption.OPTION_A,
-            resource_group_name="example-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:managednetworkfabric:ExternalNetwork example-externalnetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/{l3IsolationDomainName}/externalNetworks/{externalNetworkName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

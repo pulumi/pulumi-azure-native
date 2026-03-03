@@ -103,29 +103,6 @@ class ServerInstance(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        ## Example Usage
-        ### Creates the Server Instance resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_instance = azure_native.workloads.ServerInstance("serverInstance",
-            resource_group_name="test-rg",
-            sap_discovery_site_name="SampleSite",
-            sap_instance_name="MPP_MPP",
-            server_instance_name="APP_SapServer1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:ServerInstance APP_SapServer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName}/serverInstances/{serverInstanceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,29 +121,6 @@ class ServerInstance(pulumi.CustomResource):
         Define the Server Instance resource.
 
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-
-        ## Example Usage
-        ### Creates the Server Instance resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        server_instance = azure_native.workloads.ServerInstance("serverInstance",
-            resource_group_name="test-rg",
-            sap_discovery_site_name="SampleSite",
-            sap_instance_name="MPP_MPP",
-            server_instance_name="APP_SapServer1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:workloads:ServerInstance APP_SapServer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName}/serverInstances/{serverInstanceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

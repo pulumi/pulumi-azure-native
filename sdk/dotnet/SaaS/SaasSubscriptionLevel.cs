@@ -13,50 +13,6 @@ namespace Pulumi.AzureNative.SaaS
     /// SaaS REST API resource definition.
     /// 
     /// Uses Azure REST API version 2018-03-01-beta. In version 2.x of the Azure Native provider, it used API version 2018-03-01-beta.
-    /// 
-    /// ## Example Usage
-    /// ### Create subscription level SaaS resource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var saasSubscriptionLevel = new AzureNative.SaaS.SaasSubscriptionLevel("saasSubscriptionLevel", new()
-    ///     {
-    ///         Location = "global",
-    ///         Name = "MyContosoSubscription",
-    ///         Properties = new AzureNative.SaaS.Inputs.SaasCreationPropertiesArgs
-    ///         {
-    ///             OfferId = "contosoOffer",
-    ///             PaymentChannelMetadata = 
-    ///             {
-    ///                 { "AzureSubscriptionId", "155af98a-3205-47e7-883b-a2ab9db9f88d" },
-    ///             },
-    ///             PaymentChannelType = AzureNative.SaaS.PaymentChannelType.SubscriptionDelegated,
-    ///             PublisherId = "microsoft-contoso",
-    ///             SaasResourceName = "MyContosoSubscription",
-    ///             SkuId = "free",
-    ///             TermId = "hjdtn7tfnxcy",
-    ///         },
-    ///         ResourceGroupName = "my-saas-rg",
-    ///         ResourceName = "MyContosoSubscription",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:saas:SaasSubscriptionLevel MyContosoSubscription /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SaaS/resources/{resourceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:saas:SaasSubscriptionLevel")]
     public partial class SaasSubscriptionLevel : global::Pulumi.CustomResource

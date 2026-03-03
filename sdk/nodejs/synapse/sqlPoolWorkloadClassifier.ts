@@ -10,53 +10,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2021-06-01. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
  *
  * Other available API versions: 2021-04-01-preview, 2021-05-01, 2021-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a workload classifier with all properties specified.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sqlPoolWorkloadClassifier = new azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier", {
- *     context: "test_context",
- *     endTime: "14:00",
- *     importance: "high",
- *     label: "test_label",
- *     memberName: "dbo",
- *     resourceGroupName: "sqlcrudtest-6852",
- *     sqlPoolName: "sqlcrudtest-9187",
- *     startTime: "12:00",
- *     workloadClassifierName: "wlm_workloadclassifier",
- *     workloadGroupName: "wlm_workloadgroup",
- *     workspaceName: "sqlcrudtest-2080",
- * });
- *
- * ```
- * ### Create a workload classifier with the required properties specified.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sqlPoolWorkloadClassifier = new azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier", {
- *     memberName: "dbo",
- *     resourceGroupName: "sqlcrudtest-6852",
- *     sqlPoolName: "sqlcrudtest-9187",
- *     workloadClassifierName: "wlm_workloadclassifier",
- *     workloadGroupName: "wlm_workloadgroup",
- *     workspaceName: "sqlcrudtest-2080",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:synapse:SqlPoolWorkloadClassifier wlm_workloadclassifier /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/workloadGroups/{workloadGroupName}/workloadClassifiers/{workloadClassifierName} 
- * ```
  */
 export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
     /**

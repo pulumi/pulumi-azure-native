@@ -70,27 +70,6 @@ class SupportPlanType(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
 
-        ## Example Usage
-        ### SupportPlanTypes_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        support_plan_type = azure_native.addons.SupportPlanType("supportPlanType",
-            plan_type_name="Standard",
-            provider_name="Canonical")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:addons:SupportPlanType Standard /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,27 +86,6 @@ class SupportPlanType(pulumi.CustomResource):
         The status of the Canonical support plan.
 
         Uses Azure REST API version 2018-03-01. In version 2.x of the Azure Native provider, it used API version 2018-03-01.
-
-        ## Example Usage
-        ### SupportPlanTypes_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        support_plan_type = azure_native.addons.SupportPlanType("supportPlanType",
-            plan_type_name="Standard",
-            provider_name="Canonical")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:addons:SupportPlanType Standard /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

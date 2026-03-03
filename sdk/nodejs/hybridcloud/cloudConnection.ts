@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
  *
  * Uses Azure REST API version 2023-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
- *
- * ## Example Usage
- * ### Create a Cloud Connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const cloudConnection = new azure_native.hybridcloud.CloudConnection("cloudConnection", {
- *     cloudConnectionName: "cloudconnection1",
- *     cloudConnector: {
- *         id: "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.HybridCloud/cloudConnectors/123456789012",
- *     },
- *     location: "West US",
- *     remoteResourceId: "arn:aws:ec2:us-east-1:123456789012:VPNGateway/vgw-043da592550819c8a",
- *     resourceGroupName: "demo-rg",
- *     sharedKey: "password123",
- *     virtualHub: {
- *         id: "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.Network/VirtualHubs/testHub",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:hybridcloud:CloudConnection cloudconnection1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCloud/cloudConnections/{cloudConnectionName} 
- * ```
  */
 export class CloudConnection extends pulumi.CustomResource {
     /**

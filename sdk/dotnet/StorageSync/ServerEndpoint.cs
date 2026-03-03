@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.StorageSync
     /// Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
     /// 
     /// Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ServerEndpoints_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serverEndpoint = new AzureNative.StorageSync.ServerEndpoint("serverEndpoint", new()
-    ///     {
-    ///         CloudTiering = AzureNative.StorageSync.FeatureStatus.Off,
-    ///         InitialDownloadPolicy = AzureNative.StorageSync.InitialDownloadPolicy.NamespaceThenModifiedFiles,
-    ///         InitialUploadPolicy = AzureNative.StorageSync.InitialUploadPolicy.ServerAuthoritative,
-    ///         LocalCacheMode = AzureNative.StorageSync.LocalCacheMode.UpdateLocallyCachedFiles,
-    ///         OfflineDataTransfer = AzureNative.StorageSync.FeatureStatus.@On,
-    ///         OfflineDataTransferShareName = "myfileshare",
-    ///         ResourceGroupName = "SampleResourceGroup_1",
-    ///         ServerEndpointName = "SampleServerEndpoint_1",
-    ///         ServerLocalPath = "D:\\SampleServerEndpoint_1",
-    ///         ServerResourceId = "/subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
-    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
-    ///         SyncGroupName = "SampleSyncGroup_1",
-    ///         TierFilesOlderThanDays = 0,
-    ///         VolumeFreeSpacePercent = 100,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:storagesync:ServerEndpoint SampleServerEndpoint_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:ServerEndpoint")]
     public partial class ServerEndpoint : global::Pulumi.CustomResource

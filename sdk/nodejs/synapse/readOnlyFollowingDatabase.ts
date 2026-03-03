@@ -11,30 +11,6 @@ import * as utilities from "../utilities";
  * Class representing a read only following database.
  *
  * Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
- *
- * ## Example Usage
- * ### KustoPoolDatabasesCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const readOnlyFollowingDatabase = new azure_native.synapse.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase", {
- *     databaseName: "KustoDatabase8",
- *     kustoPoolName: "kustoclusterrptest4",
- *     resourceGroupName: "kustorptest",
- *     workspaceName: "synapseWorkspaceName",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:synapse:ReadOnlyFollowingDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName} 
- * ```
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**

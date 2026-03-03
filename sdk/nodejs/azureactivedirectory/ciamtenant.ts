@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * The Azure AD for customers resource.
  *
  * Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-17-preview.
- *
- * ## Example Usage
- * ### Create_CIAM_tenant
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ciamTenant = new azure_native.azureactivedirectory.CIAMTenant("ciamTenant", {
- *     createTenantProperties: {
- *         countryCode: "US",
- *         displayName: "Contoso",
- *     },
- *     location: "United States",
- *     resourceGroupName: "contosoResourceGroup",
- *     resourceName: "contoso",
- *     sku: {
- *         name: azure_native.azureactivedirectory.CIAMResourceSKUName.Standard,
- *         tier: azure_native.azureactivedirectory.CIAMResourceSKUTier.A0,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azureactivedirectory:CIAMTenant contoso /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/ciamDirectories/{resourceName} 
- * ```
  */
 export class CIAMTenant extends pulumi.CustomResource {
     /**

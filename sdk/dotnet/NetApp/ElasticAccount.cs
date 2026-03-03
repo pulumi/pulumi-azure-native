@@ -13,41 +13,6 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp elastic account resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ElasticAccounts_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var elasticAccount = new AzureNative.NetApp.ElasticAccount("elasticAccount", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         Location = "eastus",
-    ///         Properties = null,
-    ///         ResourceGroupName = "myRG",
-    ///         Tags = 
-    ///         {
-    ///             { "ac-tag1", "account1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:ElasticAccount account1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticAccount")]
     public partial class ElasticAccount : global::Pulumi.CustomResource

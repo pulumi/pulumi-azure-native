@@ -141,45 +141,6 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Update a scoped platform metrics subscription in a private link scope.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scoped_resource = azure_native.monitor.PrivateLinkScopedResource("privateLinkScopedResource",
-            kind="PlatformMetrics",
-            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444",
-            name="scoped-resource-name",
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope",
-            subscription_location="eastus")
-
-        ```
-        ### Update a scoped resource in a private link scope.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scoped_resource = azure_native.monitor.PrivateLinkScopedResource("privateLinkScopedResource",
-            kind=azure_native.monitor.ScopedResourceKind.RESOURCE,
-            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
-            name="scoped-resource-name",
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:PrivateLinkScopedResource scoped-resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,45 +163,6 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Update a scoped platform metrics subscription in a private link scope.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scoped_resource = azure_native.monitor.PrivateLinkScopedResource("privateLinkScopedResource",
-            kind="PlatformMetrics",
-            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444",
-            name="scoped-resource-name",
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope",
-            subscription_location="eastus")
-
-        ```
-        ### Update a scoped resource in a private link scope.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_link_scoped_resource = azure_native.monitor.PrivateLinkScopedResource("privateLinkScopedResource",
-            kind=azure_native.monitor.ScopedResourceKind.RESOURCE,
-            linked_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
-            name="scoped-resource-name",
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:PrivateLinkScopedResource scoped-resource-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

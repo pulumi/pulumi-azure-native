@@ -139,45 +139,6 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDBMongoDBCollectionCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_account_mongo_db_collection = azure_native.cosmosdb.DatabaseAccountMongoDBCollection("databaseAccountMongoDBCollection",
-            account_name="ddb1",
-            collection_name="collectionName",
-            database_name="databaseName",
-            options={},
-            resource={
-                "id": "testcoll",
-                "indexes": [{
-                    "key": {
-                        "keys": ["testKey"],
-                    },
-                    "options": {
-                        "expire_after_seconds": 100,
-                        "unique": True,
-                    },
-                }],
-                "shard_key": {
-                    "testKey": "Hash",
-                },
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:DatabaseAccountMongoDBCollection collectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/mongodb/databases/{databaseName}/collections/{collectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,45 +161,6 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
         Uses Azure REST API version 2016-03-31.
 
         Other available API versions: 2015-04-01, 2015-04-08, 2015-11-06, 2016-03-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDBMongoDBCollectionCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        database_account_mongo_db_collection = azure_native.cosmosdb.DatabaseAccountMongoDBCollection("databaseAccountMongoDBCollection",
-            account_name="ddb1",
-            collection_name="collectionName",
-            database_name="databaseName",
-            options={},
-            resource={
-                "id": "testcoll",
-                "indexes": [{
-                    "key": {
-                        "keys": ["testKey"],
-                    },
-                    "options": {
-                        "expire_after_seconds": 100,
-                        "unique": True,
-                    },
-                }],
-                "shard_key": {
-                    "testKey": "Hash",
-                },
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:DatabaseAccountMongoDBCollection collectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/apis/mongodb/databases/{databaseName}/collections/{collectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

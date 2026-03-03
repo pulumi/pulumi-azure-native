@@ -123,47 +123,6 @@ class IamAccessKeyLastUsed(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### IamAccessKeyLastUseds_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_access_key_last_used = azure_native.awsconnector.IamAccessKeyLastUsed("iamAccessKeyLastUsed",
-            location="rdt",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "xfaoulngosrepqegvmfzqcmenfiwv",
-                "aws_account_id": "lturmpd",
-                "aws_properties": {
-                    "last_used_date": "2024-10-08T03:48:57.755Z",
-                    "region": "av",
-                    "service_name": "vhyurov",
-                },
-                "aws_region": "epaxtviqtrqqnghkgfkqhuqee",
-                "aws_source_schema": "enepzx",
-                "aws_tags": {
-                    "key9162": "xrhekznmreqitxxw",
-                },
-                "public_cloud_connectors_resource_id": "rwbbz",
-                "public_cloud_resource_name": "cttx",
-            },
-            resource_group_name="rgiamAccessKeyLastUsed",
-            tags={
-                "key2981": "xwkwghlklv",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamAccessKeyLastUsed wtidcpjujjyhczp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyLastUseds/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,47 +142,6 @@ class IamAccessKeyLastUsed(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### IamAccessKeyLastUseds_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_access_key_last_used = azure_native.awsconnector.IamAccessKeyLastUsed("iamAccessKeyLastUsed",
-            location="rdt",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "xfaoulngosrepqegvmfzqcmenfiwv",
-                "aws_account_id": "lturmpd",
-                "aws_properties": {
-                    "last_used_date": "2024-10-08T03:48:57.755Z",
-                    "region": "av",
-                    "service_name": "vhyurov",
-                },
-                "aws_region": "epaxtviqtrqqnghkgfkqhuqee",
-                "aws_source_schema": "enepzx",
-                "aws_tags": {
-                    "key9162": "xrhekznmreqitxxw",
-                },
-                "public_cloud_connectors_resource_id": "rwbbz",
-                "public_cloud_resource_name": "cttx",
-            },
-            resource_group_name="rgiamAccessKeyLastUsed",
-            tags={
-                "key2981": "xwkwghlklv",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamAccessKeyLastUsed wtidcpjujjyhczp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamAccessKeyLastUseds/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

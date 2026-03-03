@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2025-10-01-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdate OutboundRule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const outboundRule = new azure_native.cognitiveservices.OutboundRule("outboundRule", {
- *     accountName: "cognitive-account-name",
- *     managedNetworkName: "default",
- *     properties: {
- *         category: azure_native.cognitiveservices.RuleCategory.UserDefined,
- *         destination: "destination_endpoint",
- *         status: azure_native.cognitiveservices.RuleStatus.Active,
- *         type: "FQDN",
- *     },
- *     resourceGroupName: "test-rg",
- *     ruleName: "rule_name_1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:OutboundRule rule_name_1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName} 
- * ```
  */
 export class OutboundRule extends pulumi.CustomResource {
     /**

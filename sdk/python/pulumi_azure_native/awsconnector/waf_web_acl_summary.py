@@ -123,46 +123,6 @@ class WafWebAclSummary(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### WafWebAclSummaries_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        waf_web_acl_summary = azure_native.awsconnector.WafWebAclSummary("wafWebAclSummary",
-            location="bpposymcoxqcolyqmtfpvoh",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "gorpeccxrhf",
-                "aws_account_id": "ovompqprisse",
-                "aws_properties": {
-                    "name": "rrwaevjnkowkxlccaw",
-                    "web_acl_id": "hh",
-                },
-                "aws_region": "nnnmvzddsej",
-                "aws_source_schema": "afgujkvjwspbbruhwbeji",
-                "aws_tags": {
-                    "key8890": "fpvbbqxuwtqptqktmgp",
-                },
-                "public_cloud_connectors_resource_id": "kzgpy",
-                "public_cloud_resource_name": "lejvxofzybufrazktgotrowforlsrp",
-            },
-            resource_group_name="rgwafWebACLSummary",
-            tags={
-                "key2706": "mdnvnlajj",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:WafWebAclSummary mbdbeqqvxgemhnzmbstpqijqumpudg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/wafWebACLSummaries/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,46 +142,6 @@ class WafWebAclSummary(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### WafWebAclSummaries_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        waf_web_acl_summary = azure_native.awsconnector.WafWebAclSummary("wafWebAclSummary",
-            location="bpposymcoxqcolyqmtfpvoh",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "gorpeccxrhf",
-                "aws_account_id": "ovompqprisse",
-                "aws_properties": {
-                    "name": "rrwaevjnkowkxlccaw",
-                    "web_acl_id": "hh",
-                },
-                "aws_region": "nnnmvzddsej",
-                "aws_source_schema": "afgujkvjwspbbruhwbeji",
-                "aws_tags": {
-                    "key8890": "fpvbbqxuwtqptqktmgp",
-                },
-                "public_cloud_connectors_resource_id": "kzgpy",
-                "public_cloud_resource_name": "lejvxofzybufrazktgotrowforlsrp",
-            },
-            resource_group_name="rgwafWebACLSummary",
-            tags={
-                "key2706": "mdnvnlajj",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:WafWebAclSummary mbdbeqqvxgemhnzmbstpqijqumpudg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/wafWebACLSummaries/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

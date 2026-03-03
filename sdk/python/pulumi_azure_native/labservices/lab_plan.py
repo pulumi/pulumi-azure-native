@@ -245,52 +245,6 @@ class LabPlan(pulumi.CustomResource):
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### putLabPlan
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        lab_plan = azure_native.labservices.LabPlan("labPlan",
-            default_auto_shutdown_profile={
-                "disconnect_delay": "PT5M",
-                "idle_delay": "PT5M",
-                "no_connect_delay": "PT5M",
-                "shutdown_on_disconnect": azure_native.labservices.EnableState.ENABLED,
-                "shutdown_on_idle": azure_native.labservices.ShutdownOnIdleMode.USER_ABSENCE,
-                "shutdown_when_not_connected": azure_native.labservices.EnableState.ENABLED,
-            },
-            default_connection_profile={
-                "client_rdp_access": azure_native.labservices.ConnectionType.PUBLIC,
-                "client_ssh_access": azure_native.labservices.ConnectionType.PUBLIC,
-                "web_rdp_access": azure_native.labservices.ConnectionType.NONE,
-                "web_ssh_access": azure_native.labservices.ConnectionType.NONE,
-            },
-            default_network_profile={
-                "subnet_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
-            },
-            lab_plan_name="testlabplan",
-            location="westus",
-            resource_group_name="testrg123",
-            shared_gallery_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Compute/galleries/testsig",
-            support_info={
-                "email": "help@contoso.com",
-                "instructions": "Contact support for help.",
-                "phone": "+1-202-555-0123",
-                "url": "help.contoso.com",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:labservices:LabPlan testlabplan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labPlans/{labPlanName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,52 +273,6 @@ class LabPlan(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-07. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2021-10-01-preview, 2021-11-15-preview, 2022-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native labservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### putLabPlan
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        lab_plan = azure_native.labservices.LabPlan("labPlan",
-            default_auto_shutdown_profile={
-                "disconnect_delay": "PT5M",
-                "idle_delay": "PT5M",
-                "no_connect_delay": "PT5M",
-                "shutdown_on_disconnect": azure_native.labservices.EnableState.ENABLED,
-                "shutdown_on_idle": azure_native.labservices.ShutdownOnIdleMode.USER_ABSENCE,
-                "shutdown_when_not_connected": azure_native.labservices.EnableState.ENABLED,
-            },
-            default_connection_profile={
-                "client_rdp_access": azure_native.labservices.ConnectionType.PUBLIC,
-                "client_ssh_access": azure_native.labservices.ConnectionType.PUBLIC,
-                "web_rdp_access": azure_native.labservices.ConnectionType.NONE,
-                "web_ssh_access": azure_native.labservices.ConnectionType.NONE,
-            },
-            default_network_profile={
-                "subnet_id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
-            },
-            lab_plan_name="testlabplan",
-            location="westus",
-            resource_group_name="testrg123",
-            shared_gallery_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Compute/galleries/testsig",
-            support_info={
-                "email": "help@contoso.com",
-                "instructions": "Contact support for help.",
-                "phone": "+1-202-555-0123",
-                "url": "help.contoso.com",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:labservices:LabPlan testlabplan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labPlans/{labPlanName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

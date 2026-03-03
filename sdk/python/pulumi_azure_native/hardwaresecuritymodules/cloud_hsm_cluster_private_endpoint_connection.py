@@ -107,32 +107,6 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-08-31-preview, 2023-12-10-preview, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CloudHsmClusterPrivateEndpointConnection_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cloud_hsm_cluster_private_endpoint_connection = azure_native.hardwaresecuritymodules.CloudHsmClusterPrivateEndpointConnection("cloudHsmClusterPrivateEndpointConnection",
-            cloud_hsm_cluster_name="chsm1",
-            pe_connection_name="sample-pec",
-            private_link_service_connection_state={
-                "description": "My name is Joe and I'm approving this.",
-                "status": azure_native.hardwaresecuritymodules.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rgcloudhsm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection sample-pec /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/{cloudHsmClusterName}/privateEndpointConnections/{peConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-30-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-31-preview.
 
         Other available API versions: 2022-08-31-preview, 2023-12-10-preview, 2025-03-31. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hardwaresecuritymodules [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CloudHsmClusterPrivateEndpointConnection_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        cloud_hsm_cluster_private_endpoint_connection = azure_native.hardwaresecuritymodules.CloudHsmClusterPrivateEndpointConnection("cloudHsmClusterPrivateEndpointConnection",
-            cloud_hsm_cluster_name="chsm1",
-            pe_connection_name="sample-pec",
-            private_link_service_connection_state={
-                "description": "My name is Joe and I'm approving this.",
-                "status": azure_native.hardwaresecuritymodules.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="rgcloudhsm")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection sample-pec /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/{cloudHsmClusterName}/privateEndpointConnections/{peConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

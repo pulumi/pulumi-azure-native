@@ -13,68 +13,6 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### ConfigServiceDeliveryChannels_CreateOrReplace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var configServiceDeliveryChannel = new AzureNative.AwsConnector.ConfigServiceDeliveryChannel("configServiceDeliveryChannel", new()
-    ///     {
-    ///         Location = "djcnfaicagptxk",
-    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-    ///         Properties = new AzureNative.AwsConnector.Inputs.ConfigServiceDeliveryChannelPropertiesArgs
-    ///         {
-    ///             Arn = "eevsmaokvzzbqwpfm",
-    ///             AwsAccountId = "xiyydxsyykydvymn",
-    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsConfigServiceDeliveryChannelPropertiesArgs
-    ///             {
-    ///                 ConfigSnapshotDeliveryProperties = new AzureNative.AwsConnector.Inputs.ConfigSnapshotDeliveryPropertiesArgs
-    ///                 {
-    ///                     DeliveryFrequency = new AzureNative.AwsConnector.Inputs.MaximumExecutionFrequencyEnumValueArgs
-    ///                     {
-    ///                         Value = AzureNative.AwsConnector.MaximumExecutionFrequency.One_Hour,
-    ///                     },
-    ///                 },
-    ///                 Name = "pfdwjyiaypjjedltuphpz",
-    ///                 S3BucketName = "kcgtpxhibekwygxkybv",
-    ///                 S3KeyPrefix = "eqgzb",
-    ///                 S3KmsKeyArn = "vlnkltfo",
-    ///                 SnsTopicARN = "qsxejnowkzljayrlhzyyppaya",
-    ///             },
-    ///             AwsRegion = "kngfw",
-    ///             AwsSourceSchema = "ged",
-    ///             AwsTags = 
-    ///             {
-    ///                 { "key5086", "cnyyij" },
-    ///             },
-    ///             PublicCloudConnectorsResourceId = "kzdkfyjjgkoolslydcmbms",
-    ///             PublicCloudResourceName = "idxxguxjmvrzjnruzz",
-    ///         },
-    ///         ResourceGroupName = "rgconfigServiceDeliveryChannel",
-    ///         Tags = 
-    ///         {
-    ///             { "key6889", "bimlpmolvvbwmp" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:awsconnector:ConfigServiceDeliveryChannel nygnhqucwqufwbbhwstvjwf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceDeliveryChannels/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:ConfigServiceDeliveryChannel")]
     public partial class ConfigServiceDeliveryChannel : global::Pulumi.CustomResource

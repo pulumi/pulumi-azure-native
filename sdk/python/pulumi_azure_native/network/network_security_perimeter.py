@@ -123,27 +123,6 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2021-03-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Put Network Security Perimeter
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_security_perimeter = azure_native.network.NetworkSecurityPerimeter("networkSecurityPerimeter",
-            network_security_perimeter_name="nsp1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:NetworkSecurityPerimeter TestNetworkSecurityPerimeter /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,27 +144,6 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
 
         Other available API versions: 2021-02-01-preview, 2021-03-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Put Network Security Perimeter
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_security_perimeter = azure_native.network.NetworkSecurityPerimeter("networkSecurityPerimeter",
-            network_security_perimeter_name="nsp1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:NetworkSecurityPerimeter TestNetworkSecurityPerimeter /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

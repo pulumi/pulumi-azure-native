@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.Authorization
     /// The lock information.
     /// 
     /// Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create management lock at resource level
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var managementLockAtResourceLevel = new AzureNative.Authorization.ManagementLockAtResourceLevel("managementLockAtResourceLevel", new()
-    ///     {
-    ///         Level = AzureNative.Authorization.LockLevel.ReadOnly,
-    ///         LockName = "testlock",
-    ///         ParentResourcePath = "parentResourcePath",
-    ///         ResourceGroupName = "resourcegroupname",
-    ///         ResourceName = "teststorageaccount",
-    ///         ResourceProviderNamespace = "Microsoft.Storage",
-    ///         ResourceType = "storageAccounts",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:authorization:ManagementLockAtResourceLevel testlock /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/locks/{lockName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockAtResourceLevel")]
     public partial class ManagementLockAtResourceLevel : global::Pulumi.CustomResource

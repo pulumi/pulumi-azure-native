@@ -120,33 +120,6 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-03-01-preview.
 
-        ## Example Usage
-        ### ApiManagementCreateGatewayHostnameBinding
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_gateway_hostname_binding = azure_native.apimanagement.ApiGatewayHostnameBinding("apiGatewayHostnameBinding",
-            gateway_name="apimGateway1",
-            hostname="primary.cotoso.com",
-            hostname_binding_name="hb-1",
-            key_vault={
-                "identity_client_id": "00000000-0000-0000-0000-000000000000",
-                "secret_id": "https://myvault.keyvault.azure.net/secrets/contosoprimarycert",
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiGatewayHostnameBinding hb-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/hostnameBindings/{hostnameBindingName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,33 +139,6 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
         A single API Management gateway hostname binding resource in List or Get response.
 
         Uses Azure REST API version 2025-03-01-preview.
-
-        ## Example Usage
-        ### ApiManagementCreateGatewayHostnameBinding
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        api_gateway_hostname_binding = azure_native.apimanagement.ApiGatewayHostnameBinding("apiGatewayHostnameBinding",
-            gateway_name="apimGateway1",
-            hostname="primary.cotoso.com",
-            hostname_binding_name="hb-1",
-            key_vault={
-                "identity_client_id": "00000000-0000-0000-0000-000000000000",
-                "secret_id": "https://myvault.keyvault.azure.net/secrets/contosoprimarycert",
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:ApiGatewayHostnameBinding hb-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/gateways/{gatewayName}/hostnameBindings/{hostnameBindingName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

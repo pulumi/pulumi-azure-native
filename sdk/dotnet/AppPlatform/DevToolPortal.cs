@@ -15,61 +15,6 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
     /// 
     /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### DevToolPortals_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var devToolPortal = new AzureNative.AppPlatform.DevToolPortal("devToolPortal", new()
-    ///     {
-    ///         DevToolPortalName = "default",
-    ///         Properties = new AzureNative.AppPlatform.Inputs.DevToolPortalPropertiesArgs
-    ///         {
-    ///             Features = new AzureNative.AppPlatform.Inputs.DevToolPortalFeatureSettingsArgs
-    ///             {
-    ///                 ApplicationAccelerator = new AzureNative.AppPlatform.Inputs.DevToolPortalFeatureDetailArgs
-    ///                 {
-    ///                     State = AzureNative.AppPlatform.DevToolPortalFeatureState.Enabled,
-    ///                 },
-    ///                 ApplicationLiveView = new AzureNative.AppPlatform.Inputs.DevToolPortalFeatureDetailArgs
-    ///                 {
-    ///                     State = AzureNative.AppPlatform.DevToolPortalFeatureState.Enabled,
-    ///                 },
-    ///             },
-    ///             Public = true,
-    ///             SsoProperties = new AzureNative.AppPlatform.Inputs.DevToolPortalSsoPropertiesArgs
-    ///             {
-    ///                 ClientId = "00000000-0000-0000-0000-000000000000",
-    ///                 ClientSecret = "xxxxx",
-    ///                 MetadataUrl = "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.well-known/openid-configuration",
-    ///                 Scopes = new[]
-    ///                 {
-    ///                     "openid",
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         ServiceName = "myservice",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:appplatform:DevToolPortal default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/DevToolPortals/{devToolPortalName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:DevToolPortal")]
     public partial class DevToolPortal : global::Pulumi.CustomResource

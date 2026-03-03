@@ -104,28 +104,6 @@ class Product(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        ## Example Usage
-        ### Products_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        product = azure_native.azuresphere.Product("product",
-            catalog_name="MyCatalog1",
-            product_name="MyProduct1",
-            resource_group_name="MyResourceGroup1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azuresphere:Product MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,28 +122,6 @@ class Product(pulumi.CustomResource):
         An product resource belonging to a catalog resource.
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-
-        ## Example Usage
-        ### Products_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        product = azure_native.azuresphere.Product("product",
-            catalog_name="MyCatalog1",
-            product_name="MyProduct1",
-            resource_group_name="MyResourceGroup1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azuresphere:Product MyProduct1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

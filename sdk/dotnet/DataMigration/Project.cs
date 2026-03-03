@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.DataMigration
     /// Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-30.
     /// 
     /// Other available API versions: 2021-06-30, 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Projects_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var project = new AzureNative.DataMigration.Project("project", new()
-    ///     {
-    ///         GroupName = "DmsSdkRg",
-    ///         Location = "southcentralus",
-    ///         ProjectName = "DmsSdkProject",
-    ///         ServiceName = "DmsSdkService",
-    ///         SourcePlatform = AzureNative.DataMigration.ProjectSourcePlatform.SQL,
-    ///         TargetPlatform = AzureNative.DataMigration.ProjectTargetPlatform.SQLDB,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:datamigration:Project DmsSdkProject /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.DataMigration/services/{serviceName}/projects/{projectName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Project")]
     public partial class Project : global::Pulumi.CustomResource

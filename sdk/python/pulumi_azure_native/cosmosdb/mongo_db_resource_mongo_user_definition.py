@@ -192,37 +192,6 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
 
         Other available API versions: 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDBMongoDBUserDefinitionCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mongo_db_resource_mongo_user_definition = azure_native.cosmosdb.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition",
-            account_name="myAccountName",
-            custom_data="My custom data",
-            database_name="sales",
-            mechanisms="SCRAM-SHA-256",
-            mongo_user_definition_id="myMongoUserDefinitionId",
-            password="myPassword",
-            resource_group_name="myResourceGroupName",
-            roles=[{
-                "db": "sales",
-                "role": "myReadRole",
-            }],
-            user_name="myUserName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:MongoDBResourceMongoUserDefinition myUserName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbUserDefinitions/{mongoUserDefinitionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,37 +217,6 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
         Uses Azure REST API version 2025-10-15.
 
         Other available API versions: 2021-10-15-preview, 2021-11-15-preview, 2022-02-15-preview, 2022-05-15-preview, 2022-08-15, 2022-08-15-preview, 2022-11-15, 2022-11-15-preview, 2023-03-01-preview, 2023-03-15, 2023-03-15-preview, 2023-04-15, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview, 2025-04-15, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDBMongoDBUserDefinitionCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        mongo_db_resource_mongo_user_definition = azure_native.cosmosdb.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition",
-            account_name="myAccountName",
-            custom_data="My custom data",
-            database_name="sales",
-            mechanisms="SCRAM-SHA-256",
-            mongo_user_definition_id="myMongoUserDefinitionId",
-            password="myPassword",
-            resource_group_name="myResourceGroupName",
-            roles=[{
-                "db": "sales",
-                "role": "myReadRole",
-            }],
-            user_name="myUserName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:MongoDBResourceMongoUserDefinition myUserName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbUserDefinitions/{mongoUserDefinitionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

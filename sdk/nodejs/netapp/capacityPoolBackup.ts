@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * Backup of a Volume
  *
  * Uses Azure REST API version 2022-11-01.
- *
- * ## Example Usage
- * ### Backups_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const capacityPoolBackup = new azure_native.netapp.CapacityPoolBackup("capacityPoolBackup", {
- *     accountName: "account1",
- *     backupName: "backup1",
- *     label: "myLabel",
- *     location: "eastus",
- *     poolName: "pool1",
- *     resourceGroupName: "myRG",
- *     volumeName: "volume1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:netapp:CapacityPoolBackup account1/pool1/volume1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName} 
- * ```
  */
 export class CapacityPoolBackup extends pulumi.CustomResource {
     /**

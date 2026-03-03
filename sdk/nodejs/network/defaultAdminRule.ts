@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * Network default admin rule.
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
- *
- * ## Example Usage
- * ### Create a admin rule with network group as source or destination
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const defaultAdminRule = new azure_native.network.DefaultAdminRule("defaultAdminRule", {
- *     configurationName: "myTestSecurityConfig",
- *     networkManagerName: "testNetworkManager",
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleAdminRule",
- * });
- *
- * ```
- * ### Create an admin rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const defaultAdminRule = new azure_native.network.DefaultAdminRule("defaultAdminRule", {
- *     configurationName: "myTestSecurityConfig",
- *     networkManagerName: "testNetworkManager",
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleAdminRule",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:DefaultAdminRule SampleAdminRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
- * ```
  */
 export class DefaultAdminRule extends pulumi.CustomResource {
     /**

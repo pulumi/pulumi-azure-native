@@ -106,69 +106,6 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### Creates the Private Endpoint Connection Proxy.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection_proxy = azure_native.datareplication.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy",
-            private_endpoint_connection_proxy_name="d",
-            properties={
-                "remote_private_endpoint": {
-                    "connection_details": [{
-                        "group_id": "pjrlygpadir",
-                        "id": "lenqkogzkes",
-                        "link_identifier": "ravfufhkdowufd",
-                        "member_name": "ybuysjrlfupewxe",
-                        "private_ip_address": "cyiacdzzyqmxjpijjbwgasegehtqe",
-                    }],
-                    "id": "yipalno",
-                    "manual_private_link_service_connections": [{
-                        "group_ids": ["hvejynjktikteipnioyeja"],
-                        "name": "jqwntlzfsksl",
-                        "request_message": "bukgzpkvcvfbmcdmpcbiigbvugicqa",
-                    }],
-                    "private_link_service_connections": [{
-                        "group_ids": ["hvejynjktikteipnioyeja"],
-                        "name": "jqwntlzfsksl",
-                        "request_message": "bukgzpkvcvfbmcdmpcbiigbvugicqa",
-                    }],
-                    "private_link_service_proxies": [{
-                        "group_connectivity_information": [{
-                            "customer_visible_fqdns": ["vedcg"],
-                            "group_id": "per",
-                            "internal_fqdn": "maqavwhxwzzhbzjbryyquvitmup",
-                            "member_name": "ybptuypgdqoxkuwqx",
-                            "private_link_service_arm_region": "rerkqqxinteevmlbrdkktaqhcch",
-                            "redirect_map_id": "pezncxcq",
-                        }],
-                        "id": "nzqxevuyqeedrqnkbnlcyrrrbzxvl",
-                        "remote_private_endpoint_connection": {
-                            "id": "ocunsgawjsqohkrcyxiv",
-                        },
-                        "remote_private_link_service_connection_state": {
-                            "actions_required": "afwbq",
-                            "description": "y",
-                            "status": azure_native.datareplication.PrivateEndpointConnectionStatus.APPROVED,
-                        },
-                    }],
-                },
-            },
-            resource_group_name="rgswagger_2024-09-01",
-            vault_name="4")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datareplication:PrivateEndpointConnectionProxy wrbeymbilwm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,69 +124,6 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         Represents private endpoint connection proxy request.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### Creates the Private Endpoint Connection Proxy.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection_proxy = azure_native.datareplication.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy",
-            private_endpoint_connection_proxy_name="d",
-            properties={
-                "remote_private_endpoint": {
-                    "connection_details": [{
-                        "group_id": "pjrlygpadir",
-                        "id": "lenqkogzkes",
-                        "link_identifier": "ravfufhkdowufd",
-                        "member_name": "ybuysjrlfupewxe",
-                        "private_ip_address": "cyiacdzzyqmxjpijjbwgasegehtqe",
-                    }],
-                    "id": "yipalno",
-                    "manual_private_link_service_connections": [{
-                        "group_ids": ["hvejynjktikteipnioyeja"],
-                        "name": "jqwntlzfsksl",
-                        "request_message": "bukgzpkvcvfbmcdmpcbiigbvugicqa",
-                    }],
-                    "private_link_service_connections": [{
-                        "group_ids": ["hvejynjktikteipnioyeja"],
-                        "name": "jqwntlzfsksl",
-                        "request_message": "bukgzpkvcvfbmcdmpcbiigbvugicqa",
-                    }],
-                    "private_link_service_proxies": [{
-                        "group_connectivity_information": [{
-                            "customer_visible_fqdns": ["vedcg"],
-                            "group_id": "per",
-                            "internal_fqdn": "maqavwhxwzzhbzjbryyquvitmup",
-                            "member_name": "ybptuypgdqoxkuwqx",
-                            "private_link_service_arm_region": "rerkqqxinteevmlbrdkktaqhcch",
-                            "redirect_map_id": "pezncxcq",
-                        }],
-                        "id": "nzqxevuyqeedrqnkbnlcyrrrbzxvl",
-                        "remote_private_endpoint_connection": {
-                            "id": "ocunsgawjsqohkrcyxiv",
-                        },
-                        "remote_private_link_service_connection_state": {
-                            "actions_required": "afwbq",
-                            "description": "y",
-                            "status": azure_native.datareplication.PrivateEndpointConnectionStatus.APPROVED,
-                        },
-                    }],
-                },
-            },
-            resource_group_name="rgswagger_2024-09-01",
-            vault_name="4")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datareplication:PrivateEndpointConnectionProxy wrbeymbilwm /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

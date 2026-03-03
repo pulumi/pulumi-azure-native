@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * A notification.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
- *
- * ## Example Usage
- * ### NotificationChannels_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const notificationChannel = new azure_native.devtestlab.NotificationChannel("notificationChannel", {
- *     description: "Integration configured for auto-shutdown",
- *     emailRecipient: "{email}",
- *     events: [{
- *         eventName: azure_native.devtestlab.NotificationChannelEventType.AutoShutdown,
- *     }],
- *     labName: "{labName}",
- *     name: "{notificationChannelName}",
- *     notificationLocale: "en",
- *     resourceGroupName: "resourceGroupName",
- *     webHookUrl: "{webhookUrl}",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devtestlab:NotificationChannel {notificationChannelName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/notificationchannels/{name} 
- * ```
  */
 export class NotificationChannel extends pulumi.CustomResource {
     /**

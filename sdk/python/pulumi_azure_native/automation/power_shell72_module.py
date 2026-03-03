@@ -155,36 +155,6 @@ class PowerShell72Module(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
 
-        ## Example Usage
-        ### Create or update a module
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        power_shell72_module = azure_native.automation.PowerShell72Module("powerShell72Module",
-            automation_account_name="myAutomationAccount33",
-            content_link={
-                "content_hash": {
-                    "algorithm": "sha265",
-                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87B",
-                },
-                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
-                "version": "1.0.0.0",
-            },
-            module_name="OmsCompositeResources",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:PowerShell72Module OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/powerShell72Modules/{moduleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,36 +176,6 @@ class PowerShell72Module(pulumi.CustomResource):
         Definition of the module type.
 
         Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01.
-
-        ## Example Usage
-        ### Create or update a module
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        power_shell72_module = azure_native.automation.PowerShell72Module("powerShell72Module",
-            automation_account_name="myAutomationAccount33",
-            content_link={
-                "content_hash": {
-                    "algorithm": "sha265",
-                    "value": "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87B",
-                },
-                "uri": "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
-                "version": "1.0.0.0",
-            },
-            module_name="OmsCompositeResources",
-            resource_group_name="rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:automation:PowerShell72Module OmsCompositeResources /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/powerShell72Modules/{moduleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

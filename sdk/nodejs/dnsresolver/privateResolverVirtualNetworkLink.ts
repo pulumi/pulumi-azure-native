@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01-preview.
  *
  * Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Upsert virtual network link to a DNS forwarding ruleset
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateResolverVirtualNetworkLink = new azure_native.dnsresolver.PrivateResolverVirtualNetworkLink("privateResolverVirtualNetworkLink", {
- *     dnsForwardingRulesetName: "sampleDnsForwardingRuleset",
- *     metadata: {
- *         additionalProp1: "value1",
- *     },
- *     resourceGroupName: "sampleResourceGroup",
- *     virtualNetwork: {
- *         id: "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
- *     },
- *     virtualNetworkLinkName: "sampleVirtualNetworkLink",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dnsresolver:PrivateResolverVirtualNetworkLink sampleVirtualNetworkLink /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName} 
- * ```
  */
 export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
     /**

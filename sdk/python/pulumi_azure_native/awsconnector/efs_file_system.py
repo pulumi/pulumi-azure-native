@@ -124,69 +124,6 @@ class EfsFileSystem(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### EfsFileSystems_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        efs_file_system = azure_native.awsconnector.EfsFileSystem("efsFileSystem",
-            location="phxoujlvsqavkckotussgpnjgexvq",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "pewusdrkpcuvxtmjhvzmakefatinq",
-                "aws_account_id": "jkixa",
-                "aws_properties": {
-                    "arn": "hptcgar",
-                    "availability_zone_name": "wnn",
-                    "backup_policy": {
-                        "status": azure_native.awsconnector.BackupPolicyStatus.DISABLED,
-                    },
-                    "bypass_policy_lockout_safety_check": True,
-                    "encrypted": True,
-                    "file_system_id": "kublwmniiobukjozju",
-                    "file_system_protection": {
-                        "replication_overwrite_protection": azure_native.awsconnector.FileSystemProtectionReplicationOverwriteProtection.DISABLED,
-                    },
-                    "file_system_tags": [{
-                        "key": "glyisjhra",
-                        "value": "gcz",
-                    }],
-                    "kms_key_id": "qglx",
-                    "lifecycle_policies": [{
-                        "transition_to_archive": "xsnpjovpiazmhefijlflijjycbugv",
-                        "transition_to_ia": "lslpvdwwgc",
-                        "transition_to_primary_storage_class": "migoeoowupavauvyrljegu",
-                    }],
-                    "performance_mode": "gtcuhloqhqjvztxoqvnzhwejwqg",
-                    "provisioned_throughput_in_mibps": 6,
-                    "replication_configuration": {},
-                    "throughput_mode": "qiroscdbdjqkhezgxhfjiqd",
-                },
-                "aws_region": "quxdhbvdpdedfzbfp",
-                "aws_source_schema": "txcarqgbqzzvg",
-                "aws_tags": {
-                    "key3062": "onkfpsohoske",
-                },
-                "public_cloud_connectors_resource_id": "mhovamuukkqswmro",
-                "public_cloud_resource_name": "nhvnekfp",
-            },
-            resource_group_name="rgefsFileSystem",
-            tags={
-                "key8058": "u",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:EfsFileSystem kkynvzrhvzwbeiqixzxobskb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/efsFileSystems/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,69 +143,6 @@ class EfsFileSystem(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### EfsFileSystems_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        efs_file_system = azure_native.awsconnector.EfsFileSystem("efsFileSystem",
-            location="phxoujlvsqavkckotussgpnjgexvq",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "pewusdrkpcuvxtmjhvzmakefatinq",
-                "aws_account_id": "jkixa",
-                "aws_properties": {
-                    "arn": "hptcgar",
-                    "availability_zone_name": "wnn",
-                    "backup_policy": {
-                        "status": azure_native.awsconnector.BackupPolicyStatus.DISABLED,
-                    },
-                    "bypass_policy_lockout_safety_check": True,
-                    "encrypted": True,
-                    "file_system_id": "kublwmniiobukjozju",
-                    "file_system_protection": {
-                        "replication_overwrite_protection": azure_native.awsconnector.FileSystemProtectionReplicationOverwriteProtection.DISABLED,
-                    },
-                    "file_system_tags": [{
-                        "key": "glyisjhra",
-                        "value": "gcz",
-                    }],
-                    "kms_key_id": "qglx",
-                    "lifecycle_policies": [{
-                        "transition_to_archive": "xsnpjovpiazmhefijlflijjycbugv",
-                        "transition_to_ia": "lslpvdwwgc",
-                        "transition_to_primary_storage_class": "migoeoowupavauvyrljegu",
-                    }],
-                    "performance_mode": "gtcuhloqhqjvztxoqvnzhwejwqg",
-                    "provisioned_throughput_in_mibps": 6,
-                    "replication_configuration": {},
-                    "throughput_mode": "qiroscdbdjqkhezgxhfjiqd",
-                },
-                "aws_region": "quxdhbvdpdedfzbfp",
-                "aws_source_schema": "txcarqgbqzzvg",
-                "aws_tags": {
-                    "key3062": "onkfpsohoske",
-                },
-                "public_cloud_connectors_resource_id": "mhovamuukkqswmro",
-                "public_cloud_resource_name": "nhvnekfp",
-            },
-            resource_group_name="rgefsFileSystem",
-            tags={
-                "key8058": "u",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:EfsFileSystem kkynvzrhvzwbeiqixzxobskb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/efsFileSystems/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -141,29 +141,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates an NetworkExperiment Profile in a Resource Group
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_experiment_profile = azure_native.frontdoor.NetworkExperimentProfile("networkExperimentProfile",
-            enabled_state=azure_native.frontdoor.State.ENABLED,
-            location="WestUs",
-            profile_name="MyProfile",
-            resource_group_name="MyResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:frontdoor:NetworkExperimentProfile MyProfile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,29 +163,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         Uses Azure REST API version 2019-11-01.
 
         Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates an NetworkExperiment Profile in a Resource Group
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network_experiment_profile = azure_native.frontdoor.NetworkExperimentProfile("networkExperimentProfile",
-            enabled_state=azure_native.frontdoor.State.ENABLED,
-            location="WestUs",
-            profile_name="MyProfile",
-            resource_group_name="MyResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:frontdoor:NetworkExperimentProfile MyProfile /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

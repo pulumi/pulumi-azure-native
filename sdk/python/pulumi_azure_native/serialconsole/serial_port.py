@@ -136,31 +136,6 @@ class SerialPort(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
 
-        ## Example Usage
-        ### Create a new serial port resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        serial_port = azure_native.serialconsole.SerialPort("serialPort",
-            parent_resource="myVM",
-            parent_resource_type="virtualMachines",
-            resource_group_name="myResourceGroup",
-            resource_provider_namespace="Microsoft.Compute",
-            serial_port="0",
-            state=azure_native.serialconsole.SerialPortState.ENABLED)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:serialconsole:SerialPort 0 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourceType}/{parentResource}/providers/Microsoft.SerialConsole/serialPorts/{serialPort} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,31 +156,6 @@ class SerialPort(pulumi.CustomResource):
         Represents the serial port of the parent resource.
 
         Uses Azure REST API version 2018-05-01. In version 2.x of the Azure Native provider, it used API version 2018-05-01.
-
-        ## Example Usage
-        ### Create a new serial port resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        serial_port = azure_native.serialconsole.SerialPort("serialPort",
-            parent_resource="myVM",
-            parent_resource_type="virtualMachines",
-            resource_group_name="myResourceGroup",
-            resource_provider_namespace="Microsoft.Compute",
-            serial_port="0",
-            state=azure_native.serialconsole.SerialPortState.ENABLED)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:serialconsole:SerialPort 0 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourceType}/{parentResource}/providers/Microsoft.SerialConsole/serialPorts/{serialPort} 
-        ```
 
 
         :param str resource_name: The name of the resource.

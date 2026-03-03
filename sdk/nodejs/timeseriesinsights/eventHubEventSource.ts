@@ -11,63 +11,6 @@ import * as utilities from "../utilities";
  * An event source that receives its data from an Azure EventHub.
  *
  * Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
- *
- * ## Example Usage
- * ### CreateEventHubEventSource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const eventHubEventSource = new azure_native.timeseriesinsights.EventHubEventSource("eventHubEventSource", {
- *     consumerGroupName: "cgn",
- *     environmentName: "env1",
- *     eventHubName: "ehn",
- *     eventSourceName: "es1",
- *     eventSourceResourceId: "somePathInArm",
- *     keyName: "managementKey",
- *     kind: "Microsoft.EventHub",
- *     location: "West US",
- *     resourceGroupName: "rg1",
- *     serviceBusNamespace: "sbn",
- *     sharedAccessKey: "someSecretvalue",
- *     timestampPropertyName: "someTimestampProperty",
- *     type: azure_native.timeseriesinsights.IngressStartAtType.EarliestAvailable,
- * });
- *
- * ```
- * ### EventSourcesCreateEventHubWithCustomEnquedTime
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const eventHubEventSource = new azure_native.timeseriesinsights.EventHubEventSource("eventHubEventSource", {
- *     consumerGroupName: "cgn",
- *     environmentName: "env1",
- *     eventHubName: "ehn",
- *     eventSourceName: "es1",
- *     eventSourceResourceId: "somePathInArm",
- *     keyName: "managementKey",
- *     kind: "Microsoft.EventHub",
- *     location: "West US",
- *     resourceGroupName: "rg1",
- *     serviceBusNamespace: "sbn",
- *     sharedAccessKey: "someSecretvalue",
- *     time: "2017-04-01T19:20:33.2288820Z",
- *     timestampPropertyName: "someTimestampProperty",
- *     type: azure_native.timeseriesinsights.IngressStartAtType.CustomEnqueuedTime,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:timeseriesinsights:EventHubEventSource es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
- * ```
  */
 export class EventHubEventSource extends pulumi.CustomResource {
     /**

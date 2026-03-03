@@ -140,33 +140,6 @@ class Hub(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-        ## Example Usage
-        ### Hubs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hub = azure_native.customerinsights.Hub("hub",
-            hub_billing_info={
-                "max_units": 5,
-                "min_units": 1,
-                "sku_name": "B0",
-            },
-            hub_name="sdkTestHub",
-            location="West US",
-            resource_group_name="TestHubRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Hub testHub2839 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,33 +160,6 @@ class Hub(pulumi.CustomResource):
         Hub resource.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
-        ## Example Usage
-        ### Hubs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hub = azure_native.customerinsights.Hub("hub",
-            hub_billing_info={
-                "max_units": 5,
-                "min_units": 1,
-                "sku_name": "B0",
-            },
-            hub_name="sdkTestHub",
-            location="West US",
-            resource_group_name="TestHubRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Hub testHub2839 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

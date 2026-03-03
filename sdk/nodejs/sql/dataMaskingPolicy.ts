@@ -13,47 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
  *
  * Other available API versions: 2014-04-01, 2021-11-01, 2022-02-01-preview, 2022-05-01-preview, 2022-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview, 2024-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native sql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update data masking policy max
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dataMaskingPolicy = new azure_native.sql.DataMaskingPolicy("dataMaskingPolicy", {
- *     dataMaskingPolicyName: "Default",
- *     dataMaskingState: azure_native.sql.DataMaskingState.Enabled,
- *     databaseName: "sqlcrudtest-331",
- *     exemptPrincipals: "testuser;",
- *     resourceGroupName: "sqlcrudtest-6852",
- *     serverName: "sqlcrudtest-2080",
- * });
- *
- * ```
- * ### Create or update data masking policy min.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dataMaskingPolicy = new azure_native.sql.DataMaskingPolicy("dataMaskingPolicy", {
- *     dataMaskingPolicyName: "Default",
- *     dataMaskingState: azure_native.sql.DataMaskingState.Enabled,
- *     databaseName: "sqlcrudtest-331",
- *     resourceGroupName: "sqlcrudtest-6852",
- *     serverName: "sqlcrudtest-2080",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:sql:DataMaskingPolicy Default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/dataMaskingPolicies/{dataMaskingPolicyName} 
- * ```
  */
 export class DataMaskingPolicy extends pulumi.CustomResource {
     /**

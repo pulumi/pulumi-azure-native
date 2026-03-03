@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Server communication link.
  *
  * Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
- *
- * ## Example Usage
- * ### Create a server communication link
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serverCommunicationLink = new azure_native.sql.ServerCommunicationLink("serverCommunicationLink", {
- *     communicationLinkName: "link1",
- *     partnerServer: "sqldcrudtest-test",
- *     resourceGroupName: "sqlcrudtest-7398",
- *     serverName: "sqlcrudtest-4645",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:sql:ServerCommunicationLink link1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/communicationLinks/{communicationLinkName} 
- * ```
  */
 export class ServerCommunicationLink extends pulumi.CustomResource {
     /**

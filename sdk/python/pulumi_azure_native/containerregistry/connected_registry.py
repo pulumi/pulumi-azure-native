@@ -191,46 +191,6 @@ class ConnectedRegistry(pulumi.CustomResource):
 
         Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConnectedRegistryCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connected_registry = azure_native.containerregistry.ConnectedRegistry("connectedRegistry",
-            client_token_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token"],
-            connected_registry_name="myConnectedRegistry",
-            garbage_collection={
-                "enabled": True,
-                "schedule": "0 5 * * *",
-            },
-            mode=azure_native.containerregistry.ConnectedRegistryMode.READ_WRITE,
-            notifications_list=[
-                "hello-world:*:*",
-                "sample/repo/*:1.0:*",
-            ],
-            parent={
-                "sync_properties": {
-                    "message_ttl": "P2D",
-                    "schedule": "0 9 * * *",
-                    "sync_window": "PT3H",
-                    "token_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
-                },
-            },
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:ConnectedRegistry myConnectedRegistry /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,46 +216,6 @@ class ConnectedRegistry(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-01-01-preview.
 
         Other available API versions: 2020-11-01-preview, 2021-06-01-preview, 2021-08-01-preview, 2021-12-01-preview, 2022-02-01-preview, 2023-01-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2025-03-01-preview, 2025-04-01, 2025-05-01-preview, 2025-06-01-preview, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConnectedRegistryCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        connected_registry = azure_native.containerregistry.ConnectedRegistry("connectedRegistry",
-            client_token_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token"],
-            connected_registry_name="myConnectedRegistry",
-            garbage_collection={
-                "enabled": True,
-                "schedule": "0 5 * * *",
-            },
-            mode=azure_native.containerregistry.ConnectedRegistryMode.READ_WRITE,
-            notifications_list=[
-                "hello-world:*:*",
-                "sample/repo/*:1.0:*",
-            ],
-            parent={
-                "sync_properties": {
-                    "message_ttl": "P2D",
-                    "schedule": "0 9 * * *",
-                    "sync_window": "PT3H",
-                    "token_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
-                },
-            },
-            registry_name="myRegistry",
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerregistry:ConnectedRegistry myConnectedRegistry /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

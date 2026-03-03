@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-03-02-preview.
  *
  * Other available API versions: 2022-11-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### RoleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const serverGroupRole = new azure_native.dbforpostgresql.ServerGroupRole("serverGroupRole", {
- *     clusterName: "pgtestsvc4",
- *     password: "password",
- *     resourceGroupName: "TestGroup",
- *     roleName: "role1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dbforpostgresql:ServerGroupRole role1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/{clusterName}/roles/{roleName} 
- * ```
  */
 export class ServerGroupRole extends pulumi.CustomResource {
     /**

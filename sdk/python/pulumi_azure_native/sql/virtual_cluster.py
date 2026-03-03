@@ -121,31 +121,6 @@ class VirtualCluster(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01-preview.
 
-        ## Example Usage
-        ### Create virtual cluster
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_cluster = azure_native.sql.VirtualCluster("virtualCluster",
-            location="japaneast",
-            resource_group_name="testrg",
-            tags={
-                "key": "value",
-            },
-            virtual_cluster_name="vc-subnet1-f769ed71-b3ad-491a-a9d5-26eeceaa6be2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:VirtualCluster vc-f769ed71-b3ad-491a-a9d5-26eeceaa6be2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/virtualClusters/{virtualClusterName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,31 +140,6 @@ class VirtualCluster(pulumi.CustomResource):
         An Azure SQL virtual cluster.
 
         Uses Azure REST API version 2024-11-01-preview.
-
-        ## Example Usage
-        ### Create virtual cluster
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_cluster = azure_native.sql.VirtualCluster("virtualCluster",
-            location="japaneast",
-            resource_group_name="testrg",
-            tags={
-                "key": "value",
-            },
-            virtual_cluster_name="vc-subnet1-f769ed71-b3ad-491a-a9d5-26eeceaa6be2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:sql:VirtualCluster vc-f769ed71-b3ad-491a-a9d5-26eeceaa6be2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/virtualClusters/{virtualClusterName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

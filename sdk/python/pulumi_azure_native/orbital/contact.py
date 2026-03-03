@@ -152,34 +152,6 @@ class Contact(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
 
-        ## Example Usage
-        ### Create a contact
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        contact = azure_native.orbital.Contact("contact",
-            contact_name="contact1",
-            contact_profile={
-                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP",
-            },
-            ground_station_name="EASTUS2_0",
-            reservation_end_time="2023-02-22T11:10:45Z",
-            reservation_start_time="2023-02-22T10:58:30Z",
-            resource_group_name="contoso-Rgp",
-            spacecraft_name="CONTOSO_SAT")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:orbital:Contact contact1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/spacecrafts/{spacecraftName}/contacts/{contactName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,34 +173,6 @@ class Contact(pulumi.CustomResource):
         Customer creates a contact resource for a spacecraft resource.
 
         Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
-
-        ## Example Usage
-        ### Create a contact
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        contact = azure_native.orbital.Contact("contact",
-            contact_name="contact1",
-            contact_profile={
-                "id": "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP",
-            },
-            ground_station_name="EASTUS2_0",
-            reservation_end_time="2023-02-22T11:10:45Z",
-            reservation_start_time="2023-02-22T10:58:30Z",
-            resource_group_name="contoso-Rgp",
-            spacecraft_name="CONTOSO_SAT")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:orbital:Contact contact1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Orbital/spacecrafts/{spacecraftName}/contacts/{contactName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

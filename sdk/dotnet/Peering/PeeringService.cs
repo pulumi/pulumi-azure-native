@@ -15,40 +15,6 @@ namespace Pulumi.AzureNative.Peering
     /// Uses Azure REST API version 2022-10-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
     /// 
     /// Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native peering [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create a  peering service
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var peeringService = new AzureNative.Peering.PeeringService("peeringService", new()
-    ///     {
-    ///         Location = "eastus",
-    ///         PeeringServiceLocation = "state1",
-    ///         PeeringServiceName = "peeringServiceName",
-    ///         PeeringServiceProvider = "serviceProvider1",
-    ///         ProviderBackupPeeringLocation = "peeringLocation2",
-    ///         ProviderPrimaryPeeringLocation = "peeringLocation1",
-    ///         ResourceGroupName = "rgName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:peering:PeeringService peeringServiceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeeringService")]
     public partial class PeeringService : global::Pulumi.CustomResource

@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * This type describes a volume resource.
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdateVolume
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const volume = new azure_native.servicefabricmesh.Volume("volume", {
- *     azureFileParameters: {
- *         accountKey: "provide-account-key-here",
- *         accountName: "sbzdemoaccount",
- *         shareName: "sharel",
- *     },
- *     description: "Service Fabric Mesh sample volume.",
- *     location: "EastUS",
- *     provider: azure_native.servicefabricmesh.VolumeProvider.SFAzureFile,
- *     resourceGroupName: "sbz_demo",
- *     tags: {},
- *     volumeResourceName: "sampleVolume",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:servicefabricmesh:Volume sampleVolume /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/volumes/{volumeResourceName} 
- * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

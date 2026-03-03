@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
  *
  * Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicenetworking [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Put SecurityPolicy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const securityPoliciesInterface = new azure_native.servicenetworking.SecurityPoliciesInterface("securityPoliciesInterface", {
- *     location: "NorthCentralUS",
- *     resourceGroupName: "rg1",
- *     securityPolicyName: "sp1",
- *     trafficControllerName: "tc1",
- *     wafPolicy: {
- *         id: "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/wp-0",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:servicenetworking:SecurityPoliciesInterface waf-0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceNetworking/trafficControllers/{trafficControllerName}/securityPolicies/{securityPolicyName} 
- * ```
  */
 export class SecurityPoliciesInterface extends pulumi.CustomResource {
     /**

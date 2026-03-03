@@ -13,38 +13,6 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a Configuration.
     /// 
     /// Uses Azure REST API version 2017-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### ConfigurationCreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var singleServerConfiguration = new AzureNative.DBforMySQL.SingleServerConfiguration("singleServerConfiguration", new()
-    ///     {
-    ///         ConfigurationName = "event_scheduler",
-    ///         ResourceGroupName = "TestGroup",
-    ///         ServerName = "testserver",
-    ///         Source = "user-override",
-    ///         Value = "off",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:dbformysql:SingleServerConfiguration event_scheduler /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/configurations/{configurationName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:SingleServerConfiguration")]
     public partial class SingleServerConfiguration : global::Pulumi.CustomResource

@@ -15,56 +15,6 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Uses Azure REST API version 2024-04-15. In version 2.x of the Azure Native provider, it used API version 2023-09-01.
     /// 
     /// Other available API versions: 2023-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridnetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update the artifact manifest resource
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var artifactManifest = new AzureNative.HybridNetwork.ArtifactManifest("artifactManifest", new()
-    ///     {
-    ///         ArtifactManifestName = "TestManifest",
-    ///         ArtifactStoreName = "TestArtifactStore",
-    ///         Location = "eastus",
-    ///         Properties = new AzureNative.HybridNetwork.Inputs.ArtifactManifestPropertiesFormatArgs
-    ///         {
-    ///             Artifacts = new[]
-    ///             {
-    ///                 new AzureNative.HybridNetwork.Inputs.ManifestArtifactFormatArgs
-    ///                 {
-    ///                     ArtifactName = "fed-rbac",
-    ///                     ArtifactType = AzureNative.HybridNetwork.ArtifactType.OCIArtifact,
-    ///                     ArtifactVersion = "1.0.0",
-    ///                 },
-    ///                 new AzureNative.HybridNetwork.Inputs.ManifestArtifactFormatArgs
-    ///                 {
-    ///                     ArtifactName = "nginx",
-    ///                     ArtifactType = AzureNative.HybridNetwork.ArtifactType.OCIArtifact,
-    ///                     ArtifactVersion = "v1",
-    ///                 },
-    ///             },
-    ///         },
-    ///         PublisherName = "TestPublisher",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:hybridnetwork:ArtifactManifest TestManifest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/publishers/{publisherName}/artifactStores/{artifactStoreName}/artifactManifests/{artifactManifestName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:ArtifactManifest")]
     public partial class ArtifactManifest : global::Pulumi.CustomResource

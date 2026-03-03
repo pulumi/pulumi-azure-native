@@ -13,69 +13,6 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The NetworkMonitor resource definition.
     /// 
     /// Uses Azure REST API version 2024-06-15-preview.
-    /// 
-    /// ## Example Usage
-    /// ### NetworkMonitors_Create
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var networkMonitor = new AzureNative.ManagedNetworkFabric.NetworkMonitor("networkMonitor", new()
-    ///     {
-    ///         Location = "eastus",
-    ///         NetworkMonitorName = "example-monitor",
-    ///         Properties = new AzureNative.ManagedNetworkFabric.Inputs.NetworkMonitorPropertiesArgs
-    ///         {
-    ///             Annotation = "annotation",
-    ///             BmpConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.BmpConfigurationPropertiesArgs
-    ///             {
-    ///                 ExportPolicy = AzureNative.ManagedNetworkFabric.BmpExportPolicy.PrePolicy,
-    ///                 MonitoredAddressFamilies = new[]
-    ///                 {
-    ///                     AzureNative.ManagedNetworkFabric.BmpMonitoredAddressFamily.Ipv4Unicast,
-    ///                 },
-    ///                 MonitoredNetworks = new[]
-    ///                 {
-    ///                     "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
-    ///                 },
-    ///                 ScopeResourceId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric",
-    ///                 StationConfigurationState = AzureNative.ManagedNetworkFabric.StationConfigurationState.Enabled,
-    ///                 StationConnectionMode = AzureNative.ManagedNetworkFabric.StationConnectionMode.Active,
-    ///                 StationConnectionProperties = new AzureNative.ManagedNetworkFabric.Inputs.StationConnectionPropertiesArgs
-    ///                 {
-    ///                     KeepaliveIdleTime = 49,
-    ///                     ProbeCount = 43,
-    ///                     ProbeInterval = 3558,
-    ///                 },
-    ///                 StationIp = "10.0.0.1",
-    ///                 StationName = "name",
-    ///                 StationNetwork = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain/internalNetworks/example-internalnetwork",
-    ///                 StationPort = 62695,
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "example-rg",
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:managednetworkfabric:NetworkMonitor example-monitor /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/networkMonitors/{networkMonitorName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkMonitor")]
     public partial class NetworkMonitor : global::Pulumi.CustomResource

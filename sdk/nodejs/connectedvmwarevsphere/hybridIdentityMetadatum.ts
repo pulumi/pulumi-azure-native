@@ -13,31 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
  *
  * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreateHybridIdentityMetadata
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const hybridIdentityMetadatum = new azure_native.connectedvmwarevsphere.HybridIdentityMetadatum("hybridIdentityMetadatum", {
- *     metadataName: "default",
- *     publicKey: "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
- *     resourceGroupName: "testrg",
- *     virtualMachineName: "ContosoVm",
- *     vmId: "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:connectedvmwarevsphere:HybridIdentityMetadatum testItem /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/hybridIdentityMetadata/{metadataName} 
- * ```
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**

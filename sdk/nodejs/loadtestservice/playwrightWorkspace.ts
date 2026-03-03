@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-09-01, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### PlaywrightWorkspaces_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const playwrightWorkspace = new azure_native.loadtestservice.PlaywrightWorkspace("playwrightWorkspace", {
- *     localAuth: azure_native.loadtestservice.EnablementStatus.Enabled,
- *     location: "westus3",
- *     playwrightWorkspaceName: "myWorkspace",
- *     regionalAffinity: azure_native.loadtestservice.EnablementStatus.Enabled,
- *     resourceGroupName: "dummyrg",
- *     tags: {
- *         Team: "Dev Exp",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:loadtestservice:PlaywrightWorkspace myWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/playwrightWorkspaces/{playwrightWorkspaceName} 
- * ```
  */
 export class PlaywrightWorkspace extends pulumi.CustomResource {
     /**

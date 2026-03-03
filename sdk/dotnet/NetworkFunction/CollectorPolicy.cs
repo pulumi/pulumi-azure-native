@@ -13,63 +13,6 @@ namespace Pulumi.AzureNative.NetworkFunction
     /// Collector policy resource.
     /// 
     /// Uses Azure REST API version 2022-11-01. In version 2.x of the Azure Native provider, it used API version 2022-11-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create a collection policy
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var collectorPolicy = new AzureNative.NetworkFunction.CollectorPolicy("collectorPolicy", new()
-    ///     {
-    ///         AzureTrafficCollectorName = "atc",
-    ///         CollectorPolicyName = "cp1",
-    ///         EmissionPolicies = new[]
-    ///         {
-    ///             new AzureNative.NetworkFunction.Inputs.EmissionPoliciesPropertiesFormatArgs
-    ///             {
-    ///                 EmissionDestinations = new[]
-    ///                 {
-    ///                     new AzureNative.NetworkFunction.Inputs.EmissionPolicyDestinationArgs
-    ///                     {
-    ///                         DestinationType = AzureNative.NetworkFunction.DestinationType.AzureMonitor,
-    ///                     },
-    ///                 },
-    ///                 EmissionType = AzureNative.NetworkFunction.EmissionType.IPFIX,
-    ///             },
-    ///         },
-    ///         IngestionPolicy = new AzureNative.NetworkFunction.Inputs.IngestionPolicyPropertiesFormatArgs
-    ///         {
-    ///             IngestionSources = new[]
-    ///             {
-    ///                 new AzureNative.NetworkFunction.Inputs.IngestionSourcesPropertiesFormatArgs
-    ///                 {
-    ///                     ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
-    ///                     SourceType = AzureNative.NetworkFunction.SourceType.Resource,
-    ///                 },
-    ///             },
-    ///             IngestionType = AzureNative.NetworkFunction.IngestionType.IPFIX,
-    ///         },
-    ///         Location = "West US",
-    ///         ResourceGroupName = "rg1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:networkfunction:CollectorPolicy cp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkFunction/azureTrafficCollectors/{azureTrafficCollectorName}/collectorPolicies/{collectorPolicyName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:CollectorPolicy")]
     public partial class CollectorPolicy : global::Pulumi.CustomResource

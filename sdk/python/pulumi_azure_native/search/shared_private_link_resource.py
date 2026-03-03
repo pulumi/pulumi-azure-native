@@ -108,33 +108,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### SharedPrivateLinkResourceCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        shared_private_link_resource = azure_native.search.SharedPrivateLinkResource("sharedPrivateLinkResource",
-            properties={
-                "group_id": "blob",
-                "private_link_resource_id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/storageAccountName",
-                "request_message": "please approve",
-            },
-            resource_group_name="rg1",
-            search_service_name="mysearchservice",
-            shared_private_link_resource_name="testResource")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:search:SharedPrivateLinkResource testResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,33 +128,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### SharedPrivateLinkResourceCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        shared_private_link_resource = azure_native.search.SharedPrivateLinkResource("sharedPrivateLinkResource",
-            properties={
-                "group_id": "blob",
-                "private_link_resource_id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/storageAccountName",
-                "request_message": "please approve",
-            },
-            resource_group_name="rg1",
-            search_service_name="mysearchservice",
-            shared_private_link_resource_name="testResource")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:search:SharedPrivateLinkResource testResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,35 +13,6 @@ namespace Pulumi.AzureNative.Authorization
     /// Access Review History Definition.
     /// 
     /// Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PutAccessReviewHistoryDefinition
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var scopeAccessReviewHistoryDefinitionById = new AzureNative.Authorization.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById", new()
-    ///     {
-    ///         HistoryDefinitionId = "44724910-d7a5-4c29-b28f-db73e717165a",
-    ///         Scope = "subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:authorization:ScopeAccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /{scope}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ScopeAccessReviewHistoryDefinitionById")]
     public partial class ScopeAccessReviewHistoryDefinitionById : global::Pulumi.CustomResource

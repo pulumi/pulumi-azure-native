@@ -208,35 +208,6 @@ class Webhook(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
-        ## Example Usage
-        ### Webhook_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        webhook = azure_native.appcomplianceautomation.Webhook("webhook",
-            content_type=azure_native.appcomplianceautomation.ContentType.APPLICATION_JSON,
-            enable_ssl_verification=azure_native.appcomplianceautomation.EnableSslVerification.TRUE,
-            events=[azure_native.appcomplianceautomation.NotificationEvent.GENERATE_SNAPSHOT_FAILED],
-            payload_url="https://example.com",
-            report_name="testReportName",
-            send_all_events=azure_native.appcomplianceautomation.SendAllEvents.FALSE,
-            status=azure_native.appcomplianceautomation.WebhookStatus.ENABLED,
-            update_webhook_key=azure_native.appcomplianceautomation.UpdateWebhookKey.TRUE,
-            webhook_key="00000000-0000-0000-0000-000000000000",
-            webhook_name="testWebhookName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:Webhook testWebhookName /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/webhooks/{webhookName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,35 +232,6 @@ class Webhook(pulumi.CustomResource):
         A class represent an AppComplianceAutomation webhook resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-
-        ## Example Usage
-        ### Webhook_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        webhook = azure_native.appcomplianceautomation.Webhook("webhook",
-            content_type=azure_native.appcomplianceautomation.ContentType.APPLICATION_JSON,
-            enable_ssl_verification=azure_native.appcomplianceautomation.EnableSslVerification.TRUE,
-            events=[azure_native.appcomplianceautomation.NotificationEvent.GENERATE_SNAPSHOT_FAILED],
-            payload_url="https://example.com",
-            report_name="testReportName",
-            send_all_events=azure_native.appcomplianceautomation.SendAllEvents.FALSE,
-            status=azure_native.appcomplianceautomation.WebhookStatus.ENABLED,
-            update_webhook_key=azure_native.appcomplianceautomation.UpdateWebhookKey.TRUE,
-            webhook_key="00000000-0000-0000-0000-000000000000",
-            webhook_name="testWebhookName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:Webhook testWebhookName /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/webhooks/{webhookName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

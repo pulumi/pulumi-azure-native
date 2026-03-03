@@ -175,41 +175,6 @@ class CapacityPoolBucket(pulumi.CustomResource):
 
         Other available API versions: 2025-03-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Buckets_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        capacity_pool_bucket = azure_native.netapp.CapacityPoolBucket("capacityPoolBucket",
-            account_name="account1",
-            bucket_name="bucket1",
-            file_system_user={
-                "nfs_user": {
-                    "group_id": 1000,
-                    "user_id": 1001,
-                },
-            },
-            path="/path",
-            pool_name="pool1",
-            resource_group_name="myRG",
-            server={
-                "certificate_object": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuVENDQW9XZ0F3SUJBZ0lRR3FXdnRxeHBvSTFJV3Z4VGdJbElWREFOQmdrcWhraUc5dzBCQVFzRkFEQlYKTVJNd0VRWUtDWkltaVpQeUxHUUJHUllEWTI5dE1SY3dGUVlLQ1pJbWlaUHlMR1FCR1JZSGFHRnlhV3R5WWpFbApNQ01HQTFVRUF4TWNhR0Z5YVd0eVlpMVhTVTR0TWtKUFZrRkZTMEkwTkVJdFEwRXRNakFlRncweU1EQTFNRFV3Ck56TTVORGxhRncweU1EQTFNRFl3TnpRNU5EaGFNRlV4RXpBUkJnb0praWFKay9Jc1pBRVpGZ05qYjIweEZ6QVYKQmdvSmtpYUprL0lzWkFFWkZnZG9ZWEpwYTNKaU1TVXdJd1lEVlFRREV4eG9ZWEpwYTNKaUxWZEpUaTB5UWs5VwpRVVZMUWpRMFFpMURRUzB5TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFqMHByCnhaaXpNaDBqYnRwN1ZOc0JrRVJ2MVpZT0MzMEtqaGRWdEExRm1MeFM2cXlycmpMZUdXOXRSd2ZnUkR0eVBodTIKZVJTcVpTUjF6Z1hZR0s0Nys3Y3F0YnB2UElOektCb0dOWERIVTNxVWlleXJWSjFDVzRKNjJodUdrbUV1VVVkMApKMXBxNTVxbjk1SmRUbWh1dmZlTUxxeHB5c01nbGVnY281ZFhoN0hsQkhwaTNKMFN4ZnhVWmxKMVZiOFJZVEZhCkJiMGFlTVZaRzRKeVREaktiMlR1TmFXOG1aUE5vOFBMRDRocjdndFNZUEQvQ1dVVGV5QlpoZC9LTzNPczlWVEIKYmpLUGtWd0J2WEs2SlFMSGprNFBHS3VYZDhaWVFyajBtOWNIZDNmcWNYTXlQUnQ2TlJ4ak0yMTUxckFzSkVhNgpWZC9ta056akpXalBrT2VZUVFJREFRQUJvMmt3WnpBVEJna3JCZ0VFQVlJM0ZBSUVCaDRFQUVNQVFUQU9CZ05WCkhROEJBZjhFQkFNQ0FZWXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVDVEc2ODJSay9kMysKWGtHa0VMakRFMjI4ZjNnd0VBWUpLd1lCQkFHQ054VUJCQU1DQVFBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQgpBR1RjTTNnWExIU05wS014RHEvUFpZbWZCMmNlN3VhMmxxbXpzZSt4QmthSTE0WXdzZE5ZQjZBVTNFWDM3QWpZCjd3bm9xQzY1N0U2RVhTODVDckoyNXJNTHo4OEtONGI3cUg5RUowSS9XVHg5YTdUT0ZENENWQThuL0xwNGh1Ym4KNlBFalY5NFlZWXBXTG1hTkkvbGFReWsxSHVJbDFSTCttVDFnSWQ4ZWZXZ1UvNmlVVEw3eGMrdjkyNHBuTHhISwpOSnNTV3c0NFk5a0R5SU9KOXFjWUlBN1lhTkxPZTRjSysvQlRvdDh0dVVKT1hHLzdBRmtxR2EyQVA4MmFZOStKCnkwSmU2OG5nTHJ1dVU4VHpneVpqdkFHcTRrVEVOdWFoaFdHVC9KWkEzOXhSNUV4MmNMUUplcE5NdnlZbUZ3Z1UKME8zYlA0OWNBVFVCMXoyQ3Y5aTRQbVk9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
-                "fqdn": "fullyqualified.domainname.com",
-            },
-            volume_name="volume1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:CapacityPoolBucket account1/pool1/volume1/bucket1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,41 +199,6 @@ class CapacityPoolBucket(pulumi.CustomResource):
         Uses Azure REST API version 2025-01-01-preview.
 
         Other available API versions: 2025-03-01-preview, 2025-07-01-preview, 2025-08-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Buckets_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        capacity_pool_bucket = azure_native.netapp.CapacityPoolBucket("capacityPoolBucket",
-            account_name="account1",
-            bucket_name="bucket1",
-            file_system_user={
-                "nfs_user": {
-                    "group_id": 1000,
-                    "user_id": 1001,
-                },
-            },
-            path="/path",
-            pool_name="pool1",
-            resource_group_name="myRG",
-            server={
-                "certificate_object": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuVENDQW9XZ0F3SUJBZ0lRR3FXdnRxeHBvSTFJV3Z4VGdJbElWREFOQmdrcWhraUc5dzBCQVFzRkFEQlYKTVJNd0VRWUtDWkltaVpQeUxHUUJHUllEWTI5dE1SY3dGUVlLQ1pJbWlaUHlMR1FCR1JZSGFHRnlhV3R5WWpFbApNQ01HQTFVRUF4TWNhR0Z5YVd0eVlpMVhTVTR0TWtKUFZrRkZTMEkwTkVJdFEwRXRNakFlRncweU1EQTFNRFV3Ck56TTVORGxhRncweU1EQTFNRFl3TnpRNU5EaGFNRlV4RXpBUkJnb0praWFKay9Jc1pBRVpGZ05qYjIweEZ6QVYKQmdvSmtpYUprL0lzWkFFWkZnZG9ZWEpwYTNKaU1TVXdJd1lEVlFRREV4eG9ZWEpwYTNKaUxWZEpUaTB5UWs5VwpRVVZMUWpRMFFpMURRUzB5TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFqMHByCnhaaXpNaDBqYnRwN1ZOc0JrRVJ2MVpZT0MzMEtqaGRWdEExRm1MeFM2cXlycmpMZUdXOXRSd2ZnUkR0eVBodTIKZVJTcVpTUjF6Z1hZR0s0Nys3Y3F0YnB2UElOektCb0dOWERIVTNxVWlleXJWSjFDVzRKNjJodUdrbUV1VVVkMApKMXBxNTVxbjk1SmRUbWh1dmZlTUxxeHB5c01nbGVnY281ZFhoN0hsQkhwaTNKMFN4ZnhVWmxKMVZiOFJZVEZhCkJiMGFlTVZaRzRKeVREaktiMlR1TmFXOG1aUE5vOFBMRDRocjdndFNZUEQvQ1dVVGV5QlpoZC9LTzNPczlWVEIKYmpLUGtWd0J2WEs2SlFMSGprNFBHS3VYZDhaWVFyajBtOWNIZDNmcWNYTXlQUnQ2TlJ4ak0yMTUxckFzSkVhNgpWZC9ta056akpXalBrT2VZUVFJREFRQUJvMmt3WnpBVEJna3JCZ0VFQVlJM0ZBSUVCaDRFQUVNQVFUQU9CZ05WCkhROEJBZjhFQkFNQ0FZWXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVDVEc2ODJSay9kMysKWGtHa0VMakRFMjI4ZjNnd0VBWUpLd1lCQkFHQ054VUJCQU1DQVFBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQgpBR1RjTTNnWExIU05wS014RHEvUFpZbWZCMmNlN3VhMmxxbXpzZSt4QmthSTE0WXdzZE5ZQjZBVTNFWDM3QWpZCjd3bm9xQzY1N0U2RVhTODVDckoyNXJNTHo4OEtONGI3cUg5RUowSS9XVHg5YTdUT0ZENENWQThuL0xwNGh1Ym4KNlBFalY5NFlZWXBXTG1hTkkvbGFReWsxSHVJbDFSTCttVDFnSWQ4ZWZXZ1UvNmlVVEw3eGMrdjkyNHBuTHhISwpOSnNTV3c0NFk5a0R5SU9KOXFjWUlBN1lhTkxPZTRjSysvQlRvdDh0dVVKT1hHLzdBRmtxR2EyQVA4MmFZOStKCnkwSmU2OG5nTHJ1dVU4VHpneVpqdkFHcTRrVEVOdWFoaFdHVC9KWkEzOXhSNUV4MmNMUUplcE5NdnlZbUZ3Z1UKME8zYlA0OWNBVFVCMXoyQ3Y5aTRQbVk9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
-                "fqdn": "fullyqualified.domainname.com",
-            },
-            volume_name="volume1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:CapacityPoolBucket account1/pool1/volume1/bucket1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/buckets/{bucketName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

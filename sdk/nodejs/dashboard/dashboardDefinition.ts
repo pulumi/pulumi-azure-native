@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * The dashboard definition resource type.
  *
  * Uses Azure REST API version 2025-09-01-preview.
- *
- * ## Example Usage
- * ### DashboardDefinition_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dashboardDefinition = new azure_native.dashboard.DashboardDefinition("dashboardDefinition", {
- *     dashboardName: "myDashboard",
- *     definitionName: "default",
- *     properties: {
- *         serializedData: "<escapedDashboardJsonString>",
- *     },
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dashboard:DashboardDefinition default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dashboard/dashboards/{dashboardName}/dashboardDefinitions/{definitionName} 
- * ```
  */
 export class DashboardDefinition extends pulumi.CustomResource {
     /**

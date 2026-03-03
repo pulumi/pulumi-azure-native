@@ -13,37 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-06-15. In version 2.x of the Azure Native provider, it used API version 2023-06-15.
  *
  * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### InternetGatewayRules_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const internetGatewayRule = new azure_native.managednetworkfabric.InternetGatewayRule("internetGatewayRule", {
- *     annotation: "annotationValue",
- *     internetGatewayRuleName: "example-internetGatewayRule",
- *     location: "eastus",
- *     resourceGroupName: "example-rg",
- *     ruleProperties: {
- *         action: azure_native.managednetworkfabric.Action.Allow,
- *         addressList: ["10.10.10.10"],
- *     },
- *     tags: {
- *         keyID: "keyValue",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:managednetworkfabric:InternetGatewayRule example-internetGatewayRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedNetworkFabric/internetGatewayRules/{internetGatewayRuleName} 
- * ```
  */
 export class InternetGatewayRule extends pulumi.CustomResource {
     /**

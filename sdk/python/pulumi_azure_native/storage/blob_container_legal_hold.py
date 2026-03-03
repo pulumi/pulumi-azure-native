@@ -115,13 +115,6 @@ class BlobContainerLegalHold(pulumi.CustomResource):
                  __props__=None):
         """
         .
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storage:BlobContainerLegalHold myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -140,13 +133,6 @@ class BlobContainerLegalHold(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         .
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storage:BlobContainerLegalHold myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold 
-        ```
 
 
         :param str resource_name: The name of the resource.

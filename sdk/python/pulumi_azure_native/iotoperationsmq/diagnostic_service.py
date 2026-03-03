@@ -286,47 +286,6 @@ class DiagnosticService(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
 
-        ## Example Usage
-        ### DiagnosticService_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        diagnostic_service = azure_native.iotoperationsmq.DiagnosticService("diagnosticService",
-            data_export_frequency_seconds=26084,
-            diagnostic_service_name="73-1El3-1",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            image={
-                "pull_policy": "imfuzvqxgbdwliqnn",
-                "pull_secrets": "klnqimxqsrdwhcqldjvdtsrs",
-                "repository": "m",
-                "tag": "jygfdiamhhm",
-            },
-            location="sbhavoiabxjpuq",
-            log_format="i",
-            log_level="aomqhmpa",
-            max_data_storage_size=3757017229,
-            metrics_port=37109,
-            mq_name="6RCAgs-XQ-Y2HsUF2",
-            open_telemetry_traces_collector_addr="ggqmprmjlmmkfdpb",
-            resource_group_name="rgiotoperationsmq",
-            stale_data_timeout_seconds=51616,
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:DiagnosticService kdpnnlr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/diagnosticService/{diagnosticServiceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,47 +314,6 @@ class DiagnosticService(pulumi.CustomResource):
         MQ diagnostic services resource
 
         Uses Azure REST API version 2023-10-04-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-04-preview.
-
-        ## Example Usage
-        ### DiagnosticService_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        diagnostic_service = azure_native.iotoperationsmq.DiagnosticService("diagnosticService",
-            data_export_frequency_seconds=26084,
-            diagnostic_service_name="73-1El3-1",
-            extended_location={
-                "name": "an",
-                "type": azure_native.iotoperationsmq.ExtendedLocationType.CUSTOM_LOCATION,
-            },
-            image={
-                "pull_policy": "imfuzvqxgbdwliqnn",
-                "pull_secrets": "klnqimxqsrdwhcqldjvdtsrs",
-                "repository": "m",
-                "tag": "jygfdiamhhm",
-            },
-            location="sbhavoiabxjpuq",
-            log_format="i",
-            log_level="aomqhmpa",
-            max_data_storage_size=3757017229,
-            metrics_port=37109,
-            mq_name="6RCAgs-XQ-Y2HsUF2",
-            open_telemetry_traces_collector_addr="ggqmprmjlmmkfdpb",
-            resource_group_name="rgiotoperationsmq",
-            stale_data_timeout_seconds=51616,
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:iotoperationsmq:DiagnosticService kdpnnlr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.IoTOperationsMQ/mq/{mqName}/diagnosticService/{diagnosticServiceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

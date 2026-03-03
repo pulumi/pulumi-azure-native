@@ -13,37 +13,6 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp elastic backup vault resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ElasticBackupVaults_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var elasticBackupVault = new AzureNative.NetApp.ElasticBackupVault("elasticBackupVault", new()
-    ///     {
-    ///         AccountName = "account1",
-    ///         BackupVaultName = "backupVault1",
-    ///         Location = "eastus",
-    ///         ResourceGroupName = "myRG",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:netapp:ElasticBackupVault account1/backupVault1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/elasticAccounts/{accountName}/elasticBackupVaults/{backupVaultName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticBackupVault")]
     public partial class ElasticBackupVault : global::Pulumi.CustomResource

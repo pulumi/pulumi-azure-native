@@ -167,47 +167,6 @@ class UpdateRun(pulumi.CustomResource):
 
         Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create an UpdateRun.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        update_run = azure_native.containerservice.UpdateRun("updateRun",
-            fleet_name="fleet1",
-            managed_cluster_update={
-                "node_image_selection": {
-                    "type": azure_native.containerservice.NodeImageSelectionType.LATEST,
-                },
-                "upgrade": {
-                    "kubernetes_version": "1.26.1",
-                    "type": azure_native.containerservice.ManagedClusterUpgradeType.FULL,
-                },
-            },
-            resource_group_name="rg1",
-            strategy={
-                "stages": [{
-                    "after_stage_wait_in_seconds": 3600,
-                    "groups": [{
-                        "name": "group-a",
-                    }],
-                    "name": "stage1",
-                }],
-            },
-            update_run_name="run1",
-            update_strategy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ContainerService/fleets/myFleet/updateStrategies/strategy1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerservice:UpdateRun run1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,47 +202,6 @@ class UpdateRun(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-02-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15-preview.
 
         Other available API versions: 2023-03-15-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2025-03-01, 2025-04-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create an UpdateRun.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        update_run = azure_native.containerservice.UpdateRun("updateRun",
-            fleet_name="fleet1",
-            managed_cluster_update={
-                "node_image_selection": {
-                    "type": azure_native.containerservice.NodeImageSelectionType.LATEST,
-                },
-                "upgrade": {
-                    "kubernetes_version": "1.26.1",
-                    "type": azure_native.containerservice.ManagedClusterUpgradeType.FULL,
-                },
-            },
-            resource_group_name="rg1",
-            strategy={
-                "stages": [{
-                    "after_stage_wait_in_seconds": 3600,
-                    "groups": [{
-                        "name": "group-a",
-                    }],
-                    "name": "stage1",
-                }],
-            },
-            update_run_name="run1",
-            update_strategy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ContainerService/fleets/myFleet/updateStrategies/strategy1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:containerservice:UpdateRun run1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

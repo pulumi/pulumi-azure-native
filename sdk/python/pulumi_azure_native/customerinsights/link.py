@@ -254,47 +254,6 @@ class Link(pulumi.CustomResource):
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
 
-        ## Example Usage
-        ### Links_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        link = azure_native.customerinsights.Link("link",
-            description={
-                "en-us": "Link Description",
-            },
-            display_name={
-                "en-us": "Link DisplayName",
-            },
-            hub_name="sdkTestHub",
-            link_name="linkTest4806",
-            mappings=[{
-                "link_type": azure_native.customerinsights.LinkTypes.UPDATE_ALWAYS,
-                "source_property_name": "testInteraction1949",
-                "target_property_name": "testProfile1446",
-            }],
-            participant_property_references=[{
-                "source_property_name": "testInteraction1949",
-                "target_property_name": "ProfileId",
-            }],
-            resource_group_name="TestHubRG",
-            source_entity_type=azure_native.customerinsights.EntityType.INTERACTION,
-            source_entity_type_name="testInteraction1949",
-            target_entity_type=azure_native.customerinsights.EntityType.PROFILE,
-            target_entity_type_name="testProfile1446")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Link azSdkTestHub/linkTest4806 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/links/{linkName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,47 +281,6 @@ class Link(pulumi.CustomResource):
         The link resource format.
 
         Uses Azure REST API version 2017-04-26. In version 2.x of the Azure Native provider, it used API version 2017-04-26.
-
-        ## Example Usage
-        ### Links_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        link = azure_native.customerinsights.Link("link",
-            description={
-                "en-us": "Link Description",
-            },
-            display_name={
-                "en-us": "Link DisplayName",
-            },
-            hub_name="sdkTestHub",
-            link_name="linkTest4806",
-            mappings=[{
-                "link_type": azure_native.customerinsights.LinkTypes.UPDATE_ALWAYS,
-                "source_property_name": "testInteraction1949",
-                "target_property_name": "testProfile1446",
-            }],
-            participant_property_references=[{
-                "source_property_name": "testInteraction1949",
-                "target_property_name": "ProfileId",
-            }],
-            resource_group_name="TestHubRG",
-            source_entity_type=azure_native.customerinsights.EntityType.INTERACTION,
-            source_entity_type_name="testInteraction1949",
-            target_entity_type=azure_native.customerinsights.EntityType.PROFILE,
-            target_entity_type_name="testProfile1446")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customerinsights:Link azSdkTestHub/linkTest4806 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomerInsights/hubs/{hubName}/links/{linkName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

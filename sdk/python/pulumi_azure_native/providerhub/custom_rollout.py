@@ -89,39 +89,6 @@ class CustomRollout(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-09-01.
 
-        ## Example Usage
-        ### CustomRollouts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_rollout = azure_native.providerhub.CustomRollout("customRollout",
-            properties={
-                "specification": {
-                    "auto_provision_config": {
-                        "resource_graph": True,
-                        "storage": True,
-                    },
-                    "canary": {
-                        "regions": ["brazilus"],
-                    },
-                    "refresh_subscription_registration": True,
-                },
-            },
-            provider_namespace="Microsoft.Contoso",
-            rollout_name="brazilUsShoeBoxTesting")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:CustomRollout Microsoft.Contoso/brazilUsShoeBoxTesting /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/customRollouts/{rolloutName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,39 +106,6 @@ class CustomRollout(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
         Uses Azure REST API version 2024-09-01.
-
-        ## Example Usage
-        ### CustomRollouts_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_rollout = azure_native.providerhub.CustomRollout("customRollout",
-            properties={
-                "specification": {
-                    "auto_provision_config": {
-                        "resource_graph": True,
-                        "storage": True,
-                    },
-                    "canary": {
-                        "regions": ["brazilus"],
-                    },
-                    "refresh_subscription_registration": True,
-                },
-            },
-            provider_namespace="Microsoft.Contoso",
-            rollout_name="brazilUsShoeBoxTesting")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:providerhub:CustomRollout Microsoft.Contoso/brazilUsShoeBoxTesting /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/customRollouts/{rolloutName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

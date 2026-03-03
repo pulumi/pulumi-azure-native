@@ -123,52 +123,6 @@ class IamVirtualMfaDevice(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### IamVirtualMfaDevices_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_virtual_mfa_device = azure_native.awsconnector.IamVirtualMfaDevice("iamVirtualMfaDevice",
-            location="ixkqwzfnsthfshdlvsvh",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "soptozsivfaghgr",
-                "aws_account_id": "deoktff",
-                "aws_properties": {
-                    "path": "iuiajbhehzagt",
-                    "serial_number": "zbsulwrnmmhdwuelwbybavq",
-                    "tags": [{
-                        "key": "imskkztsfijhjvvp",
-                        "value": "kpmtbersaovhycdipca",
-                    }],
-                    "users": ["pzktvxysprnhhivbnuuutllcomxp"],
-                    "virtual_mfa_device_name": "m",
-                },
-                "aws_region": "h",
-                "aws_source_schema": "iotqvkkgxaoeewgxegimnri",
-                "aws_tags": {
-                    "key1965": "rgngzs",
-                },
-                "public_cloud_connectors_resource_id": "chegzvubkwsrhocspiedvdrzuhkjo",
-                "public_cloud_resource_name": "uktgscbqvuprtkj",
-            },
-            resource_group_name="rgiamVirtualMFADevice",
-            tags={
-                "key2474": "za",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamVirtualMfaDevice uceacdsk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamVirtualMFADevices/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,52 +142,6 @@ class IamVirtualMfaDevice(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### IamVirtualMfaDevices_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        iam_virtual_mfa_device = azure_native.awsconnector.IamVirtualMfaDevice("iamVirtualMfaDevice",
-            location="ixkqwzfnsthfshdlvsvh",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "soptozsivfaghgr",
-                "aws_account_id": "deoktff",
-                "aws_properties": {
-                    "path": "iuiajbhehzagt",
-                    "serial_number": "zbsulwrnmmhdwuelwbybavq",
-                    "tags": [{
-                        "key": "imskkztsfijhjvvp",
-                        "value": "kpmtbersaovhycdipca",
-                    }],
-                    "users": ["pzktvxysprnhhivbnuuutllcomxp"],
-                    "virtual_mfa_device_name": "m",
-                },
-                "aws_region": "h",
-                "aws_source_schema": "iotqvkkgxaoeewgxegimnri",
-                "aws_tags": {
-                    "key1965": "rgngzs",
-                },
-                "public_cloud_connectors_resource_id": "chegzvubkwsrhocspiedvdrzuhkjo",
-                "public_cloud_resource_name": "uktgscbqvuprtkj",
-            },
-            resource_group_name="rgiamVirtualMFADevice",
-            tags={
-                "key2474": "za",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:IamVirtualMfaDevice uceacdsk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/iamVirtualMFADevices/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

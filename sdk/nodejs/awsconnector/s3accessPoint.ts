@@ -11,60 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### S3AccessPoints_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const s3AccessPoint = new azure_native.awsconnector.S3AccessPoint("s3AccessPoint", {
- *     location: "azmnzomeh",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "dputejthukqrofpuygrkatazvamcge",
- *         awsAccountId: "rqzqzkncomjg",
- *         awsProperties: {
- *             alias: "sv",
- *             arn: "sizkkllnnrgdfkaov",
- *             bucket: "hsqprhqjtcqrizzbhao",
- *             bucketAccountId: "bmjnxdssnshenybwnws",
- *             name: "ve",
- *             networkOrigin: azure_native.awsconnector.NetworkOrigin.Internet,
- *             publicAccessBlockConfiguration: {
- *                 blockPublicAcls: true,
- *                 blockPublicPolicy: true,
- *                 ignorePublicAcls: true,
- *                 restrictPublicBuckets: true,
- *             },
- *             vpcConfiguration: {
- *                 vpcId: "hhzyvprnlxearagzmfsg",
- *             },
- *         },
- *         awsRegion: "elrkktihogsptpwwazywnyyzs",
- *         awsSourceSchema: "utriogwvkzanqypvldgboyemujg",
- *         awsTags: {
- *             key2658: "bhytpvuo",
- *         },
- *         publicCloudConnectorsResourceId: "ixhnqrsogifbzagpdzakwjxqlt",
- *         publicCloudResourceName: "swojnpzcxwqfvhrikxhgu",
- *     },
- *     resourceGroupName: "rgs3AccessPoint",
- *     tags: {
- *         key2363: "vhrwgmqmjqdfyeutonv",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:S3AccessPoint zlyclqdkaecrmrt /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/s3AccessPoints/{name} 
- * ```
  */
 export class S3AccessPoint extends pulumi.CustomResource {
     /**

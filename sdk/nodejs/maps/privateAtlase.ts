@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * An Azure resource which represents which will provision the ability to create private location data.
  *
  * Uses Azure REST API version 2020-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-02-01-preview.
- *
- * ## Example Usage
- * ### CreatePrivateAtlas
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateAtlase = new azure_native.maps.PrivateAtlase("privateAtlase", {
- *     accountName: "myMapsAccount",
- *     location: "unitedstates",
- *     privateAtlasName: "myPrivateAtlas",
- *     resourceGroupName: "myResourceGroup",
- *     tags: {
- *         test: "true",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:maps:PrivateAtlase myPrivateAtlas /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName}/privateAtlases/{privateAtlasName} 
- * ```
  */
 export class PrivateAtlase extends pulumi.CustomResource {
     /**

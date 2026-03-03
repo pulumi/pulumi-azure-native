@@ -11,44 +11,6 @@ import * as utilities from "../utilities";
  * Private endpoint connection proxy details.
  *
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2023-07-01.
- *
- * ## Example Usage
- * ### PrivateEndpointConnectionProxyCreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnectionProxy = new azure_native.deviceupdate.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy", {
- *     accountName: "contoso",
- *     privateEndpointConnectionProxyId: "peexample01",
- *     remotePrivateEndpoint: {
- *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
- *         immutableResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
- *         immutableSubscriptionId: "00000000-0000-0000-0000-000000000000",
- *         location: "westus2",
- *         manualPrivateLinkServiceConnections: [{
- *             groupIds: ["DeviceUpdate"],
- *             name: "{privateEndpointConnectionProxyId}",
- *             requestMessage: "Please approve my connection, thanks.",
- *         }],
- *         privateLinkServiceProxies: [{
- *             groupConnectivityInformation: [],
- *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{privateEndpointConnectionProxyId}/privateLinkServiceProxies/{privateEndpointConnectionProxyId}",
- *         }],
- *     },
- *     resourceGroupName: "test-rg",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:deviceupdate:PrivateEndpointConnectionProxy peexample01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceUpdate/accounts/{accountName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyId} 
- * ```
  */
 export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
     /**

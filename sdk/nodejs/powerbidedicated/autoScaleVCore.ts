@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * Represents an instance of an auto scale v-core resource.
  *
  * Uses Azure REST API version 2021-01-01. In version 2.x of the Azure Native provider, it used API version 2021-01-01.
- *
- * ## Example Usage
- * ### Create auto scale v-core
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const autoScaleVCore = new azure_native.powerbidedicated.AutoScaleVCore("autoScaleVCore", {
- *     capacityLimit: 10,
- *     capacityObjectId: "a28f00bd-5330-4572-88f1-fa883e074785",
- *     location: "West US",
- *     resourceGroupName: "TestRG",
- *     sku: {
- *         capacity: 0,
- *         name: "AutoScale",
- *         tier: azure_native.powerbidedicated.VCoreSkuTier.AutoScale,
- *     },
- *     tags: {
- *         testKey: "testValue",
- *     },
- *     vcoreName: "testvcore",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:powerbidedicated:AutoScaleVCore testvcore /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBIDedicated/autoScaleVCores/{vcoreName} 
- * ```
  */
 export class AutoScaleVCore extends pulumi.CustomResource {
     /**

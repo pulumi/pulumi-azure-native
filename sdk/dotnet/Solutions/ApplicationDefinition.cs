@@ -15,47 +15,6 @@ namespace Pulumi.AzureNative.Solutions
     /// Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
     /// 
     /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update managed application definition
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var applicationDefinition = new AzureNative.Solutions.ApplicationDefinition("applicationDefinition", new()
-    ///     {
-    ///         ApplicationDefinitionName = "myManagedApplicationDef",
-    ///         Authorizations = new[]
-    ///         {
-    ///             new AzureNative.Solutions.Inputs.ApplicationAuthorizationArgs
-    ///             {
-    ///                 PrincipalId = "validprincipalguid",
-    ///                 RoleDefinitionId = "validroleguid",
-    ///             },
-    ///         },
-    ///         Description = "myManagedApplicationDef description",
-    ///         DisplayName = "myManagedApplicationDef",
-    ///         LockLevel = AzureNative.Solutions.ApplicationLockLevel.None,
-    ///         PackageFileUri = "https://path/to/packagezipfile",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:solutions:ApplicationDefinition myManagedApplicationDef /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applicationDefinitions/{applicationDefinitionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
     public partial class ApplicationDefinition : global::Pulumi.CustomResource

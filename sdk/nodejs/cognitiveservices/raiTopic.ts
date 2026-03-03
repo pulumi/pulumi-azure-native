@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-07-01-preview.
  *
  * Other available API versions: 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### PutRaiTopic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const raiTopic = new azure_native.cognitiveservices.RaiTopic("raiTopic", {
- *     accountName: "accountName",
- *     properties: {
- *         description: "This is a sample topic.",
- *         sampleBlobUrl: "https://example.blob.core.windows.net/sampleblob",
- *         topicName: "raiTopicName",
- *     },
- *     raiTopicName: "raiTopicName",
- *     resourceGroupName: "resourceGroupName",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:cognitiveservices:RaiTopic raiTopicName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raitopics/{raiTopicName} 
- * ```
  */
 export class RaiTopic extends pulumi.CustomResource {
     /**

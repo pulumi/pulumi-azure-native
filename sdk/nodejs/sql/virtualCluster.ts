@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
  * An Azure SQL virtual cluster.
  *
  * Uses Azure REST API version 2024-11-01-preview.
- *
- * ## Example Usage
- * ### Create virtual cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const virtualCluster = new azure_native.sql.VirtualCluster("virtualCluster", {
- *     location: "japaneast",
- *     resourceGroupName: "testrg",
- *     tags: {
- *         key: "value",
- *     },
- *     virtualClusterName: "vc-subnet1-f769ed71-b3ad-491a-a9d5-26eeceaa6be2",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:sql:VirtualCluster vc-f769ed71-b3ad-491a-a9d5-26eeceaa6be2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/virtualClusters/{virtualClusterName} 
- * ```
  */
 export class VirtualCluster extends pulumi.CustomResource {
     /**

@@ -124,47 +124,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PrivateEndpointConnections_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.elasticsan.PrivateEndpointConnection("privateEndpointConnection",
-            elastic_san_name="elasticsanname",
-            group_ids=["jdwrzpemdjrpiwzvy"],
-            private_endpoint_connection_name="privateendpointconnectionname",
-            private_link_service_connection_state={
-                "actions_required": "jhjdpwvyzipggtn",
-                "description": "dxl",
-                "status": azure_native.elasticsan.PrivateEndpointServiceConnectionStatus.PENDING,
-            },
-            resource_group_name="resourcegroupname")
-
-        ```
-        ### PrivateEndpointConnections_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.elasticsan.PrivateEndpointConnection("privateEndpointConnection",
-            elastic_san_name="elasticsanname",
-            private_endpoint_connection_name="privateendpointconnectionname",
-            private_link_service_connection_state={},
-            resource_group_name="resourcegroupname")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:elasticsan:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,47 +145,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01-preview.
 
         Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PrivateEndpointConnections_Create_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.elasticsan.PrivateEndpointConnection("privateEndpointConnection",
-            elastic_san_name="elasticsanname",
-            group_ids=["jdwrzpemdjrpiwzvy"],
-            private_endpoint_connection_name="privateendpointconnectionname",
-            private_link_service_connection_state={
-                "actions_required": "jhjdpwvyzipggtn",
-                "description": "dxl",
-                "status": azure_native.elasticsan.PrivateEndpointServiceConnectionStatus.PENDING,
-            },
-            resource_group_name="resourcegroupname")
-
-        ```
-        ### PrivateEndpointConnections_Create_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.elasticsan.PrivateEndpointConnection("privateEndpointConnection",
-            elastic_san_name="elasticsanname",
-            private_endpoint_connection_name="privateendpointconnectionname",
-            private_link_service_connection_state={},
-            resource_group_name="resourcegroupname")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:elasticsan:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

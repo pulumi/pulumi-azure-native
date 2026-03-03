@@ -158,38 +158,6 @@ class CustomResourceProvider(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-        ## Example Usage
-        ### Create or update the custom resource provider
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_resource_provider = azure_native.customproviders.CustomResourceProvider("customResourceProvider",
-            actions=[{
-                "endpoint": "https://mytestendpoint/",
-                "name": "TestAction",
-                "routing_type": azure_native.customproviders.ActionRouting.PROXY,
-            }],
-            location="eastus",
-            resource_group_name="testRG",
-            resource_provider_name="newrp",
-            resource_types=[{
-                "endpoint": "https://mytestendpoint2/",
-                "name": "TestResource",
-                "routing_type": azure_native.customproviders.ResourceTypeRouting.PROXY_CACHE,
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customproviders:CustomResourceProvider newrp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,38 +179,6 @@ class CustomResourceProvider(pulumi.CustomResource):
         A manifest file that defines the custom resource provider resources.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
-        ## Example Usage
-        ### Create or update the custom resource provider
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        custom_resource_provider = azure_native.customproviders.CustomResourceProvider("customResourceProvider",
-            actions=[{
-                "endpoint": "https://mytestendpoint/",
-                "name": "TestAction",
-                "routing_type": azure_native.customproviders.ActionRouting.PROXY,
-            }],
-            location="eastus",
-            resource_group_name="testRG",
-            resource_provider_name="newrp",
-            resource_types=[{
-                "endpoint": "https://mytestendpoint2/",
-                "name": "TestResource",
-                "routing_type": azure_native.customproviders.ResourceTypeRouting.PROXY_CACHE,
-            }])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:customproviders:CustomResourceProvider newrp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,41 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-05-01-preview.
  *
  * Other available API versions: 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native billingbenefits [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### CreditSourceCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const source = new azure_native.billingbenefits.Source("source", {
- *     credit: {
- *         amount: 20000,
- *         currencyCode: "USD",
- *         grain: azure_native.billingbenefits.CommitmentGrain.FullTerm,
- *     },
- *     creditName: "credit_20231212",
- *     impactedBillingPeriod: "202304",
- *     location: "global",
- *     resourceGroupName: "resource_group_name_01",
- *     sourceName: "source_20231212",
- *     sourceResourceId: "/subscriptions/{subId}",
- *     tags: {
- *         key1: "value1",
- *         key2: "value2",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:billingbenefits:Source source_20231212 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/credits/{creditName}/sources/{sourceName} 
- * ```
  */
 export class Source extends pulumi.CustomResource {
     /**

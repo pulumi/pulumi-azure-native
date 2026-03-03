@@ -126,35 +126,6 @@ class Diagnostic(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Diagnostics_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        diagnostic = azure_native.edge.Diagnostic("diagnostic",
-            diagnostic_name="testname",
-            extended_location={
-                "name": "szjrwimeqyiue",
-                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
-            },
-            location="ouwfvnokjvivmjzqpupwrbsmls",
-            resource_group_name="rgconfigurationmanager",
-            tags={
-                "key4304": "mdrwpsdrcicagvximokxrrp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:Diagnostic drohk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/diagnostics/{diagnosticName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,35 +147,6 @@ class Diagnostic(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Diagnostics_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        diagnostic = azure_native.edge.Diagnostic("diagnostic",
-            diagnostic_name="testname",
-            extended_location={
-                "name": "szjrwimeqyiue",
-                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
-            },
-            location="ouwfvnokjvivmjzqpupwrbsmls",
-            resource_group_name="rgconfigurationmanager",
-            tags={
-                "key4304": "mdrwpsdrcicagvximokxrrp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:Diagnostic drohk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/diagnostics/{diagnosticName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

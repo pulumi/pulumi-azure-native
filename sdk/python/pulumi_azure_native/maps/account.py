@@ -176,49 +176,6 @@ class Account(pulumi.CustomResource):
 
         Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create Gen2 Account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.maps.Account("account",
-            account_name="myMapsAccount",
-            kind=azure_native.maps.Kind.GEN2,
-            location="eastus",
-            properties={
-                "cors": {
-                    "cors_rules": [{
-                        "allowed_origins": [
-                            "http://www.contoso.com",
-                            "http://www.fabrikam.com",
-                        ],
-                    }],
-                },
-                "disable_local_auth": True,
-                "locations": [{
-                    "location_name": "northeurope",
-                }],
-            },
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": azure_native.maps.Name.G2,
-            },
-            tags={
-                "test": "true",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:maps:Account myMapsAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,49 +200,6 @@ class Account(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
 
         Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create Gen2 Account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.maps.Account("account",
-            account_name="myMapsAccount",
-            kind=azure_native.maps.Kind.GEN2,
-            location="eastus",
-            properties={
-                "cors": {
-                    "cors_rules": [{
-                        "allowed_origins": [
-                            "http://www.contoso.com",
-                            "http://www.fabrikam.com",
-                        ],
-                    }],
-                },
-                "disable_local_auth": True,
-                "locations": [{
-                    "location_name": "northeurope",
-                }],
-            },
-            resource_group_name="myResourceGroup",
-            sku={
-                "name": azure_native.maps.Name.G2,
-            },
-            tags={
-                "test": "true",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:maps:Account myMapsAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maps/accounts/{accountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

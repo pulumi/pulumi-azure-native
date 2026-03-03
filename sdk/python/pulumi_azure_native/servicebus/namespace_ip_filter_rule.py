@@ -138,31 +138,6 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
 
-        ## Example Usage
-        ### NameSpaceIpFilterRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        namespace_ip_filter_rule = azure_native.servicebus.NamespaceIpFilterRule("namespaceIpFilterRule",
-            action=azure_native.servicebus.IPAction.ACCEPT,
-            filter_name="sdk-IPFilterRules-7337",
-            ip_filter_rule_name="sdk-IPFilterRules-7337",
-            ip_mask="13.78.143.246/32",
-            namespace_name="sdk-Namespace-5232",
-            resource_group_name="ResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:servicebus:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/ipfilterrules/{ipFilterRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,31 +158,6 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
         Single item in a List or Get IpFilterRules operation
 
         Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
-
-        ## Example Usage
-        ### NameSpaceIpFilterRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        namespace_ip_filter_rule = azure_native.servicebus.NamespaceIpFilterRule("namespaceIpFilterRule",
-            action=azure_native.servicebus.IPAction.ACCEPT,
-            filter_name="sdk-IPFilterRules-7337",
-            ip_filter_rule_name="sdk-IPFilterRules-7337",
-            ip_mask="13.78.143.246/32",
-            namespace_name="sdk-Namespace-5232",
-            resource_group_name="ResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:servicebus:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/ipfilterrules/{ipFilterRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

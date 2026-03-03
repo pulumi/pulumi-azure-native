@@ -157,30 +157,6 @@ class Application(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApplicationCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application = azure_native.batch.Application("application",
-            account_name="sampleacct",
-            allow_updates=False,
-            application_name="app1",
-            display_name="myAppName",
-            resource_group_name="default-azurebatch-japaneast")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:batch:Application app1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/applications/{applicationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,30 +180,6 @@ class Application(pulumi.CustomResource):
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
         Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApplicationCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application = azure_native.batch.Application("application",
-            account_name="sampleacct",
-            allow_updates=False,
-            application_name="app1",
-            display_name="myAppName",
-            resource_group_name="default-azurebatch-japaneast")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:batch:Application app1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{accountName}/applications/{applicationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

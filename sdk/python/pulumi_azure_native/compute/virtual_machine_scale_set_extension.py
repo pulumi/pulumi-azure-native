@@ -294,51 +294,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine_scale_set_extension = azure_native.compute.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
-            auto_upgrade_minor_version=True,
-            enable_automatic_upgrade=True,
-            force_update_tag="aaaaaaaaa",
-            name="{extension-name}",
-            protected_settings={},
-            provision_after_extensions=["aa"],
-            publisher="{extension-Publisher}",
-            resource_group_name="rgcompute",
-            settings={},
-            suppress_failures=True,
-            type="{extension-Type}",
-            type_handler_version="{handler-version}",
-            vm_scale_set_name="aaaaaaa",
-            vmss_extension_name="aaaaaaaaaaaaaaaaaaaaa")
-
-        ```
-        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine_scale_set_extension = azure_native.compute.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
-            resource_group_name="rgcompute",
-            vm_scale_set_name="aaaaaaaaaaa",
-            vmss_extension_name="aaaaaaaaaaa")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:VirtualMachineScaleSetExtension {extension-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/extensions/{vmssExtensionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -370,51 +325,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
         Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MaximumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine_scale_set_extension = azure_native.compute.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
-            auto_upgrade_minor_version=True,
-            enable_automatic_upgrade=True,
-            force_update_tag="aaaaaaaaa",
-            name="{extension-name}",
-            protected_settings={},
-            provision_after_extensions=["aa"],
-            publisher="{extension-Publisher}",
-            resource_group_name="rgcompute",
-            settings={},
-            suppress_failures=True,
-            type="{extension-Type}",
-            type_handler_version="{handler-version}",
-            vm_scale_set_name="aaaaaaa",
-            vmss_extension_name="aaaaaaaaaaaaaaaaaaaaa")
-
-        ```
-        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MinimumSet_Gen
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_machine_scale_set_extension = azure_native.compute.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
-            resource_group_name="rgcompute",
-            vm_scale_set_name="aaaaaaaaaaa",
-            vmss_extension_name="aaaaaaaaaaa")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:VirtualMachineScaleSetExtension {extension-name} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/extensions/{vmssExtensionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

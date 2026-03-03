@@ -171,32 +171,6 @@ class EdgeActionExecutionFilter(pulumi.CustomResource):
 
         Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CreateEdgeActionExecutionFilters
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        edge_action_execution_filter = azure_native.cdn.EdgeActionExecutionFilter("edgeActionExecutionFilter",
-            edge_action_name="edgeAction1",
-            execution_filter="executionFilter1",
-            execution_filter_identifier_header_name="header-key",
-            execution_filter_identifier_header_value="header-value",
-            location="global",
-            resource_group_name="testrg",
-            version_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/Microsoft.Cdn/EdgeActions/edgeAction1/versions/version1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:EdgeActionExecutionFilter executionFilter1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/executionFilters/{executionFilter} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,32 +195,6 @@ class EdgeActionExecutionFilter(pulumi.CustomResource):
         Uses Azure REST API version 2025-09-01-preview.
 
         Other available API versions: 2024-07-22-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateEdgeActionExecutionFilters
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        edge_action_execution_filter = azure_native.cdn.EdgeActionExecutionFilter("edgeActionExecutionFilter",
-            edge_action_name="edgeAction1",
-            execution_filter="executionFilter1",
-            execution_filter_identifier_header_name="header-key",
-            execution_filter_identifier_header_value="header-value",
-            location="global",
-            resource_group_name="testrg",
-            version_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/Microsoft.Cdn/EdgeActions/edgeAction1/versions/version1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cdn:EdgeActionExecutionFilter executionFilter1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/executionFilters/{executionFilter} 
-        ```
 
 
         :param str resource_name: The name of the resource.

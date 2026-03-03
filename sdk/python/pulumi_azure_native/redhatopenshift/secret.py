@@ -106,28 +106,6 @@ class Secret(pulumi.CustomResource):
 
         Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Creates or updates a Secret with the specified subscription, resource group and resource name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secret = azure_native.redhatopenshift.Secret("secret",
-            child_resource_name="childResourceName",
-            resource_group_name="resourceGroup",
-            resource_name_="resourceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redhatopenshift:Secret mySecret /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openshiftclusters/{resourceName}/secret/{childResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,28 +126,6 @@ class Secret(pulumi.CustomResource):
         Uses Azure REST API version 2023-11-22. In version 2.x of the Azure Native provider, it used API version 2022-09-04.
 
         Other available API versions: 2022-09-04, 2023-04-01, 2023-07-01-preview, 2023-09-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redhatopenshift [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Creates or updates a Secret with the specified subscription, resource group and resource name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        secret = azure_native.redhatopenshift.Secret("secret",
-            child_resource_name="childResourceName",
-            resource_group_name="resourceGroup",
-            resource_name_="resourceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redhatopenshift:Secret mySecret /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openshiftclusters/{resourceName}/secret/{childResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

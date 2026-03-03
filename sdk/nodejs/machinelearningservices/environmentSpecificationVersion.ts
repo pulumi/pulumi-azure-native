@@ -11,52 +11,6 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  *
  * Uses Azure REST API version 2021-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-01-preview.
- *
- * ## Example Usage
- * ### CreateOrUpdate Environment Specification Version.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const environmentSpecificationVersion = new azure_native.machinelearningservices.EnvironmentSpecificationVersion("environmentSpecificationVersion", {
- *     name: "testEnvironment",
- *     properties: {
- *         condaFile: `channels:
- * - defaults
- * dependencies:
- * - python=3.7.7
- * name: my-env`,
- *         description: "string",
- *         docker: {
- *             dockerSpecificationType: "Build",
- *             dockerfile: "FROM myimage",
- *         },
- *         properties: {
- *             additionalProp1: "string",
- *             additionalProp2: "string",
- *             additionalProp3: "string",
- *         },
- *         tags: {
- *             additionalProp1: "string",
- *             additionalProp2: "string",
- *             additionalProp3: "string",
- *         },
- *     },
- *     resourceGroupName: "testrg123",
- *     version: "1",
- *     workspaceName: "testworkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:machinelearningservices:EnvironmentSpecificationVersion 1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/environments/{name}/versions/{version} 
- * ```
  */
 export class EnvironmentSpecificationVersion extends pulumi.CustomResource {
     /**

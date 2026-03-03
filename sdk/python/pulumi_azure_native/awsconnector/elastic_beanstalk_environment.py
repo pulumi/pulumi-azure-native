@@ -123,13 +123,6 @@ class ElasticBeanstalkEnvironment(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ElasticBeanstalkEnvironment xytloifpzeomlsrzhmb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkEnvironments/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.
@@ -150,13 +143,6 @@ class ElasticBeanstalkEnvironment(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:ElasticBeanstalkEnvironment xytloifpzeomlsrzhmb /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/elasticBeanstalkEnvironments/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

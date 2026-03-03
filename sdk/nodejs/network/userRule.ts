@@ -13,60 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
  *
  * Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create a default user rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const userRule = new azure_native.network.UserRule("userRule", {
- *     configurationName: "myTestSecurityConfig",
- *     networkManagerName: "testNetworkManager",
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleDefaultUserRule",
- * });
- *
- * ```
- * ### Create a user rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const userRule = new azure_native.network.UserRule("userRule", {
- *     configurationName: "myTestSecurityConfig",
- *     description: "Sample User Rule",
- *     destinationPortRanges: ["22"],
- *     destinations: [{
- *         addressPrefix: "*",
- *         addressPrefixType: azure_native.network.AddressPrefixType.IPPrefix,
- *     }],
- *     direction: azure_native.network.SecurityConfigurationRuleDirection.Inbound,
- *     kind: "Custom",
- *     networkManagerName: "testNetworkManager",
- *     protocol: azure_native.network.SecurityConfigurationRuleProtocol.Tcp,
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleUserRule",
- *     sourcePortRanges: ["0-65535"],
- *     sources: [{
- *         addressPrefix: "*",
- *         addressPrefixType: azure_native.network.AddressPrefixType.IPPrefix,
- *     }],
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:UserRule SampleUserRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
- * ```
  */
 export class UserRule extends pulumi.CustomResource {
     /**

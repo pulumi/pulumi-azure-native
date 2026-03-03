@@ -172,33 +172,6 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
 
         Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceApiOperationPolicy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_api_operation_policy = azure_native.apimanagement.WorkspaceApiOperationPolicy("workspaceApiOperationPolicy",
-            api_id="5600b57e7e8880006a040001",
-            format=azure_native.apimanagement.PolicyContentFormat.XML,
-            operation_id="5600b57e7e8880006a080001",
-            policy_id="policy",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            value="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceApiOperationPolicy policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId}/policies/{policyId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,33 +196,6 @@ class WorkspaceApiOperationPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
         Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateWorkspaceApiOperationPolicy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        workspace_api_operation_policy = azure_native.apimanagement.WorkspaceApiOperationPolicy("workspaceApiOperationPolicy",
-            api_id="5600b57e7e8880006a040001",
-            format=azure_native.apimanagement.PolicyContentFormat.XML,
-            operation_id="5600b57e7e8880006a080001",
-            policy_id="policy",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            value="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
-            workspace_id="wks1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:WorkspaceApiOperationPolicy policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}/operations/{operationId}/policies/{policyId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

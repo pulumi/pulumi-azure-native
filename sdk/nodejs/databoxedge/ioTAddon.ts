@@ -11,30 +11,6 @@ import * as utilities from "../utilities";
  * IoT Addon.
  *
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
- *
- * ## Example Usage
- * ### PutAddOns
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ioTAddon = new azure_native.databoxedge.IoTAddon("ioTAddon", {
- *     addonName: "arcName",
- *     deviceName: "testedgedevice",
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     roleName: "KubernetesRole",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:databoxedge:IoTAddon arcName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/addons/{addonName} 
- * ```
  */
 export class IoTAddon extends pulumi.CustomResource {
     /**

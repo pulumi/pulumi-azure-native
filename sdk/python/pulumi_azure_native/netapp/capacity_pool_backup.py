@@ -172,32 +172,6 @@ class CapacityPoolBackup(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-11-01.
 
-        ## Example Usage
-        ### Backups_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        capacity_pool_backup = azure_native.netapp.CapacityPoolBackup("capacityPoolBackup",
-            account_name="account1",
-            backup_name="backup1",
-            label="myLabel",
-            location="eastus",
-            pool_name="pool1",
-            resource_group_name="myRG",
-            volume_name="volume1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:CapacityPoolBackup account1/pool1/volume1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,32 +194,6 @@ class CapacityPoolBackup(pulumi.CustomResource):
         Backup of a Volume
 
         Uses Azure REST API version 2022-11-01.
-
-        ## Example Usage
-        ### Backups_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        capacity_pool_backup = azure_native.netapp.CapacityPoolBackup("capacityPoolBackup",
-            account_name="account1",
-            backup_name="backup1",
-            label="myLabel",
-            location="eastus",
-            pool_name="pool1",
-            resource_group_name="myRG",
-            volume_name="volume1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:netapp:CapacityPoolBackup account1/pool1/volume1/backup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/backups/{backupName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

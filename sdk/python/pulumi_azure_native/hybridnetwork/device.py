@@ -122,29 +122,6 @@ class Device(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
 
-        ## Example Usage
-        ### Create or update device
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        device = azure_native.hybridnetwork.Device("device",
-            device_name="TestDevice",
-            device_type=azure_native.hybridnetwork.DeviceType.AZURE_STACK_EDGE,
-            location="eastus",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:Device TestDevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/devices/{deviceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,29 +141,6 @@ class Device(pulumi.CustomResource):
         Device resource.
 
         Uses Azure REST API version 2022-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
-
-        ## Example Usage
-        ### Create or update device
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        device = azure_native.hybridnetwork.Device("device",
-            device_name="TestDevice",
-            device_type=azure_native.hybridnetwork.DeviceType.AZURE_STACK_EDGE,
-            location="eastus",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridnetwork:Device TestDevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridNetwork/devices/{deviceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

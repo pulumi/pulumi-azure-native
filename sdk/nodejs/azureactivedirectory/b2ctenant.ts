@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-05-17-preview. In version 2.x of the Azure Native provider, it used API version 2021-04-01.
  *
  * Other available API versions: 2021-04-01, 2023-01-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azureactivedirectory [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create tenant
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const b2cTenant = new azure_native.azureactivedirectory.B2CTenant("b2cTenant", {
- *     countryCode: "US",
- *     displayName: "Contoso",
- *     isGoLocalTenant: true,
- *     location: "United States",
- *     resourceGroupName: "contosoResourceGroup",
- *     resourceName: "contoso.onmicrosoft.com",
- *     sku: {
- *         name: azure_native.azureactivedirectory.B2CResourceSKUName.Standard,
- *         tier: azure_native.azureactivedirectory.B2CResourceSKUTier.A0,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azureactivedirectory:B2CTenant contoso.onmicrosoft.com /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{resourceName} 
- * ```
  */
 export class B2CTenant extends pulumi.CustomResource {
     /**

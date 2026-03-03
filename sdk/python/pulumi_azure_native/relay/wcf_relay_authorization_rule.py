@@ -122,33 +122,6 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### RelayAuthorizationRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        wcf_relay_authorization_rule = azure_native.relay.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule",
-            authorization_rule_name="example-RelayAuthRules-01",
-            namespace_name="example-RelayNamespace-01",
-            relay_name="example-Relay-wcf-01",
-            resource_group_name="resourcegroup",
-            rights=[
-                azure_native.relay.AccessRights.LISTEN,
-                azure_native.relay.AccessRights.SEND,
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:relay:WCFRelayAuthorizationRule example-RelayAuthRules-01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,33 +143,6 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2021-11-01.
 
         Other available API versions: 2021-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native relay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### RelayAuthorizationRuleCreate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        wcf_relay_authorization_rule = azure_native.relay.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule",
-            authorization_rule_name="example-RelayAuthRules-01",
-            namespace_name="example-RelayNamespace-01",
-            relay_name="example-Relay-wcf-01",
-            resource_group_name="resourcegroup",
-            rights=[
-                azure_native.relay.AccessRights.LISTEN,
-                azure_native.relay.AccessRights.SEND,
-            ])
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:relay:WCFRelayAuthorizationRule example-RelayAuthRules-01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/wcfRelays/{relayName}/authorizationRules/{authorizationRuleName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

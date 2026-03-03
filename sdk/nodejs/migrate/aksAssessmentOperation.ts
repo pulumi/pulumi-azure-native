@@ -13,51 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### AksAssessmentOperations_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const aksAssessmentOperation = new azure_native.migrate.AksAssessmentOperation("aksAssessmentOperation", {
- *     assessmentName: "testaksassessment",
- *     projectName: "testproject",
- *     resourceGroupName: "rgaksswagger",
- *     scope: {
- *         serverGroupId: "/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
- *     },
- *     settings: {
- *         azureLocation: "Unknown",
- *         category: azure_native.migrate.AzureVmCategory.All,
- *         consolidation: azure_native.migrate.ConsolidationType.Full,
- *         currency: azure_native.migrate.AzureCurrency.Unknown,
- *         discountPercentage: 15,
- *         environmentType: azure_native.migrate.AzureEnvironmentType.Unknown,
- *         licensingProgram: "Default",
- *         performanceData: {
- *             percentile: azure_native.migrate.Percentile.Percentile50,
- *             perfDataEndTime: "2023-11-07T06:51:24.320Z",
- *             perfDataStartTime: "2023-11-07T06:51:24.320Z",
- *             timeRange: azure_native.migrate.TimeRange.Day,
- *         },
- *         pricingTier: azure_native.migrate.PricingTier.Standard,
- *         savingsOptions: azure_native.migrate.SavingsOptions.None,
- *         scalingFactor: 3,
- *         sizingCriteria: azure_native.migrate.AssessmentSizingCriterion.PerformanceBased,
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:AksAssessmentOperation testaksassessment /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/aksAssessments/{assessmentName} 
- * ```
  */
 export class AksAssessmentOperation extends pulumi.CustomResource {
     /**

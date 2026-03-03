@@ -207,44 +207,6 @@ class AnalyticsItem(pulumi.CustomResource):
 
         Uses Azure REST API version 2015-05-01.
 
-        ## Example Usage
-        ### AnalyticsItemPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        analytics_item = azure_native.applicationinsights.AnalyticsItem("analyticsItem",
-            content=\"\"\"let newExceptionsTimeRange = 1d;
-        let timeRangeToCheckBefore = 7d;
-        exceptions
-        | where timestamp < ago(timeRangeToCheckBefore)
-        | summarize count() by problemId
-        | join kind= rightanti (
-        exceptions
-        | where timestamp >= ago(newExceptionsTimeRange)
-        | extend stack = tostring(details[0].rawStack)
-        | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
-        ) on problemId 
-        | order by  count_ desc
-        \"\"\",
-            name="Exceptions - New in the last 24 hours",
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            scope=azure_native.applicationinsights.ItemScope.SHARED,
-            scope_path="analyticsItems",
-            type=azure_native.applicationinsights.ItemType.QUERY)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:AnalyticsItem myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,44 +231,6 @@ class AnalyticsItem(pulumi.CustomResource):
         Properties that define an Analytics item that is associated to an Application Insights component.
 
         Uses Azure REST API version 2015-05-01.
-
-        ## Example Usage
-        ### AnalyticsItemPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        analytics_item = azure_native.applicationinsights.AnalyticsItem("analyticsItem",
-            content=\"\"\"let newExceptionsTimeRange = 1d;
-        let timeRangeToCheckBefore = 7d;
-        exceptions
-        | where timestamp < ago(timeRangeToCheckBefore)
-        | summarize count() by problemId
-        | join kind= rightanti (
-        exceptions
-        | where timestamp >= ago(newExceptionsTimeRange)
-        | extend stack = tostring(details[0].rawStack)
-        | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
-        ) on problemId 
-        | order by  count_ desc
-        \"\"\",
-            name="Exceptions - New in the last 24 hours",
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            scope=azure_native.applicationinsights.ItemScope.SHARED,
-            scope_path="analyticsItems",
-            type=azure_native.applicationinsights.ItemType.QUERY)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:AnalyticsItem myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item 
-        ```
 
 
         :param str resource_name: The name of the resource.

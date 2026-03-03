@@ -122,32 +122,6 @@ class Account(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
 
-        ## Example Usage
-        ### Create or update account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.powerplatform.Account("account",
-            account_name="account",
-            description="Description of the account.",
-            location="East US",
-            resource_group_name="resourceGroup",
-            tags={
-                "Organization": "Administration",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerplatform:Account account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/accounts/{accountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,32 +141,6 @@ class Account(pulumi.CustomResource):
         Definition of the account.
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
-
-        ## Example Usage
-        ### Create or update account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        account = azure_native.powerplatform.Account("account",
-            account_name="account",
-            description="Description of the account.",
-            location="East US",
-            resource_group_name="resourceGroup",
-            tags={
-                "Organization": "Administration",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerplatform:Account account /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/accounts/{accountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -289,40 +289,6 @@ class IoTHubEventSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
 
-        ## Example Usage
-        ### CreateEventHubEventSource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        io_t_hub_event_source = azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource",
-            environment_name="env1",
-            event_source_name="es1",
-            resource_group_name="rg1")
-
-        ```
-        ### EventSourcesCreateEventHubWithCustomEnquedTime
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        io_t_hub_event_source = azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource",
-            environment_name="env1",
-            event_source_name="es1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:timeseriesinsights:IoTHubEventSource es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,40 +319,6 @@ class IoTHubEventSource(pulumi.CustomResource):
         An event source that receives its data from an Azure IoTHub.
 
         Uses Azure REST API version 2020-05-15. In version 2.x of the Azure Native provider, it used API version 2020-05-15.
-
-        ## Example Usage
-        ### CreateEventHubEventSource
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        io_t_hub_event_source = azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource",
-            environment_name="env1",
-            event_source_name="es1",
-            resource_group_name="rg1")
-
-        ```
-        ### EventSourcesCreateEventHubWithCustomEnquedTime
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        io_t_hub_event_source = azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource",
-            environment_name="env1",
-            event_source_name="es1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:timeseriesinsights:IoTHubEventSource es1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

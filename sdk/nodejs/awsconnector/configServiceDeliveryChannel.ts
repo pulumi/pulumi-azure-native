@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### ConfigServiceDeliveryChannels_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const configServiceDeliveryChannel = new azure_native.awsconnector.ConfigServiceDeliveryChannel("configServiceDeliveryChannel", {
- *     location: "djcnfaicagptxk",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "eevsmaokvzzbqwpfm",
- *         awsAccountId: "xiyydxsyykydvymn",
- *         awsProperties: {
- *             configSnapshotDeliveryProperties: {
- *                 deliveryFrequency: {
- *                     value: azure_native.awsconnector.MaximumExecutionFrequency.One_Hour,
- *                 },
- *             },
- *             name: "pfdwjyiaypjjedltuphpz",
- *             s3BucketName: "kcgtpxhibekwygxkybv",
- *             s3KeyPrefix: "eqgzb",
- *             s3KmsKeyArn: "vlnkltfo",
- *             snsTopicARN: "qsxejnowkzljayrlhzyyppaya",
- *         },
- *         awsRegion: "kngfw",
- *         awsSourceSchema: "ged",
- *         awsTags: {
- *             key5086: "cnyyij",
- *         },
- *         publicCloudConnectorsResourceId: "kzdkfyjjgkoolslydcmbms",
- *         publicCloudResourceName: "idxxguxjmvrzjnruzz",
- *     },
- *     resourceGroupName: "rgconfigServiceDeliveryChannel",
- *     tags: {
- *         key6889: "bimlpmolvvbwmp",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:ConfigServiceDeliveryChannel nygnhqucwqufwbbhwstvjwf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/configServiceDeliveryChannels/{name} 
- * ```
  */
 export class ConfigServiceDeliveryChannel extends pulumi.CustomResource {
     /**

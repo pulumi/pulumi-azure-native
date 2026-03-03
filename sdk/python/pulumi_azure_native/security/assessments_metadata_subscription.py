@@ -214,39 +214,6 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
 
-        ## Example Usage
-        ### Create security assessment metadata for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assessments_metadata_subscription = azure_native.security.AssessmentsMetadataSubscription("assessmentsMetadataSubscription",
-            assessment_metadata_name="ca039e75-a276-4175-aebc-bcd41e4b14b7",
-            assessment_type=azure_native.security.AssessmentType.CUSTOMER_MANAGED,
-            categories=[azure_native.security.Categories.COMPUTE],
-            description="Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
-            display_name="Install endpoint protection solution on virtual machine scale sets",
-            implementation_effort=azure_native.security.ImplementationEffort.LOW,
-            remediation_description="To install an endpoint protection solution: 1.  <a href=\\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
-            severity=azure_native.security.Severity.MEDIUM,
-            threats=[
-                azure_native.security.Threats.DATA_EXFILTRATION,
-                azure_native.security.Threats.DATA_SPILLAGE,
-                azure_native.security.Threats.MALICIOUS_INSIDER,
-            ],
-            user_impact=azure_native.security.UserImpact.LOW)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:AssessmentsMetadataSubscription ca039e75-a276-4175-aebc-bcd41e4b14b7 /subscriptions/{subscriptionId}/providers/Microsoft.Security/assessmentMetadata/{assessmentMetadataName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,39 +237,6 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         Security assessment metadata
 
         Uses Azure REST API version 2019-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2019-01-01-preview.
-
-        ## Example Usage
-        ### Create security assessment metadata for subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        assessments_metadata_subscription = azure_native.security.AssessmentsMetadataSubscription("assessmentsMetadataSubscription",
-            assessment_metadata_name="ca039e75-a276-4175-aebc-bcd41e4b14b7",
-            assessment_type=azure_native.security.AssessmentType.CUSTOMER_MANAGED,
-            categories=[azure_native.security.Categories.COMPUTE],
-            description="Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
-            display_name="Install endpoint protection solution on virtual machine scale sets",
-            implementation_effort=azure_native.security.ImplementationEffort.LOW,
-            remediation_description="To install an endpoint protection solution: 1.  <a href=\\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
-            severity=azure_native.security.Severity.MEDIUM,
-            threats=[
-                azure_native.security.Threats.DATA_EXFILTRATION,
-                azure_native.security.Threats.DATA_SPILLAGE,
-                azure_native.security.Threats.MALICIOUS_INSIDER,
-            ],
-            user_impact=azure_native.security.UserImpact.LOW)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:security:AssessmentsMetadataSubscription ca039e75-a276-4175-aebc-bcd41e4b14b7 /subscriptions/{subscriptionId}/providers/Microsoft.Security/assessmentMetadata/{assessmentMetadataName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -348,39 +348,6 @@ class AzurePowerShellScript(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
-        ## Example Usage
-        ### DeploymentScriptsCreateNoUserManagedIdentity
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_power_shell_script = azure_native.resources.AzurePowerShellScript("azurePowerShellScript",
-            arguments="-Location 'westus' -Name \\"*rg2\\"",
-            az_power_shell_version="1.7.0",
-            cleanup_preference=azure_native.resources.CleanupOptions.ALWAYS,
-            kind="AzurePowerShell",
-            location="westus",
-            resource_group_name="script-rg",
-            retention_interval="P7D",
-            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
-            script_name="MyDeploymentScript",
-            supporting_script_uris=[
-                "https://uri1.to.supporting.script",
-                "https://uri2.to.supporting.script",
-            ],
-            timeout="PT1H")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -414,39 +381,6 @@ class AzurePowerShellScript(pulumi.CustomResource):
         Object model for the Azure PowerShell script.
 
         Uses Azure REST API version 2023-08-01. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
-
-        ## Example Usage
-        ### DeploymentScriptsCreateNoUserManagedIdentity
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        azure_power_shell_script = azure_native.resources.AzurePowerShellScript("azurePowerShellScript",
-            arguments="-Location 'westus' -Name \\"*rg2\\"",
-            az_power_shell_version="1.7.0",
-            cleanup_preference=azure_native.resources.CleanupOptions.ALWAYS,
-            kind="AzurePowerShell",
-            location="westus",
-            resource_group_name="script-rg",
-            retention_interval="P7D",
-            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
-            script_name="MyDeploymentScript",
-            supporting_script_uris=[
-                "https://uri1.to.supporting.script",
-                "https://uri2.to.supporting.script",
-            ],
-            timeout="PT1H")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:resources:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

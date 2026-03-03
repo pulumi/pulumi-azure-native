@@ -11,35 +11,6 @@ import * as utilities from "../utilities";
  * An authentication setting in a health model
  *
  * Uses Azure REST API version 2025-05-03-preview.
- *
- * ## Example Usage
- * ### AuthenticationSettings_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const authenticationSetting = new azure_native.monitor.AuthenticationSetting("authenticationSetting", {
- *     authenticationSettingName: "myAuthSetting",
- *     azureMonitorWorkspaceName: "myWorkspace",
- *     healthModelName: "myHealthModel",
- *     properties: {
- *         authenticationKind: "ManagedIdentity",
- *         displayName: "myDisplayName",
- *         managedIdentityName: "SystemAssigned",
- *     },
- *     resourceGroupName: "myResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:monitor:AuthenticationSetting myAuthSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName} 
- * ```
  */
 export class AuthenticationSetting extends pulumi.CustomResource {
     /**

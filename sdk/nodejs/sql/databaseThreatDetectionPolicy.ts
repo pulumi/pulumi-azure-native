@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * Contains information about a database Threat Detection policy.
  *
  * Uses Azure REST API version 2014-04-01. In version 2.x of the Azure Native provider, it used API version 2014-04-01.
- *
- * ## Example Usage
- * ### Create database security alert policy max
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const databaseThreatDetectionPolicy = new azure_native.sql.DatabaseThreatDetectionPolicy("databaseThreatDetectionPolicy", {
- *     databaseName: "testdb",
- *     disabledAlerts: "Sql_Injection;Usage_Anomaly;",
- *     emailAccountAdmins: azure_native.sql.SecurityAlertPolicyEmailAccountAdmins.Enabled,
- *     emailAddresses: "test@microsoft.com;user@microsoft.com",
- *     resourceGroupName: "securityalert-4799",
- *     retentionDays: 6,
- *     securityAlertPolicyName: "default",
- *     serverName: "securityalert-6440",
- *     state: azure_native.sql.SecurityAlertPolicyState.Enabled,
- *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
- *     storageEndpoint: "https://mystorage.blob.core.windows.net",
- *     useServerDefault: azure_native.sql.SecurityAlertPolicyUseServerDefault.Enabled,
- * });
- *
- * ```
- * ### Create database security alert policy min
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const databaseThreatDetectionPolicy = new azure_native.sql.DatabaseThreatDetectionPolicy("databaseThreatDetectionPolicy", {
- *     databaseName: "testdb",
- *     resourceGroupName: "securityalert-4799",
- *     securityAlertPolicyName: "default",
- *     serverName: "securityalert-6440",
- *     state: azure_native.sql.SecurityAlertPolicyState.Enabled,
- *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
- *     storageEndpoint: "https://mystorage.blob.core.windows.net",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:sql:DatabaseThreatDetectionPolicy default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/securityAlertPolicies/{securityAlertPolicyName} 
- * ```
  */
 export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
     /**

@@ -190,31 +190,6 @@ class Evidence(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
 
-        ## Example Usage
-        ### Evidence_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        evidence = azure_native.appcomplianceautomation.Evidence("evidence",
-            control_id="Operational_Security_10",
-            evidence_name="evidence1",
-            evidence_type=azure_native.appcomplianceautomation.EvidenceType.FILE,
-            file_path="/test-byos/evidence1.png",
-            report_name="testReportName",
-            responsibility_id="authorized_ip_ranges_should_be_defined_on_kubernetes_services")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:Evidence evidence1 /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/evidences/{evidenceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,31 +213,6 @@ class Evidence(pulumi.CustomResource):
         A class represent an AppComplianceAutomation evidence resource.
 
         Uses Azure REST API version 2024-06-27. In version 2.x of the Azure Native provider, it used API version 2024-06-27.
-
-        ## Example Usage
-        ### Evidence_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        evidence = azure_native.appcomplianceautomation.Evidence("evidence",
-            control_id="Operational_Security_10",
-            evidence_name="evidence1",
-            evidence_type=azure_native.appcomplianceautomation.EvidenceType.FILE,
-            file_path="/test-byos/evidence1.png",
-            report_name="testReportName",
-            responsibility_id="authorized_ip_ranges_should_be_defined_on_kubernetes_services")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appcomplianceautomation:Evidence evidence1 /providers/Microsoft.AppComplianceAutomation/reports/{reportName}/evidences/{evidenceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

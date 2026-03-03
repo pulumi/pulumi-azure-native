@@ -13,42 +13,6 @@ namespace Pulumi.AzureNative.Management
     /// The serviceGroup details.
     /// 
     /// Uses Azure REST API version 2024-02-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### PutServiceGroup
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceGroup = new AzureNative.Management.ServiceGroup("serviceGroup", new()
-    ///     {
-    ///         Properties = new AzureNative.Management.Inputs.ServiceGroupPropertiesArgs
-    ///         {
-    ///             DisplayName = "ServiceGroup 1 Name",
-    ///             Parent = new AzureNative.Management.Inputs.ParentServiceGroupPropertiesArgs
-    ///             {
-    ///                 ResourceId = "/providers/Microsoft.Management/serviceGroups/RootGroup",
-    ///             },
-    ///         },
-    ///         ServiceGroupName = "ServiceGroup1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:management:ServiceGroup ServiceGroup1 /providers/Microsoft.Management/serviceGroups/{serviceGroupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management:ServiceGroup")]
     public partial class ServiceGroup : global::Pulumi.CustomResource

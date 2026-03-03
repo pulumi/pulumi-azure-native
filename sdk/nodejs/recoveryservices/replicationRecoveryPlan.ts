@@ -13,43 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
  * Other available API versions: 2023-02-01, 2023-04-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2025-01-01, 2025-02-01, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native recoveryservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Creates a recovery plan with the given details.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const replicationRecoveryPlan = new azure_native.recoveryservices.ReplicationRecoveryPlan("replicationRecoveryPlan", {
- *     properties: {
- *         failoverDeploymentModel: azure_native.recoveryservices.FailoverDeploymentModel.ResourceManager,
- *         groups: [{
- *             endGroupActions: [],
- *             groupType: azure_native.recoveryservices.RecoveryPlanGroupType.Boot,
- *             replicationProtectedItems: [{
- *                 id: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
- *                 virtualMachineId: "f8491e4f-817a-40dd-a90c-af773978c75b",
- *             }],
- *             startGroupActions: [],
- *         }],
- *         primaryFabricId: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
- *         recoveryFabricId: "Microsoft Azure",
- *     },
- *     recoveryPlanName: "RPtest1",
- *     resourceGroupName: "resourceGroupPS1",
- *     resourceName: "vault1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:recoveryservices:ReplicationRecoveryPlan RPtest1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationRecoveryPlans/{recoveryPlanName} 
- * ```
  */
 export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**

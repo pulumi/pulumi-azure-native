@@ -13,38 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
  *
  * Other available API versions: 2022-03-01, 2022-04-01-preview, 2022-12-01-preview, 2023-01-01-preview, 2023-12-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databoxedge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SACPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const storageAccountCredential = new azure_native.databoxedge.StorageAccountCredential("storageAccountCredential", {
- *     accountKey: {
- *         encryptionAlgorithm: azure_native.databoxedge.EncryptionAlgorithm.AES256,
- *         encryptionCertThumbprint: "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
- *         value: "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
- *     },
- *     accountType: azure_native.databoxedge.AccountType.BlobStorage,
- *     alias: "sac1",
- *     deviceName: "testedgedevice",
- *     name: "sac1",
- *     resourceGroupName: "GroupForEdgeAutomation",
- *     sslStatus: azure_native.databoxedge.SSLStatus.Disabled,
- *     userName: "cisbvt",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:databoxedge:StorageAccountCredential sac1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/storageAccountCredentials/{name} 
- * ```
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**

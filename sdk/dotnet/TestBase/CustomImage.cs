@@ -13,40 +13,6 @@ namespace Pulumi.AzureNative.TestBase
     /// The test base custom image resource.
     /// 
     /// Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CustomImageCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var customImage = new AzureNative.TestBase.CustomImage("customImage", new()
-    ///     {
-    ///         CustomImageName = "image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003",
-    ///         DefinitionName = "contoso-image-def",
-    ///         ResourceGroupName = "contoso-rg1",
-    ///         Source = AzureNative.TestBase.ImageSource.VHD,
-    ///         TestBaseAccountName = "contoso-testBaseAccount1",
-    ///         VersionName = "1.0.0",
-    ///         VhdId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/VHDs/vhd-00ac3ccd-1503-4ee5-aa26-26569cfafe88",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:testbase:CustomImage image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/customImages/{customImageName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomImage")]
     public partial class CustomImage : global::Pulumi.CustomResource

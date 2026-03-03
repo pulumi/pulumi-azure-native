@@ -11,36 +11,6 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create Resource Management Private Link.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var resourceManagementPrivateLink = new AzureNative.Authorization.ResourceManagementPrivateLink("resourceManagementPrivateLink", new()
-    ///     {
-    ///         Location = "eastus",
-    ///         ResourceGroupName = "my-resource-group",
-    ///         RmplName = "my-rmplName",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:authorization:ResourceManagementPrivateLink my-pla /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ResourceManagementPrivateLink")]
     public partial class ResourceManagementPrivateLink : global::Pulumi.CustomResource

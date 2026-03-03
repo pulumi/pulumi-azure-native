@@ -119,38 +119,9 @@ class ProjectConnection(pulumi.CustomResource):
         """
         Connection base resource schema.
 
-        Uses Azure REST API version 2025-04-01-preview.
+        Uses Azure REST API version 2025-06-01.
 
-        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateProjectConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        project_connection = azure_native.cognitiveservices.ProjectConnection("projectConnection",
-            account_name="account-1",
-            connection_name="connection-1",
-            project_name="project-1",
-            properties={
-                "auth_type": "None",
-                "category": azure_native.cognitiveservices.ConnectionCategory.CONTAINER_REGISTRY,
-                "expiry_time": "2024-03-15T14:30:00Z",
-                "target": "[tartget url]",
-            },
-            resource_group_name="resourceGroup-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cognitiveservices:ProjectConnection connection-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/connections/{connectionName} 
-        ```
+        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -170,38 +141,9 @@ class ProjectConnection(pulumi.CustomResource):
         """
         Connection base resource schema.
 
-        Uses Azure REST API version 2025-04-01-preview.
+        Uses Azure REST API version 2025-06-01.
 
-        Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CreateProjectConnection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        project_connection = azure_native.cognitiveservices.ProjectConnection("projectConnection",
-            account_name="account-1",
-            connection_name="connection-1",
-            project_name="project-1",
-            properties={
-                "auth_type": "None",
-                "category": azure_native.cognitiveservices.ConnectionCategory.CONTAINER_REGISTRY,
-                "expiry_time": "2024-03-15T14:30:00Z",
-                "target": "[tartget url]",
-            },
-            resource_group_name="resourceGroup-1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cognitiveservices:ProjectConnection connection-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/connections/{connectionName} 
-        ```
+        Other available API versions: 2025-04-01-preview, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.

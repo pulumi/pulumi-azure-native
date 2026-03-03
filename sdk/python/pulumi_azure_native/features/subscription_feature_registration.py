@@ -86,28 +86,6 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
 
-        ## Example Usage
-        ### Creates a feature registration
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        subscription_feature_registration = azure_native.features.SubscriptionFeatureRegistration("subscriptionFeatureRegistration",
-            feature_name="testFeature",
-            properties={},
-            provider_namespace="subscriptionFeatureRegistrationGroupTestRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:features:SubscriptionFeatureRegistration testFeature /subscriptions/{subscriptionId}/providers/Microsoft.Features/featureProviders/{providerNamespace}/subscriptionFeatureRegistrations/{featureName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,28 +102,6 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
         Subscription feature registration details
 
         Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
-
-        ## Example Usage
-        ### Creates a feature registration
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        subscription_feature_registration = azure_native.features.SubscriptionFeatureRegistration("subscriptionFeatureRegistration",
-            feature_name="testFeature",
-            properties={},
-            provider_namespace="subscriptionFeatureRegistrationGroupTestRG")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:features:SubscriptionFeatureRegistration testFeature /subscriptions/{subscriptionId}/providers/Microsoft.Features/featureProviders/{providerNamespace}/subscriptionFeatureRegistrations/{featureName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

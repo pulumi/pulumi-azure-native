@@ -13,47 +13,6 @@ namespace Pulumi.AzureNative.Monitor
     /// A relationship (aka edge) between two entities in a health model
     /// 
     /// Uses Azure REST API version 2025-05-03-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Relationships_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var relationship = new AzureNative.Monitor.Relationship("relationship", new()
-    ///     {
-    ///         AzureMonitorWorkspaceName = "myWorkspace",
-    ///         HealthModelName = "model1",
-    ///         Properties = new AzureNative.Monitor.Inputs.RelationshipPropertiesArgs
-    ///         {
-    ///             ChildEntityName = "Entity2",
-    ///             DisplayName = "My relationship",
-    ///             ParentEntityName = "Entity1",
-    ///             Tags = 
-    ///             {
-    ///                 { "key9681", "ixfvzsfnpvkkbrce" },
-    ///             },
-    ///         },
-    ///         RelationshipName = "rel1",
-    ///         ResourceGroupName = "rgopenapi",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:monitor:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:Relationship")]
     public partial class Relationship : global::Pulumi.CustomResource

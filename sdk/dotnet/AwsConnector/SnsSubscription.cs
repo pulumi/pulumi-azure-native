@@ -13,61 +13,6 @@ namespace Pulumi.AzureNative.AwsConnector
     /// A Microsoft.AwsConnector resource
     /// 
     /// Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-    /// 
-    /// ## Example Usage
-    /// ### SnsSubscriptions_CreateOrReplace
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var snsSubscription = new AzureNative.AwsConnector.SnsSubscription("snsSubscription", new()
-    ///     {
-    ///         Location = "rteaofwy",
-    ///         Name = "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-    ///         Properties = new AzureNative.AwsConnector.Inputs.SnsSubscriptionPropertiesArgs
-    ///         {
-    ///             Arn = "gnkqmddvoxalgskfwispx",
-    ///             AwsAccountId = "jehvmisbfwgnpihgfrkslaee",
-    ///             AwsProperties = new AzureNative.AwsConnector.Inputs.AwsSnsSubscriptionPropertiesArgs
-    ///             {
-    ///                 Endpoint = "ydbnfs",
-    ///                 Owner = "vhrbkplsbvszhibsvziz",
-    ///                 Protocol = "lcsebez",
-    ///                 SubscriptionArn = "bis",
-    ///                 TopicArn = "pdwndjemgtmwwnyvtjmveblsyq",
-    ///             },
-    ///             AwsRegion = "bkkaopxcwtfmxemxuilfhllcsixga",
-    ///             AwsSourceSchema = "ikrkjsw",
-    ///             AwsTags = 
-    ///             {
-    ///                 { "key588", "kxpglwugby" },
-    ///             },
-    ///             PublicCloudConnectorsResourceId = "zokwlgincdzvjml",
-    ///             PublicCloudResourceName = "si",
-    ///         },
-    ///         ResourceGroupName = "rgsnsSubscription",
-    ///         Tags = 
-    ///         {
-    ///             { "key2041", "mkbmrvjtiukeqzysrvoebyiqojttw" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:awsconnector:SnsSubscription pltgggiqpp /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/snsSubscriptions/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:awsconnector:SnsSubscription")]
     public partial class SnsSubscription : global::Pulumi.CustomResource

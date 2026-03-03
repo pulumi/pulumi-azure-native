@@ -154,32 +154,6 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
 
         Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ApiManagementCreateAuthorizationAccessPolicy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        authorization_access_policy = azure_native.apimanagement.AuthorizationAccessPolicy("authorizationAccessPolicy",
-            authorization_access_policy_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
-            authorization_id="authz1",
-            authorization_provider_id="aadwithauthcode",
-            object_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            tenant_id="13932a0d-5c63-4d37-901d-1df9c97722ff")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}/authorizations/{authorizationId}/accessPolicies/{authorizationAccessPolicyId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,32 +177,6 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
         Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ApiManagementCreateAuthorizationAccessPolicy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        authorization_access_policy = azure_native.apimanagement.AuthorizationAccessPolicy("authorizationAccessPolicy",
-            authorization_access_policy_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
-            authorization_id="authz1",
-            authorization_provider_id="aadwithauthcode",
-            object_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
-            resource_group_name="rg1",
-            service_name="apimService1",
-            tenant_id="13932a0d-5c63-4d37-901d-1df9c97722ff")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:apimanagement:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}/authorizations/{authorizationId}/accessPolicies/{authorizationAccessPolicyId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

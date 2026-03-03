@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.AVS
     /// A license resource
     /// 
     /// Uses Azure REST API version 2025-09-01.
-    /// 
-    /// ## Example Usage
-    /// ### Licenses_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var license = new AzureNative.AVS.License("license", new()
-    ///     {
-    ///         LicenseName = "VmwareFirewall",
-    ///         PrivateCloudName = "cloud1",
-    ///         ResourceGroupName = "group1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:avs:License VmwareFirewall /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/licenses/{licenseName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:License")]
     public partial class License : global::Pulumi.CustomResource

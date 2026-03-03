@@ -13,40 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-03-15.
  *
  * Other available API versions: 2023-03-15, 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview, 2024-01-15, 2024-03-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native migrate [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SqlCollectorOperations_Create_MaximumSet_Gen
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sqlCollectorOperation = new azure_native.migrate.SqlCollectorOperation("sqlCollectorOperation", {
- *     agentProperties: {
- *         id: "630da710-4d44-41f7-a189-72fe3db5502b-agent",
- *         spnDetails: {
- *             applicationId: "db9c4c3d-477c-4d5a-817b-318276713565",
- *             audience: "db9c4c3d-477c-4d5a-817b-318276713565",
- *             authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
- *             objectId: "e50236ad-ad07-47d4-af71-ed7b52d200d5",
- *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
- *         },
- *     },
- *     collectorName: "fci-test0c1esqlsitecollector",
- *     discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/bansalankit-rg/providers/Microsoft.OffAzure/MasterSites/fci-ankit-test6065mastersite/SqlSites/fci-ankit-test6065sqlsites",
- *     projectName: "fci-test6904project",
- *     resourceGroupName: "rgmigrate",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:migrate:SqlCollectorOperation fci-test0c1esqlsitecollector /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/sqlcollectors/{collectorName} 
- * ```
  */
 export class SqlCollectorOperation extends pulumi.CustomResource {
     /**

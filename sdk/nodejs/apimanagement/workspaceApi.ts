@@ -13,48 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### ApiManagementCreateWorkspaceApi
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const workspaceApi = new azure_native.apimanagement.WorkspaceApi("workspaceApi", {
- *     apiId: "tempgroup",
- *     authenticationSettings: {
- *         oAuth2: {
- *             authorizationServerId: "authorizationServerId2283",
- *             scope: "oauth2scope2580",
- *         },
- *     },
- *     description: "apidescription5200",
- *     displayName: "apiname1463",
- *     path: "newapiPath",
- *     protocols: [
- *         azure_native.apimanagement.Protocol.Https,
- *         azure_native.apimanagement.Protocol.Http,
- *     ],
- *     resourceGroupName: "rg1",
- *     serviceName: "apimService1",
- *     serviceUrl: "http://newechoapi.cloudapp.net/api",
- *     subscriptionKeyParameterNames: {
- *         header: "header4520",
- *         query: "query3037",
- *     },
- *     workspaceId: "wks1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:apimanagement:WorkspaceApi apiid9419 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId} 
- * ```
  */
 export class WorkspaceApi extends pulumi.CustomResource {
     /**

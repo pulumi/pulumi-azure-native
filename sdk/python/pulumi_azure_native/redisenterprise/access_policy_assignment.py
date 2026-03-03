@@ -138,33 +138,6 @@ class AccessPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### RedisEnterpriseAccessPolicyAssignmentCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        access_policy_assignment = azure_native.redisenterprise.AccessPolicyAssignment("accessPolicyAssignment",
-            access_policy_assignment_name="defaultTestEntraApp1",
-            access_policy_name="default",
-            cluster_name="cache1",
-            database_name="default",
-            resource_group_name="rg1",
-            user={
-                "object_id": "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redisenterprise:AccessPolicyAssignment defaultTestEntraApp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,33 +160,6 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### RedisEnterpriseAccessPolicyAssignmentCreateUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        access_policy_assignment = azure_native.redisenterprise.AccessPolicyAssignment("accessPolicyAssignment",
-            access_policy_assignment_name="defaultTestEntraApp1",
-            access_policy_name="default",
-            cluster_name="cache1",
-            database_name="default",
-            resource_group_name="rg1",
-            user={
-                "object_id": "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:redisenterprise:AccessPolicyAssignment defaultTestEntraApp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -124,60 +124,6 @@ class MacieAllowList(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### MacieAllowLists_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        macie_allow_list = azure_native.awsconnector.MacieAllowList("macieAllowList",
-            location="ljfzlbopfuubipqzi",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "iuotvbrnfqcexaumxdelcobenu",
-                "aws_account_id": "jf",
-                "aws_properties": {
-                    "arn": "xdvleyfipecptdivylwygmlsaua",
-                    "criteria": {
-                        "regex": "lixefi",
-                        "s3_words_list": {
-                            "bucket_name": "nfztmnzebbxtnmqmrmyqnuho",
-                            "object_key": "pobipzkebqlgjxfwucoq",
-                        },
-                    },
-                    "description": "wvwzsjgqyvyjbb",
-                    "id": "ssesuxsvbo",
-                    "name": "nkimocnjypmzr",
-                    "status": "OK",
-                    "tags": [{
-                        "key": "hjfhvyhpoebquxi",
-                        "value": "hipfzph",
-                    }],
-                },
-                "aws_region": "x",
-                "aws_source_schema": "vviqkggctwa",
-                "aws_tags": {
-                    "key6335": "ewozmljpzvhwyzkp",
-                },
-                "public_cloud_connectors_resource_id": "rqoahjiblmrymixvgegzwfqdq",
-                "public_cloud_resource_name": "ggubisvuvunhxrj",
-            },
-            resource_group_name="rgmacieAllowList",
-            tags={
-                "key2466": "ptogkwqufoxaylatzvn",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:MacieAllowList hvagfcfptxeifjf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/macieAllowLists/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,60 +143,6 @@ class MacieAllowList(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### MacieAllowLists_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        macie_allow_list = azure_native.awsconnector.MacieAllowList("macieAllowList",
-            location="ljfzlbopfuubipqzi",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "iuotvbrnfqcexaumxdelcobenu",
-                "aws_account_id": "jf",
-                "aws_properties": {
-                    "arn": "xdvleyfipecptdivylwygmlsaua",
-                    "criteria": {
-                        "regex": "lixefi",
-                        "s3_words_list": {
-                            "bucket_name": "nfztmnzebbxtnmqmrmyqnuho",
-                            "object_key": "pobipzkebqlgjxfwucoq",
-                        },
-                    },
-                    "description": "wvwzsjgqyvyjbb",
-                    "id": "ssesuxsvbo",
-                    "name": "nkimocnjypmzr",
-                    "status": "OK",
-                    "tags": [{
-                        "key": "hjfhvyhpoebquxi",
-                        "value": "hipfzph",
-                    }],
-                },
-                "aws_region": "x",
-                "aws_source_schema": "vviqkggctwa",
-                "aws_tags": {
-                    "key6335": "ewozmljpzvhwyzkp",
-                },
-                "public_cloud_connectors_resource_id": "rqoahjiblmrymixvgegzwfqdq",
-                "public_cloud_resource_name": "ggubisvuvunhxrj",
-            },
-            resource_group_name="rgmacieAllowList",
-            tags={
-                "key2466": "ptogkwqufoxaylatzvn",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:MacieAllowList hvagfcfptxeifjf /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/macieAllowLists/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

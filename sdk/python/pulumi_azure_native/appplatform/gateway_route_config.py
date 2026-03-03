@@ -124,45 +124,6 @@ class GatewayRouteConfig(pulumi.CustomResource):
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### GatewayRouteConfigs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gateway_route_config = azure_native.appplatform.GatewayRouteConfig("gatewayRouteConfig",
-            gateway_name="default",
-            properties={
-                "app_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myApp",
-                "open_api": {
-                    "uri": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json",
-                },
-                "protocol": azure_native.appplatform.GatewayRouteConfigProtocol.HTTPS,
-                "routes": [{
-                    "filters": [
-                        "StripPrefix=2",
-                        "RateLimit=1,1s",
-                    ],
-                    "predicates": ["Path=/api5/customer/**"],
-                    "sso_enabled": True,
-                    "title": "myApp route config",
-                }],
-            },
-            resource_group_name="myResourceGroup",
-            route_config_name="myRouteConfig",
-            service_name="myservice")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appplatform:GatewayRouteConfig myRouteConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/gateways/{gatewayName}/routeConfigs/{routeConfigName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,45 +145,6 @@ class GatewayRouteConfig(pulumi.CustomResource):
         Uses Azure REST API version 2024-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-05-01-preview.
 
         Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appplatform [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### GatewayRouteConfigs_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gateway_route_config = azure_native.appplatform.GatewayRouteConfig("gatewayRouteConfig",
-            gateway_name="default",
-            properties={
-                "app_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myApp",
-                "open_api": {
-                    "uri": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json",
-                },
-                "protocol": azure_native.appplatform.GatewayRouteConfigProtocol.HTTPS,
-                "routes": [{
-                    "filters": [
-                        "StripPrefix=2",
-                        "RateLimit=1,1s",
-                    ],
-                    "predicates": ["Path=/api5/customer/**"],
-                    "sso_enabled": True,
-                    "title": "myApp route config",
-                }],
-            },
-            resource_group_name="myResourceGroup",
-            route_config_name="myRouteConfig",
-            service_name="myservice")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:appplatform:GatewayRouteConfig myRouteConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/Spring/{serviceName}/gateways/{gatewayName}/routeConfigs/{routeConfigName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

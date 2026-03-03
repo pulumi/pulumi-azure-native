@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
  *
  * Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### NspAccessRulePut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const nspAccessRule = new azure_native.network.NspAccessRule("nspAccessRule", {
- *     accessRuleName: "accessRule1",
- *     addressPrefixes: [
- *         "10.11.0.0/16",
- *         "10.10.1.0/24",
- *     ],
- *     direction: azure_native.network.AccessRuleDirection.Inbound,
- *     networkSecurityPerimeterName: "nsp1",
- *     profileName: "profile1",
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:NspAccessRule accessRule1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName}/accessRules/{accessRuleName} 
- * ```
  */
 export class NspAccessRule extends pulumi.CustomResource {
     /**

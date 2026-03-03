@@ -12,55 +12,6 @@ import * as utilities from "../utilities";
  * properties)
  *
  * Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-08-01-preview.
- *
- * ## Example Usage
- * ### AzureLargeInstance_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const azureLargeInstance = new azure_native.azurelargeinstance.AzureLargeInstance("azureLargeInstance", {
- *     azureLargeInstanceId: "23415635-4d7e-41dc-9598-8194f22c24e1",
- *     azureLargeInstanceName: "myALInstance",
- *     hardwareProfile: {
- *         azureLargeInstanceSize: azure_native.azurelargeinstance.AzureLargeInstanceSizeNamesEnum.S72,
- *         hardwareType: azure_native.azurelargeinstance.AzureLargeInstanceHardwareTypeNamesEnum.Cisco_UCS,
- *     },
- *     hwRevision: "Rev 3",
- *     location: "westus",
- *     networkProfile: {
- *         circuitId: "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Network/expressRouteCircuit",
- *         networkInterfaces: [{
- *             ipAddress: "100.100.100.100",
- *         }],
- *     },
- *     osProfile: {
- *         computerName: "myComputerName",
- *         osType: "SUSE",
- *         sshPublicKey: "{ssh-rsa public key}",
- *         version: "12 SP1",
- *     },
- *     powerState: azure_native.azurelargeinstance.AzureLargeInstancePowerStateEnum.Started,
- *     proximityPlacementGroup: "/subscriptions/f0f4887f-d13c-4943-a8ba-d7da28d2a3fd/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myplacementgroup",
- *     resourceGroupName: "myResourceGroup",
- *     storageProfile: {
- *         nfsIpAddress: "200.200.200.200",
- *     },
- *     tags: {
- *         testkey: "testvalue",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:azurelargeinstance:AzureLargeInstance myALInstance /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeInstances/{azureLargeInstanceName} 
- * ```
  */
 export class AzureLargeInstance extends pulumi.CustomResource {
     /**

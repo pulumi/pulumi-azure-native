@@ -123,59 +123,6 @@ class Ec2Vpc(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### Ec2Vpcs_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_vpc = azure_native.awsconnector.Ec2Vpc("ec2Vpc",
-            location="bcrtgodiyozdsiqbhdvsaaog",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "isskkecektndkosbruasgvkakzf",
-                "aws_account_id": "vskthos",
-                "aws_properties": {
-                    "cidr_block": "amstuguadqkmlmofdszmxhgssf",
-                    "cidr_block_associations": ["ykwdexxzxjxowuuawym"],
-                    "default_network_acl": "lhtepidfpfsyxksnvekueeyvw",
-                    "default_security_group": "qtqgizvsvzdqxmbwwpmtcnqlfuh",
-                    "enable_dns_hostnames": True,
-                    "enable_dns_support": True,
-                    "instance_tenancy": "haqdsdkgbjmnwdgamqs",
-                    "ipv4_ipam_pool_id": "ldzbfvpzpwudqtdyb",
-                    "ipv4_netmask_length": 21,
-                    "ipv6_cidr_blocks": ["q"],
-                    "tags": [{
-                        "key": "dn",
-                        "value": "tqvkxdrwsaxvxwckrpqk",
-                    }],
-                    "vpc_id": "wqqqqmtbgzmdfmkiaoyjdkavuzzzzw",
-                },
-                "aws_region": "paraxj",
-                "aws_source_schema": "vnjplxwhapuaydjjdqiaqfvbfjam",
-                "aws_tags": {
-                    "key96": "hjcp",
-                },
-                "public_cloud_connectors_resource_id": "hpzdeuzmjfwatmynigq",
-                "public_cloud_resource_name": "qjwdilmlbbam",
-            },
-            resource_group_name="rgec2Vpc",
-            tags={
-                "key2430": "wsbwsruiakoihittdhcmmwrjmft",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2Vpc dey /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Vpcs/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,59 +142,6 @@ class Ec2Vpc(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### Ec2Vpcs_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        ec2_vpc = azure_native.awsconnector.Ec2Vpc("ec2Vpc",
-            location="bcrtgodiyozdsiqbhdvsaaog",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "isskkecektndkosbruasgvkakzf",
-                "aws_account_id": "vskthos",
-                "aws_properties": {
-                    "cidr_block": "amstuguadqkmlmofdszmxhgssf",
-                    "cidr_block_associations": ["ykwdexxzxjxowuuawym"],
-                    "default_network_acl": "lhtepidfpfsyxksnvekueeyvw",
-                    "default_security_group": "qtqgizvsvzdqxmbwwpmtcnqlfuh",
-                    "enable_dns_hostnames": True,
-                    "enable_dns_support": True,
-                    "instance_tenancy": "haqdsdkgbjmnwdgamqs",
-                    "ipv4_ipam_pool_id": "ldzbfvpzpwudqtdyb",
-                    "ipv4_netmask_length": 21,
-                    "ipv6_cidr_blocks": ["q"],
-                    "tags": [{
-                        "key": "dn",
-                        "value": "tqvkxdrwsaxvxwckrpqk",
-                    }],
-                    "vpc_id": "wqqqqmtbgzmdfmkiaoyjdkavuzzzzw",
-                },
-                "aws_region": "paraxj",
-                "aws_source_schema": "vnjplxwhapuaydjjdqiaqfvbfjam",
-                "aws_tags": {
-                    "key96": "hjcp",
-                },
-                "public_cloud_connectors_resource_id": "hpzdeuzmjfwatmynigq",
-                "public_cloud_resource_name": "qjwdilmlbbam",
-            },
-            resource_group_name="rgec2Vpc",
-            tags={
-                "key2430": "wsbwsruiakoihittdhcmmwrjmft",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:Ec2Vpc dey /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2Vpcs/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

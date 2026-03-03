@@ -122,30 +122,6 @@ class Network(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-        ## Example Usage
-        ### CreateOrUpdateNetwork
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network = azure_native.servicefabricmesh.Network("network",
-            location="EastUS",
-            network_resource_name="sampleNetwork",
-            properties={},
-            resource_group_name="sbz_demo",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:servicefabricmesh:Network sampleNetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/networks/{networkResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,30 +141,6 @@ class Network(pulumi.CustomResource):
         This type describes a network resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
-        ## Example Usage
-        ### CreateOrUpdateNetwork
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        network = azure_native.servicefabricmesh.Network("network",
-            location="EastUS",
-            network_resource_name="sampleNetwork",
-            properties={},
-            resource_group_name="sbz_demo",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:servicefabricmesh:Network sampleNetwork /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabricMesh/networks/{networkResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

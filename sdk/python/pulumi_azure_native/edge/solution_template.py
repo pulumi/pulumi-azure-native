@@ -126,37 +126,6 @@ class SolutionTemplate(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### SolutionTemplates_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        solution_template = azure_native.edge.SolutionTemplate("solutionTemplate",
-            location="zheaaqvadewftnctxzpinrgeproqs",
-            properties={
-                "capabilities": ["dfoyxbbknrhvlunhmuyyt"],
-                "description": "psrftehgzngcdlccivhjmwsmiz",
-                "enable_external_validation": True,
-                "state": azure_native.edge.ResourceState.ACTIVE,
-            },
-            resource_group_name="rgconfigurationmanager",
-            solution_template_name="testname",
-            tags={
-                "key5091": "dov",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:SolutionTemplate hhmslfrwpuvrjr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/solutionTemplates/{solutionTemplateName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,37 +147,6 @@ class SolutionTemplate(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### SolutionTemplates_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        solution_template = azure_native.edge.SolutionTemplate("solutionTemplate",
-            location="zheaaqvadewftnctxzpinrgeproqs",
-            properties={
-                "capabilities": ["dfoyxbbknrhvlunhmuyyt"],
-                "description": "psrftehgzngcdlccivhjmwsmiz",
-                "enable_external_validation": True,
-                "state": azure_native.edge.ResourceState.ACTIVE,
-            },
-            resource_group_name="rgconfigurationmanager",
-            solution_template_name="testname",
-            tags={
-                "key5091": "dov",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:SolutionTemplate hhmslfrwpuvrjr /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/solutionTemplates/{solutionTemplateName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

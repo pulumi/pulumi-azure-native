@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * The test base image definition resource.
  *
  * Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
- *
- * ## Example Usage
- * ### ImageDefinitionCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const imageDefinition = new azure_native.testbase.ImageDefinition("imageDefinition", {
- *     architecture: azure_native.testbase.ImageArchitecture.X64,
- *     imageDefinitionName: "contoso-image-def",
- *     osState: azure_native.testbase.ImageOSState.Generalized,
- *     resourceGroupName: "contoso-rg1",
- *     securityType: azure_native.testbase.ImageSecurityType.Standard,
- *     testBaseAccountName: "contoso-testBaseAccount1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:testbase:ImageDefinition contoso-image-def /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/imageDefinitions/{imageDefinitionName} 
- * ```
  */
 export class ImageDefinition extends pulumi.CustomResource {
     /**

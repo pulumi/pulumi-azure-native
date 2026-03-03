@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * A secret.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
- *
- * ## Example Usage
- * ### Secrets_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const secret = new azure_native.devtestlab.Secret("secret", {
- *     labName: "{labName}",
- *     name: "{secretName}",
- *     resourceGroupName: "resourceGroupName",
- *     userName: "{userName}",
- *     value: "{secret}",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devtestlab:Secret {secretName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/secrets/{name} 
- * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

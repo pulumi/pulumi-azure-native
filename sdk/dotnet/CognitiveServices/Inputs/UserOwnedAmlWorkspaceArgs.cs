@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
 {
 
     /// <summary>
-    /// The user owned AML workspace for Cognitive Services account.
+    /// The user owned AML account for Cognitive Services account.
     /// </summary>
     public sealed class UserOwnedAmlWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identity Client id of a AML workspace resource.
+        /// Identity Client id of a AML account resource.
         /// </summary>
         [Input("identityClientId")]
         public Input<string>? IdentityClientId { get; set; }
 
         /// <summary>
-        /// Full resource id of a AML workspace resource.
+        /// Full resource id of a AML account resource.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

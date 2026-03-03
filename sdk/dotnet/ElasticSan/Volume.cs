@@ -15,69 +15,6 @@ namespace Pulumi.AzureNative.ElasticSan
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2021-11-20-preview.
     /// 
     /// Other available API versions: 2021-11-20-preview, 2022-12-01-preview, 2023-01-01, 2024-06-01-preview, 2024-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native elasticsan [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Volumes_Create_MaximumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var volume = new AzureNative.ElasticSan.Volume("volume", new()
-    ///     {
-    ///         CreationData = new AzureNative.ElasticSan.Inputs.SourceCreationDataArgs
-    ///         {
-    ///             CreateSource = AzureNative.ElasticSan.VolumeCreateOption.None,
-    ///             SourceId = "ARM Id of Resource",
-    ///         },
-    ///         ElasticSanName = "elasticsanname",
-    ///         ManagedBy = new AzureNative.ElasticSan.Inputs.ManagedByInfoArgs
-    ///         {
-    ///             ResourceId = "mtkeip",
-    ///         },
-    ///         ResourceGroupName = "resourcegroupname",
-    ///         SizeGiB = 9,
-    ///         VolumeGroupName = "volumegroupname",
-    ///         VolumeName = "volumename",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// ### Volumes_Create_MinimumSet_Gen
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var volume = new AzureNative.ElasticSan.Volume("volume", new()
-    ///     {
-    ///         ElasticSanName = "elasticsanname",
-    ///         ResourceGroupName = "resourcegroupname",
-    ///         SizeGiB = 9,
-    ///         VolumeGroupName = "volumegroupname",
-    ///         VolumeName = "volumename",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:elasticsan:Volume o /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

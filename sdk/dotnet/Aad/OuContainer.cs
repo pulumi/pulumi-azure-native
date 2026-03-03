@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.Aad
     /// Uses Azure REST API version 2022-12-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
     /// Other available API versions: 2025-05-01, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native aad [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Domain Service
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ouContainer = new AzureNative.Aad.OuContainer("ouContainer", new()
-    ///     {
-    ///         AccountName = "AccountName1",
-    ///         DomainServiceName = "OuContainer.com",
-    ///         OuContainerName = "OuContainer1",
-    ///         Password = "&lt;password&gt;",
-    ///         ResourceGroupName = "OuContainerResourceGroup",
-    ///         Spn = "Spn1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:aad:OuContainer OuContainer.com/OuContainer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Aad/domainServices/{domainServiceName}/ouContainer/{ouContainerName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aad:OuContainer")]
     public partial class OuContainer : global::Pulumi.CustomResource

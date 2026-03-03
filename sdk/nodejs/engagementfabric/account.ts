@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * The EngagementFabric account
  *
  * Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
- *
- * ## Example Usage
- * ### AccountsCreateOrUpdateExample
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const account = new azure_native.engagementfabric.Account("account", {
- *     accountName: "ExampleAccount",
- *     location: "WestUS",
- *     resourceGroupName: "ExampleRg",
- *     sku: {
- *         name: "B1",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:engagementfabric:Account ExampleAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EngagementFabric/Accounts/{accountName} 
- * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

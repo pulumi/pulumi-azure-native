@@ -124,30 +124,6 @@ class ThroughputPool(pulumi.CustomResource):
 
         Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### CosmosDB ThroughputPool Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        throughput_pool = azure_native.cosmosdb.ThroughputPool("throughputPool",
-            location="westus2",
-            max_throughput=10000,
-            resource_group_name="rg1",
-            tags={},
-            throughput_pool_name="tp1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:ThroughputPool tp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,30 +145,6 @@ class ThroughputPool(pulumi.CustomResource):
         Uses Azure REST API version 2024-12-01-preview.
 
         Other available API versions: 2023-11-15-preview, 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2025-05-01-preview, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### CosmosDB ThroughputPool Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        throughput_pool = azure_native.cosmosdb.ThroughputPool("throughputPool",
-            location="westus2",
-            max_throughput=10000,
-            resource_group_name="rg1",
-            tags={},
-            throughput_pool_name="tp1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cosmosdb:ThroughputPool tp1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/throughputPools/{throughputPoolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

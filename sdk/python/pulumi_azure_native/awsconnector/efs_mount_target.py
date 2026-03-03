@@ -123,49 +123,6 @@ class EfsMountTarget(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### EfsMountTargets_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        efs_mount_target = azure_native.awsconnector.EfsMountTarget("efsMountTarget",
-            location="xaybj",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "dtpqhenvexdxqcqscosxk",
-                "aws_account_id": "iwvssztfldgfir",
-                "aws_properties": {
-                    "file_system_id": "yyzhtbwsscfcaxuvdvmswchhxapky",
-                    "id": "micgyhibjdexozpicbfsmpclu",
-                    "ip_address": "unspxdyqhrhlkstzmdrd",
-                    "security_groups": ["zxkzjhcwszqzfeogafiaub"],
-                    "subnet_id": "xbeontn",
-                },
-                "aws_region": "lyvbqubwsgdvarrauygfhw",
-                "aws_source_schema": "gpkfqbbpywdedvyabzy",
-                "aws_tags": {
-                    "key5226": "lkjysnbiwwydewimdnpt",
-                },
-                "public_cloud_connectors_resource_id": "rwszhgqustirkxkbk",
-                "public_cloud_resource_name": "bezmotdonashggkeobrc",
-            },
-            resource_group_name="rgefsMountTarget",
-            tags={
-                "key3687": "zubuxs",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:EfsMountTarget vnjlwafk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/efsMountTargets/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,49 +142,6 @@ class EfsMountTarget(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### EfsMountTargets_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        efs_mount_target = azure_native.awsconnector.EfsMountTarget("efsMountTarget",
-            location="xaybj",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "dtpqhenvexdxqcqscosxk",
-                "aws_account_id": "iwvssztfldgfir",
-                "aws_properties": {
-                    "file_system_id": "yyzhtbwsscfcaxuvdvmswchhxapky",
-                    "id": "micgyhibjdexozpicbfsmpclu",
-                    "ip_address": "unspxdyqhrhlkstzmdrd",
-                    "security_groups": ["zxkzjhcwszqzfeogafiaub"],
-                    "subnet_id": "xbeontn",
-                },
-                "aws_region": "lyvbqubwsgdvarrauygfhw",
-                "aws_source_schema": "gpkfqbbpywdedvyabzy",
-                "aws_tags": {
-                    "key5226": "lkjysnbiwwydewimdnpt",
-                },
-                "public_cloud_connectors_resource_id": "rwszhgqustirkxkbk",
-                "public_cloud_resource_name": "bezmotdonashggkeobrc",
-            },
-            resource_group_name="rgefsMountTarget",
-            tags={
-                "key3687": "zubuxs",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:EfsMountTarget vnjlwafk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/efsMountTargets/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

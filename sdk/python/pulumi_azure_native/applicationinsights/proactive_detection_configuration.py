@@ -192,46 +192,6 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
 
         Other available API versions: 2015-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ProactiveDetectionConfigurationUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        proactive_detection_configuration = azure_native.applicationinsights.ProactiveDetectionConfiguration("proactiveDetectionConfiguration",
-            configuration_id="slowpageloadtime",
-            custom_emails=[
-                "foo@microsoft.com",
-                "foo2@microsoft.com",
-            ],
-            enabled=True,
-            location="South Central US",
-            name="slowpageloadtime",
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            rule_definitions={
-                "description": "Smart Detection rules notify you of performance anomaly issues.",
-                "display_name": "Slow page load time",
-                "help_url": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                "is_enabled_by_default": True,
-                "is_hidden": False,
-                "is_in_preview": False,
-                "name": "slowpageloadtime",
-                "supports_email_notifications": True,
-            },
-            send_emails_to_subscription_owners=True)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:ProactiveDetectionConfiguration slowpageloadtime /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,46 +217,6 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
         Uses Azure REST API version 2018-05-01-preview.
 
         Other available API versions: 2015-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native applicationinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ProactiveDetectionConfigurationUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        proactive_detection_configuration = azure_native.applicationinsights.ProactiveDetectionConfiguration("proactiveDetectionConfiguration",
-            configuration_id="slowpageloadtime",
-            custom_emails=[
-                "foo@microsoft.com",
-                "foo2@microsoft.com",
-            ],
-            enabled=True,
-            location="South Central US",
-            name="slowpageloadtime",
-            resource_group_name="my-resource-group",
-            resource_name_="my-component",
-            rule_definitions={
-                "description": "Smart Detection rules notify you of performance anomaly issues.",
-                "display_name": "Slow page load time",
-                "help_url": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                "is_enabled_by_default": True,
-                "is_hidden": False,
-                "is_in_preview": False,
-                "name": "slowpageloadtime",
-                "supports_email_notifications": True,
-            },
-            send_emails_to_subscription_owners=True)
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:applicationinsights:ProactiveDetectionConfiguration slowpageloadtime /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

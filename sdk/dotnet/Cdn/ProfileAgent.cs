@@ -13,47 +13,6 @@ namespace Pulumi.AzureNative.Cdn
     /// An agent link (web agent association) within a CDN profile.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ProfileAgents_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var profileAgent = new AzureNative.Cdn.ProfileAgent("profileAgent", new()
-    ///     {
-    ///         AgentName = "agent1",
-    ///         CustomDomains = new[]
-    ///         {
-    ///             new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///             {
-    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/mydomain.com",
-    ///             },
-    ///         },
-    ///         ProfileName = "profile1",
-    ///         ResourceGroupName = "RG",
-    ///         WebAgent = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
-    ///         {
-    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/RG/providers/Microsoft.Cdn/webAgents/webagent1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cdn:ProfileAgent agent1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:ProfileAgent")]
     public partial class ProfileAgent : global::Pulumi.CustomResource

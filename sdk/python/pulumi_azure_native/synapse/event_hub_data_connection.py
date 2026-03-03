@@ -289,34 +289,6 @@ class EventHubDataConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
-        ## Example Usage
-        ### KustoPoolDataConnectionsCreateOrUpdate.json
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        event_hub_data_connection = azure_native.synapse.EventHubDataConnection("eventHubDataConnection",
-            consumer_group="testConsumerGroup1",
-            data_connection_name="DataConnections8",
-            database_name="KustoDatabase8",
-            event_hub_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
-            kind="EventHub",
-            kusto_pool_name="kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:EventHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,34 +319,6 @@ class EventHubDataConnection(pulumi.CustomResource):
         Class representing an event hub data connection.
 
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
-
-        ## Example Usage
-        ### KustoPoolDataConnectionsCreateOrUpdate.json
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        event_hub_data_connection = azure_native.synapse.EventHubDataConnection("eventHubDataConnection",
-            consumer_group="testConsumerGroup1",
-            data_connection_name="DataConnections8",
-            database_name="KustoDatabase8",
-            event_hub_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
-            kind="EventHub",
-            kusto_pool_name="kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            workspace_name="synapseWorkspaceName")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:EventHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName}/databases/{databaseName}/dataConnections/{dataConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -141,31 +141,6 @@ class MigrateProject(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
 
-        ## Example Usage
-        ### MigrateProjects_Put
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migrate_project = azure_native.migrate.MigrateProject("migrateProject",
-            e_tag="\\"b701c73a-0000-0000-0000-59c12ff00000\\"",
-            location="Southeast Asia",
-            migrate_project_name="project01",
-            properties={},
-            resource_group_name="myResourceGroup",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:MigrateProject project01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,31 +161,6 @@ class MigrateProject(pulumi.CustomResource):
         Migrate Project REST Resource.
 
         Uses Azure REST API version 2018-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-09-01-preview.
-
-        ## Example Usage
-        ### MigrateProjects_Put
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        migrate_project = azure_native.migrate.MigrateProject("migrateProject",
-            e_tag="\\"b701c73a-0000-0000-0000-59c12ff00000\\"",
-            location="Southeast Asia",
-            migrate_project_name="project01",
-            properties={},
-            resource_group_name="myResourceGroup",
-            tags={})
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:migrate:MigrateProject project01 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{migrateProjectName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

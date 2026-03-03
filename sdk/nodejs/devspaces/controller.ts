@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Uses Azure REST API version 2019-04-01. In version 2.x of the Azure Native provider, it used API version 2019-04-01.
- *
- * ## Example Usage
- * ### ControllersCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const controller = new azure_native.devspaces.Controller("controller", {
- *     location: "eastus",
- *     name: "myControllerResource",
- *     resourceGroupName: "myResourceGroup",
- *     sku: {
- *         name: azure_native.devspaces.SkuName.S1,
- *         tier: azure_native.devspaces.SkuTier.Standard,
- *     },
- *     tags: {},
- *     targetContainerHostCredentialsBase64: "QmFzZTY0IEVuY29kZWQgVmFsdWUK",
- *     targetContainerHostResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devspaces:Controller myControllerResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevSpaces/controllers/{name} 
- * ```
  */
 export class Controller extends pulumi.CustomResource {
     /**

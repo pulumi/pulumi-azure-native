@@ -11,50 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### RdsDbSnapshotAttributesResults_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const rdsDbSnapshotAttributesResult = new azure_native.awsconnector.RdsDbSnapshotAttributesResult("rdsDbSnapshotAttributesResult", {
- *     location: "luzcqukssqazokzghltlzp",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "wctkioaluqun",
- *         awsAccountId: "za",
- *         awsProperties: {
- *             dbSnapshotAttributes: [{
- *                 attributeName: "yszcujemf",
- *                 attributeValues: ["cffn"],
- *             }],
- *             dbSnapshotIdentifier: "hgeztauvapideyaajrbafqyup",
- *         },
- *         awsRegion: "ndsijffpilnosnrldocuqrlxitjpv",
- *         awsSourceSchema: "w",
- *         awsTags: {
- *             key3566: "heyaatumbeog",
- *         },
- *         publicCloudConnectorsResourceId: "bmzbcvocakxlkqxmewfdruhn",
- *         publicCloudResourceName: "kuhhovfpzvgapi",
- *     },
- *     resourceGroupName: "rgrdsDBSnapshotAttributesResult",
- *     tags: {
- *         key3873: "mmtaqjm",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:RdsDbSnapshotAttributesResult hlddyy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsDBSnapshotAttributesResults/{name} 
- * ```
  */
 export class RdsDbSnapshotAttributesResult extends pulumi.CustomResource {
     /**

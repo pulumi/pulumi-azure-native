@@ -13,49 +13,6 @@ namespace Pulumi.AzureNative.ManagedOps
     /// The Managed Operations resource.
     /// 
     /// Uses Azure REST API version 2025-07-28-preview.
-    /// 
-    /// ## Example Usage
-    /// ### ManagedOps_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var managedOp = new AzureNative.ManagedOps.ManagedOp("managedOp", new()
-    ///     {
-    ///         ManagedOpsName = "default",
-    ///         Properties = new AzureNative.ManagedOps.Inputs.ManagedOpsPropertiesArgs
-    ///         {
-    ///             DesiredConfiguration = new AzureNative.ManagedOps.Inputs.DesiredConfigurationArgs
-    ///             {
-    ///                 AzureMonitorInsights = new AzureNative.ManagedOps.Inputs.AzureMonitorConfigurationArgs
-    ///                 {
-    ///                     AzureMonitorWorkspaceId = "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/example",
-    ///                 },
-    ///                 ChangeTrackingAndInventory = new AzureNative.ManagedOps.Inputs.ChangeTrackingConfigurationArgs
-    ///                 {
-    ///                     LogAnalyticsWorkspaceId = "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/00000000-0000-0000-0000-000000000000-Default",
-    ///                 },
-    ///                 UserAssignedManagedIdentityId = "/subscriptions/11809CA1-E126-4017-945E-AA795CD5C5A9/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myManagedIdentity",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:managedops:ManagedOp default /subscriptions/{subscriptionId}/providers/Microsoft.ManagedOps/managedOps/{managedOpsName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managedops:ManagedOp")]
     public partial class ManagedOp : global::Pulumi.CustomResource

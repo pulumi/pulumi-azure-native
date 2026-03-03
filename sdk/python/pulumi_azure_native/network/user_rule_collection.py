@@ -139,33 +139,6 @@ class UserRuleCollection(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or Update a User Rule Collection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        user_rule_collection = azure_native.network.UserRuleCollection("userRuleCollection",
-            applies_to_groups=[{
-                "network_group_id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
-            }],
-            configuration_name="myTestSecurityConfig",
-            description="A sample policy",
-            network_manager_name="testNetworkManager",
-            resource_group_name="rg1",
-            rule_collection_name="testRuleCollection")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:UserRuleCollection myTestSecurityConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,33 +161,6 @@ class UserRuleCollection(pulumi.CustomResource):
         Uses Azure REST API version 2022-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
 
         Other available API versions: 2021-02-01-preview, 2022-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or Update a User Rule Collection
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        user_rule_collection = azure_native.network.UserRuleCollection("userRuleCollection",
-            applies_to_groups=[{
-                "network_group_id": "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
-            }],
-            configuration_name="myTestSecurityConfig",
-            description="A sample policy",
-            network_manager_name="testNetworkManager",
-            resource_group_name="rg1",
-            rule_collection_name="testRuleCollection")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:UserRuleCollection myTestSecurityConfig /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

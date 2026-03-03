@@ -257,39 +257,6 @@ class ArtifactSource(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
 
-        ## Example Usage
-        ### ArtifactSources_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        artifact_source = azure_native.devtestlab.ArtifactSource("artifactSource",
-            arm_template_folder_path="{armTemplateFolderPath}",
-            branch_ref="{branchRef}",
-            display_name="{displayName}",
-            folder_path="{folderPath}",
-            lab_name="{labName}",
-            name="{artifactSourceName}",
-            resource_group_name="resourceGroupName",
-            security_token="{securityToken}",
-            source_type="{VsoGit|GitHub|StorageAccount}",
-            status="{Enabled|Disabled}",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            uri="{artifactSourceUri}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:ArtifactSource {artifactSourceName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,39 +284,6 @@ class ArtifactSource(pulumi.CustomResource):
         Properties of an artifact source.
 
         Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
-
-        ## Example Usage
-        ### ArtifactSources_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        artifact_source = azure_native.devtestlab.ArtifactSource("artifactSource",
-            arm_template_folder_path="{armTemplateFolderPath}",
-            branch_ref="{branchRef}",
-            display_name="{displayName}",
-            folder_path="{folderPath}",
-            lab_name="{labName}",
-            name="{artifactSourceName}",
-            resource_group_name="resourceGroupName",
-            security_token="{securityToken}",
-            source_type="{VsoGit|GitHub|StorageAccount}",
-            status="{Enabled|Disabled}",
-            tags={
-                "tagName1": "tagValue1",
-            },
-            uri="{artifactSourceUri}")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devtestlab:ArtifactSource {artifactSourceName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

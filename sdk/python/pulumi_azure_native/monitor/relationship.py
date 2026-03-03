@@ -121,37 +121,6 @@ class Relationship(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-03-preview.
 
-        ## Example Usage
-        ### Relationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        relationship = azure_native.monitor.Relationship("relationship",
-            azure_monitor_workspace_name="myWorkspace",
-            health_model_name="model1",
-            properties={
-                "child_entity_name": "Entity2",
-                "display_name": "My relationship",
-                "parent_entity_name": "Entity1",
-                "tags": {
-                    "key9681": "ixfvzsfnpvkkbrce",
-                },
-            },
-            relationship_name="rel1",
-            resource_group_name="rgopenapi")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,37 +140,6 @@ class Relationship(pulumi.CustomResource):
         A relationship (aka edge) between two entities in a health model
 
         Uses Azure REST API version 2025-05-03-preview.
-
-        ## Example Usage
-        ### Relationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        relationship = azure_native.monitor.Relationship("relationship",
-            azure_monitor_workspace_name="myWorkspace",
-            health_model_name="model1",
-            properties={
-                "child_entity_name": "Entity2",
-                "display_name": "My relationship",
-                "parent_entity_name": "Entity1",
-                "tags": {
-                    "key9681": "ixfvzsfnpvkkbrce",
-                },
-            },
-            relationship_name="rel1",
-            resource_group_name="rgopenapi")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

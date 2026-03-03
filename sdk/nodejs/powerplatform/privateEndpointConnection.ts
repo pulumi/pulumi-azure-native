@@ -11,33 +11,6 @@ import * as utilities from "../utilities";
  * A private endpoint connection
  *
  * Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
- *
- * ## Example Usage
- * ### Approve or reject a private endpoint connection with a given name.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.powerplatform.PrivateEndpointConnection("privateEndpointConnection", {
- *     enterprisePolicyName: "ddb1",
- *     privateEndpointConnectionName: "privateEndpointConnectionName",
- *     privateLinkServiceConnectionState: {
- *         description: "Approved by johndoe@contoso.com",
- *         status: azure_native.powerplatform.PrivateEndpointServiceConnectionStatus.Approved,
- *     },
- *     resourceGroupName: "rg1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:powerplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

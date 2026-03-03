@@ -145,31 +145,6 @@ class NamespaceTopic(pulumi.CustomResource):
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### NamespaceTopics_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        namespace_topic = azure_native.eventgrid.NamespaceTopic("namespaceTopic",
-            event_retention_in_days=1,
-            input_schema=azure_native.eventgrid.EventInputSchema.CLOUD_EVENT_SCHEMA_V1_0,
-            namespace_name="examplenamespace2",
-            publisher_type=azure_native.eventgrid.PublisherType.CUSTOM,
-            resource_group_name="examplerg",
-            topic_name="examplenamespacetopic2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:NamespaceTopic examplenamespacetopic2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/namespaces/{namespaceName}/topics/{topicName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,31 +168,6 @@ class NamespaceTopic(pulumi.CustomResource):
         Uses Azure REST API version 2025-02-15. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
         Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-04-01-preview, 2025-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventgrid [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### NamespaceTopics_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        namespace_topic = azure_native.eventgrid.NamespaceTopic("namespaceTopic",
-            event_retention_in_days=1,
-            input_schema=azure_native.eventgrid.EventInputSchema.CLOUD_EVENT_SCHEMA_V1_0,
-            namespace_name="examplenamespace2",
-            publisher_type=azure_native.eventgrid.PublisherType.CUSTOM,
-            resource_group_name="examplerg",
-            topic_name="examplenamespacetopic2")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:eventgrid:NamespaceTopic examplenamespacetopic2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/namespaces/{namespaceName}/topics/{topicName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -71,27 +71,6 @@ class GuestSubscription(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-15.
 
-        ## Example Usage
-        ### Create a guest subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_subscription = azure_native.computelimit.GuestSubscription("guestSubscription",
-            guest_subscription_id="11111111-1111-1111-1111-111111111111",
-            location="eastus")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:computelimit:GuestSubscription 11111111-1111-1111-1111-111111111111 /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/guestSubscriptions/{guestSubscriptionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,27 +87,6 @@ class GuestSubscription(pulumi.CustomResource):
         Guest subscription that consumes shared compute limits.
 
         Uses Azure REST API version 2025-08-15.
-
-        ## Example Usage
-        ### Create a guest subscription
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        guest_subscription = azure_native.computelimit.GuestSubscription("guestSubscription",
-            guest_subscription_id="11111111-1111-1111-1111-111111111111",
-            location="eastus")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:computelimit:GuestSubscription 11111111-1111-1111-1111-111111111111 /subscriptions/{subscriptionId}/providers/Microsoft.ComputeLimit/locations/{location}/guestSubscriptions/{guestSubscriptionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

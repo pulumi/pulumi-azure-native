@@ -13,43 +13,6 @@ namespace Pulumi.AzureNative.BillingBenefits
     /// The Free Services API includes operations for creating and managing free services.
     /// 
     /// Uses Azure REST API version 2025-12-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### FreeServicesCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var freeService = new AzureNative.BillingBenefits.FreeService("freeService", new()
-    ///     {
-    ///         EndAt = "2026-10-01T00:00:00Z",
-    ///         FreeServiceName = "freeservice_20251001",
-    ///         Location = "global",
-    ///         ProductCode = "0001d726-0000-0160-330f-a0b98cdbbdc4",
-    ///         ResourceGroupName = "resource_group_name_01",
-    ///         StartAt = "2025-10-01T00:00:00Z",
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:billingbenefits:FreeService freeservice_20251001 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/freeServices/{freeServiceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billingbenefits:FreeService")]
     public partial class FreeService : global::Pulumi.CustomResource

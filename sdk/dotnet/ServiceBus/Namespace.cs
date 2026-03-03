@@ -15,48 +15,6 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-01-01-preview.
     /// 
     /// Other available API versions: 2018-01-01-preview, 2021-01-01-preview, 2021-06-01-preview, 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native servicebus [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### NameSpaceCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @namespace = new AzureNative.ServiceBus.Namespace("namespace", new()
-    ///     {
-    ///         Location = "South Central US",
-    ///         NamespaceName = "sdk-Namespace2924",
-    ///         PremiumMessagingPartitions = 2,
-    ///         ResourceGroupName = "ArunMonocle",
-    ///         Sku = new AzureNative.ServiceBus.Inputs.SBSkuArgs
-    ///         {
-    ///             Capacity = 4,
-    ///             Name = AzureNative.ServiceBus.SkuName.Premium,
-    ///             Tier = AzureNative.ServiceBus.SkuTier.Premium,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:servicebus:Namespace sdk-Namespace-2924 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

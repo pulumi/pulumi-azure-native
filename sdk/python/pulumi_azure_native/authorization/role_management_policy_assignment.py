@@ -107,29 +107,6 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
 
         Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PutRoleManagementPolicyAssignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_management_policy_assignment = azure_native.authorization.RoleManagementPolicyAssignment("roleManagementPolicyAssignment",
-            policy_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9",
-            role_definition_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
-            role_management_policy_assignment_name="b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
-            scope="providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:RoleManagementPolicyAssignment b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,29 +127,6 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-01.
 
         Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PutRoleManagementPolicyAssignment
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        role_management_policy_assignment = azure_native.authorization.RoleManagementPolicyAssignment("roleManagementPolicyAssignment",
-            policy_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9",
-            role_definition_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
-            role_management_policy_assignment_name="b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
-            scope="providers/Microsoft.Subscription/subscriptions/129ff972-28f8-46b8-a726-e497be039368")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:RoleManagementPolicyAssignment b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 /{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

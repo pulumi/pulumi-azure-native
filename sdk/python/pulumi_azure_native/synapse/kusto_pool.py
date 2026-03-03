@@ -213,37 +213,6 @@ class KustoPool(pulumi.CustomResource):
 
         Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### kustoPoolsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kusto_pool = azure_native.synapse.KustoPool("kustoPool",
-            enable_purge=True,
-            enable_streaming_ingest=True,
-            kusto_pool_name="kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            sku={
-                "capacity": 2,
-                "name": azure_native.synapse.SkuName.STORAGE_OPTIMIZED,
-                "size": azure_native.synapse.SkuSize.MEDIUM,
-            },
-            workspace_name="synapseWorkspaceName",
-            workspace_uid="11111111-2222-3333-444444444444")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:KustoPool KustoClusterRPTest4 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,37 +239,6 @@ class KustoPool(pulumi.CustomResource):
         Uses Azure REST API version 2021-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01-preview.
 
         Other available API versions: 2021-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native synapse [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### kustoPoolsCreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        kusto_pool = azure_native.synapse.KustoPool("kustoPool",
-            enable_purge=True,
-            enable_streaming_ingest=True,
-            kusto_pool_name="kustoclusterrptest4",
-            location="westus",
-            resource_group_name="kustorptest",
-            sku={
-                "capacity": 2,
-                "name": azure_native.synapse.SkuName.STORAGE_OPTIMIZED,
-                "size": azure_native.synapse.SkuSize.MEDIUM,
-            },
-            workspace_name="synapseWorkspaceName",
-            workspace_uid="11111111-2222-3333-444444444444")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:synapse:KustoPool KustoClusterRPTest4 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/kustoPools/{kustoPoolName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

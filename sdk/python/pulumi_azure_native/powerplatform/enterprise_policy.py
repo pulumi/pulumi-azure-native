@@ -208,35 +208,6 @@ class EnterprisePolicy(pulumi.CustomResource):
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
 
-        ## Example Usage
-        ### Create or update EnterprisePolicy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        enterprise_policy = azure_native.powerplatform.EnterprisePolicy("enterprisePolicy",
-            enterprise_policy_name="enterprisePolicy",
-            identity={
-                "type": azure_native.powerplatform.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            kind=azure_native.powerplatform.EnterprisePolicyKind.LOCKBOX,
-            location="East US",
-            resource_group_name="resourceGroup",
-            tags={
-                "Organization": "Administration",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerplatform:EnterprisePolicy enterprisePolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,35 +232,6 @@ class EnterprisePolicy(pulumi.CustomResource):
         Definition of the EnterprisePolicy.
 
         Uses Azure REST API version 2020-10-30-preview. In version 2.x of the Azure Native provider, it used API version 2020-10-30-preview.
-
-        ## Example Usage
-        ### Create or update EnterprisePolicy
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        enterprise_policy = azure_native.powerplatform.EnterprisePolicy("enterprisePolicy",
-            enterprise_policy_name="enterprisePolicy",
-            identity={
-                "type": azure_native.powerplatform.ResourceIdentityType.SYSTEM_ASSIGNED,
-            },
-            kind=azure_native.powerplatform.EnterprisePolicyKind.LOCKBOX,
-            location="East US",
-            resource_group_name="resourceGroup",
-            tags={
-                "Organization": "Administration",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:powerplatform:EnterprisePolicy enterprisePolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerPlatform/enterprisePolicies/{enterprisePolicyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

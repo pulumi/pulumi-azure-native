@@ -124,58 +124,6 @@ class SageMakerApp(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### SageMakerApps_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sage_maker_app = azure_native.awsconnector.SageMakerApp("sageMakerApp",
-            location="wnlhgbkbelgwiwhnismoau",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "jlzaozimvtjn",
-                "aws_account_id": "lgqcehdauhqdqezactw",
-                "aws_properties": {
-                    "app_arn": "gher",
-                    "app_name": "evzkcyynebo",
-                    "app_type": azure_native.awsconnector.AppType.CANVAS,
-                    "domain_id": "dkqxukvimzaw",
-                    "resource_spec": {
-                        "instance_type": azure_native.awsconnector.ResourceSpecInstanceType.ML_C512XLARGE,
-                        "sage_maker_image_arn": "pgukixbhpruaz",
-                        "sage_maker_image_version_arn": "juqpu",
-                    },
-                    "tags": [{
-                        "key": "bwiejavqzxocieoyuhmayxvf",
-                        "value": "oiirwwaoqv",
-                    }],
-                    "user_profile_name": "hqjtakkgaetxvrmswgdzfbnna",
-                },
-                "aws_region": "tnogtlqasqlenkt",
-                "aws_source_schema": "xshoewjusdxuy",
-                "aws_tags": {
-                    "key2126": "vfltdeknkbeu",
-                },
-                "public_cloud_connectors_resource_id": "vaphifjjavrvy",
-                "public_cloud_resource_name": "ptlnykuziapscweekj",
-            },
-            resource_group_name="rgsageMakerApp",
-            tags={
-                "key3532": "z",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:SageMakerApp bqmsonklppqgjvicxnpire /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerApps/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,58 +143,6 @@ class SageMakerApp(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### SageMakerApps_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        sage_maker_app = azure_native.awsconnector.SageMakerApp("sageMakerApp",
-            location="wnlhgbkbelgwiwhnismoau",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "jlzaozimvtjn",
-                "aws_account_id": "lgqcehdauhqdqezactw",
-                "aws_properties": {
-                    "app_arn": "gher",
-                    "app_name": "evzkcyynebo",
-                    "app_type": azure_native.awsconnector.AppType.CANVAS,
-                    "domain_id": "dkqxukvimzaw",
-                    "resource_spec": {
-                        "instance_type": azure_native.awsconnector.ResourceSpecInstanceType.ML_C512XLARGE,
-                        "sage_maker_image_arn": "pgukixbhpruaz",
-                        "sage_maker_image_version_arn": "juqpu",
-                    },
-                    "tags": [{
-                        "key": "bwiejavqzxocieoyuhmayxvf",
-                        "value": "oiirwwaoqv",
-                    }],
-                    "user_profile_name": "hqjtakkgaetxvrmswgdzfbnna",
-                },
-                "aws_region": "tnogtlqasqlenkt",
-                "aws_source_schema": "xshoewjusdxuy",
-                "aws_tags": {
-                    "key2126": "vfltdeknkbeu",
-                },
-                "public_cloud_connectors_resource_id": "vaphifjjavrvy",
-                "public_cloud_resource_name": "ptlnykuziapscweekj",
-            },
-            resource_group_name="rgsageMakerApp",
-            tags={
-                "key3532": "z",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:SageMakerApp bqmsonklppqgjvicxnpire /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/sageMakerApps/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -11,40 +11,6 @@ import * as utilities from "../utilities";
  * A Policy.
  *
  * Uses Azure REST API version 2018-09-15. In version 2.x of the Azure Native provider, it used API version 2018-09-15.
- *
- * ## Example Usage
- * ### Policies_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const policy = new azure_native.devtestlab.Policy("policy", {
- *     description: "{policyDescription}",
- *     evaluatorType: "{policyEvaluatorType}",
- *     factData: "{policyFactData}",
- *     factName: "{policyFactName}",
- *     labName: "{labName}",
- *     location: "{location}",
- *     name: "{policyName}",
- *     policySetName: "{policySetName}",
- *     resourceGroupName: "resourceGroupName",
- *     status: "{policyStatus}",
- *     tags: {
- *         tagName1: "tagValue1",
- *     },
- *     threshold: "{policyThreshold}",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:devtestlab:Policy {labName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{policySetName}/policies/{name} 
- * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

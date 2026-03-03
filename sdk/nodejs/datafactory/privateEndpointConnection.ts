@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * Private Endpoint Connection ARM resource.
  *
  * Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
- *
- * ## Example Usage
- * ### Approves or rejects a private endpoint connection for a factory.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const privateEndpointConnection = new azure_native.datafactory.PrivateEndpointConnection("privateEndpointConnection", {
- *     factoryName: "exampleFactoryName",
- *     privateEndpointConnectionName: "connection",
- *     properties: {
- *         privateEndpoint: {
- *             id: "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/privateEndpoints/myPrivateEndpoint",
- *         },
- *         privateLinkServiceConnectionState: {
- *             actionsRequired: "",
- *             description: "Approved by admin.",
- *             status: "Approved",
- *         },
- *     },
- *     resourceGroupName: "exampleResourceGroup",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datafactory:PrivateEndpointConnection exampleFactoryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/privateEndpointConnections/{privateEndpointConnectionName} 
- * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

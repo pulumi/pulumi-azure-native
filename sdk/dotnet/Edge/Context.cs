@@ -15,60 +15,6 @@ namespace Pulumi.AzureNative.Edge
     /// Uses Azure REST API version 2025-06-01.
     /// 
     /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Contexts_CreateOrUpdate_MaximumSet
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var context = new AzureNative.Edge.Context("context", new()
-    ///     {
-    ///         ContextName = "testname",
-    ///         Location = "pkquwbplcp",
-    ///         Properties = new AzureNative.Edge.Inputs.ContextPropertiesArgs
-    ///         {
-    ///             Capabilities = new[]
-    ///             {
-    ///                 new AzureNative.Edge.Inputs.CapabilityArgs
-    ///                 {
-    ///                     Description = "banbenutsngwytoqh",
-    ///                     Name = "tpylinjcmlnycfpofpxjtqmt",
-    ///                     State = AzureNative.Edge.ResourceState.Active,
-    ///                 },
-    ///             },
-    ///             Hierarchies = new[]
-    ///             {
-    ///                 new AzureNative.Edge.Inputs.HierarchyArgs
-    ///                 {
-    ///                     Description = "vg",
-    ///                     Name = "upqe",
-    ///                 },
-    ///             },
-    ///         },
-    ///         ResourceGroupName = "rgconfigurationmanager",
-    ///         Tags = 
-    ///         {
-    ///             { "key3046", "clcnhzwypk" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:edge:Context dtpqgxwo /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/contexts/{contextName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edge:Context")]
     public partial class Context : global::Pulumi.CustomResource

@@ -13,46 +13,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Linked service.
     /// 
     /// Uses Azure REST API version 2020-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2020-09-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### CreateLinkedService
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var linkedService = new AzureNative.MachineLearningServices.LinkedService("linkedService", new()
-    ///     {
-    ///         Identity = new AzureNative.MachineLearningServices.Inputs.IdentityArgs
-    ///         {
-    ///             Type = AzureNative.MachineLearningServices.ResourceIdentityType.SystemAssigned,
-    ///         },
-    ///         LinkName = "link-1",
-    ///         Location = "westus",
-    ///         Name = "link-1",
-    ///         Properties = new AzureNative.MachineLearningServices.Inputs.LinkedServicePropsArgs
-    ///         {
-    ///             LinkedServiceResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
-    ///         },
-    ///         ResourceGroupName = "resourceGroup-1",
-    ///         WorkspaceName = "workspace-1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:machinelearningservices:LinkedService link-1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/linkedServices/{linkName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource

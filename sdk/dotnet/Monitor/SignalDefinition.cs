@@ -13,67 +13,6 @@ namespace Pulumi.AzureNative.Monitor
     /// A signal definition in a health model
     /// 
     /// Uses Azure REST API version 2025-05-03-preview.
-    /// 
-    /// ## Example Usage
-    /// ### SignalDefinitions_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var signalDefinition = new AzureNative.Monitor.SignalDefinition("signalDefinition", new()
-    ///     {
-    ///         AzureMonitorWorkspaceName = "myWorkspace",
-    ///         HealthModelName = "myHealthModel",
-    ///         Properties = new AzureNative.Monitor.Inputs.ResourceMetricSignalDefinitionPropertiesArgs
-    ///         {
-    ///             AggregationType = AzureNative.Monitor.MetricAggregationType.Average,
-    ///             DataUnit = "byte",
-    ///             Dimension = "nodename",
-    ///             DimensionFilter = "node1",
-    ///             DisplayName = "cpu usage",
-    ///             EvaluationRules = new AzureNative.Monitor.Inputs.EvaluationRuleArgs
-    ///             {
-    ///                 DegradedRule = new AzureNative.Monitor.Inputs.ThresholdRuleArgs
-    ///                 {
-    ///                     Operator = AzureNative.Monitor.SignalOperator.LessThan,
-    ///                     Threshold = "65",
-    ///                 },
-    ///                 UnhealthyRule = new AzureNative.Monitor.Inputs.ThresholdRuleArgs
-    ///                 {
-    ///                     Operator = AzureNative.Monitor.SignalOperator.LessThan,
-    ///                     Threshold = "60",
-    ///                 },
-    ///             },
-    ///             MetricName = "cpuusage",
-    ///             MetricNamespace = "microsoft.compute/virtualMachines",
-    ///             RefreshInterval = AzureNative.Monitor.RefreshInterval.PT1M,
-    ///             SignalKind = "AzureResourceMetric",
-    ///             Tags = 
-    ///             {
-    ///                 { "key4788", "ixfvzsfnpvkkbrce" },
-    ///             },
-    ///             TimeGrain = "PT1M",
-    ///         },
-    ///         ResourceGroupName = "rgopenapi",
-    ///         SignalDefinitionName = "sig1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:monitor:SignalDefinition sig1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:SignalDefinition")]
     public partial class SignalDefinition : global::Pulumi.CustomResource

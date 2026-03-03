@@ -15,48 +15,6 @@ namespace Pulumi.AzureNative.WebPubSub
     /// Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
     /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native webpubsub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### WebPubSubReplicas_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var webPubSubReplica = new AzureNative.WebPubSub.WebPubSubReplica("webPubSubReplica", new()
-    ///     {
-    ///         Location = "eastus",
-    ///         ReplicaName = "myWebPubSubService-eastus",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         ResourceName = "myWebPubSubService",
-    ///         ResourceStopped = "false",
-    ///         Sku = new AzureNative.WebPubSub.Inputs.ResourceSkuArgs
-    ///         {
-    ///             Capacity = 1,
-    ///             Name = "Premium_P1",
-    ///             Tier = AzureNative.WebPubSub.WebPubSubSkuTier.Premium,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:webpubsub:WebPubSubReplica myWebPubSubService-eastus /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SignalRService/webPubSub/{resourceName}/replicas/{replicaName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubReplica")]
     public partial class WebPubSubReplica : global::Pulumi.CustomResource

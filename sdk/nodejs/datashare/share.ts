@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * A share data transfer object.
  *
  * Uses Azure REST API version 2021-08-01. In version 2.x of the Azure Native provider, it used API version 2021-08-01.
- *
- * ## Example Usage
- * ### Shares_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const share = new azure_native.datashare.Share("share", {
- *     accountName: "Account1",
- *     description: "share description",
- *     resourceGroupName: "SampleResourceGroup",
- *     shareKind: azure_native.datashare.ShareKind.CopyBased,
- *     shareName: "Share1",
- *     terms: "Confidential",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:datashare:Share Share1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName} 
- * ```
  */
 export class Share extends pulumi.CustomResource {
     /**

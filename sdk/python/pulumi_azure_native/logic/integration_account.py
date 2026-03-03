@@ -160,31 +160,6 @@ class IntegrationAccount(pulumi.CustomResource):
 
         Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update an integration account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        integration_account = azure_native.logic.IntegrationAccount("integrationAccount",
-            integration_account_name="testIntegrationAccount",
-            location="westus",
-            resource_group_name="testResourceGroup",
-            sku={
-                "name": azure_native.logic.IntegrationAccountSkuName.STANDARD,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:logic:IntegrationAccount testIntegrationAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,31 +183,6 @@ class IntegrationAccount(pulumi.CustomResource):
         Uses Azure REST API version 2019-05-01. In version 2.x of the Azure Native provider, it used API version 2019-05-01.
 
         Other available API versions: 2015-08-01-preview, 2016-06-01, 2018-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native logic [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update an integration account
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        integration_account = azure_native.logic.IntegrationAccount("integrationAccount",
-            integration_account_name="testIntegrationAccount",
-            location="westus",
-            resource_group_name="testResourceGroup",
-            sku={
-                "name": azure_native.logic.IntegrationAccountSkuName.STANDARD,
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:logic:IntegrationAccount testIntegrationAccount /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

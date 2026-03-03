@@ -107,32 +107,6 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### approve a Private Endpoint Connection under a disk access resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        disk_access_a_private_endpoint_connection = azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection",
-            disk_access_name="myDiskAccess",
-            private_endpoint_connection_name="myPrivateEndpointConnection",
-            private_link_service_connection_state={
-                "description": "Approving myPrivateEndpointConnection",
-                "status": azure_native.compute.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:DiskAccessAPrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskAccesses/{diskAccessName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-02. In version 2.x of the Azure Native provider, it used API version 2022-07-02.
 
         Other available API versions: 2022-07-02, 2023-01-02, 2023-04-02, 2023-10-02, 2025-01-02. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### approve a Private Endpoint Connection under a disk access resource.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        disk_access_a_private_endpoint_connection = azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection",
-            disk_access_name="myDiskAccess",
-            private_endpoint_connection_name="myPrivateEndpointConnection",
-            private_link_service_connection_state={
-                "description": "Approving myPrivateEndpointConnection",
-                "status": azure_native.compute.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:DiskAccessAPrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskAccesses/{diskAccessName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

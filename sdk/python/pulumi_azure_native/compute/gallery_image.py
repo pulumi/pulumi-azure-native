@@ -377,37 +377,6 @@ class GalleryImage(pulumi.CustomResource):
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create or update a simple gallery image.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gallery_image = azure_native.compute.GalleryImage("galleryImage",
-            gallery_image_name="myGalleryImageName",
-            gallery_name="myGalleryName",
-            hyper_v_generation=azure_native.compute.HyperVGeneration.V1,
-            identifier={
-                "offer": "myOfferName",
-                "publisher": "myPublisherName",
-                "sku": "mySkuName",
-            },
-            location="West US",
-            os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
-            os_type=azure_native.compute.OperatingSystemTypes.WINDOWS,
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -444,37 +413,6 @@ class GalleryImage(pulumi.CustomResource):
         Uses Azure REST API version 2024-03-03. In version 2.x of the Azure Native provider, it used API version 2022-03-03.
 
         Other available API versions: 2022-03-03, 2022-08-03, 2023-07-03, 2025-03-03. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create or update a simple gallery image.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        gallery_image = azure_native.compute.GalleryImage("galleryImage",
-            gallery_image_name="myGalleryImageName",
-            gallery_name="myGalleryName",
-            hyper_v_generation=azure_native.compute.HyperVGeneration.V1,
-            identifier={
-                "offer": "myOfferName",
-                "publisher": "myPublisherName",
-                "sku": "mySkuName",
-            },
-            location="West US",
-            os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
-            os_type=azure_native.compute.OperatingSystemTypes.WINDOWS,
-            resource_group_name="myResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

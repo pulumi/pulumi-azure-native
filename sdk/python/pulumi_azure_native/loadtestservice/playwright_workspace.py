@@ -146,33 +146,6 @@ class PlaywrightWorkspace(pulumi.CustomResource):
 
         Other available API versions: 2025-09-01, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PlaywrightWorkspaces_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        playwright_workspace = azure_native.loadtestservice.PlaywrightWorkspace("playwrightWorkspace",
-            local_auth=azure_native.loadtestservice.EnablementStatus.ENABLED,
-            location="westus3",
-            playwright_workspace_name="myWorkspace",
-            regional_affinity=azure_native.loadtestservice.EnablementStatus.ENABLED,
-            resource_group_name="dummyrg",
-            tags={
-                "Team": "Dev Exp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:loadtestservice:PlaywrightWorkspace myWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/playwrightWorkspaces/{playwrightWorkspaceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,33 +168,6 @@ class PlaywrightWorkspace(pulumi.CustomResource):
         Uses Azure REST API version 2025-07-01-preview.
 
         Other available API versions: 2025-09-01, 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native loadtestservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PlaywrightWorkspaces_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        playwright_workspace = azure_native.loadtestservice.PlaywrightWorkspace("playwrightWorkspace",
-            local_auth=azure_native.loadtestservice.EnablementStatus.ENABLED,
-            location="westus3",
-            playwright_workspace_name="myWorkspace",
-            regional_affinity=azure_native.loadtestservice.EnablementStatus.ENABLED,
-            resource_group_name="dummyrg",
-            tags={
-                "Team": "Dev Exp",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:loadtestservice:PlaywrightWorkspace myWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/playwrightWorkspaces/{playwrightWorkspaceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

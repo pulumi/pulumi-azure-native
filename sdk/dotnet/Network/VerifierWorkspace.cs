@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.Network
     /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
     /// 
     /// Other available API versions: 2024-01-01-preview, 2024-07-01, 2024-10-01, 2025-01-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### VerifierWorkspaceCreate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var verifierWorkspace = new AzureNative.Network.VerifierWorkspace("verifierWorkspace", new()
-    ///     {
-    ///         Location = "eastus",
-    ///         NetworkManagerName = "testNetworkManager",
-    ///         Properties = new AzureNative.Network.Inputs.VerifierWorkspacePropertiesArgs
-    ///         {
-    ///             Description = "A sample workspace",
-    ///         },
-    ///         ResourceGroupName = "rg1",
-    ///         WorkspaceName = "testWorkspace",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:network:VerifierWorkspace testWorkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/verifierWorkspaces/{workspaceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VerifierWorkspace")]
     public partial class VerifierWorkspace : global::Pulumi.CustomResource

@@ -481,27 +481,6 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
 
-        ## Example Usage
-        ### PutAccessReview
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scope_access_review_schedule_definition_by_id = azure_native.authorization.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById",
-            schedule_definition_id="fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
-            scope="subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:ScopeAccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /{scope}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -542,27 +521,6 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
         Access Review Schedule Definition.
 
         Uses Azure REST API version 2021-12-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-12-01-preview.
-
-        ## Example Usage
-        ### PutAccessReview
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        scope_access_review_schedule_definition_by_id = azure_native.authorization.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById",
-            schedule_definition_id="fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
-            scope="subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:authorization:ScopeAccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /{scope}/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/{scheduleDefinitionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

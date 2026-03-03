@@ -125,53 +125,6 @@ class Application(pulumi.CustomResource):
 
         Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create Application
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application = azure_native.hdinsight.Application("application",
-            application_name="hue",
-            cluster_name="cluster1",
-            properties={
-                "application_type": "CustomApplication",
-                "compute_profile": {
-                    "roles": [{
-                        "hardware_profile": {
-                            "vm_size": "Standard_D12_v2",
-                        },
-                        "name": "edgenode",
-                        "target_instance_count": 1,
-                    }],
-                },
-                "errors": [],
-                "https_endpoints": [{
-                    "access_modes": ["WebPage"],
-                    "destination_port": 20000,
-                    "sub_domain_suffix": "dss",
-                }],
-                "install_script_actions": [{
-                    "name": "app-install-app1",
-                    "parameters": "-version latest -port 20000",
-                    "roles": ["edgenode"],
-                    "uri": "https://.../install.sh",
-                }],
-                "uninstall_script_actions": [],
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hdinsight:Application hue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/applications/{applicationName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,53 +146,6 @@ class Application(pulumi.CustomResource):
         Uses Azure REST API version 2024-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-06-01.
 
         Other available API versions: 2021-06-01, 2023-04-15-preview, 2023-08-15-preview, 2025-01-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hdinsight [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create Application
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        application = azure_native.hdinsight.Application("application",
-            application_name="hue",
-            cluster_name="cluster1",
-            properties={
-                "application_type": "CustomApplication",
-                "compute_profile": {
-                    "roles": [{
-                        "hardware_profile": {
-                            "vm_size": "Standard_D12_v2",
-                        },
-                        "name": "edgenode",
-                        "target_instance_count": 1,
-                    }],
-                },
-                "errors": [],
-                "https_endpoints": [{
-                    "access_modes": ["WebPage"],
-                    "destination_port": 20000,
-                    "sub_domain_suffix": "dss",
-                }],
-                "install_script_actions": [{
-                    "name": "app-install-app1",
-                    "parameters": "-version latest -port 20000",
-                    "roles": ["edgenode"],
-                    "uri": "https://.../install.sh",
-                }],
-                "uninstall_script_actions": [],
-            },
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hdinsight:Application hue /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/applications/{applicationName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

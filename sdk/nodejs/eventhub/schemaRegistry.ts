@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-01-01. In version 2.x of the Azure Native provider, it used API version 2022-10-01-preview.
  *
  * Other available API versions: 2021-11-01, 2022-01-01-preview, 2022-10-01-preview, 2023-01-01-preview, 2024-05-01-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native eventhub [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### SchemaRegistryCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const schemaRegistry = new azure_native.eventhub.SchemaRegistry("schemaRegistry", {
- *     groupProperties: {},
- *     namespaceName: "ali-ua-test-eh-system-1",
- *     resourceGroupName: "alitest",
- *     schemaCompatibility: azure_native.eventhub.SchemaCompatibility.Forward,
- *     schemaGroupName: "testSchemaGroup1",
- *     schemaType: azure_native.eventhub.SchemaType.Avro,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:eventhub:SchemaRegistry testSchemaGroup1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/schemagroups/{schemaGroupName} 
- * ```
  */
 export class SchemaRegistry extends pulumi.CustomResource {
     /**

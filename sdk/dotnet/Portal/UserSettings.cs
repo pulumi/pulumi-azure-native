@@ -13,51 +13,6 @@ namespace Pulumi.AzureNative.Portal
     /// Response to get user settings
     /// 
     /// Uses Azure REST API version 2018-10-01. In version 2.x of the Azure Native provider, it used API version 2018-10-01.
-    /// 
-    /// ## Example Usage
-    /// ### PutUserSettings
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var userSettings = new AzureNative.Portal.UserSettings("userSettings", new()
-    ///     {
-    ///         Properties = new AzureNative.Portal.Inputs.UserPropertiesArgs
-    ///         {
-    ///             PreferredLocation = "eastus",
-    ///             PreferredOsType = AzureNative.Portal.OsType.Linux,
-    ///             PreferredShellType = AzureNative.Portal.ShellType.Bash,
-    ///             StorageProfile = new AzureNative.Portal.Inputs.StorageProfileArgs
-    ///             {
-    ///                 DiskSizeInGB = 5,
-    ///                 FileShareName = "string",
-    ///                 StorageAccountResourceId = "string",
-    ///             },
-    ///             TerminalSettings = new AzureNative.Portal.Inputs.TerminalSettingsArgs
-    ///             {
-    ///                 FontSize = AzureNative.Portal.FontSize.Medium,
-    ///                 FontStyle = AzureNative.Portal.FontStyle.Monospace,
-    ///             },
-    ///         },
-    ///         UserSettingsName = "cloudconsole",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:portal:UserSettings myresource1 /providers/Microsoft.Portal/userSettings/{userSettingsName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:UserSettings")]
     public partial class UserSettings : global::Pulumi.CustomResource

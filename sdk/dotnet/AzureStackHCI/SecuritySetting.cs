@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
     /// 
     /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01, 2025-11-01-preview, 2025-12-01-preview, 2026-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create Security Settings
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var securitySetting = new AzureNative.AzureStackHCI.SecuritySetting("securitySetting", new()
-    ///     {
-    ///         ClusterName = "myCluster",
-    ///         ResourceGroupName = "test-rg",
-    ///         SecuredCoreComplianceAssignment = AzureNative.AzureStackHCI.ComplianceAssignmentType.Audit,
-    ///         SecuritySettingsName = "default",
-    ///         SmbEncryptionForIntraClusterTrafficComplianceAssignment = AzureNative.AzureStackHCI.ComplianceAssignmentType.Audit,
-    ///         WdacComplianceAssignment = AzureNative.AzureStackHCI.ComplianceAssignmentType.ApplyAndAutoCorrect,
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:azurestackhci:SecuritySetting myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/clusters/{clusterName}/securitySettings/{securitySettingsName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:SecuritySetting")]
     public partial class SecuritySetting : global::Pulumi.CustomResource

@@ -141,36 +141,6 @@ class SolutionVersion(pulumi.CustomResource):
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### SolutionVersions_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        solution_version = azure_native.edge.SolutionVersion("solutionVersion",
-            extended_location={
-                "name": "szjrwimeqyiue",
-                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
-            },
-            properties={
-                "specification": {},
-            },
-            resource_group_name="rgconfigurationmanager",
-            solution_name="testname",
-            solution_version_name="testname",
-            target_name="testname")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:SolutionVersion lk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}/solutions/{solutionName}/versions/{solutionVersionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,36 +163,6 @@ class SolutionVersion(pulumi.CustomResource):
         Uses Azure REST API version 2025-06-01.
 
         Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### SolutionVersions_CreateOrUpdate_MaximumSet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        solution_version = azure_native.edge.SolutionVersion("solutionVersion",
-            extended_location={
-                "name": "szjrwimeqyiue",
-                "type": azure_native.edge.ExtendedLocationType.EDGE_ZONE,
-            },
-            properties={
-                "specification": {},
-            },
-            resource_group_name="rgconfigurationmanager",
-            solution_name="testname",
-            solution_version_name="testname",
-            target_name="testname")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:edge:SolutionVersion lk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/targets/{targetName}/solutions/{solutionName}/versions/{solutionVersionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

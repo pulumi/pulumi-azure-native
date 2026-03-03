@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.Security
     /// A vulnerability assessments setting on Azure servers in the defined scope.
     /// 
     /// Uses Azure REST API version 2023-05-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Set a server vulnerability assessments setting of the kind settingKind on the subscription
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var azureServersSetting = new AzureNative.Security.AzureServersSetting("azureServersSetting", new()
-    ///     {
-    ///         Kind = "AzureServersSetting",
-    ///         SelectedProvider = AzureNative.Security.ServerVulnerabilityAssessmentsAzureSettingSelectedProvider.MdeTvm,
-    ///         SettingKind = "azureServersSetting",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:security:AzureServersSetting azureServersSetting /subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/{settingKind} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AzureServersSetting")]
     public partial class AzureServersSetting : global::Pulumi.CustomResource

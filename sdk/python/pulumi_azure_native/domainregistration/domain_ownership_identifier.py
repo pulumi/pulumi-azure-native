@@ -122,29 +122,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Create App Service Domain OwnershipIdentifier
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        domain_ownership_identifier = azure_native.domainregistration.DomainOwnershipIdentifier("domainOwnershipIdentifier",
-            domain_name="example.com",
-            name="SampleOwnershipId",
-            ownership_id="SampleOwnershipId",
-            resource_group_name="testrg123")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:domainregistration:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,29 +143,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
         Other available API versions: 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native domainregistration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Create App Service Domain OwnershipIdentifier
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        domain_ownership_identifier = azure_native.domainregistration.DomainOwnershipIdentifier("domainOwnershipIdentifier",
-            domain_name="example.com",
-            name="SampleOwnershipId",
-            ownership_id="SampleOwnershipId",
-            resource_group_name="testrg123")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:domainregistration:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

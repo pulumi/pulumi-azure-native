@@ -13,59 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-06-01-preview.
  *
  * Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update a StorageDiscoveryWorkspace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const storageDiscoveryWorkspace = new azure_native.storagediscovery.StorageDiscoveryWorkspace("storageDiscoveryWorkspace", {
- *     location: "westeurope",
- *     properties: {
- *         description: "Sample Storage Discovery Workspace",
- *         scopes: [
- *             {
- *                 displayName: "Sample-Collection",
- *                 resourceTypes: ["/subscriptions/b79cb3ba-745e-5d9a-8903-4a02327a7e09/resourceGroups/sample-rg/providers/Microsoft.Storage/storageAccounts/sample-storageAccount"],
- *                 tagKeysOnly: [
- *                     "filterTag1",
- *                     "filterTag2",
- *                 ],
- *                 tags: {
- *                     filterTag3: "value3",
- *                     filterTag4: "value4",
- *                 },
- *             },
- *             {
- *                 displayName: "Sample-Collection-2",
- *                 resourceTypes: ["/subscriptions/b79cb3ba-745e-5d9a-8903-4a02327a7e09/resourceGroups/sample-rg/providers/Microsoft.Storage/storageAccounts/sample-storageAccount"],
- *                 tagKeysOnly: ["filterTag5"],
- *                 tags: {
- *                     filterTag6: "value6",
- *                 },
- *             },
- *         ],
- *         workspaceRoots: ["/subscriptions/b79cb3ba-745e-5d9a-8903-4a02327a7e09"],
- *     },
- *     resourceGroupName: "sample-rg",
- *     storageDiscoveryWorkspaceName: "Sample-Storage-Workspace",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:storagediscovery:StorageDiscoveryWorkspace sampleworkspace /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageDiscovery/storageDiscoveryWorkspaces/{storageDiscoveryWorkspaceName} 
- * ```
  */
 export class StorageDiscoveryWorkspace extends pulumi.CustomResource {
     /**

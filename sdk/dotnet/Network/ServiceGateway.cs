@@ -13,49 +13,6 @@ namespace Pulumi.AzureNative.Network
     /// ServiceGateway resource.
     /// 
     /// Uses Azure REST API version 2025-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create service gateway
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceGateway = new AzureNative.Network.ServiceGateway("serviceGateway", new()
-    ///     {
-    ///         Location = "eastus",
-    ///         ResourceGroupName = "rg1",
-    ///         RouteTargetAddress = new AzureNative.Network.Inputs.RouteTargetAddressPropertiesFormatArgs
-    ///         {
-    ///             PrivateIPAddress = "10.0.1.4",
-    ///             PrivateIPAllocationMethod = AzureNative.Network.IPAllocationMethod.Static,
-    ///             Subnet = new AzureNative.Network.Inputs.SubnetArgs
-    ///             {
-    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet/subnets/subnet",
-    ///             },
-    ///         },
-    ///         ServiceGatewayName = "sg",
-    ///         VirtualNetwork = new AzureNative.Network.Inputs.VirtualNetworkArgs
-    ///         {
-    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:network:ServiceGateway sg /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceGateways/{serviceGatewayName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ServiceGateway")]
     public partial class ServiceGateway : global::Pulumi.CustomResource

@@ -13,36 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-03-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-07-15-preview.
  *
  * Other available API versions: 2022-07-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native connectedvmwarevsphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or Update a Machine Extension (PUT)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const machineExtension = new azure_native.connectedvmwarevsphere.MachineExtension("machineExtension", {
- *     extensionName: "CustomScriptExtension",
- *     location: "eastus2euap",
- *     publisher: "Microsoft.Compute",
- *     resourceGroupName: "myResourceGroup",
- *     settings: {
- *         commandToExecute: "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
- *     },
- *     type: "CustomScriptExtension",
- *     typeHandlerVersion: "1.10",
- *     virtualMachineName: "myMachine",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:connectedvmwarevsphere:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/extensions/{extensionName} 
- * ```
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**

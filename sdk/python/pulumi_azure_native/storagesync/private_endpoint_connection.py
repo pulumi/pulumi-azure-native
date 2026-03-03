@@ -107,32 +107,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### PrivateEndpointConnections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.storagesync.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="{privateEndpointConnectionName}",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.storagesync.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="res7687",
-            storage_sync_service_name="sss2527")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagesync:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2022-09-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
 
         Other available API versions: 2022-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagesync [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### PrivateEndpointConnections_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.storagesync.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="{privateEndpointConnectionName}",
-            private_link_service_connection_state={
-                "description": "Auto-Approved",
-                "status": azure_native.storagesync.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="res7687",
-            storage_sync_service_name="sss2527")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:storagesync:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

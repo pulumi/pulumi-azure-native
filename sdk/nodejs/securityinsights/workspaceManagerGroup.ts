@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native securityinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Creates or updates a workspace manager group.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const workspaceManagerGroup = new azure_native.securityinsights.WorkspaceManagerGroup("workspaceManagerGroup", {
- *     description: "Group of all financial and banking institutions",
- *     displayName: "Banks",
- *     memberResourceNames: [
- *         "afbd324f-6c48-459c-8710-8d1e1cd03812",
- *         "f5fa104e-c0e3-4747-9182-d342dc048a9e",
- *     ],
- *     resourceGroupName: "myRg",
- *     workspaceManagerGroupName: "37207a7a-3b8a-438f-a559-c7df400e1b96",
- *     workspaceName: "myWorkspace",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:securityinsights:WorkspaceManagerGroup 37207a7a-3b8a-438f-a559-c7df400e1b96 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/workspaceManagerGroups/{workspaceManagerGroupName} 
- * ```
  */
 export class WorkspaceManagerGroup extends pulumi.CustomResource {
     /**

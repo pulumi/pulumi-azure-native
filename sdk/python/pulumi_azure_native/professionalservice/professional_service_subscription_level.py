@@ -157,56 +157,6 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
 
-        ## Example Usage
-        ### Create subscription level ProfessionalService resource (indefinite term)
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        professional_service_subscription_level = azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
-            location="global",
-            name="MyContosoPS",
-            properties={
-                "offer_id": "testprofservice",
-                "publisher_id": "microsoft-contoso",
-                "quote_id": "quoteabc",
-                "sku_id": "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
-            },
-            resource_group_name="my-ps-rg",
-            resource_name_="MyContosoPS")
-
-        ```
-        ### Create subscription level ProfessionalService resource (with term)
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        professional_service_subscription_level = azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
-            location="global",
-            name="MyContosoPS",
-            properties={
-                "billing_period": "P1Y",
-                "offer_id": "testprofservice",
-                "publisher_id": "microsoft-contoso",
-                "quote_id": "quoteabc",
-                "sku_id": "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
-                "term_unit": "P3Y",
-            },
-            resource_group_name="my-ps-rg",
-            resource_name_="MyContosoPS")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:professionalservice:ProfessionalServiceSubscriptionLevel MyContosoPS /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProfessionalService/resources/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,56 +178,6 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
         ProfessionalService REST API resource definition.
 
         Uses Azure REST API version 2023-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-01-preview.
-
-        ## Example Usage
-        ### Create subscription level ProfessionalService resource (indefinite term)
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        professional_service_subscription_level = azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
-            location="global",
-            name="MyContosoPS",
-            properties={
-                "offer_id": "testprofservice",
-                "publisher_id": "microsoft-contoso",
-                "quote_id": "quoteabc",
-                "sku_id": "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
-            },
-            resource_group_name="my-ps-rg",
-            resource_name_="MyContosoPS")
-
-        ```
-        ### Create subscription level ProfessionalService resource (with term)
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        professional_service_subscription_level = azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
-            location="global",
-            name="MyContosoPS",
-            properties={
-                "billing_period": "P1Y",
-                "offer_id": "testprofservice",
-                "publisher_id": "microsoft-contoso",
-                "quote_id": "quoteabc",
-                "sku_id": "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
-                "term_unit": "P3Y",
-            },
-            resource_group_name="my-ps-rg",
-            resource_name_="MyContosoPS")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:professionalservice:ProfessionalServiceSubscriptionLevel MyContosoPS /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ProfessionalService/resources/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

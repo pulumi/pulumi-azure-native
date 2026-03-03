@@ -11,43 +11,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
  * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create or update L3 network
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const l3Network = new azure_native.networkcloud.L3Network("l3Network", {
- *     extendedLocation: {
- *         name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
- *         type: "CustomLocation",
- *     },
- *     interfaceName: "eth0",
- *     ipAllocationType: azure_native.networkcloud.IpAllocationType.DualStack,
- *     ipv4ConnectedPrefix: "198.51.100.0/24",
- *     ipv6ConnectedPrefix: "2001:db8::/64",
- *     l3IsolationDomainId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
- *     l3NetworkName: "l3NetworkName",
- *     location: "location",
- *     resourceGroupName: "resourceGroupName",
- *     tags: {
- *         key1: "myvalue1",
- *         key2: "myvalue2",
- *     },
- *     vlan: 12,
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:networkcloud:L3Network l3NetworkName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName} 
- * ```
  */
 export class L3Network extends pulumi.CustomResource {
     /**

@@ -11,48 +11,6 @@ import * as utilities from "../utilities";
  * Network security default user rule.
  *
  * Uses Azure REST API version 2022-04-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-04-01-preview.
- *
- * ## Example Usage
- * ### Create a default user rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const defaultUserRule = new azure_native.network.DefaultUserRule("defaultUserRule", {
- *     configurationName: "myTestSecurityConfig",
- *     flag: "AllowVnetInbound",
- *     kind: "Default",
- *     networkManagerName: "testNetworkManager",
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleDefaultUserRule",
- * });
- *
- * ```
- * ### Create a user rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const defaultUserRule = new azure_native.network.DefaultUserRule("defaultUserRule", {
- *     configurationName: "myTestSecurityConfig",
- *     networkManagerName: "testNetworkManager",
- *     resourceGroupName: "rg1",
- *     ruleCollectionName: "testRuleCollection",
- *     ruleName: "SampleUserRule",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:DefaultUserRule SampleUserRule /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityUserConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName} 
- * ```
  */
 export class DefaultUserRule extends pulumi.CustomResource {
     /**

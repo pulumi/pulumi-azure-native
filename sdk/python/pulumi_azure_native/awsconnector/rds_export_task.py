@@ -124,62 +124,6 @@ class RdsExportTask(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
 
-        ## Example Usage
-        ### RdsExportTasks_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        rds_export_task = azure_native.awsconnector.RdsExportTask("rdsExportTask",
-            location="ijwmlpipjiyjjldyoytyluf",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "baufqssokdhluztwcuatl",
-                "aws_account_id": "oaxdvv",
-                "aws_properties": {
-                    "export_only": ["tgbwsfhgnayugsqipjaogglzrm"],
-                    "export_task_identifier": "miwmgyeweeibkjbwagqc",
-                    "failure_cause": "mnjjuzhtylheweav",
-                    "iam_role_arn": "fexryvrii",
-                    "kms_key_id": "nzp",
-                    "percent_progress": 5,
-                    "s3_bucket": "zwwzvtjvoadrnmvvidwl",
-                    "s3_prefix": "vgo",
-                    "snapshot_time": "2024-10-08T03:51:37.230Z",
-                    "source_arn": "mojassuswxqincuqhoonftpslnqh",
-                    "source_type": {
-                        "value": azure_native.awsconnector.ExportSourceType.CLUSTER,
-                    },
-                    "status": "cjaqynzkqtyptrbwud",
-                    "task_end_time": "2024-10-08T03:51:37.231Z",
-                    "task_start_time": "2024-10-08T03:51:37.231Z",
-                    "total_extracted_data_in_gb": 7,
-                    "warning_message": "hugvgitctxgsxkvywhlldbqe",
-                },
-                "aws_region": "bnpl",
-                "aws_source_schema": "eopblwzcihujlmoctzvwfoirhqkbx",
-                "aws_tags": {
-                    "key353": "mjctanldpnvzjlfsxl",
-                },
-                "public_cloud_connectors_resource_id": "xugphqsqnlgtlne",
-                "public_cloud_resource_name": "exprhkzxutckvlwxawcqfy",
-            },
-            resource_group_name="rgrdsExportTask",
-            tags={
-                "key6517": "fgvwvrfxewegzvticmnntbypm",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:RdsExportTask ncgijmzpxvtk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsExportTasks/{name} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,62 +143,6 @@ class RdsExportTask(pulumi.CustomResource):
         A Microsoft.AwsConnector resource
 
         Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
-
-        ## Example Usage
-        ### RdsExportTasks_CreateOrReplace
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        rds_export_task = azure_native.awsconnector.RdsExportTask("rdsExportTask",
-            location="ijwmlpipjiyjjldyoytyluf",
-            name="Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
-            properties={
-                "arn": "baufqssokdhluztwcuatl",
-                "aws_account_id": "oaxdvv",
-                "aws_properties": {
-                    "export_only": ["tgbwsfhgnayugsqipjaogglzrm"],
-                    "export_task_identifier": "miwmgyeweeibkjbwagqc",
-                    "failure_cause": "mnjjuzhtylheweav",
-                    "iam_role_arn": "fexryvrii",
-                    "kms_key_id": "nzp",
-                    "percent_progress": 5,
-                    "s3_bucket": "zwwzvtjvoadrnmvvidwl",
-                    "s3_prefix": "vgo",
-                    "snapshot_time": "2024-10-08T03:51:37.230Z",
-                    "source_arn": "mojassuswxqincuqhoonftpslnqh",
-                    "source_type": {
-                        "value": azure_native.awsconnector.ExportSourceType.CLUSTER,
-                    },
-                    "status": "cjaqynzkqtyptrbwud",
-                    "task_end_time": "2024-10-08T03:51:37.231Z",
-                    "task_start_time": "2024-10-08T03:51:37.231Z",
-                    "total_extracted_data_in_gb": 7,
-                    "warning_message": "hugvgitctxgsxkvywhlldbqe",
-                },
-                "aws_region": "bnpl",
-                "aws_source_schema": "eopblwzcihujlmoctzvwfoirhqkbx",
-                "aws_tags": {
-                    "key353": "mjctanldpnvzjlfsxl",
-                },
-                "public_cloud_connectors_resource_id": "xugphqsqnlgtlne",
-                "public_cloud_resource_name": "exprhkzxutckvlwxawcqfy",
-            },
-            resource_group_name="rgrdsExportTask",
-            tags={
-                "key6517": "fgvwvrfxewegzvticmnntbypm",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:awsconnector:RdsExportTask ncgijmzpxvtk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/rdsExportTasks/{name} 
-        ```
 
 
         :param str resource_name: The name of the resource.

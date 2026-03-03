@@ -13,35 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-07-01-preview.
  *
  * Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Upsert DNS resolver
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const dnsResolver = new azure_native.dnsresolver.DnsResolver("dnsResolver", {
- *     dnsResolverName: "sampleDnsResolver",
- *     location: "westus2",
- *     resourceGroupName: "sampleResourceGroup",
- *     tags: {
- *         key1: "value1",
- *     },
- *     virtualNetwork: {
- *         id: "/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:dnsresolver:DnsResolver sampleDnsResolver /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolvers/{dnsResolverName} 
- * ```
  */
 export class DnsResolver extends pulumi.CustomResource {
     /**

@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Single item in a List or Get VirtualNetworkRules operation
  *
  * Uses Azure REST API version 2018-01-01-preview. In version 2.x of the Azure Native provider, it used API version 2018-01-01-preview.
- *
- * ## Example Usage
- * ### NameSpaceVirtualNetworkRuleCreate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const namespaceVirtualNetworkRule = new azure_native.servicebus.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule", {
- *     namespaceName: "sdk-Namespace-6019",
- *     resourceGroupName: "ResourceGroup",
- *     virtualNetworkRuleName: "sdk-VirtualNetworkRules-9191",
- *     virtualNetworkSubnetId: "/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:servicebus:NamespaceVirtualNetworkRule sdk-VirtualNetworkRules-9191 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/virtualnetworkrules/{virtualNetworkRuleName} 
- * ```
  */
 export class NamespaceVirtualNetworkRule extends pulumi.CustomResource {
     /**

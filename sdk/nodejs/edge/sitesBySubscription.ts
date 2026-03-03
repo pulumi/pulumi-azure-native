@@ -13,32 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-02-01-preview.
  *
  * Other available API versions: 2025-03-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edge [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create Site Subscription
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sitesBySubscription = new azure_native.edge.SitesBySubscription("sitesBySubscription", {
- *     properties: {
- *         addressResourceId: "/subscriptions/680d0dad-59aa-4464-3df3-b34b2b42738c/resourceGroups/us-site-rg/providers/Microsoft.EdgeOrder/addresses/12343213",
- *         description: "string",
- *         displayName: "string",
- *     },
- *     siteName: "string",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:edge:SitesBySubscription myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Edge/sites/{siteName} 
- * ```
  */
 export class SitesBySubscription extends pulumi.CustomResource {
     /**

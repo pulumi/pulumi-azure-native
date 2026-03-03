@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * Define the SAP Central Services Instance resource.
  *
  * Uses Azure REST API version 2024-09-01.
- *
- * ## Example Usage
- * ### Create SAP Central Instances for HA System with Availability Set
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sapCentralServerInstance = new azure_native.workloads.SapCentralServerInstance("sapCentralServerInstance", {
- *     centralInstanceName: "centralServer",
- *     location: "westcentralus",
- *     resourceGroupName: "test-rg",
- *     sapVirtualInstanceName: "X00",
- *     tags: {},
- * });
- *
- * ```
- * ### SapCentralServerInstances_Create
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const sapCentralServerInstance = new azure_native.workloads.SapCentralServerInstance("sapCentralServerInstance", {
- *     centralInstanceName: "centralServer",
- *     location: "westcentralus",
- *     resourceGroupName: "test-rg",
- *     sapVirtualInstanceName: "X00",
- *     tags: {},
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:workloads:SapCentralServerInstance centralServer /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/centralInstances/{centralInstanceName} 
- * ```
  */
 export class SapCentralServerInstance extends pulumi.CustomResource {
     /**

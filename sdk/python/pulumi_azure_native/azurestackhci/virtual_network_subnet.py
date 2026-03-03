@@ -123,31 +123,6 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
-        ## Example Usage
-        ### PutVirtualNetworkSubnet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_network_subnet = azure_native.azurestackhci.VirtualNetworkSubnet("virtualNetworkSubnet",
-            properties={
-                "address_prefix": "10.0.0.0/28",
-            },
-            resource_group_name="test-rg",
-            subnet_name="subnet1",
-            virtual_network_name="test-vnet")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:VirtualNetworkSubnet subnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualNetworks/{virtualNetworkName}/subnets/{subnetName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,31 +142,6 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
         The virtual network resource definition.
 
         Uses Azure REST API version 2025-09-01-preview.
-
-        ## Example Usage
-        ### PutVirtualNetworkSubnet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        virtual_network_subnet = azure_native.azurestackhci.VirtualNetworkSubnet("virtualNetworkSubnet",
-            properties={
-                "address_prefix": "10.0.0.0/28",
-            },
-            resource_group_name="test-rg",
-            subnet_name="subnet1",
-            virtual_network_name="test-vnet")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:azurestackhci:VirtualNetworkSubnet subnet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureStackHCI/virtualNetworks/{virtualNetworkName}/subnets/{subnetName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

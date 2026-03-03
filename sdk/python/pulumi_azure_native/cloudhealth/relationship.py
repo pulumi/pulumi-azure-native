@@ -107,36 +107,6 @@ class Relationship(pulumi.CustomResource):
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Relationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        relationship = azure_native.cloudhealth.Relationship("relationship",
-            health_model_name="model1",
-            properties={
-                "child_entity_name": "Entity2",
-                "display_name": "My relationship",
-                "labels": {
-                    "key9681": "ixfvzsfnpvkkbrce",
-                },
-                "parent_entity_name": "Entity1",
-            },
-            relationship_name="rel1",
-            resource_group_name="rgopenapi")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cloudhealth:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/relationships/{relationshipName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,36 +127,6 @@ class Relationship(pulumi.CustomResource):
         Uses Azure REST API version 2025-05-01-preview.
 
         Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Relationships_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        relationship = azure_native.cloudhealth.Relationship("relationship",
-            health_model_name="model1",
-            properties={
-                "child_entity_name": "Entity2",
-                "display_name": "My relationship",
-                "labels": {
-                    "key9681": "ixfvzsfnpvkkbrce",
-                },
-                "parent_entity_name": "Entity1",
-            },
-            relationship_name="rel1",
-            resource_group_name="rgopenapi")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:cloudhealth:Relationship rel1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/relationships/{relationshipName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

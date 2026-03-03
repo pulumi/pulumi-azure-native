@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * A Service resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
  *
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2024-03-01.
- *
- * ## Example Usage
- * ### Services_CreateOrUpdate
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const service = new azure_native.kubernetesruntime.Service("service", {
- *     resourceUri: "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/example/providers/Microsoft.Kubernetes/connectedClusters/cluster1",
- *     serviceName: "storageclass",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:kubernetesruntime:Service storageclass /{resourceUri}/providers/Microsoft.KubernetesRuntime/services/{serviceName} 
- * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

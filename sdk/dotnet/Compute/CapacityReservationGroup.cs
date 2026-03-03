@@ -15,59 +15,6 @@ namespace Pulumi.AzureNative.Compute
     /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
     /// Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update a capacity reservation group.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var capacityReservationGroup = new AzureNative.Compute.CapacityReservationGroup("capacityReservationGroup", new()
-    ///     {
-    ///         CapacityReservationGroupName = "myCapacityReservationGroup",
-    ///         Location = "westus",
-    ///         ResourceGroupName = "myResourceGroup",
-    ///         SharingProfile = new AzureNative.Compute.Inputs.ResourceSharingProfileArgs
-    ///         {
-    ///             SubscriptionIds = new[]
-    ///             {
-    ///                 new AzureNative.Compute.Inputs.SubResourceArgs
-    ///                 {
-    ///                     Id = "/subscriptions/{subscription-id1}",
-    ///                 },
-    ///                 new AzureNative.Compute.Inputs.SubResourceArgs
-    ///                 {
-    ///                     Id = "/subscriptions/{subscription-id2}",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "department", "finance" },
-    ///         },
-    ///         Zones = new[]
-    ///         {
-    ///             "1",
-    ///             "2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:compute:CapacityReservationGroup myCapacityReservationGroup /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservationGroup")]
     public partial class CapacityReservationGroup : global::Pulumi.CustomResource

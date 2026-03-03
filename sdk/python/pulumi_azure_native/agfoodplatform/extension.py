@@ -122,28 +122,6 @@ class Extension(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        ## Example Usage
-        ### Extensions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        extension = azure_native.agfoodplatform.Extension("extension",
-            data_manager_for_agriculture_resource_name="examples-dataManagerForAgricultureResourceName",
-            extension_id="provider.extension",
-            resource_group_name="examples-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:agfoodplatform:Extension provider.extension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/extensions/{extensionId} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,28 +141,6 @@ class Extension(pulumi.CustomResource):
         Extension resource.
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-
-        ## Example Usage
-        ### Extensions_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        extension = azure_native.agfoodplatform.Extension("extension",
-            data_manager_for_agriculture_resource_name="examples-dataManagerForAgricultureResourceName",
-            extension_id="provider.extension",
-            resource_group_name="examples-rg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:agfoodplatform:Extension provider.extension /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/extensions/{extensionId} 
-        ```
 
 
         :param str resource_name: The name of the resource.

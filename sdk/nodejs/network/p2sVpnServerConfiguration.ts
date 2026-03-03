@@ -13,60 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2019-07-01. In version 2.x of the Azure Native provider, it used API version 2019-07-01.
  *
  * Other available API versions: 2018-08-01, 2018-10-01, 2018-11-01, 2018-12-01, 2019-02-01, 2019-04-01, 2019-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### P2SVpnServerConfigurationPut
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const p2sVpnServerConfiguration = new azure_native.network.P2sVpnServerConfiguration("p2sVpnServerConfiguration", {
- *     p2SVpnServerConfigurationName: "p2sVpnServerConfiguration1",
- *     properties: {
- *         p2SVpnServerConfigRadiusClientRootCertificates: [{
- *             name: "p2sVpnServerConfigRadiusClientRootCert1",
- *             thumbprint: "83FFBFC8848B5A5836C94D0112367E16148A286F",
- *         }],
- *         p2SVpnServerConfigRadiusServerRootCertificates: [{
- *             name: "p2sVpnServerConfigRadiusServerRootCert1",
- *             publicCertData: "MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuM",
- *         }],
- *         p2SVpnServerConfigVpnClientRevokedCertificates: [{
- *             name: "p2sVpnServerConfigVpnClientRevokedCert1",
- *             thumbprint: "83FFBFC8848B5A5836C94D0112367E16148A286F",
- *         }],
- *         p2SVpnServerConfigVpnClientRootCertificates: [{
- *             name: "p2sVpnServerConfigVpnClientRootCert1",
- *             publicCertData: "MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuN",
- *         }],
- *         radiusServerAddress: "8.9.9.9",
- *         radiusServerSecret: "<radiusServerSecret>",
- *         vpnClientIpsecPolicies: [{
- *             dhGroup: azure_native.network.DhGroup.DHGroup14,
- *             ikeEncryption: azure_native.network.IkeEncryption.AES256,
- *             ikeIntegrity: azure_native.network.IkeIntegrity.SHA384,
- *             ipsecEncryption: azure_native.network.IpsecEncryption.AES256,
- *             ipsecIntegrity: azure_native.network.IpsecIntegrity.SHA256,
- *             pfsGroup: azure_native.network.PfsGroup.PFS14,
- *             saDataSizeKilobytes: 429497,
- *             saLifeTimeSeconds: 86472,
- *         }],
- *         vpnProtocols: [azure_native.network.VpnGatewayTunnelingProtocol.IkeV2],
- *     },
- *     resourceGroupName: "rg1",
- *     virtualWanName: "virtualWan1",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:network:P2sVpnServerConfiguration p2sVpnServerConfiguration1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{virtualWanName}/p2sVpnServerConfigurations/{p2SVpnServerConfigurationName} 
- * ```
  */
 export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**

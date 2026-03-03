@@ -140,30 +140,6 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
 
-        ## Example Usage
-        ### CreateHybridIdentityMetadata
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hybrid_identity_metadatum = azure_native.hybridcontainerservice.HybridIdentityMetadatum("hybridIdentityMetadatum",
-            hybrid_identity_metadata_resource_name="default",
-            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
-            resource_group_name="testrg",
-            resource_name_="ContosoTargetCluster",
-            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcontainerservice:HybridIdentityMetadatum default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/hybridIdentityMetadata/{hybridIdentityMetadataResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,30 +160,6 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         Defines the hybridIdentityMetadata.
 
         Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-01-preview.
-
-        ## Example Usage
-        ### CreateHybridIdentityMetadata
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        hybrid_identity_metadatum = azure_native.hybridcontainerservice.HybridIdentityMetadatum("hybridIdentityMetadatum",
-            hybrid_identity_metadata_resource_name="default",
-            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
-            resource_group_name="testrg",
-            resource_name_="ContosoTargetCluster",
-            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:hybridcontainerservice:HybridIdentityMetadatum default /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/hybridIdentityMetadata/{hybridIdentityMetadataResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

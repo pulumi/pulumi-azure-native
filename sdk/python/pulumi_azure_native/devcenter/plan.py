@@ -126,34 +126,6 @@ class Plan(pulumi.CustomResource):
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Plans_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        plan = azure_native.devcenter.Plan("plan",
-            location="centralus",
-            plan_name="ContosoPlan",
-            resource_group_name="rg1",
-            sku={
-                "name": "Preview",
-            },
-            tags={
-                "CostCode": "12345",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devcenter:Plan ContosoPlan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/plans/{planName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,34 +147,6 @@ class Plan(pulumi.CustomResource):
         Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-05-01-preview.
 
         Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devcenter [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Plans_Create
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        plan = azure_native.devcenter.Plan("plan",
-            location="centralus",
-            plan_name="ContosoPlan",
-            resource_group_name="rg1",
-            sku={
-                "name": "Preview",
-            },
-            tags={
-                "CostCode": "12345",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:devcenter:Plan ContosoPlan /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/plans/{planName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

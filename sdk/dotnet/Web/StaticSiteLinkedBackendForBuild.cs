@@ -15,39 +15,6 @@ namespace Pulumi.AzureNative.Web
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
     /// Other available API versions: 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Link a backend to a static site build
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var staticSiteLinkedBackendForBuild = new AzureNative.Web.StaticSiteLinkedBackendForBuild("staticSiteLinkedBackendForBuild", new()
-    ///     {
-    ///         BackendResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
-    ///         EnvironmentName = "default",
-    ///         LinkedBackendName = "testBackend",
-    ///         Name = "testStaticSite0",
-    ///         Region = "West US 2",
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:web:StaticSiteLinkedBackendForBuild testBackend /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/builds/{environmentName}/linkedBackends/{linkedBackendName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteLinkedBackendForBuild")]
     public partial class StaticSiteLinkedBackendForBuild : global::Pulumi.CustomResource

@@ -209,28 +209,6 @@ class Factory(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
 
-        ## Example Usage
-        ### Factories_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        factory = azure_native.datafactory.Factory("factory",
-            factory_name="exampleFactoryName",
-            location="East US",
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:Factory exampleFactoryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,28 +233,6 @@ class Factory(pulumi.CustomResource):
         Factory resource type.
 
         Uses Azure REST API version 2018-06-01. In version 2.x of the Azure Native provider, it used API version 2018-06-01.
-
-        ## Example Usage
-        ### Factories_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        factory = azure_native.datafactory.Factory("factory",
-            factory_name="exampleFactoryName",
-            location="East US",
-            resource_group_name="exampleResourceGroup")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:datafactory:Factory exampleFactoryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

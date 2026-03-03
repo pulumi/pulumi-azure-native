@@ -11,51 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Ec2NetworkAcls_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const ec2NetworkAcl = new azure_native.awsconnector.Ec2NetworkAcl("ec2NetworkAcl", {
- *     location: "fshtit",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "mwwchyidvtcm",
- *         awsAccountId: "nwnjrjumgvvtfndyaxyiwbugmdk",
- *         awsProperties: {
- *             id: "qgxcaonshnjzgtrwpbtgtnec",
- *             tags: [{
- *                 key: "ybqfvnnjihkyssxqqynvpdtbdt",
- *                 value: "szjckvzlsvasj",
- *             }],
- *             vpcId: "wifperjiuulltgxcljqwnaeyscd",
- *         },
- *         awsRegion: "zmntebskjciytwfcjyj",
- *         awsSourceSchema: "hqiutsyaxzitfwtekhw",
- *         awsTags: {
- *             key8049: "yfihxfeqfujhxxqpzpttbewzztgdix",
- *         },
- *         publicCloudConnectorsResourceId: "thejbzeletryigazixejsz",
- *         publicCloudResourceName: "dniirwtrtuvjlcdcjq",
- *     },
- *     resourceGroupName: "rgec2NetworkAcl",
- *     tags: {
- *         key7602: "dffxjegkksnmrmfplzhq",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Ec2NetworkAcl cvogwcrrjooylziw /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/ec2NetworkAcls/{name} 
- * ```
  */
 export class Ec2NetworkAcl extends pulumi.CustomResource {
     /**

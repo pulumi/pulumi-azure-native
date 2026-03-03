@@ -15,54 +15,6 @@ namespace Pulumi.AzureNative.Mission
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2024-06-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native mission [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### EnclaveEndpoints_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var enclaveEndpoint = new AzureNative.Mission.EnclaveEndpoint("enclaveEndpoint", new()
-    ///     {
-    ///         EnclaveEndpointName = "TestMyEnclaveEndpoint",
-    ///         Location = "West US",
-    ///         ResourceGroupName = "rgopenapi",
-    ///         RuleCollection = new[]
-    ///         {
-    ///             new AzureNative.Mission.Inputs.EnclaveEndpointDestinationRuleArgs
-    ///             {
-    ///                 Destination = "10.0.0.0/24",
-    ///                 EndpointRuleName = "54CEECEF-2C30-488E-946F-D20F414D99BA",
-    ///                 Ports = "443",
-    ///                 Protocols = new[]
-    ///                 {
-    ///                     AzureNative.Mission.EnclaveEndpointProtocol.TCP,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "sampletag", "samplevalue" },
-    ///         },
-    ///         VirtualEnclaveName = "TestMyEnclave",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:mission:EnclaveEndpoint TestMyEnclaveEndpoint /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Mission/virtualEnclaves/{virtualEnclaveName}/enclaveEndpoints/{enclaveEndpointName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mission:EnclaveEndpoint")]
     public partial class EnclaveEndpoint : global::Pulumi.CustomResource

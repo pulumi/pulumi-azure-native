@@ -158,32 +158,6 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
 
-        ## Example Usage
-        ### DataManagerForAgricultureResources_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_manager_for_agriculture_resource = azure_native.agfoodplatform.DataManagerForAgricultureResource("dataManagerForAgricultureResource",
-            data_manager_for_agriculture_resource_name="examples-farmbeatsResourceName",
-            location="eastus2",
-            resource_group_name="examples-rg",
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:agfoodplatform:DataManagerForAgricultureResource examples-farmbeatsResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,32 +179,6 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
         Data Manager For Agriculture ARM Resource.
 
         Uses Azure REST API version 2023-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
-
-        ## Example Usage
-        ### DataManagerForAgricultureResources_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        data_manager_for_agriculture_resource = azure_native.agfoodplatform.DataManagerForAgricultureResource("dataManagerForAgricultureResource",
-            data_manager_for_agriculture_resource_name="examples-farmbeatsResourceName",
-            location="eastus2",
-            resource_group_name="examples-rg",
-            tags={
-                "key1": "value1",
-                "key2": "value2",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:agfoodplatform:DataManagerForAgricultureResource examples-farmbeatsResourceName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

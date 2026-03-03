@@ -15,42 +15,6 @@ namespace Pulumi.AzureNative.CloudHealth
     /// Uses Azure REST API version 2025-05-01-preview.
     /// 
     /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudhealth [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### AuthenticationSettings_CreateOrUpdate
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var authenticationSetting = new AzureNative.CloudHealth.AuthenticationSetting("authenticationSetting", new()
-    ///     {
-    ///         AuthenticationSettingName = "myAuthSetting",
-    ///         HealthModelName = "myHealthModel",
-    ///         Properties = new AzureNative.CloudHealth.Inputs.ManagedIdentityAuthenticationSettingPropertiesArgs
-    ///         {
-    ///             AuthenticationKind = "ManagedIdentity",
-    ///             DisplayName = "myDisplayName",
-    ///             ManagedIdentityName = "SystemAssigned",
-    ///         },
-    ///         ResourceGroupName = "myResourceGroup",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:cloudhealth:AuthenticationSetting myAuthSetting /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CloudHealth/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cloudhealth:AuthenticationSetting")]
     public partial class AuthenticationSetting : global::Pulumi.CustomResource

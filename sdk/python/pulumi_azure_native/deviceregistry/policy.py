@@ -140,40 +140,6 @@ class Policy(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-11-01-preview.
 
-        ## Example Usage
-        ### CreateOrReplace_Policies
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy = azure_native.deviceregistry.Policy("policy",
-            certificate={
-                "certificate_authority_configuration": {
-                    "key_type": azure_native.deviceregistry.SupportedKeyType.ECC,
-                },
-                "leaf_certificate_configuration": {
-                    "validity_period_in_days": 10,
-                },
-            },
-            location="zjqtuvprnxvimzkkxaobgkm",
-            namespace_name="mynamespace",
-            policy_name="mypolicy",
-            resource_group_name="rgdeviceregistry",
-            tags={
-                "key1088": "xzrpbqsac",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceregistry:Policy mypolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,40 +160,6 @@ class Policy(pulumi.CustomResource):
         A Credential Policy
 
         Uses Azure REST API version 2025-11-01-preview.
-
-        ## Example Usage
-        ### CreateOrReplace_Policies
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        policy = azure_native.deviceregistry.Policy("policy",
-            certificate={
-                "certificate_authority_configuration": {
-                    "key_type": azure_native.deviceregistry.SupportedKeyType.ECC,
-                },
-                "leaf_certificate_configuration": {
-                    "validity_period_in_days": 10,
-                },
-            },
-            location="zjqtuvprnxvimzkkxaobgkm",
-            namespace_name="mynamespace",
-            policy_name="mypolicy",
-            resource_group_name="rgdeviceregistry",
-            tags={
-                "key1088": "xzrpbqsac",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:deviceregistry:Policy mypolicy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

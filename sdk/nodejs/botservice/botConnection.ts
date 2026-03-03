@@ -13,46 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2023-09-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-09-15.
  *
  * Other available API versions: 2022-09-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native botservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create Connection Setting
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const botConnection = new azure_native.botservice.BotConnection("botConnection", {
- *     connectionName: "sampleConnection",
- *     location: "West US",
- *     properties: {
- *         clientId: "sampleclientid",
- *         clientSecret: "samplesecret",
- *         parameters: [
- *             {
- *                 key: "key1",
- *                 value: "value1",
- *             },
- *             {
- *                 key: "key2",
- *                 value: "value2",
- *             },
- *         ],
- *         scopes: "samplescope",
- *         serviceProviderId: "serviceproviderid",
- *     },
- *     resourceGroupName: "OneResourceGroupName",
- *     resourceName: "samplebotname",
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:botservice:BotConnection sampleConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{resourceName}/connections/{connectionName} 
- * ```
  */
 export class BotConnection extends pulumi.CustomResource {
     /**

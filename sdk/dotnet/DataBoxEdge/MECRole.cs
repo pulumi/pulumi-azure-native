@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// MEC role.
     /// 
     /// Uses Azure REST API version 2023-07-01. In version 2.x of the Azure Native provider, it used API version 2022-03-01.
-    /// 
-    /// ## Example Usage
-    /// ### RolePut
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mecRole = new AzureNative.DataBoxEdge.MECRole("mecRole", new()
-    ///     {
-    ///         DeviceName = "testedgedevice",
-    ///         Name = "IoTRole1",
-    ///         ResourceGroupName = "GroupForEdgeAutomation",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:databoxedge:MECRole IoTRole1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{name} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MECRole")]
     public partial class MECRole : global::Pulumi.CustomResource

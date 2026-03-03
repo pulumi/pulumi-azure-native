@@ -106,35 +106,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-08-01-preview.
 
-        ## Example Usage
-        ### Updates the Private Endpoint Connection.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.onlineexperimentation.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="jitf",
-            properties={
-                "private_link_service_connection_state": {
-                    "actions_required": "afwbq",
-                    "description": "y",
-                    "status": azure_native.onlineexperimentation.PrivateEndpointServiceConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="res9871",
-            workspace_name="expworkspace3")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:onlineexperimentation:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,35 +124,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Private endpoint connection resource for an online experimentation workspace resource.
 
         Uses Azure REST API version 2025-08-01-preview.
-
-        ## Example Usage
-        ### Updates the Private Endpoint Connection.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.onlineexperimentation.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="jitf",
-            properties={
-                "private_link_service_connection_state": {
-                    "actions_required": "afwbq",
-                    "description": "y",
-                    "status": azure_native.onlineexperimentation.PrivateEndpointServiceConnectionStatus.APPROVED,
-                },
-            },
-            resource_group_name="res9871",
-            workspace_name="expworkspace3")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:onlineexperimentation:PrivateEndpointConnection kadsmyhrosefybpbwvwxs /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OnlineExperimentation/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -20,6 +20,7 @@ __all__ = [
     'LogAnalyticsLogType',
     'NGroupUpdateMode',
     'OperatingSystemTypes',
+    'Priority',
     'ResourceIdentityType',
     'Scheme',
 ]
@@ -148,6 +149,15 @@ class OperatingSystemTypes(_builtins.str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+
+
+@pulumi.type_token("azure-native:containerinstance:Priority")
+class Priority(_builtins.str, Enum):
+    """
+    The priority of the container group.
+    """
+    REGULAR = "Regular"
+    SPOT = "Spot"
 
 
 @pulumi.type_token("azure-native:containerinstance:ResourceIdentityType")

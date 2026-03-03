@@ -13,36 +13,6 @@ namespace Pulumi.AzureNative.Authorization
     /// The lock information.
     /// 
     /// Uses Azure REST API version 2020-05-01. In version 2.x of the Azure Native provider, it used API version 2020-05-01.
-    /// 
-    /// ## Example Usage
-    /// ### Create management lock at scope
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var managementLockByScope = new AzureNative.Authorization.ManagementLockByScope("managementLockByScope", new()
-    ///     {
-    ///         Level = AzureNative.Authorization.LockLevel.ReadOnly,
-    ///         LockName = "testlock",
-    ///         Scope = "subscriptions/subscriptionId",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:authorization:ManagementLockByScope testlock /{scope}/providers/Microsoft.Authorization/locks/{lockName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockByScope")]
     public partial class ManagementLockByScope : global::Pulumi.CustomResource

@@ -143,53 +143,6 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
 
         Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### ConfigurationAssignmentsForResourceGroup_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_assignments_for_resource_group = azure_native.maintenance.ConfigurationAssignmentsForResourceGroup("configurationAssignmentsForResourceGroup",
-            configuration_assignment_name="workervmConfiguration",
-            filter={
-                "locations": [
-                    "Japan East",
-                    "UK South",
-                ],
-                "resource_types": [
-                    "Microsoft.HybridCompute/machines",
-                    "Microsoft.Compute/virtualMachines",
-                ],
-                "tag_settings": {
-                    "filter_operator": azure_native.maintenance.TagOperators.ANY,
-                    "tags": {
-                        "tag1": [
-                            "tag1Value1",
-                            "tag1Value2",
-                            "tag1Value3",
-                        ],
-                        "tag2": [
-                            "tag2Value1",
-                            "tag2Value2",
-                            "tag2Value3",
-                        ],
-                    },
-                },
-            },
-            maintenance_configuration_id="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
-            resource_group_name="examplerg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:maintenance:ConfigurationAssignmentsForResourceGroup workervmConfiguration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,53 +165,6 @@ class ConfigurationAssignmentsForResourceGroup(pulumi.CustomResource):
         Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
         Other available API versions: 2023-04-01, 2023-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maintenance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### ConfigurationAssignmentsForResourceGroup_CreateOrUpdate
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        configuration_assignments_for_resource_group = azure_native.maintenance.ConfigurationAssignmentsForResourceGroup("configurationAssignmentsForResourceGroup",
-            configuration_assignment_name="workervmConfiguration",
-            filter={
-                "locations": [
-                    "Japan East",
-                    "UK South",
-                ],
-                "resource_types": [
-                    "Microsoft.HybridCompute/machines",
-                    "Microsoft.Compute/virtualMachines",
-                ],
-                "tag_settings": {
-                    "filter_operator": azure_native.maintenance.TagOperators.ANY,
-                    "tags": {
-                        "tag1": [
-                            "tag1Value1",
-                            "tag1Value2",
-                            "tag1Value3",
-                        ],
-                        "tag2": [
-                            "tag2Value1",
-                            "tag2Value2",
-                            "tag2Value3",
-                        ],
-                    },
-                },
-            },
-            maintenance_configuration_id="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
-            resource_group_name="examplerg")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:maintenance:ConfigurationAssignmentsForResourceGroup workervmConfiguration /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Maintenance/configurationAssignments/{configurationAssignmentName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

@@ -13,36 +13,6 @@ import * as utilities from "../utilities";
  * Uses Azure REST API version 2024-03-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
  * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
- *
- * ## Example Usage
- * ### Create deployment at management group scope.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const deploymentAtManagementGroupScope = new azure_native.resources.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope", {
- *     deploymentName: "my-deployment",
- *     groupId: "my-management-group-id",
- *     location: "eastus",
- *     properties: {
- *         mode: azure_native.resources.DeploymentMode.Incremental,
- *         parameters: {},
- *         templateLink: {
- *             uri: "https://example.com/exampleTemplate.json",
- *         },
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:resources:DeploymentAtManagementGroupScope my-deployment /providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName} 
- * ```
  */
 export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
     /**

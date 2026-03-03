@@ -107,32 +107,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### Approve or reject a private endpoint connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.monitor.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="private-endpoint-connection-name",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": azure_native.monitor.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,32 +127,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-01-preview.
 
         Other available API versions: 2021-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### Approve or reject a private endpoint connection with a given name.
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        private_endpoint_connection = azure_native.monitor.PrivateEndpointConnection("privateEndpointConnection",
-            private_endpoint_connection_name="private-endpoint-connection-name",
-            private_link_service_connection_state={
-                "description": "Approved by johndoe@contoso.com",
-                "status": azure_native.monitor.PrivateEndpointServiceConnectionStatus.APPROVED,
-            },
-            resource_group_name="MyResourceGroup",
-            scope_name="MyPrivateLinkScope")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:monitor:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/privateEndpointConnections/{privateEndpointConnectionName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

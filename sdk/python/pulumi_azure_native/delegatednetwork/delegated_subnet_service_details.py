@@ -161,53 +161,6 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
 
         Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### put delegated subnet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        delegated_subnet_service_details = azure_native.delegatednetwork.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
-            controller_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
-            },
-            location="West US",
-            resource_group_name="TestRG",
-            resource_name_="delegated1",
-            subnet_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
-            })
-
-        ```
-        ### put delegated subnet vnetblock
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        delegated_subnet_service_details = azure_native.delegatednetwork.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
-            allocation_block_prefix_size=27,
-            controller_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
-            },
-            location="West US",
-            resource_group_name="TestRG",
-            resource_name_="delegated1",
-            subnet_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:delegatednetwork:DelegatedSubnetServiceDetails delegated1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/delegatedSubnets/{resourceName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,53 +185,6 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         Uses Azure REST API version 2023-06-27-preview. In version 2.x of the Azure Native provider, it used API version 2021-03-15.
 
         Other available API versions: 2021-03-15, 2023-05-18-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native delegatednetwork [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### put delegated subnet
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        delegated_subnet_service_details = azure_native.delegatednetwork.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
-            controller_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
-            },
-            location="West US",
-            resource_group_name="TestRG",
-            resource_name_="delegated1",
-            subnet_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
-            })
-
-        ```
-        ### put delegated subnet vnetblock
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        delegated_subnet_service_details = azure_native.delegatednetwork.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
-            allocation_block_prefix_size=27,
-            controller_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
-            },
-            location="West US",
-            resource_group_name="TestRG",
-            resource_name_="delegated1",
-            subnet_details={
-                "id": "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
-            })
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:delegatednetwork:DelegatedSubnetServiceDetails delegated1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/delegatedSubnets/{resourceName} 
-        ```
 
 
         :param str resource_name: The name of the resource.

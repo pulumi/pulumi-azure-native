@@ -13,37 +13,6 @@ namespace Pulumi.AzureNative.Workloads
     /// Define the Server Instance resource.
     /// 
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
-    /// 
-    /// ## Example Usage
-    /// ### Creates the Server Instance resource.
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serverInstance = new AzureNative.Workloads.ServerInstance("serverInstance", new()
-    ///     {
-    ///         ResourceGroupName = "test-rg",
-    ///         SapDiscoverySiteName = "SampleSite",
-    ///         SapInstanceName = "MPP_MPP",
-    ///         ServerInstanceName = "APP_SapServer1",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:workloads:ServerInstance APP_SapServer1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapDiscoverySites/{sapDiscoverySiteName}/sapInstances/{sapInstanceName}/serverInstances/{serverInstanceName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ServerInstance")]
     public partial class ServerInstance : global::Pulumi.CustomResource

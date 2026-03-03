@@ -15,50 +15,6 @@ namespace Pulumi.AzureNative.Solutions
     /// Uses Azure REST API version 2021-07-01. In version 2.x of the Azure Native provider, it used API version 2021-07-01.
     /// 
     /// Other available API versions: 2023-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native solutions [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### Create or update jit request
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var jitRequest = new AzureNative.Solutions.JitRequest("jitRequest", new()
-    ///     {
-    ///         ApplicationResourceId = "/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
-    ///         JitAuthorizationPolicies = new[]
-    ///         {
-    ///             new AzureNative.Solutions.Inputs.JitAuthorizationPoliciesArgs
-    ///             {
-    ///                 PrincipalId = "1db8e132e2934dbcb8e1178a61319491",
-    ///                 RoleDefinitionId = "ecd05a23-931a-4c38-a52b-ac7c4c583334",
-    ///             },
-    ///         },
-    ///         JitRequestName = "myJitRequest",
-    ///         JitSchedulingPolicy = new AzureNative.Solutions.Inputs.JitSchedulingPolicyArgs
-    ///         {
-    ///             Duration = "PT8H",
-    ///             StartTime = "2021-04-22T05:48:30.6661804Z",
-    ///             Type = AzureNative.Solutions.JitSchedulingType.Once,
-    ///         },
-    ///         ResourceGroupName = "rg",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:solutions:JitRequest myJitRequest /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/jitRequests/{jitRequestName} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:JitRequest")]
     public partial class JitRequest : global::Pulumi.CustomResource

@@ -15,41 +15,6 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
     /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-    /// 
-    /// ## Example Usage
-    /// ### ApiManagementCreateApiIssueAttachment
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureNative = Pulumi.AzureNative;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apiIssueAttachment = new AzureNative.ApiManagement.ApiIssueAttachment("apiIssueAttachment", new()
-    ///     {
-    ///         ApiId = "57d1f7558aa04f15146d9d8a",
-    ///         AttachmentId = "57d2ef278aa04f0888cba3f3",
-    ///         Content = "IEJhc2U2NA==",
-    ///         ContentFormat = "image/jpeg",
-    ///         IssueId = "57d2ef278aa04f0ad01d6cdc",
-    ///         ResourceGroupName = "rg1",
-    ///         ServiceName = "apimService1",
-    ///         Title = "Issue attachment.",
-    ///     });
-    /// 
-    /// });
-    /// 
-    /// 
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    /// 
-    /// ```sh
-    /// $ pulumi import azure-native:apimanagement:ApiIssueAttachment 57d2ef278aa04f0888cba3f3 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}/attachments/{attachmentId} 
-    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiIssueAttachment")]
     public partial class ApiIssueAttachment : global::Pulumi.CustomResource

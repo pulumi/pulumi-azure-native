@@ -11,62 +11,6 @@ import * as utilities from "../utilities";
  * A Microsoft.AwsConnector resource
  *
  * Uses Azure REST API version 2024-12-01. In version 2.x of the Azure Native provider, it used API version 2024-12-01.
- *
- * ## Example Usage
- * ### Route53HostedZones_CreateOrReplace
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure_native from "@pulumi/azure-native";
- *
- * const route53HostedZone = new azure_native.awsconnector.Route53HostedZone("route53HostedZone", {
- *     location: "fohhkmxasqynkojwigmrzyhydfpdrd",
- *     name: "Replace this value with a string matching RegExp ^(z=.{0,259}[^zs.]$)(z!.*[zzzzzzzz])",
- *     properties: {
- *         arn: "vohjyzjtvd",
- *         awsAccountId: "rcvmulzibfebvzgooms",
- *         awsProperties: {
- *             hostedZoneConfig: {
- *                 comment: "vanhfd",
- *             },
- *             hostedZoneTags: [{
- *                 key: "zvuvccszzjwkmfojvfbtxuchpvxcy",
- *                 value: "ptsrmgayfujrfvjwyxoi",
- *             }],
- *             id: "dwezucqqxsyhynebuyflyc",
- *             name: "koqhelfps",
- *             nameServers: ["qizlbjltglpbdpxcsriu"],
- *             queryLoggingConfig: {
- *                 cloudWatchLogsLogGroupArn: "magynetpgpdveymgnonjicfoxzxfp",
- *             },
- *             vpCs: [{
- *                 vpcId: "nxfxsb",
- *                 vpcRegion: "y",
- *             }],
- *         },
- *         awsRegion: "nthjzqxrrqsducmjudhrcdiqioy",
- *         awsSourceSchema: "a",
- *         awsTags: {
- *             key625: "we",
- *         },
- *         publicCloudConnectorsResourceId: "qugbrritrvssrcwtib",
- *         publicCloudResourceName: "edufxpyvryjxbnwulifcrwuezu",
- *     },
- *     resourceGroupName: "rgroute53HostedZone",
- *     tags: {
- *         key8226: "nxab",
- *     },
- * });
- *
- * ```
- *
- * ## Import
- *
- * An existing resource can be imported using its type token, name, and identifier, e.g.
- *
- * ```sh
- * $ pulumi import azure-native:awsconnector:Route53HostedZone p /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AwsConnector/route53HostedZones/{name} 
- * ```
  */
 export class Route53HostedZone extends pulumi.CustomResource {
     /**

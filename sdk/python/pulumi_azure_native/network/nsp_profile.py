@@ -156,28 +156,6 @@ class NspProfile(pulumi.CustomResource):
 
         Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
-        ## Example Usage
-        ### NspProfilesPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        nsp_profile = azure_native.network.NspProfile("nspProfile",
-            network_security_perimeter_name="nsp1",
-            profile_name="profile1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:NspProfile profile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName} 
-        ```
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,28 +179,6 @@ class NspProfile(pulumi.CustomResource):
         Uses Azure REST API version 2023-08-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01-preview.
 
         Other available API versions: 2021-02-01-preview, 2023-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
-
-        ## Example Usage
-        ### NspProfilesPut
-
-        ```python
-        import pulumi
-        import pulumi_azure_native as azure_native
-
-        nsp_profile = azure_native.network.NspProfile("nspProfile",
-            network_security_perimeter_name="nsp1",
-            profile_name="profile1",
-            resource_group_name="rg1")
-
-        ```
-
-        ## Import
-
-        An existing resource can be imported using its type token, name, and identifier, e.g.
-
-        ```sh
-        $ pulumi import azure-native:network:NspProfile profile1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityPerimeters/{networkSecurityPerimeterName}/profiles/{profileName} 
-        ```
 
 
         :param str resource_name: The name of the resource.
