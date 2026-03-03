@@ -8,13 +8,14 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v2 v2.2.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault v1.5.0
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/servicebus/armservicebus v1.2.0
-	github.com/pulumi/examples/misc/test v0.0.0-20260302123714-ec4254ca6572
+	github.com/pulumi/examples/misc/test v0.0.0-20260303113433-2949f0131e71
 	github.com/pulumi/providertest v0.6.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.14.0
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.14.0
 	github.com/pulumi/pulumi/pkg/v3 v3.224.0
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 	github.com/stretchr/testify v1.11.1
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -218,6 +219,5 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
 )
