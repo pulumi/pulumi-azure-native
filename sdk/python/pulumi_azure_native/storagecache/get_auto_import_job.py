@@ -443,6 +443,8 @@ def get_auto_import_job(aml_filesystem_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2025-07-01.
 
+    Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
     :param _builtins.str auto_import_job_name: Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
@@ -497,6 +499,8 @@ def get_auto_import_job_output(aml_filesystem_name: Optional[pulumi.Input[_built
     Returns an auto import job.
 
     Uses Azure REST API version 2025-07-01.
+
+    Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.

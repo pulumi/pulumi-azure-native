@@ -83,7 +83,13 @@ namespace Pulumi.AzureNative.AlertsManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// AddActionGroups
+        /// </summary>
         public static ActionType AddActionGroups { get; } = new ActionType("AddActionGroups");
+        /// <summary>
+        /// RemoveAllActionGroups
+        /// </summary>
         public static ActionType RemoveAllActionGroups { get; } = new ActionType("RemoveAllActionGroups");
 
         public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
@@ -145,12 +151,33 @@ namespace Pulumi.AzureNative.AlertsManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Sunday
+        /// </summary>
         public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
+        /// <summary>
+        /// Monday
+        /// </summary>
         public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
+        /// <summary>
+        /// Tuesday
+        /// </summary>
         public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
+        /// <summary>
+        /// Wednesday
+        /// </summary>
         public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
+        /// <summary>
+        /// Thursday
+        /// </summary>
         public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
+        /// <summary>
+        /// Friday
+        /// </summary>
         public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
+        /// <summary>
+        /// Saturday
+        /// </summary>
         public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
 
         public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
@@ -181,16 +208,49 @@ namespace Pulumi.AzureNative.AlertsManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Severity
+        /// </summary>
         public static Field Severity { get; } = new Field("Severity");
+        /// <summary>
+        /// MonitorService
+        /// </summary>
         public static Field MonitorService { get; } = new Field("MonitorService");
+        /// <summary>
+        /// MonitorCondition
+        /// </summary>
         public static Field MonitorCondition { get; } = new Field("MonitorCondition");
+        /// <summary>
+        /// SignalType
+        /// </summary>
         public static Field SignalType { get; } = new Field("SignalType");
+        /// <summary>
+        /// TargetResourceType
+        /// </summary>
         public static Field TargetResourceType { get; } = new Field("TargetResourceType");
+        /// <summary>
+        /// TargetResource
+        /// </summary>
         public static Field TargetResource { get; } = new Field("TargetResource");
+        /// <summary>
+        /// TargetResourceGroup
+        /// </summary>
         public static Field TargetResourceGroup { get; } = new Field("TargetResourceGroup");
+        /// <summary>
+        /// AlertRuleId
+        /// </summary>
         public static Field AlertRuleId { get; } = new Field("AlertRuleId");
+        /// <summary>
+        /// AlertRuleName
+        /// </summary>
         public static Field AlertRuleName { get; } = new Field("AlertRuleName");
+        /// <summary>
+        /// Description
+        /// </summary>
         public static Field Description { get; } = new Field("Description");
+        /// <summary>
+        /// AlertContext
+        /// </summary>
         public static Field AlertContext { get; } = new Field("AlertContext");
 
         public static bool operator ==(Field left, Field right) => left.Equals(right);
@@ -221,9 +281,21 @@ namespace Pulumi.AzureNative.AlertsManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Equals
+        /// </summary>
         public static Operator EqualsValue { get; } = new Operator("Equals");
+        /// <summary>
+        /// NotEquals
+        /// </summary>
         public static Operator NotEquals { get; } = new Operator("NotEquals");
+        /// <summary>
+        /// Contains
+        /// </summary>
         public static Operator Contains { get; } = new Operator("Contains");
+        /// <summary>
+        /// DoesNotContain
+        /// </summary>
         public static Operator DoesNotContain { get; } = new Operator("DoesNotContain");
 
         public static bool operator ==(Operator left, Operator right) => left.Equals(right);
@@ -254,8 +326,17 @@ namespace Pulumi.AzureNative.AlertsManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Daily
+        /// </summary>
         public static RecurrenceType Daily { get; } = new RecurrenceType("Daily");
+        /// <summary>
+        /// Weekly
+        /// </summary>
         public static RecurrenceType Weekly { get; } = new RecurrenceType("Weekly");
+        /// <summary>
+        /// Monthly
+        /// </summary>
         public static RecurrenceType Monthly { get; } = new RecurrenceType("Monthly");
 
         public static bool operator ==(RecurrenceType left, RecurrenceType right) => left.Equals(right);

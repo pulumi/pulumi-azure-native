@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<double>? LearningRate { get; set; }
 
         /// <summary>
-        /// Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        /// Learning rate scheduler enum.
         /// </summary>
         [Input("learningRateScheduler")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.LearningRateScheduler>? LearningRateScheduler { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// Type of optimizer.
+        /// Stochastic optimizer for image models.
         /// </summary>
         [Input("optimizer")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.StochasticOptimizer>? Optimizer { get; set; }

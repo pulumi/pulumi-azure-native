@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetSitesBySubscriptionResult:
     """
-    Site as ARM Resource
+    Site as Extension Resource
     """
     def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):

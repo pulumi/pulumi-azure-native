@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
  *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class CapabilityHost extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class CapabilityHost extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly capabilityHostProperties: pulumi.Output<outputs.machinelearningservices.CapabilityHostResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.CapabilityHostPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,8 +73,8 @@ export class CapabilityHost extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.capabilityHostProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'capabilityHostProperties'");
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,8 +82,8 @@ export class CapabilityHost extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["capabilityHostProperties"] = args ? (args.capabilityHostProperties ? pulumi.output(args.capabilityHostProperties).apply(inputs.machinelearningservices.capabilityHostArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.capabilityHostPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -91,13 +91,13 @@ export class CapabilityHost extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["capabilityHostProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20241001preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250101preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250401preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250601:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250701preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250901:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20251001preview:CapabilityHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20241001preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250101preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250401preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250601:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250701preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20250901:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20251001preview:CapabilityHost" }, { type: "azure-native:machinelearningservices/v20251201:CapabilityHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapabilityHost.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,19 +108,19 @@ export class CapabilityHost extends pulumi.CustomResource {
  */
 export interface CapabilityHostArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    capabilityHostProperties: pulumi.Input<inputs.machinelearningservices.CapabilityHostArgs>;
-    /**
      * CapabilityHost name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.CapabilityHostPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

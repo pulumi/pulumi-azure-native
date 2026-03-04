@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
  *
- * Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FeaturesetVersion extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class FeaturesetVersion extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly featuresetVersionProperties: pulumi.Output<outputs.machinelearningservices.FeaturesetVersionResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.FeaturesetVersionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,11 +73,11 @@ export class FeaturesetVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.featuresetVersionProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'featuresetVersionProperties'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -85,8 +85,8 @@ export class FeaturesetVersion extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["featuresetVersionProperties"] = args ? (args.featuresetVersionProperties ? pulumi.output(args.featuresetVersionProperties).apply(inputs.machinelearningservices.featuresetVersionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.featuresetVersionPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["version"] = args?.version;
             resourceInputs["workspaceName"] = args?.workspaceName;
@@ -95,13 +95,13 @@ export class FeaturesetVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["featuresetVersionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240401:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20241001:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250101preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250401:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250401preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250601:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250701preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250901:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20251001preview:FeaturesetVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230201preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240401:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20241001:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250101preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250401:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250401preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250601:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250701preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20250901:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20251001preview:FeaturesetVersion" }, { type: "azure-native:machinelearningservices/v20251201:FeaturesetVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturesetVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -112,13 +112,13 @@ export class FeaturesetVersion extends pulumi.CustomResource {
  */
 export interface FeaturesetVersionArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    featuresetVersionProperties: pulumi.Input<inputs.machinelearningservices.FeaturesetVersionArgs>;
-    /**
      * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.FeaturesetVersionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,7 +128,7 @@ export interface FeaturesetVersionArgs {
      */
     version?: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

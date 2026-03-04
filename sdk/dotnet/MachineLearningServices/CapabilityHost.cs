@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// 
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2024-10-01-preview.
     /// 
-    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CapabilityHost")]
     public partial class CapabilityHost : global::Pulumi.CustomResource
@@ -26,16 +26,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("capabilityHostProperties")]
-        public Output<Outputs.CapabilityHostResponse> CapabilityHostProperties { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.CapabilityHostPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:CapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:CapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:CapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:CapabilityHost" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,16 +106,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class CapabilityHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("capabilityHostProperties", required: true)]
-        public Input<Inputs.CapabilityHostArgs> CapabilityHostProperties { get; set; } = null!;
-
-        /// <summary>
         /// CapabilityHost name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CapabilityHostPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -123,7 +124,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

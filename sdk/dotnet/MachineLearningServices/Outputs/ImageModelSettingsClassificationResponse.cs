@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly double? LearningRate;
         /// <summary>
-        /// Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        /// Learning rate scheduler enum.
         /// </summary>
         public readonly string? LearningRateScheduler;
         /// <summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly int? NumberOfWorkers;
         /// <summary>
-        /// Type of optimizer.
+        /// Stochastic optimizer for image models.
         /// </summary>
         public readonly string? Optimizer;
         /// <summary>

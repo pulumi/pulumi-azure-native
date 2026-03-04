@@ -27,13 +27,16 @@ class GetPython3PackageResult:
     """
     Definition of the module type.
     """
-    def __init__(__self__, activity_count=None, azure_api_version=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
+    def __init__(__self__, activity_count=None, azure_api_version=None, content_link=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, system_data=None, tags=None, type=None, version=None):
         if activity_count and not isinstance(activity_count, int):
             raise TypeError("Expected argument 'activity_count' to be a int")
         pulumi.set(__self__, "activity_count", activity_count)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if content_link and not isinstance(content_link, dict):
+            raise TypeError("Expected argument 'content_link' to be a dict")
+        pulumi.set(__self__, "content_link", content_link)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -70,6 +73,9 @@ class GetPython3PackageResult:
         if size_in_bytes and not isinstance(size_in_bytes, float):
             raise TypeError("Expected argument 'size_in_bytes' to be a float")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -84,7 +90,7 @@ class GetPython3PackageResult:
     @pulumi.getter(name="activityCount")
     def activity_count(self) -> Optional[_builtins.int]:
         """
-        Gets the activity count of the module.
+        Gets or sets the activity count of the module.
         """
         return pulumi.get(self, "activity_count")
 
@@ -97,10 +103,18 @@ class GetPython3PackageResult:
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> Optional['outputs.ContentLinkResponse']:
+        """
+        Gets or sets the contentLink of the module.
+        """
+        return pulumi.get(self, "content_link")
+
+    @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[_builtins.str]:
         """
-        Gets the creation time.
+        Gets or sets the creation time.
         """
         return pulumi.get(self, "creation_time")
 
@@ -116,7 +130,7 @@ class GetPython3PackageResult:
     @pulumi.getter
     def error(self) -> Optional['outputs.ModuleErrorInfoResponse']:
         """
-        Gets the error info of the module.
+        Gets or sets the error info of the module.
         """
         return pulumi.get(self, "error")
 
@@ -124,7 +138,7 @@ class GetPython3PackageResult:
     @pulumi.getter
     def etag(self) -> Optional[_builtins.str]:
         """
-        Gets the etag of the resource.
+        Gets or sets the etag of the resource.
         """
         return pulumi.get(self, "etag")
 
@@ -132,7 +146,7 @@ class GetPython3PackageResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -140,7 +154,7 @@ class GetPython3PackageResult:
     @pulumi.getter(name="isComposite")
     def is_composite(self) -> Optional[_builtins.bool]:
         """
-        Gets type of module, if its composite or not.
+        Gets or sets type of module, if its composite or not.
         """
         return pulumi.get(self, "is_composite")
 
@@ -148,7 +162,7 @@ class GetPython3PackageResult:
     @pulumi.getter(name="isGlobal")
     def is_global(self) -> Optional[_builtins.bool]:
         """
-        Gets the isGlobal flag of the module.
+        Gets or sets the isGlobal flag of the module.
         """
         return pulumi.get(self, "is_global")
 
@@ -156,15 +170,15 @@ class GetPython3PackageResult:
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[_builtins.str]:
         """
-        Gets the last modified time.
+        Gets or sets the last modified time.
         """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[_builtins.str]:
+    def location(self) -> _builtins.str:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -180,7 +194,7 @@ class GetPython3PackageResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[_builtins.str]:
         """
-        Gets the provisioning state of the module.
+        Gets or sets the provisioning state of the module.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -188,9 +202,17 @@ class GetPython3PackageResult:
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> Optional[_builtins.float]:
         """
-        Gets the size in bytes of the module.
+        Gets or sets the size in bytes of the module.
         """
         return pulumi.get(self, "size_in_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -204,7 +226,7 @@ class GetPython3PackageResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -212,7 +234,7 @@ class GetPython3PackageResult:
     @pulumi.getter
     def version(self) -> Optional[_builtins.str]:
         """
-        Gets the version of the module.
+        Gets or sets the version of the module.
         """
         return pulumi.get(self, "version")
 
@@ -225,6 +247,7 @@ class AwaitableGetPython3PackageResult(GetPython3PackageResult):
         return GetPython3PackageResult(
             activity_count=self.activity_count,
             azure_api_version=self.azure_api_version,
+            content_link=self.content_link,
             creation_time=self.creation_time,
             description=self.description,
             error=self.error,
@@ -237,6 +260,7 @@ class AwaitableGetPython3PackageResult(GetPython3PackageResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             size_in_bytes=self.size_in_bytes,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             version=self.version)
@@ -249,9 +273,9 @@ def get_python3_package(automation_account_name: Optional[_builtins.str] = None,
     """
     Retrieve the python 3 package identified by package name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -268,6 +292,7 @@ def get_python3_package(automation_account_name: Optional[_builtins.str] = None,
     return AwaitableGetPython3PackageResult(
         activity_count=pulumi.get(__ret__, 'activity_count'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        content_link=pulumi.get(__ret__, 'content_link'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         error=pulumi.get(__ret__, 'error'),
@@ -280,6 +305,7 @@ def get_python3_package(automation_account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
@@ -290,9 +316,9 @@ def get_python3_package_output(automation_account_name: Optional[pulumi.Input[_b
     """
     Retrieve the python 3 package identified by package name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -308,6 +334,7 @@ def get_python3_package_output(automation_account_name: Optional[pulumi.Input[_b
     return __ret__.apply(lambda __response__: GetPython3PackageResult(
         activity_count=pulumi.get(__response__, 'activity_count'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        content_link=pulumi.get(__response__, 'content_link'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         error=pulumi.get(__response__, 'error'),
@@ -320,6 +347,7 @@ def get_python3_package_output(automation_account_name: Optional[pulumi.Input[_b
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         version=pulumi.get(__response__, 'version')))

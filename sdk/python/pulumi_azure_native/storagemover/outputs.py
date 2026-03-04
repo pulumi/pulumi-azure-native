@@ -21,6 +21,7 @@ __all__ = [
     'AzureKeyVaultSmbCredentialsResponse',
     'AzureStorageBlobContainerEndpointPropertiesResponse',
     'AzureStorageSmbFileShareEndpointPropertiesResponse',
+    'ConnectionPropertiesResponse',
     'NfsMountEndpointPropertiesResponse',
     'SmbMountEndpointPropertiesResponse',
     'SystemDataResponse',
@@ -312,6 +313,124 @@ class AzureStorageSmbFileShareEndpointPropertiesResponse(dict):
         A description for the Endpoint.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ConnectionPropertiesResponse(dict):
+    """
+    Properties of the Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionStatus":
+            suggest = "connection_status"
+        elif key == "privateEndpointName":
+            suggest = "private_endpoint_name"
+        elif key == "privateEndpointResourceId":
+            suggest = "private_endpoint_resource_id"
+        elif key == "privateLinkServiceId":
+            suggest = "private_link_service_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "jobList":
+            suggest = "job_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_status: _builtins.str,
+                 private_endpoint_name: _builtins.str,
+                 private_endpoint_resource_id: _builtins.str,
+                 private_link_service_id: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 job_list: Optional[Sequence[_builtins.str]] = None):
+        """
+        Properties of the Connection resource.
+
+        :param _builtins.str connection_status: The connection status.
+        :param _builtins.str private_endpoint_name: The PrivateEndpointName associated with the connection.
+        :param _builtins.str private_endpoint_resource_id: The privateEndpoint resource Id
+        :param _builtins.str private_link_service_id: The PrivateLinkServiceId for the connection.
+        :param _builtins.str provisioning_state: The provisioning state of this resource.
+        :param _builtins.str description: A description for the Connection.
+        :param Sequence[_builtins.str] job_list: List of job definitions associated with this connection.
+        """
+        pulumi.set(__self__, "connection_status", connection_status)
+        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
+        pulumi.set(__self__, "private_endpoint_resource_id", private_endpoint_resource_id)
+        pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if job_list is not None:
+            pulumi.set(__self__, "job_list", job_list)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionStatus")
+    def connection_status(self) -> _builtins.str:
+        """
+        The connection status.
+        """
+        return pulumi.get(self, "connection_status")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> _builtins.str:
+        """
+        The PrivateEndpointName associated with the connection.
+        """
+        return pulumi.get(self, "private_endpoint_name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointResourceId")
+    def private_endpoint_resource_id(self) -> _builtins.str:
+        """
+        The privateEndpoint resource Id
+        """
+        return pulumi.get(self, "private_endpoint_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceId")
+    def private_link_service_id(self) -> _builtins.str:
+        """
+        The PrivateLinkServiceId for the connection.
+        """
+        return pulumi.get(self, "private_link_service_id")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of this resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description for the Connection.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="jobList")
+    def job_list(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of job definitions associated with this connection.
+        """
+        return pulumi.get(self, "job_list")
 
 
 @pulumi.output_type

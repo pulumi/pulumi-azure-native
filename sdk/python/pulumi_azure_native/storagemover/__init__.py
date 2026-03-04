@@ -8,8 +8,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .agent import *
+from .connection import *
 from .endpoint import *
 from .get_agent import *
+from .get_connection import *
 from .get_endpoint import *
 from .get_job_definition import *
 from .get_project import *

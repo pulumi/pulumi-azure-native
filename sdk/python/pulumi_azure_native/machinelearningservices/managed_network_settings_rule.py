@@ -31,7 +31,7 @@ class ManagedNetworkSettingsRuleArgs:
 
         :param pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']] properties: Outbound Rule for the managed network of a machine learning workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] rule_name: Name of the workspace managed network outbound rule
         """
         pulumi.set(__self__, "properties", properties)
@@ -68,7 +68,7 @@ class ManagedNetworkSettingsRuleArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -101,11 +101,11 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -113,7 +113,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
         :param pulumi.Input[Union[Union['FqdnOutboundRuleArgs', 'FqdnOutboundRuleArgsDict'], Union['PrivateEndpointOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgsDict'], Union['ServiceTagOutboundRuleArgs', 'ServiceTagOutboundRuleArgsDict']]] properties: Outbound Rule for the managed network of a machine learning workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] rule_name: Name of the workspace managed network outbound rule
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
@@ -122,11 +122,11 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
                  args: ManagedNetworkSettingsRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -171,7 +171,7 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:ManagedNetworkSettingsRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:ManagedNetworkSettingsRule"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:ManagedNetworkSettingsRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedNetworkSettingsRule, __self__).__init__(
             'azure-native:machinelearningservices:ManagedNetworkSettingsRule',

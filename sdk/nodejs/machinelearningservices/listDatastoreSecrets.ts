@@ -5,15 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Base definition for datastore secrets.
+ * Get datastore secrets.
  *
- * Uses Azure REST API version 2025-09-01.
+ * Uses Azure REST API version 2025-12-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listDatastoreSecrets(args: ListDatastoreSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDatastoreSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listDatastoreSecrets", {
+        "expirableSecret": args.expirableSecret,
+        "expireAfterHours": args.expireAfterHours,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -21,6 +23,14 @@ export function listDatastoreSecrets(args: ListDatastoreSecretsArgs, opts?: pulu
 }
 
 export interface ListDatastoreSecretsArgs {
+    /**
+     * Indicates if the secret is expirable.
+     */
+    expirableSecret?: boolean;
+    /**
+     * Number of hours after which the secret will expire.
+     */
+    expireAfterHours?: number;
     /**
      * Datastore name.
      */
@@ -30,7 +40,7 @@ export interface ListDatastoreSecretsArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: string;
 }
@@ -45,15 +55,17 @@ export interface ListDatastoreSecretsResult {
     readonly secretsType: string;
 }
 /**
- * Base definition for datastore secrets.
+ * Get datastore secrets.
  *
- * Uses Azure REST API version 2025-09-01.
+ * Uses Azure REST API version 2025-12-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatastoreSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listDatastoreSecrets", {
+        "expirableSecret": args.expirableSecret,
+        "expireAfterHours": args.expireAfterHours,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -61,6 +73,14 @@ export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs,
 }
 
 export interface ListDatastoreSecretsOutputArgs {
+    /**
+     * Indicates if the secret is expirable.
+     */
+    expirableSecret?: pulumi.Input<boolean>;
+    /**
+     * Number of hours after which the secret will expire.
+     */
+    expireAfterHours?: pulumi.Input<number>;
     /**
      * Datastore name.
      */
@@ -70,7 +90,7 @@ export interface ListDatastoreSecretsOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

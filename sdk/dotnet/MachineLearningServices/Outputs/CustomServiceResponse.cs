@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.ImageResponse? Image;
         /// <summary>
+        /// Describes the jupyter kernel settings for the image if its a custom environment
+        /// </summary>
+        public readonly Outputs.JupyterKernelConfigResponse? Kernel;
+        /// <summary>
         /// Name of the Custom Service
         /// </summary>
         public readonly string? Name;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.ImageResponse? image,
 
+            Outputs.JupyterKernelConfigResponse? kernel,
+
             string? name,
 
             ImmutableArray<Outputs.VolumeDefinitionResponse> volumes)
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             Endpoints = endpoints;
             EnvironmentVariables = environmentVariables;
             Image = image;
+            Kernel = kernel;
             Name = name;
             Volumes = volumes;
         }

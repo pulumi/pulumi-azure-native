@@ -80,6 +80,8 @@ __all__ = [
     'MLAssistConfigurationType',
     'ManagedNetworkKind',
     'ManagedNetworkStatus',
+    'ManagedPERequirement',
+    'ManagedPEStatus',
     'ManagedServiceIdentityType',
     'MaterializationStoreType',
     'MediaType',
@@ -103,9 +105,7 @@ __all__ = [
     'OperatingSystemType',
     'OsType',
     'OutputDeliveryMode',
-    'PrivateEndpointServiceConnectionStatus',
     'Protocol',
-    'PublicNetworkAccess',
     'PublicNetworkAccessType',
     'RaiPolicyContentSource',
     'RaiPolicyMode',
@@ -148,7 +148,6 @@ __all__ = [
     'TriggerType',
     'UseStl',
     'ValidationMetricType',
-    'ValueFormat',
     'VmPriority',
     'VolumeDefinitionType',
     'WebhookType',
@@ -186,7 +185,7 @@ class AuthMode(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:AutoRebuildSetting")
 class AutoRebuildSetting(_builtins.str, Enum):
     """
-    Defines if image needs to be rebuilt based on base image changes.
+    AutoRebuild setting for the derived image
     """
     DISABLED = "Disabled"
     ON_BASE_IMAGE_UPDATE = "OnBaseImageUpdate"
@@ -204,7 +203,9 @@ class BatchDeploymentConfigurationType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:BatchLoggingLevel")
 class BatchLoggingLevel(_builtins.str, Enum):
     """
-    Logging level for batch inference operation.
+    Log verbosity for batch inferencing.
+    Increasing verbosity order for logging is : Warning, Info and Debug.
+    The default value is Info.
     """
     INFO = "Info"
     WARNING = "Warning"
@@ -214,7 +215,7 @@ class BatchLoggingLevel(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:BatchOutputAction")
 class BatchOutputAction(_builtins.str, Enum):
     """
-    Indicates how the output will be organized.
+    Enum to determine how batch inferencing will handle output
     """
     SUMMARY_ONLY = "SummaryOnly"
     APPEND_ROW = "AppendRow"
@@ -406,7 +407,7 @@ class ClassificationModels(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ClassificationMultilabelPrimaryMetrics")
 class ClassificationMultilabelPrimaryMetrics(_builtins.str, Enum):
     """
-    Primary metric to optimize for this task.
+    Primary metrics for classification multilabel tasks.
     """
     AUC_WEIGHTED = "AUCWeighted"
     """
@@ -441,7 +442,7 @@ class ClassificationMultilabelPrimaryMetrics(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ClassificationPrimaryMetrics")
 class ClassificationPrimaryMetrics(_builtins.str, Enum):
     """
-    Primary metric for Text-Classification task.
+    Primary metrics for classification tasks.
     """
     AUC_WEIGHTED = "AUCWeighted"
     """
@@ -601,6 +602,13 @@ class ConnectionAuthType(_builtins.str, Enum):
     CUSTOM_KEYS = "CustomKeys"
     O_AUTH2 = "OAuth2"
     AAD = "AAD"
+    DELEGATED_SAS = "DelegatedSAS"
+    PROJECT_MANAGED_IDENTITY = "ProjectManagedIdentity"
+    ACCOUNT_MANAGED_IDENTITY = "AccountManagedIdentity"
+    USER_ENTRA_TOKEN = "UserEntraToken"
+    AGENT_USER_IMPERSONATION = "AgentUserImpersonation"
+    AGENTIC_IDENTITY_TOKEN = "AgenticIdentityToken"
+    AGENTIC_USER = "AgenticUser"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:ConnectionCategory")
@@ -613,11 +621,13 @@ class ConnectionCategory(_builtins.str, Enum):
     GIT = "Git"
     S3 = "S3"
     SNOWFLAKE = "Snowflake"
+    AZURE_KEY_VAULT = "AzureKeyVault"
     AZURE_SQL_DB = "AzureSqlDb"
     AZURE_SYNAPSE_ANALYTICS = "AzureSynapseAnalytics"
     AZURE_MY_SQL_DB = "AzureMySqlDb"
     AZURE_POSTGRES_DB = "AzurePostgresDb"
     ADLS_GEN2 = "ADLSGen2"
+    AZURE_CONTAINER_APP_ENVIRONMENT = "AzureContainerAppEnvironment"
     REDIS = "Redis"
     API_KEY = "ApiKey"
     AZURE_OPEN_AI = "AzureOpenAI"
@@ -626,6 +636,7 @@ class ConnectionCategory(_builtins.str, Enum):
     COGNITIVE_SERVICE = "CognitiveService"
     CUSTOM_KEYS = "CustomKeys"
     AZURE_BLOB = "AzureBlob"
+    AZURE_STORAGE_ACCOUNT = "AzureStorageAccount"
     AZURE_ONE_LAKE = "AzureOneLake"
     COSMOS_DB = "CosmosDb"
     COSMOS_DB_MONGO_DB_API = "CosmosDbMongoDbApi"
@@ -663,6 +674,7 @@ class ConnectionCategory(_builtins.str, Enum):
     TERADATA = "Teradata"
     VERTICA = "Vertica"
     PINECONE = "Pinecone"
+    DATABRICKS = "Databricks"
     CASSANDRA = "Cassandra"
     COUCHBASE = "Couchbase"
     MONGO_DB_V2 = "MongoDbV2"
@@ -678,6 +690,7 @@ class ConnectionCategory(_builtins.str, Enum):
     O_DATA_REST = "ODataRest"
     ODBC = "Odbc"
     GENERIC_REST = "GenericRest"
+    REMOTE_TOOL = "RemoteTool"
     AMAZON_MWS = "AmazonMws"
     CONCUR = "Concur"
     DYNAMICS = "Dynamics"
@@ -708,11 +721,21 @@ class ConnectionCategory(_builtins.str, Enum):
     ZOHO = "Zoho"
     GENERIC_CONTAINER_REGISTRY = "GenericContainerRegistry"
     ELASTICSEARCH = "Elasticsearch"
+    APP_INSIGHTS = "AppInsights"
+    APP_CONFIG = "AppConfig"
     OPEN_AI = "OpenAI"
     SERP = "Serp"
     BING_LLM_SEARCH = "BingLLMSearch"
     SERVERLESS = "Serverless"
     MANAGED_ONLINE_ENDPOINT = "ManagedOnlineEndpoint"
+    API_MANAGEMENT = "ApiManagement"
+    MODEL_GATEWAY = "ModelGateway"
+    GROUNDING_WITH_BING_SEARCH = "GroundingWithBingSearch"
+    GROUNDING_WITH_CUSTOM_SEARCH = "GroundingWithCustomSearch"
+    SHAREPOINT = "Sharepoint"
+    MICROSOFT_FABRIC = "MicrosoftFabric"
+    POWER_PLATFORM_ENVIRONMENT = "PowerPlatformEnvironment"
+    REMOTE_A2_A = "RemoteA2A"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:ContainerType")
@@ -776,7 +799,7 @@ class DatasetType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:DatastoreType")
 class DatastoreType(_builtins.str, Enum):
     """
-    [Required] Storage type backing the datastore.
+    Enum to determine the datastore contents type.
     """
     AZURE_BLOB = "AzureBlob"
     AZURE_DATA_LAKE_GEN1 = "AzureDataLakeGen1"
@@ -842,7 +865,7 @@ class EarlyTerminationPolicyType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:EgressPublicNetworkAccessType")
 class EgressPublicNetworkAccessType(_builtins.str, Enum):
     """
-    If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+    Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -890,12 +913,13 @@ class EndpointComputeType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:EndpointServiceConnectionStatus")
 class EndpointServiceConnectionStatus(_builtins.str, Enum):
     """
-    Connection status of the service consumer with the service provider
+    Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
     """
     APPROVED = "Approved"
     PENDING = "Pending"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+    TIMEOUT = "Timeout"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:EnvironmentVariableType")
@@ -950,7 +974,7 @@ class FeatureImportanceMode(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:FeatureLags")
 class FeatureLags(_builtins.str, Enum):
     """
-    Flag for generating lags for the numeric features with 'auto' or null.
+    Flag for generating lags for the numeric features.
     """
     NONE = "None"
     """
@@ -1102,7 +1126,7 @@ class ForecastingModels(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ForecastingPrimaryMetrics")
 class ForecastingPrimaryMetrics(_builtins.str, Enum):
     """
-    Primary metric for forecasting task.
+    Primary metrics for Forecasting task.
     """
     SPEARMAN_CORRELATION = "SpearmanCorrelation"
     """
@@ -1165,7 +1189,7 @@ class ImageAnnotationType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ImageType")
 class ImageType(_builtins.str, Enum):
     """
-    Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+    Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
     """
     DOCKER = "docker"
     AZUREML = "azureml"
@@ -1183,7 +1207,7 @@ class IncrementalDataRefresh(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:InputDeliveryMode")
 class InputDeliveryMode(_builtins.str, Enum):
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
     READ_ONLY_MOUNT = "ReadOnlyMount"
     READ_WRITE_MOUNT = "ReadWriteMount"
@@ -1196,7 +1220,7 @@ class InputDeliveryMode(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:InstanceSegmentationPrimaryMetrics")
 class InstanceSegmentationPrimaryMetrics(_builtins.str, Enum):
     """
-    Primary metric to optimize for this task.
+    Primary metrics for InstanceSegmentation tasks.
     """
     MEAN_AVERAGE_PRECISION = "MeanAveragePrecision"
     """
@@ -1254,7 +1278,7 @@ class JobOutputType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:JobTier")
 class JobTier(_builtins.str, Enum):
     """
-    Controls the compute job tier
+    Enum to determine the job tier.
     """
     NULL = "Null"
     SPOT = "Spot"
@@ -1278,7 +1302,7 @@ class JobType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:LearningRateScheduler")
 class LearningRateScheduler(_builtins.str, Enum):
     """
-    Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+    Learning rate scheduler enum.
     """
     NONE = "None"
     """
@@ -1314,7 +1338,7 @@ class LoadBalancerType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:LogVerbosity")
 class LogVerbosity(_builtins.str, Enum):
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     NOT_SET = "NotSet"
     """
@@ -1369,6 +1393,20 @@ class ManagedNetworkStatus(_builtins.str, Enum):
     ACTIVE = "Active"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ManagedPERequirement")
+class ManagedPERequirement(_builtins.str, Enum):
+    REQUIRED = "Required"
+    NOT_REQUIRED = "NotRequired"
+    NOT_APPLICABLE = "NotApplicable"
+
+
+@pulumi.type_token("azure-native:machinelearningservices:ManagedPEStatus")
+class ManagedPEStatus(_builtins.str, Enum):
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
+    NOT_APPLICABLE = "NotApplicable"
+
+
 @pulumi.type_token("azure-native:machinelearningservices:ManagedServiceIdentityType")
 class ManagedServiceIdentityType(_builtins.str, Enum):
     """
@@ -1403,9 +1441,7 @@ class MediaType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ModelSize")
 class ModelSize(_builtins.str, Enum):
     """
-    Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-    Note: training run may get into CUDA OOM if the model size is too big.
-    Note: This settings is only supported for the 'yolov5' algorithm.
+    Image model size.
     """
     NONE = "None"
     """
@@ -1652,7 +1688,7 @@ class NumericalPredictionDriftMetric(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ObjectDetectionPrimaryMetrics")
 class ObjectDetectionPrimaryMetrics(_builtins.str, Enum):
     """
-    Primary metric to optimize for this task.
+    Primary metrics for Image ObjectDetection task.
     """
     MEAN_AVERAGE_PRECISION = "MeanAveragePrecision"
     """
@@ -1672,7 +1708,7 @@ class OneLakeArtifactType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:OperatingSystemType")
 class OperatingSystemType(_builtins.str, Enum):
     """
-    The OS type of the environment.
+    The type of operating system.
     """
     LINUX = "Linux"
     WINDOWS = "Windows"
@@ -1690,23 +1726,11 @@ class OsType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:OutputDeliveryMode")
 class OutputDeliveryMode(_builtins.str, Enum):
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     READ_WRITE_MOUNT = "ReadWriteMount"
     UPLOAD = "Upload"
     DIRECT = "Direct"
-
-
-@pulumi.type_token("azure-native:machinelearningservices:PrivateEndpointServiceConnectionStatus")
-class PrivateEndpointServiceConnectionStatus(_builtins.str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-    TIMEOUT = "Timeout"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:Protocol")
@@ -1719,19 +1743,10 @@ class Protocol(_builtins.str, Enum):
     HTTP = "http"
 
 
-@pulumi.type_token("azure-native:machinelearningservices:PublicNetworkAccess")
-class PublicNetworkAccess(_builtins.str, Enum):
-    """
-    Whether requests from Public Network are allowed.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 @pulumi.type_token("azure-native:machinelearningservices:PublicNetworkAccessType")
 class PublicNetworkAccessType(_builtins.str, Enum):
     """
-    Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+    Whether requests from Public Network are allowed.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -1867,7 +1882,7 @@ class RegressionModels(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:RegressionPrimaryMetrics")
 class RegressionPrimaryMetrics(_builtins.str, Enum):
     """
-    Primary metric for regression task.
+    Primary metrics for Regression task.
     """
     SPEARMAN_CORRELATION = "SpearmanCorrelation"
     """
@@ -2045,6 +2060,8 @@ class ServerlessInferenceEndpointAuthMode(_builtins.str, Enum):
     [Required] Specifies the authentication mode for the Serverless endpoint.
     """
     KEY = "Key"
+    AAD = "AAD"
+    KEY_AND_AAD = "KeyAndAAD"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:ServiceDataAccessAuthIdentity")
@@ -2141,7 +2158,7 @@ class SslConfigStatus(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:StackMetaLearnerType")
 class StackMetaLearnerType(_builtins.str, Enum):
     """
-    The meta-learner is a model trained on the output of the individual heterogeneous models.
+    The meta-learner is a model trained on the output of the individual heterogeneous models.\\r\\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\\r\\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
     """
     NONE = "None"
     LOGISTIC_REGRESSION = "LogisticRegression"
@@ -2168,7 +2185,7 @@ class StackMetaLearnerType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:StochasticOptimizer")
 class StochasticOptimizer(_builtins.str, Enum):
     """
-    Type of optimizer.
+    Stochastic optimizer for image models.
     """
     NONE = "None"
     """
@@ -2201,8 +2218,7 @@ class SystemDatastoresAuthMode(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:TargetAggregationFunction")
 class TargetAggregationFunction(_builtins.str, Enum):
     """
-    The function to be used to aggregate the time series target column to conform to a user specified frequency.
-    If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+    Target aggregate function.
     """
     NONE = "None"
     """
@@ -2311,7 +2327,7 @@ class TextAnnotationType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:TriggerType")
 class TriggerType(_builtins.str, Enum):
     """
-    [Required] 
+    [Required]
     """
     RECURRENCE = "Recurrence"
     CRON = "Cron"
@@ -2333,7 +2349,7 @@ class UseStl(_builtins.str, Enum):
 @pulumi.type_token("azure-native:machinelearningservices:ValidationMetricType")
 class ValidationMetricType(_builtins.str, Enum):
     """
-    Metric computation method to use for validation metrics.
+    Metric computation method to use for validation metrics in image tasks.
     """
     NONE = "None"
     """
@@ -2351,14 +2367,6 @@ class ValidationMetricType(_builtins.str, Enum):
     """
     CocoVoc metric.
     """
-
-
-@pulumi.type_token("azure-native:machinelearningservices:ValueFormat")
-class ValueFormat(_builtins.str, Enum):
-    """
-    format for the workspace connection value
-    """
-    JSON = "JSON"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:VmPriority")

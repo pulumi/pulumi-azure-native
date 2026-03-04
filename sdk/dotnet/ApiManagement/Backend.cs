@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Backend details.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
-    /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Backend")]
     public partial class Backend : global::Pulumi.CustomResource
@@ -49,6 +49,9 @@ namespace Pulumi.AzureNative.ApiManagement
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("pool")]
+        public Output<Outputs.BackendBaseParametersResponsePool?> Pool { get; private set; } = null!;
+
         /// <summary>
         /// Backend Properties contract
         /// </summary>
@@ -56,10 +59,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<Outputs.BackendPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Backend communication protocol.
+        /// Backend communication protocol. Required when backend type is 'Single'.
         /// </summary>
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// Backend gateway Contract Properties
@@ -92,10 +95,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Runtime Url of the Backend.
+        /// Runtime Url of the Backend. Required when backend type is 'Single'.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -193,6 +196,9 @@ namespace Pulumi.AzureNative.ApiManagement
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("pool")]
+        public Input<Inputs.BackendBaseParametersPoolArgs>? Pool { get; set; }
+
         /// <summary>
         /// Backend Properties contract
         /// </summary>
@@ -200,10 +206,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<Inputs.BackendPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Backend communication protocol.
+        /// Backend communication protocol. Required when backend type is 'Single'.
         /// </summary>
-        [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendProtocol> Protocol { get; set; } = null!;
+        [Input("protocol")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Backend gateway Contract Properties
@@ -242,10 +248,16 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<Inputs.BackendTlsPropertiesArgs>? Tls { get; set; }
 
         /// <summary>
-        /// Runtime Url of the Backend.
+        /// Type of the backend. A backend can be either Single or Pool.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendType>? Type { get; set; }
+
+        /// <summary>
+        /// Runtime Url of the Backend. Required when backend type is 'Single'.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public BackendArgs()
         {

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        /// Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
         /// </summary>
         [Input("egressPublicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EgressPublicNetworkAccessType>? EgressPublicNetworkAccess { get; set; }

@@ -177,9 +177,9 @@ def get_runtime_environment(automation_account_name: Optional[_builtins.str] = N
     """
     Get information about the Runtime Environment
 
-    Uses Azure REST API version 2023-05-15-preview.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -212,9 +212,9 @@ def get_runtime_environment_output(automation_account_name: Optional[pulumi.Inpu
     """
     Get information about the Runtime Environment
 
-    Uses Azure REST API version 2023-05-15-preview.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.

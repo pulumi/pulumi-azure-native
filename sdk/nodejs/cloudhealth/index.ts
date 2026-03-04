@@ -35,6 +35,16 @@ export const getEntity: typeof import("./getEntity").getEntity = null as any;
 export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
 utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
 
+export { GetEntityHistoryArgs, GetEntityHistoryResult, GetEntityHistoryOutputArgs } from "./getEntityHistory";
+export const getEntityHistory: typeof import("./getEntityHistory").getEntityHistory = null as any;
+export const getEntityHistoryOutput: typeof import("./getEntityHistory").getEntityHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getEntityHistory","getEntityHistoryOutput"], () => require("./getEntityHistory"));
+
+export { GetEntitySignalHistoryArgs, GetEntitySignalHistoryResult, GetEntitySignalHistoryOutputArgs } from "./getEntitySignalHistory";
+export const getEntitySignalHistory: typeof import("./getEntitySignalHistory").getEntitySignalHistory = null as any;
+export const getEntitySignalHistoryOutput: typeof import("./getEntitySignalHistory").getEntitySignalHistoryOutput = null as any;
+utilities.lazyLoad(exports, ["getEntitySignalHistory","getEntitySignalHistoryOutput"], () => require("./getEntitySignalHistory"));
+
 export { GetHealthModelArgs, GetHealthModelResult, GetHealthModelOutputArgs } from "./getHealthModel";
 export const getHealthModel: typeof import("./getHealthModel").getHealthModel = null as any;
 export const getHealthModelOutput: typeof import("./getHealthModel").getHealthModelOutput = null as any;

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public static class GetCodeSigningAccount
     {
         /// <summary>
-        /// Get a trusted Signing Account.
+        /// Get an artifact Signing Account.
         /// 
         /// Uses Azure REST API version 2024-09-30-preview.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.CodeSigning
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a trusted Signing Account.
+        /// Get an artifact Signing Account.
         /// 
         /// Uses Azure REST API version 2024-09-30-preview.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.CodeSigning
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a trusted Signing Account.
+        /// Get an artifact Signing Account.
         /// 
         /// Uses Azure REST API version 2024-09-30-preview.
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class GetCodeSigningAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Trusted Signing account name.
+        /// Artifact Signing account name.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class GetCodeSigningAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Trusted Signing account name.
+        /// Artifact Signing account name.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class GetCodeSigningAccountResult
     {
         /// <summary>
-        /// The URI of the trusted signing account which is used during signing files.
+        /// The URI of the artifact signing account which is used during signing files.
         /// </summary>
         public readonly string AccountUri;
         /// <summary>
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Status of the current operation on trusted signing account.
+        /// Status of the current operation on artifact signing account.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// SKU of the trusted signing account.
+        /// SKU of the artifact signing account.
         /// </summary>
         public readonly Outputs.AccountSkuResponse? Sku;
         /// <summary>

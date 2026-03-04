@@ -39,6 +39,8 @@ export const ApiType = {
     Soap: "soap",
     Websocket: "websocket",
     Graphql: "graphql",
+    Odata: "odata",
+    Grpc: "grpc",
 } as const;
 
 /**
@@ -251,10 +253,26 @@ export const ContentFormat = {
      * The GraphQL API endpoint hosted on a publicly accessible internet address.
      */
     Graphql_link: "graphql-link",
+    /**
+     * The contents are inline and Content Type is a OData XML Document.
+     */
+    Odata: "odata",
+    /**
+     * The OData metadata document hosted on a publicly accessible internet address.
+     */
+    Odata_link: "odata-link",
+    /**
+     * The contents are inline and Content Type is a gRPC protobuf file.
+     */
+    Grpc: "grpc",
+    /**
+     * The gRPC protobuf file is hosted on a publicly accessible internet address.
+     */
+    Grpc_link: "grpc-link",
 } as const;
 
 /**
- * Format of the Content in which the API is getting imported.
+ * Format of the Content in which the API is getting imported. New formats can be added in the future
  */
 export type ContentFormat = (typeof ContentFormat)[keyof typeof ContentFormat];
 
@@ -273,6 +291,22 @@ export const DataMaskingMode = {
  * Data masking mode.
  */
 export type DataMaskingMode = (typeof DataMaskingMode)[keyof typeof DataMaskingMode];
+
+export const DeveloperPortalStatus = {
+    /**
+     * Developer Portal is enabled for the service.
+     */
+    Enabled: "Enabled",
+    /**
+     * Developer Portal is disabled for the service.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Status of developer portal in this API Management service.
+ */
+export type DeveloperPortalStatus = (typeof DeveloperPortalStatus)[keyof typeof DeveloperPortalStatus];
 
 export const GatewayListDebugCredentialsContractPurpose = {
     /**
@@ -324,6 +358,7 @@ export const HostnameType = {
     Management: "Management",
     Scm: "Scm",
     DeveloperPortal: "DeveloperPortal",
+    ConfigurationApi: "ConfigurationApi",
 } as const;
 
 /**
@@ -393,33 +428,37 @@ export const KeyType = {
  */
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
-export const LlmDiagnosticSettings = {
+export const LegacyApiState = {
     /**
-     * Default LLM logs are enabled.
+     * Legacy Configuration API (v1) is enabled for the service and self-hosted gateways can connect to it.
      */
-    Enabled: "enabled",
+    Enabled: "Enabled",
     /**
-     * Default LLM logs are disabled.
+     * Legacy Configuration API (v1) is disabled for the service and self-hosted gateways can not connect to it.
      */
-    Disabled: "disabled",
+    Disabled: "Disabled",
 } as const;
 
 /**
- * Specifies whether default diagnostic should be enabled for Large Language Models or not.
+ * Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
  */
-export type LlmDiagnosticSettings = (typeof LlmDiagnosticSettings)[keyof typeof LlmDiagnosticSettings];
+export type LegacyApiState = (typeof LegacyApiState)[keyof typeof LegacyApiState];
 
-export const LlmMessageLogTypes = {
+export const LegacyPortalStatus = {
     /**
-     * Log all messages.
+     * Legacy Portal is enabled for the service.
      */
-    All: "all",
+    Enabled: "Enabled",
+    /**
+     * Legacy Portal is disabled for the service.
+     */
+    Disabled: "Disabled",
 } as const;
 
 /**
- * Specifies which message should be logged. Currently there is only 'all' option.
+ * Status of legacy portal in the API Management service.
  */
-export type LlmMessageLogTypes = (typeof LlmMessageLogTypes)[keyof typeof LlmMessageLogTypes];
+export type LegacyPortalStatus = (typeof LegacyPortalStatus)[keyof typeof LegacyPortalStatus];
 
 export const LoggerType = {
     /**
@@ -647,6 +686,14 @@ export const SkuType = {
      * Isolated SKU of Api Management.
      */
     Isolated: "Isolated",
+    /**
+     * BasicV2 SKU of Api Management.
+     */
+    BasicV2: "BasicV2",
+    /**
+     * StandardV2 SKU of Api Management.
+     */
+    StandardV2: "StandardV2",
 } as const;
 
 /**
@@ -671,6 +718,14 @@ export const SoapApiType = {
      * Imports the API having a GraphQL front end.
      */
     GraphQL: "graphql",
+    /**
+     * Imports the API having a OData front end.
+     */
+    OData: "odata",
+    /**
+     * Imports the API having a gRPC front end.
+     */
+    GRPC: "grpc",
 } as const;
 
 /**
@@ -678,7 +733,8 @@ export const SoapApiType = {
  *  * `http` creates a REST API 
  *  * `soap` creates a SOAP pass-through API  
  *  * `websocket` creates websocket API 
- *  * `graphql` creates GraphQL API.
+ *  * `graphql` creates GraphQL API. 
+ *  New types can be added in the future.
  */
 export type SoapApiType = (typeof SoapApiType)[keyof typeof SoapApiType];
 

@@ -7,24 +7,20 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'DefenderCspm',
-    'DefenderForServers',
+    'DesiredEnablementState',
 ]
 
 
-@pulumi.type_token("azure-native:managedops:DefenderCspm")
-class DefenderCspm(_builtins.str, Enum):
-    """
-    Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
-    """
-    ENABLE = "Enable"
-    DISABLE = "Disable"
-
-
-@pulumi.type_token("azure-native:managedops:DefenderForServers")
-class DefenderForServers(_builtins.str, Enum):
+@pulumi.type_token("azure-native:managedops:DesiredEnablementState")
+class DesiredEnablementState(_builtins.str, Enum):
     """
     Desired enablement state of the Defender For Servers service.
     """
     ENABLE = "Enable"
+    """
+    Enable the service.
+    """
     DISABLE = "Disable"
+    """
+    Disable the service.
+    """

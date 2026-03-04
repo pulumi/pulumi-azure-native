@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230301preview:NetworkManagerRoutingConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:NetworkManagerRoutingConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:NetworkManagerRoutingConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240701:NetworkManagerRoutingConfiguration" },

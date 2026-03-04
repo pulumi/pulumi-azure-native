@@ -34,11 +34,11 @@ class ComputeArgs:
         The set of arguments for constructing a Compute resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
-        :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']] properties: Compute properties
+        :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']] properties: The resource-specific properties for this resource.
         :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
@@ -73,7 +73,7 @@ class ComputeArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -121,7 +121,7 @@ class ComputeArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']]]:
         """
-        Compute properties
+        The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
@@ -172,9 +172,9 @@ class Compute(pulumi.CustomResource):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -182,11 +182,11 @@ class Compute(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
-        :param pulumi.Input[Union[Union['AKSArgs', 'AKSArgsDict'], Union['AmlComputeArgs', 'AmlComputeArgsDict'], Union['ComputeInstanceArgs', 'ComputeInstanceArgsDict'], Union['DataFactoryArgs', 'DataFactoryArgsDict'], Union['DataLakeAnalyticsArgs', 'DataLakeAnalyticsArgsDict'], Union['DatabricksArgs', 'DatabricksArgsDict'], Union['HDInsightArgs', 'HDInsightArgsDict'], Union['KubernetesArgs', 'KubernetesArgsDict'], Union['SynapseSparkArgs', 'SynapseSparkArgsDict'], Union['VirtualMachineArgs', 'VirtualMachineArgsDict']]] properties: Compute properties
+        :param pulumi.Input[Union[Union['AKSArgs', 'AKSArgsDict'], Union['AmlComputeArgs', 'AmlComputeArgsDict'], Union['ComputeInstanceArgs', 'ComputeInstanceArgsDict'], Union['DataFactoryArgs', 'DataFactoryArgsDict'], Union['DataLakeAnalyticsArgs', 'DataLakeAnalyticsArgsDict'], Union['DatabricksArgs', 'DatabricksArgsDict'], Union['HDInsightArgs', 'HDInsightArgsDict'], Union['KubernetesArgs', 'KubernetesArgsDict'], Union['SynapseSparkArgs', 'SynapseSparkArgsDict'], Union['VirtualMachineArgs', 'VirtualMachineArgsDict']]] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
@@ -197,9 +197,9 @@ class Compute(pulumi.CustomResource):
         """
         Machine Learning compute object wrapped into ARM resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-03-01-preview, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -250,7 +250,7 @@ class Compute(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20180301preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20181119:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190501:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190601:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20191101:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200101:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200218preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:MachineLearningCompute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210701:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220101preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:Compute")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20180301preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20181119:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190501:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20190601:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20191101:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200101:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200218preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200601:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200801:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210101:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210401:MachineLearningCompute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210701:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220101preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:Compute"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:Compute")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Compute, __self__).__init__(
             'azure-native:machinelearningservices:Compute',
@@ -321,7 +321,7 @@ class Compute(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output[Any]:
         """
-        Compute properties
+        The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 

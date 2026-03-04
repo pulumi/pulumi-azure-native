@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Identity principal Id
         /// </summary>
-        public readonly string PrincipalId;
+        public readonly string? PrincipalId;
 
         [OutputConstructor]
-        private ManagedResourceGroupAssignedIdentitiesResponse(string principalId)
+        private ManagedResourceGroupAssignedIdentitiesResponse(string? principalId)
         {
             PrincipalId = principalId;
         }

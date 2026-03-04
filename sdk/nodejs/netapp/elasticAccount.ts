@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * NetApp elastic account resource
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ElasticAccount extends pulumi.CustomResource {
     /**
@@ -113,7 +115,7 @@ export class ElasticAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20250901preview:ElasticAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20250901preview:ElasticAccount" }, { type: "azure-native:netapp/v20251215preview:ElasticAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ElasticAccount.__pulumiType, name, resourceInputs, opts);
     }

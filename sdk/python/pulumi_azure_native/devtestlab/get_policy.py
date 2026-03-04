@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPolicyResult',
@@ -26,7 +27,7 @@ class GetPolicyResult:
     """
     A Policy.
     """
-    def __init__(__self__, azure_api_version=None, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, id=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, id=None, location=None, name=None, provisioning_state=None, status=None, system_data=None, tags=None, threshold=None, type=None, unique_identifier=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -60,6 +61,9 @@ class GetPolicyResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -125,7 +129,7 @@ class GetPolicyResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -141,7 +145,7 @@ class GetPolicyResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -160,6 +164,14 @@ class GetPolicyResult:
         The status of the policy.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -181,7 +193,7 @@ class GetPolicyResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -211,6 +223,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             threshold=self.threshold,
             type=self.type,
@@ -231,7 +244,7 @@ def get_policy(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=description)'
     :param _builtins.str lab_name: labs
-    :param _builtins.str name: The name of the Schedule
+    :param _builtins.str name: The name of the Policy
     :param _builtins.str policy_set_name: policysets
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -256,6 +269,7 @@ def get_policy(expand: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         threshold=pulumi.get(__ret__, 'threshold'),
         type=pulumi.get(__ret__, 'type'),
@@ -274,7 +288,7 @@ def get_policy_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = 
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=description)'
     :param _builtins.str lab_name: labs
-    :param _builtins.str name: The name of the Schedule
+    :param _builtins.str name: The name of the Policy
     :param _builtins.str policy_set_name: policysets
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -298,6 +312,7 @@ def get_policy_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = 
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         threshold=pulumi.get(__response__, 'threshold'),
         type=pulumi.get(__response__, 'type'),

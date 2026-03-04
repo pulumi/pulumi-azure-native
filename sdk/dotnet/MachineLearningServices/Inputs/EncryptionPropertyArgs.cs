@@ -13,22 +13,43 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class EncryptionPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity that will be used to access the key vault for encryption at rest.
+        /// The byok cosmosdb account that customer brings to store customer's data
+        /// with encryption
+        /// </summary>
+        [Input("cosmosDbResourceId")]
+        public Input<string>? CosmosDbResourceId { get; set; }
+
+        /// <summary>
+        /// Identity to be used with the keyVault
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityForCmkArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Customer Key vault properties.
+        /// KeyVault details to do the encryption
         /// </summary>
         [Input("keyVaultProperties", required: true)]
-        public Input<Inputs.EncryptionKeyVaultPropertiesArgs> KeyVaultProperties { get; set; } = null!;
+        public Input<Inputs.KeyVaultPropertiesArgs> KeyVaultProperties { get; set; } = null!;
+
+        /// <summary>
+        /// The byok search account that customer brings to store customer's data
+        /// with encryption
+        /// </summary>
+        [Input("searchAccountResourceId")]
+        public Input<string>? SearchAccountResourceId { get; set; }
 
         /// <summary>
         /// Indicates whether or not the encryption is enabled for the workspace.
         /// </summary>
         [Input("status", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EncryptionStatus> Status { get; set; } = null!;
+
+        /// <summary>
+        /// The byok storage account that customer brings to store customer's data
+        /// with encryption
+        /// </summary>
+        [Input("storageAccountResourceId")]
+        public Input<string>? StorageAccountResourceId { get; set; }
 
         public EncryptionPropertyArgs()
         {

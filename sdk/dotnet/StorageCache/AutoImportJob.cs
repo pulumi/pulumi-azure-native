@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.StorageCache
     /// An auto import job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// 
     /// Uses Azure REST API version 2025-07-01.
+    /// 
+    /// Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:AutoImportJob")]
     public partial class AutoImportJob : global::Pulumi.CustomResource
@@ -235,6 +237,7 @@ namespace Pulumi.AzureNative.StorageCache
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20250701:AutoImportJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20260101:AutoImportJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

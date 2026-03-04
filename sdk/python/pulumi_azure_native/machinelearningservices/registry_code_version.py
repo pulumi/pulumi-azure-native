@@ -22,7 +22,7 @@ __all__ = ['RegistryCodeVersionArgs', 'RegistryCodeVersion']
 class RegistryCodeVersionArgs:
     def __init__(__self__, *,
                  code_name: pulumi.Input[_builtins.str],
-                 code_version_properties: pulumi.Input['CodeVersionArgs'],
+                 properties: pulumi.Input['CodeVersionPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  version: Optional[pulumi.Input[_builtins.str]] = None):
@@ -30,13 +30,13 @@ class RegistryCodeVersionArgs:
         The set of arguments for constructing a RegistryCodeVersion resource.
 
         :param pulumi.Input[_builtins.str] code_name: Container name.
-        :param pulumi.Input['CodeVersionArgs'] code_version_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['CodeVersionPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] version: Version identifier.
         """
         pulumi.set(__self__, "code_name", code_name)
-        pulumi.set(__self__, "code_version_properties", code_version_properties)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if version is not None:
@@ -55,16 +55,16 @@ class RegistryCodeVersionArgs:
         pulumi.set(self, "code_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="codeVersionProperties")
-    def code_version_properties(self) -> pulumi.Input['CodeVersionArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CodeVersionPropertiesArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "code_version_properties")
+        return pulumi.get(self, "properties")
 
-    @code_version_properties.setter
-    def code_version_properties(self, value: pulumi.Input['CodeVersionArgs']):
-        pulumi.set(self, "code_version_properties", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['CodeVersionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -110,7 +110,7 @@ class RegistryCodeVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_version_properties: Optional[pulumi.Input[Union['CodeVersionArgs', 'CodeVersionArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['CodeVersionPropertiesArgs', 'CodeVersionPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
@@ -118,15 +118,15 @@ class RegistryCodeVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] code_name: Container name.
-        :param pulumi.Input[Union['CodeVersionArgs', 'CodeVersionArgsDict']] code_version_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['CodeVersionPropertiesArgs', 'CodeVersionPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] version: Version identifier.
@@ -140,9 +140,9 @@ class RegistryCodeVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -161,7 +161,7 @@ class RegistryCodeVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 code_version_properties: Optional[pulumi.Input[Union['CodeVersionArgs', 'CodeVersionArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['CodeVersionPropertiesArgs', 'CodeVersionPropertiesArgsDict']]] = None,
                  registry_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
@@ -177,9 +177,9 @@ class RegistryCodeVersion(pulumi.CustomResource):
             if code_name is None and not opts.urn:
                 raise TypeError("Missing required property 'code_name'")
             __props__.__dict__["code_name"] = code_name
-            if code_version_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'code_version_properties'")
-            __props__.__dict__["code_version_properties"] = code_version_properties
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
@@ -191,7 +191,7 @@ class RegistryCodeVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:RegistryCodeVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:RegistryCodeVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:RegistryCodeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RegistryCodeVersion, __self__).__init__(
             'azure-native:machinelearningservices:RegistryCodeVersion',
@@ -216,8 +216,8 @@ class RegistryCodeVersion(pulumi.CustomResource):
         __props__ = RegistryCodeVersionArgs.__new__(RegistryCodeVersionArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["code_version_properties"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RegistryCodeVersion(resource_name, opts=opts, __props__=__props__)
@@ -231,20 +231,20 @@ class RegistryCodeVersion(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="codeVersionProperties")
-    def code_version_properties(self) -> pulumi.Output['outputs.CodeVersionResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "code_version_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.CodeVersionPropertiesResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

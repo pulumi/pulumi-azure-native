@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.TableVerticalLimitSettingsArgs>? LimitSettings { get; set; }
 
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         [Input("logVerbosity")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.LogVerbosity>? LogVerbosity { get; set; }
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public InputUnion<Inputs.AutoNCrossValidationsArgs, Inputs.CustomNCrossValidationsArgs>? NCrossValidations { get; set; }
 
         /// <summary>
-        /// Primary metric for regression task.
+        /// Primary metrics for Regression task.
         /// </summary>
         [Input("primaryMetric")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.RegressionPrimaryMetrics>? PrimaryMetric { get; set; }

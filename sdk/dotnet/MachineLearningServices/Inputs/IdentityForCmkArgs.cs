@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Identity that will be used to access key vault for encryption at rest
+    /// Identity object used for encryption.
     /// </summary>
     public sealed class IdentityForCmkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        /// UserAssignedIdentity to be used to fetch the encryption key from keyVault
         /// </summary>
         [Input("userAssignedIdentity")]
         public Input<string>? UserAssignedIdentity { get; set; }

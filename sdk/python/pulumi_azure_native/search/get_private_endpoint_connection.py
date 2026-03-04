@@ -123,7 +123,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
 
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
-    :param _builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
@@ -153,7 +153,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
 
 
     :param _builtins.str private_endpoint_connection_name: The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
-    :param _builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()

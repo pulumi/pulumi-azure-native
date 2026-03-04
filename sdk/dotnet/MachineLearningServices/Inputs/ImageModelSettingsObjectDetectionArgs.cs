@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<double>? LearningRate { get; set; }
 
         /// <summary>
-        /// Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        /// Learning rate scheduler enum.
         /// </summary>
         [Input("learningRateScheduler")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.LearningRateScheduler>? LearningRateScheduler { get; set; }
@@ -179,9 +179,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? ModelName { get; set; }
 
         /// <summary>
-        /// Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-        /// Note: training run may get into CUDA OOM if the model size is too big.
-        /// Note: This settings is only supported for the 'yolov5' algorithm.
+        /// Image model size.
         /// </summary>
         [Input("modelSize")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ModelSize>? ModelSize { get; set; }
@@ -225,7 +223,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
-        /// Type of optimizer.
+        /// Stochastic optimizer for image models.
         /// </summary>
         [Input("optimizer")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.StochasticOptimizer>? Optimizer { get; set; }
@@ -290,7 +288,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<double>? ValidationIouThreshold { get; set; }
 
         /// <summary>
-        /// Metric computation method to use for validation metrics.
+        /// Metric computation method to use for validation metrics in image tasks.
         /// </summary>
         [Input("validationMetricType")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ValidationMetricType>? ValidationMetricType { get; set; }

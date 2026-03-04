@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
-    /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// 
+    /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:BatchEndpoint")]
     public partial class BatchEndpoint : global::Pulumi.CustomResource
@@ -22,12 +24,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
-
-        /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("batchEndpointProperties")]
-        public Output<Outputs.BatchEndpointResponse> BatchEndpointProperties { get; private set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
@@ -52,6 +48,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.BatchEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
@@ -128,6 +130,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:BatchEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:BatchEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:BatchEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,13 +155,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("batchEndpointProperties", required: true)]
-        public Input<Inputs.BatchEndpointArgs> BatchEndpointProperties { get; set; } = null!;
-
-        /// <summary>
-        /// Name for the Batch inference endpoint.
+        /// Name for the Batch Endpoint.
         /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
@@ -180,6 +177,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.BatchEndpointPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -206,7 +209,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'AadConfigurationArgs',
     'AadConfigurationArgsDict',
+    'AccessBridgeSecurityRuleArgs',
+    'AccessBridgeSecurityRuleArgsDict',
     'AdministrativeCredentialsArgs',
     'AdministrativeCredentialsArgsDict',
     'AdministratorConfigurationArgs',
@@ -132,6 +134,113 @@ class AadConfigurationArgs:
     @admin_group_object_ids.setter
     def admin_group_object_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "admin_group_object_ids", value)
+
+
+class AccessBridgeSecurityRuleArgsDict(TypedDict):
+    direction: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]
+    """
+    The direction of allowed network traffic based on the rule.
+    """
+    port: pulumi.Input[_builtins.str]
+    """
+    The source or destination port or port range. Example 24562 or 24562-24570.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user provided value describing this rule.
+    """
+    ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of IPv4 addresses permitted as the source or destination of the security rule. For as single address, utilize a /32 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 10.10.10.10-10.10.10.20 or 10.10.10.10/24.
+    """
+    ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The set of IPv6 addresses permitted as the source or destination of the security rule. For as single address, utilize a /128 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 2001:db8:abcd::1-2001:db8:abcd::ff or 2001:db8:abcd::1/64.
+    """
+
+@pulumi.input_type
+class AccessBridgeSecurityRuleArgs:
+    def __init__(__self__, *,
+                 direction: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']],
+                 port: pulumi.Input[_builtins.str],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']] direction: The direction of allowed network traffic based on the rule.
+        :param pulumi.Input[_builtins.str] port: The source or destination port or port range. Example 24562 or 24562-24570.
+        :param pulumi.Input[_builtins.str] description: The user provided value describing this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv4_addresses: The set of IPv4 addresses permitted as the source or destination of the security rule. For as single address, utilize a /32 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 10.10.10.10-10.10.10.20 or 10.10.10.10/24.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ipv6_addresses: The set of IPv6 addresses permitted as the source or destination of the security rule. For as single address, utilize a /128 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 2001:db8:abcd::1-2001:db8:abcd::ff or 2001:db8:abcd::1/64.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "port", port)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]:
+        """
+        The direction of allowed network traffic based on the rule.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input[Union[_builtins.str, 'SecurityRuleDirection']]):
+        pulumi.set(self, "direction", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.str]:
+        """
+        The source or destination port or port range. Example 24562 or 24562-24570.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user provided value describing this rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The set of IPv4 addresses permitted as the source or destination of the security rule. For as single address, utilize a /32 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 10.10.10.10-10.10.10.20 or 10.10.10.10/24.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @ipv4_addresses.setter
+    def ipv4_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ipv4_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The set of IPv6 addresses permitted as the source or destination of the security rule. For as single address, utilize a /128 (CIDR notation). One or both Ipv4Addresses and Ipv6Addresses must be specified. Example formats: 2001:db8:abcd::1-2001:db8:abcd::ff or 2001:db8:abcd::1/64.
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ipv6_addresses", value)
 
 
 class AdministrativeCredentialsArgsDict(TypedDict):

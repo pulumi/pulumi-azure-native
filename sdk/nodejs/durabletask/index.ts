@@ -15,6 +15,11 @@ export const getScheduler: typeof import("./getScheduler").getScheduler = null a
 export const getSchedulerOutput: typeof import("./getScheduler").getSchedulerOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduler","getSchedulerOutput"], () => require("./getScheduler"));
 
+export { GetSchedulerPrivateEndpointConnectionArgs, GetSchedulerPrivateEndpointConnectionResult, GetSchedulerPrivateEndpointConnectionOutputArgs } from "./getSchedulerPrivateEndpointConnection";
+export const getSchedulerPrivateEndpointConnection: typeof import("./getSchedulerPrivateEndpointConnection").getSchedulerPrivateEndpointConnection = null as any;
+export const getSchedulerPrivateEndpointConnectionOutput: typeof import("./getSchedulerPrivateEndpointConnection").getSchedulerPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getSchedulerPrivateEndpointConnection","getSchedulerPrivateEndpointConnectionOutput"], () => require("./getSchedulerPrivateEndpointConnection"));
+
 export { GetTaskHubArgs, GetTaskHubResult, GetTaskHubOutputArgs } from "./getTaskHub";
 export const getTaskHub: typeof import("./getTaskHub").getTaskHub = null as any;
 export const getTaskHubOutput: typeof import("./getTaskHub").getTaskHubOutput = null as any;
@@ -29,6 +34,11 @@ export { SchedulerArgs } from "./scheduler";
 export type Scheduler = import("./scheduler").Scheduler;
 export const Scheduler: typeof import("./scheduler").Scheduler = null as any;
 utilities.lazyLoad(exports, ["Scheduler"], () => require("./scheduler"));
+
+export { SchedulerPrivateEndpointConnectionArgs } from "./schedulerPrivateEndpointConnection";
+export type SchedulerPrivateEndpointConnection = import("./schedulerPrivateEndpointConnection").SchedulerPrivateEndpointConnection;
+export const SchedulerPrivateEndpointConnection: typeof import("./schedulerPrivateEndpointConnection").SchedulerPrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["SchedulerPrivateEndpointConnection"], () => require("./schedulerPrivateEndpointConnection"));
 
 export { TaskHubArgs } from "./taskHub";
 export type TaskHub = import("./taskHub").TaskHub;
@@ -47,6 +57,8 @@ const _module = {
                 return new RetentionPolicy(name, <any>undefined, { urn })
             case "azure-native:durabletask:Scheduler":
                 return new Scheduler(name, <any>undefined, { urn })
+            case "azure-native:durabletask:SchedulerPrivateEndpointConnection":
+                return new SchedulerPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:durabletask:TaskHub":
                 return new TaskHub(name, <any>undefined, { urn })
             default:

@@ -27,19 +27,19 @@ class GetEnvironmentVersionResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, azure_api_version=None, environment_version_properties=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
-        if environment_version_properties and not isinstance(environment_version_properties, dict):
-            raise TypeError("Expected argument 'environment_version_properties' to be a dict")
-        pulumi.set(__self__, "environment_version_properties", environment_version_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -56,14 +56,6 @@ class GetEnvironmentVersionResult:
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="environmentVersionProperties")
-    def environment_version_properties(self) -> 'outputs.EnvironmentVersionResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "environment_version_properties")
-
-    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -78,6 +70,14 @@ class GetEnvironmentVersionResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.EnvironmentVersionPropertiesResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -103,9 +103,9 @@ class AwaitableGetEnvironmentVersionResult(GetEnvironmentVersionResult):
             yield self
         return GetEnvironmentVersionResult(
             azure_api_version=self.azure_api_version,
-            environment_version_properties=self.environment_version_properties,
             id=self.id,
             name=self.name,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -116,11 +116,11 @@ def get_environment_version(name: Optional[_builtins.str] = None,
                             workspace_name: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentVersionResult:
     """
-    Azure Resource Manager resource envelope.
+    Get version.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Container name. This is case-sensitive.
@@ -138,9 +138,9 @@ def get_environment_version(name: Optional[_builtins.str] = None,
 
     return AwaitableGetEnvironmentVersionResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
-        environment_version_properties=pulumi.get(__ret__, 'environment_version_properties'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_environment_version_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -149,11 +149,11 @@ def get_environment_version_output(name: Optional[pulumi.Input[_builtins.str]] =
                                    workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentVersionResult]:
     """
-    Azure Resource Manager resource envelope.
+    Get version.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Container name. This is case-sensitive.
@@ -170,8 +170,8 @@ def get_environment_version_output(name: Optional[pulumi.Input[_builtins.str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getEnvironmentVersion', __args__, opts=opts, typ=GetEnvironmentVersionResult)
     return __ret__.apply(lambda __response__: GetEnvironmentVersionResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
-        environment_version_properties=pulumi.get(__response__, 'environment_version_properties'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

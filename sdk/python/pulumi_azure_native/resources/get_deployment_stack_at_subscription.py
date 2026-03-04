@@ -191,7 +191,7 @@ class GetDeploymentStackAtSubscriptionResult:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ErrorDetailResponse']:
+    def error(self) -> 'outputs.ErrorDetailResponse':
         """
         The error detail.
         """

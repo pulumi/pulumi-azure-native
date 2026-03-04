@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.Automation.Outputs
     public sealed class ModuleErrorInfoResponse
     {
         /// <summary>
-        /// Gets the error code.
+        /// Gets or sets the error code.
         /// </summary>
         public readonly string? Code;
         /// <summary>
-        /// Gets the error message.
+        /// Gets or sets the error message.
         /// </summary>
         public readonly string? Message;
 

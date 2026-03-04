@@ -8,60 +8,35 @@ using Pulumi;
 namespace Pulumi.AzureNative.ManagedOps
 {
     /// <summary>
-    /// Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
-    /// </summary>
-    [EnumType]
-    public readonly struct DefenderCspm : IEquatable<DefenderCspm>
-    {
-        private readonly string _value;
-
-        private DefenderCspm(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefenderCspm Enable { get; } = new DefenderCspm("Enable");
-        public static DefenderCspm Disable { get; } = new DefenderCspm("Disable");
-
-        public static bool operator ==(DefenderCspm left, DefenderCspm right) => left.Equals(right);
-        public static bool operator !=(DefenderCspm left, DefenderCspm right) => !left.Equals(right);
-
-        public static explicit operator string(DefenderCspm value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefenderCspm other && Equals(other);
-        public bool Equals(DefenderCspm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Desired enablement state of the Defender For Servers service.
     /// </summary>
     [EnumType]
-    public readonly struct DefenderForServers : IEquatable<DefenderForServers>
+    public readonly struct DesiredEnablementState : IEquatable<DesiredEnablementState>
     {
         private readonly string _value;
 
-        private DefenderForServers(string value)
+        private DesiredEnablementState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DefenderForServers Enable { get; } = new DefenderForServers("Enable");
-        public static DefenderForServers Disable { get; } = new DefenderForServers("Disable");
+        /// <summary>
+        /// Enable the service.
+        /// </summary>
+        public static DesiredEnablementState Enable { get; } = new DesiredEnablementState("Enable");
+        /// <summary>
+        /// Disable the service.
+        /// </summary>
+        public static DesiredEnablementState Disable { get; } = new DesiredEnablementState("Disable");
 
-        public static bool operator ==(DefenderForServers left, DefenderForServers right) => left.Equals(right);
-        public static bool operator !=(DefenderForServers left, DefenderForServers right) => !left.Equals(right);
+        public static bool operator ==(DesiredEnablementState left, DesiredEnablementState right) => left.Equals(right);
+        public static bool operator !=(DesiredEnablementState left, DesiredEnablementState right) => !left.Equals(right);
 
-        public static explicit operator string(DefenderForServers value) => value._value;
+        public static explicit operator string(DesiredEnablementState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefenderForServers other && Equals(other);
-        public bool Equals(DefenderForServers other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is DesiredEnablementState other && Equals(other);
+        public bool Equals(DesiredEnablementState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

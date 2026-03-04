@@ -47,7 +47,13 @@ class ActionType(_builtins.str, Enum):
     Action that should be applied.
     """
     ADD_ACTION_GROUPS = "AddActionGroups"
+    """
+    AddActionGroups
+    """
     REMOVE_ALL_ACTION_GROUPS = "RemoveAllActionGroups"
+    """
+    RemoveAllActionGroups
+    """
 
 
 @pulumi.type_token("azure-native:alertsmanagement:AlertRuleState")
@@ -65,12 +71,33 @@ class DaysOfWeek(_builtins.str, Enum):
     Days of week.
     """
     SUNDAY = "Sunday"
+    """
+    Sunday
+    """
     MONDAY = "Monday"
+    """
+    Monday
+    """
     TUESDAY = "Tuesday"
+    """
+    Tuesday
+    """
     WEDNESDAY = "Wednesday"
+    """
+    Wednesday
+    """
     THURSDAY = "Thursday"
+    """
+    Thursday
+    """
     FRIDAY = "Friday"
+    """
+    Friday
+    """
     SATURDAY = "Saturday"
+    """
+    Saturday
+    """
 
 
 @pulumi.type_token("azure-native:alertsmanagement:Field")
@@ -79,16 +106,49 @@ class Field(_builtins.str, Enum):
     Field for a given condition.
     """
     SEVERITY = "Severity"
+    """
+    Severity
+    """
     MONITOR_SERVICE = "MonitorService"
+    """
+    MonitorService
+    """
     MONITOR_CONDITION = "MonitorCondition"
+    """
+    MonitorCondition
+    """
     SIGNAL_TYPE = "SignalType"
+    """
+    SignalType
+    """
     TARGET_RESOURCE_TYPE = "TargetResourceType"
+    """
+    TargetResourceType
+    """
     TARGET_RESOURCE = "TargetResource"
+    """
+    TargetResource
+    """
     TARGET_RESOURCE_GROUP = "TargetResourceGroup"
+    """
+    TargetResourceGroup
+    """
     ALERT_RULE_ID = "AlertRuleId"
+    """
+    AlertRuleId
+    """
     ALERT_RULE_NAME = "AlertRuleName"
+    """
+    AlertRuleName
+    """
     DESCRIPTION = "Description"
+    """
+    Description
+    """
     ALERT_CONTEXT = "AlertContext"
+    """
+    AlertContext
+    """
 
 
 @pulumi.type_token("azure-native:alertsmanagement:Operator")
@@ -97,9 +157,21 @@ class Operator(_builtins.str, Enum):
     Operator for a given condition.
     """
     EQUALS = "Equals"
+    """
+    Equals
+    """
     NOT_EQUALS = "NotEquals"
+    """
+    NotEquals
+    """
     CONTAINS = "Contains"
+    """
+    Contains
+    """
     DOES_NOT_CONTAIN = "DoesNotContain"
+    """
+    DoesNotContain
+    """
 
 
 @pulumi.type_token("azure-native:alertsmanagement:RecurrenceType")
@@ -108,8 +180,17 @@ class RecurrenceType(_builtins.str, Enum):
     Specifies when the recurrence should be applied.
     """
     DAILY = "Daily"
+    """
+    Daily
+    """
     WEEKLY = "Weekly"
+    """
+    Weekly
+    """
     MONTHLY = "Monthly"
+    """
+    Monthly
+    """
 
 
 @pulumi.type_token("azure-native:alertsmanagement:ScopeType")

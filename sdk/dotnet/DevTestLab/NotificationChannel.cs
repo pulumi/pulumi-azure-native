@@ -48,13 +48,13 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<ImmutableArray<Outputs.EventResponse>> Events { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -72,13 +72,19 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The tags of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -176,13 +182,13 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the NotificationChannel
+        /// The name of the notification channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -203,7 +209,7 @@ namespace Pulumi.AzureNative.DevTestLab
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags of the resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

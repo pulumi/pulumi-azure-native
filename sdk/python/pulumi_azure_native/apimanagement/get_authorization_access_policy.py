@@ -26,7 +26,10 @@ class GetAuthorizationAccessPolicyResult:
     """
     Authorization access policy contract.
     """
-    def __init__(__self__, azure_api_version=None, id=None, name=None, object_id=None, tenant_id=None, type=None):
+    def __init__(__self__, app_ids=None, azure_api_version=None, id=None, name=None, object_id=None, tenant_id=None, type=None):
+        if app_ids and not isinstance(app_ids, list):
+            raise TypeError("Expected argument 'app_ids' to be a list")
+        pulumi.set(__self__, "app_ids", app_ids)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -45,6 +48,14 @@ class GetAuthorizationAccessPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="appIds")
+    def app_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The allowed Azure Active Directory Application IDs
+        """
+        return pulumi.get(self, "app_ids")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -101,6 +112,7 @@ class AwaitableGetAuthorizationAccessPolicyResult(GetAuthorizationAccessPolicyRe
         if False:
             yield self
         return GetAuthorizationAccessPolicyResult(
+            app_ids=self.app_ids,
             azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
@@ -118,9 +130,9 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[_bu
     """
     Gets the details of the authorization access policy specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str authorization_access_policy_id: Identifier of the authorization access policy.
@@ -139,6 +151,7 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[_bu
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getAuthorizationAccessPolicy', __args__, opts=opts, typ=GetAuthorizationAccessPolicyResult).value
 
     return AwaitableGetAuthorizationAccessPolicyResult(
+        app_ids=pulumi.get(__ret__, 'app_ids'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -154,9 +167,9 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
     """
     Gets the details of the authorization access policy specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str authorization_access_policy_id: Identifier of the authorization access policy.
@@ -174,6 +187,7 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getAuthorizationAccessPolicy', __args__, opts=opts, typ=GetAuthorizationAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetAuthorizationAccessPolicyResult(
+        app_ids=pulumi.get(__response__, 'app_ids'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

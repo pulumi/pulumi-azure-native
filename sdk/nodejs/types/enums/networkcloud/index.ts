@@ -259,6 +259,22 @@ export const RuntimeProtectionEnforcementLevel = {
  */
 export type RuntimeProtectionEnforcementLevel = (typeof RuntimeProtectionEnforcementLevel)[keyof typeof RuntimeProtectionEnforcementLevel];
 
+export const SecurityRuleDirection = {
+    /**
+     * Inbound traffic toward the on-premsises cluster.
+     */
+    Inbound: "Inbound",
+    /**
+     * Outbound traffic from the on-premises cluster.
+     */
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * The direction of allowed network traffic based on the rule.
+ */
+export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
+
 export const ValidationThresholdGrouping = {
     PerCluster: "PerCluster",
     PerRack: "PerRack",

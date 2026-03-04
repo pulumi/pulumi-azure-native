@@ -68,7 +68,7 @@ class ApiArgs:
         :param pulumi.Input['ApiContactInformationArgs'] contact: Contact information for the API.
         :param pulumi.Input[_builtins.str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: API name. Must be 1 to 300 characters long.
-        :param pulumi.Input[Union[_builtins.str, 'ContentFormat']] format: Format of the Content in which the API is getting imported.
+        :param pulumi.Input[Union[_builtins.str, 'ContentFormat']] format: Format of the Content in which the API is getting imported. New formats can be added in the future
         :param pulumi.Input[_builtins.bool] is_current: Indicates if API revision is current api revision.
         :param pulumi.Input['ApiLicenseInformationArgs'] license: License information for the API.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Protocol']]]] protocols: Describes on which protocols the operations in this API can be invoked.
@@ -77,7 +77,8 @@ class ApiArgs:
                 * `http` creates a REST API 
                 * `soap` creates a SOAP pass-through API  
                 * `websocket` creates websocket API 
-                * `graphql` creates GraphQL API.
+                * `graphql` creates GraphQL API. 
+                New types can be added in the future.
         :param pulumi.Input[_builtins.str] source_api_id: API identifier of the source API.
         :param pulumi.Input['SubscriptionKeyParameterNamesContractArgs'] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[_builtins.bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
@@ -324,7 +325,7 @@ class ApiArgs:
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ContentFormat']]]:
         """
-        Format of the Content in which the API is getting imported.
+        Format of the Content in which the API is getting imported. New formats can be added in the future
         """
         return pulumi.get(self, "format")
 
@@ -388,7 +389,8 @@ class ApiArgs:
          * `http` creates a REST API 
          * `soap` creates a SOAP pass-through API  
          * `websocket` creates websocket API 
-         * `graphql` creates GraphQL API.
+         * `graphql` creates GraphQL API. 
+         New types can be added in the future.
         """
         return pulumi.get(self, "soap_api_type")
 
@@ -519,9 +521,9 @@ class Api(pulumi.CustomResource):
         """
         API details.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -538,7 +540,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[Union['ApiContactInformationArgs', 'ApiContactInformationArgsDict']] contact: Contact information for the API.
         :param pulumi.Input[_builtins.str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: API name. Must be 1 to 300 characters long.
-        :param pulumi.Input[Union[_builtins.str, 'ContentFormat']] format: Format of the Content in which the API is getting imported.
+        :param pulumi.Input[Union[_builtins.str, 'ContentFormat']] format: Format of the Content in which the API is getting imported. New formats can be added in the future
         :param pulumi.Input[_builtins.bool] is_current: Indicates if API revision is current api revision.
         :param pulumi.Input[Union['ApiLicenseInformationArgs', 'ApiLicenseInformationArgsDict']] license: License information for the API.
         :param pulumi.Input[_builtins.str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
@@ -550,7 +552,8 @@ class Api(pulumi.CustomResource):
                 * `http` creates a REST API 
                 * `soap` creates a SOAP pass-through API  
                 * `websocket` creates websocket API 
-                * `graphql` creates GraphQL API.
+                * `graphql` creates GraphQL API. 
+                New types can be added in the future.
         :param pulumi.Input[_builtins.str] source_api_id: API identifier of the source API.
         :param pulumi.Input[Union['SubscriptionKeyParameterNamesContractArgs', 'SubscriptionKeyParameterNamesContractArgsDict']] subscription_key_parameter_names: Protocols over which API is made available.
         :param pulumi.Input[_builtins.bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
@@ -568,9 +571,9 @@ class Api(pulumi.CustomResource):
         """
         API details.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -662,6 +665,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["is_online"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20241001preview:Api"), pulumi.Alias(type_="azure-native:apimanagement/v20250301preview:Api")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -705,6 +709,7 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["path"] = None
         __props__.__dict__["protocols"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["service_url"] = None
         __props__.__dict__["source_api_id"] = None
         __props__.__dict__["subscription_key_parameter_names"] = None
@@ -856,6 +861,14 @@ class Api(pulumi.CustomResource):
         Describes on which protocols the operations in this API can be invoked.
         """
         return pulumi.get(self, "protocols")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="serviceUrl")

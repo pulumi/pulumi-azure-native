@@ -179,6 +179,8 @@ def get_resource_sync_rule(child_resource_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2021-08-31-preview.
 
+    Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param _builtins.str child_resource_name: Resource Sync Rule name.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -211,6 +213,8 @@ def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[_bu
     Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
 
     Uses Azure REST API version 2021-08-31-preview.
+
+    Other available API versions: 2024-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native extendedlocation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str child_resource_name: Resource Sync Rule name.

@@ -27,7 +27,7 @@ class GetHybridRunbookWorkerGroupResult:
     """
     Definition of hybrid runbook worker group.
     """
-    def __init__(__self__, azure_api_version=None, credential=None, group_type=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, credential=None, group_type=None, id=None, location=None, name=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -40,12 +40,18 @@ class GetHybridRunbookWorkerGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -78,9 +84,17 @@ class GetHybridRunbookWorkerGroupResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @_builtins.property
     @pulumi.getter
@@ -94,15 +108,23 @@ class GetHybridRunbookWorkerGroupResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -117,8 +139,10 @@ class AwaitableGetHybridRunbookWorkerGroupResult(GetHybridRunbookWorkerGroupResu
             credential=self.credential,
             group_type=self.group_type,
             id=self.id,
+            location=self.location,
             name=self.name,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -129,9 +153,9 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[_builtins.
     """
     Retrieve a hybrid runbook worker group.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -150,8 +174,10 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[_builtins.
         credential=pulumi.get(__ret__, 'credential'),
         group_type=pulumi.get(__ret__, 'group_type'),
         id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            hybrid_runbook_worker_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -160,9 +186,9 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
     """
     Retrieve a hybrid runbook worker group.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-06-22, 2022-02-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -180,6 +206,8 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
         credential=pulumi.get(__response__, 'credential'),
         group_type=pulumi.get(__response__, 'group_type'),
         id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

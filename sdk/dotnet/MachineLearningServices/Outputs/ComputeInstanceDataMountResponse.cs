@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? MountAction;
         /// <summary>
+        /// Mount Mode.
+        /// </summary>
+        public readonly string? MountMode;
+        /// <summary>
         /// name of the ComputeInstance data mount.
         /// </summary>
         public readonly string? MountName;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? mountAction,
 
+            string? mountMode,
+
             string? mountName,
 
             string? mountPath,
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             CreatedBy = createdBy;
             Error = error;
             MountAction = mountAction;
+            MountMode = mountMode;
             MountName = mountName;
             MountPath = mountPath;
             MountState = mountState;

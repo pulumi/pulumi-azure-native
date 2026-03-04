@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Defines if image needs to be rebuilt based on base image changes.
+    /// AutoRebuild setting for the derived image
     /// </summary>
     [EnumType]
     public readonly struct AutoRebuildSetting : IEquatable<AutoRebuildSetting>
@@ -163,7 +163,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Logging level for batch inference operation.
+    /// Log verbosity for batch inferencing.
+    /// Increasing verbosity order for logging is : Warning, Info and Debug.
+    /// The default value is Info.
     /// </summary>
     [EnumType]
     public readonly struct BatchLoggingLevel : IEquatable<BatchLoggingLevel>
@@ -195,7 +197,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Indicates how the output will be organized.
+    /// Enum to determine how batch inferencing will handle output
     /// </summary>
     [EnumType]
     public readonly struct BatchOutputAction : IEquatable<BatchOutputAction>
@@ -541,7 +543,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Primary metric to optimize for this task.
+    /// Primary metrics for classification multilabel tasks.
     /// </summary>
     [EnumType]
     public readonly struct ClassificationMultilabelPrimaryMetrics : IEquatable<ClassificationMultilabelPrimaryMetrics>
@@ -598,7 +600,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Primary metric for Text-Classification task.
+    /// Primary metrics for classification tasks.
     /// </summary>
     [EnumType]
     public readonly struct ClassificationPrimaryMetrics : IEquatable<ClassificationPrimaryMetrics>
@@ -944,6 +946,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionAuthType CustomKeys { get; } = new ConnectionAuthType("CustomKeys");
         public static ConnectionAuthType OAuth2 { get; } = new ConnectionAuthType("OAuth2");
         public static ConnectionAuthType AAD { get; } = new ConnectionAuthType("AAD");
+        public static ConnectionAuthType DelegatedSAS { get; } = new ConnectionAuthType("DelegatedSAS");
+        public static ConnectionAuthType ProjectManagedIdentity { get; } = new ConnectionAuthType("ProjectManagedIdentity");
+        public static ConnectionAuthType AccountManagedIdentity { get; } = new ConnectionAuthType("AccountManagedIdentity");
+        public static ConnectionAuthType UserEntraToken { get; } = new ConnectionAuthType("UserEntraToken");
+        public static ConnectionAuthType AgentUserImpersonation { get; } = new ConnectionAuthType("AgentUserImpersonation");
+        public static ConnectionAuthType AgenticIdentityToken { get; } = new ConnectionAuthType("AgenticIdentityToken");
+        public static ConnectionAuthType AgenticUser { get; } = new ConnectionAuthType("AgenticUser");
 
         public static bool operator ==(ConnectionAuthType left, ConnectionAuthType right) => left.Equals(right);
         public static bool operator !=(ConnectionAuthType left, ConnectionAuthType right) => !left.Equals(right);
@@ -978,11 +987,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionCategory Git { get; } = new ConnectionCategory("Git");
         public static ConnectionCategory S3 { get; } = new ConnectionCategory("S3");
         public static ConnectionCategory Snowflake { get; } = new ConnectionCategory("Snowflake");
+        public static ConnectionCategory AzureKeyVault { get; } = new ConnectionCategory("AzureKeyVault");
         public static ConnectionCategory AzureSqlDb { get; } = new ConnectionCategory("AzureSqlDb");
         public static ConnectionCategory AzureSynapseAnalytics { get; } = new ConnectionCategory("AzureSynapseAnalytics");
         public static ConnectionCategory AzureMySqlDb { get; } = new ConnectionCategory("AzureMySqlDb");
         public static ConnectionCategory AzurePostgresDb { get; } = new ConnectionCategory("AzurePostgresDb");
         public static ConnectionCategory ADLSGen2 { get; } = new ConnectionCategory("ADLSGen2");
+        public static ConnectionCategory AzureContainerAppEnvironment { get; } = new ConnectionCategory("AzureContainerAppEnvironment");
         public static ConnectionCategory Redis { get; } = new ConnectionCategory("Redis");
         public static ConnectionCategory ApiKey { get; } = new ConnectionCategory("ApiKey");
         public static ConnectionCategory AzureOpenAI { get; } = new ConnectionCategory("AzureOpenAI");
@@ -991,6 +1002,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionCategory CognitiveService { get; } = new ConnectionCategory("CognitiveService");
         public static ConnectionCategory CustomKeys { get; } = new ConnectionCategory("CustomKeys");
         public static ConnectionCategory AzureBlob { get; } = new ConnectionCategory("AzureBlob");
+        public static ConnectionCategory AzureStorageAccount { get; } = new ConnectionCategory("AzureStorageAccount");
         public static ConnectionCategory AzureOneLake { get; } = new ConnectionCategory("AzureOneLake");
         public static ConnectionCategory CosmosDb { get; } = new ConnectionCategory("CosmosDb");
         public static ConnectionCategory CosmosDbMongoDbApi { get; } = new ConnectionCategory("CosmosDbMongoDbApi");
@@ -1028,6 +1040,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionCategory Teradata { get; } = new ConnectionCategory("Teradata");
         public static ConnectionCategory Vertica { get; } = new ConnectionCategory("Vertica");
         public static ConnectionCategory Pinecone { get; } = new ConnectionCategory("Pinecone");
+        public static ConnectionCategory Databricks { get; } = new ConnectionCategory("Databricks");
         public static ConnectionCategory Cassandra { get; } = new ConnectionCategory("Cassandra");
         public static ConnectionCategory Couchbase { get; } = new ConnectionCategory("Couchbase");
         public static ConnectionCategory MongoDbV2 { get; } = new ConnectionCategory("MongoDbV2");
@@ -1043,6 +1056,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionCategory ODataRest { get; } = new ConnectionCategory("ODataRest");
         public static ConnectionCategory Odbc { get; } = new ConnectionCategory("Odbc");
         public static ConnectionCategory GenericRest { get; } = new ConnectionCategory("GenericRest");
+        public static ConnectionCategory RemoteTool { get; } = new ConnectionCategory("RemoteTool");
         public static ConnectionCategory AmazonMws { get; } = new ConnectionCategory("AmazonMws");
         public static ConnectionCategory Concur { get; } = new ConnectionCategory("Concur");
         public static ConnectionCategory Dynamics { get; } = new ConnectionCategory("Dynamics");
@@ -1073,11 +1087,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionCategory Zoho { get; } = new ConnectionCategory("Zoho");
         public static ConnectionCategory GenericContainerRegistry { get; } = new ConnectionCategory("GenericContainerRegistry");
         public static ConnectionCategory Elasticsearch { get; } = new ConnectionCategory("Elasticsearch");
+        public static ConnectionCategory AppInsights { get; } = new ConnectionCategory("AppInsights");
+        public static ConnectionCategory AppConfig { get; } = new ConnectionCategory("AppConfig");
         public static ConnectionCategory OpenAI { get; } = new ConnectionCategory("OpenAI");
         public static ConnectionCategory Serp { get; } = new ConnectionCategory("Serp");
         public static ConnectionCategory BingLLMSearch { get; } = new ConnectionCategory("BingLLMSearch");
         public static ConnectionCategory Serverless { get; } = new ConnectionCategory("Serverless");
         public static ConnectionCategory ManagedOnlineEndpoint { get; } = new ConnectionCategory("ManagedOnlineEndpoint");
+        public static ConnectionCategory ApiManagement { get; } = new ConnectionCategory("ApiManagement");
+        public static ConnectionCategory ModelGateway { get; } = new ConnectionCategory("ModelGateway");
+        public static ConnectionCategory GroundingWithBingSearch { get; } = new ConnectionCategory("GroundingWithBingSearch");
+        public static ConnectionCategory GroundingWithCustomSearch { get; } = new ConnectionCategory("GroundingWithCustomSearch");
+        public static ConnectionCategory Sharepoint { get; } = new ConnectionCategory("Sharepoint");
+        public static ConnectionCategory MicrosoftFabric { get; } = new ConnectionCategory("MicrosoftFabric");
+        public static ConnectionCategory PowerPlatformEnvironment { get; } = new ConnectionCategory("PowerPlatformEnvironment");
+        public static ConnectionCategory RemoteA2A { get; } = new ConnectionCategory("RemoteA2A");
 
         public static bool operator ==(ConnectionCategory left, ConnectionCategory right) => left.Equals(right);
         public static bool operator !=(ConnectionCategory left, ConnectionCategory right) => !left.Equals(right);
@@ -1285,7 +1309,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// [Required] Storage type backing the datastore.
+    /// Enum to determine the datastore contents type.
     /// </summary>
     [EnumType]
     public readonly struct DatastoreType : IEquatable<DatastoreType>
@@ -1483,7 +1507,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+    /// Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
     /// </summary>
     [EnumType]
     public readonly struct EgressPublicNetworkAccessType : IEquatable<EgressPublicNetworkAccessType>
@@ -1641,7 +1665,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Connection status of the service consumer with the service provider
+    /// Connection status of the service consumer with the service provider\r\nPossible state transitions\r\nPending -&gt; Approved (Service provider approves the connection request)\r\nPending -&gt; Rejected (Service provider rejects the connection request)\r\nPending -&gt; Disconnected (Service provider deletes the connection)\r\nApproved -&gt; Rejected (Service provider rejects the approved connection)\r\nApproved -&gt; Disconnected (Service provider deletes the connection)\r\nRejected -&gt; Pending (Service consumer re-initiates the connection request that was rejected)\r\nRejected -&gt; Disconnected (Service provider deletes the connection)
     /// </summary>
     [EnumType]
     public readonly struct EndpointServiceConnectionStatus : IEquatable<EndpointServiceConnectionStatus>
@@ -1657,6 +1681,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static EndpointServiceConnectionStatus Pending { get; } = new EndpointServiceConnectionStatus("Pending");
         public static EndpointServiceConnectionStatus Rejected { get; } = new EndpointServiceConnectionStatus("Rejected");
         public static EndpointServiceConnectionStatus Disconnected { get; } = new EndpointServiceConnectionStatus("Disconnected");
+        public static EndpointServiceConnectionStatus Timeout { get; } = new EndpointServiceConnectionStatus("Timeout");
 
         public static bool operator ==(EndpointServiceConnectionStatus left, EndpointServiceConnectionStatus right) => left.Equals(right);
         public static bool operator !=(EndpointServiceConnectionStatus left, EndpointServiceConnectionStatus right) => !left.Equals(right);
@@ -1811,7 +1836,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Flag for generating lags for the numeric features with 'auto' or null.
+    /// Flag for generating lags for the numeric features.
     /// </summary>
     [EnumType]
     public readonly struct FeatureLags : IEquatable<FeatureLags>
@@ -2073,7 +2098,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Primary metric for forecasting task.
+    /// Primary metrics for Forecasting task.
     /// </summary>
     [EnumType]
     public readonly struct ForecastingPrimaryMetrics : IEquatable<ForecastingPrimaryMetrics>
@@ -2246,7 +2271,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+    /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
     /// </summary>
     [EnumType]
     public readonly struct ImageType : IEquatable<ImageType>
@@ -2308,7 +2333,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Input Asset Delivery Mode.
+    /// Enum to determine the input data delivery mode.
     /// </summary>
     [EnumType]
     public readonly struct InputDeliveryMode : IEquatable<InputDeliveryMode>
@@ -2343,7 +2368,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Primary metric to optimize for this task.
+    /// Primary metrics for InstanceSegmentation tasks.
     /// </summary>
     [EnumType]
     public readonly struct InstanceSegmentationPrimaryMetrics : IEquatable<InstanceSegmentationPrimaryMetrics>
@@ -2511,7 +2536,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Controls the compute job tier
+    /// Enum to determine the job tier.
     /// </summary>
     [EnumType]
     public readonly struct JobTier : IEquatable<JobTier>
@@ -2579,7 +2604,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+    /// Learning rate scheduler enum.
     /// </summary>
     [EnumType]
     public readonly struct LearningRateScheduler : IEquatable<LearningRateScheduler>
@@ -2681,7 +2706,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Log verbosity for the job.
+    /// Enum for setting log verbosity.
     /// </summary>
     [EnumType]
     public readonly struct LogVerbosity : IEquatable<LogVerbosity>
@@ -2826,6 +2851,64 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ManagedPERequirement : IEquatable<ManagedPERequirement>
+    {
+        private readonly string _value;
+
+        private ManagedPERequirement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedPERequirement Required { get; } = new ManagedPERequirement("Required");
+        public static ManagedPERequirement NotRequired { get; } = new ManagedPERequirement("NotRequired");
+        public static ManagedPERequirement NotApplicable { get; } = new ManagedPERequirement("NotApplicable");
+
+        public static bool operator ==(ManagedPERequirement left, ManagedPERequirement right) => left.Equals(right);
+        public static bool operator !=(ManagedPERequirement left, ManagedPERequirement right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedPERequirement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedPERequirement other && Equals(other);
+        public bool Equals(ManagedPERequirement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ManagedPEStatus : IEquatable<ManagedPEStatus>
+    {
+        private readonly string _value;
+
+        private ManagedPEStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedPEStatus Inactive { get; } = new ManagedPEStatus("Inactive");
+        public static ManagedPEStatus Active { get; } = new ManagedPEStatus("Active");
+        public static ManagedPEStatus NotApplicable { get; } = new ManagedPEStatus("NotApplicable");
+
+        public static bool operator ==(ManagedPEStatus left, ManagedPEStatus right) => left.Equals(right);
+        public static bool operator !=(ManagedPEStatus left, ManagedPEStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedPEStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedPEStatus other && Equals(other);
+        public bool Equals(ManagedPEStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
@@ -2924,9 +3007,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-    /// Note: training run may get into CUDA OOM if the model size is too big.
-    /// Note: This settings is only supported for the 'yolov5' algorithm.
+    /// Image model size.
     /// </summary>
     [EnumType]
     public readonly struct ModelSize : IEquatable<ModelSize>
@@ -3503,7 +3584,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Primary metric to optimize for this task.
+    /// Primary metrics for Image ObjectDetection task.
     /// </summary>
     [EnumType]
     public readonly struct ObjectDetectionPrimaryMetrics : IEquatable<ObjectDetectionPrimaryMetrics>
@@ -3567,7 +3648,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// The OS type of the environment.
+    /// The type of operating system.
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemType : IEquatable<OperatingSystemType>
@@ -3629,7 +3710,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Output Asset Delivery Mode.
+    /// Output data delivery mode enums.
     /// </summary>
     [EnumType]
     public readonly struct OutputDeliveryMode : IEquatable<OutputDeliveryMode>
@@ -3653,40 +3734,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OutputDeliveryMode other && Equals(other);
         public bool Equals(OutputDeliveryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
-    {
-        private readonly string _value;
-
-        private PrivateEndpointServiceConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
-        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
-        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-        public static PrivateEndpointServiceConnectionStatus Disconnected { get; } = new PrivateEndpointServiceConnectionStatus("Disconnected");
-        public static PrivateEndpointServiceConnectionStatus Timeout { get; } = new PrivateEndpointServiceConnectionStatus("Timeout");
-
-        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
-        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -3728,37 +3775,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
     /// <summary>
     /// Whether requests from Public Network are allowed.
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccess(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
-        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
-
-        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccess value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
-        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
@@ -4070,7 +4086,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Primary metric for regression task.
+    /// Primary metrics for Regression task.
     /// </summary>
     [EnumType]
     public readonly struct RegressionPrimaryMetrics : IEquatable<RegressionPrimaryMetrics>
@@ -4588,6 +4604,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         public static ServerlessInferenceEndpointAuthMode Key { get; } = new ServerlessInferenceEndpointAuthMode("Key");
+        public static ServerlessInferenceEndpointAuthMode AAD { get; } = new ServerlessInferenceEndpointAuthMode("AAD");
+        public static ServerlessInferenceEndpointAuthMode KeyAndAAD { get; } = new ServerlessInferenceEndpointAuthMode("KeyAndAAD");
 
         public static bool operator ==(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => left.Equals(right);
         public static bool operator !=(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => !left.Equals(right);
@@ -4850,7 +4868,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// The meta-learner is a model trained on the output of the individual heterogeneous models.
+    /// The meta-learner is a model trained on the output of the individual heterogeneous models.\r\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\r\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
     /// </summary>
     [EnumType]
     public readonly struct StackMetaLearnerType : IEquatable<StackMetaLearnerType>
@@ -4899,7 +4917,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Type of optimizer.
+    /// Stochastic optimizer for image models.
     /// </summary>
     [EnumType]
     public readonly struct StochasticOptimizer : IEquatable<StochasticOptimizer>
@@ -4976,8 +4994,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// The function to be used to aggregate the time series target column to conform to a user specified frequency.
-    /// If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+    /// Target aggregate function.
     /// </summary>
     [EnumType]
     public readonly struct TargetAggregationFunction : IEquatable<TargetAggregationFunction>
@@ -5196,7 +5213,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// [Required] 
+    /// [Required]
     /// </summary>
     [EnumType]
     public readonly struct TriggerType : IEquatable<TriggerType>
@@ -5262,7 +5279,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Metric computation method to use for validation metrics.
+    /// Metric computation method to use for validation metrics in image tasks.
     /// </summary>
     [EnumType]
     public readonly struct ValidationMetricType : IEquatable<ValidationMetricType>
@@ -5299,36 +5316,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ValidationMetricType other && Equals(other);
         public bool Equals(ValidationMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// format for the workspace connection value
-    /// </summary>
-    [EnumType]
-    public readonly struct ValueFormat : IEquatable<ValueFormat>
-    {
-        private readonly string _value;
-
-        private ValueFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ValueFormat JSON { get; } = new ValueFormat("JSON");
-
-        public static bool operator ==(ValueFormat left, ValueFormat right) => left.Equals(right);
-        public static bool operator !=(ValueFormat left, ValueFormat right) => !left.Equals(right);
-
-        public static explicit operator string(ValueFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ValueFormat other && Equals(other);
-        public bool Equals(ValueFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

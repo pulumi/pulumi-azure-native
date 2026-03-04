@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
     public sealed class IdentityResponse
     {
         /// <summary>
-        /// The principal ID of resource identity.
+        /// The principal ID of resource identity. The value must be an UUID.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>

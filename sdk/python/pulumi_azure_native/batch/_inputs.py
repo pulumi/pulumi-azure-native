@@ -2271,6 +2271,9 @@ class LinuxUserConfigurationArgs:
 
 
 class ManagedDiskArgsDict(TypedDict):
+    """
+    The managed disk parameters.
+    """
     security_profile: NotRequired[pulumi.Input['VMDiskSecurityProfileArgsDict']]
     """
     Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
@@ -2286,6 +2289,8 @@ class ManagedDiskArgs:
                  security_profile: Optional[pulumi.Input['VMDiskSecurityProfileArgs']] = None,
                  storage_account_type: Optional[pulumi.Input['StorageAccountType']] = None):
         """
+        The managed disk parameters.
+
         :param pulumi.Input['VMDiskSecurityProfileArgs'] security_profile: Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
         :param pulumi.Input['StorageAccountType'] storage_account_type: The storage account type for use in creating data disks or OS disk.
         """
@@ -2849,6 +2854,9 @@ class OSDiskArgsDict(TypedDict):
     Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
     """
     managed_disk: NotRequired[pulumi.Input['ManagedDiskArgsDict']]
+    """
+    The managed disk parameters.
+    """
     write_accelerator_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Specifies whether writeAccelerator should be enabled or disabled on the disk.
@@ -2868,6 +2876,7 @@ class OSDiskArgs:
         :param pulumi.Input['CachingType'] caching: The type of caching to enable for the disk.
         :param pulumi.Input[_builtins.int] disk_size_gb: The initial disk size in GB when creating new OS disk.
         :param pulumi.Input['DiffDiskSettingsArgs'] ephemeral_os_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        :param pulumi.Input['ManagedDiskArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
         if caching is not None:
@@ -2920,6 +2929,9 @@ class OSDiskArgs:
     @_builtins.property
     @pulumi.getter(name="managedDisk")
     def managed_disk(self) -> Optional[pulumi.Input['ManagedDiskArgs']]:
+        """
+        The managed disk parameters.
+        """
         return pulumi.get(self, "managed_disk")
 
     @managed_disk.setter

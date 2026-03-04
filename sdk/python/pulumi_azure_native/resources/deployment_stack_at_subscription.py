@@ -499,7 +499,7 @@ class DeploymentStackAtSubscription(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> pulumi.Output[Optional['outputs.ErrorDetailResponse']]:
+    def error(self) -> pulumi.Output['outputs.ErrorDetailResponse']:
         """
         The error detail.
         """

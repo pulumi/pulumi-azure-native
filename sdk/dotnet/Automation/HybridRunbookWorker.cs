@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of hybrid runbook worker.
     /// 
-    /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+    /// Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
     /// 
-    /// Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-06-22, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorker")]
     public partial class HybridRunbookWorker : global::Pulumi.CustomResource
@@ -38,6 +38,12 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> LastSeenDateTime { get; private set; } = null!;
 
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -50,13 +56,19 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> RegisteredDateTime { get; private set; } = null!;
 
         /// <summary>
-        /// Resource system metadata.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -149,12 +161,6 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         [Input("hybridRunbookWorkerId")]
         public Input<string>? HybridRunbookWorkerId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the resource.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

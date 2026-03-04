@@ -2,22 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DefenderCspm = {
+export const DesiredEnablementState = {
+    /**
+     * Enable the service.
+     */
     Enable: "Enable",
-    Disable: "Disable",
-} as const;
-
-/**
- * Desired enablement state of the Defender Cloud Security Posture Management (CSPM) service.
- */
-export type DefenderCspm = (typeof DefenderCspm)[keyof typeof DefenderCspm];
-
-export const DefenderForServers = {
-    Enable: "Enable",
+    /**
+     * Disable the service.
+     */
     Disable: "Disable",
 } as const;
 
 /**
  * Desired enablement state of the Defender For Servers service.
  */
-export type DefenderForServers = (typeof DefenderForServers)[keyof typeof DefenderForServers];
+export type DesiredEnablementState = (typeof DesiredEnablementState)[keyof typeof DesiredEnablementState];

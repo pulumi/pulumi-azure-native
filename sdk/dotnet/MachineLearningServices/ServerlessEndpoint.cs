@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+    /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-08-01-preview.
+    /// 
+    /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// 
     /// A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
     /// </summary>
@@ -52,8 +54,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Output("serverlessEndpointProperties")]
-        public Output<Outputs.ServerlessEndpointResponse> ServerlessEndpointProperties { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ServerlessEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
@@ -118,6 +120,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:ServerlessEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:ServerlessEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,16 +169,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.ServerlessEndpointPropertiesArgs> Properties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("serverlessEndpointProperties", required: true)]
-        public Input<Inputs.ServerlessEndpointArgs> ServerlessEndpointProperties { get; set; } = null!;
 
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
@@ -196,7 +199,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

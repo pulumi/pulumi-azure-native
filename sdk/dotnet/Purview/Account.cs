@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets or sets the status of the account.
         /// </summary>
         [Output("accountStatus")]
-        public Output<Outputs.AccountPropertiesResponseAccountStatus> AccountStatus { get; private set; } = null!;
+        public Output<Outputs.AccountPropertiesAccountStatusResponse> AccountStatus { get; private set; } = null!;
 
         /// <summary>
         /// The Azure API version of the resource.
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Purview
         /// The URIs that are the public endpoints of the account.
         /// </summary>
         [Output("endpoints")]
-        public Output<Outputs.AccountPropertiesResponseEndpoints> Endpoints { get; private set; } = null!;
+        public Output<Outputs.AccountPropertiesEndpointsResponse> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the friendly name.
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<Outputs.IngestionStorageResponse?> IngestionStorage { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets the resource identifiers of the managed resources.
         /// </summary>
         [Output("managedResources")]
-        public Output<Outputs.AccountPropertiesResponseManagedResources> ManagedResources { get; private set; } = null!;
+        public Output<Outputs.AccountPropertiesManagedResourcesResponse> ManagedResources { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the public network access for managed resources.
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<Outputs.AccountMergeInfoResponse?> MergeInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -149,16 +149,16 @@ namespace Pulumi.AzureNative.Purview
         /// Gets or sets the Sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AccountResponseSku?> Sku { get; private set; } = null!;
+        public Output<Outputs.AccountSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.TrackedResourceResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Tags on the azure resource.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> TenantEndpointState { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.AzureNative.Purview
         public Input<Inputs.IngestionStorageArgs>? IngestionStorage { get; set; }
 
         /// <summary>
-        /// Gets or sets the location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.AzureNative.Purview
         public InputUnion<string, Pulumi.AzureNative.Purview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// The resource group name.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.AzureNative.Purview
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags on the azure resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

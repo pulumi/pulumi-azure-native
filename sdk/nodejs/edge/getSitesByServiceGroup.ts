@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get Site at SG scope
+ * Get a Site
  *
  * Uses Azure REST API version 2025-03-01-preview.
  *
@@ -34,7 +34,7 @@ export interface GetSitesByServiceGroupArgs {
 }
 
 /**
- * Site as ARM Resource
+ * Site as Extension Resource
  */
 export interface GetSitesByServiceGroupResult {
     /**
@@ -63,7 +63,7 @@ export interface GetSitesByServiceGroupResult {
     readonly type: string;
 }
 /**
- * Get Site at SG scope
+ * Get a Site
  *
  * Uses Azure REST API version 2025-03-01-preview.
  *

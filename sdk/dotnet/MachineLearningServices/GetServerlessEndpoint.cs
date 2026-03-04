@@ -12,25 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetServerlessEndpoint
     {
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Get Serverless Endpoint.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServerlessEndpointResult> InvokeAsync(GetServerlessEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessEndpointResult>("azure-native:machinelearningservices:getServerlessEndpoint", args ?? new GetServerlessEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Get Serverless Endpoint.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerlessEndpointResult> Invoke(GetServerlessEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessEndpointResult>("azure-native:machinelearningservices:getServerlessEndpoint", args ?? new GetServerlessEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Uses Azure REST API version 2025-09-01.
+        /// Get Serverless Endpoint.
         /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Uses Azure REST API version 2025-12-01.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerlessEndpointResult> Invoke(GetServerlessEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessEndpointResult>("azure-native:machinelearningservices:getServerlessEndpoint", args ?? new GetServerlessEndpointInvokeArgs(), options.WithDefaults());
@@ -52,7 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -78,7 +84,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -120,7 +126,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Outputs.ServerlessEndpointResponse ServerlessEndpointProperties;
+        public readonly Outputs.ServerlessEndpointPropertiesResponse Properties;
         /// <summary>
         /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
@@ -152,7 +158,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Outputs.ServerlessEndpointResponse serverlessEndpointProperties,
+            Outputs.ServerlessEndpointPropertiesResponse properties,
 
             Outputs.SkuResponse? sku,
 
@@ -168,7 +174,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             Kind = kind;
             Location = location;
             Name = name;
-            ServerlessEndpointProperties = serverlessEndpointProperties;
+            Properties = properties;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

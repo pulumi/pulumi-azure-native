@@ -36,25 +36,15 @@ ApiCenter:
     additions:
         ApiSource: 2024-06-01-preview
 ApiManagement:
-    tracking: 2022-09-01-preview
+    tracking: "2024-05-01"
     additions:
-        ApiGateway: 2024-06-01-preview
-        ApiGatewayConfigConnection: 2024-06-01-preview
         ApiGatewayHostnameBinding: 2025-03-01-preview
         ApiTool: 2025-03-01-preview
         ClientApplication: 2024-10-01-preview
         ClientApplicationProductLink: 2024-10-01-preview
-        PolicyRestriction: 2024-06-01-preview
         Schema: 2021-04-01-preview
-        WorkspaceApiDiagnostic: 2024-06-01-preview
-        WorkspaceBackend: 2024-06-01-preview
-        WorkspaceCertificate: 2024-06-01-preview
-        WorkspaceDiagnostic: 2024-06-01-preview
-        WorkspaceLogger: 2024-06-01-preview
         listClientApplicationSecrets: 2024-10-01-preview
         listDelegationSettingSecrets: "2021-08-01"
-        listGatewayDebugCredentials: 2024-06-01-preview
-        listGatewayTrace: 2024-06-01-preview
 App:
     tracking: 2025-02-02-preview
 AppComplianceAutomation:
@@ -111,15 +101,9 @@ Authorization:
 Automanage:
     tracking: "2022-05-04"
 Automation:
-    tracking: "2023-11-01"
+    tracking: "2024-10-23"
     additions:
-        Package: 2023-05-15-preview
-        PrivateEndpointConnection: 2023-05-15-preview
-        RuntimeEnvironment: 2023-05-15-preview
-        SoftwareUpdateConfigurationByName: 2023-05-15-preview
-        Watcher: 2023-05-15-preview
-        Webhook: 2023-05-15-preview
-        listAutomationAccountDeletedRunbooks: 2023-05-15-preview
+        PowerShell72Module: "2023-11-01"
 AwsConnector:
     tracking: "2024-12-01"
 AzureActiveDirectory:
@@ -163,6 +147,8 @@ AzureStack:
 AzureStackHCI:
     tracking: "2024-04-01"
     additions:
+        ClusterJob: 2026-03-01-preview
+        DevicePool: 2026-03-01-preview
         EdgeDeviceJob: 2024-12-01-preview
         EdgeMachine: 2025-12-01-preview
         EdgeMachineJob: 2025-12-01-preview
@@ -178,6 +164,7 @@ AzureStackHCI:
         NetworkSecurityGroup: 2025-02-01-preview
         PublicIPAddress: 2025-09-01-preview
         SecurityRule: 2025-02-01-preview
+        Snapshot: 2026-02-01-preview
         StorageContainer: 2025-02-01-preview
         VirtualHardDisk: 2025-02-01-preview
         VirtualMachine: 2022-12-15-preview
@@ -227,6 +214,9 @@ Chaos:
     tracking: 2024-03-22-preview
 CloudHealth:
     tracking: 2025-05-01-preview
+    additions:
+        getEntityHistory: 2026-01-01-preview
+        getEntitySignalHistory: 2026-01-01-preview
 Cloudngfw:
     tracking: "2025-05-23"
 CodeSigning:
@@ -286,6 +276,8 @@ Compute:
         VirtualMachineScaleSetVMRunCommand: "2024-11-01"
         getLogAnalyticExportRequestRateByInterval: "2024-11-01"
         getLogAnalyticExportThrottledRequests: "2024-11-01"
+ComputeBulkActions:
+    tracking: 2026-02-01-preview
 ComputeLimit:
     tracking: "2025-08-15"
 ComputeSchedule:
@@ -761,6 +753,9 @@ DependencyMap:
         getMapDependencyViewForAllMachines: 2025-07-01-preview
 DesktopVirtualization:
     tracking: "2024-04-03"
+    additions:
+        SessionHost: 2026-01-01-preview
+        listSessionHostSingleRegistrationTokens: 2026-01-01-preview
 DevCenter:
     tracking: "2024-02-01"
     additions:
@@ -810,6 +805,8 @@ DeviceUpdate:
     tracking: "2023-07-01"
 DigitalTwins:
     tracking: "2023-01-31"
+Discovery:
+    tracking: 2026-02-01-preview
 Dns:
     tracking: 2023-07-01-preview
 DnsResolver:
@@ -820,6 +817,7 @@ DurableTask:
     tracking: 2024-10-01-preview
     additions:
         RetentionPolicy: 2025-04-01-preview
+        SchedulerPrivateEndpointConnection: "2026-02-01"
 Dynamics365Fraudprotection:
     tracking: 2021-02-01-preview
 DynamicsTelemetry: {}
@@ -885,6 +883,8 @@ Features:
     tracking: "2021-07-01"
 FileShares:
     tracking: 2025-06-01-preview
+    additions:
+        PrivateEndpointConnection: 2025-09-01-preview
 FluidRelay:
     tracking: "2022-06-01"
     additions:
@@ -967,6 +967,7 @@ IoTOperations:
     additions:
         AkriConnector: 2025-07-01-preview
         AkriConnectorTemplate: 2025-07-01-preview
+        AkriService: "2026-03-01"
         DataflowGraph: 2025-07-01-preview
         RegistryEndpoint: 2025-07-01-preview
 IoTOperationsDataProcessor:
@@ -1029,7 +1030,7 @@ M365SecurityAndCompliance:
 MachineLearning:
     tracking: "2019-10-01"
 MachineLearningServices:
-    tracking: "2025-09-01"
+    tracking: "2025-12-01"
     additions:
         CapacityReservationGroup: 2024-01-01-preview
         ConnectionDeployment: 2025-01-01-preview
@@ -1102,6 +1103,8 @@ Maps:
         PrivateEndpointConnection: 2024-01-01-preview
 Marketplace:
     tracking: "2023-01-01"
+    additions:
+        UserSolution: 2023-03-01-preview
 MarketplaceNotifications: {}
 MarketplaceOrdering: {}
 Migrate:
@@ -1303,6 +1306,7 @@ Network:
         RouteFilterRule: "2024-05-01"
         RouteMap: "2024-05-01"
         RouteTable: "2024-05-01"
+        RoutingConfiguration: 2023-03-01-preview
         RoutingIntent: "2024-05-01"
         RoutingRule: "2024-05-01"
         RoutingRuleCollection: "2024-05-01"
@@ -1430,6 +1434,9 @@ Network:
           detail: version 2025-05-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
+    additions:
+        AccessBridge: 2026-01-01-preview
+        KubernetesVersion: 2026-01-01-preview
 NetworkFunction:
     tracking: "2022-11-01"
 NotificationHubs:
@@ -1595,9 +1602,6 @@ Security:
         AssessmentsMetadataSubscription: 2019-01-01-preview
         Assignment: 2021-08-01-preview
         Automation: 2023-12-01-preview
-        Connector: 2020-01-01-preview
-        CustomAssessmentAutomation: 2021-07-01-preview
-        CustomEntityStoreAssignment: 2021-07-01-preview
         CustomRecommendation: "2024-08-01"
         DefenderForStorage: 2024-10-01-preview
         DevOpsConfiguration: "2024-04-01"
@@ -1656,10 +1660,6 @@ ServiceBus:
 ServiceFabric:
     tracking: "2024-04-01"
     additions:
-        Application: 2024-11-01-preview
-        ApplicationType: 2024-11-01-preview
-        ApplicationTypeVersion: 2024-11-01-preview
-        Service: 2024-11-01-preview
         getManagedClusterFaultSimulation: 2024-11-01-preview
         getNodeTypeFaultSimulation: 2024-11-01-preview
         listManagedClusterFaultSimulation: 2024-11-01-preview
@@ -1667,52 +1667,22 @@ ServiceFabric:
     exclusionErrors:
         - modulename: ServiceFabric
           resourcename: Application
-          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+          detail: version 2026-03-01-preview is greater than 2023-11-01-preview
         - modulename: ServiceFabric
           resourcename: ApplicationType
-          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+          detail: version 2026-03-01-preview is greater than 2023-11-01-preview
         - modulename: ServiceFabric
           resourcename: ApplicationTypeVersion
-          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+          detail: version 2026-03-01-preview is greater than 2023-11-01-preview
+        - modulename: ServiceFabric
+          resourcename: Cluster
+          detail: version 2026-03-01-preview is greater than 2023-11-01-preview
         - modulename: ServiceFabric
           resourcename: Service
-          detail: version 2024-11-01-preview is greater than 2023-11-01-preview
+          detail: version 2026-03-01-preview is greater than 2023-11-01-preview
         - modulename: ServiceFabric
-          resourcename: Application
-          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: ApplicationType
-          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: ApplicationTypeVersion
-          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: Service
-          detail: version 2025-03-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: Application
-          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: ApplicationType
-          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: ApplicationTypeVersion
-          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: Service
-          detail: version 2025-06-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: Application
-          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: ApplicationType
-          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: ApplicationTypeVersion
-          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
-        - modulename: ServiceFabric
-          resourcename: Service
-          detail: version 2025-10-01-preview is greater than 2023-11-01-preview
+          resourcename: listClusterUpgradableVersions
+          detail: version 2026-03-01-preview is greater than 2023-11-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
@@ -1752,6 +1722,8 @@ StorageDiscovery:
     tracking: 2025-06-01-preview
 StorageMover:
     tracking: "2024-07-01"
+    additions:
+        Connection: "2025-08-01"
 StoragePool:
     tracking: "2021-08-01"
 StorageSync:

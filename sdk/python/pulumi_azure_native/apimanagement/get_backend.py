@@ -27,7 +27,7 @@ class GetBackendResult:
     """
     Backend details.
     """
-    def __init__(__self__, azure_api_version=None, circuit_breaker=None, credentials=None, description=None, id=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+    def __init__(__self__, azure_api_version=None, circuit_breaker=None, credentials=None, description=None, id=None, name=None, pool=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -46,6 +46,9 @@ class GetBackendResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if pool and not isinstance(pool, dict):
+            raise TypeError("Expected argument 'pool' to be a dict")
+        pulumi.set(__self__, "pool", pool)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
@@ -121,6 +124,11 @@ class GetBackendResult:
 
     @_builtins.property
     @pulumi.getter
+    def pool(self) -> Optional['outputs.BackendBaseParametersResponsePool']:
+        return pulumi.get(self, "pool")
+
+    @_builtins.property
+    @pulumi.getter
     def properties(self) -> 'outputs.BackendPropertiesResponse':
         """
         Backend Properties contract
@@ -129,9 +137,9 @@ class GetBackendResult:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> _builtins.str:
+    def protocol(self) -> Optional[_builtins.str]:
         """
-        Backend communication protocol.
+        Backend communication protocol. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "protocol")
 
@@ -177,9 +185,9 @@ class GetBackendResult:
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> _builtins.str:
+    def url(self) -> Optional[_builtins.str]:
         """
-        Runtime Url of the Backend.
+        Runtime Url of the Backend. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "url")
 
@@ -196,6 +204,7 @@ class AwaitableGetBackendResult(GetBackendResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            pool=self.pool,
             properties=self.properties,
             protocol=self.protocol,
             proxy=self.proxy,
@@ -213,9 +222,9 @@ def get_backend(backend_id: Optional[_builtins.str] = None,
     """
     Gets the details of the backend specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -236,6 +245,7 @@ def get_backend(backend_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        pool=pulumi.get(__ret__, 'pool'),
         properties=pulumi.get(__ret__, 'properties'),
         protocol=pulumi.get(__ret__, 'protocol'),
         proxy=pulumi.get(__ret__, 'proxy'),
@@ -251,9 +261,9 @@ def get_backend_output(backend_id: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Gets the details of the backend specified by its identifier.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -273,6 +283,7 @@ def get_backend_output(backend_id: Optional[pulumi.Input[_builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        pool=pulumi.get(__response__, 'pool'),
         properties=pulumi.get(__response__, 'properties'),
         protocol=pulumi.get(__response__, 'protocol'),
         proxy=pulumi.get(__response__, 'proxy'),

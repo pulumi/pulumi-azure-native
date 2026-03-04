@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Compute runtime config for feature store type workspace.
-    /// </summary>
     public sealed class ComputeRuntimeDtoArgs : global::Pulumi.ResourceArgs
     {
         [Input("sparkRuntimeVersion")]

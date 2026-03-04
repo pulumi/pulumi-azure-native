@@ -8,9 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2025-09-01.
+ * Get registry
  *
- * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Uses Azure REST API version 2025-12-01.
+ *
+ * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,11 +33,18 @@ export interface GetRegistryArgs {
     resourceGroupName: string;
 }
 
+/**
+ * Concrete tracked resource types can be created by aliasing this type using a specific property type.
+ */
 export interface GetRegistryResult {
     /**
      * The Azure API version of the resource.
      */
     readonly azureApiVersion: string;
+    /**
+     * Discovery URL for the Registry
+     */
+    readonly discoveryUrl?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -45,6 +54,10 @@ export interface GetRegistryResult {
      */
     readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
     /**
+     * IntellectualPropertyPublisher for the registry
+     */
+    readonly intellectualPropertyPublisher?: string;
+    /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
     readonly kind?: string;
@@ -53,13 +66,34 @@ export interface GetRegistryResult {
      */
     readonly location: string;
     /**
+     * ResourceId of the managed RG if the registry has system created resources
+     */
+    readonly managedResourceGroup?: outputs.machinelearningservices.ArmResourceIdResponse;
+    /**
+     * Managed resource group specific settings
+     */
+    readonly managedResourceGroupSettings?: outputs.machinelearningservices.ManagedResourceGroupSettingsResponse;
+    /**
+     * MLFlow Registry URI for the Registry
+     */
+    readonly mlFlowRegistryUri?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
+     * Is the Registry accessible from the internet?
+     * Possible values: "Enabled" or "Disabled"
      */
-    readonly registryProperties: outputs.machinelearningservices.RegistryResponse;
+    readonly publicNetworkAccess?: string;
+    /**
+     * Details of each region the registry is in
+     */
+    readonly regionDetails?: outputs.machinelearningservices.RegistryRegionArmDetailsResponse[];
+    /**
+     * Private endpoint connections info used for pending connections in private link portal
+     */
+    readonly registryPrivateEndpointConnections?: outputs.machinelearningservices.RegistryPrivateEndpointConnectionResponse[];
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
@@ -78,9 +112,11 @@ export interface GetRegistryResult {
     readonly type: string;
 }
 /**
- * Uses Azure REST API version 2025-09-01.
+ * Get registry
  *
- * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Uses Azure REST API version 2025-12-01.
+ *
+ * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -21,35 +21,35 @@ __all__ = ['FeaturestoreEntityContainerEntityArgs', 'FeaturestoreEntityContainer
 @pulumi.input_type
 class FeaturestoreEntityContainerEntityArgs:
     def __init__(__self__, *,
-                 featurestore_entity_container_properties: pulumi.Input['FeaturestoreEntityContainerArgs'],
+                 properties: pulumi.Input['FeaturestoreEntityContainerPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FeaturestoreEntityContainerEntity resource.
 
-        :param pulumi.Input['FeaturestoreEntityContainerArgs'] featurestore_entity_container_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['FeaturestoreEntityContainerPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "featurestore_entity_container_properties", featurestore_entity_container_properties)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @_builtins.property
-    @pulumi.getter(name="featurestoreEntityContainerProperties")
-    def featurestore_entity_container_properties(self) -> pulumi.Input['FeaturestoreEntityContainerArgs']:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FeaturestoreEntityContainerPropertiesArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "featurestore_entity_container_properties")
+        return pulumi.get(self, "properties")
 
-    @featurestore_entity_container_properties.setter
-    def featurestore_entity_container_properties(self, value: pulumi.Input['FeaturestoreEntityContainerArgs']):
-        pulumi.set(self, "featurestore_entity_container_properties", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input['FeaturestoreEntityContainerPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,7 +67,7 @@ class FeaturestoreEntityContainerEntityArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -94,25 +94,25 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 featurestore_entity_container_properties: Optional[pulumi.Input[Union['FeaturestoreEntityContainerArgs', 'FeaturestoreEntityContainerArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['FeaturestoreEntityContainerPropertiesArgs', 'FeaturestoreEntityContainerPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FeaturestoreEntityContainerArgs', 'FeaturestoreEntityContainerArgsDict']] featurestore_entity_container_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] name: Container name. This is case-sensitive.
+        :param pulumi.Input[Union['FeaturestoreEntityContainerPropertiesArgs', 'FeaturestoreEntityContainerPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
@@ -123,9 +123,9 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -143,8 +143,8 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 featurestore_entity_container_properties: Optional[pulumi.Input[Union['FeaturestoreEntityContainerArgs', 'FeaturestoreEntityContainerArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['FeaturestoreEntityContainerPropertiesArgs', 'FeaturestoreEntityContainerPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -156,10 +156,10 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FeaturestoreEntityContainerEntityArgs.__new__(FeaturestoreEntityContainerEntityArgs)
 
-            if featurestore_entity_container_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'featurestore_entity_container_properties'")
-            __props__.__dict__["featurestore_entity_container_properties"] = featurestore_entity_container_properties
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -169,7 +169,7 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:FeaturestoreEntityContainerEntity")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:FeaturestoreEntityContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:FeaturestoreEntityContainerEntity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FeaturestoreEntityContainerEntity, __self__).__init__(
             'azure-native:machinelearningservices:FeaturestoreEntityContainerEntity',
@@ -194,8 +194,8 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
         __props__ = FeaturestoreEntityContainerEntityArgs.__new__(FeaturestoreEntityContainerEntityArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["featurestore_entity_container_properties"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FeaturestoreEntityContainerEntity(resource_name, opts=opts, __props__=__props__)
@@ -209,20 +209,20 @@ class FeaturestoreEntityContainerEntity(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="featurestoreEntityContainerProperties")
-    def featurestore_entity_container_properties(self) -> pulumi.Output['outputs.FeaturestoreEntityContainerResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "featurestore_entity_container_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.FeaturestoreEntityContainerPropertiesResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

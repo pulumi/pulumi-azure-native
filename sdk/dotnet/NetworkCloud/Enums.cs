@@ -769,6 +769,43 @@ namespace Pulumi.AzureNative.NetworkCloud
     }
 
     /// <summary>
+    /// The direction of allowed network traffic based on the rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleDirection : IEquatable<SecurityRuleDirection>
+    {
+        private readonly string _value;
+
+        private SecurityRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Inbound traffic toward the on-premsises cluster.
+        /// </summary>
+        public static SecurityRuleDirection Inbound { get; } = new SecurityRuleDirection("Inbound");
+        /// <summary>
+        /// Outbound traffic from the on-premises cluster.
+        /// </summary>
+        public static SecurityRuleDirection Outbound { get; } = new SecurityRuleDirection("Outbound");
+
+        public static bool operator ==(SecurityRuleDirection left, SecurityRuleDirection right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleDirection left, SecurityRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleDirection other && Equals(other);
+        public bool Equals(SecurityRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Selection of how the type evaluation is applied to the cluster calculation.
     /// </summary>
     [EnumType]

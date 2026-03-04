@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Definition of the module type.
  *
- * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+ * Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
- * Other available API versions: 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Python3Package extends pulumi.CustomResource {
     /**
@@ -42,7 +42,7 @@ export class Python3Package extends pulumi.CustomResource {
     }
 
     /**
-     * Gets the activity count of the module.
+     * Gets or sets the activity count of the module.
      */
     declare public /*out*/ readonly activityCount: pulumi.Output<number | undefined>;
     /**
@@ -50,7 +50,11 @@ export class Python3Package extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Gets the creation time.
+     * Gets or sets the contentLink of the module.
+     */
+    declare public readonly contentLink: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
+    /**
+     * Gets or sets the creation time.
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string | undefined>;
     /**
@@ -58,51 +62,55 @@ export class Python3Package extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
-     * Gets the error info of the module.
+     * Gets or sets the error info of the module.
      */
     declare public /*out*/ readonly error: pulumi.Output<outputs.automation.ModuleErrorInfoResponse | undefined>;
     /**
-     * Gets the etag of the resource.
+     * Gets or sets the etag of the resource.
      */
     declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
-     * Gets type of module, if its composite or not.
+     * Gets or sets type of module, if its composite or not.
      */
     declare public /*out*/ readonly isComposite: pulumi.Output<boolean | undefined>;
     /**
-     * Gets the isGlobal flag of the module.
+     * Gets or sets the isGlobal flag of the module.
      */
     declare public /*out*/ readonly isGlobal: pulumi.Output<boolean | undefined>;
     /**
-     * Gets the last modified time.
+     * Gets or sets the last modified time.
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    declare public /*out*/ readonly location: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the module.
+     * Gets or sets the provisioning state of the module.
      */
     declare public /*out*/ readonly provisioningState: pulumi.Output<string | undefined>;
     /**
-     * Gets the size in bytes of the module.
+     * Gets or sets the size in bytes of the module.
      */
     declare public /*out*/ readonly sizeInBytes: pulumi.Output<number | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * Gets the version of the module.
+     * Gets or sets the version of the module.
      */
     declare public /*out*/ readonly version: pulumi.Output<string | undefined>;
 
@@ -144,11 +152,13 @@ export class Python3Package extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["activityCount"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;
@@ -160,6 +170,7 @@ export class Python3Package extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

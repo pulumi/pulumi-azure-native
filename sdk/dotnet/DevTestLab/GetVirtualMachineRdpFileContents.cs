@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public string LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the LabVirtualMachine
+        /// The name of the virtual machine.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the LabVirtualMachine
+        /// The name of the virtual machine.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

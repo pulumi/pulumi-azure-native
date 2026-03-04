@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.NetApp
     /// NetApp elastic account resource
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:ElasticAccount")]
     public partial class ElasticAccount : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.NetApp
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20250901preview:ElasticAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20251215preview:ElasticAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

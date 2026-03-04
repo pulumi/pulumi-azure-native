@@ -2935,12 +2935,12 @@ class ServicePlacementInvalidDomainPolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
     """
-    The type of placement policy for a service fabric service. Following are the possible values.
+    The name of the domain that should used for placement as per this policy.
     """
     def __init__(__self__, *,
                  type: _builtins.str):
         """
-        The type of placement policy for a service fabric service. Following are the possible values.
+        The name of the domain that should used for placement as per this policy.
 
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
@@ -2960,7 +2960,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyResponse(dict):
 @pulumi.output_type
 class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
     """
-    Describes the policy to be used for placement of a Service Fabric service where the service's
+    Describes the policy to be used for placement of a Service Fabric service where the service's 
     Primary replicas should optimally be placed in a particular domain.
 
     This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2990,7 +2990,7 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
                  domain_name: _builtins.str,
                  type: _builtins.str):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's
+        Describes the policy to be used for placement of a Service Fabric service where the service's 
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2998,6 +2998,7 @@ class ServicePlacementPreferPrimaryDomainPolicyResponse(dict):
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
+
 
         :param _builtins.str domain_name: The name of the domain that should used for placement as per this policy.
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
@@ -3067,6 +3068,7 @@ class ServicePlacementRequireDomainDistributionPolicyResponse(dict):
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
+
 
         :param _builtins.str domain_name: The name of the domain that should used for placement as per this policy.
         :param _builtins.str type: The type of placement policy for a service fabric service. Following are the possible values.
@@ -4072,7 +4074,7 @@ class SystemDataResponse(dict):
         :param _builtins.str created_at: The timestamp of resource creation (UTC).
         :param _builtins.str created_by: The identity that created the resource.
         :param _builtins.str created_by_type: The type of identity that created the resource.
-        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param _builtins.str last_modified_at: The timestamp of resource last modification (UTC).
         :param _builtins.str last_modified_by: The identity that last modified the resource.
         :param _builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -4117,7 +4119,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[_builtins.str]:
         """
-        The timestamp of resource last modification (UTC)
+        The timestamp of resource last modification (UTC).
         """
         return pulumi.get(self, "last_modified_at")
 

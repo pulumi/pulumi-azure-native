@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A single API Management service resource in List or Get response.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**
@@ -58,6 +58,10 @@ export class ApiManagementService extends pulumi.CustomResource {
      */
     declare public readonly certificates: pulumi.Output<outputs.apimanagement.CertificateConfigurationResponse[] | undefined>;
     /**
+     * Configuration API configuration of the API Management service.
+     */
+    declare public readonly configurationApi: pulumi.Output<outputs.apimanagement.ConfigurationApiResponse | undefined>;
+    /**
      * Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
     declare public /*out*/ readonly createdAtUtc: pulumi.Output<string>;
@@ -65,6 +69,10 @@ export class ApiManagementService extends pulumi.CustomResource {
      * Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
      */
     declare public readonly customProperties: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Status of developer portal in this API Management service.
+     */
+    declare public readonly developerPortalStatus: pulumi.Output<string | undefined>;
     /**
      * DEveloper Portal endpoint URL of the API Management service.
      */
@@ -97,6 +105,10 @@ export class ApiManagementService extends pulumi.CustomResource {
      * Managed service identity of the Api Management service.
      */
     declare public readonly identity: pulumi.Output<outputs.apimanagement.ApiManagementServiceIdentityResponse | undefined>;
+    /**
+     * Status of legacy portal in the API Management service.
+     */
+    declare public readonly legacyPortalStatus: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -228,11 +240,14 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["additionalLocations"] = args?.additionalLocations;
             resourceInputs["apiVersionConstraint"] = args?.apiVersionConstraint;
             resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["configurationApi"] = args ? (args.configurationApi ? pulumi.output(args.configurationApi).apply(inputs.apimanagement.configurationApiArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["customProperties"] = args?.customProperties;
+            resourceInputs["developerPortalStatus"] = (args?.developerPortalStatus) ?? "Enabled";
             resourceInputs["disableGateway"] = (args?.disableGateway) ?? false;
             resourceInputs["enableClientCertificate"] = (args?.enableClientCertificate) ?? false;
             resourceInputs["hostnameConfigurations"] = args?.hostnameConfigurations;
             resourceInputs["identity"] = args?.identity;
+            resourceInputs["legacyPortalStatus"] = (args?.legacyPortalStatus) ?? "Enabled";
             resourceInputs["location"] = args?.location;
             resourceInputs["natGatewayState"] = (args?.natGatewayState) ?? "Disabled";
             resourceInputs["notificationSenderEmail"] = args?.notificationSenderEmail;
@@ -272,8 +287,10 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["apiVersionConstraint"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["configurationApi"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["customProperties"] = undefined /*out*/;
+            resourceInputs["developerPortalStatus"] = undefined /*out*/;
             resourceInputs["developerPortalUrl"] = undefined /*out*/;
             resourceInputs["disableGateway"] = undefined /*out*/;
             resourceInputs["enableClientCertificate"] = undefined /*out*/;
@@ -282,6 +299,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["gatewayUrl"] = undefined /*out*/;
             resourceInputs["hostnameConfigurations"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["legacyPortalStatus"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managementApiUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -333,9 +351,17 @@ export interface ApiManagementServiceArgs {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.CertificateConfigurationArgs>[]>;
     /**
+     * Configuration API configuration of the API Management service.
+     */
+    configurationApi?: pulumi.Input<inputs.apimanagement.ConfigurationApiArgs>;
+    /**
      * Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
      */
     customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Status of developer portal in this API Management service.
+     */
+    developerPortalStatus?: pulumi.Input<string | enums.apimanagement.DeveloperPortalStatus>;
     /**
      * Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
      */
@@ -352,6 +378,10 @@ export interface ApiManagementServiceArgs {
      * Managed service identity of the Api Management service.
      */
     identity?: pulumi.Input<inputs.apimanagement.ApiManagementServiceIdentityArgs>;
+    /**
+     * Status of legacy portal in the API Management service.
+     */
+    legacyPortalStatus?: pulumi.Input<string | enums.apimanagement.LegacyPortalStatus>;
     /**
      * Resource location.
      */

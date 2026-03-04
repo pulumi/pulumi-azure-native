@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get an edge machine.
         /// 
         /// Uses Azure REST API version 2025-12-01-preview.
+        /// 
+        /// Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetEdgeMachineResult> InvokeAsync(GetEdgeMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEdgeMachineResult>("azure-native:azurestackhci:getEdgeMachine", args ?? new GetEdgeMachineArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get an edge machine.
         /// 
         /// Uses Azure REST API version 2025-12-01-preview.
+        /// 
+        /// Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEdgeMachineResult> Invoke(GetEdgeMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeMachineResult>("azure-native:azurestackhci:getEdgeMachine", args ?? new GetEdgeMachineInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get an edge machine.
         /// 
         /// Uses Azure REST API version 2025-12-01-preview.
+        /// 
+        /// Other available API versions: 2026-02-15-preview, 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetEdgeMachineResult> Invoke(GetEdgeMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeMachineResult>("azure-native:azurestackhci:getEdgeMachine", args ?? new GetEdgeMachineInvokeArgs(), options.WithDefaults());

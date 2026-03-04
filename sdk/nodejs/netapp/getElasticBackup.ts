@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get the specified Elastic Backup under Elastic Backup Vault.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getElasticBackup(args: GetElasticBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticBackupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +76,8 @@ export interface GetElasticBackupResult {
  * Get the specified Elastic Backup under Elastic Backup Vault.
  *
  * Uses Azure REST API version 2025-09-01-preview.
+ *
+ * Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getElasticBackupOutput(args: GetElasticBackupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticBackupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

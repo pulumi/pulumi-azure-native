@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.FileShares
         /// Get file shares provisioning parameters recommendation.
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFileShareProvisioningRecommendationResult> InvokeAsync(GetFileShareProvisioningRecommendationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareProvisioningRecommendationResult>("azure-native:fileshares:getFileShareProvisioningRecommendation", args ?? new GetFileShareProvisioningRecommendationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.FileShares
         /// Get file shares provisioning parameters recommendation.
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFileShareProvisioningRecommendationResult> Invoke(GetFileShareProvisioningRecommendationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareProvisioningRecommendationResult>("azure-native:fileshares:getFileShareProvisioningRecommendation", args ?? new GetFileShareProvisioningRecommendationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.FileShares
         /// Get file shares provisioning parameters recommendation.
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fileshares [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFileShareProvisioningRecommendationResult> Invoke(GetFileShareProvisioningRecommendationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareProvisioningRecommendationResult>("azure-native:fileshares:getFileShareProvisioningRecommendation", args ?? new GetFileShareProvisioningRecommendationInvokeArgs(), options.WithDefaults());

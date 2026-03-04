@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.TableVerticalLimitSettingsResponse? LimitSettings;
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         public readonly string? LogVerbosity;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? PositiveLabel;
         /// <summary>
-        /// Primary metric for the task.
+        /// Primary metrics for classification tasks.
         /// </summary>
         public readonly string? PrimaryMetric;
         /// <summary>

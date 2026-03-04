@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// <summary>
         /// The error detail.
         /// </summary>
-        public readonly Outputs.ErrorDetailResponse? Error;
+        public readonly Outputs.ErrorDetailResponse Error;
         /// <summary>
         /// Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
             ImmutableArray<Outputs.DeploymentStacksDiagnosticResponse> diagnostics,
 
-            Outputs.ErrorDetailResponse? error,
+            Outputs.ErrorDetailResponse error,
 
             ImmutableDictionary<string, Outputs.DeploymentParameterResponse>? parameters,
 

@@ -31,6 +31,7 @@ __all__ = [
     'OsDiskCreateOption',
     'OsDiskDeleteOption',
     'RuntimeProtectionEnforcementLevel',
+    'SecurityRuleDirection',
     'ValidationThresholdGrouping',
     'ValidationThresholdType',
     'VirtualMachineBootMethod',
@@ -276,6 +277,21 @@ class RuntimeProtectionEnforcementLevel(_builtins.str, Enum):
     ON_DEMAND = "OnDemand"
     PASSIVE = "Passive"
     REAL_TIME = "RealTime"
+
+
+@pulumi.type_token("azure-native:networkcloud:SecurityRuleDirection")
+class SecurityRuleDirection(_builtins.str, Enum):
+    """
+    The direction of allowed network traffic based on the rule.
+    """
+    INBOUND = "Inbound"
+    """
+    Inbound traffic toward the on-premsises cluster.
+    """
+    OUTBOUND = "Outbound"
+    """
+    Outbound traffic from the on-premises cluster.
+    """
 
 
 @pulumi.type_token("azure-native:networkcloud:ValidationThresholdGrouping")

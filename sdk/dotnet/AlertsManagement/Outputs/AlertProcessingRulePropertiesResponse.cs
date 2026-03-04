@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ConditionResponse> Conditions;
         /// <summary>
-        /// Description of alert processing rule.
+        /// Actions to be applied.Description of alert processing rule.
         /// </summary>
         public readonly string? Description;
         /// <summary>

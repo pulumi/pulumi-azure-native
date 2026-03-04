@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Environment Variables for the container
-    /// </summary>
     public sealed class EnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * API details.
  *
- * Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+ * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
  *
- * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -114,6 +114,10 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly protocols: pulumi.Output<string[] | undefined>;
     /**
+     * The provisioning state
+     */
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    /**
      * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
      */
     declare public readonly serviceUrl: pulumi.Output<string | undefined>;
@@ -189,6 +193,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["apiRevision"] = undefined /*out*/;
@@ -209,6 +214,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;
             resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;
             resourceInputs["sourceApiId"] = undefined /*out*/;
             resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
@@ -276,7 +282,7 @@ export interface ApiArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Format of the Content in which the API is getting imported.
+     * Format of the Content in which the API is getting imported. New formats can be added in the future
      */
     format?: pulumi.Input<string | enums.apimanagement.ContentFormat>;
     /**
@@ -312,7 +318,8 @@ export interface ApiArgs {
      *  * `http` creates a REST API 
      *  * `soap` creates a SOAP pass-through API  
      *  * `websocket` creates websocket API 
-     *  * `graphql` creates GraphQL API.
+     *  * `graphql` creates GraphQL API. 
+     *  New types can be added in the future.
      */
     soapApiType?: pulumi.Input<string | enums.apimanagement.SoapApiType>;
     /**

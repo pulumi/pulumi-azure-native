@@ -22,8 +22,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// <summary>
         /// [Required] Defines Schedule action definition details.
         /// </summary>
-        [Input("jobBaseProperties", required: true)]
-        public object JobBaseProperties { get; set; } = null!;
+        [Input("jobDefinition", required: true)]
+        public object JobDefinition { get; set; } = null!;
 
         public JobScheduleActionArgs()
         {

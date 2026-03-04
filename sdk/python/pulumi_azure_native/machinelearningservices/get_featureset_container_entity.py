@@ -27,19 +27,19 @@ class GetFeaturesetContainerEntityResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, azure_api_version=None, featureset_container_properties=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
-        if featureset_container_properties and not isinstance(featureset_container_properties, dict):
-            raise TypeError("Expected argument 'featureset_container_properties' to be a dict")
-        pulumi.set(__self__, "featureset_container_properties", featureset_container_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -56,14 +56,6 @@ class GetFeaturesetContainerEntityResult:
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="featuresetContainerProperties")
-    def featureset_container_properties(self) -> 'outputs.FeaturesetContainerResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "featureset_container_properties")
-
-    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -78,6 +70,14 @@ class GetFeaturesetContainerEntityResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.FeaturesetContainerPropertiesResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")
@@ -103,9 +103,9 @@ class AwaitableGetFeaturesetContainerEntityResult(GetFeaturesetContainerEntityRe
             yield self
         return GetFeaturesetContainerEntityResult(
             azure_api_version=self.azure_api_version,
-            featureset_container_properties=self.featureset_container_properties,
             id=self.id,
             name=self.name,
+            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -115,16 +115,16 @@ def get_featureset_container_entity(name: Optional[_builtins.str] = None,
                                     workspace_name: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFeaturesetContainerEntityResult:
     """
-    Azure Resource Manager resource envelope.
+    Get container.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Container name. This is case-sensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['name'] = name
@@ -135,9 +135,9 @@ def get_featureset_container_entity(name: Optional[_builtins.str] = None,
 
     return AwaitableGetFeaturesetContainerEntityResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
-        featureset_container_properties=pulumi.get(__ret__, 'featureset_container_properties'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_featureset_container_entity_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -145,16 +145,16 @@ def get_featureset_container_entity_output(name: Optional[pulumi.Input[_builtins
                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeaturesetContainerEntityResult]:
     """
-    Azure Resource Manager resource envelope.
+    Get container.
 
-    Uses Azure REST API version 2025-09-01.
+    Uses Azure REST API version 2025-12-01.
 
-    Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Container name. This is case-sensitive.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param _builtins.str workspace_name: Name of Azure Machine Learning workspace.
+    :param _builtins.str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['name'] = name
@@ -164,8 +164,8 @@ def get_featureset_container_entity_output(name: Optional[pulumi.Input[_builtins
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getFeaturesetContainerEntity', __args__, opts=opts, typ=GetFeaturesetContainerEntityResult)
     return __ret__.apply(lambda __response__: GetFeaturesetContainerEntityResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
-        featureset_container_properties=pulumi.get(__response__, 'featureset_container_properties'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

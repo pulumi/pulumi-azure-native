@@ -98,6 +98,8 @@ namespace Pulumi.AzureNative.ApiManagement
         public static ApiType Soap { get; } = new ApiType("soap");
         public static ApiType Websocket { get; } = new ApiType("websocket");
         public static ApiType Graphql { get; } = new ApiType("graphql");
+        public static ApiType Odata { get; } = new ApiType("odata");
+        public static ApiType Grpc { get; } = new ApiType("grpc");
 
         public static bool operator ==(ApiType left, ApiType right) => left.Equals(right);
         public static bool operator !=(ApiType left, ApiType right) => !left.Equals(right);
@@ -527,7 +529,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
-    /// Format of the Content in which the API is getting imported.
+    /// Format of the Content in which the API is getting imported. New formats can be added in the future
     /// </summary>
     [EnumType]
     public readonly struct ContentFormat : IEquatable<ContentFormat>
@@ -583,6 +585,22 @@ namespace Pulumi.AzureNative.ApiManagement
         /// The GraphQL API endpoint hosted on a publicly accessible internet address.
         /// </summary>
         public static ContentFormat Graphql_link { get; } = new ContentFormat("graphql-link");
+        /// <summary>
+        /// The contents are inline and Content Type is a OData XML Document.
+        /// </summary>
+        public static ContentFormat Odata { get; } = new ContentFormat("odata");
+        /// <summary>
+        /// The OData metadata document hosted on a publicly accessible internet address.
+        /// </summary>
+        public static ContentFormat Odata_link { get; } = new ContentFormat("odata-link");
+        /// <summary>
+        /// The contents are inline and Content Type is a gRPC protobuf file.
+        /// </summary>
+        public static ContentFormat Grpc { get; } = new ContentFormat("grpc");
+        /// <summary>
+        /// The gRPC protobuf file is hosted on a publicly accessible internet address.
+        /// </summary>
+        public static ContentFormat Grpc_link { get; } = new ContentFormat("grpc-link");
 
         public static bool operator ==(ContentFormat left, ContentFormat right) => left.Equals(right);
         public static bool operator !=(ContentFormat left, ContentFormat right) => !left.Equals(right);
@@ -629,6 +647,43 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataMaskingMode other && Equals(other);
         public bool Equals(DataMaskingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of developer portal in this API Management service.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeveloperPortalStatus : IEquatable<DeveloperPortalStatus>
+    {
+        private readonly string _value;
+
+        private DeveloperPortalStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Developer Portal is enabled for the service.
+        /// </summary>
+        public static DeveloperPortalStatus Enabled { get; } = new DeveloperPortalStatus("Enabled");
+        /// <summary>
+        /// Developer Portal is disabled for the service.
+        /// </summary>
+        public static DeveloperPortalStatus Disabled { get; } = new DeveloperPortalStatus("Disabled");
+
+        public static bool operator ==(DeveloperPortalStatus left, DeveloperPortalStatus right) => left.Equals(right);
+        public static bool operator !=(DeveloperPortalStatus left, DeveloperPortalStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DeveloperPortalStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeveloperPortalStatus other && Equals(other);
+        public bool Equals(DeveloperPortalStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -761,6 +816,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public static HostnameType Management { get; } = new HostnameType("Management");
         public static HostnameType Scm { get; } = new HostnameType("Scm");
         public static HostnameType DeveloperPortal { get; } = new HostnameType("DeveloperPortal");
+        public static HostnameType ConfigurationApi { get; } = new HostnameType("ConfigurationApi");
 
         public static bool operator ==(HostnameType left, HostnameType right) => left.Equals(right);
         public static bool operator !=(HostnameType left, HostnameType right) => !left.Equals(right);
@@ -903,35 +959,35 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
-    /// Specifies whether default diagnostic should be enabled for Large Language Models or not.
+    /// Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
     /// </summary>
     [EnumType]
-    public readonly struct LlmDiagnosticSettings : IEquatable<LlmDiagnosticSettings>
+    public readonly struct LegacyApiState : IEquatable<LegacyApiState>
     {
         private readonly string _value;
 
-        private LlmDiagnosticSettings(string value)
+        private LegacyApiState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Default LLM logs are enabled.
+        /// Legacy Configuration API (v1) is enabled for the service and self-hosted gateways can connect to it.
         /// </summary>
-        public static LlmDiagnosticSettings Enabled { get; } = new LlmDiagnosticSettings("enabled");
+        public static LegacyApiState Enabled { get; } = new LegacyApiState("Enabled");
         /// <summary>
-        /// Default LLM logs are disabled.
+        /// Legacy Configuration API (v1) is disabled for the service and self-hosted gateways can not connect to it.
         /// </summary>
-        public static LlmDiagnosticSettings Disabled { get; } = new LlmDiagnosticSettings("disabled");
+        public static LegacyApiState Disabled { get; } = new LegacyApiState("Disabled");
 
-        public static bool operator ==(LlmDiagnosticSettings left, LlmDiagnosticSettings right) => left.Equals(right);
-        public static bool operator !=(LlmDiagnosticSettings left, LlmDiagnosticSettings right) => !left.Equals(right);
+        public static bool operator ==(LegacyApiState left, LegacyApiState right) => left.Equals(right);
+        public static bool operator !=(LegacyApiState left, LegacyApiState right) => !left.Equals(right);
 
-        public static explicit operator string(LlmDiagnosticSettings value) => value._value;
+        public static explicit operator string(LegacyApiState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LlmDiagnosticSettings other && Equals(other);
-        public bool Equals(LlmDiagnosticSettings other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LegacyApiState other && Equals(other);
+        public bool Equals(LegacyApiState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -940,31 +996,35 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
-    /// Specifies which message should be logged. Currently there is only 'all' option.
+    /// Status of legacy portal in the API Management service.
     /// </summary>
     [EnumType]
-    public readonly struct LlmMessageLogTypes : IEquatable<LlmMessageLogTypes>
+    public readonly struct LegacyPortalStatus : IEquatable<LegacyPortalStatus>
     {
         private readonly string _value;
 
-        private LlmMessageLogTypes(string value)
+        private LegacyPortalStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
-        /// Log all messages.
+        /// Legacy Portal is enabled for the service.
         /// </summary>
-        public static LlmMessageLogTypes All { get; } = new LlmMessageLogTypes("all");
+        public static LegacyPortalStatus Enabled { get; } = new LegacyPortalStatus("Enabled");
+        /// <summary>
+        /// Legacy Portal is disabled for the service.
+        /// </summary>
+        public static LegacyPortalStatus Disabled { get; } = new LegacyPortalStatus("Disabled");
 
-        public static bool operator ==(LlmMessageLogTypes left, LlmMessageLogTypes right) => left.Equals(right);
-        public static bool operator !=(LlmMessageLogTypes left, LlmMessageLogTypes right) => !left.Equals(right);
+        public static bool operator ==(LegacyPortalStatus left, LegacyPortalStatus right) => left.Equals(right);
+        public static bool operator !=(LegacyPortalStatus left, LegacyPortalStatus right) => !left.Equals(right);
 
-        public static explicit operator string(LlmMessageLogTypes value) => value._value;
+        public static explicit operator string(LegacyPortalStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LlmMessageLogTypes other && Equals(other);
-        public bool Equals(LlmMessageLogTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is LegacyPortalStatus other && Equals(other);
+        public bool Equals(LegacyPortalStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1504,6 +1564,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Isolated SKU of Api Management.
         /// </summary>
         public static SkuType Isolated { get; } = new SkuType("Isolated");
+        /// <summary>
+        /// BasicV2 SKU of Api Management.
+        /// </summary>
+        public static SkuType BasicV2 { get; } = new SkuType("BasicV2");
+        /// <summary>
+        /// StandardV2 SKU of Api Management.
+        /// </summary>
+        public static SkuType StandardV2 { get; } = new SkuType("StandardV2");
 
         public static bool operator ==(SkuType left, SkuType right) => left.Equals(right);
         public static bool operator !=(SkuType left, SkuType right) => !left.Equals(right);
@@ -1525,7 +1593,8 @@ namespace Pulumi.AzureNative.ApiManagement
     ///  * `http` creates a REST API 
     ///  * `soap` creates a SOAP pass-through API  
     ///  * `websocket` creates websocket API 
-    ///  * `graphql` creates GraphQL API.
+    ///  * `graphql` creates GraphQL API. 
+    ///  New types can be added in the future.
     /// </summary>
     [EnumType]
     public readonly struct SoapApiType : IEquatable<SoapApiType>
@@ -1553,6 +1622,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Imports the API having a GraphQL front end.
         /// </summary>
         public static SoapApiType GraphQL { get; } = new SoapApiType("graphql");
+        /// <summary>
+        /// Imports the API having a OData front end.
+        /// </summary>
+        public static SoapApiType OData { get; } = new SoapApiType("odata");
+        /// <summary>
+        /// Imports the API having a gRPC front end.
+        /// </summary>
+        public static SoapApiType GRPC { get; } = new SoapApiType("grpc");
 
         public static bool operator ==(SoapApiType left, SoapApiType right) => left.Equals(right);
         public static bool operator !=(SoapApiType left, SoapApiType right) => !left.Equals(right);

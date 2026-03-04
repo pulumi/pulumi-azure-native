@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class QueueSettingsResponse
     {
         /// <summary>
-        /// Controls the compute job tier
+        /// Enum to determine the job tier.
         /// </summary>
         public readonly string? JobTier;
 

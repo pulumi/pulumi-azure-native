@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// 
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:FeaturestoreEntityVersion")]
     public partial class FeaturestoreEntityVersion : global::Pulumi.CustomResource
@@ -26,16 +26,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("featurestoreEntityVersionProperties")]
-        public Output<Outputs.FeaturestoreEntityVersionResponse> FeaturestoreEntityVersionProperties { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.FeaturestoreEntityVersionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:FeaturestoreEntityVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:FeaturestoreEntityVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:FeaturestoreEntityVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -116,16 +117,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class FeaturestoreEntityVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("featurestoreEntityVersionProperties", required: true)]
-        public Input<Inputs.FeaturestoreEntityVersionArgs> FeaturestoreEntityVersionProperties { get; set; } = null!;
-
-        /// <summary>
         /// Container name. This is case-sensitive.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.FeaturestoreEntityVersionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -140,7 +141,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

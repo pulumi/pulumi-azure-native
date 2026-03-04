@@ -27,7 +27,7 @@ class GetEnvironmentResult:
     """
     An environment, which is essentially an ARM template deployment.
     """
-    def __init__(__self__, arm_template_display_name=None, azure_api_version=None, created_by_user=None, deployment_properties=None, id=None, location=None, name=None, provisioning_state=None, resource_group_id=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, arm_template_display_name=None, azure_api_version=None, created_by_user=None, deployment_properties=None, id=None, location=None, name=None, provisioning_state=None, resource_group_id=None, system_data=None, tags=None, type=None, unique_identifier=None):
         if arm_template_display_name and not isinstance(arm_template_display_name, str):
             raise TypeError("Expected argument 'arm_template_display_name' to be a str")
         pulumi.set(__self__, "arm_template_display_name", arm_template_display_name)
@@ -55,6 +55,9 @@ class GetEnvironmentResult:
         if resource_group_id and not isinstance(resource_group_id, str):
             raise TypeError("Expected argument 'resource_group_id' to be a str")
         pulumi.set(__self__, "resource_group_id", resource_group_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -101,7 +104,7 @@ class GetEnvironmentResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -109,7 +112,7 @@ class GetEnvironmentResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -117,7 +120,7 @@ class GetEnvironmentResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -138,10 +141,18 @@ class GetEnvironmentResult:
         return pulumi.get(self, "resource_group_id")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -149,7 +160,7 @@ class GetEnvironmentResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -177,6 +188,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_group_id=self.resource_group_id,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier)
@@ -196,7 +208,7 @@ def get_environment(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the DtlEnvironment
+    :param _builtins.str name: The name of the environment.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str user_name: The name of the user profile.
     """
@@ -219,6 +231,7 @@ def get_environment(expand: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         resource_group_id=pulumi.get(__ret__, 'resource_group_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
@@ -236,7 +249,7 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[_builtins.str]
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the DtlEnvironment
+    :param _builtins.str name: The name of the environment.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str user_name: The name of the user profile.
     """
@@ -258,6 +271,7 @@ def get_environment_output(expand: Optional[pulumi.Input[Optional[_builtins.str]
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         resource_group_id=pulumi.get(__response__, 'resource_group_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier')))

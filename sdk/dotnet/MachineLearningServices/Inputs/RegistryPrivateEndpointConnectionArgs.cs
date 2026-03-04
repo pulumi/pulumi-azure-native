@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// </summary>
     public sealed class RegistryPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// The group ids
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
+
         /// <summary>
         /// This is the private endpoint connection name created on SRP
         /// Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
@@ -29,10 +41,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Properties of the Private Endpoint Connection
+        /// The PE network resource that is linked to this PE connection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RegistryPrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointResourceArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The connection state.
+        /// </summary>
+        [Input("registryPrivateLinkServiceConnectionState")]
+        public Input<Inputs.RegistryPrivateLinkServiceConnectionStateArgs>? RegistryPrivateLinkServiceConnectionState { get; set; }
 
         public RegistryPrivateEndpointConnectionArgs()
         {

@@ -34,7 +34,7 @@ export interface GetSiteArgs {
 }
 
 /**
- * Site as ARM Resource
+ * Site as Extension Resource
  */
 export interface GetSiteResult {
     /**

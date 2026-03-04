@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Definition of the configuration type.
  *
- * Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+ * Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
  *
- * Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2015-10-31, 2019-06-01, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DscConfiguration extends pulumi.CustomResource {
     /**
@@ -66,9 +66,9 @@ export class DscConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    declare public readonly location: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Gets or sets verbose log option.
      */
@@ -98,11 +98,15 @@ export class DscConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly state: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -145,6 +149,7 @@ export class DscConfiguration extends pulumi.CustomResource {
             resourceInputs["nodeConfigurationCount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -161,6 +166,7 @@ export class DscConfiguration extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

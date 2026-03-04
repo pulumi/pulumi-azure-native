@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the python 2 package identified by package name.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2024-10-23.
  *
- * Other available API versions: 2018-06-30, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-06-30, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface GetPython2PackageArgs {
  */
 export interface GetPython2PackageResult {
     /**
-     * Gets the activity count of the module.
+     * Gets or sets the activity count of the module.
      */
     readonly activityCount?: number;
     /**
@@ -51,7 +51,11 @@ export interface GetPython2PackageResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Gets the creation time.
+     * Gets or sets the contentLink of the module.
+     */
+    readonly contentLink?: outputs.automation.ContentLinkResponse;
+    /**
+     * Gets or sets the creation time.
      */
     readonly creationTime?: string;
     /**
@@ -59,64 +63,68 @@ export interface GetPython2PackageResult {
      */
     readonly description?: string;
     /**
-     * Gets the error info of the module.
+     * Gets or sets the error info of the module.
      */
     readonly error?: outputs.automation.ModuleErrorInfoResponse;
     /**
-     * Gets the etag of the resource.
+     * Gets or sets the etag of the resource.
      */
     readonly etag?: string;
     /**
-     * Fully qualified resource Id for the resource
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Gets type of module, if its composite or not.
+     * Gets or sets type of module, if its composite or not.
      */
     readonly isComposite?: boolean;
     /**
-     * Gets the isGlobal flag of the module.
+     * Gets or sets the isGlobal flag of the module.
      */
     readonly isGlobal?: boolean;
     /**
-     * Gets the last modified time.
+     * Gets or sets the last modified time.
      */
     readonly lastModifiedTime?: string;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets the provisioning state of the module.
+     * Gets or sets the provisioning state of the module.
      */
     readonly provisioningState?: string;
     /**
-     * Gets the size in bytes of the module.
+     * Gets or sets the size in bytes of the module.
      */
     readonly sizeInBytes?: number;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.automation.SystemDataResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
-     * Gets the version of the module.
+     * Gets or sets the version of the module.
      */
     readonly version?: string;
 }
 /**
  * Retrieve the python 2 package identified by package name.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2024-10-23.
  *
- * Other available API versions: 2018-06-30, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2018-06-30, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPython2PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

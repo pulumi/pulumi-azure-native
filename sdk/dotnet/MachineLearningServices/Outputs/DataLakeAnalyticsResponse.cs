@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The time at which the compute was last modified.
         /// </summary>
         public readonly string ModifiedOn;
-        public readonly Outputs.DataLakeAnalyticsSchemaResponseProperties? Properties;
+        public readonly Outputs.DataLakeAnalyticsSchemaPropertiesResponse? Properties;
         /// <summary>
         /// Errors during provisioning
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string modifiedOn,
 
-            Outputs.DataLakeAnalyticsSchemaResponseProperties? properties,
+            Outputs.DataLakeAnalyticsSchemaPropertiesResponse? properties,
 
             ImmutableArray<Outputs.ErrorResponseResponse> provisioningErrors,
 

@@ -13,9 +13,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class CosmosDbSettingsResponse
     {
-        /// <summary>
-        /// The throughput of the collections in cosmosdb database
-        /// </summary>
         public readonly int? CollectionsThroughput;
 
         [OutputConstructor]

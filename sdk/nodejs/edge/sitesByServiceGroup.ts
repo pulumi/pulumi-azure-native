@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Site as ARM Resource
+ * Site as Extension Resource
  *
  * Uses Azure REST API version 2025-03-01-preview.
  *

@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
         }
 
         /// <summary>
-        /// Description of alert processing rule.
+        /// Actions to be applied.Description of alert processing rule.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

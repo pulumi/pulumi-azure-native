@@ -88,7 +88,7 @@ export class DeploymentStackAtResourceGroup extends pulumi.CustomResource {
     /**
      * The error detail.
      */
-    declare public /*out*/ readonly error: pulumi.Output<outputs.resources.ErrorDetailResponse | undefined>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.resources.ErrorDetailResponse>;
     /**
      * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */

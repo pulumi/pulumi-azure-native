@@ -24,6 +24,7 @@ __all__ = [
     'Confirmation',
     'ContentFormat',
     'DataMaskingMode',
+    'DeveloperPortalStatus',
     'GatewayListDebugCredentialsContractPurpose',
     'GrantType',
     'GroupType',
@@ -31,8 +32,8 @@ __all__ = [
     'HttpCorrelationProtocol',
     'IdentityProviderType',
     'KeyType',
-    'LlmDiagnosticSettings',
-    'LlmMessageLogTypes',
+    'LegacyApiState',
+    'LegacyPortalStatus',
     'LoggerType',
     'NatGatewayState',
     'OAuth2GrantType',
@@ -98,6 +99,8 @@ class ApiType(_builtins.str, Enum):
     SOAP = "soap"
     WEBSOCKET = "websocket"
     GRAPHQL = "graphql"
+    ODATA = "odata"
+    GRPC = "grpc"
 
 
 @pulumi.type_token("azure-native:apimanagement:ApimIdentityType")
@@ -251,7 +254,7 @@ class Confirmation(_builtins.str, Enum):
 @pulumi.type_token("azure-native:apimanagement:ContentFormat")
 class ContentFormat(_builtins.str, Enum):
     """
-    Format of the Content in which the API is getting imported.
+    Format of the Content in which the API is getting imported. New formats can be added in the future
     """
     WADL_XML = "wadl-xml"
     """
@@ -297,6 +300,22 @@ class ContentFormat(_builtins.str, Enum):
     """
     The GraphQL API endpoint hosted on a publicly accessible internet address.
     """
+    ODATA = "odata"
+    """
+    The contents are inline and Content Type is a OData XML Document.
+    """
+    ODATA_LINK = "odata-link"
+    """
+    The OData metadata document hosted on a publicly accessible internet address.
+    """
+    GRPC = "grpc"
+    """
+    The contents are inline and Content Type is a gRPC protobuf file.
+    """
+    GRPC_LINK = "grpc-link"
+    """
+    The gRPC protobuf file is hosted on a publicly accessible internet address.
+    """
 
 
 @pulumi.type_token("azure-native:apimanagement:DataMaskingMode")
@@ -311,6 +330,21 @@ class DataMaskingMode(_builtins.str, Enum):
     HIDE = "Hide"
     """
     Hide the presence of an entity.
+    """
+
+
+@pulumi.type_token("azure-native:apimanagement:DeveloperPortalStatus")
+class DeveloperPortalStatus(_builtins.str, Enum):
+    """
+    Status of developer portal in this API Management service.
+    """
+    ENABLED = "Enabled"
+    """
+    Developer Portal is enabled for the service.
+    """
+    DISABLED = "Disabled"
+    """
+    Developer Portal is disabled for the service.
     """
 
 
@@ -365,6 +399,7 @@ class HostnameType(_builtins.str, Enum):
     MANAGEMENT = "Management"
     SCM = "Scm"
     DEVELOPER_PORTAL = "DeveloperPortal"
+    CONFIGURATION_API = "ConfigurationApi"
 
 
 @pulumi.type_token("azure-native:apimanagement:HttpCorrelationProtocol")
@@ -426,29 +461,33 @@ class KeyType(_builtins.str, Enum):
     SECONDARY = "secondary"
 
 
-@pulumi.type_token("azure-native:apimanagement:LlmDiagnosticSettings")
-class LlmDiagnosticSettings(_builtins.str, Enum):
+@pulumi.type_token("azure-native:apimanagement:LegacyApiState")
+class LegacyApiState(_builtins.str, Enum):
     """
-    Specifies whether default diagnostic should be enabled for Large Language Models or not.
+    Indication whether or not the legacy Configuration API (v1) should be exposed on the API Management service. Value is optional but must be 'Enabled' or 'Disabled'. If 'Disabled', legacy Configuration API (v1) will not be available for self-hosted gateways. Default value is 'Enabled'
     """
-    ENABLED = "enabled"
+    ENABLED = "Enabled"
     """
-    Default LLM logs are enabled.
+    Legacy Configuration API (v1) is enabled for the service and self-hosted gateways can connect to it.
     """
-    DISABLED = "disabled"
+    DISABLED = "Disabled"
     """
-    Default LLM logs are disabled.
+    Legacy Configuration API (v1) is disabled for the service and self-hosted gateways can not connect to it.
     """
 
 
-@pulumi.type_token("azure-native:apimanagement:LlmMessageLogTypes")
-class LlmMessageLogTypes(_builtins.str, Enum):
+@pulumi.type_token("azure-native:apimanagement:LegacyPortalStatus")
+class LegacyPortalStatus(_builtins.str, Enum):
     """
-    Specifies which message should be logged. Currently there is only 'all' option.
+    Status of legacy portal in the API Management service.
     """
-    ALL = "all"
+    ENABLED = "Enabled"
     """
-    Log all messages.
+    Legacy Portal is enabled for the service.
+    """
+    DISABLED = "Disabled"
+    """
+    Legacy Portal is disabled for the service.
     """
 
 
@@ -668,6 +707,14 @@ class SkuType(_builtins.str, Enum):
     """
     Isolated SKU of Api Management.
     """
+    BASIC_V2 = "BasicV2"
+    """
+    BasicV2 SKU of Api Management.
+    """
+    STANDARD_V2 = "StandardV2"
+    """
+    StandardV2 SKU of Api Management.
+    """
 
 
 @pulumi.type_token("azure-native:apimanagement:SoapApiType")
@@ -677,7 +724,8 @@ class SoapApiType(_builtins.str, Enum):
      * `http` creates a REST API 
      * `soap` creates a SOAP pass-through API  
      * `websocket` creates websocket API 
-     * `graphql` creates GraphQL API.
+     * `graphql` creates GraphQL API. 
+     New types can be added in the future.
     """
     SOAP_TO_REST = "http"
     """
@@ -694,6 +742,14 @@ class SoapApiType(_builtins.str, Enum):
     GRAPH_QL = "graphql"
     """
     Imports the API having a GraphQL front end.
+    """
+    O_DATA = "odata"
+    """
+    Imports the API having a OData front end.
+    """
+    G_RPC = "grpc"
+    """
+    Imports the API having a gRPC front end.
     """
 
 

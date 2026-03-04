@@ -13,6 +13,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class MLFlowModelJobOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Output Asset Name.
+        /// </summary>
+        [Input("assetName")]
+        public Input<string>? AssetName { get; set; }
+
+        /// <summary>
         /// Description for the output.
         /// </summary>
         [Input("description")]
@@ -26,7 +32,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string> JobOutputType { get; set; } = null!;
 
         /// <summary>
-        /// Output Asset Delivery Mode.
+        /// Output data delivery mode enums.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.OutputDeliveryMode>? Mode { get; set; }

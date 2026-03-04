@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessBridgeArgs } from "./accessBridge";
+export type AccessBridge = import("./accessBridge").AccessBridge;
+export const AccessBridge: typeof import("./accessBridge").AccessBridge = null as any;
+utilities.lazyLoad(exports, ["AccessBridge"], () => require("./accessBridge"));
+
 export { AgentPoolArgs } from "./agentPool";
 export type AgentPool = import("./agentPool").AgentPool;
 export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
@@ -44,6 +49,11 @@ export { ConsoleArgs } from "./console";
 export type Console = import("./console").Console;
 export const Console: typeof import("./console").Console = null as any;
 utilities.lazyLoad(exports, ["Console"], () => require("./console"));
+
+export { GetAccessBridgeArgs, GetAccessBridgeResult, GetAccessBridgeOutputArgs } from "./getAccessBridge";
+export const getAccessBridge: typeof import("./getAccessBridge").getAccessBridge = null as any;
+export const getAccessBridgeOutput: typeof import("./getAccessBridge").getAccessBridgeOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessBridge","getAccessBridgeOutput"], () => require("./getAccessBridge"));
 
 export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
 export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
@@ -95,6 +105,11 @@ export const getKubernetesClusterFeature: typeof import("./getKubernetesClusterF
 export const getKubernetesClusterFeatureOutput: typeof import("./getKubernetesClusterFeature").getKubernetesClusterFeatureOutput = null as any;
 utilities.lazyLoad(exports, ["getKubernetesClusterFeature","getKubernetesClusterFeatureOutput"], () => require("./getKubernetesClusterFeature"));
 
+export { GetKubernetesVersionArgs, GetKubernetesVersionResult, GetKubernetesVersionOutputArgs } from "./getKubernetesVersion";
+export const getKubernetesVersion: typeof import("./getKubernetesVersion").getKubernetesVersion = null as any;
+export const getKubernetesVersionOutput: typeof import("./getKubernetesVersion").getKubernetesVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesVersion","getKubernetesVersionOutput"], () => require("./getKubernetesVersion"));
+
 export { GetL2NetworkArgs, GetL2NetworkResult, GetL2NetworkOutputArgs } from "./getL2Network";
 export const getL2Network: typeof import("./getL2Network").getL2Network = null as any;
 export const getL2NetworkOutput: typeof import("./getL2Network").getL2NetworkOutput = null as any;
@@ -145,6 +160,11 @@ export type KubernetesClusterFeature = import("./kubernetesClusterFeature").Kube
 export const KubernetesClusterFeature: typeof import("./kubernetesClusterFeature").KubernetesClusterFeature = null as any;
 utilities.lazyLoad(exports, ["KubernetesClusterFeature"], () => require("./kubernetesClusterFeature"));
 
+export { KubernetesVersionArgs } from "./kubernetesVersion";
+export type KubernetesVersion = import("./kubernetesVersion").KubernetesVersion;
+export const KubernetesVersion: typeof import("./kubernetesVersion").KubernetesVersion = null as any;
+utilities.lazyLoad(exports, ["KubernetesVersion"], () => require("./kubernetesVersion"));
+
 export { L2NetworkArgs } from "./l2network";
 export type L2Network = import("./l2network").L2Network;
 export const L2Network: typeof import("./l2network").L2Network = null as any;
@@ -193,6 +213,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:networkcloud:AccessBridge":
+                return new AccessBridge(name, <any>undefined, { urn })
             case "azure-native:networkcloud:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
             case "azure-native:networkcloud:BareMetalMachine":
@@ -213,6 +235,8 @@ const _module = {
                 return new KubernetesCluster(name, <any>undefined, { urn })
             case "azure-native:networkcloud:KubernetesClusterFeature":
                 return new KubernetesClusterFeature(name, <any>undefined, { urn })
+            case "azure-native:networkcloud:KubernetesVersion":
+                return new KubernetesVersion(name, <any>undefined, { urn })
             case "azure-native:networkcloud:L2Network":
                 return new L2Network(name, <any>undefined, { urn })
             case "azure-native:networkcloud:L3Network":

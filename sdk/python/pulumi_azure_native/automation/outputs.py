@@ -878,7 +878,7 @@ class IdentityResponse(dict):
         """
         Identity for the resource.
 
-        :param _builtins.str principal_id: The principal ID of resource identity.
+        :param _builtins.str principal_id: The principal ID of resource identity. The value must be an UUID.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
         :param Mapping[str, 'UserAssignedIdentitiesPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -894,7 +894,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> _builtins.str:
         """
-        The principal ID of resource identity.
+        The principal ID of resource identity. The value must be an UUID.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1131,8 +1131,8 @@ class ModuleErrorInfoResponse(dict):
         """
         Definition of the module error info type.
 
-        :param _builtins.str code: Gets the error code.
-        :param _builtins.str message: Gets the error message.
+        :param _builtins.str code: Gets or sets the error code.
+        :param _builtins.str message: Gets or sets the error message.
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
@@ -1143,7 +1143,7 @@ class ModuleErrorInfoResponse(dict):
     @pulumi.getter
     def code(self) -> Optional[_builtins.str]:
         """
-        Gets the error code.
+        Gets or sets the error code.
         """
         return pulumi.get(self, "code")
 
@@ -1151,7 +1151,7 @@ class ModuleErrorInfoResponse(dict):
     @pulumi.getter
     def message(self) -> Optional[_builtins.str]:
         """
-        Gets the error message.
+        Gets or sets the error message.
         """
         return pulumi.get(self, "message")
 
@@ -1255,7 +1255,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "groupIds":
+        if key == "systemData":
+            suggest = "system_data"
+        elif key == "groupIds":
             suggest = "group_ids"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
@@ -1276,6 +1278,7 @@ class PrivateEndpointConnectionResponse(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: _builtins.str,
                  group_ids: Optional[Sequence[_builtins.str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
@@ -1283,15 +1286,17 @@ class PrivateEndpointConnectionResponse(dict):
         """
         A private endpoint connection
 
-        :param _builtins.str id: Fully qualified resource Id for the resource
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param _builtins.str name: The name of the resource
-        :param _builtins.str type: The type of the resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param Sequence[_builtins.str] group_ids: Gets the groupIds.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
@@ -1304,7 +1309,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -1317,10 +1322,18 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1492,6 +1505,8 @@ class RunbookDraftResponse(dict):
         suggest = None
         if key == "creationTime":
             suggest = "creation_time"
+        elif key == "draftContentLink":
+            suggest = "draft_content_link"
         elif key == "inEdit":
             suggest = "in_edit"
         elif key == "lastModifiedTime":
@@ -1512,12 +1527,14 @@ class RunbookDraftResponse(dict):
 
     def __init__(__self__, *,
                  creation_time: Optional[_builtins.str] = None,
+                 draft_content_link: Optional['outputs.ContentLinkResponse'] = None,
                  in_edit: Optional[_builtins.bool] = None,
                  last_modified_time: Optional[_builtins.str] = None,
                  output_types: Optional[Sequence[_builtins.str]] = None,
                  parameters: Optional[Mapping[str, 'outputs.RunbookParameterResponse']] = None):
         """
         :param _builtins.str creation_time: Gets or sets the creation time of the runbook draft.
+        :param 'ContentLinkResponse' draft_content_link: Gets or sets the draft runbook content link.
         :param _builtins.bool in_edit: Gets or sets whether runbook is in edit mode.
         :param _builtins.str last_modified_time: Gets or sets the last modified time of the runbook draft.
         :param Sequence[_builtins.str] output_types: Gets or sets the runbook output types.
@@ -1525,6 +1542,8 @@ class RunbookDraftResponse(dict):
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
+        if draft_content_link is not None:
+            pulumi.set(__self__, "draft_content_link", draft_content_link)
         if in_edit is not None:
             pulumi.set(__self__, "in_edit", in_edit)
         if last_modified_time is not None:
@@ -1541,6 +1560,14 @@ class RunbookDraftResponse(dict):
         Gets or sets the creation time of the runbook draft.
         """
         return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="draftContentLink")
+    def draft_content_link(self) -> Optional['outputs.ContentLinkResponse']:
+        """
+        Gets or sets the draft runbook content link.
+        """
+        return pulumi.get(self, "draft_content_link")
 
     @_builtins.property
     @pulumi.getter(name="inEdit")

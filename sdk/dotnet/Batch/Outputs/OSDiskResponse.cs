@@ -28,6 +28,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
         /// </summary>
         public readonly Outputs.DiffDiskSettingsResponse? EphemeralOSDiskSettings;
+        /// <summary>
+        /// The managed disk parameters.
+        /// </summary>
         public readonly Outputs.ManagedDiskResponse? ManagedDisk;
         /// <summary>
         /// Specifies whether writeAccelerator should be enabled or disabled on the disk.

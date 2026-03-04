@@ -46,6 +46,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
+        /// Enable SSO (single sign on). Possible values are: true, false.
+        /// </summary>
+        [Input("enableSSO")]
+        public Input<bool>? EnableSSO { get; set; }
+
+        /// <summary>
+        /// Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
+        /// </summary>
+        [Input("idleTimeBeforeShutdown")]
+        public Input<string>? IdleTimeBeforeShutdown { get; set; }
+
+        /// <summary>
         /// Settings for a personal compute instance.
         /// </summary>
         [Input("personalComputeInstanceSettings")]
@@ -85,6 +97,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             ApplicationSharingPolicy = "Shared";
             ComputeInstanceAuthorizationType = "personal";
+            EnableSSO = true;
         }
         public static new ComputeInstancePropertiesArgs Empty => new ComputeInstancePropertiesArgs();
     }

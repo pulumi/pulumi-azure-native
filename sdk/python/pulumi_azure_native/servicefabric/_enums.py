@@ -240,7 +240,7 @@ class NsgProtocol(_builtins.str, Enum):
 @pulumi.type_token("azure-native:servicefabric:PartitionScheme")
 class PartitionScheme(_builtins.str, Enum):
     """
-    Enumerates the ways that a service can be partitioned.
+    Specifies how the service is partitioned.
     """
     SINGLETON = "Singleton"
     """
@@ -439,7 +439,7 @@ class ServicePlacementPolicyType(_builtins.str, Enum):
 @pulumi.type_token("azure-native:servicefabric:ServiceScalingMechanismKind")
 class ServiceScalingMechanismKind(_builtins.str, Enum):
     """
-    Enumerates the ways that a service can be partitioned.
+    Specifies the mechanism associated with this scaling policy.
     """
     SCALE_PARTITION_INSTANCE_COUNT = "ScalePartitionInstanceCount"
     """
@@ -454,7 +454,7 @@ class ServiceScalingMechanismKind(_builtins.str, Enum):
 @pulumi.type_token("azure-native:servicefabric:ServiceScalingTriggerKind")
 class ServiceScalingTriggerKind(_builtins.str, Enum):
     """
-    Enumerates the ways that a service can be partitioned.
+    Specifies the trigger associated with this scaling policy.
     """
     AVERAGE_PARTITION_LOAD_TRIGGER = "AveragePartitionLoadTrigger"
     """

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class RegistryPrivateEndpointConnectionResponse
     {
         /// <summary>
+        /// The group ids
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// This is the private endpoint connection name created on SRP
         /// Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
         /// </summary>
@@ -26,21 +30,38 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Properties of the Private Endpoint Connection
+        /// The PE network resource that is linked to this PE connection.
         /// </summary>
-        public readonly Outputs.RegistryPrivateEndpointConnectionPropertiesResponse? Properties;
+        public readonly Outputs.PrivateEndpointResourceResponse? PrivateEndpoint;
+        /// <summary>
+        /// One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The connection state.
+        /// </summary>
+        public readonly Outputs.RegistryPrivateLinkServiceConnectionStateResponse? RegistryPrivateLinkServiceConnectionState;
 
         [OutputConstructor]
         private RegistryPrivateEndpointConnectionResponse(
+            ImmutableArray<string> groupIds,
+
             string? id,
 
             string? location,
 
-            Outputs.RegistryPrivateEndpointConnectionPropertiesResponse? properties)
+            Outputs.PrivateEndpointResourceResponse? privateEndpoint,
+
+            string? provisioningState,
+
+            Outputs.RegistryPrivateLinkServiceConnectionStateResponse? registryPrivateLinkServiceConnectionState)
         {
+            GroupIds = groupIds;
             Id = id;
             Location = location;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            ProvisioningState = provisioningState;
+            RegistryPrivateLinkServiceConnectionState = registryPrivateLinkServiceConnectionState;
         }
     }
 }

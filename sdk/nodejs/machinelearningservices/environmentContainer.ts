@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class EnvironmentContainer extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class EnvironmentContainer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly environmentContainerProperties: pulumi.Output<outputs.machinelearningservices.EnvironmentContainerResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.EnvironmentContainerPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,8 +73,8 @@ export class EnvironmentContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.environmentContainerProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'environmentContainerProperties'");
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,8 +82,8 @@ export class EnvironmentContainer extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["environmentContainerProperties"] = args ? (args.environmentContainerProperties ? pulumi.output(args.environmentContainerProperties).apply(inputs.machinelearningservices.environmentContainerArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.environmentContainerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -91,13 +91,13 @@ export class EnvironmentContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["environmentContainerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220501:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221001:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230401:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20231001:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240101preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240401:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240401preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240701preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20241001:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20241001preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250101preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250401:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250401preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250601:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250701preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250901:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20251001preview:EnvironmentContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220501:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221001:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230401:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20231001:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240101preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240401:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240401preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20240701preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20241001:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20241001preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250101preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250401:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250401preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250601:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250701preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20250901:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20251001preview:EnvironmentContainer" }, { type: "azure-native:machinelearningservices/v20251201:EnvironmentContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentContainer.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,13 +108,13 @@ export class EnvironmentContainer extends pulumi.CustomResource {
  */
 export interface EnvironmentContainerArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    environmentContainerProperties: pulumi.Input<inputs.machinelearningservices.EnvironmentContainerArgs>;
-    /**
      * Container name. This is case-sensitive.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.EnvironmentContainerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

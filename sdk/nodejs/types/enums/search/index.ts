@@ -288,7 +288,7 @@ export const SkuName = {
      */
     Standard2: "standard2",
     /**
-     *  The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
+     * The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity').
      */
     Standard3: "standard3",
     /**

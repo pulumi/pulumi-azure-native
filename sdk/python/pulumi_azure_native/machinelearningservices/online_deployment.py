@@ -23,7 +23,7 @@ __all__ = ['OnlineDeploymentArgs', 'OnlineDeployment']
 class OnlineDeploymentArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[_builtins.str],
-                 online_deployment_properties: pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']],
+                 properties: pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,10 +35,10 @@ class OnlineDeploymentArgs:
         """
         The set of arguments for constructing a OnlineDeployment resource.
 
-        :param pulumi.Input[_builtins.str] endpoint_name: Inference endpoint name.
-        :param pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']] online_deployment_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[_builtins.str] endpoint_name: Online Endpoint name.
+        :param pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] deployment_name: Inference Endpoint Deployment name.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -47,7 +47,7 @@ class OnlineDeploymentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "online_deployment_properties", online_deployment_properties)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if deployment_name is not None:
@@ -67,7 +67,7 @@ class OnlineDeploymentArgs:
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Inference endpoint name.
+        Online Endpoint name.
         """
         return pulumi.get(self, "endpoint_name")
 
@@ -76,16 +76,16 @@ class OnlineDeploymentArgs:
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="onlineDeploymentProperties")
-    def online_deployment_properties(self) -> pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']]:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "online_deployment_properties")
+        return pulumi.get(self, "properties")
 
-    @online_deployment_properties.setter
-    def online_deployment_properties(self, value: pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']]):
-        pulumi.set(self, "online_deployment_properties", value)
+    @properties.setter
+    def properties(self, value: pulumi.Input[Union['KubernetesOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']]):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -103,7 +103,7 @@ class OnlineDeploymentArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -195,30 +195,32 @@ class OnlineDeployment(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 online_deployment_properties: Optional[pulumi.Input[Union[Union['KubernetesOnlineDeploymentArgs', 'KubernetesOnlineDeploymentArgsDict'], Union['ManagedOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['KubernetesOnlineDeploymentArgs', 'KubernetesOnlineDeploymentArgsDict'], Union['ManagedOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deployment_name: Inference Endpoint Deployment name.
-        :param pulumi.Input[_builtins.str] endpoint_name: Inference endpoint name.
+        :param pulumi.Input[_builtins.str] endpoint_name: Online Endpoint name.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[Union['KubernetesOnlineDeploymentArgs', 'KubernetesOnlineDeploymentArgsDict'], Union['ManagedOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgsDict']]] online_deployment_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union[Union['KubernetesOnlineDeploymentArgs', 'KubernetesOnlineDeploymentArgsDict'], Union['ManagedOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgsDict']]] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
@@ -227,9 +229,11 @@ class OnlineDeployment(pulumi.CustomResource):
                  args: OnlineDeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+
+        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -252,7 +256,7 @@ class OnlineDeployment(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 online_deployment_properties: Optional[pulumi.Input[Union[Union['KubernetesOnlineDeploymentArgs', 'KubernetesOnlineDeploymentArgsDict'], Union['ManagedOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['KubernetesOnlineDeploymentArgs', 'KubernetesOnlineDeploymentArgsDict'], Union['ManagedOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -273,9 +277,9 @@ class OnlineDeployment(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            if online_deployment_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'online_deployment_properties'")
-            __props__.__dict__["online_deployment_properties"] = online_deployment_properties
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -288,7 +292,7 @@ class OnlineDeployment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:OnlineDeployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:OnlineDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:OnlineDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OnlineDeployment, __self__).__init__(
             'azure-native:machinelearningservices:OnlineDeployment',
@@ -317,7 +321,7 @@ class OnlineDeployment(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["online_deployment_properties"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -365,12 +369,12 @@ class OnlineDeployment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="onlineDeploymentProperties")
-    def online_deployment_properties(self) -> pulumi.Output[Any]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Any]:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "online_deployment_properties")
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter

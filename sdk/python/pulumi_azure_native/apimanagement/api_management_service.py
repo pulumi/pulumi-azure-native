@@ -29,11 +29,14 @@ class ApiManagementServiceArgs:
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]] = None,
                  api_version_constraint: Optional[pulumi.Input['ApiVersionConstraintArgs']] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]] = None,
+                 configuration_api: Optional[pulumi.Input['ConfigurationApiArgs']] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 developer_portal_status: Optional[pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']]] = None,
                  disable_gateway: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_client_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
                  hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
                  identity: Optional[pulumi.Input['ApiManagementServiceIdentityArgs']] = None,
+                 legacy_portal_status: Optional[pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  nat_gateway_state: Optional[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]] = None,
                  notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -56,11 +59,14 @@ class ApiManagementServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input['ApiVersionConstraintArgs'] api_version_constraint: Control Plane Apis version constraint for the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input['ConfigurationApiArgs'] configuration_api: Configuration API configuration of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+        :param pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']] developer_portal_status: Status of developer portal in this API Management service.
         :param pulumi.Input[_builtins.bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
         :param pulumi.Input[_builtins.bool] enable_client_certificate: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
         :param pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input['ApiManagementServiceIdentityArgs'] identity: Managed service identity of the Api Management service.
+        :param pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']] legacy_portal_status: Status of legacy portal in the API Management service.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Union[_builtins.str, 'NatGatewayState']] nat_gateway_state: Property can be used to enable NAT Gateway for this API Management service.
         :param pulumi.Input[_builtins.str] notification_sender_email: Email address from which the notification will be sent.
@@ -84,8 +90,14 @@ class ApiManagementServiceArgs:
             pulumi.set(__self__, "api_version_constraint", api_version_constraint)
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
+        if configuration_api is not None:
+            pulumi.set(__self__, "configuration_api", configuration_api)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
+        if developer_portal_status is None:
+            developer_portal_status = 'Enabled'
+        if developer_portal_status is not None:
+            pulumi.set(__self__, "developer_portal_status", developer_portal_status)
         if disable_gateway is None:
             disable_gateway = False
         if disable_gateway is not None:
@@ -98,6 +110,10 @@ class ApiManagementServiceArgs:
             pulumi.set(__self__, "hostname_configurations", hostname_configurations)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if legacy_portal_status is None:
+            legacy_portal_status = 'Enabled'
+        if legacy_portal_status is not None:
+            pulumi.set(__self__, "legacy_portal_status", legacy_portal_status)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if nat_gateway_state is None:
@@ -214,6 +230,18 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
+    @pulumi.getter(name="configurationApi")
+    def configuration_api(self) -> Optional[pulumi.Input['ConfigurationApiArgs']]:
+        """
+        Configuration API configuration of the API Management service.
+        """
+        return pulumi.get(self, "configuration_api")
+
+    @configuration_api.setter
+    def configuration_api(self, value: Optional[pulumi.Input['ConfigurationApiArgs']]):
+        pulumi.set(self, "configuration_api", value)
+
+    @_builtins.property
     @pulumi.getter(name="customProperties")
     def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -224,6 +252,18 @@ class ApiManagementServiceArgs:
     @custom_properties.setter
     def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="developerPortalStatus")
+    def developer_portal_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']]]:
+        """
+        Status of developer portal in this API Management service.
+        """
+        return pulumi.get(self, "developer_portal_status")
+
+    @developer_portal_status.setter
+    def developer_portal_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']]]):
+        pulumi.set(self, "developer_portal_status", value)
 
     @_builtins.property
     @pulumi.getter(name="disableGateway")
@@ -272,6 +312,18 @@ class ApiManagementServiceArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ApiManagementServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="legacyPortalStatus")
+    def legacy_portal_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']]]:
+        """
+        Status of legacy portal in the API Management service.
+        """
+        return pulumi.get(self, "legacy_portal_status")
+
+    @legacy_portal_status.setter
+    def legacy_portal_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']]]):
+        pulumi.set(self, "legacy_portal_status", value)
 
     @_builtins.property
     @pulumi.getter
@@ -427,11 +479,14 @@ class ApiManagementService(pulumi.CustomResource):
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]]] = None,
                  api_version_constraint: Optional[pulumi.Input[Union['ApiVersionConstraintArgs', 'ApiVersionConstraintArgsDict']]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]]] = None,
+                 configuration_api: Optional[pulumi.Input[Union['ConfigurationApiArgs', 'ConfigurationApiArgsDict']]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 developer_portal_status: Optional[pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']]] = None,
                  disable_gateway: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_client_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
                  hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']]] = None,
+                 legacy_portal_status: Optional[pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  nat_gateway_state: Optional[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]] = None,
                  notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -452,9 +507,9 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -462,11 +517,14 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]] additional_locations: Additional datacenter locations of the API Management service.
         :param pulumi.Input[Union['ApiVersionConstraintArgs', 'ApiVersionConstraintArgsDict']] api_version_constraint: Control Plane Apis version constraint for the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]] certificates: List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+        :param pulumi.Input[Union['ConfigurationApiArgs', 'ConfigurationApiArgsDict']] configuration_api: Configuration API configuration of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+        :param pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']] developer_portal_status: Status of developer portal in this API Management service.
         :param pulumi.Input[_builtins.bool] disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
         :param pulumi.Input[_builtins.bool] enable_client_certificate: Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']] identity: Managed service identity of the Api Management service.
+        :param pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']] legacy_portal_status: Status of legacy portal in the API Management service.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Union[_builtins.str, 'NatGatewayState']] nat_gateway_state: Property can be used to enable NAT Gateway for this API Management service.
         :param pulumi.Input[_builtins.str] notification_sender_email: Email address from which the notification will be sent.
@@ -493,9 +551,9 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
-        Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+        Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
 
-        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -516,11 +574,14 @@ class ApiManagementService(pulumi.CustomResource):
                  additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AdditionalLocationArgs', 'AdditionalLocationArgsDict']]]]] = None,
                  api_version_constraint: Optional[pulumi.Input[Union['ApiVersionConstraintArgs', 'ApiVersionConstraintArgsDict']]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateConfigurationArgs', 'CertificateConfigurationArgsDict']]]]] = None,
+                 configuration_api: Optional[pulumi.Input[Union['ConfigurationApiArgs', 'ConfigurationApiArgsDict']]] = None,
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 developer_portal_status: Optional[pulumi.Input[Union[_builtins.str, 'DeveloperPortalStatus']]] = None,
                  disable_gateway: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_client_certificate: Optional[pulumi.Input[_builtins.bool]] = None,
                  hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HostnameConfigurationArgs', 'HostnameConfigurationArgsDict']]]]] = None,
                  identity: Optional[pulumi.Input[Union['ApiManagementServiceIdentityArgs', 'ApiManagementServiceIdentityArgsDict']]] = None,
+                 legacy_portal_status: Optional[pulumi.Input[Union[_builtins.str, 'LegacyPortalStatus']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  nat_gateway_state: Optional[pulumi.Input[Union[_builtins.str, 'NatGatewayState']]] = None,
                  notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -549,7 +610,11 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["additional_locations"] = additional_locations
             __props__.__dict__["api_version_constraint"] = api_version_constraint
             __props__.__dict__["certificates"] = certificates
+            __props__.__dict__["configuration_api"] = configuration_api
             __props__.__dict__["custom_properties"] = custom_properties
+            if developer_portal_status is None:
+                developer_portal_status = 'Enabled'
+            __props__.__dict__["developer_portal_status"] = developer_portal_status
             if disable_gateway is None:
                 disable_gateway = False
             __props__.__dict__["disable_gateway"] = disable_gateway
@@ -558,6 +623,9 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["enable_client_certificate"] = enable_client_certificate
             __props__.__dict__["hostname_configurations"] = hostname_configurations
             __props__.__dict__["identity"] = identity
+            if legacy_portal_status is None:
+                legacy_portal_status = 'Enabled'
+            __props__.__dict__["legacy_portal_status"] = legacy_portal_status
             __props__.__dict__["location"] = location
             if nat_gateway_state is None:
                 nat_gateway_state = 'Disabled'
@@ -634,8 +702,10 @@ class ApiManagementService(pulumi.CustomResource):
         __props__.__dict__["api_version_constraint"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["certificates"] = None
+        __props__.__dict__["configuration_api"] = None
         __props__.__dict__["created_at_utc"] = None
         __props__.__dict__["custom_properties"] = None
+        __props__.__dict__["developer_portal_status"] = None
         __props__.__dict__["developer_portal_url"] = None
         __props__.__dict__["disable_gateway"] = None
         __props__.__dict__["enable_client_certificate"] = None
@@ -644,6 +714,7 @@ class ApiManagementService(pulumi.CustomResource):
         __props__.__dict__["gateway_url"] = None
         __props__.__dict__["hostname_configurations"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["legacy_portal_status"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["management_api_url"] = None
         __props__.__dict__["name"] = None
@@ -705,6 +776,14 @@ class ApiManagementService(pulumi.CustomResource):
         return pulumi.get(self, "certificates")
 
     @_builtins.property
+    @pulumi.getter(name="configurationApi")
+    def configuration_api(self) -> pulumi.Output[Optional['outputs.ConfigurationApiResponse']]:
+        """
+        Configuration API configuration of the API Management service.
+        """
+        return pulumi.get(self, "configuration_api")
+
+    @_builtins.property
     @pulumi.getter(name="createdAtUtc")
     def created_at_utc(self) -> pulumi.Output[_builtins.str]:
         """
@@ -719,6 +798,14 @@ class ApiManagementService(pulumi.CustomResource):
         Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
         """
         return pulumi.get(self, "custom_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="developerPortalStatus")
+    def developer_portal_status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Status of developer portal in this API Management service.
+        """
+        return pulumi.get(self, "developer_portal_status")
 
     @_builtins.property
     @pulumi.getter(name="developerPortalUrl")
@@ -783,6 +870,14 @@ class ApiManagementService(pulumi.CustomResource):
         Managed service identity of the Api Management service.
         """
         return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="legacyPortalStatus")
+    def legacy_portal_status(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Status of legacy portal in the API Management service.
+        """
+        return pulumi.get(self, "legacy_portal_status")
 
     @_builtins.property
     @pulumi.getter

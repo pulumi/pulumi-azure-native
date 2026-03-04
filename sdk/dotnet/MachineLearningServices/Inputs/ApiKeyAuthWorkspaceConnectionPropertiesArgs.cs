@@ -13,23 +13,23 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     /// <summary>
     /// This connection type covers the generic ApiKey auth connection categories, for examples:
     /// AzureOpenAI:
-    ///     Category:= AzureOpenAI
-    ///     AuthType:= ApiKey (as type discriminator)
-    ///     Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-    ///     Target:= {ApiBase}
-    ///             
+    /// Category:= AzureOpenAI
+    /// AuthType:= ApiKey (as type discriminator)
+    /// Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    /// Target:= {ApiBase}
+    /// 
     /// CognitiveService:
-    ///     Category:= CognitiveService
-    ///     AuthType:= ApiKey (as type discriminator)
-    ///     Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-    ///     Target:= ServiceRegion={serviceRegion}
-    ///             
+    /// Category:= CognitiveService
+    /// AuthType:= ApiKey (as type discriminator)
+    /// Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    /// Target:= ServiceRegion={serviceRegion}
+    /// 
     /// CognitiveSearch:
-    ///     Category:= CognitiveSearch
-    ///     AuthType:= ApiKey (as type discriminator)
-    ///     Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-    ///     Target:= {Endpoint}
-    ///             
+    /// Category:= CognitiveSearch
+    /// AuthType:= ApiKey (as type discriminator)
+    /// Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    /// Target:= {Endpoint}
+    /// 
     /// Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
     /// </summary>
     public sealed class ApiKeyAuthWorkspaceConnectionPropertiesArgs : global::Pulumi.ResourceArgs
@@ -53,6 +53,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("credentials")]
         public Input<Inputs.WorkspaceConnectionApiKeyArgs>? Credentials { get; set; }
 
+        [Input("error")]
+        public Input<string>? Error { get; set; }
+
         [Input("expiryTime")]
         public Input<string>? ExpiryTime { get; set; }
 
@@ -71,6 +74,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _metadata = value;
         }
 
+        [Input("peRequirement")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ManagedPERequirement>? PeRequirement { get; set; }
+
+        [Input("peStatus")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ManagedPEStatus>? PeStatus { get; set; }
+
         [Input("sharedUserList")]
         private InputList<string>? _sharedUserList;
         public InputList<string> SharedUserList
@@ -82,17 +91,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("target")]
         public Input<string>? Target { get; set; }
 
-        /// <summary>
-        /// Value details of the workspace connection.
-        /// </summary>
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        /// <summary>
-        /// format for the workspace connection value
-        /// </summary>
-        [Input("valueFormat")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ValueFormat>? ValueFormat { get; set; }
+        [Input("useWorkspaceManagedIdentity")]
+        public Input<bool>? UseWorkspaceManagedIdentity { get; set; }
 
         public ApiKeyAuthWorkspaceConnectionPropertiesArgs()
         {

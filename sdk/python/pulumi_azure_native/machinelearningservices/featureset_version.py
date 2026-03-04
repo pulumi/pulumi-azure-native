@@ -17,43 +17,31 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['FeaturesetVersionInitArgs', 'FeaturesetVersion']
+__all__ = ['FeaturesetVersionArgs', 'FeaturesetVersion']
 
 @pulumi.input_type
-class FeaturesetVersionInitArgs:
+class FeaturesetVersionArgs:
     def __init__(__self__, *,
-                 featureset_version_properties: pulumi.Input['FeaturesetVersionArgs'],
                  name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['FeaturesetVersionPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FeaturesetVersion resource.
 
-        :param pulumi.Input['FeaturesetVersionArgs'] featureset_version_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] name: Container name. This is case-sensitive.
+        :param pulumi.Input['FeaturesetVersionPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.str] version: Version identifier. This is case-sensitive.
         """
-        pulumi.set(__self__, "featureset_version_properties", featureset_version_properties)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="featuresetVersionProperties")
-    def featureset_version_properties(self) -> pulumi.Input['FeaturesetVersionArgs']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "featureset_version_properties")
-
-    @featureset_version_properties.setter
-    def featureset_version_properties(self, value: pulumi.Input['FeaturesetVersionArgs']):
-        pulumi.set(self, "featureset_version_properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -66,6 +54,18 @@ class FeaturesetVersionInitArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FeaturesetVersionPropertiesArgs']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['FeaturesetVersionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,7 +83,7 @@ class FeaturesetVersionInitArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of Azure Machine Learning workspace.
+        Azure Machine Learning Workspace Name
         """
         return pulumi.get(self, "workspace_name")
 
@@ -110,8 +110,8 @@ class FeaturesetVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 featureset_version_properties: Optional[pulumi.Input[Union['FeaturesetVersionArgs', 'FeaturesetVersionArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['FeaturesetVersionPropertiesArgs', 'FeaturesetVersionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -119,40 +119,40 @@ class FeaturesetVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FeaturesetVersionArgs', 'FeaturesetVersionArgsDict']] featureset_version_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] name: Container name. This is case-sensitive.
+        :param pulumi.Input[Union['FeaturesetVersionPropertiesArgs', 'FeaturesetVersionPropertiesArgsDict']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] version: Version identifier. This is case-sensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FeaturesetVersionInitArgs,
+                 args: FeaturesetVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
 
-        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
+        Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01-preview.
 
-        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
-        :param FeaturesetVersionInitArgs args: The arguments to use to populate this resource's properties.
+        :param FeaturesetVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FeaturesetVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FeaturesetVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -161,8 +161,8 @@ class FeaturesetVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 featureset_version_properties: Optional[pulumi.Input[Union['FeaturesetVersionArgs', 'FeaturesetVersionArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['FeaturesetVersionPropertiesArgs', 'FeaturesetVersionPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -173,14 +173,14 @@ class FeaturesetVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FeaturesetVersionInitArgs.__new__(FeaturesetVersionInitArgs)
+            __props__ = FeaturesetVersionArgs.__new__(FeaturesetVersionArgs)
 
-            if featureset_version_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'featureset_version_properties'")
-            __props__.__dict__["featureset_version_properties"] = featureset_version_properties
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -191,7 +191,7 @@ class FeaturesetVersion(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:FeaturesetVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250601:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250701preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250901:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251001preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20251201:FeaturesetVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FeaturesetVersion, __self__).__init__(
             'azure-native:machinelearningservices:FeaturesetVersion',
@@ -213,11 +213,11 @@ class FeaturesetVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = FeaturesetVersionInitArgs.__new__(FeaturesetVersionInitArgs)
+        __props__ = FeaturesetVersionArgs.__new__(FeaturesetVersionArgs)
 
         __props__.__dict__["azure_api_version"] = None
-        __props__.__dict__["featureset_version_properties"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FeaturesetVersion(resource_name, opts=opts, __props__=__props__)
@@ -231,20 +231,20 @@ class FeaturesetVersion(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
-    @pulumi.getter(name="featuresetVersionProperties")
-    def featureset_version_properties(self) -> pulumi.Output['outputs.FeaturesetVersionResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "featureset_version_properties")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.FeaturesetVersionPropertiesResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "properties")
 
     @_builtins.property
     @pulumi.getter(name="systemData")

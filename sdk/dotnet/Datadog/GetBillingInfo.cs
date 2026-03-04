@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Datadog
         /// 
         /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview, 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetBillingInfoResult> InvokeAsync(GetBillingInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingInfoResult>("azure-native:datadog:getBillingInfo", args ?? new GetBillingInfoArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Datadog
         /// 
         /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview, 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:datadog:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Datadog
         /// 
         /// Uses Azure REST API version 2023-10-20.
         /// 
-        /// Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview, 2025-12-26-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:datadog:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());

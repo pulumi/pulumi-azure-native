@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A Credential Policy
  *
  * Uses Azure REST API version 2025-11-01-preview.
+ *
+ * Other available API versions: 2026-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -44,21 +46,17 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * The certificate configuration.
-     */
-    declare public readonly certificate: pulumi.Output<outputs.deviceregistry.CertificateConfigurationResponse | undefined>;
-    /**
      * The geo-location where the resource lives
      */
-    declare public readonly location: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * The status of the last operation.
+     * The RP-specific properties for this resource.
      */
-    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    declare public readonly properties: pulumi.Output<outputs.deviceregistry.PolicyPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -89,29 +87,27 @@ export class Policy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificate"] = args?.certificate;
             resourceInputs["location"] = args?.location;
             resourceInputs["namespaceName"] = args?.namespaceName;
             resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20251101preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20251101preview:Policy" }, { type: "azure-native:deviceregistry/v20260301preview:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }
@@ -121,10 +117,6 @@ export class Policy extends pulumi.CustomResource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    /**
-     * The certificate configuration.
-     */
-    certificate?: pulumi.Input<inputs.deviceregistry.CertificateConfigurationArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -137,6 +129,10 @@ export interface PolicyArgs {
      * The name of the Policy tracked resource.
      */
     policyName?: pulumi.Input<string>;
+    /**
+     * The RP-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.deviceregistry.PolicyPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2024-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class MarketplaceSubscription extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly marketplaceSubscriptionProperties: pulumi.Output<outputs.machinelearningservices.MarketplaceSubscriptionResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.MarketplaceSubscriptionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,8 +73,8 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.marketplaceSubscriptionProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'marketplaceSubscriptionProperties'");
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,8 +82,8 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["marketplaceSubscriptionProperties"] = args?.marketplaceSubscriptionProperties;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -91,13 +91,13 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["marketplaceSubscriptionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20241001:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250401:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250401preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250601:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250701preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250901:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20251001preview:MarketplaceSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20240701preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20241001:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20241001preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250101preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250401:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250401preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250601:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250701preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20250901:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20251001preview:MarketplaceSubscription" }, { type: "azure-native:machinelearningservices/v20251201:MarketplaceSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MarketplaceSubscription.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,19 +108,19 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
  */
 export interface MarketplaceSubscriptionArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    marketplaceSubscriptionProperties: pulumi.Input<inputs.machinelearningservices.MarketplaceSubscriptionArgs>;
-    /**
-     * Marketplace Subscription name.
+     * Container name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.MarketplaceSubscriptionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Azure Machine Learning workspace.
+     * Azure Machine Learning Workspace Name
      */
     workspaceName: pulumi.Input<string>;
 }

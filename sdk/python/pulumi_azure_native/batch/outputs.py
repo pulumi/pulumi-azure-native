@@ -2055,6 +2055,9 @@ class LinuxUserConfigurationResponse(dict):
 
 @pulumi.output_type
 class ManagedDiskResponse(dict):
+    """
+    The managed disk parameters.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2078,6 +2081,8 @@ class ManagedDiskResponse(dict):
                  security_profile: Optional['outputs.VMDiskSecurityProfileResponse'] = None,
                  storage_account_type: Optional[_builtins.str] = None):
         """
+        The managed disk parameters.
+
         :param 'VMDiskSecurityProfileResponse' security_profile: Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
         :param _builtins.str storage_account_type: The storage account type for use in creating data disks or OS disk.
         """
@@ -2579,6 +2584,7 @@ class OSDiskResponse(dict):
         :param _builtins.str caching: The type of caching to enable for the disk.
         :param _builtins.int disk_size_gb: The initial disk size in GB when creating new OS disk.
         :param 'DiffDiskSettingsResponse' ephemeral_os_disk_settings: Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        :param 'ManagedDiskResponse' managed_disk: The managed disk parameters.
         :param _builtins.bool write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
         if caching is not None:
@@ -2619,6 +2625,9 @@ class OSDiskResponse(dict):
     @_builtins.property
     @pulumi.getter(name="managedDisk")
     def managed_disk(self) -> Optional['outputs.ManagedDiskResponse']:
+        """
+        The managed disk parameters.
+        """
         return pulumi.get(self, "managed_disk")
 
     @_builtins.property

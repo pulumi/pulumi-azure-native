@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The managed disk parameters.
+    /// </summary>
     public sealed class ManagedDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

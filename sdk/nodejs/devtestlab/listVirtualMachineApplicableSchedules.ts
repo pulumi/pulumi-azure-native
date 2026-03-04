@@ -27,7 +27,7 @@ export interface ListVirtualMachineApplicableSchedulesArgs {
      */
     labName: string;
     /**
-     * The name of the LabVirtualMachine
+     * The name of the virtual machine.
      */
     name: string;
     /**
@@ -41,7 +41,7 @@ export interface ListVirtualMachineApplicableSchedulesArgs {
  */
 export interface ListVirtualMachineApplicableSchedulesResult {
     /**
-     * The identifier of the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -57,15 +57,19 @@ export interface ListVirtualMachineApplicableSchedulesResult {
      */
     readonly location?: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.devtestlab.SystemDataResponse;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -89,7 +93,7 @@ export interface ListVirtualMachineApplicableSchedulesOutputArgs {
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the LabVirtualMachine
+     * The name of the virtual machine.
      */
     name: pulumi.Input<string>;
     /**

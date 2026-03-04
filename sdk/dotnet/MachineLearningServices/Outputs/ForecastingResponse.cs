@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.TableVerticalLimitSettingsResponse? LimitSettings;
         /// <summary>
-        /// Log verbosity for the job.
+        /// Enum for setting log verbosity.
         /// </summary>
         public readonly string? LogVerbosity;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Union<Outputs.AutoNCrossValidationsResponse, Outputs.CustomNCrossValidationsResponse>? NCrossValidations;
         /// <summary>
-        /// Primary metric for forecasting task.
+        /// Primary metrics for Forecasting task.
         /// </summary>
         public readonly string? PrimaryMetric;
         /// <summary>

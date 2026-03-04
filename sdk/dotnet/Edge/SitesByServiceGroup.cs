@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Edge
 {
     /// <summary>
-    /// Site as ARM Resource
+    /// Site as Extension Resource
     /// 
     /// Uses Azure REST API version 2025-03-01-preview.
     /// 

@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Authorization access policy contract.
     /// 
-    /// Uses Azure REST API version 2022-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
+    /// Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2022-08-01.
     /// 
-    /// Other available API versions: 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:AuthorizationAccessPolicy")]
     public partial class AuthorizationAccessPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The allowed Azure Active Directory Application IDs
+        /// </summary>
+        [Output("appIds")]
+        public Output<ImmutableArray<string>> AppIds { get; private set; } = null!;
+
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -107,6 +113,18 @@ namespace Pulumi.AzureNative.ApiManagement
 
     public sealed class AuthorizationAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appIds")]
+        private InputList<string>? _appIds;
+
+        /// <summary>
+        /// The allowed Azure Active Directory Application IDs
+        /// </summary>
+        public InputList<string> AppIds
+        {
+            get => _appIds ?? (_appIds = new InputList<string>());
+            set => _appIds = value;
+        }
+
         /// <summary>
         /// Identifier of the authorization access policy.
         /// </summary>

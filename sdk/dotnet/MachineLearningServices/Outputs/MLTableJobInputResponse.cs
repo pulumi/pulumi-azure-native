@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string JobInputType;
         /// <summary>
-        /// Input Asset Delivery Mode.
+        /// Enum to determine the input data delivery mode.
         /// </summary>
         public readonly string? Mode;
         /// <summary>

@@ -32,12 +32,12 @@ class ModuleArgs:
         The set of arguments for constructing a Module resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input['ContentLinkArgs'] content_link: Sets the hash.
+        :param pulumi.Input['ContentLinkArgs'] content_link: Gets or sets the module content link.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] location: Sets the location of the resource.
+        :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
         :param pulumi.Input[_builtins.str] module_name: The name of module.
-        :param pulumi.Input[_builtins.str] name: Sets name of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Sets the tags attached to the resource.
+        :param pulumi.Input[_builtins.str] name: Gets or sets name of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "content_link", content_link)
@@ -67,7 +67,7 @@ class ModuleArgs:
     @pulumi.getter(name="contentLink")
     def content_link(self) -> pulumi.Input['ContentLinkArgs']:
         """
-        Sets the hash.
+        Gets or sets the module content link.
         """
         return pulumi.get(self, "content_link")
 
@@ -91,7 +91,7 @@ class ModuleArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets the location of the resource.
+        Gets or sets the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -115,7 +115,7 @@ class ModuleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Sets name of the resource.
+        Gets or sets name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -127,7 +127,7 @@ class ModuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Sets the tags attached to the resource.
+        Gets or sets the tags attached to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -153,20 +153,20 @@ class Module(pulumi.CustomResource):
         """
         Definition of the module type.
 
-        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+        Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
-        Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Sets the hash.
-        :param pulumi.Input[_builtins.str] location: Sets the location of the resource.
+        :param pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']] content_link: Gets or sets the module content link.
+        :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
         :param pulumi.Input[_builtins.str] module_name: The name of module.
-        :param pulumi.Input[_builtins.str] name: Sets name of the resource.
+        :param pulumi.Input[_builtins.str] name: Gets or sets name of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Sets the tags attached to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         ...
     @overload
@@ -177,9 +177,9 @@ class Module(pulumi.CustomResource):
         """
         Definition of the module type.
 
-        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
+        Uses Azure REST API version 2024-10-23. In version 2.x of the Azure Native provider, it used API version 2022-08-08.
 
-        Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -237,6 +237,7 @@ class Module(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["size_in_bytes"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Module"), pulumi.Alias(type_="azure-native:automation/v20190601:Module"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Module"), pulumi.Alias(type_="azure-native:automation/v20220808:Module"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Module"), pulumi.Alias(type_="azure-native:automation/v20231101:Module"), pulumi.Alias(type_="azure-native:automation/v20241023:Module")])
@@ -265,6 +266,7 @@ class Module(pulumi.CustomResource):
 
         __props__.__dict__["activity_count"] = None
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["content_link"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["error"] = None
@@ -276,6 +278,7 @@ class Module(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["size_in_bytes"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
@@ -285,7 +288,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="activityCount")
     def activity_count(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Gets the activity count of the module.
+        Gets or sets the activity count of the module.
         """
         return pulumi.get(self, "activity_count")
 
@@ -298,10 +301,18 @@ class Module(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @_builtins.property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> pulumi.Output[Optional['outputs.ContentLinkResponse']]:
+        """
+        Gets or sets the contentLink of the module.
+        """
+        return pulumi.get(self, "content_link")
+
+    @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets the creation time.
+        Gets or sets the creation time.
         """
         return pulumi.get(self, "creation_time")
 
@@ -317,7 +328,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter
     def error(self) -> pulumi.Output[Optional['outputs.ModuleErrorInfoResponse']]:
         """
-        Gets the error info of the module.
+        Gets or sets the error info of the module.
         """
         return pulumi.get(self, "error")
 
@@ -325,7 +336,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets the etag of the resource.
+        Gets or sets the etag of the resource.
         """
         return pulumi.get(self, "etag")
 
@@ -333,7 +344,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="isComposite")
     def is_composite(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Gets type of module, if its composite or not.
+        Gets or sets type of module, if its composite or not.
         """
         return pulumi.get(self, "is_composite")
 
@@ -341,7 +352,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="isGlobal")
     def is_global(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Gets the isGlobal flag of the module.
+        Gets or sets the isGlobal flag of the module.
         """
         return pulumi.get(self, "is_global")
 
@@ -349,15 +360,15 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets the last modified time.
+        Gets or sets the last modified time.
         """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The Azure Region where the resource lives
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -373,7 +384,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets the provisioning state of the module.
+        Gets or sets the provisioning state of the module.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -381,9 +392,17 @@ class Module(pulumi.CustomResource):
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> pulumi.Output[Optional[_builtins.float]]:
         """
-        Gets the size in bytes of the module.
+        Gets or sets the size in bytes of the module.
         """
         return pulumi.get(self, "size_in_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -397,7 +416,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -405,7 +424,7 @@ class Module(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Gets the version of the module.
+        Gets or sets the version of the module.
         """
         return pulumi.get(self, "version")
 

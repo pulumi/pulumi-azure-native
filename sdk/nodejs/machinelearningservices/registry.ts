@@ -8,9 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  *
- * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ *
+ * Other available API versions: 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -44,9 +46,17 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
+     * Discovery URL for the Registry
+     */
+    declare public readonly discoveryUrl: pulumi.Output<string | undefined>;
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     declare public readonly identity: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * IntellectualPropertyPublisher for the registry
+     */
+    declare public readonly intellectualPropertyPublisher: pulumi.Output<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -56,13 +66,34 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
+     * ResourceId of the managed RG if the registry has system created resources
+     */
+    declare public readonly managedResourceGroup: pulumi.Output<outputs.machinelearningservices.ArmResourceIdResponse | undefined>;
+    /**
+     * Managed resource group specific settings
+     */
+    declare public readonly managedResourceGroupSettings: pulumi.Output<outputs.machinelearningservices.ManagedResourceGroupSettingsResponse | undefined>;
+    /**
+     * MLFlow Registry URI for the Registry
+     */
+    declare public readonly mlFlowRegistryUri: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
+     * Is the Registry accessible from the internet?
+     * Possible values: "Enabled" or "Disabled"
      */
-    declare public readonly registryProperties: pulumi.Output<outputs.machinelearningservices.RegistryResponse>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
+    /**
+     * Details of each region the registry is in
+     */
+    declare public readonly regionDetails: pulumi.Output<outputs.machinelearningservices.RegistryRegionArmDetailsResponse[] | undefined>;
+    /**
+     * Private endpoint connections info used for pending connections in private link portal
+     */
+    declare public readonly registryPrivateEndpointConnections: pulumi.Output<outputs.machinelearningservices.RegistryPrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
@@ -91,17 +122,21 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.registryProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'registryProperties'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["discoveryUrl"] = args?.discoveryUrl;
             resourceInputs["identity"] = args?.identity;
+            resourceInputs["intellectualPropertyPublisher"] = args?.intellectualPropertyPublisher;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroup"] = args?.managedResourceGroup;
+            resourceInputs["managedResourceGroupSettings"] = args?.managedResourceGroupSettings;
+            resourceInputs["mlFlowRegistryUri"] = args?.mlFlowRegistryUri;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["regionDetails"] = args?.regionDetails;
             resourceInputs["registryName"] = args?.registryName;
-            resourceInputs["registryProperties"] = args?.registryProperties;
+            resourceInputs["registryPrivateEndpointConnections"] = args?.registryPrivateEndpointConnections;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -111,18 +146,25 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["discoveryUrl"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["intellectualPropertyPublisher"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedResourceGroup"] = undefined /*out*/;
+            resourceInputs["managedResourceGroupSettings"] = undefined /*out*/;
+            resourceInputs["mlFlowRegistryUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["registryProperties"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["regionDetails"] = undefined /*out*/;
+            resourceInputs["registryPrivateEndpointConnections"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20221201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230401:Registry" }, { type: "azure-native:machinelearningservices/v20230401preview:Registry" }, { type: "azure-native:machinelearningservices/v20230601preview:Registry" }, { type: "azure-native:machinelearningservices/v20230801preview:Registry" }, { type: "azure-native:machinelearningservices/v20231001:Registry" }, { type: "azure-native:machinelearningservices/v20240101preview:Registry" }, { type: "azure-native:machinelearningservices/v20240401:Registry" }, { type: "azure-native:machinelearningservices/v20240401preview:Registry" }, { type: "azure-native:machinelearningservices/v20240701preview:Registry" }, { type: "azure-native:machinelearningservices/v20241001:Registry" }, { type: "azure-native:machinelearningservices/v20241001preview:Registry" }, { type: "azure-native:machinelearningservices/v20250101preview:Registry" }, { type: "azure-native:machinelearningservices/v20250401:Registry" }, { type: "azure-native:machinelearningservices/v20250401preview:Registry" }, { type: "azure-native:machinelearningservices/v20250601:Registry" }, { type: "azure-native:machinelearningservices/v20250701preview:Registry" }, { type: "azure-native:machinelearningservices/v20250901:Registry" }, { type: "azure-native:machinelearningservices/v20251001preview:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20221201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230401:Registry" }, { type: "azure-native:machinelearningservices/v20230401preview:Registry" }, { type: "azure-native:machinelearningservices/v20230601preview:Registry" }, { type: "azure-native:machinelearningservices/v20230801preview:Registry" }, { type: "azure-native:machinelearningservices/v20231001:Registry" }, { type: "azure-native:machinelearningservices/v20240101preview:Registry" }, { type: "azure-native:machinelearningservices/v20240401:Registry" }, { type: "azure-native:machinelearningservices/v20240401preview:Registry" }, { type: "azure-native:machinelearningservices/v20240701preview:Registry" }, { type: "azure-native:machinelearningservices/v20241001:Registry" }, { type: "azure-native:machinelearningservices/v20241001preview:Registry" }, { type: "azure-native:machinelearningservices/v20250101preview:Registry" }, { type: "azure-native:machinelearningservices/v20250401:Registry" }, { type: "azure-native:machinelearningservices/v20250401preview:Registry" }, { type: "azure-native:machinelearningservices/v20250601:Registry" }, { type: "azure-native:machinelearningservices/v20250701preview:Registry" }, { type: "azure-native:machinelearningservices/v20250901:Registry" }, { type: "azure-native:machinelearningservices/v20251001preview:Registry" }, { type: "azure-native:machinelearningservices/v20251201:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }
@@ -133,9 +175,17 @@ export class Registry extends pulumi.CustomResource {
  */
 export interface RegistryArgs {
     /**
+     * Discovery URL for the Registry
+     */
+    discoveryUrl?: pulumi.Input<string>;
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
+    /**
+     * IntellectualPropertyPublisher for the registry
+     */
+    intellectualPropertyPublisher?: pulumi.Input<string>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -145,13 +195,34 @@ export interface RegistryArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * ResourceId of the managed RG if the registry has system created resources
+     */
+    managedResourceGroup?: pulumi.Input<inputs.machinelearningservices.ArmResourceIdArgs>;
+    /**
+     * Managed resource group specific settings
+     */
+    managedResourceGroupSettings?: pulumi.Input<inputs.machinelearningservices.ManagedResourceGroupSettingsArgs>;
+    /**
+     * MLFlow Registry URI for the Registry
+     */
+    mlFlowRegistryUri?: pulumi.Input<string>;
+    /**
+     * Is the Registry accessible from the internet?
+     * Possible values: "Enabled" or "Disabled"
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
+    /**
+     * Details of each region the registry is in
+     */
+    regionDetails?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.RegistryRegionArmDetailsArgs>[]>;
+    /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
     registryName?: pulumi.Input<string>;
     /**
-     * [Required] Additional attributes of the entity.
+     * Private endpoint connections info used for pending connections in private link portal
      */
-    registryProperties: pulumi.Input<inputs.machinelearningservices.RegistryArgs>;
+    registryPrivateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.RegistryPrivateEndpointConnectionArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

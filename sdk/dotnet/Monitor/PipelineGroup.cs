@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Monitor
     /// 
     /// Uses Azure REST API version 2024-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:PipelineGroup")]
     public partial class PipelineGroup : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Monitor
                 {
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20231001preview:PipelineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20241001preview:PipelineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20250301preview:PipelineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

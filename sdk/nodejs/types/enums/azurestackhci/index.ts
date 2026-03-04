@@ -45,6 +45,22 @@ export const ComplianceAssignmentType = {
  */
 export type ComplianceAssignmentType = (typeof ComplianceAssignmentType)[keyof typeof ComplianceAssignmentType];
 
+export const ConfidentialVmIntent = {
+    /**
+     * Indicates that the customer intends to enable CVM support on the cluster.
+     */
+    Enable: "Enable",
+    /**
+     * Indicates that the customer intends to disable CVM support on the cluster.
+     */
+    Disable: "Disable",
+} as const;
+
+/**
+ * Defines the customer's intent for updating confidential VM properties
+ */
+export type ConfidentialVmIntent = (typeof ConfidentialVmIntent)[keyof typeof ConfidentialVmIntent];
+
 export const DeploymentMode = {
     /**
      * Validate ECE action deployment for a cluster.
@@ -83,6 +99,22 @@ export const DiagnosticLevel = {
  * Desired level of diagnostic data emitted by the cluster.
  */
 export type DiagnosticLevel = (typeof DiagnosticLevel)[keyof typeof DiagnosticLevel];
+
+export const DiskCreateOption = {
+    /**
+     * Create a disk by copying from a source resource
+     */
+    Copy: "Copy",
+    /**
+     * Create an empty disk
+     */
+    Empty: "Empty",
+} as const;
+
+/**
+ * This enumerates the possible sources of a disk's creation
+ */
+export type DiskCreateOption = (typeof DiskCreateOption)[keyof typeof DiskCreateOption];
 
 export const DiskFileFormat = {
     /**
@@ -219,6 +251,22 @@ export const HciEdgeDeviceJobType = {
  * Job Type to support polymorphic resource.
  */
 export type HciEdgeDeviceJobType = (typeof HciEdgeDeviceJobType)[keyof typeof HciEdgeDeviceJobType];
+
+export const HciJobType = {
+    /**
+     * Job to CVM  intent for the cluster.
+     */
+    ConfigureCVM: "ConfigureCVM",
+    /**
+     * Job to configure SDN (Software Defined Networking) integration for the cluster.
+     */
+    ConfigureSdnIntegration: "ConfigureSdnIntegration",
+} as const;
+
+/**
+ * Job Type to support polymorphic resource.
+ */
+export type HciJobType = (typeof HciJobType)[keyof typeof HciJobType];
 
 export const HyperVGeneration = {
     /**
@@ -577,6 +625,22 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SdnIntegrationIntent = {
+    /**
+     * Enable SDN integration for the deployment.
+     */
+    Enable: "Enable",
+    /**
+     * Disable SDN integration for the deployment.
+     */
+    Disable: "Disable",
+} as const;
+
+/**
+ * Defines the customer's intent for configuring SDN integration
+ */
+export type SdnIntegrationIntent = (typeof SdnIntegrationIntent)[keyof typeof SdnIntegrationIntent];
 
 export const SecretType = {
     /**

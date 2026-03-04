@@ -112,80 +112,6 @@ namespace Pulumi.AzureNative.Resources
     }
 
     /// <summary>
-    /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeploymentStacksDeleteDetachEnum : IEquatable<DeploymentStacksDeleteDetachEnum>
-    {
-        private readonly string _value;
-
-        private DeploymentStacksDeleteDetachEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Delete the specified resources from Azure
-        /// </summary>
-        public static DeploymentStacksDeleteDetachEnum Delete { get; } = new DeploymentStacksDeleteDetachEnum("delete");
-        /// <summary>
-        /// Keep the specified resources in Azure
-        /// </summary>
-        public static DeploymentStacksDeleteDetachEnum Detach { get; } = new DeploymentStacksDeleteDetachEnum("detach");
-
-        public static bool operator ==(DeploymentStacksDeleteDetachEnum left, DeploymentStacksDeleteDetachEnum right) => left.Equals(right);
-        public static bool operator !=(DeploymentStacksDeleteDetachEnum left, DeploymentStacksDeleteDetachEnum right) => !left.Equals(right);
-
-        public static explicit operator string(DeploymentStacksDeleteDetachEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeploymentStacksDeleteDetachEnum other && Equals(other);
-        public bool Equals(DeploymentStacksDeleteDetachEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-    /// </summary>
-    [EnumType]
-    public readonly struct DeploymentStacksResourcesWithoutDeleteSupportEnum : IEquatable<DeploymentStacksResourcesWithoutDeleteSupportEnum>
-    {
-        private readonly string _value;
-
-        private DeploymentStacksResourcesWithoutDeleteSupportEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Detach the specified resources from the deployment stack and continue
-        /// </summary>
-        public static DeploymentStacksResourcesWithoutDeleteSupportEnum Detach { get; } = new DeploymentStacksResourcesWithoutDeleteSupportEnum("detach");
-        /// <summary>
-        /// Fail the deployment stack if resources cannot be deleted
-        /// </summary>
-        public static DeploymentStacksResourcesWithoutDeleteSupportEnum Fail { get; } = new DeploymentStacksResourcesWithoutDeleteSupportEnum("fail");
-
-        public static bool operator ==(DeploymentStacksResourcesWithoutDeleteSupportEnum left, DeploymentStacksResourcesWithoutDeleteSupportEnum right) => left.Equals(right);
-        public static bool operator !=(DeploymentStacksResourcesWithoutDeleteSupportEnum left, DeploymentStacksResourcesWithoutDeleteSupportEnum right) => !left.Equals(right);
-
-        public static explicit operator string(DeploymentStacksResourcesWithoutDeleteSupportEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeploymentStacksResourcesWithoutDeleteSupportEnum other && Equals(other);
-        public bool Equals(DeploymentStacksResourcesWithoutDeleteSupportEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The scope to be used for evaluation of parameters, variables and functions in a nested template.
     /// </summary>
     [EnumType]
@@ -342,6 +268,43 @@ namespace Pulumi.AzureNative.Resources
     }
 
     /// <summary>
+    /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourcesWithoutDeleteSupportAction : IEquatable<ResourcesWithoutDeleteSupportAction>
+    {
+        private readonly string _value;
+
+        private ResourcesWithoutDeleteSupportAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Detach the specified resources from the deployment stack and continue.
+        /// </summary>
+        public static ResourcesWithoutDeleteSupportAction Detach { get; } = new ResourcesWithoutDeleteSupportAction("detach");
+        /// <summary>
+        /// Fail the deployment stack if resources cannot be deleted.
+        /// </summary>
+        public static ResourcesWithoutDeleteSupportAction Fail { get; } = new ResourcesWithoutDeleteSupportAction("fail");
+
+        public static bool operator ==(ResourcesWithoutDeleteSupportAction left, ResourcesWithoutDeleteSupportAction right) => left.Equals(right);
+        public static bool operator !=(ResourcesWithoutDeleteSupportAction left, ResourcesWithoutDeleteSupportAction right) => !left.Equals(right);
+
+        public static explicit operator string(ResourcesWithoutDeleteSupportAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourcesWithoutDeleteSupportAction other && Equals(other);
+        public bool Equals(ResourcesWithoutDeleteSupportAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the script.
     /// </summary>
     [EnumType]
@@ -365,6 +328,117 @@ namespace Pulumi.AzureNative.Resources
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScriptType other && Equals(other);
         public bool Equals(ScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies an action for a newly unmanaged resource management group.
+    /// </summary>
+    [EnumType]
+    public readonly struct UnmanageActionManagementGroupMode : IEquatable<UnmanageActionManagementGroupMode>
+    {
+        private readonly string _value;
+
+        private UnmanageActionManagementGroupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Delete the management groups from Azure.
+        /// </summary>
+        public static UnmanageActionManagementGroupMode Delete { get; } = new UnmanageActionManagementGroupMode("delete");
+        /// <summary>
+        /// Keep the management groups in Azure.
+        /// </summary>
+        public static UnmanageActionManagementGroupMode Detach { get; } = new UnmanageActionManagementGroupMode("detach");
+
+        public static bool operator ==(UnmanageActionManagementGroupMode left, UnmanageActionManagementGroupMode right) => left.Equals(right);
+        public static bool operator !=(UnmanageActionManagementGroupMode left, UnmanageActionManagementGroupMode right) => !left.Equals(right);
+
+        public static explicit operator string(UnmanageActionManagementGroupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UnmanageActionManagementGroupMode other && Equals(other);
+        public bool Equals(UnmanageActionManagementGroupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies an action for a newly unmanaged resource group.
+    /// </summary>
+    [EnumType]
+    public readonly struct UnmanageActionResourceGroupMode : IEquatable<UnmanageActionResourceGroupMode>
+    {
+        private readonly string _value;
+
+        private UnmanageActionResourceGroupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Delete the resource groups from Azure.
+        /// </summary>
+        public static UnmanageActionResourceGroupMode Delete { get; } = new UnmanageActionResourceGroupMode("delete");
+        /// <summary>
+        /// Keep the resource groups in Azure.
+        /// </summary>
+        public static UnmanageActionResourceGroupMode Detach { get; } = new UnmanageActionResourceGroupMode("detach");
+
+        public static bool operator ==(UnmanageActionResourceGroupMode left, UnmanageActionResourceGroupMode right) => left.Equals(right);
+        public static bool operator !=(UnmanageActionResourceGroupMode left, UnmanageActionResourceGroupMode right) => !left.Equals(right);
+
+        public static explicit operator string(UnmanageActionResourceGroupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UnmanageActionResourceGroupMode other && Equals(other);
+        public bool Equals(UnmanageActionResourceGroupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies an action for a newly unmanaged resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct UnmanageActionResourceMode : IEquatable<UnmanageActionResourceMode>
+    {
+        private readonly string _value;
+
+        private UnmanageActionResourceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Delete the resources from Azure
+        /// </summary>
+        public static UnmanageActionResourceMode Delete { get; } = new UnmanageActionResourceMode("delete");
+        /// <summary>
+        /// Keep the resources in Azure
+        /// </summary>
+        public static UnmanageActionResourceMode Detach { get; } = new UnmanageActionResourceMode("detach");
+
+        public static bool operator ==(UnmanageActionResourceMode left, UnmanageActionResourceMode right) => left.Equals(right);
+        public static bool operator !=(UnmanageActionResourceMode left, UnmanageActionResourceMode right) => !left.Equals(right);
+
+        public static explicit operator string(UnmanageActionResourceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UnmanageActionResourceMode other && Equals(other);
+        public bool Equals(UnmanageActionResourceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

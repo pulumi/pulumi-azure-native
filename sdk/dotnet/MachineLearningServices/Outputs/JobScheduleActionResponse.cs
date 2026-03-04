@@ -21,16 +21,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// [Required] Defines Schedule action definition details.
         /// </summary>
-        public readonly object JobBaseProperties;
+        public readonly object JobDefinition;
 
         [OutputConstructor]
         private JobScheduleActionResponse(
             string actionType,
 
-            object jobBaseProperties)
+            object jobDefinition)
         {
             ActionType = actionType;
-            JobBaseProperties = jobBaseProperties;
+            JobDefinition = jobDefinition;
         }
     }
 }

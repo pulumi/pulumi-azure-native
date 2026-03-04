@@ -21,11 +21,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
-        /// Specifies the location of the resource.
+        /// *Same as workspace location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -33,28 +33,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource of private end point.
+        /// The Private Endpoint resource.
         /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
+        public readonly Outputs.WorkspacePrivateEndpointResourceResponse? PrivateEndpoint;
         /// <summary>
-        /// A collection of information about the state of the connection between service consumer and provider.
+        /// The connection state.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// The provisioning state of the private endpoint connection resource.
+        /// The current provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The sku of the workspace.
+        /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -71,9 +68,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string name,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.WorkspacePrivateEndpointResourceResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
             string provisioningState,
 

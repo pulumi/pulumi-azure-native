@@ -26,7 +26,7 @@ class GetApiSchemaResult:
     """
     API Schema Contract details.
     """
-    def __init__(__self__, azure_api_version=None, components=None, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, components=None, content_type=None, definitions=None, id=None, name=None, provisioning_state=None, type=None, value=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -45,6 +45,9 @@ class GetApiSchemaResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -72,7 +75,7 @@ class GetApiSchemaResult:
     @pulumi.getter(name="contentType")
     def content_type(self) -> _builtins.str:
         """
-        Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
+        Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml` </br> - `OData Schema` use `application/vnd.ms-azure-apim.odata.schema` </br> - `gRPC Schema` use `text/protobuf`.
         """
         return pulumi.get(self, "content_type")
 
@@ -99,6 +102,14 @@ class GetApiSchemaResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
             definitions=self.definitions,
             id=self.id,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             type=self.type,
             value=self.value)
 
@@ -141,9 +153,9 @@ def get_api_schema(api_id: Optional[_builtins.str] = None,
     """
     Get the schema configuration at the API level.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -166,6 +178,7 @@ def get_api_schema(api_id: Optional[_builtins.str] = None,
         definitions=pulumi.get(__ret__, 'definitions'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_api_schema_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -176,9 +189,9 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Get the schema configuration at the API level.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -200,5 +213,6 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
         definitions=pulumi.get(__response__, 'definitions'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         type=pulumi.get(__response__, 'type'),
         value=pulumi.get(__response__, 'value')))

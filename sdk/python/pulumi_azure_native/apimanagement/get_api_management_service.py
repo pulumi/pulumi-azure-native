@@ -27,7 +27,7 @@ class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
     """
-    def __init__(__self__, additional_locations=None, api_version_constraint=None, azure_api_version=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, nat_gateway_state=None, notification_sender_email=None, outbound_public_ip_addresses=None, platform_version=None, portal_url=None, private_endpoint_connections=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, public_ip_address_id=None, public_network_access=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, system_data=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
+    def __init__(__self__, additional_locations=None, api_version_constraint=None, azure_api_version=None, certificates=None, configuration_api=None, created_at_utc=None, custom_properties=None, developer_portal_status=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, legacy_portal_status=None, location=None, management_api_url=None, name=None, nat_gateway_state=None, notification_sender_email=None, outbound_public_ip_addresses=None, platform_version=None, portal_url=None, private_endpoint_connections=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, public_ip_address_id=None, public_network_access=None, publisher_email=None, publisher_name=None, restore=None, scm_url=None, sku=None, system_data=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None, zones=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -40,12 +40,18 @@ class GetApiManagementServiceResult:
         if certificates and not isinstance(certificates, list):
             raise TypeError("Expected argument 'certificates' to be a list")
         pulumi.set(__self__, "certificates", certificates)
+        if configuration_api and not isinstance(configuration_api, dict):
+            raise TypeError("Expected argument 'configuration_api' to be a dict")
+        pulumi.set(__self__, "configuration_api", configuration_api)
         if created_at_utc and not isinstance(created_at_utc, str):
             raise TypeError("Expected argument 'created_at_utc' to be a str")
         pulumi.set(__self__, "created_at_utc", created_at_utc)
         if custom_properties and not isinstance(custom_properties, dict):
             raise TypeError("Expected argument 'custom_properties' to be a dict")
         pulumi.set(__self__, "custom_properties", custom_properties)
+        if developer_portal_status and not isinstance(developer_portal_status, str):
+            raise TypeError("Expected argument 'developer_portal_status' to be a str")
+        pulumi.set(__self__, "developer_portal_status", developer_portal_status)
         if developer_portal_url and not isinstance(developer_portal_url, str):
             raise TypeError("Expected argument 'developer_portal_url' to be a str")
         pulumi.set(__self__, "developer_portal_url", developer_portal_url)
@@ -73,6 +79,9 @@ class GetApiManagementServiceResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if legacy_portal_status and not isinstance(legacy_portal_status, str):
+            raise TypeError("Expected argument 'legacy_portal_status' to be a str")
+        pulumi.set(__self__, "legacy_portal_status", legacy_portal_status)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -185,6 +194,14 @@ class GetApiManagementServiceResult:
         return pulumi.get(self, "certificates")
 
     @_builtins.property
+    @pulumi.getter(name="configurationApi")
+    def configuration_api(self) -> Optional['outputs.ConfigurationApiResponse']:
+        """
+        Configuration API configuration of the API Management service.
+        """
+        return pulumi.get(self, "configuration_api")
+
+    @_builtins.property
     @pulumi.getter(name="createdAtUtc")
     def created_at_utc(self) -> _builtins.str:
         """
@@ -199,6 +216,14 @@ class GetApiManagementServiceResult:
         Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
         """
         return pulumi.get(self, "custom_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="developerPortalStatus")
+    def developer_portal_status(self) -> Optional[_builtins.str]:
+        """
+        Status of developer portal in this API Management service.
+        """
+        return pulumi.get(self, "developer_portal_status")
 
     @_builtins.property
     @pulumi.getter(name="developerPortalUrl")
@@ -271,6 +296,14 @@ class GetApiManagementServiceResult:
         Managed service identity of the Api Management service.
         """
         return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="legacyPortalStatus")
+    def legacy_portal_status(self) -> Optional[_builtins.str]:
+        """
+        Status of legacy portal in the API Management service.
+        """
+        return pulumi.get(self, "legacy_portal_status")
 
     @_builtins.property
     @pulumi.getter
@@ -491,8 +524,10 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             api_version_constraint=self.api_version_constraint,
             azure_api_version=self.azure_api_version,
             certificates=self.certificates,
+            configuration_api=self.configuration_api,
             created_at_utc=self.created_at_utc,
             custom_properties=self.custom_properties,
+            developer_portal_status=self.developer_portal_status,
             developer_portal_url=self.developer_portal_url,
             disable_gateway=self.disable_gateway,
             enable_client_certificate=self.enable_client_certificate,
@@ -502,6 +537,7 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             hostname_configurations=self.hostname_configurations,
             id=self.id,
             identity=self.identity,
+            legacy_portal_status=self.legacy_portal_status,
             location=self.location,
             management_api_url=self.management_api_url,
             name=self.name,
@@ -536,9 +572,9 @@ def get_api_management_service(resource_group_name: Optional[_builtins.str] = No
     """
     Gets an API Management service resource description.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -555,8 +591,10 @@ def get_api_management_service(resource_group_name: Optional[_builtins.str] = No
         api_version_constraint=pulumi.get(__ret__, 'api_version_constraint'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificates=pulumi.get(__ret__, 'certificates'),
+        configuration_api=pulumi.get(__ret__, 'configuration_api'),
         created_at_utc=pulumi.get(__ret__, 'created_at_utc'),
         custom_properties=pulumi.get(__ret__, 'custom_properties'),
+        developer_portal_status=pulumi.get(__ret__, 'developer_portal_status'),
         developer_portal_url=pulumi.get(__ret__, 'developer_portal_url'),
         disable_gateway=pulumi.get(__ret__, 'disable_gateway'),
         enable_client_certificate=pulumi.get(__ret__, 'enable_client_certificate'),
@@ -566,6 +604,7 @@ def get_api_management_service(resource_group_name: Optional[_builtins.str] = No
         hostname_configurations=pulumi.get(__ret__, 'hostname_configurations'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        legacy_portal_status=pulumi.get(__ret__, 'legacy_portal_status'),
         location=pulumi.get(__ret__, 'location'),
         management_api_url=pulumi.get(__ret__, 'management_api_url'),
         name=pulumi.get(__ret__, 'name'),
@@ -598,9 +637,9 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     """
     Gets an API Management service resource description.
 
-    Uses Azure REST API version 2022-09-01-preview.
+    Uses Azure REST API version 2024-05-01.
 
-    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-08-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -616,8 +655,10 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
         api_version_constraint=pulumi.get(__response__, 'api_version_constraint'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificates=pulumi.get(__response__, 'certificates'),
+        configuration_api=pulumi.get(__response__, 'configuration_api'),
         created_at_utc=pulumi.get(__response__, 'created_at_utc'),
         custom_properties=pulumi.get(__response__, 'custom_properties'),
+        developer_portal_status=pulumi.get(__response__, 'developer_portal_status'),
         developer_portal_url=pulumi.get(__response__, 'developer_portal_url'),
         disable_gateway=pulumi.get(__response__, 'disable_gateway'),
         enable_client_certificate=pulumi.get(__response__, 'enable_client_certificate'),
@@ -627,6 +668,7 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
         hostname_configurations=pulumi.get(__response__, 'hostname_configurations'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        legacy_portal_status=pulumi.get(__response__, 'legacy_portal_status'),
         location=pulumi.get(__response__, 'location'),
         management_api_url=pulumi.get(__response__, 'management_api_url'),
         name=pulumi.get(__response__, 'name'),

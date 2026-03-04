@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the Diagnostic specified by its identifier.
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceDiagnostic(args: GetWorkspaceDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,10 +72,6 @@ export interface GetWorkspaceDiagnosticResult {
      */
     readonly id: string;
     /**
-     * Large Language Models diagnostic settings
-     */
-    readonly largeLanguageModel?: outputs.apimanagement.LLMDiagnosticSettingsResponse;
-    /**
      * Log the ClientIP. Default is false.
      */
     readonly logClientIp?: boolean;
@@ -111,9 +107,9 @@ export interface GetWorkspaceDiagnosticResult {
 /**
  * Gets the details of the Diagnostic specified by its identifier.
  *
- * Uses Azure REST API version 2024-06-01-preview.
+ * Uses Azure REST API version 2024-05-01.
  *
- * Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-09-01-preview, 2024-06-01-preview, 2024-10-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native apimanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkspaceDiagnosticOutput(args: GetWorkspaceDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

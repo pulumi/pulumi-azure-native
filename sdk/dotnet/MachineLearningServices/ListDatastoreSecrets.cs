@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class ListDatastoreSecrets
     {
         /// <summary>
-        /// Base definition for datastore secrets.
+        /// Get datastore secrets.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListDatastoreSecretsResult> InvokeAsync(ListDatastoreSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatastoreSecretsResult>("azure-native:machinelearningservices:listDatastoreSecrets", args ?? new ListDatastoreSecretsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Base definition for datastore secrets.
+        /// Get datastore secrets.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDatastoreSecretsResult> Invoke(ListDatastoreSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Base definition for datastore secrets.
+        /// Get datastore secrets.
         /// 
-        /// Uses Azure REST API version 2025-09-01.
+        /// Uses Azure REST API version 2025-12-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListDatastoreSecretsResult> Invoke(ListDatastoreSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithDefaults());
@@ -45,6 +45,18 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
     public sealed class ListDatastoreSecretsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Indicates if the secret is expirable.
+        /// </summary>
+        [Input("expirableSecret")]
+        public bool? ExpirableSecret { get; set; }
+
+        /// <summary>
+        /// Number of hours after which the secret will expire.
+        /// </summary>
+        [Input("expireAfterHours")]
+        public int? ExpireAfterHours { get; set; }
+
         /// <summary>
         /// Datastore name.
         /// </summary>
@@ -58,19 +70,33 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
 
         public ListDatastoreSecretsArgs()
         {
+            ExpirableSecret = false;
+            ExpireAfterHours = 1;
         }
         public static new ListDatastoreSecretsArgs Empty => new ListDatastoreSecretsArgs();
     }
 
     public sealed class ListDatastoreSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Indicates if the secret is expirable.
+        /// </summary>
+        [Input("expirableSecret")]
+        public Input<bool>? ExpirableSecret { get; set; }
+
+        /// <summary>
+        /// Number of hours after which the secret will expire.
+        /// </summary>
+        [Input("expireAfterHours")]
+        public Input<int>? ExpireAfterHours { get; set; }
+
         /// <summary>
         /// Datastore name.
         /// </summary>
@@ -84,13 +110,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
         public ListDatastoreSecretsInvokeArgs()
         {
+            ExpirableSecret = false;
+            ExpireAfterHours = 1;
         }
         public static new ListDatastoreSecretsInvokeArgs Empty => new ListDatastoreSecretsInvokeArgs();
     }

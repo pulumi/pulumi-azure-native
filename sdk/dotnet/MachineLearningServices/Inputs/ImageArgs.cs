@@ -10,22 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
-    /// <summary>
-    /// Describes the Image Specifications
-    /// </summary>
     public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Image reference
+        /// Image reference URL if type is docker. Environment name if type is azureml
         /// </summary>
         [Input("reference")]
         public Input<string>? Reference { get; set; }
 
         /// <summary>
-        /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ImageType>? Type { get; set; }
+
+        /// <summary>
+        /// Version of image being used. If latest then skip this field
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ImageArgs()
         {

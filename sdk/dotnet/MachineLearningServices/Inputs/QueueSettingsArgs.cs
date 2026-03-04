@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class QueueSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls the compute job tier
+        /// Enum to determine the job tier.
         /// </summary>
         [Input("jobTier")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.JobTier>? JobTier { get; set; }

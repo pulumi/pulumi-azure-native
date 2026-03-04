@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// 
-    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -64,9 +64,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("enableServiceSideCMKEncryption")]
         public Output<bool?> EnableServiceSideCMKEncryption { get; private set; } = null!;
 
-        /// <summary>
-        /// The encryption settings of Azure ML workspace.
-        /// </summary>
         [Output("encryption")]
         public Output<Outputs.EncryptionPropertyResponse?> Encryption { get; private set; } = null!;
 
@@ -92,7 +89,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string?> HubResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -112,9 +109,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the location of the resource.
-        /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
@@ -179,7 +173,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for serverless compute created in the workspace
+        /// Settings for serverless compute in a workspace
         /// </summary>
         [Output("serverlessComputeSettings")]
         public Output<Outputs.ServerlessComputeSettingsResponse?> ServerlessComputeSettings { get; private set; } = null!;
@@ -203,7 +197,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<ImmutableArray<Outputs.SharedPrivateLinkResourceResponse>> SharedPrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
-        /// The sku of the workspace.
+        /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
@@ -232,9 +226,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("systemDatastoresAuthMode")]
         public Output<string?> SystemDatastoresAuthMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -337,6 +328,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250901:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251201:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -404,9 +396,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("enableServiceSideCMKEncryption")]
         public Input<bool>? EnableServiceSideCMKEncryption { get; set; }
 
-        /// <summary>
-        /// The encryption settings of Azure ML workspace.
-        /// </summary>
         [Input("encryption")]
         public Input<Inputs.EncryptionPropertyArgs>? Encryption { get; set; }
 
@@ -432,7 +421,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? HubResourceId { get; set; }
 
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
@@ -452,9 +441,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        /// <summary>
-        /// Specifies the location of the resource.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -480,7 +466,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Whether requests from Public Network are allowed.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -489,7 +475,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Settings for serverless compute created in the workspace
+        /// Settings for serverless compute in a workspace
         /// </summary>
         [Input("serverlessComputeSettings")]
         public Input<Inputs.ServerlessComputeSettingsArgs>? ServerlessComputeSettings { get; set; }
@@ -513,7 +499,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         /// <summary>
-        /// The sku of the workspace.
+        /// Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
@@ -532,10 +518,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Contains resource tags defined as key/value pairs.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -555,16 +537,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<Inputs.WorkspaceHubConfigArgs>? WorkspaceHubConfig { get; set; }
 
         /// <summary>
-        /// Name of Azure Machine Learning workspace.
+        /// Azure Machine Learning Workspace Name
         /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }
 
         public WorkspaceArgs()
         {
-            AllowPublicAccessWhenBehindVnet = false;
-            HbiWorkspace = false;
-            V1LegacyMode = false;
         }
         public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }

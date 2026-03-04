@@ -80,12 +80,12 @@ __all__ = [
     'AzureFileDatastoreArgsDict',
     'BanditPolicyArgs',
     'BanditPolicyArgsDict',
-    'BatchDeploymentArgs',
-    'BatchDeploymentArgsDict',
+    'BatchDeploymentPropertiesArgs',
+    'BatchDeploymentPropertiesArgsDict',
     'BatchEndpointDefaultsArgs',
     'BatchEndpointDefaultsArgsDict',
-    'BatchEndpointArgs',
-    'BatchEndpointArgsDict',
+    'BatchEndpointPropertiesArgs',
+    'BatchEndpointPropertiesArgsDict',
     'BatchPipelineComponentDeploymentConfigurationArgs',
     'BatchPipelineComponentDeploymentConfigurationArgsDict',
     'BatchRetrySettingsArgs',
@@ -96,8 +96,8 @@ __all__ = [
     'BindOptionsArgsDict',
     'BuildContextArgs',
     'BuildContextArgsDict',
-    'CapabilityHostArgs',
-    'CapabilityHostArgsDict',
+    'CapabilityHostPropertiesArgs',
+    'CapabilityHostPropertiesArgsDict',
     'CapacityReservationGroupArgs',
     'CapacityReservationGroupArgsDict',
     'CategoricalDataDriftMetricThresholdArgs',
@@ -116,10 +116,10 @@ __all__ = [
     'ClassificationArgsDict',
     'CodeConfigurationArgs',
     'CodeConfigurationArgsDict',
-    'CodeContainerArgs',
-    'CodeContainerArgsDict',
-    'CodeVersionArgs',
-    'CodeVersionArgsDict',
+    'CodeContainerPropertiesArgs',
+    'CodeContainerPropertiesArgsDict',
+    'CodeVersionPropertiesArgs',
+    'CodeVersionPropertiesArgsDict',
     'CognitiveServicesSkuArgs',
     'CognitiveServicesSkuArgsDict',
     'CollectionArgs',
@@ -130,10 +130,10 @@ __all__ = [
     'CommandJobLimitsArgsDict',
     'CommandJobArgs',
     'CommandJobArgsDict',
-    'ComponentContainerArgs',
-    'ComponentContainerArgsDict',
-    'ComponentVersionArgs',
-    'ComponentVersionArgsDict',
+    'ComponentContainerPropertiesArgs',
+    'ComponentContainerPropertiesArgsDict',
+    'ComponentVersionPropertiesArgs',
+    'ComponentVersionPropertiesArgsDict',
     'ComputeInstancePropertiesArgs',
     'ComputeInstancePropertiesArgsDict',
     'ComputeInstanceSshSettingsArgs',
@@ -190,8 +190,8 @@ __all__ = [
     'CustomTargetRollingWindowSizeArgsDict',
     'DataCollectorArgs',
     'DataCollectorArgsDict',
-    'DataContainerArgs',
-    'DataContainerArgsDict',
+    'DataContainerPropertiesArgs',
+    'DataContainerPropertiesArgsDict',
     'DataDriftMonitoringSignalArgs',
     'DataDriftMonitoringSignalArgsDict',
     'DataFactoryArgs',
@@ -220,6 +220,8 @@ __all__ = [
     'DatasetCreateRequestRegistrationArgsDict',
     'DatasetCreateRequestTimeSeriesArgs',
     'DatasetCreateRequestTimeSeriesArgsDict',
+    'DatasetReferenceArgs',
+    'DatasetReferenceArgsDict',
     'DefaultScaleSettingsArgs',
     'DefaultScaleSettingsArgsDict',
     'DeploymentResourceConfigurationArgs',
@@ -232,8 +234,6 @@ __all__ = [
     'DockerImageArgsDict',
     'DockerArgs',
     'DockerArgsDict',
-    'EncryptionKeyVaultPropertiesArgs',
-    'EncryptionKeyVaultPropertiesArgsDict',
     'EncryptionPropertyArgs',
     'EncryptionPropertyArgsDict',
     'EndpointAuthKeysArgs',
@@ -244,14 +244,14 @@ __all__ = [
     'EndpointScheduleActionArgsDict',
     'EndpointArgs',
     'EndpointArgsDict',
-    'EnvironmentContainerArgs',
-    'EnvironmentContainerArgsDict',
+    'EnvironmentContainerPropertiesArgs',
+    'EnvironmentContainerPropertiesArgsDict',
     'EnvironmentSpecificationVersionArgs',
     'EnvironmentSpecificationVersionArgsDict',
     'EnvironmentVariableArgs',
     'EnvironmentVariableArgsDict',
-    'EnvironmentVersionArgs',
-    'EnvironmentVersionArgsDict',
+    'EnvironmentVersionPropertiesArgs',
+    'EnvironmentVersionPropertiesArgsDict',
     'FeatureAttributionDriftMonitoringSignalArgs',
     'FeatureAttributionDriftMonitoringSignalArgsDict',
     'FeatureAttributionMetricThresholdArgs',
@@ -262,16 +262,16 @@ __all__ = [
     'FeatureStoreSettingsArgsDict',
     'FeatureSubsetArgs',
     'FeatureSubsetArgsDict',
-    'FeaturesetContainerArgs',
-    'FeaturesetContainerArgsDict',
+    'FeaturesetContainerPropertiesArgs',
+    'FeaturesetContainerPropertiesArgsDict',
     'FeaturesetSpecificationArgs',
     'FeaturesetSpecificationArgsDict',
-    'FeaturesetVersionArgs',
-    'FeaturesetVersionArgsDict',
-    'FeaturestoreEntityContainerArgs',
-    'FeaturestoreEntityContainerArgsDict',
-    'FeaturestoreEntityVersionArgs',
-    'FeaturestoreEntityVersionArgsDict',
+    'FeaturesetVersionPropertiesArgs',
+    'FeaturesetVersionPropertiesArgsDict',
+    'FeaturestoreEntityContainerPropertiesArgs',
+    'FeaturestoreEntityContainerPropertiesArgsDict',
+    'FeaturestoreEntityVersionPropertiesArgs',
+    'FeaturestoreEntityVersionPropertiesArgsDict',
     'FixedInputDataArgs',
     'FixedInputDataArgsDict',
     'FlavorDataArgs',
@@ -342,6 +342,10 @@ __all__ = [
     'JobScheduleActionArgsDict',
     'JobServiceArgs',
     'JobServiceArgsDict',
+    'JupyterKernelConfigArgs',
+    'JupyterKernelConfigArgsDict',
+    'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
     'KubernetesOnlineDeploymentArgs',
     'KubernetesOnlineDeploymentArgsDict',
     'KubernetesPropertiesArgs',
@@ -398,22 +402,26 @@ __all__ = [
     'ManagedOnlineDeploymentArgsDict',
     'ManagedOnlineEndpointDeploymentResourcePropertiesArgs',
     'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict',
+    'ManagedResourceGroupAssignedIdentitiesArgs',
+    'ManagedResourceGroupAssignedIdentitiesArgsDict',
+    'ManagedResourceGroupSettingsArgs',
+    'ManagedResourceGroupSettingsArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
-    'MarketplaceSubscriptionArgs',
-    'MarketplaceSubscriptionArgsDict',
+    'MarketplaceSubscriptionPropertiesArgs',
+    'MarketplaceSubscriptionPropertiesArgsDict',
     'MaterializationComputeResourceArgs',
     'MaterializationComputeResourceArgsDict',
     'MaterializationSettingsArgs',
     'MaterializationSettingsArgsDict',
     'MedianStoppingPolicyArgs',
     'MedianStoppingPolicyArgsDict',
-    'ModelContainerArgs',
-    'ModelContainerArgsDict',
+    'ModelContainerPropertiesArgs',
+    'ModelContainerPropertiesArgsDict',
     'ModelSettingsArgs',
     'ModelSettingsArgsDict',
-    'ModelVersionArgs',
-    'ModelVersionArgsDict',
+    'ModelVersionPropertiesArgs',
+    'ModelVersionPropertiesArgsDict',
     'MonitorDefinitionArgs',
     'MonitorDefinitionArgsDict',
     'MonitorEmailNotificationSettingsArgs',
@@ -450,8 +458,8 @@ __all__ = [
     'ObjectiveArgsDict',
     'OneLakeDatastoreArgs',
     'OneLakeDatastoreArgsDict',
-    'OnlineEndpointArgs',
-    'OnlineEndpointArgsDict',
+    'OnlineEndpointPropertiesArgs',
+    'OnlineEndpointPropertiesArgsDict',
     'OnlineRequestSettingsArgs',
     'OnlineRequestSettingsArgsDict',
     'OpenAIEndpointDeploymentResourcePropertiesArgs',
@@ -498,16 +506,12 @@ __all__ = [
     'RecurrenceTriggerArgsDict',
     'RecurrenceArgs',
     'RecurrenceArgsDict',
-    'RegistryPrivateEndpointConnectionPropertiesArgs',
-    'RegistryPrivateEndpointConnectionPropertiesArgsDict',
     'RegistryPrivateEndpointConnectionArgs',
     'RegistryPrivateEndpointConnectionArgsDict',
     'RegistryPrivateLinkServiceConnectionStateArgs',
     'RegistryPrivateLinkServiceConnectionStateArgsDict',
     'RegistryRegionArmDetailsArgs',
     'RegistryRegionArmDetailsArgsDict',
-    'RegistryArgs',
-    'RegistryArgsDict',
     'RegressionTrainingSettingsArgs',
     'RegressionTrainingSettingsArgsDict',
     'RegressionArgs',
@@ -534,8 +538,8 @@ __all__ = [
     'ScaleUnitConfigurationArgsDict',
     'ScheduleBaseArgs',
     'ScheduleBaseArgsDict',
-    'ScheduleArgs',
-    'ScheduleArgsDict',
+    'SchedulePropertiesArgs',
+    'SchedulePropertiesArgsDict',
     'ScriptReferenceArgs',
     'ScriptReferenceArgsDict',
     'ScriptsToExecuteArgs',
@@ -544,8 +548,8 @@ __all__ = [
     'SecretConfigurationArgsDict',
     'ServerlessComputeSettingsArgs',
     'ServerlessComputeSettingsArgsDict',
-    'ServerlessEndpointArgs',
-    'ServerlessEndpointArgsDict',
+    'ServerlessEndpointPropertiesArgs',
+    'ServerlessEndpointPropertiesArgsDict',
     'ServerlessOfferArgs',
     'ServerlessOfferArgsDict',
     'ServiceManagedResourcesSettingsArgs',
@@ -689,35 +693,33 @@ class AADAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     """
     Category of the connection
     """
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AADAuthTypeWorkspaceConnectionPropertiesArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         This connection type covers the AAD auth for any applicable Azure service
 
@@ -725,26 +727,28 @@ class AADAuthTypeWorkspaceConnectionPropertiesArgs:
                Expected value is 'AAD'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'AAD')
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -770,6 +774,15 @@ class AADAuthTypeWorkspaceConnectionPropertiesArgs:
     @category.setter
     def category(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]):
         pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
@@ -802,6 +815,24 @@ class AADAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -820,28 +851,13 @@ class AADAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class AKSSchemaPropertiesArgsDict(TypedDict):
@@ -1169,22 +1185,18 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionAccessKeyArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -1192,40 +1204,44 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionAccessKeyArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'AccessKey'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'AccessKey')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -1262,6 +1278,15 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -1292,6 +1317,24 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -1310,28 +1353,13 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
@@ -1348,22 +1376,21 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionAccountKeyArgsDict']]
+    """
+    Account key object for workspace connection credential.
+    """
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -1371,42 +1398,47 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         This connection type covers the account key connection for Azure storage
 
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'AccountKey'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
+        :param pulumi.Input['WorkspaceConnectionAccountKeyArgs'] credentials: Account key object for workspace connection credential.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'AccountKey')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -1436,11 +1468,23 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
     @_builtins.property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']]:
+        """
+        Account key object for workspace connection credential.
+        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input['WorkspaceConnectionAccountKeyArgs']]):
         pulumi.set(self, "credentials", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
@@ -1473,6 +1517,24 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -1491,28 +1553,13 @@ class AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class AccountKeyDatastoreCredentialsArgsDict(TypedDict):
@@ -2273,23 +2320,23 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgsDict(TypedDict):
     """
     This connection type covers the generic ApiKey auth connection categories, for examples:
     AzureOpenAI:
-        Category:= AzureOpenAI
-        AuthType:= ApiKey (as type discriminator)
-        Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-        Target:= {ApiBase}
-                
+    Category:= AzureOpenAI
+    AuthType:= ApiKey (as type discriminator)
+    Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    Target:= {ApiBase}
+
     CognitiveService:
-        Category:= CognitiveService
-        AuthType:= ApiKey (as type discriminator)
-        Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-        Target:= ServiceRegion={serviceRegion}
-                
+    Category:= CognitiveService
+    AuthType:= ApiKey (as type discriminator)
+    Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    Target:= ServiceRegion={serviceRegion}
+
     CognitiveSearch:
-        Category:= CognitiveSearch
-        AuthType:= ApiKey (as type discriminator)
-        Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-        Target:= {Endpoint}
-                
+    Category:= CognitiveSearch
+    AuthType:= ApiKey (as type discriminator)
+    Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+    Target:= {Endpoint}
+
     Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
     """
     auth_type: pulumi.Input[_builtins.str]
@@ -2305,22 +2352,18 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgsDict(TypedDict):
     """
     Api key object for workspace connection credential.
     """
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ApiKeyAuthWorkspaceConnectionPropertiesArgs:
@@ -2328,33 +2371,35 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionApiKeyArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         This connection type covers the generic ApiKey auth connection categories, for examples:
         AzureOpenAI:
-            Category:= AzureOpenAI
-            AuthType:= ApiKey (as type discriminator)
-            Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-            Target:= {ApiBase}
-                    
+        Category:= AzureOpenAI
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {ApiKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+        Target:= {ApiBase}
+
         CognitiveService:
-            Category:= CognitiveService
-            AuthType:= ApiKey (as type discriminator)
-            Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-            Target:= ServiceRegion={serviceRegion}
-                    
+        Category:= CognitiveService
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {SubscriptionKey} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+        Target:= ServiceRegion={serviceRegion}
+
         CognitiveSearch:
-            Category:= CognitiveSearch
-            AuthType:= ApiKey (as type discriminator)
-            Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
-            Target:= {Endpoint}
-                    
+        Category:= CognitiveSearch
+        AuthType:= ApiKey (as type discriminator)
+        Credentials:= {Key} as Microsoft.MachineLearning.AccountRP.Contracts.WorkspaceConnection.ApiKey
+        Target:= {Endpoint}
+
         Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
 
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
@@ -2362,28 +2407,30 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgs:
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input['WorkspaceConnectionApiKeyArgs'] credentials: Api key object for workspace connection credential.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'ApiKey')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -2423,6 +2470,15 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -2453,6 +2509,24 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -2471,28 +2545,13 @@ class ApiKeyAuthWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class ArmResourceIdArgsDict(TypedDict):
@@ -4380,7 +4439,7 @@ class BanditPolicyArgs:
         pulumi.set(self, "slack_factor", value)
 
 
-class BatchDeploymentArgsDict(TypedDict):
+class BatchDeploymentPropertiesArgsDict(TypedDict):
     """
     Batch inference settings per deployment.
     """
@@ -4418,7 +4477,9 @@ class BatchDeploymentArgsDict(TypedDict):
     """
     logging_level: NotRequired[pulumi.Input[Union[_builtins.str, 'BatchLoggingLevel']]]
     """
-    Logging level for batch inference operation.
+    Log verbosity for batch inferencing.
+    Increasing verbosity order for logging is : Warning, Info and Debug.
+    The default value is Info.
     """
     max_concurrency_per_instance: NotRequired[pulumi.Input[_builtins.int]]
     """
@@ -4436,7 +4497,7 @@ class BatchDeploymentArgsDict(TypedDict):
     """
     output_action: NotRequired[pulumi.Input[Union[_builtins.str, 'BatchOutputAction']]]
     """
-    Indicates how the output will be organized.
+    Enum to determine how batch inferencing will handle output
     """
     output_file_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -4458,7 +4519,7 @@ class BatchDeploymentArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class BatchDeploymentArgs:
+class BatchDeploymentPropertiesArgs:
     def __init__(__self__, *,
                  code_configuration: Optional[pulumi.Input['CodeConfigurationArgs']] = None,
                  compute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4490,13 +4551,15 @@ class BatchDeploymentArgs:
                For FileDataset, this value is the count of file failures.
                For TabularDataset, this value is the count of record failures.
                If set to -1 (the lower bound), all failures during batch inference will be ignored.
-        :param pulumi.Input[Union[_builtins.str, 'BatchLoggingLevel']] logging_level: Logging level for batch inference operation.
+        :param pulumi.Input[Union[_builtins.str, 'BatchLoggingLevel']] logging_level: Log verbosity for batch inferencing.
+               Increasing verbosity order for logging is : Warning, Info and Debug.
+               The default value is Info.
         :param pulumi.Input[_builtins.int] max_concurrency_per_instance: Indicates maximum number of parallelism per instance.
         :param pulumi.Input[_builtins.float] mini_batch_size: Size of the mini-batch passed to each batch invocation.
                For FileDataset, this is the number of files per mini-batch.
                For TabularDataset, this is the size of the records in bytes, per mini-batch.
         :param pulumi.Input[Union['DataPathAssetReferenceArgs', 'IdAssetReferenceArgs', 'OutputPathAssetReferenceArgs']] model: Reference to the model asset for the endpoint deployment.
-        :param pulumi.Input[Union[_builtins.str, 'BatchOutputAction']] output_action: Indicates how the output will be organized.
+        :param pulumi.Input[Union[_builtins.str, 'BatchOutputAction']] output_action: Enum to determine how batch inferencing will handle output
         :param pulumi.Input[_builtins.str] output_file_name: Customized output file name for append_row output action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
         :param pulumi.Input['DeploymentResourceConfigurationArgs'] resources: Indicates compute configuration for the job.
@@ -4641,7 +4704,9 @@ class BatchDeploymentArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BatchLoggingLevel']]]:
         """
-        Logging level for batch inference operation.
+        Log verbosity for batch inferencing.
+        Increasing verbosity order for logging is : Warning, Info and Debug.
+        The default value is Info.
         """
         return pulumi.get(self, "logging_level")
 
@@ -4691,7 +4756,7 @@ class BatchDeploymentArgs:
     @pulumi.getter(name="outputAction")
     def output_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'BatchOutputAction']]]:
         """
-        Indicates how the output will be organized.
+        Enum to determine how batch inferencing will handle output
         """
         return pulumi.get(self, "output_action")
 
@@ -4787,7 +4852,7 @@ class BatchEndpointDefaultsArgs:
         pulumi.set(self, "deployment_name", value)
 
 
-class BatchEndpointArgsDict(TypedDict):
+class BatchEndpointPropertiesArgsDict(TypedDict):
     """
     Batch endpoint configuration.
     """
@@ -4814,7 +4879,7 @@ class BatchEndpointArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class BatchEndpointArgs:
+class BatchEndpointPropertiesArgs:
     def __init__(__self__, *,
                  auth_mode: pulumi.Input[Union[_builtins.str, 'EndpointAuthMode']],
                  defaults: Optional[pulumi.Input['BatchEndpointDefaultsArgs']] = None,
@@ -5114,9 +5179,6 @@ class BayesianSamplingAlgorithmArgs:
 
 
 class BindOptionsArgsDict(TypedDict):
-    """
-    Describes the bind options for the container
-    """
     create_host_path: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Indicate whether to create host path.
@@ -5137,8 +5199,6 @@ class BindOptionsArgs:
                  propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  selinux: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Describes the bind options for the container
-
         :param pulumi.Input[_builtins.bool] create_host_path: Indicate whether to create host path.
         :param pulumi.Input[_builtins.str] propagation: Type of Bind Option
         :param pulumi.Input[_builtins.str] selinux: Mention the selinux options.
@@ -5248,7 +5308,11 @@ class BuildContextArgs:
         pulumi.set(self, "dockerfile_path", value)
 
 
-class CapabilityHostArgsDict(TypedDict):
+class CapabilityHostPropertiesArgsDict(TypedDict):
+    aca_environment_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of Aca Environment connections.
+    """
     ai_services_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     List of AI services connections.
@@ -5287,8 +5351,9 @@ class CapabilityHostArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class CapabilityHostArgs:
+class CapabilityHostPropertiesArgs:
     def __init__(__self__, *,
+                 aca_environment_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ai_services_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  capability_host_kind: Optional[pulumi.Input[Union[_builtins.str, 'CapabilityHostKind']]] = None,
                  customer_subnet: Optional[pulumi.Input[_builtins.str]] = None,
@@ -5299,6 +5364,7 @@ class CapabilityHostArgs:
                  thread_storage_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vector_store_connections: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aca_environment_connections: List of Aca Environment connections.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ai_services_connections: List of AI services connections.
         :param pulumi.Input[Union[_builtins.str, 'CapabilityHostKind']] capability_host_kind: Kind of this capability host.
         :param pulumi.Input[_builtins.str] customer_subnet: Customer subnet info to help set up this capability host.
@@ -5309,6 +5375,8 @@ class CapabilityHostArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] thread_storage_connections: List of Thread storage connections.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vector_store_connections: List of VectorStore connections.
         """
+        if aca_environment_connections is not None:
+            pulumi.set(__self__, "aca_environment_connections", aca_environment_connections)
         if ai_services_connections is not None:
             pulumi.set(__self__, "ai_services_connections", ai_services_connections)
         if capability_host_kind is None:
@@ -5329,6 +5397,18 @@ class CapabilityHostArgs:
             pulumi.set(__self__, "thread_storage_connections", thread_storage_connections)
         if vector_store_connections is not None:
             pulumi.set(__self__, "vector_store_connections", vector_store_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="acaEnvironmentConnections")
+    def aca_environment_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of Aca Environment connections.
+        """
+        return pulumi.get(self, "aca_environment_connections")
+
+    @aca_environment_connections.setter
+    def aca_environment_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "aca_environment_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="aiServicesConnections")
@@ -6141,7 +6221,7 @@ class ClassificationArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     n_cross_validations: NotRequired[pulumi.Input[Union['AutoNCrossValidationsArgsDict', 'CustomNCrossValidationsArgsDict']]]
     """
@@ -6154,7 +6234,7 @@ class ClassificationArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']]]
     """
-    Primary metric for the task.
+    Primary metrics for classification tasks.
     """
     target_column_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -6218,11 +6298,11 @@ class ClassificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cv_split_column_names: Columns to use for CVSplit data.
         :param pulumi.Input['TableVerticalFeaturizationSettingsArgs'] featurization_settings: Featurization inputs needed for AutoML job.
         :param pulumi.Input['TableVerticalLimitSettingsArgs'] limit_settings: Execution constraints for AutoMLJob.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input[Union['AutoNCrossValidationsArgs', 'CustomNCrossValidationsArgs']] n_cross_validations: Number of cross validation folds to be applied on training dataset
                when validation dataset is not provided.
         :param pulumi.Input[_builtins.str] positive_label: Positive label for binary metrics calculation.
-        :param pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']] primary_metric: Primary metric for the task.
+        :param pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']] primary_metric: Primary metrics for classification tasks.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
                Also known as label column name in context of classification tasks.
         :param pulumi.Input['MLTableJobInputArgs'] test_data: Test data input.
@@ -6336,7 +6416,7 @@ class ClassificationArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -6373,7 +6453,7 @@ class ClassificationArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']]]:
         """
-        Primary metric for the task.
+        Primary metrics for classification tasks.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -6524,7 +6604,7 @@ class CodeConfigurationArgs:
         pulumi.set(self, "code_id", value)
 
 
-class CodeContainerArgsDict(TypedDict):
+class CodeContainerPropertiesArgsDict(TypedDict):
     """
     Container for code asset versions.
     """
@@ -6546,7 +6626,7 @@ class CodeContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class CodeContainerArgs:
+class CodeContainerPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_archived: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -6620,7 +6700,7 @@ class CodeContainerArgs:
         pulumi.set(self, "tags", value)
 
 
-class CodeVersionArgsDict(TypedDict):
+class CodeVersionPropertiesArgsDict(TypedDict):
     """
     Code asset version details.
     """
@@ -6650,7 +6730,7 @@ class CodeVersionArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class CodeVersionArgs:
+class CodeVersionPropertiesArgs:
     def __init__(__self__, *,
                  code_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -7500,7 +7580,7 @@ class CommandJobArgs:
         pulumi.set(self, "tags", value)
 
 
-class ComponentContainerArgsDict(TypedDict):
+class ComponentContainerPropertiesArgsDict(TypedDict):
     """
     Component container definition.
     <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
@@ -7523,7 +7603,7 @@ class ComponentContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ComponentContainerArgs:
+class ComponentContainerPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_archived: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -7598,7 +7678,7 @@ class ComponentContainerArgs:
         pulumi.set(self, "tags", value)
 
 
-class ComponentVersionArgsDict(TypedDict):
+class ComponentVersionPropertiesArgsDict(TypedDict):
     """
     Definition of a component version: defines resources that span component types.
     """
@@ -7629,7 +7709,7 @@ class ComponentVersionArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ComponentVersionArgs:
+class ComponentVersionPropertiesArgs:
     def __init__(__self__, *,
                  component_spec: Optional[Any] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -7759,6 +7839,14 @@ class ComputeInstancePropertiesArgsDict(TypedDict):
     """
     Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
     """
+    enable_sso: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable SSO (single sign on). Possible values are: true, false.
+    """
+    idle_time_before_shutdown: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
+    """
     personal_compute_instance_settings: NotRequired[pulumi.Input['PersonalComputeInstanceSettingsArgsDict']]
     """
     Settings for a personal compute instance.
@@ -7791,6 +7879,8 @@ class ComputeInstancePropertiesArgs:
                  compute_instance_authorization_type: Optional[pulumi.Input[Union[_builtins.str, 'ComputeInstanceAuthorizationType']]] = None,
                  custom_services: Optional[pulumi.Input[Sequence[pulumi.Input['CustomServiceArgs']]]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
+                 idle_time_before_shutdown: Optional[pulumi.Input[_builtins.str]] = None,
                  personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
                  schedules: Optional[pulumi.Input['ComputeSchedulesArgs']] = None,
                  setup_scripts: Optional[pulumi.Input['SetupScriptsArgs']] = None,
@@ -7804,6 +7894,8 @@ class ComputeInstancePropertiesArgs:
         :param pulumi.Input[Union[_builtins.str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param pulumi.Input[Sequence[pulumi.Input['CustomServiceArgs']]] custom_services: List of Custom Services added to the compute.
         :param pulumi.Input[_builtins.bool] enable_node_public_ip: Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        :param pulumi.Input[_builtins.bool] enable_sso: Enable SSO (single sign on). Possible values are: true, false.
+        :param pulumi.Input[_builtins.str] idle_time_before_shutdown: Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
         :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
         :param pulumi.Input['ComputeSchedulesArgs'] schedules: The list of schedules to be applied on the computes.
         :param pulumi.Input['SetupScriptsArgs'] setup_scripts: Details of customized scripts to execute for setting up the cluster.
@@ -7823,6 +7915,12 @@ class ComputeInstancePropertiesArgs:
             pulumi.set(__self__, "custom_services", custom_services)
         if enable_node_public_ip is not None:
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if enable_sso is None:
+            enable_sso = True
+        if enable_sso is not None:
+            pulumi.set(__self__, "enable_sso", enable_sso)
+        if idle_time_before_shutdown is not None:
+            pulumi.set(__self__, "idle_time_before_shutdown", idle_time_before_shutdown)
         if personal_compute_instance_settings is not None:
             pulumi.set(__self__, "personal_compute_instance_settings", personal_compute_instance_settings)
         if schedules is not None:
@@ -7883,6 +7981,30 @@ class ComputeInstancePropertiesArgs:
     @enable_node_public_ip.setter
     def enable_node_public_ip(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_node_public_ip", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSSO")
+    def enable_sso(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable SSO (single sign on). Possible values are: true, false.
+        """
+        return pulumi.get(self, "enable_sso")
+
+    @enable_sso.setter
+    def enable_sso(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_sso", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeBeforeShutdown")
+    def idle_time_before_shutdown(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Stops compute instance after user defined period of inactivity. Time is defined in ISO8601 format. Minimum is 15 min, maximum is 3 days.
+        """
+        return pulumi.get(self, "idle_time_before_shutdown")
+
+    @idle_time_before_shutdown.setter
+    def idle_time_before_shutdown(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "idle_time_before_shutdown", value)
 
     @_builtins.property
     @pulumi.getter(name="personalComputeInstanceSettings")
@@ -8237,18 +8359,12 @@ class ComputeRecurrenceScheduleArgs:
 
 
 class ComputeRuntimeDtoArgsDict(TypedDict):
-    """
-    Compute runtime config for feature store type workspace.
-    """
     spark_runtime_version: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ComputeRuntimeDtoArgs:
     def __init__(__self__, *,
                  spark_runtime_version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Compute runtime config for feature store type workspace.
-        """
         if spark_runtime_version is not None:
             pulumi.set(__self__, "spark_runtime_version", spark_runtime_version)
 
@@ -8715,26 +8831,17 @@ class ContentSafetyArgs:
 
 class CosmosDbSettingsArgsDict(TypedDict):
     collections_throughput: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The throughput of the collections in cosmosdb database
-    """
 
 @pulumi.input_type
 class CosmosDbSettingsArgs:
     def __init__(__self__, *,
                  collections_throughput: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] collections_throughput: The throughput of the collections in cosmosdb database
-        """
         if collections_throughput is not None:
             pulumi.set(__self__, "collections_throughput", collections_throughput)
 
     @_builtins.property
     @pulumi.getter(name="collectionsThroughput")
     def collections_throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The throughput of the collections in cosmosdb database
-        """
         return pulumi.get(self, "collections_throughput")
 
     @collections_throughput.setter
@@ -9074,22 +9181,18 @@ class CustomKeysWorkspaceConnectionPropertiesArgsDict(TypedDict):
     """
     Custom Keys credential object
     """
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class CustomKeysWorkspaceConnectionPropertiesArgs:
@@ -9097,13 +9200,15 @@ class CustomKeysWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['CustomKeysArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Category:= CustomKeys
         AuthType:= CustomKeys (as type discriminator)
@@ -9116,28 +9221,30 @@ class CustomKeysWorkspaceConnectionPropertiesArgs:
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input['CustomKeysArgs'] credentials: Custom Keys credential object
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'CustomKeys')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -9177,6 +9284,15 @@ class CustomKeysWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -9207,6 +9323,24 @@ class CustomKeysWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -9225,28 +9359,13 @@ class CustomKeysWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class CustomKeysArgsDict(TypedDict):
@@ -9339,7 +9458,7 @@ class CustomModelJobInputArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
 
 @pulumi.input_type
@@ -9354,7 +9473,7 @@ class CustomModelJobInputArgs:
                Expected value is 'custom_model'.
         :param pulumi.Input[_builtins.str] uri: [Required] Input Asset URI.
         :param pulumi.Input[_builtins.str] description: Description for the input.
-        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Input Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Enum to determine the input data delivery mode.
         """
         pulumi.set(__self__, "job_input_type", 'custom_model')
         pulumi.set(__self__, "uri", uri)
@@ -9406,7 +9525,7 @@ class CustomModelJobInputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]:
         """
-        Input Asset Delivery Mode.
+        Enum to determine the input data delivery mode.
         """
         return pulumi.get(self, "mode")
 
@@ -9421,13 +9540,17 @@ class CustomModelJobOutputArgsDict(TypedDict):
     Enum to determine the Job Output Type.
     Expected value is 'custom_model'.
     """
+    asset_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output Asset Name.
+    """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Description for the output.
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -9438,17 +9561,21 @@ class CustomModelJobOutputArgsDict(TypedDict):
 class CustomModelJobOutputArgs:
     def __init__(__self__, *,
                  job_output_type: pulumi.Input[_builtins.str],
+                 asset_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] job_output_type: Enum to determine the Job Output Type.
                Expected value is 'custom_model'.
+        :param pulumi.Input[_builtins.str] asset_name: Output Asset Name.
         :param pulumi.Input[_builtins.str] description: Description for the output.
-        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output data delivery mode enums.
         :param pulumi.Input[_builtins.str] uri: Output Asset URI.
         """
         pulumi.set(__self__, "job_output_type", 'custom_model')
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if mode is None:
@@ -9472,6 +9599,18 @@ class CustomModelJobOutputArgs:
         pulumi.set(self, "job_output_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output Asset Name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -9487,7 +9626,7 @@ class CustomModelJobOutputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]:
         """
-        Output Asset Delivery Mode.
+        Output data delivery mode enums.
         """
         return pulumi.get(self, "mode")
 
@@ -9782,6 +9921,10 @@ class CustomServiceArgsDict(TypedDict):
     """
     Describes the Image Specifications
     """
+    kernel: NotRequired[pulumi.Input['JupyterKernelConfigArgsDict']]
+    """
+    Describes the jupyter kernel settings for the image if its a custom environment
+    """
     name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Name of the Custom Service
@@ -9798,6 +9941,7 @@ class CustomServiceArgs:
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input['EnvironmentVariableArgs']]]] = None,
                  image: Optional[pulumi.Input['ImageArgs']] = None,
+                 kernel: Optional[pulumi.Input['JupyterKernelConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeDefinitionArgs']]]] = None):
         """
@@ -9807,6 +9951,7 @@ class CustomServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]] endpoints: Configuring the endpoints for the container
         :param pulumi.Input[Mapping[str, pulumi.Input['EnvironmentVariableArgs']]] environment_variables: Environment Variable for the container
         :param pulumi.Input['ImageArgs'] image: Describes the Image Specifications
+        :param pulumi.Input['JupyterKernelConfigArgs'] kernel: Describes the jupyter kernel settings for the image if its a custom environment
         :param pulumi.Input[_builtins.str] name: Name of the Custom Service
         :param pulumi.Input[Sequence[pulumi.Input['VolumeDefinitionArgs']]] volumes: Configuring the volumes for the container
         """
@@ -9818,6 +9963,8 @@ class CustomServiceArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if kernel is not None:
+            pulumi.set(__self__, "kernel", kernel)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if volumes is not None:
@@ -9870,6 +10017,18 @@ class CustomServiceArgs:
     @image.setter
     def image(self, value: Optional[pulumi.Input['ImageArgs']]):
         pulumi.set(self, "image", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kernel(self) -> Optional[pulumi.Input['JupyterKernelConfigArgs']]:
+        """
+        Describes the jupyter kernel settings for the image if its a custom environment
+        """
+        return pulumi.get(self, "kernel")
+
+    @kernel.setter
+    def kernel(self, value: Optional[pulumi.Input['JupyterKernelConfigArgs']]):
+        pulumi.set(self, "kernel", value)
 
     @_builtins.property
     @pulumi.getter
@@ -10078,7 +10237,7 @@ class DataCollectorArgs:
         pulumi.set(self, "rolling_rate", value)
 
 
-class DataContainerArgsDict(TypedDict):
+class DataContainerPropertiesArgsDict(TypedDict):
     """
     Container for data asset versions.
     """
@@ -10104,7 +10263,7 @@ class DataContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class DataContainerArgs:
+class DataContainerPropertiesArgs:
     def __init__(__self__, *,
                  data_type: pulumi.Input[Union[_builtins.str, 'DataType']],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -11504,6 +11663,60 @@ class DatasetCreateRequestTimeSeriesArgs:
         pulumi.set(self, "fine_grain_timestamp", value)
 
 
+class DatasetReferenceArgsDict(TypedDict):
+    """
+    Dataset reference object.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The fully qualified ARM id of the dataset reference.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the dataset reference.
+    """
+
+@pulumi.input_type
+class DatasetReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Dataset reference object.
+
+        :param pulumi.Input[_builtins.str] id: The fully qualified ARM id of the dataset reference.
+        :param pulumi.Input[_builtins.str] name: The name of the dataset reference.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The fully qualified ARM id of the dataset reference.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the dataset reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
 class DefaultScaleSettingsArgsDict(TypedDict):
     scale_type: pulumi.Input[_builtins.str]
     """
@@ -11818,9 +12031,6 @@ class DockerImageArgs:
 
 
 class DockerArgsDict(TypedDict):
-    """
-    Docker container configuration
-    """
     privileged: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Indicate whether container shall run in privileged or non-privileged mode.
@@ -11831,8 +12041,6 @@ class DockerArgs:
     def __init__(__self__, *,
                  privileged: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        Docker container configuration
-
         :param pulumi.Input[_builtins.bool] privileged: Indicate whether container shall run in privileged or non-privileged mode.
         """
         if privileged is not None:
@@ -11851,113 +12059,76 @@ class DockerArgs:
         pulumi.set(self, "privileged", value)
 
 
-class EncryptionKeyVaultPropertiesArgsDict(TypedDict):
-    key_identifier: pulumi.Input[_builtins.str]
-    """
-    Key vault uri to access the encryption key.
-    """
-    key_vault_arm_id: pulumi.Input[_builtins.str]
-    """
-    The ArmId of the keyVault where the customer owned encryption key is present.
-    """
-    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    For future use - The client id of the identity which will be used to access key vault.
-    """
-
-@pulumi.input_type
-class EncryptionKeyVaultPropertiesArgs:
-    def __init__(__self__, *,
-                 key_identifier: pulumi.Input[_builtins.str],
-                 key_vault_arm_id: pulumi.Input[_builtins.str],
-                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key_identifier: Key vault uri to access the encryption key.
-        :param pulumi.Input[_builtins.str] key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
-        :param pulumi.Input[_builtins.str] identity_client_id: For future use - The client id of the identity which will be used to access key vault.
-        """
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
-        if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
-
-    @_builtins.property
-    @pulumi.getter(name="keyIdentifier")
-    def key_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        Key vault uri to access the encryption key.
-        """
-        return pulumi.get(self, "key_identifier")
-
-    @key_identifier.setter
-    def key_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_identifier", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultArmId")
-    def key_vault_arm_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ArmId of the keyVault where the customer owned encryption key is present.
-        """
-        return pulumi.get(self, "key_vault_arm_id")
-
-    @key_vault_arm_id.setter
-    def key_vault_arm_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_vault_arm_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        For future use - The client id of the identity which will be used to access key vault.
-        """
-        return pulumi.get(self, "identity_client_id")
-
-    @identity_client_id.setter
-    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "identity_client_id", value)
-
-
 class EncryptionPropertyArgsDict(TypedDict):
-    key_vault_properties: pulumi.Input['EncryptionKeyVaultPropertiesArgsDict']
+    key_vault_properties: pulumi.Input['KeyVaultPropertiesArgsDict']
     """
-    Customer Key vault properties.
+    KeyVault details to do the encryption
     """
     status: pulumi.Input[Union[_builtins.str, 'EncryptionStatus']]
     """
     Indicates whether or not the encryption is enabled for the workspace.
     """
+    cosmos_db_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The byok cosmosdb account that customer brings to store customer's data
+    with encryption
+    """
     identity: NotRequired[pulumi.Input['IdentityForCmkArgsDict']]
     """
-    The identity that will be used to access the key vault for encryption at rest.
+    Identity to be used with the keyVault
+    """
+    search_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The byok search account that customer brings to store customer's data
+    with encryption
+    """
+    storage_account_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The byok storage account that customer brings to store customer's data
+    with encryption
     """
 
 @pulumi.input_type
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
-                 key_vault_properties: pulumi.Input['EncryptionKeyVaultPropertiesArgs'],
+                 key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
                  status: pulumi.Input[Union[_builtins.str, 'EncryptionStatus']],
-                 identity: Optional[pulumi.Input['IdentityForCmkArgs']] = None):
+                 cosmos_db_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['IdentityForCmkArgs']] = None,
+                 search_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input['EncryptionKeyVaultPropertiesArgs'] key_vault_properties: Customer Key vault properties.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: KeyVault details to do the encryption
         :param pulumi.Input[Union[_builtins.str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for the workspace.
-        :param pulumi.Input['IdentityForCmkArgs'] identity: The identity that will be used to access the key vault for encryption at rest.
+        :param pulumi.Input[_builtins.str] cosmos_db_resource_id: The byok cosmosdb account that customer brings to store customer's data
+               with encryption
+        :param pulumi.Input['IdentityForCmkArgs'] identity: Identity to be used with the keyVault
+        :param pulumi.Input[_builtins.str] search_account_resource_id: The byok search account that customer brings to store customer's data
+               with encryption
+        :param pulumi.Input[_builtins.str] storage_account_resource_id: The byok storage account that customer brings to store customer's data
+               with encryption
         """
         pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         pulumi.set(__self__, "status", status)
+        if cosmos_db_resource_id is not None:
+            pulumi.set(__self__, "cosmos_db_resource_id", cosmos_db_resource_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if search_account_resource_id is not None:
+            pulumi.set(__self__, "search_account_resource_id", search_account_resource_id)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> pulumi.Input['EncryptionKeyVaultPropertiesArgs']:
+    def key_vault_properties(self) -> pulumi.Input['KeyVaultPropertiesArgs']:
         """
-        Customer Key vault properties.
+        KeyVault details to do the encryption
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: pulumi.Input['EncryptionKeyVaultPropertiesArgs']):
+    def key_vault_properties(self, value: pulumi.Input['KeyVaultPropertiesArgs']):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
@@ -11973,16 +12144,55 @@ class EncryptionPropertyArgs:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter(name="cosmosDbResourceId")
+    def cosmos_db_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The byok cosmosdb account that customer brings to store customer's data
+        with encryption
+        """
+        return pulumi.get(self, "cosmos_db_resource_id")
+
+    @cosmos_db_resource_id.setter
+    def cosmos_db_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cosmos_db_resource_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['IdentityForCmkArgs']]:
         """
-        The identity that will be used to access the key vault for encryption at rest.
+        Identity to be used with the keyVault
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['IdentityForCmkArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="searchAccountResourceId")
+    def search_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The byok search account that customer brings to store customer's data
+        with encryption
+        """
+        return pulumi.get(self, "search_account_resource_id")
+
+    @search_account_resource_id.setter
+    def search_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "search_account_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The byok storage account that customer brings to store customer's data
+        with encryption
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+    @storage_account_resource_id.setter
+    def storage_account_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_resource_id", value)
 
 
 class EndpointAuthKeysArgsDict(TypedDict):
@@ -12182,9 +12392,6 @@ class EndpointScheduleActionArgs:
 
 
 class EndpointArgsDict(TypedDict):
-    """
-    Describes the endpoint configuration for the container
-    """
     host_ip: NotRequired[pulumi.Input[_builtins.str]]
     """
     Host IP over which the application is exposed from the container
@@ -12215,8 +12422,6 @@ class EndpointArgs:
                  published: Optional[pulumi.Input[_builtins.int]] = None,
                  target: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        Describes the endpoint configuration for the container
-
         :param pulumi.Input[_builtins.str] host_ip: Host IP over which the application is exposed from the container
         :param pulumi.Input[_builtins.str] name: Name of the Endpoint
         :param pulumi.Input[Union[_builtins.str, 'Protocol']] protocol: Protocol over which communication will happen over this endpoint
@@ -12297,7 +12502,7 @@ class EndpointArgs:
         pulumi.set(self, "target", value)
 
 
-class EnvironmentContainerArgsDict(TypedDict):
+class EnvironmentContainerPropertiesArgsDict(TypedDict):
     """
     Container for environment specification versions.
     """
@@ -12319,7 +12524,7 @@ class EnvironmentContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class EnvironmentContainerArgs:
+class EnvironmentContainerPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_archived: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -12553,9 +12758,6 @@ class EnvironmentSpecificationVersionArgs:
 
 
 class EnvironmentVariableArgsDict(TypedDict):
-    """
-    Environment Variables for the container
-    """
     type: NotRequired[pulumi.Input[Union[_builtins.str, 'EnvironmentVariableType']]]
     """
     Type of the Environment Variable. Possible values are: local - For local variable
@@ -12571,8 +12773,6 @@ class EnvironmentVariableArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'EnvironmentVariableType']]] = None,
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Environment Variables for the container
-
         :param pulumi.Input[Union[_builtins.str, 'EnvironmentVariableType']] type: Type of the Environment Variable. Possible values are: local - For local variable
         :param pulumi.Input[_builtins.str] value: Value of the Environment variable
         """
@@ -12608,13 +12808,13 @@ class EnvironmentVariableArgs:
         pulumi.set(self, "value", value)
 
 
-class EnvironmentVersionArgsDict(TypedDict):
+class EnvironmentVersionPropertiesArgsDict(TypedDict):
     """
     Environment version details.
     """
     auto_rebuild: NotRequired[pulumi.Input[Union[_builtins.str, 'AutoRebuildSetting']]]
     """
-    Defines if image needs to be rebuilt based on base image changes.
+    AutoRebuild setting for the derived image
     """
     build: NotRequired[pulumi.Input['BuildContextArgsDict']]
     """
@@ -12648,7 +12848,7 @@ class EnvironmentVersionArgsDict(TypedDict):
     """
     os_type: NotRequired[pulumi.Input[Union[_builtins.str, 'OperatingSystemType']]]
     """
-    The OS type of the environment.
+    The type of operating system.
     """
     properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
@@ -12664,7 +12864,7 @@ class EnvironmentVersionArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class EnvironmentVersionArgs:
+class EnvironmentVersionPropertiesArgs:
     def __init__(__self__, *,
                  auto_rebuild: Optional[pulumi.Input[Union[_builtins.str, 'AutoRebuildSetting']]] = None,
                  build: Optional[pulumi.Input['BuildContextArgs']] = None,
@@ -12681,7 +12881,7 @@ class EnvironmentVersionArgs:
         """
         Environment version details.
 
-        :param pulumi.Input[Union[_builtins.str, 'AutoRebuildSetting']] auto_rebuild: Defines if image needs to be rebuilt based on base image changes.
+        :param pulumi.Input[Union[_builtins.str, 'AutoRebuildSetting']] auto_rebuild: AutoRebuild setting for the derived image
         :param pulumi.Input['BuildContextArgs'] build: Configuration settings for Docker build context.
         :param pulumi.Input[_builtins.str] conda_file: Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
                <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
@@ -12691,7 +12891,7 @@ class EnvironmentVersionArgs:
         :param pulumi.Input['InferenceContainerPropertiesArgs'] inference_config: Defines configuration specific to inference.
         :param pulumi.Input[_builtins.bool] is_anonymous: If the name version are system generated (anonymous registration).
         :param pulumi.Input[_builtins.bool] is_archived: Is the asset archived?
-        :param pulumi.Input[Union[_builtins.str, 'OperatingSystemType']] os_type: The OS type of the environment.
+        :param pulumi.Input[Union[_builtins.str, 'OperatingSystemType']] os_type: The type of operating system.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The asset property dictionary.
         :param pulumi.Input[_builtins.str] stage: Stage in the environment lifecycle assigned to this environment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
@@ -12733,7 +12933,7 @@ class EnvironmentVersionArgs:
     @pulumi.getter(name="autoRebuild")
     def auto_rebuild(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutoRebuildSetting']]]:
         """
-        Defines if image needs to be rebuilt based on base image changes.
+        AutoRebuild setting for the derived image
         """
         return pulumi.get(self, "auto_rebuild")
 
@@ -12831,7 +13031,7 @@ class EnvironmentVersionArgs:
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemType']]]:
         """
-        The OS type of the environment.
+        The type of operating system.
         """
         return pulumi.get(self, "os_type")
 
@@ -13143,13 +13343,7 @@ class FeatureImportanceSettingsArgs:
 
 
 class FeatureStoreSettingsArgsDict(TypedDict):
-    """
-    Settings for feature store type workspace.
-    """
     compute_runtime: NotRequired[pulumi.Input['ComputeRuntimeDtoArgsDict']]
-    """
-    Compute runtime config for feature store type workspace.
-    """
     offline_store_connection_name: NotRequired[pulumi.Input[_builtins.str]]
     online_store_connection_name: NotRequired[pulumi.Input[_builtins.str]]
 
@@ -13159,11 +13353,6 @@ class FeatureStoreSettingsArgs:
                  compute_runtime: Optional[pulumi.Input['ComputeRuntimeDtoArgs']] = None,
                  offline_store_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
                  online_store_connection_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Settings for feature store type workspace.
-
-        :param pulumi.Input['ComputeRuntimeDtoArgs'] compute_runtime: Compute runtime config for feature store type workspace.
-        """
         if compute_runtime is not None:
             pulumi.set(__self__, "compute_runtime", compute_runtime)
         if offline_store_connection_name is not None:
@@ -13174,9 +13363,6 @@ class FeatureStoreSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="computeRuntime")
     def compute_runtime(self) -> Optional[pulumi.Input['ComputeRuntimeDtoArgs']]:
-        """
-        Compute runtime config for feature store type workspace.
-        """
         return pulumi.get(self, "compute_runtime")
 
     @compute_runtime.setter
@@ -13252,7 +13438,7 @@ class FeatureSubsetArgs:
         pulumi.set(self, "filter_type", value)
 
 
-class FeaturesetContainerArgsDict(TypedDict):
+class FeaturesetContainerPropertiesArgsDict(TypedDict):
     """
     DTO object representing feature set
     """
@@ -13274,7 +13460,7 @@ class FeaturesetContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class FeaturesetContainerArgs:
+class FeaturesetContainerPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_archived: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -13382,7 +13568,7 @@ class FeaturesetSpecificationArgs:
         pulumi.set(self, "path", value)
 
 
-class FeaturesetVersionArgsDict(TypedDict):
+class FeaturesetVersionPropertiesArgsDict(TypedDict):
     """
     DTO object representing feature set version
     """
@@ -13424,7 +13610,7 @@ class FeaturesetVersionArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class FeaturesetVersionArgs:
+class FeaturesetVersionPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -13580,7 +13766,7 @@ class FeaturesetVersionArgs:
         pulumi.set(self, "tags", value)
 
 
-class FeaturestoreEntityContainerArgsDict(TypedDict):
+class FeaturestoreEntityContainerPropertiesArgsDict(TypedDict):
     """
     DTO object representing feature entity
     """
@@ -13602,7 +13788,7 @@ class FeaturestoreEntityContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class FeaturestoreEntityContainerArgs:
+class FeaturestoreEntityContainerPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_archived: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -13676,7 +13862,7 @@ class FeaturestoreEntityContainerArgs:
         pulumi.set(self, "tags", value)
 
 
-class FeaturestoreEntityVersionArgsDict(TypedDict):
+class FeaturestoreEntityVersionPropertiesArgsDict(TypedDict):
     """
     DTO object representing feature entity version
     """
@@ -13710,7 +13896,7 @@ class FeaturestoreEntityVersionArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class FeaturestoreEntityVersionArgs:
+class FeaturestoreEntityVersionPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  index_columns: Optional[pulumi.Input[Sequence[pulumi.Input['IndexColumnArgs']]]] = None,
@@ -13994,7 +14180,7 @@ class ForecastingSettingsArgsDict(TypedDict):
     """
     feature_lags: NotRequired[pulumi.Input[Union[_builtins.str, 'FeatureLags']]]
     """
-    Flag for generating lags for the numeric features with 'auto' or null.
+    Flag for generating lags for the numeric features.
     """
     forecast_horizon: NotRequired[pulumi.Input[Union['AutoForecastHorizonArgsDict', 'CustomForecastHorizonArgsDict']]]
     """
@@ -14015,8 +14201,7 @@ class ForecastingSettingsArgsDict(TypedDict):
     """
     target_aggregate_function: NotRequired[pulumi.Input[Union[_builtins.str, 'TargetAggregationFunction']]]
     """
-    The function to be used to aggregate the time series target column to conform to a user specified frequency.
-    If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+    Target aggregate function.
     """
     target_lags: NotRequired[pulumi.Input[Union['AutoTargetLagsArgsDict', 'CustomTargetLagsArgsDict']]]
     """
@@ -14064,14 +14249,13 @@ class ForecastingSettingsArgs:
         :param pulumi.Input[_builtins.int] cv_step_size: Number of periods between the origin time of one CV fold and the next fold. For
                example, if `CVStepSize` = 3 for daily data, the origin time for each fold will be
                three days apart.
-        :param pulumi.Input[Union[_builtins.str, 'FeatureLags']] feature_lags: Flag for generating lags for the numeric features with 'auto' or null.
+        :param pulumi.Input[Union[_builtins.str, 'FeatureLags']] feature_lags: Flag for generating lags for the numeric features.
         :param pulumi.Input[Union['AutoForecastHorizonArgs', 'CustomForecastHorizonArgs']] forecast_horizon: The desired maximum forecast horizon in units of time-series frequency.
         :param pulumi.Input[_builtins.str] frequency: When forecasting, this parameter represents the period with which the forecast is desired, for example daily, weekly, yearly, etc. The forecast frequency is dataset frequency by default.
         :param pulumi.Input[Union['AutoSeasonalityArgs', 'CustomSeasonalityArgs']] seasonality: Set time series seasonality as an integer multiple of the series frequency.
                If seasonality is set to 'auto', it will be inferred.
         :param pulumi.Input[Union[_builtins.str, 'ShortSeriesHandlingConfiguration']] short_series_handling_config: The parameter defining how if AutoML should handle short time series.
-        :param pulumi.Input[Union[_builtins.str, 'TargetAggregationFunction']] target_aggregate_function: The function to be used to aggregate the time series target column to conform to a user specified frequency.
-               If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+        :param pulumi.Input[Union[_builtins.str, 'TargetAggregationFunction']] target_aggregate_function: Target aggregate function.
         :param pulumi.Input[Union['AutoTargetLagsArgs', 'CustomTargetLagsArgs']] target_lags: The number of past periods to lag from the target column.
         :param pulumi.Input[Union['AutoTargetRollingWindowSizeArgs', 'CustomTargetRollingWindowSizeArgs']] target_rolling_window_size: The number of past periods used to create a rolling window average of the target column.
         :param pulumi.Input[_builtins.str] time_column_name: The name of the time column. This parameter is required when forecasting to specify the datetime column in the input data used for building the time series and inferring its frequency.
@@ -14145,7 +14329,7 @@ class ForecastingSettingsArgs:
     @pulumi.getter(name="featureLags")
     def feature_lags(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FeatureLags']]]:
         """
-        Flag for generating lags for the numeric features with 'auto' or null.
+        Flag for generating lags for the numeric features.
         """
         return pulumi.get(self, "feature_lags")
 
@@ -14206,8 +14390,7 @@ class ForecastingSettingsArgs:
     @pulumi.getter(name="targetAggregateFunction")
     def target_aggregate_function(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TargetAggregationFunction']]]:
         """
-        The function to be used to aggregate the time series target column to conform to a user specified frequency.
-        If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+        Target aggregate function.
         """
         return pulumi.get(self, "target_aggregate_function")
 
@@ -14517,7 +14700,7 @@ class ForecastingArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     n_cross_validations: NotRequired[pulumi.Input[Union['AutoNCrossValidationsArgsDict', 'CustomNCrossValidationsArgsDict']]]
     """
@@ -14526,7 +14709,7 @@ class ForecastingArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'ForecastingPrimaryMetrics']]]
     """
-    Primary metric for forecasting task.
+    Primary metrics for Forecasting task.
     """
     target_column_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -14591,10 +14774,10 @@ class ForecastingArgs:
         :param pulumi.Input['TableVerticalFeaturizationSettingsArgs'] featurization_settings: Featurization inputs needed for AutoML job.
         :param pulumi.Input['ForecastingSettingsArgs'] forecasting_settings: Forecasting task specific inputs.
         :param pulumi.Input['TableVerticalLimitSettingsArgs'] limit_settings: Execution constraints for AutoMLJob.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input[Union['AutoNCrossValidationsArgs', 'CustomNCrossValidationsArgs']] n_cross_validations: Number of cross validation folds to be applied on training dataset
                when validation dataset is not provided.
-        :param pulumi.Input[Union[_builtins.str, 'ForecastingPrimaryMetrics']] primary_metric: Primary metric for forecasting task.
+        :param pulumi.Input[Union[_builtins.str, 'ForecastingPrimaryMetrics']] primary_metric: Primary metrics for Forecasting task.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
                Also known as label column name in context of classification tasks.
         :param pulumi.Input['MLTableJobInputArgs'] test_data: Test data input.
@@ -14720,7 +14903,7 @@ class ForecastingArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -14745,7 +14928,7 @@ class ForecastingArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ForecastingPrimaryMetrics']]]:
         """
-        Primary metric for forecasting task.
+        Primary metrics for Forecasting task.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -15383,11 +15566,11 @@ class IdAssetReferenceArgs:
 
 class IdentityForCmkArgsDict(TypedDict):
     """
-    Identity that will be used to access key vault for encryption at rest
+    Identity object used for encryption.
     """
     user_assigned_identity: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The ArmId of the user assigned identity that will be used to access the customer managed key vault
+    UserAssignedIdentity to be used to fetch the encryption key from keyVault
     """
 
 @pulumi.input_type
@@ -15395,9 +15578,9 @@ class IdentityForCmkArgs:
     def __init__(__self__, *,
                  user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Identity that will be used to access key vault for encryption at rest
+        Identity object used for encryption.
 
-        :param pulumi.Input[_builtins.str] user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        :param pulumi.Input[_builtins.str] user_assigned_identity: UserAssignedIdentity to be used to fetch the encryption key from keyVault
         """
         if user_assigned_identity is not None:
             pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
@@ -15406,7 +15589,7 @@ class IdentityForCmkArgs:
     @pulumi.getter(name="userAssignedIdentity")
     def user_assigned_identity(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        UserAssignedIdentity to be used to fetch the encryption key from keyVault
         """
         return pulumi.get(self, "user_assigned_identity")
 
@@ -15489,7 +15672,7 @@ class ImageClassificationMultilabelArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     model_settings: NotRequired[pulumi.Input['ImageModelSettingsClassificationArgsDict']]
     """
@@ -15497,7 +15680,7 @@ class ImageClassificationMultilabelArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'ClassificationMultilabelPrimaryMetrics']]]
     """
-    Primary metric to optimize for this task.
+    Primary metrics for classification multilabel tasks.
     """
     search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsClassificationArgsDict']]]]
     """
@@ -15545,9 +15728,9 @@ class ImageClassificationMultilabelArgs:
         :param pulumi.Input[_builtins.str] task_type: AutoMLJob Task type.
                Expected value is 'ImageClassificationMultilabel'.
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input['ImageModelSettingsClassificationArgs'] model_settings: Settings used for training the model.
-        :param pulumi.Input[Union[_builtins.str, 'ClassificationMultilabelPrimaryMetrics']] primary_metric: Primary metric to optimize for this task.
+        :param pulumi.Input[Union[_builtins.str, 'ClassificationMultilabelPrimaryMetrics']] primary_metric: Primary metrics for classification multilabel tasks.
         :param pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsClassificationArgs']]] search_space: Search space for sampling different combinations of models and their hyperparameters.
         :param pulumi.Input['ImageSweepSettingsArgs'] sweep_settings: Model sweeping and hyperparameter sweeping related settings.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
@@ -15622,7 +15805,7 @@ class ImageClassificationMultilabelArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -15646,7 +15829,7 @@ class ImageClassificationMultilabelArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClassificationMultilabelPrimaryMetrics']]]:
         """
-        Primary metric to optimize for this task.
+        Primary metrics for classification multilabel tasks.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -15738,7 +15921,7 @@ class ImageClassificationArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     model_settings: NotRequired[pulumi.Input['ImageModelSettingsClassificationArgsDict']]
     """
@@ -15746,7 +15929,7 @@ class ImageClassificationArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']]]
     """
-    Primary metric to optimize for this task.
+    Primary metrics for classification tasks.
     """
     search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsClassificationArgsDict']]]]
     """
@@ -15794,9 +15977,9 @@ class ImageClassificationArgs:
         :param pulumi.Input[_builtins.str] task_type: AutoMLJob Task type.
                Expected value is 'ImageClassification'.
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input['ImageModelSettingsClassificationArgs'] model_settings: Settings used for training the model.
-        :param pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']] primary_metric: Primary metric to optimize for this task.
+        :param pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']] primary_metric: Primary metrics for classification tasks.
         :param pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsClassificationArgs']]] search_space: Search space for sampling different combinations of models and their hyperparameters.
         :param pulumi.Input['ImageSweepSettingsArgs'] sweep_settings: Model sweeping and hyperparameter sweeping related settings.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
@@ -15871,7 +16054,7 @@ class ImageClassificationArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -15895,7 +16078,7 @@ class ImageClassificationArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']]]:
         """
-        Primary metric to optimize for this task.
+        Primary metrics for classification tasks.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -15987,7 +16170,7 @@ class ImageInstanceSegmentationArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     model_settings: NotRequired[pulumi.Input['ImageModelSettingsObjectDetectionArgsDict']]
     """
@@ -15995,7 +16178,7 @@ class ImageInstanceSegmentationArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'InstanceSegmentationPrimaryMetrics']]]
     """
-    Primary metric to optimize for this task.
+    Primary metrics for InstanceSegmentation tasks.
     """
     search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsObjectDetectionArgsDict']]]]
     """
@@ -16043,9 +16226,9 @@ class ImageInstanceSegmentationArgs:
         :param pulumi.Input[_builtins.str] task_type: AutoMLJob Task type.
                Expected value is 'ImageInstanceSegmentation'.
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input['ImageModelSettingsObjectDetectionArgs'] model_settings: Settings used for training the model.
-        :param pulumi.Input[Union[_builtins.str, 'InstanceSegmentationPrimaryMetrics']] primary_metric: Primary metric to optimize for this task.
+        :param pulumi.Input[Union[_builtins.str, 'InstanceSegmentationPrimaryMetrics']] primary_metric: Primary metrics for InstanceSegmentation tasks.
         :param pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsObjectDetectionArgs']]] search_space: Search space for sampling different combinations of models and their hyperparameters.
         :param pulumi.Input['ImageSweepSettingsArgs'] sweep_settings: Model sweeping and hyperparameter sweeping related settings.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
@@ -16120,7 +16303,7 @@ class ImageInstanceSegmentationArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -16144,7 +16327,7 @@ class ImageInstanceSegmentationArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InstanceSegmentationPrimaryMetrics']]]:
         """
-        Primary metric to optimize for this task.
+        Primary metrics for InstanceSegmentation tasks.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -18022,7 +18205,7 @@ class ImageModelSettingsClassificationArgsDict(TypedDict):
     """
     learning_rate_scheduler: NotRequired[pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']]]
     """
-    Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+    Learning rate scheduler enum.
     """
     model_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -18048,7 +18231,7 @@ class ImageModelSettingsClassificationArgsDict(TypedDict):
     """
     optimizer: NotRequired[pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']]]
     """
-    Type of optimizer.
+    Stochastic optimizer for image models.
     """
     random_seed: NotRequired[pulumi.Input[_builtins.int]]
     """
@@ -18168,7 +18351,7 @@ class ImageModelSettingsClassificationArgs:
                freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please
                see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
         :param pulumi.Input[_builtins.float] learning_rate: Initial learning rate. Must be a float in the range [0, 1].
-        :param pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']] learning_rate_scheduler: Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        :param pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']] learning_rate_scheduler: Learning rate scheduler enum.
         :param pulumi.Input[_builtins.str] model_name: Name of the model to use for training.
                For more information on the available models please visit the official documentation:
                https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
@@ -18176,7 +18359,7 @@ class ImageModelSettingsClassificationArgs:
         :param pulumi.Input[_builtins.bool] nesterov: Enable nesterov when optimizer is 'sgd'.
         :param pulumi.Input[_builtins.int] number_of_epochs: Number of training epochs. Must be a positive integer.
         :param pulumi.Input[_builtins.int] number_of_workers: Number of data loader workers. Must be a non-negative integer.
-        :param pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']] optimizer: Type of optimizer.
+        :param pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']] optimizer: Stochastic optimizer for image models.
         :param pulumi.Input[_builtins.int] random_seed: Random seed to be used when using deterministic training.
         :param pulumi.Input[_builtins.float] step_lr_gamma: Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
         :param pulumi.Input[_builtins.int] step_lr_step_size: Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
@@ -18483,7 +18666,7 @@ class ImageModelSettingsClassificationArgs:
     @pulumi.getter(name="learningRateScheduler")
     def learning_rate_scheduler(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']]]:
         """
-        Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        Learning rate scheduler enum.
         """
         return pulumi.get(self, "learning_rate_scheduler")
 
@@ -18557,7 +18740,7 @@ class ImageModelSettingsClassificationArgs:
     @pulumi.getter
     def optimizer(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']]]:
         """
-        Type of optimizer.
+        Stochastic optimizer for image models.
         """
         return pulumi.get(self, "optimizer")
 
@@ -18810,7 +18993,7 @@ class ImageModelSettingsObjectDetectionArgsDict(TypedDict):
     """
     learning_rate_scheduler: NotRequired[pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']]]
     """
-    Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+    Learning rate scheduler enum.
     """
     max_size: NotRequired[pulumi.Input[_builtins.int]]
     """
@@ -18832,9 +19015,7 @@ class ImageModelSettingsObjectDetectionArgsDict(TypedDict):
     """
     model_size: NotRequired[pulumi.Input[Union[_builtins.str, 'ModelSize']]]
     """
-    Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-    Note: training run may get into CUDA OOM if the model size is too big.
-    Note: This settings is only supported for the 'yolov5' algorithm.
+    Image model size.
     """
     momentum: NotRequired[pulumi.Input[_builtins.float]]
     """
@@ -18864,7 +19045,7 @@ class ImageModelSettingsObjectDetectionArgsDict(TypedDict):
     """
     optimizer: NotRequired[pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']]]
     """
-    Type of optimizer.
+    Stochastic optimizer for image models.
     """
     random_seed: NotRequired[pulumi.Input[_builtins.int]]
     """
@@ -18909,7 +19090,7 @@ class ImageModelSettingsObjectDetectionArgsDict(TypedDict):
     """
     validation_metric_type: NotRequired[pulumi.Input[Union[_builtins.str, 'ValidationMetricType']]]
     """
-    Metric computation method to use for validation metrics.
+    Metric computation method to use for validation metrics in image tasks.
     """
     warmup_cosine_lr_cycles: NotRequired[pulumi.Input[_builtins.float]]
     """
@@ -19008,7 +19189,7 @@ class ImageModelSettingsObjectDetectionArgs:
                freezing layer0 and layer1. For a full list of models supported and details on layer freeze, please
                see: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
         :param pulumi.Input[_builtins.float] learning_rate: Initial learning rate. Must be a float in the range [0, 1].
-        :param pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']] learning_rate_scheduler: Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        :param pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']] learning_rate_scheduler: Learning rate scheduler enum.
         :param pulumi.Input[_builtins.int] max_size: Maximum size of the image to be rescaled before feeding it to the backbone.
                Must be a positive integer. Note: training run may get into CUDA OOM if the size is too big.
                Note: This settings is not supported for the 'yolov5' algorithm.
@@ -19018,9 +19199,7 @@ class ImageModelSettingsObjectDetectionArgs:
         :param pulumi.Input[_builtins.str] model_name: Name of the model to use for training.
                For more information on the available models please visit the official documentation:
                https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models.
-        :param pulumi.Input[Union[_builtins.str, 'ModelSize']] model_size: Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-               Note: training run may get into CUDA OOM if the model size is too big.
-               Note: This settings is only supported for the 'yolov5' algorithm.
+        :param pulumi.Input[Union[_builtins.str, 'ModelSize']] model_size: Image model size.
         :param pulumi.Input[_builtins.float] momentum: Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1].
         :param pulumi.Input[_builtins.bool] multi_scale: Enable multi-scale image by varying image size by +/- 50%.
                Note: training run may get into CUDA OOM if no sufficient GPU memory.
@@ -19029,7 +19208,7 @@ class ImageModelSettingsObjectDetectionArgs:
         :param pulumi.Input[_builtins.float] nms_iou_threshold: IOU threshold used during inference in NMS post processing. Must be a float in the range [0, 1].
         :param pulumi.Input[_builtins.int] number_of_epochs: Number of training epochs. Must be a positive integer.
         :param pulumi.Input[_builtins.int] number_of_workers: Number of data loader workers. Must be a non-negative integer.
-        :param pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']] optimizer: Type of optimizer.
+        :param pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']] optimizer: Stochastic optimizer for image models.
         :param pulumi.Input[_builtins.int] random_seed: Random seed to be used when using deterministic training.
         :param pulumi.Input[_builtins.float] step_lr_gamma: Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1].
         :param pulumi.Input[_builtins.int] step_lr_step_size: Value of step size when learning rate scheduler is 'step'. Must be a positive integer.
@@ -19044,7 +19223,7 @@ class ImageModelSettingsObjectDetectionArgs:
         :param pulumi.Input[_builtins.int] training_batch_size: Training batch size. Must be a positive integer.
         :param pulumi.Input[_builtins.int] validation_batch_size: Validation batch size. Must be a positive integer.
         :param pulumi.Input[_builtins.float] validation_iou_threshold: IOU threshold to use when computing validation metric. Must be float in the range [0, 1].
-        :param pulumi.Input[Union[_builtins.str, 'ValidationMetricType']] validation_metric_type: Metric computation method to use for validation metrics.
+        :param pulumi.Input[Union[_builtins.str, 'ValidationMetricType']] validation_metric_type: Metric computation method to use for validation metrics in image tasks.
         :param pulumi.Input[_builtins.float] warmup_cosine_lr_cycles: Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1].
         :param pulumi.Input[_builtins.int] warmup_cosine_lr_warmup_epochs: Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer.
         :param pulumi.Input[_builtins.float] weight_decay: Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1].
@@ -19403,7 +19582,7 @@ class ImageModelSettingsObjectDetectionArgs:
     @pulumi.getter(name="learningRateScheduler")
     def learning_rate_scheduler(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LearningRateScheduler']]]:
         """
-        Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+        Learning rate scheduler enum.
         """
         return pulumi.get(self, "learning_rate_scheduler")
 
@@ -19457,9 +19636,7 @@ class ImageModelSettingsObjectDetectionArgs:
     @pulumi.getter(name="modelSize")
     def model_size(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ModelSize']]]:
         """
-        Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
-        Note: training run may get into CUDA OOM if the model size is too big.
-        Note: This settings is only supported for the 'yolov5' algorithm.
+        Image model size.
         """
         return pulumi.get(self, "model_size")
 
@@ -19545,7 +19722,7 @@ class ImageModelSettingsObjectDetectionArgs:
     @pulumi.getter
     def optimizer(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StochasticOptimizer']]]:
         """
-        Type of optimizer.
+        Stochastic optimizer for image models.
         """
         return pulumi.get(self, "optimizer")
 
@@ -19670,7 +19847,7 @@ class ImageModelSettingsObjectDetectionArgs:
     @pulumi.getter(name="validationMetricType")
     def validation_metric_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValidationMetricType']]]:
         """
-        Metric computation method to use for validation metrics.
+        Metric computation method to use for validation metrics in image tasks.
         """
         return pulumi.get(self, "validation_metric_type")
 
@@ -19735,7 +19912,7 @@ class ImageObjectDetectionArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     model_settings: NotRequired[pulumi.Input['ImageModelSettingsObjectDetectionArgsDict']]
     """
@@ -19743,7 +19920,7 @@ class ImageObjectDetectionArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'ObjectDetectionPrimaryMetrics']]]
     """
-    Primary metric to optimize for this task.
+    Primary metrics for Image ObjectDetection task.
     """
     search_space: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsObjectDetectionArgsDict']]]]
     """
@@ -19791,9 +19968,9 @@ class ImageObjectDetectionArgs:
         :param pulumi.Input[_builtins.str] task_type: AutoMLJob Task type.
                Expected value is 'ImageObjectDetection'.
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input['ImageModelSettingsObjectDetectionArgs'] model_settings: Settings used for training the model.
-        :param pulumi.Input[Union[_builtins.str, 'ObjectDetectionPrimaryMetrics']] primary_metric: Primary metric to optimize for this task.
+        :param pulumi.Input[Union[_builtins.str, 'ObjectDetectionPrimaryMetrics']] primary_metric: Primary metrics for Image ObjectDetection task.
         :param pulumi.Input[Sequence[pulumi.Input['ImageModelDistributionSettingsObjectDetectionArgs']]] search_space: Search space for sampling different combinations of models and their hyperparameters.
         :param pulumi.Input['ImageSweepSettingsArgs'] sweep_settings: Model sweeping and hyperparameter sweeping related settings.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
@@ -19868,7 +20045,7 @@ class ImageObjectDetectionArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -19892,7 +20069,7 @@ class ImageObjectDetectionArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ObjectDetectionPrimaryMetrics']]]:
         """
-        Primary metric to optimize for this task.
+        Primary metrics for Image ObjectDetection task.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -20018,28 +20195,29 @@ class ImageSweepSettingsArgs:
 
 
 class ImageArgsDict(TypedDict):
-    """
-    Describes the Image Specifications
-    """
     reference: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Image reference
+    Image reference URL if type is docker. Environment name if type is azureml
     """
     type: NotRequired[pulumi.Input[Union[_builtins.str, 'ImageType']]]
     """
-    Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+    Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of image being used. If latest then skip this field
     """
 
 @pulumi.input_type
 class ImageArgs:
     def __init__(__self__, *,
                  reference: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ImageType']]] = None):
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'ImageType']]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Describes the Image Specifications
-
-        :param pulumi.Input[_builtins.str] reference: Image reference
-        :param pulumi.Input[Union[_builtins.str, 'ImageType']] type: Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        :param pulumi.Input[_builtins.str] reference: Image reference URL if type is docker. Environment name if type is azureml
+        :param pulumi.Input[Union[_builtins.str, 'ImageType']] type: Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
+        :param pulumi.Input[_builtins.str] version: Version of image being used. If latest then skip this field
         """
         if reference is not None:
             pulumi.set(__self__, "reference", reference)
@@ -20047,12 +20225,14 @@ class ImageArgs:
             type = 'docker'
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter
     def reference(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Image reference
+        Image reference URL if type is docker. Environment name if type is azureml
         """
         return pulumi.get(self, "reference")
 
@@ -20064,13 +20244,25 @@ class ImageArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ImageType']]]:
         """
-        Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ImageType']]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Version of image being used. If latest then skip this field
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version", value)
 
 
 class IndexColumnArgsDict(TypedDict):
@@ -20651,6 +20843,10 @@ class JobResourceConfigurationArgsDict(TypedDict):
     """
     Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
     """
+    docker_args_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+    """
     instance_count: NotRequired[pulumi.Input[_builtins.int]]
     """
     Optional number of instances or nodes used by the compute target.
@@ -20672,12 +20868,14 @@ class JobResourceConfigurationArgsDict(TypedDict):
 class JobResourceConfigurationArgs:
     def __init__(__self__, *,
                  docker_args: Optional[pulumi.Input[_builtins.str]] = None,
+                 docker_args_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  shm_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] docker_args: Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] docker_args_list: Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
         :param pulumi.Input[_builtins.int] instance_count: Optional number of instances or nodes used by the compute target.
         :param pulumi.Input[_builtins.str] instance_type: Optional type of VM used as supported by the compute target.
         :param pulumi.Input[Mapping[str, Any]] properties: Additional properties bag.
@@ -20685,6 +20883,8 @@ class JobResourceConfigurationArgs:
         """
         if docker_args is not None:
             pulumi.set(__self__, "docker_args", docker_args)
+        if docker_args_list is not None:
+            pulumi.set(__self__, "docker_args_list", docker_args_list)
         if instance_count is None:
             instance_count = 1
         if instance_count is not None:
@@ -20709,6 +20909,18 @@ class JobResourceConfigurationArgs:
     @docker_args.setter
     def docker_args(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "docker_args", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dockerArgsList")
+    def docker_args_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Extra arguments to pass to the Docker run command, as a collection. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
+        """
+        return pulumi.get(self, "docker_args_list")
+
+    @docker_args_list.setter
+    def docker_args_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "docker_args_list", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceCount")
@@ -20765,7 +20977,7 @@ class JobScheduleActionArgsDict(TypedDict):
 
     Expected value is 'CreateJob'.
     """
-    job_base_properties: pulumi.Input[Union['AutoMLJobArgsDict', 'CommandJobArgsDict', 'PipelineJobArgsDict', 'SparkJobArgsDict', 'SweepJobArgsDict']]
+    job_definition: pulumi.Input[Union['AutoMLJobArgsDict', 'CommandJobArgsDict', 'PipelineJobArgsDict', 'SparkJobArgsDict', 'SweepJobArgsDict']]
     """
     [Required] Defines Schedule action definition details.
     """
@@ -20774,14 +20986,14 @@ class JobScheduleActionArgsDict(TypedDict):
 class JobScheduleActionArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[_builtins.str],
-                 job_base_properties: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]):
+                 job_definition: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]):
         """
         :param pulumi.Input[_builtins.str] action_type: 
                Expected value is 'CreateJob'.
-        :param pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']] job_base_properties: [Required] Defines Schedule action definition details.
+        :param pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']] job_definition: [Required] Defines Schedule action definition details.
         """
         pulumi.set(__self__, "action_type", 'CreateJob')
-        pulumi.set(__self__, "job_base_properties", job_base_properties)
+        pulumi.set(__self__, "job_definition", job_definition)
 
     @_builtins.property
     @pulumi.getter(name="actionType")
@@ -20797,16 +21009,16 @@ class JobScheduleActionArgs:
         pulumi.set(self, "action_type", value)
 
     @_builtins.property
-    @pulumi.getter(name="jobBaseProperties")
-    def job_base_properties(self) -> pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]:
+    @pulumi.getter(name="jobDefinition")
+    def job_definition(self) -> pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]:
         """
         [Required] Defines Schedule action definition details.
         """
-        return pulumi.get(self, "job_base_properties")
+        return pulumi.get(self, "job_definition")
 
-    @job_base_properties.setter
-    def job_base_properties(self, value: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]):
-        pulumi.set(self, "job_base_properties", value)
+    @job_definition.setter
+    def job_definition(self, value: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]):
+        pulumi.set(self, "job_definition", value)
 
 
 class JobServiceArgsDict(TypedDict):
@@ -20926,6 +21138,155 @@ class JobServiceArgs:
         pulumi.set(self, "properties", value)
 
 
+class JupyterKernelConfigArgsDict(TypedDict):
+    """
+    Jupyter kernel configuration.
+    """
+    argv: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Argument to the the runtime
+    """
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Display name of the kernel
+    """
+    language: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Language of the kernel [Example value: python]
+    """
+
+@pulumi.input_type
+class JupyterKernelConfigArgs:
+    def __init__(__self__, *,
+                 argv: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 language: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Jupyter kernel configuration.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] argv: Argument to the the runtime
+        :param pulumi.Input[_builtins.str] display_name: Display name of the kernel
+        :param pulumi.Input[_builtins.str] language: Language of the kernel [Example value: python]
+        """
+        if argv is not None:
+            pulumi.set(__self__, "argv", argv)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter
+    def argv(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Argument to the the runtime
+        """
+        return pulumi.get(self, "argv")
+
+    @argv.setter
+    def argv(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "argv", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Display name of the kernel
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Language of the kernel [Example value: python]
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "language", value)
+
+
+class KeyVaultPropertiesArgsDict(TypedDict):
+    """
+    Customer Key vault properties.
+    """
+    key_identifier: pulumi.Input[_builtins.str]
+    """
+    KeyVault key identifier to encrypt the data
+    """
+    key_vault_arm_id: pulumi.Input[_builtins.str]
+    """
+    KeyVault Arm Id that contains the data encryption key
+    """
+    identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Currently, we support only SystemAssigned MSI.
+    We need this when we support UserAssignedIdentities
+    """
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_identifier: pulumi.Input[_builtins.str],
+                 key_vault_arm_id: pulumi.Input[_builtins.str],
+                 identity_client_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Customer Key vault properties.
+
+        :param pulumi.Input[_builtins.str] key_identifier: KeyVault key identifier to encrypt the data
+        :param pulumi.Input[_builtins.str] key_vault_arm_id: KeyVault Arm Id that contains the data encryption key
+        :param pulumi.Input[_builtins.str] identity_client_id: Currently, we support only SystemAssigned MSI.
+               We need this when we support UserAssignedIdentities
+        """
+        pulumi.set(__self__, "key_identifier", key_identifier)
+        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        KeyVault key identifier to encrypt the data
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultArmId")
+    def key_vault_arm_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        KeyVault Arm Id that contains the data encryption key
+        """
+        return pulumi.get(self, "key_vault_arm_id")
+
+    @key_vault_arm_id.setter
+    def key_vault_arm_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_arm_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Currently, we support only SystemAssigned MSI.
+        We need this when we support UserAssignedIdentities
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+
 class KubernetesOnlineDeploymentArgsDict(TypedDict):
     """
     Properties specific to a KubernetesOnlineDeployment.
@@ -20957,7 +21318,7 @@ class KubernetesOnlineDeploymentArgsDict(TypedDict):
     """
     egress_public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']]]
     """
-    If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+    Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
     """
     environment_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -21038,7 +21399,7 @@ class KubernetesOnlineDeploymentArgs:
         :param pulumi.Input['ContainerResourceRequirementsArgs'] container_resource_requirements: The resource requirements for the container (cpu and memory).
         :param pulumi.Input['DataCollectorArgs'] data_collector: The mdc configuration, we disable mdc when it's null.
         :param pulumi.Input[_builtins.str] description: Description of the endpoint deployment.
-        :param pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']] egress_public_network_access: If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        :param pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']] egress_public_network_access: Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
         :param pulumi.Input[_builtins.str] environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables configuration for the deployment.
         :param pulumi.Input[_builtins.str] instance_type: Compute instance type. Default: Standard_F4s_v2.
@@ -21173,7 +21534,7 @@ class KubernetesOnlineDeploymentArgs:
     @pulumi.getter(name="egressPublicNetworkAccess")
     def egress_public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']]]:
         """
-        If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
         """
         return pulumi.get(self, "egress_public_network_access")
 
@@ -22749,7 +23110,7 @@ class MLFlowModelJobInputArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
 
 @pulumi.input_type
@@ -22764,7 +23125,7 @@ class MLFlowModelJobInputArgs:
                Expected value is 'mlflow_model'.
         :param pulumi.Input[_builtins.str] uri: [Required] Input Asset URI.
         :param pulumi.Input[_builtins.str] description: Description for the input.
-        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Input Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Enum to determine the input data delivery mode.
         """
         pulumi.set(__self__, "job_input_type", 'mlflow_model')
         pulumi.set(__self__, "uri", uri)
@@ -22816,7 +23177,7 @@ class MLFlowModelJobInputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]:
         """
-        Input Asset Delivery Mode.
+        Enum to determine the input data delivery mode.
         """
         return pulumi.get(self, "mode")
 
@@ -22831,13 +23192,17 @@ class MLFlowModelJobOutputArgsDict(TypedDict):
     Enum to determine the Job Output Type.
     Expected value is 'mlflow_model'.
     """
+    asset_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output Asset Name.
+    """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Description for the output.
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -22848,17 +23213,21 @@ class MLFlowModelJobOutputArgsDict(TypedDict):
 class MLFlowModelJobOutputArgs:
     def __init__(__self__, *,
                  job_output_type: pulumi.Input[_builtins.str],
+                 asset_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] job_output_type: Enum to determine the Job Output Type.
                Expected value is 'mlflow_model'.
+        :param pulumi.Input[_builtins.str] asset_name: Output Asset Name.
         :param pulumi.Input[_builtins.str] description: Description for the output.
-        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output data delivery mode enums.
         :param pulumi.Input[_builtins.str] uri: Output Asset URI.
         """
         pulumi.set(__self__, "job_output_type", 'mlflow_model')
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if mode is None:
@@ -22882,6 +23251,18 @@ class MLFlowModelJobOutputArgs:
         pulumi.set(self, "job_output_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output Asset Name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -22897,7 +23278,7 @@ class MLFlowModelJobOutputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]:
         """
-        Output Asset Delivery Mode.
+        Output data delivery mode enums.
         """
         return pulumi.get(self, "mode")
 
@@ -23113,7 +23494,7 @@ class MLTableJobInputArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
 
 @pulumi.input_type
@@ -23128,7 +23509,7 @@ class MLTableJobInputArgs:
                Expected value is 'mltable'.
         :param pulumi.Input[_builtins.str] uri: [Required] Input Asset URI.
         :param pulumi.Input[_builtins.str] description: Description for the input.
-        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Input Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Enum to determine the input data delivery mode.
         """
         pulumi.set(__self__, "job_input_type", 'mltable')
         pulumi.set(__self__, "uri", uri)
@@ -23180,7 +23561,7 @@ class MLTableJobInputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]:
         """
-        Input Asset Delivery Mode.
+        Enum to determine the input data delivery mode.
         """
         return pulumi.get(self, "mode")
 
@@ -23195,13 +23576,17 @@ class MLTableJobOutputArgsDict(TypedDict):
     Enum to determine the Job Output Type.
     Expected value is 'mltable'.
     """
+    asset_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output Asset Name.
+    """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Description for the output.
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -23212,17 +23597,21 @@ class MLTableJobOutputArgsDict(TypedDict):
 class MLTableJobOutputArgs:
     def __init__(__self__, *,
                  job_output_type: pulumi.Input[_builtins.str],
+                 asset_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] job_output_type: Enum to determine the Job Output Type.
                Expected value is 'mltable'.
+        :param pulumi.Input[_builtins.str] asset_name: Output Asset Name.
         :param pulumi.Input[_builtins.str] description: Description for the output.
-        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output data delivery mode enums.
         :param pulumi.Input[_builtins.str] uri: Output Asset URI.
         """
         pulumi.set(__self__, "job_output_type", 'mltable')
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if mode is None:
@@ -23246,6 +23635,18 @@ class MLTableJobOutputArgs:
         pulumi.set(self, "job_output_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output Asset Name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -23261,7 +23662,7 @@ class MLTableJobOutputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]:
         """
-        Output Asset Delivery Mode.
+        Output data delivery mode enums.
         """
         return pulumi.get(self, "mode")
 
@@ -23349,22 +23750,18 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionManagedIdentityArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -23372,40 +23769,44 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionManagedIdentityArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'ManagedIdentity'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'ManagedIdentity')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -23442,6 +23843,15 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -23472,6 +23882,24 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -23490,28 +23918,13 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class ManagedIdentityArgsDict(TypedDict):
@@ -23661,17 +24074,9 @@ class ManagedNetworkSettingsArgsDict(TypedDict):
     """
     Managed Network settings for a machine learning workspace.
     """
-    enable_firewall_log: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    A flag to indicate if monitoring needs to be enabled for the managed network firewall.
-    """
     enable_network_monitor: NotRequired[pulumi.Input[_builtins.bool]]
     """
     A flag to indicate if monitoring needs to be enabled for the managed network.
-    """
-    firewall_public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Public IP address assigned to the Azure Firewall.
     """
     firewall_sku: NotRequired[pulumi.Input[Union[_builtins.str, 'FirewallSku']]]
     """
@@ -23686,6 +24091,9 @@ class ManagedNetworkSettingsArgsDict(TypedDict):
     The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
     """
     outbound_rules: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgsDict', 'PrivateEndpointOutboundRuleArgsDict', 'ServiceTagOutboundRuleArgsDict']]]]]
+    """
+    Dictionary of <OutboundRule>
+    """
     status: NotRequired[pulumi.Input['ManagedNetworkProvisionStatusArgsDict']]
     """
     Status of the Provisioning for the managed network of a machine learning workspace.
@@ -23694,9 +24102,7 @@ class ManagedNetworkSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedNetworkSettingsArgs:
     def __init__(__self__, *,
-                 enable_firewall_log: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_network_monitor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_public_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSku']]] = None,
                  isolation_mode: Optional[pulumi.Input[Union[_builtins.str, 'IsolationMode']]] = None,
                  managed_network_kind: Optional[pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']]] = None,
@@ -23705,24 +24111,17 @@ class ManagedNetworkSettingsArgs:
         """
         Managed Network settings for a machine learning workspace.
 
-        :param pulumi.Input[_builtins.bool] enable_firewall_log: A flag to indicate if monitoring needs to be enabled for the managed network firewall.
         :param pulumi.Input[_builtins.bool] enable_network_monitor: A flag to indicate if monitoring needs to be enabled for the managed network.
-        :param pulumi.Input[_builtins.str] firewall_public_ip_address: Public IP address assigned to the Azure Firewall.
         :param pulumi.Input[Union[_builtins.str, 'FirewallSku']] firewall_sku: Firewall Sku used for FQDN Rules
         :param pulumi.Input[Union[_builtins.str, 'IsolationMode']] isolation_mode: Isolation mode for the managed network of a machine learning workspace.
         :param pulumi.Input[Union[_builtins.str, 'ManagedNetworkKind']] managed_network_kind: The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]] outbound_rules: Dictionary of <OutboundRule>
         :param pulumi.Input['ManagedNetworkProvisionStatusArgs'] status: Status of the Provisioning for the managed network of a machine learning workspace.
         """
-        if enable_firewall_log is None:
-            enable_firewall_log = False
-        if enable_firewall_log is not None:
-            pulumi.set(__self__, "enable_firewall_log", enable_firewall_log)
         if enable_network_monitor is None:
             enable_network_monitor = False
         if enable_network_monitor is not None:
             pulumi.set(__self__, "enable_network_monitor", enable_network_monitor)
-        if firewall_public_ip_address is not None:
-            pulumi.set(__self__, "firewall_public_ip_address", firewall_public_ip_address)
         if firewall_sku is not None:
             pulumi.set(__self__, "firewall_sku", firewall_sku)
         if isolation_mode is not None:
@@ -23735,18 +24134,6 @@ class ManagedNetworkSettingsArgs:
             pulumi.set(__self__, "status", status)
 
     @_builtins.property
-    @pulumi.getter(name="enableFirewallLog")
-    def enable_firewall_log(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        A flag to indicate if monitoring needs to be enabled for the managed network firewall.
-        """
-        return pulumi.get(self, "enable_firewall_log")
-
-    @enable_firewall_log.setter
-    def enable_firewall_log(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "enable_firewall_log", value)
-
-    @_builtins.property
     @pulumi.getter(name="enableNetworkMonitor")
     def enable_network_monitor(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -23757,18 +24144,6 @@ class ManagedNetworkSettingsArgs:
     @enable_network_monitor.setter
     def enable_network_monitor(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_network_monitor", value)
-
-    @_builtins.property
-    @pulumi.getter(name="firewallPublicIpAddress")
-    def firewall_public_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Public IP address assigned to the Azure Firewall.
-        """
-        return pulumi.get(self, "firewall_public_ip_address")
-
-    @firewall_public_ip_address.setter
-    def firewall_public_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "firewall_public_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallSku")
@@ -23809,6 +24184,9 @@ class ManagedNetworkSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="outboundRules")
     def outbound_rules(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]]]:
+        """
+        Dictionary of <OutboundRule>
+        """
         return pulumi.get(self, "outbound_rules")
 
     @outbound_rules.setter
@@ -23855,7 +24233,7 @@ class ManagedOnlineDeploymentArgsDict(TypedDict):
     """
     egress_public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']]]
     """
-    If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+    Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
     """
     environment_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -23934,7 +24312,7 @@ class ManagedOnlineDeploymentArgs:
         :param pulumi.Input['CodeConfigurationArgs'] code_configuration: Code configuration for the endpoint deployment.
         :param pulumi.Input['DataCollectorArgs'] data_collector: The mdc configuration, we disable mdc when it's null.
         :param pulumi.Input[_builtins.str] description: Description of the endpoint deployment.
-        :param pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']] egress_public_network_access: If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        :param pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']] egress_public_network_access: Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
         :param pulumi.Input[_builtins.str] environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables configuration for the deployment.
         :param pulumi.Input[_builtins.str] instance_type: Compute instance type. Default: Standard_F4s_v2.
@@ -24055,7 +24433,7 @@ class ManagedOnlineDeploymentArgs:
     @pulumi.getter(name="egressPublicNetworkAccess")
     def egress_public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EgressPublicNetworkAccessType']]]:
         """
-        If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+        Enum to determine whether PublicNetworkAccess is Enabled or Disabled for egress of a deployment.
         """
         return pulumi.get(self, "egress_public_network_access")
 
@@ -24276,6 +24654,74 @@ class ManagedOnlineEndpointDeploymentResourcePropertiesArgs:
         pulumi.set(self, "model", value)
 
 
+class ManagedResourceGroupAssignedIdentitiesArgsDict(TypedDict):
+    """
+    Details for managed resource group assigned identities.
+    """
+    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identity principal Id
+    """
+
+@pulumi.input_type
+class ManagedResourceGroupAssignedIdentitiesArgs:
+    def __init__(__self__, *,
+                 principal_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Details for managed resource group assigned identities.
+
+        :param pulumi.Input[_builtins.str] principal_id: Identity principal Id
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Identity principal Id
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "principal_id", value)
+
+
+class ManagedResourceGroupSettingsArgsDict(TypedDict):
+    """
+    Managed resource group settings
+    """
+    assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedResourceGroupAssignedIdentitiesArgsDict']]]]
+    """
+    List of assigned identities for the managed resource group
+    """
+
+@pulumi.input_type
+class ManagedResourceGroupSettingsArgs:
+    def __init__(__self__, *,
+                 assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedResourceGroupAssignedIdentitiesArgs']]]] = None):
+        """
+        Managed resource group settings
+
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedResourceGroupAssignedIdentitiesArgs']]] assigned_identities: List of assigned identities for the managed resource group
+        """
+        if assigned_identities is not None:
+            pulumi.set(__self__, "assigned_identities", assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="assignedIdentities")
+    def assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedResourceGroupAssignedIdentitiesArgs']]]]:
+        """
+        List of assigned identities for the managed resource group
+        """
+        return pulumi.get(self, "assigned_identities")
+
+    @assigned_identities.setter
+    def assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedResourceGroupAssignedIdentitiesArgs']]]]):
+        pulumi.set(self, "assigned_identities", value)
+
+
 class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Managed service identity (system assigned and/or user assigned identities)
@@ -24329,14 +24775,14 @@ class ManagedServiceIdentityArgs:
         pulumi.set(self, "user_assigned_identities", value)
 
 
-class MarketplaceSubscriptionArgsDict(TypedDict):
+class MarketplaceSubscriptionPropertiesArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
     """
     [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
     """
 
 @pulumi.input_type
-class MarketplaceSubscriptionArgs:
+class MarketplaceSubscriptionPropertiesArgs:
     def __init__(__self__, *,
                  model_id: pulumi.Input[_builtins.str]):
         """
@@ -24582,7 +25028,7 @@ class MedianStoppingPolicyArgs:
         pulumi.set(self, "evaluation_interval", value)
 
 
-class ModelContainerArgsDict(TypedDict):
+class ModelContainerPropertiesArgsDict(TypedDict):
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     The asset description text.
@@ -24601,7 +25047,7 @@ class ModelContainerArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ModelContainerArgs:
+class ModelContainerPropertiesArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_archived: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -24702,9 +25148,13 @@ class ModelSettingsArgs:
         pulumi.set(self, "model_id", value)
 
 
-class ModelVersionArgsDict(TypedDict):
+class ModelVersionPropertiesArgsDict(TypedDict):
     """
     Model asset version details.
+    """
+    datasets: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgsDict']]]]
+    """
+    Array of dataset references
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -24748,8 +25198,9 @@ class ModelVersionArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ModelVersionArgs:
+class ModelVersionPropertiesArgs:
     def __init__(__self__, *,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  flavors: Optional[pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]]] = None,
                  is_anonymous: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -24763,6 +25214,7 @@ class ModelVersionArgs:
         """
         Model asset version details.
 
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: Array of dataset references
         :param pulumi.Input[_builtins.str] description: The asset description text.
         :param pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]] flavors: Mapping of model flavors to their properties.
         :param pulumi.Input[_builtins.bool] is_anonymous: If the name version are system generated (anonymous registration).
@@ -24774,6 +25226,8 @@ class ModelVersionArgs:
         :param pulumi.Input[_builtins.str] stage: Stage in the model lifecycle assigned to this model
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if flavors is not None:
@@ -24798,6 +25252,18 @@ class ModelVersionArgs:
             pulumi.set(__self__, "stage", stage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        Array of dataset references
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
 
     @_builtins.property
     @pulumi.getter
@@ -25435,60 +25901,60 @@ class NoneAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     """
     Category of the connection
     """
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class NoneAuthTypeWorkspaceConnectionPropertiesArgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'None'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'None')
         if category is not None:
             pulumi.set(__self__, "category", category)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -25514,6 +25980,15 @@ class NoneAuthTypeWorkspaceConnectionPropertiesArgs:
     @category.setter
     def category(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]]):
         pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter(name="expiryTime")
@@ -25546,6 +26021,24 @@ class NoneAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -25564,28 +26057,13 @@ class NoneAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class NoneDatastoreCredentialsArgsDict(TypedDict):
@@ -25923,22 +26401,18 @@ class OAuth2AuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     ClientId and ClientSecret are required. Other properties are optional
     depending on each OAuth2 provider's implementation.
     """
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class OAuth2AuthTypeWorkspaceConnectionPropertiesArgs:
@@ -25946,13 +26420,15 @@ class OAuth2AuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionOAuth2Args']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'OAuth2'.
@@ -25960,28 +26436,30 @@ class OAuth2AuthTypeWorkspaceConnectionPropertiesArgs:
         :param pulumi.Input['WorkspaceConnectionOAuth2Args'] credentials: ClientId and ClientSecret are required. Other properties are optional
                depending on each OAuth2 provider's implementation.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'OAuth2')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -26022,6 +26500,15 @@ class OAuth2AuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -26052,6 +26539,24 @@ class OAuth2AuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -26070,28 +26575,13 @@ class OAuth2AuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class ObjectiveArgsDict(TypedDict):
@@ -26341,7 +26831,7 @@ class OneLakeDatastoreArgs:
         pulumi.set(self, "tags", value)
 
 
-class OnlineEndpointArgsDict(TypedDict):
+class OnlineEndpointPropertiesArgsDict(TypedDict):
     """
     Online endpoint configuration
     """
@@ -26373,7 +26863,7 @@ class OnlineEndpointArgsDict(TypedDict):
     """
     public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]
     """
-    Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+    Enum to determine whether PublicNetworkAccess is Enabled or Disabled.
     """
     traffic: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]]
     """
@@ -26381,7 +26871,7 @@ class OnlineEndpointArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class OnlineEndpointArgs:
+class OnlineEndpointPropertiesArgs:
     def __init__(__self__, *,
                  auth_mode: pulumi.Input[Union[_builtins.str, 'EndpointAuthMode']],
                  compute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -26402,7 +26892,7 @@ class OnlineEndpointArgs:
                This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]] mirror_traffic: Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Property dictionary. Properties can be added, but not removed or altered.
-        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']] public_network_access: Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+        :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']] public_network_access: Enum to determine whether PublicNetworkAccess is Enabled or Disabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]] traffic: Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
@@ -26501,7 +26991,7 @@ class OnlineEndpointArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicNetworkAccessType']]]:
         """
-        Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+        Enum to determine whether PublicNetworkAccess is Enabled or Disabled.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -26821,22 +27311,18 @@ class PATAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionPersonalAccessTokenArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PATAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -26844,40 +27330,44 @@ class PATAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionPersonalAccessTokenArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'PAT'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'PAT')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -26914,6 +27404,15 @@ class PATAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -26944,6 +27443,24 @@ class PATAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -26962,28 +27479,13 @@ class PATAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class PersonalComputeInstanceSettingsArgsDict(TypedDict):
@@ -27539,6 +28041,9 @@ class PrivateEndpointDestinationArgsDict(TypedDict):
     Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
     """
     service_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A type definition that refers the id to an Azure Resource Manager resource.
+    """
     spark_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     spark_status: NotRequired[pulumi.Input[Union[_builtins.str, 'RuleStatus']]]
     """
@@ -27556,6 +28061,7 @@ class PrivateEndpointDestinationArgs:
         """
         Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
 
+        :param pulumi.Input[_builtins.str] service_resource_id: A type definition that refers the id to an Azure Resource Manager resource.
         :param pulumi.Input[Union[_builtins.str, 'RuleStatus']] spark_status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         if service_resource_id is not None:
@@ -27570,6 +28076,9 @@ class PrivateEndpointDestinationArgs:
     @_builtins.property
     @pulumi.getter(name="serviceResourceId")
     def service_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "service_resource_id")
 
     @service_resource_id.setter
@@ -27756,15 +28265,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     actions_required: NotRequired[pulumi.Input[_builtins.str]]
     """
-    A message indicating if changes on the service provider require any updates on the consumer.
+    Some RP chose "None". Other RPs use this for region expansion.
     """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The reason for approval/rejection of the connection.
+    User-defined message that, per NRP doc, may be used for approval-related message.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]
     """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
     """
 
 @pulumi.input_type
@@ -27772,13 +28281,13 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
-        :param pulumi.Input[_builtins.str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[_builtins.str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[_builtins.str] actions_required: Some RP chose "None". Other RPs use this for region expansion.
+        :param pulumi.Input[_builtins.str] description: User-defined message that, per NRP doc, may be used for approval-related message.
+        :param pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']] status: Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -27791,7 +28300,7 @@ class PrivateLinkServiceConnectionStateArgs:
     @pulumi.getter(name="actionsRequired")
     def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A message indicating if changes on the service provider require any updates on the consumer.
+        Some RP chose "None". Other RPs use this for region expansion.
         """
         return pulumi.get(self, "actions_required")
 
@@ -27803,7 +28312,7 @@ class PrivateLinkServiceConnectionStateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The reason for approval/rejection of the connection.
+        User-defined message that, per NRP doc, may be used for approval-related message.
         """
         return pulumi.get(self, "description")
 
@@ -27813,14 +28322,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]:
         """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -28005,7 +28514,7 @@ class PyTorchArgs:
 class QueueSettingsArgsDict(TypedDict):
     job_tier: NotRequired[pulumi.Input[Union[_builtins.str, 'JobTier']]]
     """
-    Controls the compute job tier
+    Enum to determine the job tier.
     """
 
 @pulumi.input_type
@@ -28013,7 +28522,7 @@ class QueueSettingsArgs:
     def __init__(__self__, *,
                  job_tier: Optional[pulumi.Input[Union[_builtins.str, 'JobTier']]] = None):
         """
-        :param pulumi.Input[Union[_builtins.str, 'JobTier']] job_tier: Controls the compute job tier
+        :param pulumi.Input[Union[_builtins.str, 'JobTier']] job_tier: Enum to determine the job tier.
         """
         if job_tier is None:
             job_tier = 'Null'
@@ -28024,7 +28533,7 @@ class QueueSettingsArgs:
     @pulumi.getter(name="jobTier")
     def job_tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'JobTier']]]:
         """
-        Controls the compute job tier
+        Enum to determine the job tier.
         """
         return pulumi.get(self, "job_tier")
 
@@ -28846,13 +29355,22 @@ class RecurrenceArgs:
         pulumi.set(self, "time_zone", value)
 
 
-class RegistryPrivateEndpointConnectionPropertiesArgsDict(TypedDict):
+class RegistryPrivateEndpointConnectionArgsDict(TypedDict):
     """
-    Properties of the Private Endpoint Connection
+    Private endpoint connection definition.
     """
     group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     The group ids
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This is the private endpoint connection name created on SRP
+    Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Same as workspace location.
     """
     private_endpoint: NotRequired[pulumi.Input['PrivateEndpointResourceArgsDict']]
     """
@@ -28868,22 +29386,31 @@ class RegistryPrivateEndpointConnectionPropertiesArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class RegistryPrivateEndpointConnectionPropertiesArgs:
+class RegistryPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointResourceArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[_builtins.str]] = None,
                  registry_private_link_service_connection_state: Optional[pulumi.Input['RegistryPrivateLinkServiceConnectionStateArgs']] = None):
         """
-        Properties of the Private Endpoint Connection
+        Private endpoint connection definition.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The group ids
+        :param pulumi.Input[_builtins.str] id: This is the private endpoint connection name created on SRP
+               Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
+        :param pulumi.Input[_builtins.str] location: Same as workspace location.
         :param pulumi.Input['PrivateEndpointResourceArgs'] private_endpoint: The PE network resource that is linked to this PE connection.
         :param pulumi.Input[_builtins.str] provisioning_state: One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
         :param pulumi.Input['RegistryPrivateLinkServiceConnectionStateArgs'] registry_private_link_service_connection_state: The connection state.
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if provisioning_state is not None:
@@ -28902,6 +29429,31 @@ class RegistryPrivateEndpointConnectionPropertiesArgs:
     @group_ids.setter
     def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        This is the private endpoint connection name created on SRP
+        Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Same as workspace location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
@@ -28938,83 +29490,6 @@ class RegistryPrivateEndpointConnectionPropertiesArgs:
     @registry_private_link_service_connection_state.setter
     def registry_private_link_service_connection_state(self, value: Optional[pulumi.Input['RegistryPrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "registry_private_link_service_connection_state", value)
-
-
-class RegistryPrivateEndpointConnectionArgsDict(TypedDict):
-    """
-    Private endpoint connection definition.
-    """
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    This is the private endpoint connection name created on SRP
-    Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
-    """
-    location: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Same as workspace location.
-    """
-    properties: NotRequired[pulumi.Input['RegistryPrivateEndpointConnectionPropertiesArgsDict']]
-    """
-    Properties of the Private Endpoint Connection
-    """
-
-@pulumi.input_type
-class RegistryPrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['RegistryPrivateEndpointConnectionPropertiesArgs']] = None):
-        """
-        Private endpoint connection definition.
-
-        :param pulumi.Input[_builtins.str] id: This is the private endpoint connection name created on SRP
-               Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
-        :param pulumi.Input[_builtins.str] location: Same as workspace location.
-        :param pulumi.Input['RegistryPrivateEndpointConnectionPropertiesArgs'] properties: Properties of the Private Endpoint Connection
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        This is the private endpoint connection name created on SRP
-        Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Same as workspace location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['RegistryPrivateEndpointConnectionPropertiesArgs']]:
-        """
-        Properties of the Private Endpoint Connection
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['RegistryPrivateEndpointConnectionPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
 
 class RegistryPrivateLinkServiceConnectionStateArgsDict(TypedDict):
@@ -29163,163 +29638,6 @@ class RegistryRegionArmDetailsArgs:
     @storage_account_details.setter
     def storage_account_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountDetailsArgs']]]]):
         pulumi.set(self, "storage_account_details", value)
-
-
-class RegistryArgsDict(TypedDict):
-    """
-    Details of the Registry
-    """
-    discovery_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Discovery URL for the Registry
-    """
-    intellectual_property_publisher: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    IntellectualPropertyPublisher for the registry
-    """
-    managed_resource_group: NotRequired[pulumi.Input['ArmResourceIdArgsDict']]
-    """
-    ResourceId of the managed RG if the registry has system created resources
-    """
-    ml_flow_registry_uri: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    MLFlow Registry URI for the Registry
-    """
-    public_network_access: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Is the Registry accessible from the internet?
-    Possible values: "Enabled" or "Disabled"
-    """
-    region_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgsDict']]]]
-    """
-    Details of each region the registry is in
-    """
-    registry_private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgsDict']]]]
-    """
-    Private endpoint connections info used for pending connections in private link portal
-    """
-
-@pulumi.input_type
-class RegistryArgs:
-    def __init__(__self__, *,
-                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 intellectual_property_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_resource_group: Optional[pulumi.Input['ArmResourceIdArgs']] = None,
-                 ml_flow_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_details: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
-                 registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None):
-        """
-        Details of the Registry
-
-        :param pulumi.Input[_builtins.str] discovery_url: Discovery URL for the Registry
-        :param pulumi.Input[_builtins.str] intellectual_property_publisher: IntellectualPropertyPublisher for the registry
-        :param pulumi.Input['ArmResourceIdArgs'] managed_resource_group: ResourceId of the managed RG if the registry has system created resources
-        :param pulumi.Input[_builtins.str] ml_flow_registry_uri: MLFlow Registry URI for the Registry
-        :param pulumi.Input[_builtins.str] public_network_access: Is the Registry accessible from the internet?
-               Possible values: "Enabled" or "Disabled"
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]] region_details: Details of each region the registry is in
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
-        """
-        if discovery_url is not None:
-            pulumi.set(__self__, "discovery_url", discovery_url)
-        if intellectual_property_publisher is not None:
-            pulumi.set(__self__, "intellectual_property_publisher", intellectual_property_publisher)
-        if managed_resource_group is not None:
-            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
-        if ml_flow_registry_uri is not None:
-            pulumi.set(__self__, "ml_flow_registry_uri", ml_flow_registry_uri)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if region_details is not None:
-            pulumi.set(__self__, "region_details", region_details)
-        if registry_private_endpoint_connections is not None:
-            pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
-
-    @_builtins.property
-    @pulumi.getter(name="discoveryUrl")
-    def discovery_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Discovery URL for the Registry
-        """
-        return pulumi.get(self, "discovery_url")
-
-    @discovery_url.setter
-    def discovery_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "discovery_url", value)
-
-    @_builtins.property
-    @pulumi.getter(name="intellectualPropertyPublisher")
-    def intellectual_property_publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        IntellectualPropertyPublisher for the registry
-        """
-        return pulumi.get(self, "intellectual_property_publisher")
-
-    @intellectual_property_publisher.setter
-    def intellectual_property_publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "intellectual_property_publisher", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedResourceGroup")
-    def managed_resource_group(self) -> Optional[pulumi.Input['ArmResourceIdArgs']]:
-        """
-        ResourceId of the managed RG if the registry has system created resources
-        """
-        return pulumi.get(self, "managed_resource_group")
-
-    @managed_resource_group.setter
-    def managed_resource_group(self, value: Optional[pulumi.Input['ArmResourceIdArgs']]):
-        pulumi.set(self, "managed_resource_group", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mlFlowRegistryUri")
-    def ml_flow_registry_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        MLFlow Registry URI for the Registry
-        """
-        return pulumi.get(self, "ml_flow_registry_uri")
-
-    @ml_flow_registry_uri.setter
-    def ml_flow_registry_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "ml_flow_registry_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Is the Registry accessible from the internet?
-        Possible values: "Enabled" or "Disabled"
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "public_network_access", value)
-
-    @_builtins.property
-    @pulumi.getter(name="regionDetails")
-    def region_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]:
-        """
-        Details of each region the registry is in
-        """
-        return pulumi.get(self, "region_details")
-
-    @region_details.setter
-    def region_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]):
-        pulumi.set(self, "region_details", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registryPrivateEndpointConnections")
-    def registry_private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]:
-        """
-        Private endpoint connections info used for pending connections in private link portal
-        """
-        return pulumi.get(self, "registry_private_endpoint_connections")
-
-    @registry_private_endpoint_connections.setter
-    def registry_private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]):
-        pulumi.set(self, "registry_private_endpoint_connections", value)
 
 
 class RegressionTrainingSettingsArgsDict(TypedDict):
@@ -29558,7 +29876,7 @@ class RegressionArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     n_cross_validations: NotRequired[pulumi.Input[Union['AutoNCrossValidationsArgsDict', 'CustomNCrossValidationsArgsDict']]]
     """
@@ -29567,7 +29885,7 @@ class RegressionArgsDict(TypedDict):
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'RegressionPrimaryMetrics']]]
     """
-    Primary metric for regression task.
+    Primary metrics for Regression task.
     """
     target_column_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -29630,10 +29948,10 @@ class RegressionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cv_split_column_names: Columns to use for CVSplit data.
         :param pulumi.Input['TableVerticalFeaturizationSettingsArgs'] featurization_settings: Featurization inputs needed for AutoML job.
         :param pulumi.Input['TableVerticalLimitSettingsArgs'] limit_settings: Execution constraints for AutoMLJob.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input[Union['AutoNCrossValidationsArgs', 'CustomNCrossValidationsArgs']] n_cross_validations: Number of cross validation folds to be applied on training dataset
                when validation dataset is not provided.
-        :param pulumi.Input[Union[_builtins.str, 'RegressionPrimaryMetrics']] primary_metric: Primary metric for regression task.
+        :param pulumi.Input[Union[_builtins.str, 'RegressionPrimaryMetrics']] primary_metric: Primary metrics for Regression task.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
                Also known as label column name in context of classification tasks.
         :param pulumi.Input['MLTableJobInputArgs'] test_data: Test data input.
@@ -29745,7 +30063,7 @@ class RegressionArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -29770,7 +30088,7 @@ class RegressionArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RegressionPrimaryMetrics']]]:
         """
-        Primary metric for regression task.
+        Primary metrics for Regression task.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -30221,22 +30539,18 @@ class SASAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class SASAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -30244,40 +30558,44 @@ class SASAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionSharedAccessSignatureArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'SAS'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'SAS')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -30314,6 +30632,15 @@ class SASAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -30344,6 +30671,24 @@ class SASAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -30362,28 +30707,13 @@ class SASAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class SasDatastoreCredentialsArgsDict(TypedDict):
@@ -30697,7 +31027,7 @@ class ScheduleBaseArgs:
         pulumi.set(self, "status", value)
 
 
-class ScheduleArgsDict(TypedDict):
+class SchedulePropertiesArgsDict(TypedDict):
     """
     Base definition of a schedule
     """
@@ -30731,7 +31061,7 @@ class ScheduleArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ScheduleArgs:
+class SchedulePropertiesArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[Union['CreateMonitorActionArgs', 'EndpointScheduleActionArgs', 'JobScheduleActionArgs']],
                  trigger: pulumi.Input[Union['CronTriggerArgs', 'RecurrenceTriggerArgs']],
@@ -30865,7 +31195,7 @@ class ScriptReferenceArgsDict(TypedDict):
     """
     script_source: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The storage source of the script: workspace.
+    The storage source of the script: inline, workspace.
     """
     timeout: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -30884,7 +31214,7 @@ class ScriptReferenceArgs:
 
         :param pulumi.Input[_builtins.str] script_arguments: Optional command line arguments passed to the script to run.
         :param pulumi.Input[_builtins.str] script_data: The location of scripts in the mounted volume.
-        :param pulumi.Input[_builtins.str] script_source: The storage source of the script: workspace.
+        :param pulumi.Input[_builtins.str] script_source: The storage source of the script: inline, workspace.
         :param pulumi.Input[_builtins.str] timeout: Optional time period passed to timeout command.
         """
         if script_arguments is not None:
@@ -30924,7 +31254,7 @@ class ScriptReferenceArgs:
     @pulumi.getter(name="scriptSource")
     def script_source(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The storage source of the script: workspace.
+        The storage source of the script: inline, workspace.
         """
         return pulumi.get(self, "script_source")
 
@@ -31105,7 +31435,7 @@ class ServerlessComputeSettingsArgs:
         pulumi.set(self, "serverless_compute_no_public_ip", value)
 
 
-class ServerlessEndpointArgsDict(TypedDict):
+class ServerlessEndpointPropertiesArgsDict(TypedDict):
     auth_mode: pulumi.Input[Union[_builtins.str, 'ServerlessInferenceEndpointAuthMode']]
     """
     [Required] Specifies the authentication mode for the Serverless endpoint.
@@ -31120,7 +31450,7 @@ class ServerlessEndpointArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ServerlessEndpointArgs:
+class ServerlessEndpointPropertiesArgs:
     def __init__(__self__, *,
                  auth_mode: pulumi.Input[Union[_builtins.str, 'ServerlessInferenceEndpointAuthMode']],
                  content_safety: Optional[pulumi.Input['ContentSafetyArgs']] = None,
@@ -31222,26 +31552,17 @@ class ServerlessOfferArgs:
 
 class ServiceManagedResourcesSettingsArgsDict(TypedDict):
     cosmos_db: NotRequired[pulumi.Input['CosmosDbSettingsArgsDict']]
-    """
-    The settings for the service managed cosmosdb account.
-    """
 
 @pulumi.input_type
 class ServiceManagedResourcesSettingsArgs:
     def __init__(__self__, *,
                  cosmos_db: Optional[pulumi.Input['CosmosDbSettingsArgs']] = None):
-        """
-        :param pulumi.Input['CosmosDbSettingsArgs'] cosmos_db: The settings for the service managed cosmosdb account.
-        """
         if cosmos_db is not None:
             pulumi.set(__self__, "cosmos_db", cosmos_db)
 
     @_builtins.property
     @pulumi.getter(name="cosmosDb")
     def cosmos_db(self) -> Optional[pulumi.Input['CosmosDbSettingsArgs']]:
-        """
-        The settings for the service managed cosmosdb account.
-        """
         return pulumi.get(self, "cosmos_db")
 
     @cosmos_db.setter
@@ -31260,22 +31581,18 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionServicePrincipalArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -31283,40 +31600,44 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionServicePrincipalArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'ServicePrincipal'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'ServicePrincipal')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -31353,6 +31674,15 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -31383,6 +31713,24 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -31401,28 +31749,13 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class ServicePrincipalDatastoreCredentialsArgsDict(TypedDict):
@@ -31840,23 +32173,23 @@ class SetupScriptsArgs:
 class SharedPrivateLinkResourceArgsDict(TypedDict):
     group_id: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The private link resource group id.
+    group id of the private link
     """
     name: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Unique name of the private link.
+    Unique name of the private link
     """
     private_link_resource_id: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The resource id that private link links to.
+    the resource id that private link links to
     """
     request_message: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Request message.
+    Request message
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]
     """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
     """
 
 @pulumi.input_type
@@ -31866,13 +32199,13 @@ class SharedPrivateLinkResourceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  request_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]] = None):
         """
-        :param pulumi.Input[_builtins.str] group_id: The private link resource group id.
-        :param pulumi.Input[_builtins.str] name: Unique name of the private link.
-        :param pulumi.Input[_builtins.str] private_link_resource_id: The resource id that private link links to.
-        :param pulumi.Input[_builtins.str] request_message: Request message.
-        :param pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[_builtins.str] group_id: group id of the private link
+        :param pulumi.Input[_builtins.str] name: Unique name of the private link
+        :param pulumi.Input[_builtins.str] private_link_resource_id: the resource id that private link links to
+        :param pulumi.Input[_builtins.str] request_message: Request message
+        :param pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']] status: Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -31889,7 +32222,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The private link resource group id.
+        group id of the private link
         """
         return pulumi.get(self, "group_id")
 
@@ -31901,7 +32234,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Unique name of the private link.
+        Unique name of the private link
         """
         return pulumi.get(self, "name")
 
@@ -31913,7 +32246,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The resource id that private link links to.
+        the resource id that private link links to
         """
         return pulumi.get(self, "private_link_resource_id")
 
@@ -31925,7 +32258,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="requestMessage")
     def request_message(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Request message.
+        Request message
         """
         return pulumi.get(self, "request_message")
 
@@ -31935,14 +32268,14 @@ class SharedPrivateLinkResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]:
         """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        Connection status of the service consumer with the service provider\\r\\nPossible state transitions\\r\\nPending -> Approved (Service provider approves the connection request)\\r\\nPending -> Rejected (Service provider rejects the connection request)\\r\\nPending -> Disconnected (Service provider deletes the connection)\\r\\nApproved -> Rejected (Service provider rejects the approved connection)\\r\\nApproved -> Disconnected (Service provider deletes the connection)\\r\\nRejected -> Pending (Service consumer re-initiates the connection request that was rejected)\\r\\nRejected -> Disconnected (Service provider deletes the connection)
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -33025,7 +33358,7 @@ class StackEnsembleSettingsArgsDict(TypedDict):
     """
     stack_meta_learner_type: NotRequired[pulumi.Input[Union[_builtins.str, 'StackMetaLearnerType']]]
     """
-    The meta-learner is a model trained on the output of the individual heterogeneous models.
+    The meta-learner is a model trained on the output of the individual heterogeneous models.\\r\\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\\r\\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
     """
 
 @pulumi.input_type
@@ -33039,7 +33372,7 @@ class StackEnsembleSettingsArgs:
 
         :param Any stack_meta_learner_k_wargs: Optional parameters to pass to the initializer of the meta-learner.
         :param pulumi.Input[_builtins.float] stack_meta_learner_train_percentage: Specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is 0.2.
-        :param pulumi.Input[Union[_builtins.str, 'StackMetaLearnerType']] stack_meta_learner_type: The meta-learner is a model trained on the output of the individual heterogeneous models.
+        :param pulumi.Input[Union[_builtins.str, 'StackMetaLearnerType']] stack_meta_learner_type: The meta-learner is a model trained on the output of the individual heterogeneous models.\\r\\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\\r\\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
         """
         if stack_meta_learner_k_wargs is not None:
             pulumi.set(__self__, "stack_meta_learner_k_wargs", stack_meta_learner_k_wargs)
@@ -33080,7 +33413,7 @@ class StackEnsembleSettingsArgs:
     @pulumi.getter(name="stackMetaLearnerType")
     def stack_meta_learner_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StackMetaLearnerType']]]:
         """
-        The meta-learner is a model trained on the output of the individual heterogeneous models.
+        The meta-learner is a model trained on the output of the individual heterogeneous models.\\r\\nDefault meta-learners are LogisticRegression for classification tasks (or LogisticRegressionCV if cross-validation is enabled) and ElasticNet for regression/forecasting tasks (or ElasticNetCV if cross-validation is enabled).\\r\\nThis parameter can be one of the following strings: LogisticRegression, LogisticRegressionCV, LightGBMClassifier, ElasticNet, ElasticNetCV, LightGBMRegressor, or LinearRegression
         """
         return pulumi.get(self, "stack_meta_learner_type")
 
@@ -34957,7 +35290,7 @@ class TextClassificationMultilabelArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     target_column_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -34988,7 +35321,7 @@ class TextClassificationMultilabelArgs:
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
         :param pulumi.Input['NlpVerticalFeaturizationSettingsArgs'] featurization_settings: Featurization inputs needed for AutoML job.
         :param pulumi.Input['NlpVerticalLimitSettingsArgs'] limit_settings: Execution constraints for AutoMLJob.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
                Also known as label column name in context of classification tasks.
         :param pulumi.Input['MLTableJobInputArgs'] validation_data: Validation data inputs.
@@ -35061,7 +35394,7 @@ class TextClassificationMultilabelArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -35119,11 +35452,11 @@ class TextClassificationArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     primary_metric: NotRequired[pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']]]
     """
-    Primary metric for Text-Classification task.
+    Primary metrics for classification tasks.
     """
     target_column_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -35155,8 +35488,8 @@ class TextClassificationArgs:
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
         :param pulumi.Input['NlpVerticalFeaturizationSettingsArgs'] featurization_settings: Featurization inputs needed for AutoML job.
         :param pulumi.Input['NlpVerticalLimitSettingsArgs'] limit_settings: Execution constraints for AutoMLJob.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
-        :param pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']] primary_metric: Primary metric for Text-Classification task.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
+        :param pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']] primary_metric: Primary metrics for classification tasks.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
                Also known as label column name in context of classification tasks.
         :param pulumi.Input['MLTableJobInputArgs'] validation_data: Validation data inputs.
@@ -35233,7 +35566,7 @@ class TextClassificationArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -35245,7 +35578,7 @@ class TextClassificationArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClassificationPrimaryMetrics']]]:
         """
-        Primary metric for Text-Classification task.
+        Primary metrics for classification tasks.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -35304,7 +35637,7 @@ class TextNerArgsDict(TypedDict):
     """
     log_verbosity: NotRequired[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]
     """
-    Log verbosity for the job.
+    Enum for setting log verbosity.
     """
     target_column_name: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -35336,7 +35669,7 @@ class TextNerArgs:
         :param pulumi.Input['MLTableJobInputArgs'] training_data: [Required] Training data input.
         :param pulumi.Input['NlpVerticalFeaturizationSettingsArgs'] featurization_settings: Featurization inputs needed for AutoML job.
         :param pulumi.Input['NlpVerticalLimitSettingsArgs'] limit_settings: Execution constraints for AutoMLJob.
-        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Log verbosity for the job.
+        :param pulumi.Input[Union[_builtins.str, 'LogVerbosity']] log_verbosity: Enum for setting log verbosity.
         :param pulumi.Input[_builtins.str] target_column_name: Target column name: This is prediction values column.
                Also known as label column name in context of classification tasks.
         :param pulumi.Input['MLTableJobInputArgs'] validation_data: Validation data inputs.
@@ -35409,7 +35742,7 @@ class TextNerArgs:
     @pulumi.getter(name="logVerbosity")
     def log_verbosity(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogVerbosity']]]:
         """
-        Log verbosity for the job.
+        Enum for setting log verbosity.
         """
         return pulumi.get(self, "log_verbosity")
 
@@ -35444,9 +35777,6 @@ class TextNerArgs:
 
 
 class TmpfsOptionsArgsDict(TypedDict):
-    """
-    Describes the tmpfs options for the container
-    """
     size: NotRequired[pulumi.Input[_builtins.int]]
     """
     Mention the Tmpfs size
@@ -35457,8 +35787,6 @@ class TmpfsOptionsArgs:
     def __init__(__self__, *,
                  size: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        Describes the tmpfs options for the container
-
         :param pulumi.Input[_builtins.int] size: Mention the Tmpfs size
         """
         if size is not None:
@@ -35678,7 +36006,7 @@ class TritonModelJobInputArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
 
 @pulumi.input_type
@@ -35693,7 +36021,7 @@ class TritonModelJobInputArgs:
                Expected value is 'triton_model'.
         :param pulumi.Input[_builtins.str] uri: [Required] Input Asset URI.
         :param pulumi.Input[_builtins.str] description: Description for the input.
-        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Input Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Enum to determine the input data delivery mode.
         """
         pulumi.set(__self__, "job_input_type", 'triton_model')
         pulumi.set(__self__, "uri", uri)
@@ -35745,7 +36073,7 @@ class TritonModelJobInputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]:
         """
-        Input Asset Delivery Mode.
+        Enum to determine the input data delivery mode.
         """
         return pulumi.get(self, "mode")
 
@@ -35760,13 +36088,17 @@ class TritonModelJobOutputArgsDict(TypedDict):
     Enum to determine the Job Output Type.
     Expected value is 'triton_model'.
     """
+    asset_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output Asset Name.
+    """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Description for the output.
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -35777,17 +36109,21 @@ class TritonModelJobOutputArgsDict(TypedDict):
 class TritonModelJobOutputArgs:
     def __init__(__self__, *,
                  job_output_type: pulumi.Input[_builtins.str],
+                 asset_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] job_output_type: Enum to determine the Job Output Type.
                Expected value is 'triton_model'.
+        :param pulumi.Input[_builtins.str] asset_name: Output Asset Name.
         :param pulumi.Input[_builtins.str] description: Description for the output.
-        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output data delivery mode enums.
         :param pulumi.Input[_builtins.str] uri: Output Asset URI.
         """
         pulumi.set(__self__, "job_output_type", 'triton_model')
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if mode is None:
@@ -35811,6 +36147,18 @@ class TritonModelJobOutputArgs:
         pulumi.set(self, "job_output_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output Asset Name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -35826,7 +36174,7 @@ class TritonModelJobOutputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]:
         """
-        Output Asset Delivery Mode.
+        Output data delivery mode enums.
         """
         return pulumi.get(self, "mode")
 
@@ -36124,7 +36472,7 @@ class UriFileJobInputArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
 
 @pulumi.input_type
@@ -36139,7 +36487,7 @@ class UriFileJobInputArgs:
                Expected value is 'uri_file'.
         :param pulumi.Input[_builtins.str] uri: [Required] Input Asset URI.
         :param pulumi.Input[_builtins.str] description: Description for the input.
-        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Input Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Enum to determine the input data delivery mode.
         """
         pulumi.set(__self__, "job_input_type", 'uri_file')
         pulumi.set(__self__, "uri", uri)
@@ -36191,7 +36539,7 @@ class UriFileJobInputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]:
         """
-        Input Asset Delivery Mode.
+        Enum to determine the input data delivery mode.
         """
         return pulumi.get(self, "mode")
 
@@ -36206,13 +36554,17 @@ class UriFileJobOutputArgsDict(TypedDict):
     Enum to determine the Job Output Type.
     Expected value is 'uri_file'.
     """
+    asset_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output Asset Name.
+    """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Description for the output.
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -36223,17 +36575,21 @@ class UriFileJobOutputArgsDict(TypedDict):
 class UriFileJobOutputArgs:
     def __init__(__self__, *,
                  job_output_type: pulumi.Input[_builtins.str],
+                 asset_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] job_output_type: Enum to determine the Job Output Type.
                Expected value is 'uri_file'.
+        :param pulumi.Input[_builtins.str] asset_name: Output Asset Name.
         :param pulumi.Input[_builtins.str] description: Description for the output.
-        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output data delivery mode enums.
         :param pulumi.Input[_builtins.str] uri: Output Asset URI.
         """
         pulumi.set(__self__, "job_output_type", 'uri_file')
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if mode is None:
@@ -36257,6 +36613,18 @@ class UriFileJobOutputArgs:
         pulumi.set(self, "job_output_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output Asset Name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -36272,7 +36640,7 @@ class UriFileJobOutputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]:
         """
-        Output Asset Delivery Mode.
+        Output data delivery mode enums.
         """
         return pulumi.get(self, "mode")
 
@@ -36468,7 +36836,7 @@ class UriFolderJobInputArgsDict(TypedDict):
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]
     """
-    Input Asset Delivery Mode.
+    Enum to determine the input data delivery mode.
     """
 
 @pulumi.input_type
@@ -36483,7 +36851,7 @@ class UriFolderJobInputArgs:
                Expected value is 'uri_folder'.
         :param pulumi.Input[_builtins.str] uri: [Required] Input Asset URI.
         :param pulumi.Input[_builtins.str] description: Description for the input.
-        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Input Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']] mode: Enum to determine the input data delivery mode.
         """
         pulumi.set(__self__, "job_input_type", 'uri_folder')
         pulumi.set(__self__, "uri", uri)
@@ -36535,7 +36903,7 @@ class UriFolderJobInputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InputDeliveryMode']]]:
         """
-        Input Asset Delivery Mode.
+        Enum to determine the input data delivery mode.
         """
         return pulumi.get(self, "mode")
 
@@ -36550,13 +36918,17 @@ class UriFolderJobOutputArgsDict(TypedDict):
     Enum to determine the Job Output Type.
     Expected value is 'uri_folder'.
     """
+    asset_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output Asset Name.
+    """
     description: NotRequired[pulumi.Input[_builtins.str]]
     """
     Description for the output.
     """
     mode: NotRequired[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]
     """
-    Output Asset Delivery Mode.
+    Output data delivery mode enums.
     """
     uri: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -36567,17 +36939,21 @@ class UriFolderJobOutputArgsDict(TypedDict):
 class UriFolderJobOutputArgs:
     def __init__(__self__, *,
                  job_output_type: pulumi.Input[_builtins.str],
+                 asset_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]] = None,
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] job_output_type: Enum to determine the Job Output Type.
                Expected value is 'uri_folder'.
+        :param pulumi.Input[_builtins.str] asset_name: Output Asset Name.
         :param pulumi.Input[_builtins.str] description: Description for the output.
-        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output Asset Delivery Mode.
+        :param pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']] mode: Output data delivery mode enums.
         :param pulumi.Input[_builtins.str] uri: Output Asset URI.
         """
         pulumi.set(__self__, "job_output_type", 'uri_folder')
+        if asset_name is not None:
+            pulumi.set(__self__, "asset_name", asset_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if mode is None:
@@ -36601,6 +36977,18 @@ class UriFolderJobOutputArgs:
         pulumi.set(self, "job_output_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="assetName")
+    def asset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Output Asset Name.
+        """
+        return pulumi.get(self, "asset_name")
+
+    @asset_name.setter
+    def asset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "asset_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -36616,7 +37004,7 @@ class UriFolderJobOutputArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OutputDeliveryMode']]]:
         """
-        Output Asset Delivery Mode.
+        Output data delivery mode enums.
         """
         return pulumi.get(self, "mode")
 
@@ -36757,22 +37145,18 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgsDict(TypedDict):
     Category of the connection
     """
     credentials: NotRequired[pulumi.Input['WorkspaceConnectionUsernamePasswordArgsDict']]
+    error: NotRequired[pulumi.Input[_builtins.str]]
     expiry_time: NotRequired[pulumi.Input[_builtins.str]]
     is_shared_to_all: NotRequired[pulumi.Input[_builtins.bool]]
     metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Store user metadata for this connection
     """
+    pe_requirement: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]
+    pe_status: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]
     shared_user_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     target: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Value details of the workspace connection.
-    """
-    value_format: NotRequired[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]
-    """
-    format for the workspace connection value
-    """
+    use_workspace_managed_identity: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs:
@@ -36780,40 +37164,44 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs:
                  auth_type: pulumi.Input[_builtins.str],
                  category: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionCategory']]] = None,
                  credentials: Optional[pulumi.Input['WorkspaceConnectionUsernamePasswordArgs']] = None,
+                 error: Optional[pulumi.Input[_builtins.str]] = None,
                  expiry_time: Optional[pulumi.Input[_builtins.str]] = None,
                  is_shared_to_all: Optional[pulumi.Input[_builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pe_requirement: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]] = None,
+                 pe_status: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]] = None,
                  shared_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_format: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]] = None):
+                 use_workspace_managed_identity: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: Authentication type of the connection target
                Expected value is 'UsernamePassword'.
         :param pulumi.Input[Union[_builtins.str, 'ConnectionCategory']] category: Category of the connection
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Store user metadata for this connection
-        :param pulumi.Input[_builtins.str] value: Value details of the workspace connection.
-        :param pulumi.Input[Union[_builtins.str, 'ValueFormat']] value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'UsernamePassword')
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
         if is_shared_to_all is not None:
             pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if pe_requirement is not None:
+            pulumi.set(__self__, "pe_requirement", pe_requirement)
+        if pe_status is not None:
+            pulumi.set(__self__, "pe_status", pe_status)
         if shared_user_list is not None:
             pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-        if value_format is not None:
-            pulumi.set(__self__, "value_format", value_format)
+        if use_workspace_managed_identity is not None:
+            pulumi.set(__self__, "use_workspace_managed_identity", use_workspace_managed_identity)
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -36850,6 +37238,15 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "error")
+
+    @error.setter
+    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "error", value)
+
+    @_builtins.property
     @pulumi.getter(name="expiryTime")
     def expiry_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "expiry_time")
@@ -36880,6 +37277,24 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="peRequirement")
+    def pe_requirement(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]:
+        return pulumi.get(self, "pe_requirement")
+
+    @pe_requirement.setter
+    def pe_requirement(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPERequirement']]]):
+        pulumi.set(self, "pe_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peStatus")
+    def pe_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]:
+        return pulumi.get(self, "pe_status")
+
+    @pe_status.setter
+    def pe_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedPEStatus']]]):
+        pulumi.set(self, "pe_status", value)
+
+    @_builtins.property
     @pulumi.getter(name="sharedUserList")
     def shared_user_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "shared_user_list")
@@ -36898,28 +37313,13 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs:
         pulumi.set(self, "target", value)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Value details of the workspace connection.
-        """
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="useWorkspaceManagedIdentity")
+    def use_workspace_managed_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_workspace_managed_identity")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter(name="valueFormat")
-    def value_format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]:
-        """
-        format for the workspace connection value
-        """
-        return pulumi.get(self, "value_format")
-
-    @value_format.setter
-    def value_format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ValueFormat']]]):
-        pulumi.set(self, "value_format", value)
+    @use_workspace_managed_identity.setter
+    def use_workspace_managed_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_workspace_managed_identity", value)
 
 
 class VirtualMachineImageArgsDict(TypedDict):
@@ -37308,9 +37708,6 @@ class VirtualMachineArgs:
 
 
 class VolumeDefinitionArgsDict(TypedDict):
-    """
-    Describes the volume configuration for the container
-    """
     bind: NotRequired[pulumi.Input['BindOptionsArgsDict']]
     """
     Bind Options of the mount
@@ -37356,8 +37753,6 @@ class VolumeDefinitionArgs:
                  type: Optional[pulumi.Input[Union[_builtins.str, 'VolumeDefinitionType']]] = None,
                  volume: Optional[pulumi.Input['VolumeOptionsArgs']] = None):
         """
-        Describes the volume configuration for the container
-
         :param pulumi.Input['BindOptionsArgs'] bind: Bind Options of the mount
         :param pulumi.Input[_builtins.str] consistency: Consistency of the volume
         :param pulumi.Input[_builtins.bool] read_only: Indicate whether to mount volume as readOnly. Default value for this is false.
@@ -37484,9 +37879,6 @@ class VolumeDefinitionArgs:
 
 
 class VolumeOptionsArgsDict(TypedDict):
-    """
-    Describes the volume options for the container
-    """
     nocopy: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Indicate whether volume is nocopy
@@ -37497,8 +37889,6 @@ class VolumeOptionsArgs:
     def __init__(__self__, *,
                  nocopy: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        Describes the volume options for the container
-
         :param pulumi.Input[_builtins.bool] nocopy: Indicate whether volume is nocopy
         """
         if nocopy is not None:
@@ -37551,12 +37941,18 @@ class WorkspaceConnectionAccessKeyArgs:
 
 
 class WorkspaceConnectionAccountKeyArgsDict(TypedDict):
+    """
+    Account key object for workspace connection credential.
+    """
     key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkspaceConnectionAccountKeyArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Account key object for workspace connection credential.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
 

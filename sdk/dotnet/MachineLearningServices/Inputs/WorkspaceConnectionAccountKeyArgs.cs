@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
+    /// <summary>
+    /// Account key object for workspace connection credential.
+    /// </summary>
     public sealed class WorkspaceConnectionAccountKeyArgs : global::Pulumi.ResourceArgs
     {
         [Input("key")]

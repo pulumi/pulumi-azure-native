@@ -172,6 +172,8 @@ class CapacityPoolCache(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-09-01-preview.
 
+        Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,6 +196,8 @@ class CapacityPoolCache(pulumi.CustomResource):
         Cache resource
 
         Uses Azure REST API version 2025-09-01-preview.
+
+        Other available API versions: 2025-12-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -249,7 +253,7 @@ class CapacityPoolCache(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20250901preview:CapacityPoolCache")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20250901preview:CapacityPoolCache"), pulumi.Alias(type_="azure-native:netapp/v20251215preview:CapacityPoolCache")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityPoolCache, __self__).__init__(
             'azure-native:netapp:CapacityPoolCache',

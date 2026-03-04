@@ -237,9 +237,9 @@ def get_webhook(automation_account_name: Optional[_builtins.str] = None,
     """
     Retrieve the webhook identified by webhook name.
 
-    Uses Azure REST API version 2023-05-15-preview.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -277,9 +277,9 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[_builtins.
     """
     Retrieve the webhook identified by webhook name.
 
-    Uses Azure REST API version 2023-05-15-preview.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2023-05-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.

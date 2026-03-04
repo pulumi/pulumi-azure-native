@@ -60,7 +60,7 @@ export interface GetAgentApplicationResult {
     /**
      * [Required] Additional attributes of the entity.
      */
-    readonly properties: outputs.cognitiveservices.AgenticApplicationResponse;
+    readonly properties: outputs.cognitiveservices.AgenticApplicationPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

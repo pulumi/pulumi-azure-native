@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'PlanArgs',
     'PlanArgsDict',
+    'ProductArgs',
+    'ProductArgsDict',
 ]
 
 class PlanArgsDict(TypedDict):
@@ -47,5 +49,142 @@ class PlanArgs:
     @accessibility.setter
     def accessibility(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Accessibility']]]):
         pulumi.set(self, "accessibility", value)
+
+
+class ProductArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    pricing_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    product_type: NotRequired[pulumi.Input[_builtins.str]]
+    publisher_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    rating_average: NotRequired[pulumi.Input[_builtins.float]]
+    small_icon_uri: NotRequired[pulumi.Input[_builtins.str]]
+    store_fronts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    summary: NotRequired[pulumi.Input[_builtins.str]]
+    unique_product_id: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ProductArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pricing_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 product_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 publisher_display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rating_average: Optional[pulumi.Input[_builtins.float]] = None,
+                 small_icon_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 store_fronts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 summary: Optional[pulumi.Input[_builtins.str]] = None,
+                 unique_product_id: Optional[pulumi.Input[_builtins.str]] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if pricing_types is not None:
+            pulumi.set(__self__, "pricing_types", pricing_types)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if publisher_display_name is not None:
+            pulumi.set(__self__, "publisher_display_name", publisher_display_name)
+        if rating_average is not None:
+            pulumi.set(__self__, "rating_average", rating_average)
+        if small_icon_uri is not None:
+            pulumi.set(__self__, "small_icon_uri", small_icon_uri)
+        if store_fronts is not None:
+            pulumi.set(__self__, "store_fronts", store_fronts)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+        if unique_product_id is not None:
+            pulumi.set(__self__, "unique_product_id", unique_product_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pricingTypes")
+    def pricing_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "pricing_types")
+
+    @pricing_types.setter
+    def pricing_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "pricing_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "product_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publisherDisplayName")
+    def publisher_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "publisher_display_name")
+
+    @publisher_display_name.setter
+    def publisher_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "publisher_display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ratingAverage")
+    def rating_average(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "rating_average")
+
+    @rating_average.setter
+    def rating_average(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "rating_average", value)
+
+    @_builtins.property
+    @pulumi.getter(name="smallIconUri")
+    def small_icon_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "small_icon_uri")
+
+    @small_icon_uri.setter
+    def small_icon_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "small_icon_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storeFronts")
+    def store_fronts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "store_fronts")
+
+    @store_fronts.setter
+    def store_fronts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "store_fronts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def summary(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "summary")
+
+    @summary.setter
+    def summary(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "summary", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueProductId")
+    def unique_product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "unique_product_id")
+
+    @unique_product_id.setter
+    def unique_product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "unique_product_id", value)
 
 

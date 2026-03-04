@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetVariableResult',
@@ -26,7 +27,7 @@ class GetVariableResult:
     """
     Definition of the variable.
     """
-    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, id=None, is_encrypted=None, last_modified_time=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, id=None, is_encrypted=None, last_modified_time=None, name=None, system_data=None, type=None, value=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -48,6 +49,9 @@ class GetVariableResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,7 +87,7 @@ class GetVariableResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -112,10 +116,18 @@ class GetVariableResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -141,6 +153,7 @@ class AwaitableGetVariableResult(GetVariableResult):
             is_encrypted=self.is_encrypted,
             last_modified_time=self.last_modified_time,
             name=self.name,
+            system_data=self.system_data,
             type=self.type,
             value=self.value)
 
@@ -152,9 +165,9 @@ def get_variable(automation_account_name: Optional[_builtins.str] = None,
     """
     Retrieve the variable identified by variable name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -176,6 +189,7 @@ def get_variable(automation_account_name: Optional[_builtins.str] = None,
         is_encrypted=pulumi.get(__ret__, 'is_encrypted'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_variable_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -185,9 +199,9 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[_builtins
     """
     Retrieve the variable identified by variable name.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2024-10-23.
 
-    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2024-10-23. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2015-10-31, 2019-06-01, 2020-01-13-preview, 2022-08-08, 2023-05-15-preview, 2023-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native automation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str automation_account_name: The name of the automation account.
@@ -208,5 +222,6 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[_builtins
         is_encrypted=pulumi.get(__response__, 'is_encrypted'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         name=pulumi.get(__response__, 'name'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type'),
         value=pulumi.get(__response__, 'value')))

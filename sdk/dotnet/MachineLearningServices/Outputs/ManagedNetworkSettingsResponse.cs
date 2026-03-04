@@ -17,17 +17,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class ManagedNetworkSettingsResponse
     {
         /// <summary>
-        /// A flag to indicate if monitoring needs to be enabled for the managed network firewall.
-        /// </summary>
-        public readonly bool? EnableFirewallLog;
-        /// <summary>
         /// A flag to indicate if monitoring needs to be enabled for the managed network.
         /// </summary>
         public readonly bool? EnableNetworkMonitor;
         /// <summary>
         /// Public IP address assigned to the Azure Firewall.
         /// </summary>
-        public readonly string? FirewallPublicIpAddress;
+        public readonly string FirewallPublicIpAddress;
         /// <summary>
         /// Firewall Sku used for FQDN Rules
         /// </summary>
@@ -41,6 +37,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? ManagedNetworkKind;
         public readonly string NetworkId;
+        /// <summary>
+        /// Dictionary of &lt;OutboundRule&gt;
+        /// </summary>
         public readonly ImmutableDictionary<string, object>? OutboundRules;
         /// <summary>
         /// Status of the Provisioning for the managed network of a machine learning workspace.
@@ -49,11 +48,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private ManagedNetworkSettingsResponse(
-            bool? enableFirewallLog,
-
             bool? enableNetworkMonitor,
 
-            string? firewallPublicIpAddress,
+            string firewallPublicIpAddress,
 
             string? firewallSku,
 
@@ -67,7 +64,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.ManagedNetworkProvisionStatusResponse? status)
         {
-            EnableFirewallLog = enableFirewallLog;
             EnableNetworkMonitor = enableNetworkMonitor;
             FirewallPublicIpAddress = firewallPublicIpAddress;
             FirewallSku = firewallSku;

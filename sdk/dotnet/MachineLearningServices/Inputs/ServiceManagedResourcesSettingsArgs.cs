@@ -12,9 +12,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
     public sealed class ServiceManagedResourcesSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The settings for the service managed cosmosdb account.
-        /// </summary>
         [Input("cosmosDb")]
         public Input<Inputs.CosmosDbSettingsArgs>? CosmosDb { get; set; }
 

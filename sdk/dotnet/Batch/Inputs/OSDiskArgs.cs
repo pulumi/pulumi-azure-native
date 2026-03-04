@@ -33,6 +33,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("ephemeralOSDiskSettings")]
         public Input<Inputs.DiffDiskSettingsArgs>? EphemeralOSDiskSettings { get; set; }
 
+        /// <summary>
+        /// The managed disk parameters.
+        /// </summary>
         [Input("managedDisk")]
         public Input<Inputs.ManagedDiskArgs>? ManagedDisk { get; set; }
 

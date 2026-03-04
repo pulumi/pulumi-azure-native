@@ -40,6 +40,16 @@ export const getFileShareUsageData: typeof import("./getFileShareUsageData").get
 export const getFileShareUsageDataOutput: typeof import("./getFileShareUsageData").getFileShareUsageDataOutput = null as any;
 utilities.lazyLoad(exports, ["getFileShareUsageData","getFileShareUsageDataOutput"], () => require("./getFileShareUsageData"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
 
 // Export enums:
 export * from "../types/enums/fileshares";
@@ -52,6 +62,8 @@ const _module = {
                 return new FileShare(name, <any>undefined, { urn })
             case "azure-native:fileshares:FileShareSnapshot":
                 return new FileShareSnapshot(name, <any>undefined, { urn })
+            case "azure-native:fileshares:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

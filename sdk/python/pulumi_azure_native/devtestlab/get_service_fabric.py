@@ -27,7 +27,7 @@ class GetServiceFabricResult:
     """
     A Service Fabric.
     """
-    def __init__(__self__, applicable_schedule=None, azure_api_version=None, environment_id=None, external_service_fabric_id=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, applicable_schedule=None, azure_api_version=None, environment_id=None, external_service_fabric_id=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, unique_identifier=None):
         if applicable_schedule and not isinstance(applicable_schedule, dict):
             raise TypeError("Expected argument 'applicable_schedule' to be a dict")
         pulumi.set(__self__, "applicable_schedule", applicable_schedule)
@@ -52,6 +52,9 @@ class GetServiceFabricResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -98,7 +101,7 @@ class GetServiceFabricResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The identifier of the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -106,7 +109,7 @@ class GetServiceFabricResult:
     @pulumi.getter
     def location(self) -> Optional[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -114,7 +117,7 @@ class GetServiceFabricResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -127,10 +130,18 @@ class GetServiceFabricResult:
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -138,7 +149,7 @@ class GetServiceFabricResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -165,6 +176,7 @@ class AwaitableGetServiceFabricResult(GetServiceFabricResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             unique_identifier=self.unique_identifier)
@@ -184,7 +196,7 @@ def get_service_fabric(expand: Optional[_builtins.str] = None,
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the ServiceFabric
+    :param _builtins.str name: The name of the service fabric.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str user_name: The name of the user profile.
     """
@@ -206,6 +218,7 @@ def get_service_fabric(expand: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
@@ -223,7 +236,7 @@ def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[_builtins.s
 
     :param _builtins.str expand: Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
     :param _builtins.str lab_name: The name of the lab.
-    :param _builtins.str name: The name of the ServiceFabric
+    :param _builtins.str name: The name of the service fabric.
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param _builtins.str user_name: The name of the user profile.
     """
@@ -244,6 +257,7 @@ def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[_builtins.s
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         unique_identifier=pulumi.get(__response__, 'unique_identifier')))

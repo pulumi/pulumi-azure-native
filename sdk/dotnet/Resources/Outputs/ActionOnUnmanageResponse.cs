@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.Resources.Outputs
     public sealed class ActionOnUnmanageResponse
     {
         /// <summary>
-        /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        /// Specifies an action for a newly unmanaged resource management group.
         /// </summary>
         public readonly string? ManagementGroups;
         /// <summary>
-        /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        /// Specifies an action for a newly unmanaged resource group.
         /// </summary>
         public readonly string? ResourceGroups;
         /// <summary>
-        /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        /// Specifies an action for a newly unmanaged resource.
         /// </summary>
         public readonly string Resources;
         /// <summary>

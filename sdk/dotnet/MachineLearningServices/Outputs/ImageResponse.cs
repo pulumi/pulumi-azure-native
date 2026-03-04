@@ -10,29 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
-    /// <summary>
-    /// Describes the Image Specifications
-    /// </summary>
     [OutputType]
     public sealed class ImageResponse
     {
         /// <summary>
-        /// Image reference
+        /// Image reference URL if type is docker. Environment name if type is azureml
         /// </summary>
         public readonly string? Reference;
         /// <summary>
-        /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+        /// Type of the image. Possible values are: docker - For docker images. azureml - For AzureML Environment images (custom and curated)
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Version of image being used. If latest then skip this field
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private ImageResponse(
             string? reference,
 
-            string? type)
+            string? type,
+
+            string? version)
         {
             Reference = reference;
             Type = type;
+            Version = version;
         }
     }
 }

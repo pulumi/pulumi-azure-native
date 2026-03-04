@@ -267,7 +267,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[_
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-01-01, 2025-05-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -305,7 +305,7 @@ def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Opt
 
     Uses Azure REST API version 2021-06-01.
 
-    Other available API versions: 2020-01-01, 2025-05-04-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-01-01, 2025-05-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str assessment_metadata_name: The Assessment Key - Unique key for the assessment type

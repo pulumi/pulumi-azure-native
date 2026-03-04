@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Azure Resource Manager resource envelope.
  *
- * Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+ * Uses Azure REST API version 2025-12-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
  *
- * Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ComponentContainer extends pulumi.CustomResource {
     /**
@@ -46,13 +46,13 @@ export class ComponentContainer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    declare public readonly componentContainerProperties: pulumi.Output<outputs.machinelearningservices.ComponentContainerResponse>;
-    /**
      * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.ComponentContainerPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -73,8 +73,8 @@ export class ComponentContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.componentContainerProperties === undefined && !opts.urn) {
-                throw new Error("Missing required property 'componentContainerProperties'");
+            if (args?.properties === undefined && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -82,8 +82,8 @@ export class ComponentContainer extends pulumi.CustomResource {
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["componentContainerProperties"] = args ? (args.componentContainerProperties ? pulumi.output(args.componentContainerProperties).apply(inputs.machinelearningservices.componentContainerArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.componentContainerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -91,13 +91,13 @@ export class ComponentContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["componentContainerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20220201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220501:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20231001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240101preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240401:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240401preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240701preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20241001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20241001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250101preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250401:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250401preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250601:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250701preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250901:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20251001preview:ComponentContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20220201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220501:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20231001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240101preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240401:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240401preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20240701preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20241001:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20241001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250101preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250401:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250401preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250601:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250701preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20250901:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20251001preview:ComponentContainer" }, { type: "azure-native:machinelearningservices/v20251201:ComponentContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentContainer.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,13 +108,13 @@ export class ComponentContainer extends pulumi.CustomResource {
  */
 export interface ComponentContainerArgs {
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    componentContainerProperties: pulumi.Input<inputs.machinelearningservices.ComponentContainerArgs>;
-    /**
      * Container name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [Required] Additional attributes of the entity.
+     */
+    properties: pulumi.Input<inputs.machinelearningservices.ComponentContainerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,13 @@ export const ActionRuleType = {
 export type ActionRuleType = (typeof ActionRuleType)[keyof typeof ActionRuleType];
 
 export const ActionType = {
+    /**
+     * AddActionGroups
+     */
     AddActionGroups: "AddActionGroups",
+    /**
+     * RemoveAllActionGroups
+     */
     RemoveAllActionGroups: "RemoveAllActionGroups",
 } as const;
 
@@ -44,12 +50,33 @@ export const AlertRuleState = {
 export type AlertRuleState = (typeof AlertRuleState)[keyof typeof AlertRuleState];
 
 export const DaysOfWeek = {
+    /**
+     * Sunday
+     */
     Sunday: "Sunday",
+    /**
+     * Monday
+     */
     Monday: "Monday",
+    /**
+     * Tuesday
+     */
     Tuesday: "Tuesday",
+    /**
+     * Wednesday
+     */
     Wednesday: "Wednesday",
+    /**
+     * Thursday
+     */
     Thursday: "Thursday",
+    /**
+     * Friday
+     */
     Friday: "Friday",
+    /**
+     * Saturday
+     */
     Saturday: "Saturday",
 } as const;
 
@@ -59,16 +86,49 @@ export const DaysOfWeek = {
 export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
 export const Field = {
+    /**
+     * Severity
+     */
     Severity: "Severity",
+    /**
+     * MonitorService
+     */
     MonitorService: "MonitorService",
+    /**
+     * MonitorCondition
+     */
     MonitorCondition: "MonitorCondition",
+    /**
+     * SignalType
+     */
     SignalType: "SignalType",
+    /**
+     * TargetResourceType
+     */
     TargetResourceType: "TargetResourceType",
+    /**
+     * TargetResource
+     */
     TargetResource: "TargetResource",
+    /**
+     * TargetResourceGroup
+     */
     TargetResourceGroup: "TargetResourceGroup",
+    /**
+     * AlertRuleId
+     */
     AlertRuleId: "AlertRuleId",
+    /**
+     * AlertRuleName
+     */
     AlertRuleName: "AlertRuleName",
+    /**
+     * Description
+     */
     Description: "Description",
+    /**
+     * AlertContext
+     */
     AlertContext: "AlertContext",
 } as const;
 
@@ -78,9 +138,21 @@ export const Field = {
 export type Field = (typeof Field)[keyof typeof Field];
 
 export const Operator = {
+    /**
+     * Equals
+     */
     Equals: "Equals",
+    /**
+     * NotEquals
+     */
     NotEquals: "NotEquals",
+    /**
+     * Contains
+     */
     Contains: "Contains",
+    /**
+     * DoesNotContain
+     */
     DoesNotContain: "DoesNotContain",
 } as const;
 
@@ -90,8 +162,17 @@ export const Operator = {
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const RecurrenceType = {
+    /**
+     * Daily
+     */
     Daily: "Daily",
+    /**
+     * Weekly
+     */
     Weekly: "Weekly",
+    /**
+     * Monthly
+     */
     Monthly: "Monthly",
 } as const;
 
