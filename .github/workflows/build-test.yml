@@ -68,7 +68,7 @@ jobs:
           skip_dotnet_and_java: "true"
 
       - name: Build schema and binaries
-        run: make codegen schema provider
+        run: make codegen schema generate_docs provider
 
       - name: Artifact capture
         uses: ./.github/actions/prerequisites-artifact-capture
