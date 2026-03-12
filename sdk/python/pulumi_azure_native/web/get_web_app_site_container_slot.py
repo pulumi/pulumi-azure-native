@@ -27,7 +27,7 @@ class GetWebAppSiteContainerSlotResult:
     """
     Container of a site
     """
-    def __init__(__self__, auth_type=None, azure_api_version=None, created_time=None, environment_variables=None, id=None, image=None, is_main=None, kind=None, last_modified_time=None, name=None, password_secret=None, start_up_command=None, target_port=None, type=None, user_managed_identity_client_id=None, user_name=None, volume_mounts=None):
+    def __init__(__self__, auth_type=None, azure_api_version=None, created_time=None, environment_variables=None, id=None, image=None, inherit_app_settings_and_connection_strings=None, is_main=None, kind=None, last_modified_time=None, name=None, password_secret=None, start_up_command=None, target_port=None, type=None, user_managed_identity_client_id=None, user_name=None, volume_mounts=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
@@ -46,6 +46,9 @@ class GetWebAppSiteContainerSlotResult:
         if image and not isinstance(image, str):
             raise TypeError("Expected argument 'image' to be a str")
         pulumi.set(__self__, "image", image)
+        if inherit_app_settings_and_connection_strings and not isinstance(inherit_app_settings_and_connection_strings, bool):
+            raise TypeError("Expected argument 'inherit_app_settings_and_connection_strings' to be a bool")
+        pulumi.set(__self__, "inherit_app_settings_and_connection_strings", inherit_app_settings_and_connection_strings)
         if is_main and not isinstance(is_main, bool):
             raise TypeError("Expected argument 'is_main' to be a bool")
         pulumi.set(__self__, "is_main", is_main)
@@ -127,6 +130,14 @@ class GetWebAppSiteContainerSlotResult:
         Image Name
         """
         return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="inheritAppSettingsAndConnectionStrings")
+    def inherit_app_settings_and_connection_strings(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "inherit_app_settings_and_connection_strings")
 
     @_builtins.property
     @pulumi.getter(name="isMain")
@@ -229,6 +240,7 @@ class AwaitableGetWebAppSiteContainerSlotResult(GetWebAppSiteContainerSlotResult
             environment_variables=self.environment_variables,
             id=self.id,
             image=self.image,
+            inherit_app_settings_and_connection_strings=self.inherit_app_settings_and_connection_strings,
             is_main=self.is_main,
             kind=self.kind,
             last_modified_time=self.last_modified_time,
@@ -250,9 +262,9 @@ def get_web_app_site_container_slot(container_name: Optional[_builtins.str] = No
     """
     Container of a site
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str container_name: Site Container Name
@@ -275,6 +287,7 @@ def get_web_app_site_container_slot(container_name: Optional[_builtins.str] = No
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         id=pulumi.get(__ret__, 'id'),
         image=pulumi.get(__ret__, 'image'),
+        inherit_app_settings_and_connection_strings=pulumi.get(__ret__, 'inherit_app_settings_and_connection_strings'),
         is_main=pulumi.get(__ret__, 'is_main'),
         kind=pulumi.get(__ret__, 'kind'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
@@ -294,9 +307,9 @@ def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input
     """
     Container of a site
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str container_name: Site Container Name
@@ -318,6 +331,7 @@ def get_web_app_site_container_slot_output(container_name: Optional[pulumi.Input
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         id=pulumi.get(__response__, 'id'),
         image=pulumi.get(__response__, 'image'),
+        inherit_app_settings_and_connection_strings=pulumi.get(__response__, 'inherit_app_settings_and_connection_strings'),
         is_main=pulumi.get(__response__, 'is_main'),
         kind=pulumi.get(__response__, 'kind'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),

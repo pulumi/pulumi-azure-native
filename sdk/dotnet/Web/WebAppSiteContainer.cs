@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Container of a site
     /// 
-    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
     /// 
-    /// Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSiteContainer")]
     public partial class WebAppSiteContainer : global::Pulumi.CustomResource
@@ -48,6 +48,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("image")]
         public Output<string> Image { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Output("inheritAppSettingsAndConnectionStrings")]
+        public Output<bool?> InheritAppSettingsAndConnectionStrings { get; private set; } = null!;
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the container is the main site container; &lt;code&gt;false&lt;/code&gt; otherwise.
@@ -197,6 +203,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Input("inheritAppSettingsAndConnectionStrings")]
+        public Input<bool>? InheritAppSettingsAndConnectionStrings { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the container is the main site container; &lt;code&gt;false&lt;/code&gt; otherwise.

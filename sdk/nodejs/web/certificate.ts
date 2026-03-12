@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * SSL certificate for an app.
  *
- * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -82,11 +82,11 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly issuer: pulumi.Output<string>;
     /**
-     * Key Vault Csm resource Id.
+     * Azure Key Vault Csm resource Id.
      */
     declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
-     * Key Vault secret name.
+     * Azure Key Vault secret name.
      */
     declare public readonly keyVaultSecretName: pulumi.Output<string | undefined>;
     /**
@@ -106,6 +106,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Certificate password.
+     */
+    declare public readonly password: pulumi.Output<string | undefined>;
+    /**
      * Pfx blob.
      */
     declare public readonly pfxBlob: pulumi.Output<string | undefined>;
@@ -118,7 +122,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly selfLink: pulumi.Output<string>;
     /**
-     * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+     * Resource ID of the associated App Service plan.
      */
     declare public readonly serverFarmId: pulumi.Output<string | undefined>;
     /**
@@ -205,6 +209,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
             resourceInputs["pfxBlob"] = undefined /*out*/;
             resourceInputs["publicKeyHash"] = undefined /*out*/;
             resourceInputs["selfLink"] = undefined /*out*/;
@@ -240,11 +245,11 @@ export interface CertificateArgs {
      */
     hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key Vault Csm resource Id.
+     * Azure Key Vault Csm resource Id.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
-     * Key Vault secret name.
+     * Azure Key Vault secret name.
      */
     keyVaultSecretName?: pulumi.Input<string>;
     /**
@@ -272,7 +277,7 @@ export interface CertificateArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+     * Resource ID of the associated App Service plan.
      */
     serverFarmId?: pulumi.Input<string>;
     /**

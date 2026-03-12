@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppResult> InvokeAsync(GetWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets the details of a web, mobile, or API app.
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());
@@ -103,6 +103,14 @@ namespace Pulumi.AzureNative.Web
         /// &lt;code&gt;true&lt;/code&gt; to enable client affinity; &lt;code&gt;false&lt;/code&gt; to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is &lt;code&gt;true&lt;/code&gt;.
         /// </summary>
         public readonly bool? ClientAffinityEnabled;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client affinity partitioning using CHIPS cookies, this will add the &lt;code&gt;partitioned&lt;/code&gt; property to the affinity cookies; &lt;code&gt;false&lt;/code&gt; to stop sending partitioned affinity cookies. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? ClientAffinityPartitioningEnabled;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to override client affinity cookie domain with X-Forwarded-Host request header. &lt;code&gt;false&lt;/code&gt; to use default domain. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? ClientAffinityProxyEnabled;
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to enable client certificate authentication (TLS mutual authentication); otherwise, &lt;code&gt;false&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
@@ -247,6 +255,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string OutboundIpAddresses;
         /// <summary>
+        /// Property to configure various outbound traffic routing options over virtual network for a site
+        /// </summary>
+        public readonly Outputs.OutboundVnetRoutingResponse? OutboundVnetRouting;
+        /// <summary>
         /// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
@@ -283,10 +295,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? ServerFarmId;
         /// <summary>
-        /// Configuration of the app.
-        /// </summary>
-        public readonly Outputs.SiteConfigResponse? SiteConfig;
-        /// <summary>
         /// Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
         /// </summary>
         public readonly string Sku;
@@ -294,6 +302,10 @@ namespace Pulumi.AzureNative.Web
         /// Status of the last deployment slot swap operation.
         /// </summary>
         public readonly Outputs.SlotSwapStatusResponse SlotSwapStatus;
+        /// <summary>
+        /// Whether to enable ssh access.
+        /// </summary>
+        public readonly bool? SshEnabled;
         /// <summary>
         /// Current state of the app.
         /// </summary>
@@ -332,22 +344,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
         /// <summary>
-        /// To enable Backup and Restore operations over virtual network
-        /// </summary>
-        public readonly bool? VnetBackupRestoreEnabled;
-        /// <summary>
-        /// To enable accessing content over virtual network
-        /// </summary>
-        public readonly bool? VnetContentShareEnabled;
-        /// <summary>
-        /// To enable pulling image over Virtual Network
-        /// </summary>
-        public readonly bool? VnetImagePullEnabled;
-        /// <summary>
-        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-        /// </summary>
-        public readonly bool? VnetRouteAllEnabled;
-        /// <summary>
         /// Workload profile name for function app to execute on.
         /// </summary>
         public readonly string? WorkloadProfileName;
@@ -361,6 +357,10 @@ namespace Pulumi.AzureNative.Web
             string azureApiVersion,
 
             bool? clientAffinityEnabled,
+
+            bool? clientAffinityPartitioningEnabled,
+
+            bool? clientAffinityProxyEnabled,
 
             bool? clientCertEnabled,
 
@@ -430,6 +430,8 @@ namespace Pulumi.AzureNative.Web
 
             string outboundIpAddresses,
 
+            Outputs.OutboundVnetRoutingResponse? outboundVnetRouting,
+
             string possibleOutboundIpAddresses,
 
             string? publicNetworkAccess,
@@ -448,11 +450,11 @@ namespace Pulumi.AzureNative.Web
 
             string? serverFarmId,
 
-            Outputs.SiteConfigResponse? siteConfig,
-
             string sku,
 
             Outputs.SlotSwapStatusResponse slotSwapStatus,
+
+            bool? sshEnabled,
 
             string state,
 
@@ -472,20 +474,14 @@ namespace Pulumi.AzureNative.Web
 
             string? virtualNetworkSubnetId,
 
-            bool? vnetBackupRestoreEnabled,
-
-            bool? vnetContentShareEnabled,
-
-            bool? vnetImagePullEnabled,
-
-            bool? vnetRouteAllEnabled,
-
             string? workloadProfileName)
         {
             AutoGeneratedDomainNameLabelScope = autoGeneratedDomainNameLabelScope;
             AvailabilityState = availabilityState;
             AzureApiVersion = azureApiVersion;
             ClientAffinityEnabled = clientAffinityEnabled;
+            ClientAffinityPartitioningEnabled = clientAffinityPartitioningEnabled;
+            ClientAffinityProxyEnabled = clientAffinityProxyEnabled;
             ClientCertEnabled = clientCertEnabled;
             ClientCertExclusionPaths = clientCertExclusionPaths;
             ClientCertMode = clientCertMode;
@@ -520,6 +516,7 @@ namespace Pulumi.AzureNative.Web
             MaxNumberOfWorkers = maxNumberOfWorkers;
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
+            OutboundVnetRouting = outboundVnetRouting;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
             PublicNetworkAccess = publicNetworkAccess;
             RedundancyMode = redundancyMode;
@@ -529,9 +526,9 @@ namespace Pulumi.AzureNative.Web
             ResourceGroup = resourceGroup;
             ScmSiteAlsoStopped = scmSiteAlsoStopped;
             ServerFarmId = serverFarmId;
-            SiteConfig = siteConfig;
             Sku = sku;
             SlotSwapStatus = slotSwapStatus;
+            SshEnabled = sshEnabled;
             State = state;
             StorageAccountRequired = storageAccountRequired;
             SuspendedTill = suspendedTill;
@@ -541,10 +538,6 @@ namespace Pulumi.AzureNative.Web
             Type = type;
             UsageState = usageState;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
-            VnetBackupRestoreEnabled = vnetBackupRestoreEnabled;
-            VnetContentShareEnabled = vnetContentShareEnabled;
-            VnetImagePullEnabled = vnetImagePullEnabled;
-            VnetRouteAllEnabled = vnetRouteAllEnabled;
             WorkloadProfileName = workloadProfileName;
         }
     }

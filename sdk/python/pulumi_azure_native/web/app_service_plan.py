@@ -22,6 +22,7 @@ __all__ = ['AppServicePlanArgs', 'AppServicePlan']
 class AppServicePlanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 async_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  elastic_scale_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -47,6 +48,8 @@ class AppServicePlanArgs:
         The set of arguments for constructing a AppServicePlan resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.bool] async_scaling_enabled: If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+               If <code>false</code>, this App Service Plan will only attempt sync scaling.
         :param pulumi.Input[_builtins.bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Extended Location.
         :param pulumi.Input[_builtins.str] free_offer_expiration_time: The time when the server farm free offer expires.
@@ -72,6 +75,8 @@ class AppServicePlanArgs:
                If <code>false</code>, this App Service Plan will not perform availability zone balancing.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if async_scaling_enabled is not None:
+            pulumi.set(__self__, "async_scaling_enabled", async_scaling_enabled)
         if elastic_scale_enabled is not None:
             pulumi.set(__self__, "elastic_scale_enabled", elastic_scale_enabled)
         if extended_location is not None:
@@ -136,6 +141,19 @@ class AppServicePlanArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncScalingEnabled")
+    def async_scaling_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+        If <code>false</code>, this App Service Plan will only attempt sync scaling.
+        """
+        return pulumi.get(self, "async_scaling_enabled")
+
+    @async_scaling_enabled.setter
+    def async_scaling_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "async_scaling_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticScaleEnabled")
@@ -398,6 +416,7 @@ class AppServicePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 async_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  elastic_scale_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -424,13 +443,15 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] async_scaling_enabled: If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+               If <code>false</code>, this App Service Plan will only attempt sync scaling.
         :param pulumi.Input[_builtins.bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: Extended Location.
         :param pulumi.Input[_builtins.str] free_offer_expiration_time: The time when the server farm free offer expires.
@@ -465,9 +486,9 @@ class AppServicePlan(pulumi.CustomResource):
         """
         App Service plan.
 
-        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -485,6 +506,7 @@ class AppServicePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 async_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  elastic_scale_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  free_offer_expiration_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -516,6 +538,7 @@ class AppServicePlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
+            __props__.__dict__["async_scaling_enabled"] = async_scaling_enabled
             __props__.__dict__["elastic_scale_enabled"] = elastic_scale_enabled
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["free_offer_expiration_time"] = free_offer_expiration_time
@@ -584,6 +607,7 @@ class AppServicePlan(pulumi.CustomResource):
 
         __props__ = AppServicePlanArgs.__new__(AppServicePlanArgs)
 
+        __props__.__dict__["async_scaling_enabled"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["elastic_scale_enabled"] = None
         __props__.__dict__["extended_location"] = None
@@ -616,6 +640,15 @@ class AppServicePlan(pulumi.CustomResource):
         __props__.__dict__["worker_tier_name"] = None
         __props__.__dict__["zone_redundant"] = None
         return AppServicePlan(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncScalingEnabled")
+    def async_scaling_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+        If <code>false</code>, this App Service Plan will only attempt sync scaling.
+        """
+        return pulumi.get(self, "async_scaling_enabled")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")

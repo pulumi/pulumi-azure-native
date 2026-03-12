@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets the details of a web, mobile, or API app.
  *
- * Uses Azure REST API version 2024-04-01.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWebApp(args: GetWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +53,14 @@ export interface GetWebAppResult {
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
     readonly clientAffinityEnabled?: boolean;
+    /**
+     * <code>true</code> to enable client affinity partitioning using CHIPS cookies, this will add the <code>partitioned</code> property to the affinity cookies; <code>false</code> to stop sending partitioned affinity cookies. Default is <code>false</code>.
+     */
+    readonly clientAffinityPartitioningEnabled?: boolean;
+    /**
+     * <code>true</code> to override client affinity cookie domain with X-Forwarded-Host request header. <code>false</code> to use default domain. Default is <code>false</code>.
+     */
+    readonly clientAffinityProxyEnabled?: boolean;
     /**
      * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
      */
@@ -197,6 +205,10 @@ export interface GetWebAppResult {
      */
     readonly outboundIpAddresses: string;
     /**
+     * Property to configure various outbound traffic routing options over virtual network for a site
+     */
+    readonly outboundVnetRouting?: outputs.web.OutboundVnetRoutingResponse;
+    /**
      * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
      */
     readonly possibleOutboundIpAddresses: string;
@@ -233,10 +245,6 @@ export interface GetWebAppResult {
      */
     readonly serverFarmId?: string;
     /**
-     * Configuration of the app.
-     */
-    readonly siteConfig?: outputs.web.SiteConfigResponse;
-    /**
      * Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
      */
     readonly sku: string;
@@ -244,6 +252,10 @@ export interface GetWebAppResult {
      * Status of the last deployment slot swap operation.
      */
     readonly slotSwapStatus: outputs.web.SlotSwapStatusResponse;
+    /**
+     * Whether to enable ssh access.
+     */
+    readonly sshEnabled?: boolean;
     /**
      * Current state of the app.
      */
@@ -282,22 +294,6 @@ export interface GetWebAppResult {
      */
     readonly virtualNetworkSubnetId?: string;
     /**
-     * To enable Backup and Restore operations over virtual network
-     */
-    readonly vnetBackupRestoreEnabled?: boolean;
-    /**
-     * To enable accessing content over virtual network
-     */
-    readonly vnetContentShareEnabled?: boolean;
-    /**
-     * To enable pulling image over Virtual Network
-     */
-    readonly vnetImagePullEnabled?: boolean;
-    /**
-     * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-     */
-    readonly vnetRouteAllEnabled?: boolean;
-    /**
      * Workload profile name for function app to execute on.
      */
     readonly workloadProfileName?: string;
@@ -305,9 +301,9 @@ export interface GetWebAppResult {
 /**
  * Description for Gets the details of a web, mobile, or API app.
  *
- * Uses Azure REST API version 2024-04-01.
+ * Uses Azure REST API version 2024-11-01.
  *
- * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

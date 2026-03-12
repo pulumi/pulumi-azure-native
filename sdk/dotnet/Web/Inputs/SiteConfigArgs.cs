@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         private InputList<Inputs.NameValuePairArgs>? _appSettings;
 
         /// <summary>
-        /// Application settings.
+        /// Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         /// </summary>
         public InputList<Inputs.NameValuePairArgs> AppSettings
         {
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         private InputList<Inputs.ConnStringInfoArgs>? _connectionStrings;
 
         /// <summary>
-        /// Connection strings.
+        /// Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         /// </summary>
         public InputList<Inputs.ConnStringInfoArgs> ConnectionStrings
         {
@@ -192,6 +192,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// </summary>
         [Input("http20Enabled")]
         public Input<bool>? Http20Enabled { get; set; }
+
+        /// <summary>
+        /// Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
+        /// </summary>
+        [Input("http20ProxyFlag")]
+        public Input<int>? Http20ProxyFlag { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if HTTP logging is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;.
@@ -504,6 +510,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         public SiteConfigArgs()
         {
             Http20Enabled = true;
+            Http20ProxyFlag = 0;
             LocalMySqlEnabled = false;
             NetFrameworkVersion = "v4.6";
         }

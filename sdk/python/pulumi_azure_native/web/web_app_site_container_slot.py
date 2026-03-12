@@ -30,6 +30,7 @@ class WebAppSiteContainerSlotArgs:
                  auth_type: Optional[pulumi.Input['AuthType']] = None,
                  container_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 inherit_app_settings_and_connection_strings: Optional[pulumi.Input[_builtins.bool]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  password_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  start_up_command: Optional[pulumi.Input[_builtins.str]] = None,
@@ -48,6 +49,7 @@ class WebAppSiteContainerSlotArgs:
         :param pulumi.Input['AuthType'] auth_type: Auth Type
         :param pulumi.Input[_builtins.str] container_name: Site Container Name
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables
+        :param pulumi.Input[_builtins.bool] inherit_app_settings_and_connection_strings: <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] password_secret: Password Secret
         :param pulumi.Input[_builtins.str] start_up_command: StartUp Command
@@ -67,6 +69,8 @@ class WebAppSiteContainerSlotArgs:
             pulumi.set(__self__, "container_name", container_name)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if inherit_app_settings_and_connection_strings is not None:
+            pulumi.set(__self__, "inherit_app_settings_and_connection_strings", inherit_app_settings_and_connection_strings)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if password_secret is not None:
@@ -179,6 +183,18 @@ class WebAppSiteContainerSlotArgs:
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
+    @pulumi.getter(name="inheritAppSettingsAndConnectionStrings")
+    def inherit_app_settings_and_connection_strings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "inherit_app_settings_and_connection_strings")
+
+    @inherit_app_settings_and_connection_strings.setter
+    def inherit_app_settings_and_connection_strings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "inherit_app_settings_and_connection_strings", value)
+
+    @_builtins.property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -273,6 +289,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
                  container_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
                  image: Optional[pulumi.Input[_builtins.str]] = None,
+                 inherit_app_settings_and_connection_strings: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_main: Optional[pulumi.Input[_builtins.bool]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -288,9 +305,9 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         """
         Container of a site
 
-        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -299,6 +316,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_name: Site Container Name
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]] environment_variables: List of environment variables
         :param pulumi.Input[_builtins.str] image: Image Name
+        :param pulumi.Input[_builtins.bool] inherit_app_settings_and_connection_strings: <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
         :param pulumi.Input[_builtins.bool] is_main: <code>true</code> if the container is the main site container; <code>false</code> otherwise.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] name: Name of the app.
@@ -320,9 +338,9 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         """
         Container of a site
 
-        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-12-01.
 
-        Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -344,6 +362,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
                  container_name: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentVariableArgs', 'EnvironmentVariableArgsDict']]]]] = None,
                  image: Optional[pulumi.Input[_builtins.str]] = None,
+                 inherit_app_settings_and_connection_strings: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_main: Optional[pulumi.Input[_builtins.bool]] = None,
                  kind: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -370,6 +389,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
             if image is None and not opts.urn:
                 raise TypeError("Missing required property 'image'")
             __props__.__dict__["image"] = image
+            __props__.__dict__["inherit_app_settings_and_connection_strings"] = inherit_app_settings_and_connection_strings
             if is_main is None and not opts.urn:
                 raise TypeError("Missing required property 'is_main'")
             __props__.__dict__["is_main"] = is_main
@@ -422,6 +442,7 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         __props__.__dict__["created_time"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["image"] = None
+        __props__.__dict__["inherit_app_settings_and_connection_strings"] = None
         __props__.__dict__["is_main"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["last_modified_time"] = None
@@ -474,6 +495,14 @@ class WebAppSiteContainerSlot(pulumi.CustomResource):
         Image Name
         """
         return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="inheritAppSettingsAndConnectionStrings")
+    def inherit_app_settings_and_connection_strings(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        <code>true</code> if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; <code>false</code> otherwise.
+        """
+        return pulumi.get(self, "inherit_app_settings_and_connection_strings")
 
     @_builtins.property
     @pulumi.getter(name="isMain")

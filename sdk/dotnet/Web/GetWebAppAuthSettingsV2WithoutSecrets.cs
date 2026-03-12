@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets site's Authentication / Authorization settings for apps via the V2 format
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppAuthSettingsV2WithoutSecretsResult> InvokeAsync(GetWebAppAuthSettingsV2WithoutSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppAuthSettingsV2WithoutSecretsResult>("azure-native:web:getWebAppAuthSettingsV2WithoutSecrets", args ?? new GetWebAppAuthSettingsV2WithoutSecretsArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets site's Authentication / Authorization settings for apps via the V2 format
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppAuthSettingsV2WithoutSecretsResult> Invoke(GetWebAppAuthSettingsV2WithoutSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAuthSettingsV2WithoutSecretsResult>("azure-native:web:getWebAppAuthSettingsV2WithoutSecrets", args ?? new GetWebAppAuthSettingsV2WithoutSecretsInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Description for Gets site's Authentication / Authorization settings for apps via the V2 format
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppAuthSettingsV2WithoutSecretsResult> Invoke(GetWebAppAuthSettingsV2WithoutSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAuthSettingsV2WithoutSecretsResult>("azure-native:web:getWebAppAuthSettingsV2WithoutSecrets", args ?? new GetWebAppAuthSettingsV2WithoutSecretsInvokeArgs(), options.WithDefaults());

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Environment variable value
+        /// The value of this environment variable must be the name of an AppSetting. The actual value of the environment variable in container will be retrieved from the specified AppSetting at runtime. If the AppSetting is not found, the value will be set to an empty string in the container at runtime.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

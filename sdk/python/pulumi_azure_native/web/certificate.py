@@ -40,14 +40,14 @@ class CertificateArgs:
         :param pulumi.Input[_builtins.str] canonical_name: CNAME of the certificate to be issued via free certificate
         :param pulumi.Input[_builtins.str] domain_validation_method: Method of domain validation for free cert
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_names: Host names the certificate applies to.
-        :param pulumi.Input[_builtins.str] key_vault_id: Key Vault Csm resource Id.
-        :param pulumi.Input[_builtins.str] key_vault_secret_name: Key Vault secret name.
+        :param pulumi.Input[_builtins.str] key_vault_id: Azure Key Vault Csm resource Id.
+        :param pulumi.Input[_builtins.str] key_vault_secret_name: Azure Key Vault secret name.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
         :param pulumi.Input[_builtins.str] name: Name of the certificate.
         :param pulumi.Input[_builtins.str] password: Certificate password.
         :param pulumi.Input[_builtins.str] pfx_blob: Pfx blob.
-        :param pulumi.Input[_builtins.str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        :param pulumi.Input[_builtins.str] server_farm_id: Resource ID of the associated App Service plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -128,7 +128,7 @@ class CertificateArgs:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Key Vault Csm resource Id.
+        Azure Key Vault Csm resource Id.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -140,7 +140,7 @@ class CertificateArgs:
     @pulumi.getter(name="keyVaultSecretName")
     def key_vault_secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Key Vault secret name.
+        Azure Key Vault secret name.
         """
         return pulumi.get(self, "key_vault_secret_name")
 
@@ -212,7 +212,7 @@ class CertificateArgs:
     @pulumi.getter(name="serverFarmId")
     def server_farm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        Resource ID of the associated App Service plan.
         """
         return pulumi.get(self, "server_farm_id")
 
@@ -256,9 +256,9 @@ class Certificate(pulumi.CustomResource):
         """
         SSL certificate for an app.
 
-        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -266,15 +266,15 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] canonical_name: CNAME of the certificate to be issued via free certificate
         :param pulumi.Input[_builtins.str] domain_validation_method: Method of domain validation for free cert
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_names: Host names the certificate applies to.
-        :param pulumi.Input[_builtins.str] key_vault_id: Key Vault Csm resource Id.
-        :param pulumi.Input[_builtins.str] key_vault_secret_name: Key Vault secret name.
+        :param pulumi.Input[_builtins.str] key_vault_id: Azure Key Vault Csm resource Id.
+        :param pulumi.Input[_builtins.str] key_vault_secret_name: Azure Key Vault secret name.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
         :param pulumi.Input[_builtins.str] name: Name of the certificate.
         :param pulumi.Input[_builtins.str] password: Certificate password.
         :param pulumi.Input[_builtins.str] pfx_blob: Pfx blob.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        :param pulumi.Input[_builtins.str] server_farm_id: Resource ID of the associated App Service plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         ...
@@ -286,9 +286,9 @@ class Certificate(pulumi.CustomResource):
         """
         SSL certificate for an app.
 
-        Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
         :param str resource_name: The name of the resource.
@@ -398,6 +398,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["password"] = None
         __props__.__dict__["pfx_blob"] = None
         __props__.__dict__["public_key_hash"] = None
         __props__.__dict__["self_link"] = None
@@ -494,7 +495,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Key Vault Csm resource Id.
+        Azure Key Vault Csm resource Id.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -502,7 +503,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultSecretName")
     def key_vault_secret_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Key Vault secret name.
+        Azure Key Vault secret name.
         """
         return pulumi.get(self, "key_vault_secret_name")
 
@@ -539,6 +540,14 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Certificate password.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
     @pulumi.getter(name="pfxBlob")
     def pfx_blob(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -566,7 +575,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="serverFarmId")
     def server_farm_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        Resource ID of the associated App Service plan.
         """
         return pulumi.get(self, "server_farm_id")
 

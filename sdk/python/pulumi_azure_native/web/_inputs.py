@@ -224,6 +224,8 @@ __all__ = [
     'OpenIdConnectLoginArgsDict',
     'OpenIdConnectRegistrationArgs',
     'OpenIdConnectRegistrationArgsDict',
+    'OutboundVnetRoutingArgs',
+    'OutboundVnetRoutingArgsDict',
     'PrivateLinkConnectionStateArgs',
     'PrivateLinkConnectionStateArgsDict',
     'PushSettingsArgs',
@@ -5350,7 +5352,7 @@ class EnvironmentVariableArgsDict(TypedDict):
     """
     value: pulumi.Input[_builtins.str]
     """
-    Environment variable value
+    The value of this environment variable must be the name of an AppSetting. The actual value of the environment variable in container will be retrieved from the specified AppSetting at runtime. If the AppSetting is not found, the value will be set to an empty string in the container at runtime.
     """
 
 @pulumi.input_type
@@ -5360,7 +5362,7 @@ class EnvironmentVariableArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] name: Environment variable name
-        :param pulumi.Input[_builtins.str] value: Environment variable value
+        :param pulumi.Input[_builtins.str] value: The value of this environment variable must be the name of an AppSetting. The actual value of the environment variable in container will be retrieved from the specified AppSetting at runtime. If the AppSetting is not found, the value will be set to an empty string in the container at runtime.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -5381,7 +5383,7 @@ class EnvironmentVariableArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Environment variable value
+        The value of this environment variable must be the name of an AppSetting. The actual value of the environment variable in container will be retrieved from the specified AppSetting at runtime. If the AppSetting is not found, the value will be set to an empty string in the container at runtime.
         """
         return pulumi.get(self, "value")
 
@@ -8610,6 +8612,120 @@ class OpenIdConnectRegistrationArgs:
         pulumi.set(self, "open_id_connect_configuration", value)
 
 
+class OutboundVnetRoutingArgsDict(TypedDict):
+    """
+    Outbound traffic options over virtual network.
+    """
+    all_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
+    """
+    application_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
+    """
+    backup_restore_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
+    """
+    content_share_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables accessing content over virtual network. Previously called VnetContentShareEnabled
+    """
+    image_pull_traffic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
+    """
+
+@pulumi.input_type
+class OutboundVnetRoutingArgs:
+    def __init__(__self__, *,
+                 all_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 application_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 backup_restore_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 content_share_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 image_pull_traffic: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Outbound traffic options over virtual network.
+
+        :param pulumi.Input[_builtins.bool] all_traffic: Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
+        :param pulumi.Input[_builtins.bool] application_traffic: This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
+        :param pulumi.Input[_builtins.bool] backup_restore_traffic: Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
+        :param pulumi.Input[_builtins.bool] content_share_traffic: Enables accessing content over virtual network. Previously called VnetContentShareEnabled
+        :param pulumi.Input[_builtins.bool] image_pull_traffic: Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
+        """
+        if all_traffic is not None:
+            pulumi.set(__self__, "all_traffic", all_traffic)
+        if application_traffic is not None:
+            pulumi.set(__self__, "application_traffic", application_traffic)
+        if backup_restore_traffic is not None:
+            pulumi.set(__self__, "backup_restore_traffic", backup_restore_traffic)
+        if content_share_traffic is not None:
+            pulumi.set(__self__, "content_share_traffic", content_share_traffic)
+        if image_pull_traffic is not None:
+            pulumi.set(__self__, "image_pull_traffic", image_pull_traffic)
+
+    @_builtins.property
+    @pulumi.getter(name="allTraffic")
+    def all_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
+        """
+        return pulumi.get(self, "all_traffic")
+
+    @all_traffic.setter
+    def all_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "all_traffic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationTraffic")
+    def application_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
+        """
+        return pulumi.get(self, "application_traffic")
+
+    @application_traffic.setter
+    def application_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "application_traffic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupRestoreTraffic")
+    def backup_restore_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
+        """
+        return pulumi.get(self, "backup_restore_traffic")
+
+    @backup_restore_traffic.setter
+    def backup_restore_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "backup_restore_traffic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentShareTraffic")
+    def content_share_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables accessing content over virtual network. Previously called VnetContentShareEnabled
+        """
+        return pulumi.get(self, "content_share_traffic")
+
+    @content_share_traffic.setter
+    def content_share_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "content_share_traffic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imagePullTraffic")
+    def image_pull_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
+        """
+        return pulumi.get(self, "image_pull_traffic")
+
+    @image_pull_traffic.setter
+    def image_pull_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "image_pull_traffic", value)
+
+
 class PrivateLinkConnectionStateArgsDict(TypedDict):
     """
     The state of a private link connection
@@ -9124,7 +9240,7 @@ class SiteConfigArgsDict(TypedDict):
     """
     app_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgsDict']]]]
     """
-    Application settings.
+    Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
     """
     auto_heal_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
@@ -9144,7 +9260,7 @@ class SiteConfigArgsDict(TypedDict):
     """
     connection_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgsDict']]]]
     """
-    Connection strings.
+    Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
     """
     cors: NotRequired[pulumi.Input['CorsSettingsArgsDict']]
     """
@@ -9197,6 +9313,10 @@ class SiteConfigArgsDict(TypedDict):
     http20_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Http20Enabled: configures a web site to allow clients to connect over http2.0
+    """
+    http20_proxy_flag: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
     """
     http_logging_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
@@ -9416,6 +9536,7 @@ class SiteConfigArgs:
                  handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]] = None,
                  health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
                  http20_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 http20_proxy_flag: Optional[pulumi.Input[_builtins.int]] = None,
                  http_logging_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
                  ip_security_restrictions_default_action: Optional[pulumi.Input[Union[_builtins.str, 'DefaultAction']]] = None,
@@ -9472,12 +9593,12 @@ class SiteConfigArgs:
         :param pulumi.Input['ApiDefinitionInfoArgs'] api_definition: Information about the formal API definition for the app.
         :param pulumi.Input['ApiManagementConfigArgs'] api_management_config: Azure API management settings linked to the app.
         :param pulumi.Input[_builtins.str] app_command_line: App command line to launch.
-        :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] app_settings: Application settings.
+        :param pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]] app_settings: Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         :param pulumi.Input[_builtins.bool] auto_heal_enabled: <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
         :param pulumi.Input['AutoHealRulesArgs'] auto_heal_rules: Auto Heal rules.
         :param pulumi.Input[_builtins.str] auto_swap_slot_name: Auto-swap slot name.
         :param pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]] azure_storage_accounts: List of Azure Storage Accounts.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]] connection_strings: Connection strings.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]] connection_strings: Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         :param pulumi.Input['CorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_documents: Default documents.
         :param pulumi.Input[_builtins.bool] detailed_error_logging_enabled: <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
@@ -9494,6 +9615,7 @@ class SiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]] handler_mappings: Handler mappings.
         :param pulumi.Input[_builtins.str] health_check_path: Health check path
         :param pulumi.Input[_builtins.bool] http20_enabled: Http20Enabled: configures a web site to allow clients to connect over http2.0
+        :param pulumi.Input[_builtins.int] http20_proxy_flag: Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
         :param pulumi.Input[_builtins.bool] http_logging_enabled: <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
         :param pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]] ip_security_restrictions: IP security restrictions for main.
         :param pulumi.Input[Union[_builtins.str, 'DefaultAction']] ip_security_restrictions_default_action: Default action for main access restriction if no rules are matched.
@@ -9594,6 +9716,10 @@ class SiteConfigArgs:
             http20_enabled = True
         if http20_enabled is not None:
             pulumi.set(__self__, "http20_enabled", http20_enabled)
+        if http20_proxy_flag is None:
+            http20_proxy_flag = 0
+        if http20_proxy_flag is not None:
+            pulumi.set(__self__, "http20_proxy_flag", http20_proxy_flag)
         if http_logging_enabled is not None:
             pulumi.set(__self__, "http_logging_enabled", http_logging_enabled)
         if ip_security_restrictions is not None:
@@ -9769,7 +9895,7 @@ class SiteConfigArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]]:
         """
-        Application settings.
+        Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         """
         return pulumi.get(self, "app_settings")
 
@@ -9829,7 +9955,7 @@ class SiteConfigArgs:
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]]:
         """
-        Connection strings.
+        Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         """
         return pulumi.get(self, "connection_strings")
 
@@ -9984,6 +10110,18 @@ class SiteConfigArgs:
     @http20_enabled.setter
     def http20_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "http20_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="http20ProxyFlag")
+    def http20_proxy_flag(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
+        """
+        return pulumi.get(self, "http20_proxy_flag")
+
+    @http20_proxy_flag.setter
+    def http20_proxy_flag(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "http20_proxy_flag", value)
 
     @_builtins.property
     @pulumi.getter(name="httpLoggingEnabled")

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWebAppSiteContainerResult> InvokeAsync(GetWebAppSiteContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Container of a site
         /// 
-        /// Uses Azure REST API version 2024-04-01.
+        /// Uses Azure REST API version 2024-11-01.
         /// 
-        /// Other available API versions: 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
@@ -124,6 +124,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Image;
         /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if all AppSettings and ConnectionStrings have to be passed to the container as environment variables; &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        public readonly bool? InheritAppSettingsAndConnectionStrings;
+        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the container is the main site container; &lt;code&gt;false&lt;/code&gt; otherwise.
         /// </summary>
         public readonly bool IsMain;
@@ -182,6 +186,8 @@ namespace Pulumi.AzureNative.Web
 
             string image,
 
+            bool? inheritAppSettingsAndConnectionStrings,
+
             bool isMain,
 
             string? kind,
@@ -210,6 +216,7 @@ namespace Pulumi.AzureNative.Web
             EnvironmentVariables = environmentVariables;
             Id = id;
             Image = image;
+            InheritAppSettingsAndConnectionStrings = inheritAppSettingsAndConnectionStrings;
             IsMain = isMain;
             Kind = kind;
             LastModifiedTime = lastModifiedTime;

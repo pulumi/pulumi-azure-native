@@ -27,7 +27,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, sku=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, vnet_backup_restore_enabled=None, vnet_content_share_enabled=None, vnet_image_pull_enabled=None, vnet_route_all_enabled=None, workload_profile_name=None):
+    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_affinity_partitioning_enabled=None, client_affinity_proxy_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, outbound_vnet_routing=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, sku=None, slot_swap_status=None, ssh_enabled=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, workload_profile_name=None):
         if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
             raise TypeError("Expected argument 'auto_generated_domain_name_label_scope' to be a str")
         pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
@@ -40,6 +40,12 @@ class GetWebAppSlotResult:
         if client_affinity_enabled and not isinstance(client_affinity_enabled, bool):
             raise TypeError("Expected argument 'client_affinity_enabled' to be a bool")
         pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+        if client_affinity_partitioning_enabled and not isinstance(client_affinity_partitioning_enabled, bool):
+            raise TypeError("Expected argument 'client_affinity_partitioning_enabled' to be a bool")
+        pulumi.set(__self__, "client_affinity_partitioning_enabled", client_affinity_partitioning_enabled)
+        if client_affinity_proxy_enabled and not isinstance(client_affinity_proxy_enabled, bool):
+            raise TypeError("Expected argument 'client_affinity_proxy_enabled' to be a bool")
+        pulumi.set(__self__, "client_affinity_proxy_enabled", client_affinity_proxy_enabled)
         if client_cert_enabled and not isinstance(client_cert_enabled, bool):
             raise TypeError("Expected argument 'client_cert_enabled' to be a bool")
         pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
@@ -142,6 +148,9 @@ class GetWebAppSlotResult:
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
             raise TypeError("Expected argument 'outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+        if outbound_vnet_routing and not isinstance(outbound_vnet_routing, dict):
+            raise TypeError("Expected argument 'outbound_vnet_routing' to be a dict")
+        pulumi.set(__self__, "outbound_vnet_routing", outbound_vnet_routing)
         if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
             raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
@@ -169,15 +178,15 @@ class GetWebAppSlotResult:
         if server_farm_id and not isinstance(server_farm_id, str):
             raise TypeError("Expected argument 'server_farm_id' to be a str")
         pulumi.set(__self__, "server_farm_id", server_farm_id)
-        if site_config and not isinstance(site_config, dict):
-            raise TypeError("Expected argument 'site_config' to be a dict")
-        pulumi.set(__self__, "site_config", site_config)
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
         if slot_swap_status and not isinstance(slot_swap_status, dict):
             raise TypeError("Expected argument 'slot_swap_status' to be a dict")
         pulumi.set(__self__, "slot_swap_status", slot_swap_status)
+        if ssh_enabled and not isinstance(ssh_enabled, bool):
+            raise TypeError("Expected argument 'ssh_enabled' to be a bool")
+        pulumi.set(__self__, "ssh_enabled", ssh_enabled)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -205,18 +214,6 @@ class GetWebAppSlotResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
-        if vnet_backup_restore_enabled and not isinstance(vnet_backup_restore_enabled, bool):
-            raise TypeError("Expected argument 'vnet_backup_restore_enabled' to be a bool")
-        pulumi.set(__self__, "vnet_backup_restore_enabled", vnet_backup_restore_enabled)
-        if vnet_content_share_enabled and not isinstance(vnet_content_share_enabled, bool):
-            raise TypeError("Expected argument 'vnet_content_share_enabled' to be a bool")
-        pulumi.set(__self__, "vnet_content_share_enabled", vnet_content_share_enabled)
-        if vnet_image_pull_enabled and not isinstance(vnet_image_pull_enabled, bool):
-            raise TypeError("Expected argument 'vnet_image_pull_enabled' to be a bool")
-        pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
-        if vnet_route_all_enabled and not isinstance(vnet_route_all_enabled, bool):
-            raise TypeError("Expected argument 'vnet_route_all_enabled' to be a bool")
-        pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if workload_profile_name and not isinstance(workload_profile_name, str):
             raise TypeError("Expected argument 'workload_profile_name' to be a str")
         pulumi.set(__self__, "workload_profile_name", workload_profile_name)
@@ -252,6 +249,22 @@ class GetWebAppSlotResult:
         <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
         """
         return pulumi.get(self, "client_affinity_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="clientAffinityPartitioningEnabled")
+    def client_affinity_partitioning_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> to enable client affinity partitioning using CHIPS cookies, this will add the <code>partitioned</code> property to the affinity cookies; <code>false</code> to stop sending partitioned affinity cookies. Default is <code>false</code>.
+        """
+        return pulumi.get(self, "client_affinity_partitioning_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="clientAffinityProxyEnabled")
+    def client_affinity_proxy_enabled(self) -> Optional[_builtins.bool]:
+        """
+        <code>true</code> to override client affinity cookie domain with X-Forwarded-Host request header. <code>false</code> to use default domain. Default is <code>false</code>.
+        """
+        return pulumi.get(self, "client_affinity_proxy_enabled")
 
     @_builtins.property
     @pulumi.getter(name="clientCertEnabled")
@@ -533,6 +546,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "outbound_ip_addresses")
 
     @_builtins.property
+    @pulumi.getter(name="outboundVnetRouting")
+    def outbound_vnet_routing(self) -> Optional['outputs.OutboundVnetRoutingResponse']:
+        """
+        Property to configure various outbound traffic routing options over virtual network for a site
+        """
+        return pulumi.get(self, "outbound_vnet_routing")
+
+    @_builtins.property
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> _builtins.str:
         """
@@ -605,14 +626,6 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "server_farm_id")
 
     @_builtins.property
-    @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional['outputs.SiteConfigResponse']:
-        """
-        Configuration of the app.
-        """
-        return pulumi.get(self, "site_config")
-
-    @_builtins.property
     @pulumi.getter
     def sku(self) -> _builtins.str:
         """
@@ -627,6 +640,14 @@ class GetWebAppSlotResult:
         Status of the last deployment slot swap operation.
         """
         return pulumi.get(self, "slot_swap_status")
+
+    @_builtins.property
+    @pulumi.getter(name="sshEnabled")
+    def ssh_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable ssh access.
+        """
+        return pulumi.get(self, "ssh_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -702,38 +723,6 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property
-    @pulumi.getter(name="vnetBackupRestoreEnabled")
-    def vnet_backup_restore_enabled(self) -> Optional[_builtins.bool]:
-        """
-        To enable Backup and Restore operations over virtual network
-        """
-        return pulumi.get(self, "vnet_backup_restore_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetContentShareEnabled")
-    def vnet_content_share_enabled(self) -> Optional[_builtins.bool]:
-        """
-        To enable accessing content over virtual network
-        """
-        return pulumi.get(self, "vnet_content_share_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetImagePullEnabled")
-    def vnet_image_pull_enabled(self) -> Optional[_builtins.bool]:
-        """
-        To enable pulling image over Virtual Network
-        """
-        return pulumi.get(self, "vnet_image_pull_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="vnetRouteAllEnabled")
-    def vnet_route_all_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-        """
-        return pulumi.get(self, "vnet_route_all_enabled")
-
-    @_builtins.property
     @pulumi.getter(name="workloadProfileName")
     def workload_profile_name(self) -> Optional[_builtins.str]:
         """
@@ -752,6 +741,8 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             availability_state=self.availability_state,
             azure_api_version=self.azure_api_version,
             client_affinity_enabled=self.client_affinity_enabled,
+            client_affinity_partitioning_enabled=self.client_affinity_partitioning_enabled,
+            client_affinity_proxy_enabled=self.client_affinity_proxy_enabled,
             client_cert_enabled=self.client_cert_enabled,
             client_cert_exclusion_paths=self.client_cert_exclusion_paths,
             client_cert_mode=self.client_cert_mode,
@@ -786,6 +777,7 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             max_number_of_workers=self.max_number_of_workers,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
+            outbound_vnet_routing=self.outbound_vnet_routing,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
             public_network_access=self.public_network_access,
             redundancy_mode=self.redundancy_mode,
@@ -795,9 +787,9 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             resource_group=self.resource_group,
             scm_site_also_stopped=self.scm_site_also_stopped,
             server_farm_id=self.server_farm_id,
-            site_config=self.site_config,
             sku=self.sku,
             slot_swap_status=self.slot_swap_status,
+            ssh_enabled=self.ssh_enabled,
             state=self.state,
             storage_account_required=self.storage_account_required,
             suspended_till=self.suspended_till,
@@ -807,10 +799,6 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             type=self.type,
             usage_state=self.usage_state,
             virtual_network_subnet_id=self.virtual_network_subnet_id,
-            vnet_backup_restore_enabled=self.vnet_backup_restore_enabled,
-            vnet_content_share_enabled=self.vnet_content_share_enabled,
-            vnet_image_pull_enabled=self.vnet_image_pull_enabled,
-            vnet_route_all_enabled=self.vnet_route_all_enabled,
             workload_profile_name=self.workload_profile_name)
 
 
@@ -821,9 +809,9 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
     """
     Description for Gets the details of a web, mobile, or API app.
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
@@ -842,6 +830,8 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
         availability_state=pulumi.get(__ret__, 'availability_state'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_affinity_enabled=pulumi.get(__ret__, 'client_affinity_enabled'),
+        client_affinity_partitioning_enabled=pulumi.get(__ret__, 'client_affinity_partitioning_enabled'),
+        client_affinity_proxy_enabled=pulumi.get(__ret__, 'client_affinity_proxy_enabled'),
         client_cert_enabled=pulumi.get(__ret__, 'client_cert_enabled'),
         client_cert_exclusion_paths=pulumi.get(__ret__, 'client_cert_exclusion_paths'),
         client_cert_mode=pulumi.get(__ret__, 'client_cert_mode'),
@@ -876,6 +866,7 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
         max_number_of_workers=pulumi.get(__ret__, 'max_number_of_workers'),
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        outbound_vnet_routing=pulumi.get(__ret__, 'outbound_vnet_routing'),
         possible_outbound_ip_addresses=pulumi.get(__ret__, 'possible_outbound_ip_addresses'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         redundancy_mode=pulumi.get(__ret__, 'redundancy_mode'),
@@ -885,9 +876,9 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         scm_site_also_stopped=pulumi.get(__ret__, 'scm_site_also_stopped'),
         server_farm_id=pulumi.get(__ret__, 'server_farm_id'),
-        site_config=pulumi.get(__ret__, 'site_config'),
         sku=pulumi.get(__ret__, 'sku'),
         slot_swap_status=pulumi.get(__ret__, 'slot_swap_status'),
+        ssh_enabled=pulumi.get(__ret__, 'ssh_enabled'),
         state=pulumi.get(__ret__, 'state'),
         storage_account_required=pulumi.get(__ret__, 'storage_account_required'),
         suspended_till=pulumi.get(__ret__, 'suspended_till'),
@@ -897,10 +888,6 @@ def get_web_app_slot(name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         usage_state=pulumi.get(__ret__, 'usage_state'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
-        vnet_backup_restore_enabled=pulumi.get(__ret__, 'vnet_backup_restore_enabled'),
-        vnet_content_share_enabled=pulumi.get(__ret__, 'vnet_content_share_enabled'),
-        vnet_image_pull_enabled=pulumi.get(__ret__, 'vnet_image_pull_enabled'),
-        vnet_route_all_enabled=pulumi.get(__ret__, 'vnet_route_all_enabled'),
         workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
 def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -909,9 +896,9 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Description for Gets the details of a web, mobile, or API app.
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the app.
@@ -929,6 +916,8 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         availability_state=pulumi.get(__response__, 'availability_state'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
+        client_affinity_partitioning_enabled=pulumi.get(__response__, 'client_affinity_partitioning_enabled'),
+        client_affinity_proxy_enabled=pulumi.get(__response__, 'client_affinity_proxy_enabled'),
         client_cert_enabled=pulumi.get(__response__, 'client_cert_enabled'),
         client_cert_exclusion_paths=pulumi.get(__response__, 'client_cert_exclusion_paths'),
         client_cert_mode=pulumi.get(__response__, 'client_cert_mode'),
@@ -963,6 +952,7 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         max_number_of_workers=pulumi.get(__response__, 'max_number_of_workers'),
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
+        outbound_vnet_routing=pulumi.get(__response__, 'outbound_vnet_routing'),
         possible_outbound_ip_addresses=pulumi.get(__response__, 'possible_outbound_ip_addresses'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         redundancy_mode=pulumi.get(__response__, 'redundancy_mode'),
@@ -972,9 +962,9 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         resource_group=pulumi.get(__response__, 'resource_group'),
         scm_site_also_stopped=pulumi.get(__response__, 'scm_site_also_stopped'),
         server_farm_id=pulumi.get(__response__, 'server_farm_id'),
-        site_config=pulumi.get(__response__, 'site_config'),
         sku=pulumi.get(__response__, 'sku'),
         slot_swap_status=pulumi.get(__response__, 'slot_swap_status'),
+        ssh_enabled=pulumi.get(__response__, 'ssh_enabled'),
         state=pulumi.get(__response__, 'state'),
         storage_account_required=pulumi.get(__response__, 'storage_account_required'),
         suspended_till=pulumi.get(__response__, 'suspended_till'),
@@ -984,8 +974,4 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         type=pulumi.get(__response__, 'type'),
         usage_state=pulumi.get(__response__, 'usage_state'),
         virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
-        vnet_backup_restore_enabled=pulumi.get(__response__, 'vnet_backup_restore_enabled'),
-        vnet_content_share_enabled=pulumi.get(__response__, 'vnet_content_share_enabled'),
-        vnet_image_pull_enabled=pulumi.get(__response__, 'vnet_image_pull_enabled'),
-        vnet_route_all_enabled=pulumi.get(__response__, 'vnet_route_all_enabled'),
         workload_profile_name=pulumi.get(__response__, 'workload_profile_name')))
