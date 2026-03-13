@@ -5,6 +5,6 @@
     "@types/node": "latest"
   },
   "dependencies": {
-    "@pulumi/pulumi": "3.225.0"
+    "@pulumi/pulumi": "3.226.0"
   }
 }
