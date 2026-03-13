@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/v2/provider
 
-go 1.25.6
+go 1.25.8
 
 require (
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.20.0
