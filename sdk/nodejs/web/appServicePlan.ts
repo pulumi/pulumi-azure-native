@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * App Service plan.
  *
- * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -41,6 +41,11 @@ export class AppServicePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppServicePlan.__pulumiType;
     }
 
+    /**
+     * If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+     * If <code>false</code>, this App Service Plan will only attempt sync scaling.
+     */
+    declare public readonly asyncScalingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
@@ -182,6 +187,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["asyncScalingEnabled"] = args?.asyncScalingEnabled;
             resourceInputs["elasticScaleEnabled"] = args?.elasticScaleEnabled;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["freeOfferExpirationTime"] = args?.freeOfferExpirationTime;
@@ -215,6 +221,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["subscription"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["asyncScalingEnabled"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["elasticScaleEnabled"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
@@ -258,6 +265,11 @@ export class AppServicePlan extends pulumi.CustomResource {
  * The set of arguments for constructing a AppServicePlan resource.
  */
 export interface AppServicePlanArgs {
+    /**
+     * If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+     * If <code>false</code>, this App Service Plan will only attempt sync scaling.
+     */
+    asyncScalingEnabled?: pulumi.Input<boolean>;
     /**
      * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
      */

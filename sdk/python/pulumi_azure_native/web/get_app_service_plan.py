@@ -27,7 +27,10 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, azure_api_version=None, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
+    def __init__(__self__, async_scaling_enabled=None, azure_api_version=None, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
+        if async_scaling_enabled and not isinstance(async_scaling_enabled, bool):
+            raise TypeError("Expected argument 'async_scaling_enabled' to be a bool")
+        pulumi.set(__self__, "async_scaling_enabled", async_scaling_enabled)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -124,6 +127,15 @@ class GetAppServicePlanResult:
         if zone_redundant and not isinstance(zone_redundant, bool):
             raise TypeError("Expected argument 'zone_redundant' to be a bool")
         pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @_builtins.property
+    @pulumi.getter(name="asyncScalingEnabled")
+    def async_scaling_enabled(self) -> Optional[_builtins.bool]:
+        """
+        If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
+        If <code>false</code>, this App Service Plan will only attempt sync scaling.
+        """
+        return pulumi.get(self, "async_scaling_enabled")
 
     @_builtins.property
     @pulumi.getter(name="azureApiVersion")
@@ -390,6 +402,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
         if False:
             yield self
         return GetAppServicePlanResult(
+            async_scaling_enabled=self.async_scaling_enabled,
             azure_api_version=self.azure_api_version,
             elastic_scale_enabled=self.elastic_scale_enabled,
             extended_location=self.extended_location,
@@ -430,9 +443,9 @@ def get_app_service_plan(name: Optional[_builtins.str] = None,
     """
     Description for Get an App Service plan.
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the App Service plan.
@@ -445,6 +458,7 @@ def get_app_service_plan(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult).value
 
     return AwaitableGetAppServicePlanResult(
+        async_scaling_enabled=pulumi.get(__ret__, 'async_scaling_enabled'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         elastic_scale_enabled=pulumi.get(__ret__, 'elastic_scale_enabled'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -483,9 +497,9 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = No
     """
     Description for Get an App Service plan.
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-09-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the App Service plan.
@@ -497,6 +511,7 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[_builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult)
     return __ret__.apply(lambda __response__: GetAppServicePlanResult(
+        async_scaling_enabled=pulumi.get(__response__, 'async_scaling_enabled'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         elastic_scale_enabled=pulumi.get(__response__, 'elastic_scale_enabled'),
         extended_location=pulumi.get(__response__, 'extended_location'),

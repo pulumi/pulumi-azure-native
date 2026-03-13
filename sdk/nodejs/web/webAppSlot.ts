@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * A web app, a mobile app backend, or an API app.
  *
- * Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+ * Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**
@@ -57,6 +57,14 @@ export class WebAppSlot extends pulumi.CustomResource {
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
     declare public readonly clientAffinityEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * <code>true</code> to enable client affinity partitioning using CHIPS cookies, this will add the <code>partitioned</code> property to the affinity cookies; <code>false</code> to stop sending partitioned affinity cookies. Default is <code>false</code>.
+     */
+    declare public readonly clientAffinityPartitioningEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * <code>true</code> to override client affinity cookie domain with X-Forwarded-Host request header. <code>false</code> to use default domain. Default is <code>false</code>.
+     */
+    declare public readonly clientAffinityProxyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
      */
@@ -197,6 +205,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
+     * Property to configure various outbound traffic routing options over virtual network for a site
+     */
+    declare public readonly outboundVnetRouting: pulumi.Output<outputs.web.OutboundVnetRoutingResponse | undefined>;
+    /**
      * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
      */
     declare public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
@@ -233,10 +245,6 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     declare public readonly serverFarmId: pulumi.Output<string | undefined>;
     /**
-     * Configuration of the app.
-     */
-    declare public readonly siteConfig: pulumi.Output<outputs.web.SiteConfigResponse | undefined>;
-    /**
      * Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
      */
     declare public /*out*/ readonly sku: pulumi.Output<string>;
@@ -244,6 +252,10 @@ export class WebAppSlot extends pulumi.CustomResource {
      * Status of the last deployment slot swap operation.
      */
     declare public /*out*/ readonly slotSwapStatus: pulumi.Output<outputs.web.SlotSwapStatusResponse>;
+    /**
+     * Whether to enable ssh access.
+     */
+    declare public readonly sshEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Current state of the app.
      */
@@ -282,22 +294,6 @@ export class WebAppSlot extends pulumi.CustomResource {
      */
     declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
-     * To enable Backup and Restore operations over virtual network
-     */
-    declare public readonly vnetBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * To enable accessing content over virtual network
-     */
-    declare public readonly vnetContentShareEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * To enable pulling image over Virtual Network
-     */
-    declare public readonly vnetImagePullEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-     */
-    declare public readonly vnetRouteAllEnabled: pulumi.Output<boolean | undefined>;
-    /**
      * Workload profile name for function app to execute on.
      */
     declare public readonly workloadProfileName: pulumi.Output<string | undefined>;
@@ -321,6 +317,8 @@ export class WebAppSlot extends pulumi.CustomResource {
             }
             resourceInputs["autoGeneratedDomainNameLabelScope"] = args?.autoGeneratedDomainNameLabelScope;
             resourceInputs["clientAffinityEnabled"] = args?.clientAffinityEnabled;
+            resourceInputs["clientAffinityPartitioningEnabled"] = args?.clientAffinityPartitioningEnabled;
+            resourceInputs["clientAffinityProxyEnabled"] = args?.clientAffinityProxyEnabled;
             resourceInputs["clientCertEnabled"] = args?.clientCertEnabled;
             resourceInputs["clientCertExclusionPaths"] = args?.clientCertExclusionPaths;
             resourceInputs["clientCertMode"] = args?.clientCertMode;
@@ -347,6 +345,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["managedEnvironmentId"] = args?.managedEnvironmentId;
             resourceInputs["name"] = args?.name;
+            resourceInputs["outboundVnetRouting"] = args?.outboundVnetRouting;
             resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["redundancyMode"] = args?.redundancyMode;
             resourceInputs["reserved"] = (args?.reserved) ?? false;
@@ -356,13 +355,10 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["serverFarmId"] = args?.serverFarmId;
             resourceInputs["siteConfig"] = args ? (args.siteConfig ? pulumi.output(args.siteConfig).apply(inputs.web.siteConfigArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["slot"] = args?.slot;
+            resourceInputs["sshEnabled"] = args?.sshEnabled;
             resourceInputs["storageAccountRequired"] = args?.storageAccountRequired;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
-            resourceInputs["vnetBackupRestoreEnabled"] = args?.vnetBackupRestoreEnabled;
-            resourceInputs["vnetContentShareEnabled"] = args?.vnetContentShareEnabled;
-            resourceInputs["vnetImagePullEnabled"] = args?.vnetImagePullEnabled;
-            resourceInputs["vnetRouteAllEnabled"] = args?.vnetRouteAllEnabled;
             resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["availabilityState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -390,6 +386,8 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["availabilityState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientAffinityEnabled"] = undefined /*out*/;
+            resourceInputs["clientAffinityPartitioningEnabled"] = undefined /*out*/;
+            resourceInputs["clientAffinityProxyEnabled"] = undefined /*out*/;
             resourceInputs["clientCertEnabled"] = undefined /*out*/;
             resourceInputs["clientCertExclusionPaths"] = undefined /*out*/;
             resourceInputs["clientCertMode"] = undefined /*out*/;
@@ -423,6 +421,7 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["maxNumberOfWorkers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
+            resourceInputs["outboundVnetRouting"] = undefined /*out*/;
             resourceInputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["redundancyMode"] = undefined /*out*/;
@@ -432,9 +431,9 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = undefined /*out*/;
             resourceInputs["scmSiteAlsoStopped"] = undefined /*out*/;
             resourceInputs["serverFarmId"] = undefined /*out*/;
-            resourceInputs["siteConfig"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["slotSwapStatus"] = undefined /*out*/;
+            resourceInputs["sshEnabled"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["storageAccountRequired"] = undefined /*out*/;
             resourceInputs["suspendedTill"] = undefined /*out*/;
@@ -444,10 +443,6 @@ export class WebAppSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["usageState"] = undefined /*out*/;
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
-            resourceInputs["vnetBackupRestoreEnabled"] = undefined /*out*/;
-            resourceInputs["vnetContentShareEnabled"] = undefined /*out*/;
-            resourceInputs["vnetImagePullEnabled"] = undefined /*out*/;
-            resourceInputs["vnetRouteAllEnabled"] = undefined /*out*/;
             resourceInputs["workloadProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -469,6 +464,14 @@ export interface WebAppSlotArgs {
      * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
+    /**
+     * <code>true</code> to enable client affinity partitioning using CHIPS cookies, this will add the <code>partitioned</code> property to the affinity cookies; <code>false</code> to stop sending partitioned affinity cookies. Default is <code>false</code>.
+     */
+    clientAffinityPartitioningEnabled?: pulumi.Input<boolean>;
+    /**
+     * <code>true</code> to override client affinity cookie domain with X-Forwarded-Host request header. <code>false</code> to use default domain. Default is <code>false</code>.
+     */
+    clientAffinityProxyEnabled?: pulumi.Input<boolean>;
     /**
      * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
      */
@@ -579,6 +582,10 @@ export interface WebAppSlotArgs {
      */
     name: pulumi.Input<string>;
     /**
+     * Property to configure various outbound traffic routing options over virtual network for a site
+     */
+    outboundVnetRouting?: pulumi.Input<inputs.web.OutboundVnetRoutingArgs>;
+    /**
      * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
      */
     publicNetworkAccess?: pulumi.Input<string>;
@@ -607,13 +614,17 @@ export interface WebAppSlotArgs {
      */
     serverFarmId?: pulumi.Input<string>;
     /**
-     * Configuration of the app.
+     * Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
      */
     siteConfig?: pulumi.Input<inputs.web.SiteConfigArgs>;
     /**
      * Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
      */
     slot?: pulumi.Input<string>;
+    /**
+     * Whether to enable ssh access.
+     */
+    sshEnabled?: pulumi.Input<boolean>;
     /**
      * Checks if Customer provided storage account is required
      */
@@ -627,22 +638,6 @@ export interface WebAppSlotArgs {
      * This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
      */
     virtualNetworkSubnetId?: pulumi.Input<string>;
-    /**
-     * To enable Backup and Restore operations over virtual network
-     */
-    vnetBackupRestoreEnabled?: pulumi.Input<boolean>;
-    /**
-     * To enable accessing content over virtual network
-     */
-    vnetContentShareEnabled?: pulumi.Input<boolean>;
-    /**
-     * To enable pulling image over Virtual Network
-     */
-    vnetImagePullEnabled?: pulumi.Input<boolean>;
-    /**
-     * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-     */
-    vnetRouteAllEnabled?: pulumi.Input<boolean>;
     /**
      * Workload profile name for function app to execute on.
      */

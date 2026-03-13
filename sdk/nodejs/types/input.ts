@@ -181502,7 +181502,7 @@ export namespace web {
          */
         name: pulumi.Input<string>;
         /**
-         * Environment variable value
+         * The value of this environment variable must be the name of an AppSetting. The actual value of the environment variable in container will be retrieved from the specified AppSetting at runtime. If the AppSetting is not found, the value will be set to an empty string in the container at runtime.
          */
         value: pulumi.Input<string>;
     }
@@ -182308,6 +182308,32 @@ export namespace web {
     }
 
     /**
+     * Outbound traffic options over virtual network.
+     */
+    export interface OutboundVnetRoutingArgs {
+        /**
+         * Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
+         */
+        allTraffic?: pulumi.Input<boolean>;
+        /**
+         * This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
+         */
+        applicationTraffic?: pulumi.Input<boolean>;
+        /**
+         * Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
+         */
+        backupRestoreTraffic?: pulumi.Input<boolean>;
+        /**
+         * Enables accessing content over virtual network. Previously called VnetContentShareEnabled
+         */
+        contentShareTraffic?: pulumi.Input<boolean>;
+        /**
+         * Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
+         */
+        imagePullTraffic?: pulumi.Input<boolean>;
+    }
+
+    /**
      * The state of a private link connection
      */
     export interface PrivateLinkConnectionStateArgs {
@@ -182451,7 +182477,7 @@ export namespace web {
          */
         appCommandLine?: pulumi.Input<string>;
         /**
-         * Application settings.
+         * Application settings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
          */
         appSettings?: pulumi.Input<pulumi.Input<inputs.web.NameValuePairArgs>[]>;
         /**
@@ -182471,7 +182497,7 @@ export namespace web {
          */
         azureStorageAccounts?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.AzureStorageInfoValueArgs>}>;
         /**
-         * Connection strings.
+         * Connection strings. This property is not returned in response to normal create and read requests since it may contain sensitive information.
          */
         connectionStrings?: pulumi.Input<pulumi.Input<inputs.web.ConnStringInfoArgs>[]>;
         /**
@@ -182526,6 +182552,10 @@ export namespace web {
          * Http20Enabled: configures a web site to allow clients to connect over http2.0
          */
         http20Enabled?: pulumi.Input<boolean>;
+        /**
+         * Http20ProxyFlag: Configures a website to allow http2.0 to pass be proxied all the way to the app. 0 = disabled, 1 = pass through all http2 traffic, 2 = pass through gRPC only.
+         */
+        http20ProxyFlag?: pulumi.Input<number>;
         /**
          * <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
          */
@@ -182724,6 +182754,7 @@ export namespace web {
         return {
             ...val,
             http20Enabled: (val.http20Enabled) ?? true,
+            http20ProxyFlag: (val.http20ProxyFlag) ?? 0,
             localMySqlEnabled: (val.localMySqlEnabled) ?? false,
             netFrameworkVersion: (val.netFrameworkVersion) ?? "v4.6",
         };

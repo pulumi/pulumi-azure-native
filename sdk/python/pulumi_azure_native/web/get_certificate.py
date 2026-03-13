@@ -27,7 +27,7 @@ class GetCertificateResult:
     """
     SSL certificate for an app.
     """
-    def __init__(__self__, azure_api_version=None, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, azure_api_version=None, canonical_name=None, cer_blob=None, domain_validation_method=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, key_vault_id=None, key_vault_secret_name=None, key_vault_secret_status=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, server_farm_id=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -79,6 +79,9 @@ class GetCertificateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        pulumi.set(__self__, "password", password)
         if pfx_blob and not isinstance(pfx_blob, str):
             raise TypeError("Expected argument 'pfx_blob' to be a str")
         pulumi.set(__self__, "pfx_blob", pfx_blob)
@@ -202,7 +205,7 @@ class GetCertificateResult:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[_builtins.str]:
         """
-        Key Vault Csm resource Id.
+        Azure Key Vault Csm resource Id.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -210,7 +213,7 @@ class GetCertificateResult:
     @pulumi.getter(name="keyVaultSecretName")
     def key_vault_secret_name(self) -> Optional[_builtins.str]:
         """
-        Key Vault secret name.
+        Azure Key Vault secret name.
         """
         return pulumi.get(self, "key_vault_secret_name")
 
@@ -247,6 +250,14 @@ class GetCertificateResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        Certificate password.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
     @pulumi.getter(name="pfxBlob")
     def pfx_blob(self) -> Optional[_builtins.str]:
         """
@@ -274,7 +285,7 @@ class GetCertificateResult:
     @pulumi.getter(name="serverFarmId")
     def server_farm_id(self) -> Optional[_builtins.str]:
         """
-        Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        Resource ID of the associated App Service plan.
         """
         return pulumi.get(self, "server_farm_id")
 
@@ -350,6 +361,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             kind=self.kind,
             location=self.location,
             name=self.name,
+            password=self.password,
             pfx_blob=self.pfx_blob,
             public_key_hash=self.public_key_hash,
             self_link=self.self_link,
@@ -368,9 +380,9 @@ def get_certificate(name: Optional[_builtins.str] = None,
     """
     Description for Get a certificate.
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the certificate.
@@ -400,6 +412,7 @@ def get_certificate(name: Optional[_builtins.str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        password=pulumi.get(__ret__, 'password'),
         pfx_blob=pulumi.get(__ret__, 'pfx_blob'),
         public_key_hash=pulumi.get(__ret__, 'public_key_hash'),
         self_link=pulumi.get(__ret__, 'self_link'),
@@ -416,9 +429,9 @@ def get_certificate_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     """
     Description for Get a certificate.
 
-    Uses Azure REST API version 2024-04-01.
+    Uses Azure REST API version 2024-11-01.
 
-    Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str name: Name of the certificate.
@@ -447,6 +460,7 @@ def get_certificate_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        password=pulumi.get(__response__, 'password'),
         pfx_blob=pulumi.get(__response__, 'pfx_blob'),
         public_key_hash=pulumi.get(__response__, 'public_key_hash'),
         self_link=pulumi.get(__response__, 'self_link'),

@@ -241517,26 +241517,6 @@ export namespace web {
     }
 
     /**
-     * Information about the formal API definition for the app.
-     */
-    export interface ApiDefinitionInfoResponse {
-        /**
-         * The URL of the API definition.
-         */
-        url?: string;
-    }
-
-    /**
-     * Azure API management (APIM) configuration linked to the app.
-     */
-    export interface ApiManagementConfigResponse {
-        /**
-         * APIM-Api Identifier.
-         */
-        id?: string;
-    }
-
-    /**
      * OAuth settings for the API
      */
     export interface ApiOAuthSettingsParameterResponse {
@@ -241827,84 +241807,6 @@ export namespace web {
          * The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
          */
         runtimeVersion?: string;
-    }
-
-    /**
-     * Actions which to take by the auto-heal module when a rule is triggered.
-     */
-    export interface AutoHealActionsResponse {
-        /**
-         * Predefined action to be taken.
-         */
-        actionType?: string;
-        /**
-         * Custom action to be taken.
-         */
-        customAction?: outputs.web.AutoHealCustomActionResponse;
-        /**
-         * Minimum time the process must execute
-         * before taking the action
-         */
-        minProcessExecutionTime?: string;
-    }
-
-    /**
-     * Custom action to be executed
-     * when an auto heal rule is triggered.
-     */
-    export interface AutoHealCustomActionResponse {
-        /**
-         * Executable to be run.
-         */
-        exe?: string;
-        /**
-         * Parameters for the executable.
-         */
-        parameters?: string;
-    }
-
-    /**
-     * Rules that can be defined for auto-heal.
-     */
-    export interface AutoHealRulesResponse {
-        /**
-         * Actions to be executed when a rule is triggered.
-         */
-        actions?: outputs.web.AutoHealActionsResponse;
-        /**
-         * Conditions that describe when to execute the auto-heal actions.
-         */
-        triggers?: outputs.web.AutoHealTriggersResponse;
-    }
-
-    /**
-     * Triggers for auto-heal.
-     */
-    export interface AutoHealTriggersResponse {
-        /**
-         * A rule based on private bytes.
-         */
-        privateBytesInKB?: number;
-        /**
-         * A rule based on total requests.
-         */
-        requests?: outputs.web.RequestsBasedTriggerResponse;
-        /**
-         * A rule based on request execution time.
-         */
-        slowRequests?: outputs.web.SlowRequestsBasedTriggerResponse;
-        /**
-         * A rule based on multiple Slow Requests Rule with path
-         */
-        slowRequestsWithPath?: outputs.web.SlowRequestsBasedTriggerResponse[];
-        /**
-         * A rule based on status codes.
-         */
-        statusCodes?: outputs.web.StatusCodesBasedTriggerResponse[];
-        /**
-         * A rule based on status codes ranges.
-         */
-        statusCodesRange?: outputs.web.StatusCodesRangeBasedTriggerResponse[];
     }
 
     /**
@@ -242296,24 +242198,6 @@ export namespace web {
     }
 
     /**
-     * Database connection string information.
-     */
-    export interface ConnStringInfoResponse {
-        /**
-         * Connection string value.
-         */
-        connectionString?: string;
-        /**
-         * Name of connection string.
-         */
-        name?: string;
-        /**
-         * Type of database.
-         */
-        type?: string;
-    }
-
-    /**
      * Database connection string value to type pair.
      */
     export interface ConnStringValueTypePairResponse {
@@ -242511,23 +242395,6 @@ export namespace web {
          * The time after the request is made when the session cookie should expire.
          */
         timeToExpiration?: string;
-    }
-
-    /**
-     * Cross-Origin Resource Sharing (CORS) settings for the app.
-     */
-    export interface CorsSettingsResponse {
-        /**
-         * Gets or sets the list of origins that should be allowed to make cross-origin
-         * calls (for example: http://example.com:12345). Use "*" to allow all.
-         */
-        allowedOrigins?: string[];
-        /**
-         * Gets or sets whether CORS requests with credentials are allowed. See 
-         * https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-         * for more details.
-         */
-        supportCredentials?: boolean;
     }
 
     /**
@@ -242757,7 +242624,7 @@ export namespace web {
          */
         name: string;
         /**
-         * Environment variable value
+         * The value of this environment variable must be the name of an AppSetting. The actual value of the environment variable in container will be retrieved from the specified AppSetting at runtime. If the AppSetting is not found, the value will be set to an empty string in the container at runtime.
          */
         value: string;
     }
@@ -242798,16 +242665,6 @@ export namespace web {
          * The error target.
          */
         target?: string;
-    }
-
-    /**
-     * Routing rules in production experiments.
-     */
-    export interface ExperimentsResponse {
-        /**
-         * List of ramp-up rules.
-         */
-        rampUpRules?: outputs.web.RampUpRuleResponse[];
     }
 
     /**
@@ -243218,25 +243075,6 @@ export namespace web {
     }
 
     /**
-     * The IIS handler mappings used to define which handler processes HTTP requests with certain extension. 
-     * For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
-     */
-    export interface HandlerMappingResponse {
-        /**
-         * Command-line arguments to be passed to the script processor.
-         */
-        arguments?: string;
-        /**
-         * Requests with this extension will be handled using the specified FastCGI application.
-         */
-        extension?: string;
-        /**
-         * The absolute path to the FastCGI application.
-         */
-        scriptProcessor?: string;
-    }
-
-    /**
      * SSL-enabled hostname.
      */
     export interface HostNameSslStateResponse {
@@ -243393,74 +243231,6 @@ export namespace web {
          * The configuration settings of the Twitter provider.
          */
         twitter?: outputs.web.TwitterResponse;
-    }
-
-    /**
-     * IP security restriction on an app.
-     */
-    export interface IpSecurityRestrictionResponse {
-        /**
-         * Allow or Deny access for this IP range.
-         */
-        action?: string;
-        /**
-         * IP restriction rule description.
-         */
-        description?: string;
-        /**
-         * IP restriction rule headers.
-         * X-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). 
-         * The matching logic is ..
-         * - If the property is null or empty (default), all hosts(or lack of) are allowed.
-         * - A value is compared using ordinal-ignore-case (excluding port number).
-         * - Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com
-         *  but not the root domain contoso.com or multi-level foo.bar.contoso.com
-         * - Unicode host names are allowed but are converted to Punycode for matching.
-         *
-         * X-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).
-         * The matching logic is ..
-         * - If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.
-         * - If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.
-         *
-         * X-Azure-FDID and X-FD-HealthProbe.
-         * The matching logic is exact match.
-         */
-        headers?: {[key: string]: string[]};
-        /**
-         * IP address the security restriction is valid for.
-         * It can be in form of pure ipv4 address (required SubnetMask property) or
-         * CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-         * SubnetMask property must not be specified.
-         */
-        ipAddress?: string;
-        /**
-         * IP restriction rule name.
-         */
-        name?: string;
-        /**
-         * Priority of IP restriction rule.
-         */
-        priority?: number;
-        /**
-         * Subnet mask for the range of IP addresses the restriction is valid for.
-         */
-        subnetMask?: string;
-        /**
-         * (internal) Subnet traffic tag
-         */
-        subnetTrafficTag?: number;
-        /**
-         * Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-         */
-        tag?: string;
-        /**
-         * Virtual network resource id
-         */
-        vnetSubnetResourceId?: string;
-        /**
-         * (internal) Vnet traffic tag
-         */
-        vnetTrafficTag?: number;
     }
 
     /**
@@ -243696,6 +243466,32 @@ export namespace web {
     }
 
     /**
+     * Outbound traffic options over virtual network.
+     */
+    export interface OutboundVnetRoutingResponse {
+        /**
+         * Enables all other routing options defined in OutboundVnetRouting if this setting is set to true.
+         */
+        allTraffic?: boolean;
+        /**
+         * This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. Previously called VnetRouteAllEnabled.
+         */
+        applicationTraffic?: boolean;
+        /**
+         * Enables Backup and Restore operations over virtual network. Previously called VnetBackupRestoreEnabled
+         */
+        backupRestoreTraffic?: boolean;
+        /**
+         * Enables accessing content over virtual network. Previously called VnetContentShareEnabled
+         */
+        contentShareTraffic?: boolean;
+        /**
+         * Enables pulling image over Virtual Network. Previously called VnetImagePullEnabled.
+         */
+        imagePullTraffic?: boolean;
+    }
+
+    /**
      * The state of a private link connection
      */
     export interface PrivateLinkConnectionStateResponse {
@@ -243711,87 +243507,6 @@ export namespace web {
          * Status of a private link connection
          */
         status?: string;
-    }
-
-    /**
-     * Push settings for the App.
-     */
-    export interface PushSettingsResponse {
-        /**
-         * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-         */
-        dynamicTagsJson?: string;
-        /**
-         * Resource Id.
-         */
-        id: string;
-        /**
-         * Gets or sets a flag indicating whether the Push endpoint is enabled.
-         */
-        isPushEnabled: boolean;
-        /**
-         * Kind of resource.
-         */
-        kind?: string;
-        /**
-         * Resource Name.
-         */
-        name: string;
-        /**
-         * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-         */
-        tagWhitelistJson?: string;
-        /**
-         * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-         * Tags can consist of alphanumeric characters and the following:
-         * '_', '@', '#', '.', ':', '-'. 
-         * Validation should be performed at the PushRequestHandler.
-         */
-        tagsRequiringAuth?: string;
-        /**
-         * Resource type.
-         */
-        type: string;
-    }
-
-    /**
-     * Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
-     */
-    export interface RampUpRuleResponse {
-        /**
-         * Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-         */
-        actionHostName?: string;
-        /**
-         * Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
-         */
-        changeDecisionCallbackUrl?: string;
-        /**
-         * Specifies interval in minutes to reevaluate ReroutePercentage.
-         */
-        changeIntervalInMinutes?: number;
-        /**
-         * In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or 
-         * <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm 
-         * can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-         */
-        changeStep?: number;
-        /**
-         * Specifies upper boundary below which ReroutePercentage will stay.
-         */
-        maxReroutePercentage?: number;
-        /**
-         * Specifies lower boundary above which ReroutePercentage will stay.
-         */
-        minReroutePercentage?: number;
-        /**
-         * Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-         */
-        name?: string;
-        /**
-         * Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
-         */
-        reroutePercentage?: number;
     }
 
     /**
@@ -243827,20 +243542,6 @@ export namespace web {
          * Resource type.
          */
         type: string;
-    }
-
-    /**
-     * Trigger based on total requests.
-     */
-    export interface RequestsBasedTriggerResponse {
-        /**
-         * Request Count.
-         */
-        count?: number;
-        /**
-         * Time interval.
-         */
-        timeInterval?: string;
     }
 
     /**
@@ -243931,313 +243632,6 @@ export namespace web {
         status?: string;
     }
 
-    /**
-     * Configuration of an App Service app.
-     */
-    export interface SiteConfigResponse {
-        /**
-         * Flag to use Managed Identity Creds for ACR pull
-         */
-        acrUseManagedIdentityCreds?: boolean;
-        /**
-         * If using user managed identity, the user managed identity ClientId
-         */
-        acrUserManagedIdentityID?: string;
-        /**
-         * <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-         */
-        alwaysOn?: boolean;
-        /**
-         * Information about the formal API definition for the app.
-         */
-        apiDefinition?: outputs.web.ApiDefinitionInfoResponse;
-        /**
-         * Azure API management settings linked to the app.
-         */
-        apiManagementConfig?: outputs.web.ApiManagementConfigResponse;
-        /**
-         * App command line to launch.
-         */
-        appCommandLine?: string;
-        /**
-         * Application settings.
-         */
-        appSettings?: outputs.web.NameValuePairResponse[];
-        /**
-         * <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-         */
-        autoHealEnabled?: boolean;
-        /**
-         * Auto Heal rules.
-         */
-        autoHealRules?: outputs.web.AutoHealRulesResponse;
-        /**
-         * Auto-swap slot name.
-         */
-        autoSwapSlotName?: string;
-        /**
-         * List of Azure Storage Accounts.
-         */
-        azureStorageAccounts?: {[key: string]: outputs.web.AzureStorageInfoValueResponse};
-        /**
-         * Connection strings.
-         */
-        connectionStrings?: outputs.web.ConnStringInfoResponse[];
-        /**
-         * Cross-Origin Resource Sharing (CORS) settings.
-         */
-        cors?: outputs.web.CorsSettingsResponse;
-        /**
-         * Default documents.
-         */
-        defaultDocuments?: string[];
-        /**
-         * <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-         */
-        detailedErrorLoggingEnabled?: boolean;
-        /**
-         * Document root.
-         */
-        documentRoot?: string;
-        /**
-         * Maximum number of workers that a site can scale out to.
-         * This setting only applies to apps in plans where ElasticScaleEnabled is <code>true</code>
-         */
-        elasticWebAppScaleLimit?: number;
-        /**
-         * This is work around for polymorphic types.
-         */
-        experiments?: outputs.web.ExperimentsResponse;
-        /**
-         * State of FTP / FTPS service
-         */
-        ftpsState?: string;
-        /**
-         * Maximum number of workers that a site can scale out to.
-         * This setting only applies to the Consumption and Elastic Premium Plans
-         */
-        functionAppScaleLimit?: number;
-        /**
-         * Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,
-         * the ScaleController will not monitor event sources directly, but will instead call to the
-         * runtime to get scale status.
-         */
-        functionsRuntimeScaleMonitoringEnabled?: boolean;
-        /**
-         * Handler mappings.
-         */
-        handlerMappings?: outputs.web.HandlerMappingResponse[];
-        /**
-         * Health check path
-         */
-        healthCheckPath?: string;
-        /**
-         * Http20Enabled: configures a web site to allow clients to connect over http2.0
-         */
-        http20Enabled?: boolean;
-        /**
-         * <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-         */
-        httpLoggingEnabled?: boolean;
-        /**
-         * IP security restrictions for main.
-         */
-        ipSecurityRestrictions?: outputs.web.IpSecurityRestrictionResponse[];
-        /**
-         * Default action for main access restriction if no rules are matched.
-         */
-        ipSecurityRestrictionsDefaultAction?: string;
-        /**
-         * Java container.
-         */
-        javaContainer?: string;
-        /**
-         * Java container version.
-         */
-        javaContainerVersion?: string;
-        /**
-         * Java version.
-         */
-        javaVersion?: string;
-        /**
-         * Identity to use for Key Vault Reference authentication.
-         */
-        keyVaultReferenceIdentity?: string;
-        /**
-         * Site limits.
-         */
-        limits?: outputs.web.SiteLimitsResponse;
-        /**
-         * Linux App Framework and version
-         */
-        linuxFxVersion?: string;
-        /**
-         * Site load balancing.
-         */
-        loadBalancing?: string;
-        /**
-         * <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-         */
-        localMySqlEnabled?: boolean;
-        /**
-         * HTTP logs directory size limit.
-         */
-        logsDirectorySizeLimit?: number;
-        /**
-         * Site MachineKey.
-         */
-        machineKey: outputs.web.SiteMachineKeyResponse;
-        /**
-         * Managed pipeline mode.
-         */
-        managedPipelineMode?: string;
-        /**
-         * Managed Service Identity Id
-         */
-        managedServiceIdentityId?: number;
-        /**
-         * The minimum strength TLS cipher suite allowed for an application
-         */
-        minTlsCipherSuite?: string;
-        /**
-         * MinTlsVersion: configures the minimum version of TLS required for SSL requests
-         */
-        minTlsVersion?: string;
-        /**
-         * Number of minimum instance count for a site
-         * This setting only applies to the Elastic Plans
-         */
-        minimumElasticInstanceCount?: number;
-        /**
-         * .NET Framework version.
-         */
-        netFrameworkVersion?: string;
-        /**
-         * Version of Node.js.
-         */
-        nodeVersion?: string;
-        /**
-         * Number of workers.
-         */
-        numberOfWorkers?: number;
-        /**
-         * Version of PHP.
-         */
-        phpVersion?: string;
-        /**
-         * Version of PowerShell.
-         */
-        powerShellVersion?: string;
-        /**
-         * Number of preWarmed instances.
-         * This setting only applies to the Consumption and Elastic Plans
-         */
-        preWarmedInstanceCount?: number;
-        /**
-         * Property to allow or block all public traffic.
-         */
-        publicNetworkAccess?: string;
-        /**
-         * Publishing user name.
-         */
-        publishingUsername?: string;
-        /**
-         * Push endpoint settings.
-         */
-        push?: outputs.web.PushSettingsResponse;
-        /**
-         * Version of Python.
-         */
-        pythonVersion?: string;
-        /**
-         * <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-         */
-        remoteDebuggingEnabled?: boolean;
-        /**
-         * Remote debugging version.
-         */
-        remoteDebuggingVersion?: string;
-        /**
-         * <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-         */
-        requestTracingEnabled?: boolean;
-        /**
-         * Request tracing expiration time.
-         */
-        requestTracingExpirationTime?: string;
-        /**
-         * IP security restrictions for scm.
-         */
-        scmIpSecurityRestrictions?: outputs.web.IpSecurityRestrictionResponse[];
-        /**
-         * Default action for scm access restriction if no rules are matched.
-         */
-        scmIpSecurityRestrictionsDefaultAction?: string;
-        /**
-         * IP security restrictions for scm to use main.
-         */
-        scmIpSecurityRestrictionsUseMain?: boolean;
-        /**
-         * ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site
-         */
-        scmMinTlsVersion?: string;
-        /**
-         * SCM type.
-         */
-        scmType?: string;
-        /**
-         * Tracing options.
-         */
-        tracingOptions?: string;
-        /**
-         * <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-         */
-        use32BitWorkerProcess?: boolean;
-        /**
-         * Virtual applications.
-         */
-        virtualApplications?: outputs.web.VirtualApplicationResponse[];
-        /**
-         * Virtual Network name.
-         */
-        vnetName?: string;
-        /**
-         * The number of private ports assigned to this app. These will be assigned dynamically on runtime.
-         */
-        vnetPrivatePortsCount?: number;
-        /**
-         * Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-         */
-        vnetRouteAllEnabled?: boolean;
-        /**
-         * <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-         */
-        webSocketsEnabled?: boolean;
-        /**
-         * Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones
-         */
-        websiteTimeZone?: string;
-        /**
-         * Xenon App Framework and version
-         */
-        windowsFxVersion?: string;
-        /**
-         * Explicit Managed Service Identity Id
-         */
-        xManagedServiceIdentityId?: number;
-    }
-    /**
-     * siteConfigResponseProvideDefaults sets the appropriate defaults for SiteConfigResponse
-     */
-    export function siteConfigResponseProvideDefaults(val: SiteConfigResponse): SiteConfigResponse {
-        return {
-            ...val,
-            http20Enabled: (val.http20Enabled) ?? true,
-            localMySqlEnabled: (val.localMySqlEnabled) ?? false,
-            netFrameworkVersion: (val.netFrameworkVersion) ?? "v4.6",
-        };
-    }
-
     export interface SiteDnsConfigResponse {
         /**
          * Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
@@ -244263,46 +243657,6 @@ export namespace web {
          * List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
          */
         dnsServers?: string[];
-    }
-
-    /**
-     * Metric limits set on an app.
-     */
-    export interface SiteLimitsResponse {
-        /**
-         * Maximum allowed disk size usage in MB.
-         */
-        maxDiskSizeInMb?: number;
-        /**
-         * Maximum allowed memory usage in MB.
-         */
-        maxMemoryInMb?: number;
-        /**
-         * Maximum allowed CPU usage percentage.
-         */
-        maxPercentageCpu?: number;
-    }
-
-    /**
-     * MachineKey of an app.
-     */
-    export interface SiteMachineKeyResponse {
-        /**
-         * Algorithm used for decryption.
-         */
-        decryption?: string;
-        /**
-         * Decryption key.
-         */
-        decryptionKey?: string;
-        /**
-         * MachineKey validation.
-         */
-        validation?: string;
-        /**
-         * Validation key.
-         */
-        validationKey?: string;
     }
 
     /**
@@ -244385,28 +243739,6 @@ export namespace web {
          * The time the last successful slot swap completed.
          */
         timestampUtc: string;
-    }
-
-    /**
-     * Trigger based on request execution time.
-     */
-    export interface SlowRequestsBasedTriggerResponse {
-        /**
-         * Request Count.
-         */
-        count?: number;
-        /**
-         * Request Path.
-         */
-        path?: string;
-        /**
-         * Time interval.
-         */
-        timeInterval?: string;
-        /**
-         * Time taken.
-         */
-        timeTaken?: string;
     }
 
     /**
@@ -244586,55 +243918,6 @@ export namespace web {
     }
 
     /**
-     * Trigger based on status code.
-     */
-    export interface StatusCodesBasedTriggerResponse {
-        /**
-         * Request Count.
-         */
-        count?: number;
-        /**
-         * Request Path
-         */
-        path?: string;
-        /**
-         * HTTP status code.
-         */
-        status?: number;
-        /**
-         * Request Sub Status.
-         */
-        subStatus?: number;
-        /**
-         * Time interval.
-         */
-        timeInterval?: string;
-        /**
-         * Win32 error code.
-         */
-        win32Status?: number;
-    }
-
-    /**
-     * Trigger based on range of status codes.
-     */
-    export interface StatusCodesRangeBasedTriggerResponse {
-        /**
-         * Request Count.
-         */
-        count?: number;
-        path?: string;
-        /**
-         * HTTP status code.
-         */
-        statusCodes?: string;
-        /**
-         * Time interval.
-         */
-        timeInterval?: string;
-    }
-
-    /**
      * The configuration settings of the token store.
      */
     export interface TokenStoreResponse {
@@ -244701,42 +243984,6 @@ export namespace web {
          * Principal Id of user assigned identity
          */
         principalId: string;
-    }
-
-    /**
-     * Virtual application in an app.
-     */
-    export interface VirtualApplicationResponse {
-        /**
-         * Physical path.
-         */
-        physicalPath?: string;
-        /**
-         * <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-         */
-        preloadEnabled?: boolean;
-        /**
-         * Virtual directories for virtual application.
-         */
-        virtualDirectories?: outputs.web.VirtualDirectoryResponse[];
-        /**
-         * Virtual path.
-         */
-        virtualPath?: string;
-    }
-
-    /**
-     * Directory for virtual application.
-     */
-    export interface VirtualDirectoryResponse {
-        /**
-         * Physical path.
-         */
-        physicalPath?: string;
-        /**
-         * Path to virtual application.
-         */
-        virtualPath?: string;
     }
 
     /**

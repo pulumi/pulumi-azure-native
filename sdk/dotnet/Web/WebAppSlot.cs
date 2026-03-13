@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
     /// 
-    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2016-08-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlot")]
     public partial class WebAppSlot : global::Pulumi.CustomResource
@@ -42,6 +42,18 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("clientAffinityEnabled")]
         public Output<bool?> ClientAffinityEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client affinity partitioning using CHIPS cookies, this will add the &lt;code&gt;partitioned&lt;/code&gt; property to the affinity cookies; &lt;code&gt;false&lt;/code&gt; to stop sending partitioned affinity cookies. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("clientAffinityPartitioningEnabled")]
+        public Output<bool?> ClientAffinityPartitioningEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to override client affinity cookie domain with X-Forwarded-Host request header. &lt;code&gt;false&lt;/code&gt; to use default domain. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Output("clientAffinityProxyEnabled")]
+        public Output<bool?> ClientAffinityProxyEnabled { get; private set; } = null!;
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to enable client certificate authentication (TLS mutual authentication); otherwise, &lt;code&gt;false&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.
@@ -249,6 +261,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// Property to configure various outbound traffic routing options over virtual network for a site
+        /// </summary>
+        [Output("outboundVnetRouting")]
+        public Output<Outputs.OutboundVnetRoutingResponse?> OutboundVnetRouting { get; private set; } = null!;
+
+        /// <summary>
         /// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
@@ -303,12 +321,6 @@ namespace Pulumi.AzureNative.Web
         public Output<string?> ServerFarmId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the app.
-        /// </summary>
-        [Output("siteConfig")]
-        public Output<Outputs.SiteConfigResponse?> SiteConfig { get; private set; } = null!;
-
-        /// <summary>
         /// Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
         /// </summary>
         [Output("sku")]
@@ -319,6 +331,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("slotSwapStatus")]
         public Output<Outputs.SlotSwapStatusResponse> SlotSwapStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable ssh access.
+        /// </summary>
+        [Output("sshEnabled")]
+        public Output<bool?> SshEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Current state of the app.
@@ -374,30 +392,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
-
-        /// <summary>
-        /// To enable Backup and Restore operations over virtual network
-        /// </summary>
-        [Output("vnetBackupRestoreEnabled")]
-        public Output<bool?> VnetBackupRestoreEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// To enable accessing content over virtual network
-        /// </summary>
-        [Output("vnetContentShareEnabled")]
-        public Output<bool?> VnetContentShareEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// To enable pulling image over Virtual Network
-        /// </summary>
-        [Output("vnetImagePullEnabled")]
-        public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-        /// </summary>
-        [Output("vnetRouteAllEnabled")]
-        public Output<bool?> VnetRouteAllEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Workload profile name for function app to execute on.
@@ -485,6 +479,18 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("clientAffinityEnabled")]
         public Input<bool>? ClientAffinityEnabled { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client affinity partitioning using CHIPS cookies, this will add the &lt;code&gt;partitioned&lt;/code&gt; property to the affinity cookies; &lt;code&gt;false&lt;/code&gt; to stop sending partitioned affinity cookies. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("clientAffinityPartitioningEnabled")]
+        public Input<bool>? ClientAffinityPartitioningEnabled { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to override client affinity cookie domain with X-Forwarded-Host request header. &lt;code&gt;false&lt;/code&gt; to use default domain. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("clientAffinityProxyEnabled")]
+        public Input<bool>? ClientAffinityProxyEnabled { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; to enable client certificate authentication (TLS mutual authentication); otherwise, &lt;code&gt;false&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.
@@ -654,6 +660,12 @@ namespace Pulumi.AzureNative.Web
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Property to configure various outbound traffic routing options over virtual network for a site
+        /// </summary>
+        [Input("outboundVnetRouting")]
+        public Input<Inputs.OutboundVnetRoutingArgs>? OutboundVnetRouting { get; set; }
+
+        /// <summary>
         /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
         /// </summary>
         [Input("publicNetworkAccess")]
@@ -696,7 +708,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? ServerFarmId { get; set; }
 
         /// <summary>
-        /// Configuration of the app.
+        /// Configuration of an App Service app. This property is not returned in response to normal create and read requests since it may contain sensitive information.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.SiteConfigArgs>? SiteConfig { get; set; }
@@ -706,6 +718,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("slot")]
         public Input<string>? Slot { get; set; }
+
+        /// <summary>
+        /// Whether to enable ssh access.
+        /// </summary>
+        [Input("sshEnabled")]
+        public Input<bool>? SshEnabled { get; set; }
 
         /// <summary>
         /// Checks if Customer provided storage account is required
@@ -731,30 +749,6 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
-
-        /// <summary>
-        /// To enable Backup and Restore operations over virtual network
-        /// </summary>
-        [Input("vnetBackupRestoreEnabled")]
-        public Input<bool>? VnetBackupRestoreEnabled { get; set; }
-
-        /// <summary>
-        /// To enable accessing content over virtual network
-        /// </summary>
-        [Input("vnetContentShareEnabled")]
-        public Input<bool>? VnetContentShareEnabled { get; set; }
-
-        /// <summary>
-        /// To enable pulling image over Virtual Network
-        /// </summary>
-        [Input("vnetImagePullEnabled")]
-        public Input<bool>? VnetImagePullEnabled { get; set; }
-
-        /// <summary>
-        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-        /// </summary>
-        [Input("vnetRouteAllEnabled")]
-        public Input<bool>? VnetRouteAllEnabled { get; set; }
 
         /// <summary>
         /// Workload profile name for function app to execute on.

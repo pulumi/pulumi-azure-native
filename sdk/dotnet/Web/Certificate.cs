@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// SSL certificate for an app.
     /// 
-    /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+    /// Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2016-03-01, 2018-02-01, 2018-11-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-04-01, 2025-03-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Key Vault Csm resource Id.
+        /// Azure Key Vault Csm resource Id.
         /// </summary>
         [Output("keyVaultId")]
         public Output<string?> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// Key Vault secret name.
+        /// Azure Key Vault secret name.
         /// </summary>
         [Output("keyVaultSecretName")]
         public Output<string?> KeyVaultSecretName { get; private set; } = null!;
@@ -116,6 +116,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Certificate password.
+        /// </summary>
+        [Output("password")]
+        public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
         /// Pfx blob.
         /// </summary>
         [Output("pfxBlob")]
@@ -134,7 +140,7 @@ namespace Pulumi.AzureNative.Web
         public Output<string> SelfLink { get; private set; } = null!;
 
         /// <summary>
-        /// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        /// Resource ID of the associated App Service plan.
         /// </summary>
         [Output("serverFarmId")]
         public Output<string?> ServerFarmId { get; private set; } = null!;
@@ -269,13 +275,13 @@ namespace Pulumi.AzureNative.Web
         }
 
         /// <summary>
-        /// Key Vault Csm resource Id.
+        /// Azure Key Vault Csm resource Id.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// Key Vault secret name.
+        /// Azure Key Vault secret name.
         /// </summary>
         [Input("keyVaultSecretName")]
         public Input<string>? KeyVaultSecretName { get; set; }
@@ -317,7 +323,7 @@ namespace Pulumi.AzureNative.Web
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        /// Resource ID of the associated App Service plan.
         /// </summary>
         [Input("serverFarmId")]
         public Input<string>? ServerFarmId { get; set; }

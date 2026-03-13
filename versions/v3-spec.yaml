@@ -1770,13 +1770,11 @@ VoiceServices:
     additions:
         Contact: 2022-12-01-preview
 Web:
-    tracking: "2024-04-01"
+    tracking: "2024-11-01"
     additions:
         Connection: "2016-06-01"
         ConnectionGateway: "2016-06-01"
         CustomApi: "2016-06-01"
-        SiteCertificate: "2024-11-01"
-        SiteCertificateSlot: "2024-11-01"
         WebAppAuthSettingsV2: "2021-02-01"
         WebAppAuthSettingsV2Slot: "2021-02-01"
         getAppServicePlanServerFarmRdpPassword: "2025-03-01"
