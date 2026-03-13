@@ -21,7 +21,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
-	"github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
+	dotnet "github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -305,8 +305,8 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		}
 
 		buf := strings.Builder{}
-		for _, f := range files {
-			_, err := buf.Write(f)
+		for _, f := range util.SortedKeys(files) {
+			_, err := buf.Write(files[f])
 			if err != nil {
 				return nil, err
 			}
