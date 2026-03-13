@@ -11,6 +11,7 @@ var excludeResourcePatterns = []string{
 	"azure-native:chaos:Experiment",
 	"azure-native:datafactory:Pipeline", // go codegen goes full CPU and doesn't return
 	"azure-native:awsconnector:EmrCluster",
+	"azure-native:machinelearningservices:LabelingJob",
 	"azure-native:hybridcompute:GuestConfigurationHCRPAssignment", // python name mismatch
 }
 var excludeRegexes []*regexp.Regexp
