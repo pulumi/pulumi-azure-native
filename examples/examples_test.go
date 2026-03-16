@@ -365,3 +365,103 @@ func TestListSubscriptionsInvoke(t *testing.T) {
 	assert.NotEmpty(t, firstSubscriptionId, "firstSubscriptionId should not be empty")
 	t.Logf("First subscription ID: %s", firstSubscriptionId)
 }
+
+func TestManagedClusterHasPopulatedKubeletIdentity(t *testing.T) {
+	proj := tempProject(t)
+	azureBinaryDir := azureNativeBinaryDir(t)
+	test := createTest(t, proj.dir)
+
+	plugins := map[string]any{
+		"providers": []interface{}{
+			map[string]any{
+				"name": "azure-native",
+				"path": azureBinaryDir,
+			},
+		},
+	}
+
+	program := map[string]any{
+		"name":    proj.name,
+		"runtime": "yaml",
+		"variables": map[string]any{
+			"clientConfig": map[string]any{
+				"fn::invoke": map[string]any{
+					"function": "azure-native:authorization:getClientConfig",
+				},
+			},
+		},
+		"resources": map[string]any{
+			"resourcegroup": map[string]any{
+				"type": "azure-native:resources:ResourceGroup",
+			},
+			"managedCluster": map[string]any{
+				"type": "azure-native:containerservice:ManagedCluster",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"location":          "${resourcegroup.location}",
+					"dnsPrefix":         "dns-prefix",
+					"enableRBAC":        true,
+					"identity": map[string]any{
+						"type": "SystemAssigned",
+					},
+					"aadProfile": map[string]any{
+						"enableAzureRBAC": true,
+						"managed":         true,
+						"adminGroupObjectIDs": []string{
+							"${clientConfig.objectId}",
+						},
+					},
+					"agentPoolProfiles": []map[string]any{
+						{
+							"name":                "agentpool",
+							"count":               1,
+							"vmSize":              "Standard_DS2_v2",
+							"osType":              "Linux",
+							"mode":                "System",
+							"maxPods":             110,
+							"type":                "VirtualMachineScaleSets",
+							"orchestratorVersion": "1.21.2",
+						},
+					},
+					"linuxProfile": map[string]any{
+						"adminUsername": "azureuser",
+						"ssh": map[string]any{
+							"publicKeys": []map[string]any{
+								{
+									// generated via ssh-keygen -t rsa -b 2048 -f /tmp/test_key -N "" -C "test@example.com" 2>/dev/null && cat /tmp/test_key.pub
+									"keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPNoOivGx7lpsvSGx6603NLFhXCu9sl1c7Dcao29+p8m4kqElT6IxlfEZombjIGG/23vGRQr1/cuHhnOPieNf0UCEjmvkflm7iXjJTOVC04f96P9DiEck1+Vts+H9kBWYvik3nzmCayrX8lbjQKV9+UpmIpBC1OboETzsdhVqeXzaYAXE6wYA5jzjFaVAK9ORMiAQyTiTkEt6eGQoDLTdBbVPkFS2JNvjGTydhIakQ4bVdY8nUrj7hHGmsCu84ydKE36s5Am3pwU1cGNhfjGWDz8NViDQJ27eWzYNdhfwQ5F5/gu64XvY00XPh6F2wQ1jMMq3yzi9RNg1usedOVJ29 test@example.com",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		"outputs": map[string]any{
+			"clientId":   "${managedCluster.identityProfile.kubeletidentity.clientId}",
+			"objectId":   "${managedCluster.identityProfile.kubeletidentity.objectId}",
+			"resourceId": "${managedCluster.identityProfile.kubeletidentity.resourceId}",
+		},
+		"plugins": plugins,
+	}
+
+	// initial program
+	updatePulumiYAML(t, test.WorkingDir(), program)
+
+	upResult := test.Up(t)
+	assert.Empty(t, upResult.StdErr, "up should not have any errors")
+
+	nonEmpty := func(outputKey string) {
+		output, ok := upResult.Outputs[outputKey]
+		require.True(t, ok, "output %s should be present", outputKey)
+		value, ok := output.Value.(string)
+		require.True(t, ok, "output %s should be a string, instead it was %T", outputKey, output.Value)
+		assert.NotEmpty(t, value, "value of '%s' should not be empty", outputKey)
+	}
+
+	defer test.Destroy(t)
+
+	nonEmpty("clientId")
+	nonEmpty("objectId")
+	nonEmpty("resourceId")
+}

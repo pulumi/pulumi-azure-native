@@ -248,7 +248,7 @@ jobs:
         if: inputs.short_test
         run: |
           set -euo pipefail
-          cd examples && go test -cover -timeout 15m -short -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log
+          cd examples && go test -cover -timeout 1h -short -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
   test_provider:
     runs-on: pulumi-ubuntu-8core

@@ -186,9 +186,29 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 
 			m.pkg.Types[tok] = spec
 
-			m.metadata.Types[tok] = resources.AzureAPIType{
-				Properties:         props.properties,
-				RequiredProperties: props.requiredProperties.SortedValues(),
+			if existingMeta, has := m.metadata.Types[tok]; has {
+				// Merge metadata properties to match the schema type merge above.
+				// Without this, the second definition's properties overwrite the first,
+				// causing properties unique to the first definition to be lost at runtime
+				// (e.g., objectId/resourceId on containerservice:UserAssignedIdentityResponse).
+				mergedProps := make(map[string]resources.AzureAPIProperty, len(existingMeta.Properties)+len(props.properties))
+				for k, v := range existingMeta.Properties {
+					mergedProps[k] = v
+				}
+				for k, v := range props.properties {
+					if _, exists := mergedProps[k]; !exists {
+						mergedProps[k] = v
+					}
+				}
+				m.metadata.Types[tok] = resources.AzureAPIType{
+					Properties:         mergedProps,
+					RequiredProperties: props.requiredProperties.SortedValues(),
+				}
+			} else {
+				m.metadata.Types[tok] = resources.AzureAPIType{
+					Properties:         props.properties,
+					RequiredProperties: props.requiredProperties.SortedValues(),
+				}
 			}
 		}
 		return &pschema.TypeSpec{
