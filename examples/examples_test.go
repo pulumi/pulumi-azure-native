@@ -462,7 +462,6 @@ func TestManagedClusterHasPopulatedKubeletIdentity(t *testing.T) {
 	defer test.Destroy(t)
 
 	nonEmpty("clientId")
-	//nonEmpty("principalId")
 	nonEmpty("objectId")
 	nonEmpty("resourceId")
 }
