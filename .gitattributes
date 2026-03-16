@@ -1,2 +1,4 @@
 # Mark contents under sdk directory as generated to keep PRs manageable
 sdk/* linguist-generated=true
+
+.github/workflows/*.lock.yml linguist-generated=true merge=ours
