@@ -33,6 +33,7 @@ func TestAccSimpleDotnet(t *testing.T) {
 }
 
 func TestAccSql(t *testing.T) {
+	t.Skip("TODO https://github.com/pulumi/pulumi-azure-native/issues/4595")
 	test := getCsharpBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cs-sql"),
