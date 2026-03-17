@@ -38,18 +38,19 @@ runs:
       shell: bash
 
     - name: Download ${{ inputs.language  }} SDK
-      if: ${{ inputs.language != 'go' }}
+      if: ${{ inputs.language != 'go' && inputs.language != 'yaml' }}
       uses: actions/download-artifact@v4
       with:
         name: ${{ inputs.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
 
     - name: Uncompress ${{ inputs.language  }} SDK
-      if: ${{ inputs.language != 'go' }}
+      if: ${{ inputs.language != 'go' && inputs.language != 'yaml' }}
       run: tar -zxf ${{github.workspace}}/sdk/${{ inputs.language  }}.tar.gz -C ${{github.workspace}}/sdk/${{ inputs.language  }}
       shell: bash
 
     - name: Mark SDK as built
+      if: ${{ inputs.language != 'yaml' }}
       run: make --touch build_${{ inputs.language }}
       shell: bash
 
@@ -68,5 +69,6 @@ runs:
       shell: bash
 
     - name: Install dependencies
+      if: ${{ inputs.language != 'yaml' }}
       run: make install_${{ inputs.language}}_sdk
       shell: bash
