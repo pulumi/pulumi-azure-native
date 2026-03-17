@@ -184,6 +184,7 @@ jobs:
           - dotnet
           - go
           - java
+          - yaml
     name: Test SDKs
     permissions:
       id-token: write # required for OIDC auth
@@ -234,7 +235,7 @@ jobs:
           ARM_TENANT_ID: ${{ env.ARM_TENANT_ID }}
 
       - name: Run tests
-        if: ${{ ! inputs.short_test }}
+        if: ${{ ! inputs.short_test && matrix.language != 'yaml' }}
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
@@ -245,11 +246,18 @@ jobs:
           cd examples && go test -cover -timeout 2h -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
       - name: Run short tests
-        if: inputs.short_test
+        if: ${{ inputs.short_test && matrix.language != 'yaml' }}
         run: |
           set -euo pipefail
           cd examples && go test -cover -timeout 1h -short -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
+      - name: Run YAML tests
+        if: ${{ matrix.language == 'yaml' }}
+        env:
+          RUNNING_YAML_TESTS: "true"
+        run: |
+          set -euo pipefail
+          cd examples && go test -cover -timeout 2h -run "_YAML$" -v -parallel 16 . 2>&1 | tee /tmp/gotest.log
   test_provider:
     runs-on: pulumi-ubuntu-8core
     name: Test Provider

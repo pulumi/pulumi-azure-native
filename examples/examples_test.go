@@ -252,11 +252,22 @@ func tempProject(t *testing.T) tempProj {
 	}
 }
 
+// When in CI, only run YAML tests when RUNNING_YAML_TESTS is set to true, since YAML tests are long-running and we don't want them to run on every PR by default.
+// otherwise when testing locally, run the test as is.
+func skipIfNotYamlInCI(t *testing.T) {
+	runningInCI := os.Getenv("CI") != ""
+	runningYamlTests := os.Getenv("RUNNING_YAML_TESTS")
+	if runningInCI && runningYamlTests != "true" {
+		t.Skip("Skipping YAML tests in CI since RUNNING_YAML_TESTS is not set to true")
+	}
+}
+
 // This is a test to verify that adding the isHnsEnabled property to a storage account
 // does not cause replacements, since it defaults to false.
 // in fact, adding a property that defaults to false should not cause any changes at all since
 // the default value is the same as what we are setting it to.
-func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) {
+func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements_YAML(t *testing.T) {
+	skipIfNotYamlInCI(t)
 	proj := tempProject(t)
 	azureBinaryDir := azureNativeBinaryDir(t)
 	test := createTest(t, proj.dir)
@@ -320,7 +331,8 @@ func TestAddingHnsEnabledToStorageAccountDoesNotCauseReplacements(t *testing.T) 
 
 // TestListSubscriptionsInvoke verifies that the listSubscriptions invoke works
 // by calling it from a YAML program and putting the results in an output.
-func TestListSubscriptionsInvoke(t *testing.T) {
+func TestListSubscriptionsInvoke_YAML(t *testing.T) {
+	skipIfNotYamlInCI(t)
 	proj := tempProject(t)
 	azureBinaryDir := azureNativeBinaryDir(t)
 	test := createTest(t, proj.dir)
@@ -366,7 +378,205 @@ func TestListSubscriptionsInvoke(t *testing.T) {
 	t.Logf("First subscription ID: %s", firstSubscriptionId)
 }
 
-func TestManagedClusterHasPopulatedKubeletIdentity(t *testing.T) {
+func TestSqlServerWithPrivateEndpoint_YAML(t *testing.T) {
+	skipIfNotYamlInCI(t)
+	proj := tempProject(t)
+	azureBinaryDir := azureNativeBinaryDir(t)
+	test := createTest(t, proj.dir)
+
+	plugins := map[string]any{
+		"providers": []interface{}{
+			map[string]any{
+				"name": "azure-native",
+				"path": azureBinaryDir,
+			},
+		},
+	}
+
+	program := map[string]any{
+		"name":    proj.name,
+		"runtime": "yaml",
+		"variables": map[string]any{
+			"clientConfig": map[string]any{
+				"fn::invoke": map[string]any{
+					"function": "azure-native:authorization:getClientConfig",
+				},
+			},
+			"storageAccountKeys": map[string]any{
+				"fn::invoke": map[string]any{
+					"function": "azure-native:storage:listStorageAccountKeys",
+					"arguments": map[string]any{
+						"resourceGroupName": "${resourcegroup.name}",
+						"accountName":       "${sa.name}",
+					},
+				},
+			},
+		},
+		"resources": map[string]any{
+			"resourcegroup": map[string]any{
+				"type": "azure-native:resources:ResourceGroup",
+			},
+			"server": map[string]any{
+				"type": "azure-native:sql:Server",
+				"properties": map[string]any{
+					"resourceGroupName":          "${resourcegroup.name}",
+					"location":                   "${resourcegroup.location}",
+					"administratorLogin":         "dummylogin",
+					"administratorLoginPassword": "Un53cuRE!",
+					"version":                    "12.0",
+				},
+				"options": map[string]any{
+					"ignoreChanges": []string{"administrators"},
+				},
+			},
+			"enableADS": map[string]any{
+				"type": "azure-native:sql:ServerSecurityAlertPolicy",
+				"properties": map[string]any{
+					"resourceGroupName":       "${resourcegroup.name}",
+					"serverName":              "${server.name}",
+					"securityAlertPolicyName": "Default",
+					"state":                   "Enabled",
+				},
+			},
+			"sa": map[string]any{
+				"type": "azure-native:storage:StorageAccount",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"sku": map[string]any{
+						"name": "Standard_LRS",
+					},
+					"kind": "StorageV2",
+				},
+			},
+			"blobs": map[string]any{
+				"type": "azure-native:storage:BlobContainer",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"accountName":       "${sa.name}",
+				},
+			},
+			"serverVulnAssessment": map[string]any{
+				"type": "azure-native:sql:ServerVulnerabilityAssessment",
+				"properties": map[string]any{
+					"resourceGroupName":           "${resourcegroup.name}",
+					"serverName":                  "${server.name}",
+					"vulnerabilityAssessmentName": "default",
+					"recurringScans": map[string]any{
+						"emailSubscriptionAdmins": false,
+						"emails":                  []string{"hi@example.com"},
+						"isEnabled":               true,
+					},
+					"storageContainerPath":    "https://${sa.name}.blob.core.windows.net/${blobs.name}",
+					"storageAccountAccessKey": "${storageAccountKeys.keys[0].value}",
+				},
+				"options": map[string]any{
+					"dependsOn": []string{"${enableADS}"},
+				},
+			},
+			"sqlFwRule": map[string]any{
+				"type": "azure-native:sql:FirewallRule",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"serverName":        "${server.name}",
+					"firewallRuleName":  "ClientIPAddress",
+					"startIpAddress":    "222.222.222.222",
+					"endIpAddress":      "222.222.222.222",
+				},
+			},
+			"vnet": map[string]any{
+				"type": "azure-native:network:VirtualNetwork",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"location":          "${resourcegroup.location}",
+					"addressSpace": map[string]any{
+						"addressPrefixes": []string{"10.1.0.0/16"},
+					},
+					"subnets": []map[string]any{
+						{
+							"name":                           "default",
+							"addressPrefix":                  "10.1.0.0/24",
+							"privateEndpointNetworkPolicies": "Disabled",
+						},
+					},
+				},
+			},
+			"endpoint": map[string]any{
+				"type": "azure-native:network:PrivateEndpoint",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"location":          "${resourcegroup.location}",
+					"privateLinkServiceConnections": []map[string]any{
+						{
+							"groupIds":             []string{"sqlServer"},
+							"privateLinkServiceId": "${server.id}",
+							"name":                 "conn-sql",
+						},
+					},
+					"subnet": map[string]any{
+						"id": "${vnet.subnets[0].id}",
+					},
+				},
+			},
+			"zoneGroup": map[string]any{
+				"type": "azure-native:network:PrivateDnsZoneGroup",
+				"properties": map[string]any{
+					"resourceGroupName":   "${resourcegroup.name}",
+					"privateEndpointName": "${endpoint.name}",
+				},
+			},
+			"adAdmin": map[string]any{
+				"type": "azure-native:sql:ServerAzureADAdministrator",
+				"properties": map[string]any{
+					"resourceGroupName": "${resourcegroup.name}",
+					"serverName":        "${server.name}",
+					"administratorName": "ActiveDirectory",
+					"administratorType": "ActiveDirectory",
+					"login":             "foo@example.com",
+					"sid":               "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+					"tenantId":          "${clientConfig.tenantId}",
+				},
+			},
+			"adOnlyAuth": map[string]any{
+				"type": "azure-native:sql:ServerAzureADOnlyAuthentication",
+				"properties": map[string]any{
+					"resourceGroupName":         "${resourcegroup.name}",
+					"serverName":                "${server.name}",
+					"authenticationName":        "Default",
+					"azureADOnlyAuthentication": false,
+				},
+				"options": map[string]any{
+					"dependsOn": []string{"${adAdmin}"},
+				},
+			},
+		},
+		"outputs": map[string]any{
+			"serverName": "${server.name}",
+		},
+		"plugins": plugins,
+	}
+
+	updatePulumiYAML(t, test.WorkingDir(), program)
+
+	upResult := test.Up(t)
+	assert.Empty(t, upResult.StdErr, "up should not have any errors")
+	defer test.Destroy(t)
+
+	output, ok := upResult.Outputs["serverName"]
+	require.True(t, ok, "serverName output should be present")
+	serverName, ok := output.Value.(string)
+	require.True(t, ok, "serverName should be a string")
+	assert.NotEmpty(t, serverName, "serverName should not be empty")
+
+	// Assert that preview doesn't have changes
+	preview := test.Preview(t)
+	t.Logf("Preview STDOUT: \n%s", preview.StdOut)
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpSame: 13,
+	}, preview.ChangeSummary)
+}
+
+func TestManagedClusterHasPopulatedKubeletIdentity_YAML(t *testing.T) {
+	skipIfNotYamlInCI(t)
 	proj := tempProject(t)
 	azureBinaryDir := azureNativeBinaryDir(t)
 	test := createTest(t, proj.dir)
