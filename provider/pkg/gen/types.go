@@ -168,7 +168,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				},
 			}
 
-			if _, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") && isOutput {
+			if _, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") {
 				// If we are generating an output type and a type with the same name already exists,
 				// then disambiguate the token by adding a numeric suffix.
 				tok, err = m.disambiguateTypeToken(tok)
