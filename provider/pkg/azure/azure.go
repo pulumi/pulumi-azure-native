@@ -55,6 +55,8 @@ func IsNotFound(err error) bool {
 		// to refresh a service-bus queue/topic that were within that namespace
 		"ParentResourceNotFound": true,
 		"EntityNotFound":         true,
+		"SubscriptionNotFound":   true,
+		"RoleAssignmentNotFound": true,
 	}
 
 	if responseError, ok := err.(*azcore.ResponseError); ok {
