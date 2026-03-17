@@ -168,47 +168,22 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				},
 			}
 
-			if existing, has := m.pkg.Types[tok]; has {
-				if merged, err := mergeTypes(spec, existing, isOutput); err == nil {
-					// types were merged, continue with the merged type
-					spec = *merged
-				} else {
-					// if we are unable to merge types, rename the token to avoid collision
-					// for example if the type token is module:ResponseType and a type of that token
-					// already exists, then we should try to rename it with a numeric suffix
-					// so that it becomes module:ResponseTypeV1, module:ResponseTypeV2, etc.
-					tok, err = m.disambiguateTypeToken(tok)
-					if err != nil {
-						return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
-					}
+			if _, has := m.pkg.Types[tok]; has {
+				// when encountering type name collision
+				// for example if the type token is module:ResponseType and a type of that token
+				// already exists, then we should try to rename it with a numeric suffix
+				// so that it becomes module:ResponseTypeV1, module:ResponseTypeV2, etc.
+				tok, err = m.disambiguateTypeToken(tok)
+				if err != nil {
+					return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
 				}
 			}
 
 			m.pkg.Types[tok] = spec
 
-			if existingMeta, has := m.metadata.Types[tok]; has {
-				// Merge metadata properties to match the schema type merge above.
-				// Without this, the second definition's properties overwrite the first,
-				// causing properties unique to the first definition to be lost at runtime
-				// (e.g., objectId/resourceId on containerservice:UserAssignedIdentityResponse).
-				mergedProps := make(map[string]resources.AzureAPIProperty, len(existingMeta.Properties)+len(props.properties))
-				for k, v := range existingMeta.Properties {
-					mergedProps[k] = v
-				}
-				for k, v := range props.properties {
-					if _, exists := mergedProps[k]; !exists {
-						mergedProps[k] = v
-					}
-				}
-				m.metadata.Types[tok] = resources.AzureAPIType{
-					Properties:         mergedProps,
-					RequiredProperties: props.requiredProperties.SortedValues(),
-				}
-			} else {
-				m.metadata.Types[tok] = resources.AzureAPIType{
-					Properties:         props.properties,
-					RequiredProperties: props.requiredProperties.SortedValues(),
-				}
+			m.metadata.Types[tok] = resources.AzureAPIType{
+				Properties:         props.properties,
+				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
 		}
 		return &pschema.TypeSpec{
