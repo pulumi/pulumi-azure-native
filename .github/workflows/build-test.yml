@@ -103,6 +103,7 @@ jobs:
           - dotnet
           - go
           - java
+          - yaml
     name: Build SDKs
     steps:
       - name: Checkout Repo
@@ -125,9 +126,11 @@ jobs:
           make --touch codegen schema provider
 
       - name: Generate SDK
+        if: ${{ matrix.language != 'yaml' }}
         run: make generate_${{ matrix.language }}
 
       - name: Build SDK
+        if: ${{ matrix.language != 'yaml' }}
         run: make build_${{ matrix.language }}
 
       - name: Check worktree clean
@@ -140,11 +143,11 @@ jobs:
             sdk/python/pyproject.toml
 
       - name: Tar SDK folder
-        if: ${{ matrix.language != 'go' }}
+        if: ${{ matrix.language != 'go' && matrix.language != 'yaml' }}
         run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
 
       - name: Upload artifacts
-        if: ${{ matrix.language != 'go' }}
+        if: ${{ matrix.language != 'go' && matrix.language != 'yaml'}}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.language  }}-sdk.tar.gz
