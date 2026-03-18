@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Compute
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.SystemDataResponse?> SystemData { get; private set; } = null!;
+        public Output<Outputs.SystemDataResponseV1?> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

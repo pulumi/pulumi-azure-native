@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Edge
         /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.SitePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SitePropertiesResponseV1> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

@@ -1056,7 +1056,7 @@ class AssessmentsOperation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="vmUptime")
-    def vm_uptime(self) -> pulumi.Output[Optional['outputs.VmUptimeResponse']]:
+    def vm_uptime(self) -> pulumi.Output[Optional['outputs.VmUptimeResponseV1']]:
         """
         Gets or sets the duration for which the VMs are up in the on-premises
         environment.

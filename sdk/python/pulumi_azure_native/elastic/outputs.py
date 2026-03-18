@@ -34,6 +34,7 @@ __all__ = [
     'MonitoredResourceResponse',
     'MonitoredSubscriptionResponse',
     'MonitoringTagRulesPropertiesResponse',
+    'MonitoringTagRulesPropertiesResponseV1',
     'OpenAIIntegrationPropertiesResponse',
     'OpenAIIntegrationStatusResponsePropertiesResponse',
     'PartnerBillingEntityResponse',
@@ -1217,10 +1218,10 @@ class MonitoringTagRulesPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logRules":
-            suggest = "log_rules"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "logRules":
+            suggest = "log_rules"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MonitoringTagRulesPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1231,6 +1232,60 @@ class MonitoringTagRulesPropertiesResponse(dict):
 
     def get(self, key: str, default = None) -> Any:
         MonitoringTagRulesPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 log_rules: Optional['outputs.LogRulesResponse'] = None):
+        """
+        Definition of the properties for a TagRules resource.
+
+        :param _builtins.str provisioning_state: Provisioning state of the monitoring tag rules.
+        :param 'LogRulesResponse' log_rules: Rules for sending logs.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if log_rules is not None:
+            pulumi.set(__self__, "log_rules", log_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the monitoring tag rules.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="logRules")
+    def log_rules(self) -> Optional['outputs.LogRulesResponse']:
+        """
+        Rules for sending logs.
+        """
+        return pulumi.get(self, "log_rules")
+
+
+@pulumi.output_type
+class MonitoringTagRulesPropertiesResponseV1(dict):
+    """
+    Definition of the properties for a TagRules resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logRules":
+            suggest = "log_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringTagRulesPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringTagRulesPropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringTagRulesPropertiesResponseV1.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

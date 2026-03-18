@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// <summary>
         /// Internal error details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDefinitionResponse> Details;
+        public readonly ImmutableArray<Outputs.ErrorDefinitionResponseV1> Details;
         /// <summary>
         /// Description of the error.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         private SAPMigrateErrorResponse(
             string code,
 
-            ImmutableArray<Outputs.ErrorDefinitionResponse> details,
+            ImmutableArray<Outputs.ErrorDefinitionResponseV1> details,
 
             string message,
 

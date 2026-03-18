@@ -24,22 +24,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The principal ID of the assigned identity.
         /// </summary>
         public readonly string PrincipalId;
-        /// <summary>
-        /// The tenant ID of the user assigned identity.
-        /// </summary>
-        public readonly string? TenantId;
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
             string clientId,
 
-            string principalId,
-
-            string? tenantId)
+            string principalId)
         {
             ClientId = clientId;
             PrincipalId = principalId;
-            TenantId = tenantId;
         }
     }
 }

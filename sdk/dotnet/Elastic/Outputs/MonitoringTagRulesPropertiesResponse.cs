@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.Elastic.Outputs
         /// <summary>
         /// Provisioning state of the monitoring tag rules.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private MonitoringTagRulesPropertiesResponse(
             Outputs.LogRulesResponse? logRules,
 
-            string? provisioningState)
+            string provisioningState)
         {
             LogRules = logRules;
             ProvisioningState = provisioningState;

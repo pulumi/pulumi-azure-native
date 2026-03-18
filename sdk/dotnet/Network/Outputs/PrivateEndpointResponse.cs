@@ -45,10 +45,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointIPConfigurationResponse> IpConfigurations;
         /// <summary>
-        /// Specifies the IP version type for the private IPs of the private endpoint. If not defined, this defaults to IPv4.
-        /// </summary>
-        public readonly string? IpVersionType;
-        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -101,8 +97,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.PrivateEndpointIPConfigurationResponse> ipConfigurations,
 
-            string? ipVersionType,
-
             string? location,
 
             ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> manualPrivateLinkServiceConnections,
@@ -128,7 +122,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             ExtendedLocation = extendedLocation;
             Id = id;
             IpConfigurations = ipConfigurations;
-            IpVersionType = ipVersionType;
             Location = location;
             ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;
             Name = name;

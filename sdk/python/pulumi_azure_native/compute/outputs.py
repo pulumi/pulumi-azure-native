@@ -204,6 +204,7 @@ __all__ = [
     'SubResourceWithColocationStatusResponse',
     'SupportedCapabilitiesResponse',
     'SystemDataResponse',
+    'SystemDataResponseV1',
     'TargetRegionResponse',
     'TerminateNotificationProfileResponse',
     'UefiKeyResponse',
@@ -12682,6 +12683,59 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class SystemDataResponseV1(dict):
+    """
+    The system meta data relating to this resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: _builtins.str,
+                 last_modified_at: _builtins.str):
+        """
+        The system meta data relating to this resource.
+
+        :param _builtins.str created_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
+        :param _builtins.str last_modified_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "last_modified_at", last_modified_at)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> _builtins.str:
+        """
+        Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
+        """
+        return pulumi.get(self, "last_modified_at")
 
 
 @pulumi.output_type

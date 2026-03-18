@@ -52,8 +52,33 @@ func extractNumericSuffix(s string) (int, string) {
 	return 0, s
 }
 
+// tokenModuleVersion extracts the version part of the module
+// from a type token of the form "azure-native:module/{version}:type".
+func tokenModuleVersion(token string) string {
+	parts := strings.Split(token, ":")
+	if len(parts) != 3 {
+		return ""
+	}
+
+	mod := parts[1]
+	verIndex := strings.LastIndex(mod, "/")
+	if verIndex == -1 {
+		return ""
+	}
+
+	return mod[verIndex+1:]
+}
+
 func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
-	// while the token is taken, keep trying to disambiguate by adding a numeric suffix
+	// first try to to disambiguate by using the version of the module
+	if version := tokenModuleVersion(token); version != "" {
+		newToken := fmt.Sprintf("%s_V%s", token, strings.TrimPrefix(version, "v"))
+		if _, seen := m.pkg.Types[newToken]; !seen {
+			return newToken, nil
+		}
+	}
+
+	// then try to disambiguate by adding a numeric suffix
 	numericSuffix, original := extractNumericSuffix(token)
 	for true {
 		newToken := fmt.Sprintf("%sV%d", original, numericSuffix+1)
@@ -65,6 +90,69 @@ func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
 	}
 
 	return token, nil
+}
+
+// propertiesEqual checks if the properties of two ComplexTypeSpecs are equal.
+// Descriptions don't have to match, but types, refs, items, additionalProperties, and required properties do.
+func propertiesEqual(specA, specB pschema.ComplexTypeSpec) bool {
+	if len(specA.Properties) != len(specB.Properties) {
+		return false
+	}
+
+	if len(specA.Required) != len(specB.Required) {
+		return false
+	}
+
+	for _, req := range specA.Required {
+		found := false
+		for _, reqB := range specB.Required {
+			if req == reqB {
+				found = true
+				break
+			}
+		}
+
+		if !found {
+			return false
+		}
+	}
+
+	for propName, propSpecA := range specA.Properties {
+		propSpecB, ok := specB.Properties[propName]
+		if !ok {
+			return false
+		}
+
+		if propSpecA.Type != propSpecB.Type || propSpecA.Ref != propSpecB.Ref {
+			return false
+		}
+
+		// if either of the two properties has an Items field,
+		// then both should have it and they should be the same
+		if (propSpecA.Items == nil) != (propSpecB.Items == nil) {
+			return false
+		}
+
+		if propSpecA.Items != nil && propSpecB.Items != nil {
+			if propSpecA.Items.Type != propSpecB.Items.Type || propSpecA.Items.Ref != propSpecB.Items.Ref {
+				return false
+			}
+		}
+
+		// same for AdditionalProperties
+		if (propSpecA.AdditionalProperties == nil) != (propSpecB.AdditionalProperties == nil) {
+			return false
+		}
+
+		if propSpecA.AdditionalProperties != nil && propSpecB.AdditionalProperties != nil {
+			if propSpecA.AdditionalProperties.Type != propSpecB.AdditionalProperties.Type ||
+				propSpecA.AdditionalProperties.Ref != propSpecB.AdditionalProperties.Ref {
+				return false
+			}
+		}
+	}
+
+	return true
 }
 
 func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
@@ -166,6 +254,21 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 					Properties:  props.specs,
 					Required:    props.requiredSpecs.SortedValues(),
 				},
+			}
+
+			// If we are generating an output type and a type with the same name already exists,
+			// Check to see if we need to disambiguate the token by comparing the existing type with the new one.
+			// if they are not the same, then try disambiguate the token by adding either
+			// - the module version (e.g. _V20210401) if the module version can be extracted from the token, or
+			// - a numeric suffix (e.g. V1, V2, etc.)
+			if existing, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") && isOutput {
+				if !propertiesEqual(existing, spec) {
+					// then disambiguate the token by adding a numeric suffix.
+					tok, err = m.disambiguateTypeToken(tok)
+					if err != nil {
+						return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
+					}
+				}
 			}
 
 			if existing, has := m.pkg.Types[tok]; has {

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 {
 
     /// <summary>
-    /// The Private Endpoint Connection resource.
+    /// The private endpoint connection resource.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 
             string provisioningState,
 
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {

@@ -11,25 +11,21 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
     /// <summary>
-    /// A private endpoint connection for a project.
+    /// Private endpoint connection resource.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// For optimistic concurrency control.
-        /// </summary>
-        public readonly string? ETag;
-        /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
         /// <summary>
-        /// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the private endpoint endpoint connection.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -39,28 +35,22 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
-        /// <summary>
-        /// Properties of the private endpoint endpoint connection.
-        /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state of the private endpoint connection resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly Outputs.SystemDataResponse? SystemData;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private PrivateEndpointConnectionResponse(
-            string? eTag,
-
             ImmutableArray<string> groupIds,
 
             string id,
@@ -69,23 +59,19 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponse properties,
+            string provisioningState,
 
-            string? provisioningState,
-
-            Outputs.SystemDataResponse? systemData,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            ETag = eTag;
             GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
-            Properties = properties;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;

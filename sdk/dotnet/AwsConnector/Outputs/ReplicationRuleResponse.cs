@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC). A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         /// </summary>
-        public readonly Outputs.ReplicationDestinationResponse? Destination;
+        public readonly Outputs.ReplicationDestinationResponseV1? Destination;
         /// <summary>
         /// A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.  V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element. A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         private ReplicationRuleResponse(
             Outputs.DeleteMarkerReplicationResponse? deleteMarkerReplication,
 
-            Outputs.ReplicationDestinationResponse? destination,
+            Outputs.ReplicationDestinationResponseV1? destination,
 
             Outputs.ReplicationRuleFilterResponse? filter,
 

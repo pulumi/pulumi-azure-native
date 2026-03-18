@@ -17,36 +17,22 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
     public sealed class ContainerPartitionKeyResponse
     {
         /// <summary>
-        /// Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+        /// Indicates the kind of algorithm used for partitioning
         /// </summary>
         public readonly string? Kind;
         /// <summary>
         /// List of paths using which data within the container can be partitioned
         /// </summary>
         public readonly ImmutableArray<string> Paths;
-        /// <summary>
-        /// Indicates if the container is using a system generated partition key
-        /// </summary>
-        public readonly bool SystemKey;
-        /// <summary>
-        /// Indicates the version of the partition key definition
-        /// </summary>
-        public readonly int? Version;
 
         [OutputConstructor]
         private ContainerPartitionKeyResponse(
             string? kind,
 
-            ImmutableArray<string> paths,
-
-            bool systemKey,
-
-            int? version)
+            ImmutableArray<string> paths)
         {
             Kind = kind;
             Paths = paths;
-            SystemKey = systemKey;
-            Version = version;
         }
     }
 }

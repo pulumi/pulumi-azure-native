@@ -130,6 +130,7 @@ __all__ = [
     'PlatformTelemetryDataSourceResponse',
     'PredictiveAutoscalePolicyResponse',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointConnectionResponseV1',
     'PrivateEndpointResponse',
     'PrivateLinkScopedResourceResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -176,6 +177,7 @@ __all__ = [
     'VoiceReceiverResponse',
     'WebhookNotificationResponse',
     'WebhookReceiverResponse',
+    'WebhookReceiverResponseV1',
     'WebtestLocationAvailabilityCriteriaResponse',
     'WindowsEventLogDataSourceResponse',
     'WindowsFirewallLogsDataSourceResponse',
@@ -8289,21 +8291,21 @@ class PredictiveAutoscalePolicyResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    The Private Endpoint Connection resource.
+    The private endpoint connection resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateLinkServiceConnectionState":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "groupIds":
-            suggest = "group_ids"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
         elif key == "systemData":
             suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8317,14 +8319,134 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[_builtins.str],
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The private endpoint connection resource.
+
+        :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponseV1(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
                  type: _builtins.str,
-                 group_ids: Optional[Sequence[_builtins.str]] = None,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 system_data: Optional['outputs.SystemDataResponse'] = None):
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
         The Private Endpoint Connection resource.
 
@@ -8333,21 +8455,15 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
-        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
 
     @_builtins.property
     @pulumi.getter
@@ -8390,28 +8506,12 @@ class PrivateEndpointConnectionResponse(dict):
         return pulumi.get(self, "type")
 
     @_builtins.property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The group ids for the private endpoint resource.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @_builtins.property
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
         The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
-
-    @_builtins.property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
-        """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        """
-        return pulumi.get(self, "system_data")
 
 
 @pulumi.output_type
@@ -11418,7 +11518,7 @@ class WebhookReceiverResponse(dict):
         """
         A webhook receiver.
 
-        :param _builtins.str name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        :param _builtins.str name: The name of the webhook receiver. Names must be unique across all receivers within an action group.
         :param _builtins.str service_uri: The URI where webhooks should be sent.
         :param _builtins.str identifier_uri: Indicates the identifier uri for aad auth.
         :param _builtins.str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
@@ -11433,6 +11533,139 @@ class WebhookReceiverResponse(dict):
             pulumi.set(__self__, "identifier_uri", identifier_uri)
         if managed_identity is not None:
             pulumi.set(__self__, "managed_identity", managed_identity)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_aad_auth is None:
+            use_aad_auth = False
+        if use_aad_auth is not None:
+            pulumi.set(__self__, "use_aad_auth", use_aad_auth)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> _builtins.str:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="identifierUri")
+    def identifier_uri(self) -> Optional[_builtins.str]:
+        """
+        Indicates the identifier uri for aad auth.
+        """
+        return pulumi.get(self, "identifier_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[_builtins.str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[_builtins.str]:
+        """
+        Indicates the webhook app object Id for aad auth.
+        """
+        return pulumi.get(self, "object_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        Indicates the tenant id for aad auth.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="useAadAuth")
+    def use_aad_auth(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether or not use AAD authentication.
+        """
+        return pulumi.get(self, "use_aad_auth")
+
+    @_builtins.property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class WebhookReceiverResponseV1(dict):
+    """
+    A webhook receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+        elif key == "identifierUri":
+            suggest = "identifier_uri"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "useAadAuth":
+            suggest = "use_aad_auth"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebhookReceiverResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebhookReceiverResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebhookReceiverResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 service_uri: _builtins.str,
+                 identifier_uri: Optional[_builtins.str] = None,
+                 object_id: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None,
+                 use_aad_auth: Optional[_builtins.bool] = None,
+                 use_common_alert_schema: Optional[_builtins.bool] = None):
+        """
+        A webhook receiver.
+
+        :param _builtins.str name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        :param _builtins.str service_uri: The URI where webhooks should be sent.
+        :param _builtins.str identifier_uri: Indicates the identifier uri for aad auth.
+        :param _builtins.str object_id: Indicates the webhook app object Id for aad auth.
+        :param _builtins.str tenant_id: Indicates the tenant id for aad auth.
+        :param _builtins.bool use_aad_auth: Indicates whether or not use AAD authentication.
+        :param _builtins.bool use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_uri", service_uri)
+        if identifier_uri is not None:
+            pulumi.set(__self__, "identifier_uri", identifier_uri)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
         if tenant_id is not None:
@@ -11469,14 +11702,6 @@ class WebhookReceiverResponse(dict):
         Indicates the identifier uri for aad auth.
         """
         return pulumi.get(self, "identifier_uri")
-
-    @_builtins.property
-    @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[_builtins.str]:
-        """
-        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
-        """
-        return pulumi.get(self, "managed_identity")
 
     @_builtins.property
     @pulumi.getter(name="objectId")

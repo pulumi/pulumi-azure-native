@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly string? ApplicationLogLevel;
         /// <summary>
-        /// Property failureFeedbackRoleArn
-        /// </summary>
-        public readonly string? FailureFeedbackRoleArn;
-        /// <summary>
         /// The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
         /// </summary>
         public readonly string? LogFormat;
@@ -32,18 +28,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/&lt;function name&gt;``. To use a different log group, enter an existing log group or enter a new log group name.
         /// </summary>
         public readonly string? LogGroup;
-        /// <summary>
-        /// Property protocol
-        /// </summary>
-        public readonly string? Protocol;
-        /// <summary>
-        /// Property successFeedbackRoleArn
-        /// </summary>
-        public readonly string? SuccessFeedbackRoleArn;
-        /// <summary>
-        /// Property successFeedbackSampleRate
-        /// </summary>
-        public readonly string? SuccessFeedbackSampleRate;
         /// <summary>
         /// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         /// </summary>
@@ -53,27 +37,15 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         private LoggingConfigResponse(
             string? applicationLogLevel,
 
-            string? failureFeedbackRoleArn,
-
             string? logFormat,
 
             string? logGroup,
 
-            string? protocol,
-
-            string? successFeedbackRoleArn,
-
-            string? successFeedbackSampleRate,
-
             string? systemLogLevel)
         {
             ApplicationLogLevel = applicationLogLevel;
-            FailureFeedbackRoleArn = failureFeedbackRoleArn;
             LogFormat = logFormat;
             LogGroup = logGroup;
-            Protocol = protocol;
-            SuccessFeedbackRoleArn = successFeedbackRoleArn;
-            SuccessFeedbackSampleRate = successFeedbackSampleRate;
             SystemLogLevel = systemLogLevel;
         }
     }

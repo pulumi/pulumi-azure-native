@@ -25,15 +25,11 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly string? IPv6Address;
         /// <summary>
-        /// A IPAddressType
-        /// </summary>
-        public readonly string? IpAddressType;
-        /// <summary>
         /// [Network Load Balancers] The private IPv4 address for an internal load balancer.
         /// </summary>
         public readonly string? PrivateIPv4Address;
         /// <summary>
-        /// A SubnetId.
+        /// The ID of the subnet.
         /// </summary>
         public readonly string? SubnetId;
 
@@ -43,15 +39,12 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             string? iPv6Address,
 
-            string? ipAddressType,
-
             string? privateIPv4Address,
 
             string? subnetId)
         {
             AllocationId = allocationId;
             IPv6Address = iPv6Address;
-            IpAddressType = ipAddressType;
             PrivateIPv4Address = privateIPv4Address;
             SubnetId = subnetId;
         }

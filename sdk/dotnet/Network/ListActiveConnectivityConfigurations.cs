@@ -142,13 +142,13 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a page of active connectivity configurations.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ActiveConnectivityConfigurationResponse> Value;
+        public readonly ImmutableArray<Outputs.ActiveConnectivityConfigurationResponseV1> Value;
 
         [OutputConstructor]
         private ListActiveConnectivityConfigurationsResult(
             string? skipToken,
 
-            ImmutableArray<Outputs.ActiveConnectivityConfigurationResponse> value)
+            ImmutableArray<Outputs.ActiveConnectivityConfigurationResponseV1> value)
         {
             SkipToken = skipToken;
             Value = value;

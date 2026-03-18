@@ -275,7 +275,7 @@ class Namespace(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.NamespacePropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.NamespacePropertiesResponseV1']:
         """
         Properties of a namespace.
         """

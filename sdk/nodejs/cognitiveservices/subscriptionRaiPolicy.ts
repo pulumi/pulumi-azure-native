@@ -54,7 +54,7 @@ export class SubscriptionRaiPolicy extends pulumi.CustomResource {
     /**
      * Properties of Cognitive Services RaiPolicy.
      */
-    declare public readonly properties: pulumi.Output<outputs.cognitiveservices.RaiPolicyPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.cognitiveservices.RaiPolicyPropertiesResponseV1>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -21,17 +21,9 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// </summary>
         public readonly bool? Automatic;
         /// <summary>
-        /// List of composite path list
-        /// </summary>
-        public readonly ImmutableArray<ImmutableArray<Outputs.CompositePathResponse>> CompositeIndexes;
-        /// <summary>
         /// List of paths to exclude from indexing
         /// </summary>
         public readonly ImmutableArray<Outputs.ExcludedPathResponse> ExcludedPaths;
-        /// <summary>
-        /// List of paths to include in the full text indexing
-        /// </summary>
-        public readonly ImmutableArray<Outputs.FullTextIndexPathResponse> FullTextIndexes;
         /// <summary>
         /// List of paths to include in the indexing
         /// </summary>
@@ -40,41 +32,21 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// Indicates the indexing mode.
         /// </summary>
         public readonly string? IndexingMode;
-        /// <summary>
-        /// List of spatial specifics
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SpatialSpecResponse> SpatialIndexes;
-        /// <summary>
-        /// List of paths to include in the vector indexing
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VectorIndexResponse> VectorIndexes;
 
         [OutputConstructor]
         private IndexingPolicyResponse(
             bool? automatic,
 
-            ImmutableArray<ImmutableArray<Outputs.CompositePathResponse>> compositeIndexes,
-
             ImmutableArray<Outputs.ExcludedPathResponse> excludedPaths,
-
-            ImmutableArray<Outputs.FullTextIndexPathResponse> fullTextIndexes,
 
             ImmutableArray<Outputs.IncludedPathResponse> includedPaths,
 
-            string? indexingMode,
-
-            ImmutableArray<Outputs.SpatialSpecResponse> spatialIndexes,
-
-            ImmutableArray<Outputs.VectorIndexResponse> vectorIndexes)
+            string? indexingMode)
         {
             Automatic = automatic;
-            CompositeIndexes = compositeIndexes;
             ExcludedPaths = excludedPaths;
-            FullTextIndexes = fullTextIndexes;
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;
-            SpatialIndexes = spatialIndexes;
-            VectorIndexes = vectorIndexes;
         }
     }
 }

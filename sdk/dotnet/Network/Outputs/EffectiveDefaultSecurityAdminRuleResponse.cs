@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// A friendly name for the rule.
         /// </summary>
-        public readonly string? DisplayName;
+        public readonly string DisplayName;
         /// <summary>
         /// Default rule flag.
         /// </summary>
@@ -74,13 +74,9 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Unique identifier for this resource.
-        /// </summary>
-        public readonly string ResourceGuid;
-        /// <summary>
         /// Groups for rule collection
         /// </summary>
-        public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> RuleCollectionAppliesToGroups;
+        public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponseV3> RuleCollectionAppliesToGroups;
         /// <summary>
         /// A description of the rule collection.
         /// </summary>
@@ -118,7 +114,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string direction,
 
-            string? displayName,
+            string displayName,
 
             string? flag,
 
@@ -132,9 +128,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            string resourceGuid,
-
-            ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> ruleCollectionAppliesToGroups,
+            ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponseV3> ruleCollectionAppliesToGroups,
 
             string? ruleCollectionDescription,
 
@@ -160,7 +154,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             Priority = priority;
             Protocol = protocol;
             ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
             RuleCollectionAppliesToGroups = ruleCollectionAppliesToGroups;
             RuleCollectionDescription = ruleCollectionDescription;
             RuleCollectionDisplayName = ruleCollectionDisplayName;

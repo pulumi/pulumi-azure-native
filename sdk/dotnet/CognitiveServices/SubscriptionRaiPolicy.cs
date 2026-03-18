@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Properties of Cognitive Services RaiPolicy.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.RaiPolicyPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.RaiPolicyPropertiesResponseV1> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

@@ -17,41 +17,20 @@ namespace Pulumi.AzureNative.ResourceConnector.Outputs
     public sealed class SSHKeyResponse
     {
         /// <summary>
-        /// Certificate associated with the public key if the key is signed.
+        /// User Private Key.
         /// </summary>
-        public readonly string Certificate;
+        public readonly string? PrivateKey;
         /// <summary>
-        /// Certificate creation timestamp (Unix).
+        /// User Public Key.
         /// </summary>
-        public readonly double CreationTimeStamp;
-        /// <summary>
-        /// Certificate expiration timestamp (Unix).
-        /// </summary>
-        public readonly double ExpirationTimeStamp;
-        /// <summary>
-        /// Private Key.
-        /// </summary>
-        public readonly string PrivateKey;
-        /// <summary>
-        /// Public Key.
-        /// </summary>
-        public readonly string PublicKey;
+        public readonly string? PublicKey;
 
         [OutputConstructor]
         private SSHKeyResponse(
-            string certificate,
+            string? privateKey,
 
-            double creationTimeStamp,
-
-            double expirationTimeStamp,
-
-            string privateKey,
-
-            string publicKey)
+            string? publicKey)
         {
-            Certificate = certificate;
-            CreationTimeStamp = creationTimeStamp;
-            ExpirationTimeStamp = expirationTimeStamp;
             PrivateKey = privateKey;
             PublicKey = publicKey;
         }

@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// Property dimensions
         /// </summary>
-        public readonly ImmutableArray<Outputs.DimensionResponse> Dimensions;
+        public readonly ImmutableArray<Outputs.DimensionResponseV2> Dimensions;
 
         [OutputConstructor]
-        private PublishMetricActionResponse(ImmutableArray<Outputs.DimensionResponse> dimensions)
+        private PublishMetricActionResponse(ImmutableArray<Outputs.DimensionResponseV2> dimensions)
         {
             Dimensions = dimensions;
         }

@@ -46,7 +46,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Collection information
      */
-    declare public /*out*/ readonly collection: pulumi.Output<outputs.costmanagement.ConnectorCollectionInfoResponse>;
+    declare public /*out*/ readonly collection: pulumi.Output<outputs.costmanagement.ConnectorCollectionInfoResponseV1>;
     /**
      * Connector definition creation datetime
      */

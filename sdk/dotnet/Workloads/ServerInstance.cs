@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Defines the errors related to SAP Instance resource.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.SAPMigrateErrorResponse> Errors { get; private set; } = null!;
+        public Output<Outputs.SAPMigrateErrorResponseV2> Errors { get; private set; } = null!;
 
         /// <summary>
         /// This is the Instance SID for ASCS/AP/DB instance.  An SAP system with HANA database for example could have a different SID for database Instance than that of ASCS instance.

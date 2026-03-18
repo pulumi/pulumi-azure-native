@@ -56,7 +56,7 @@ class ListApplianceKeysResult:
 
     @_builtins.property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Mapping[str, 'outputs.SSHKeyResponse']:
+    def ssh_keys(self) -> Mapping[str, 'outputs.SSHKeyResponseV1']:
         """
         Map of Customer User Public, Private SSH Keys and Certificate when available.
         """

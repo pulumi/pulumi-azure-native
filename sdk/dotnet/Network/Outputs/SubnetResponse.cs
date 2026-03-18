@@ -45,10 +45,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// An array of references to interface endpoints 
-        /// </summary>
-        public readonly ImmutableArray<Outputs.InterfaceEndpointResponse> InterfaceEndpoints;
-        /// <summary>
         /// Array of IpAllocation which reference this subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
@@ -117,10 +113,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
         /// <summary>
-        /// Reference to an existing service gateway.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse? ServiceGateway;
-        /// <summary>
         /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         /// </summary>
         public readonly string? SharingScope;
@@ -144,8 +136,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             string etag,
 
             string? id,
-
-            ImmutableArray<Outputs.InterfaceEndpointResponse> interfaceEndpoints,
 
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
@@ -181,8 +171,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
 
-            Outputs.SubResourceResponse? serviceGateway,
-
             string? sharingScope,
 
             string? type)
@@ -194,7 +182,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             Delegations = delegations;
             Etag = etag;
             Id = id;
-            InterfaceEndpoints = interfaceEndpoints;
             IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;
@@ -212,7 +199,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
-            ServiceGateway = serviceGateway;
             SharingScope = sharingScope;
             Type = type;
         }

@@ -57,22 +57,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? Kerberos5ReadWrite;
         /// <summary>
-        /// Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        public readonly bool? Kerberos5iReadOnly;
-        /// <summary>
-        /// Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        public readonly bool? Kerberos5iReadWrite;
-        /// <summary>
-        /// Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        public readonly bool? Kerberos5pReadOnly;
-        /// <summary>
-        /// Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
-        /// </summary>
-        public readonly bool? Kerberos5pReadWrite;
-        /// <summary>
         /// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
         /// </summary>
         public readonly bool? Nfsv3;
@@ -115,14 +99,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             bool? kerberos5ReadWrite,
 
-            bool? kerberos5iReadOnly,
-
-            bool? kerberos5iReadWrite,
-
-            bool? kerberos5pReadOnly,
-
-            bool? kerberos5pReadWrite,
-
             bool? nfsv3,
 
             bool? nfsv41,
@@ -143,10 +119,6 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             Kerberos5PReadWrite = kerberos5PReadWrite;
             Kerberos5ReadOnly = kerberos5ReadOnly;
             Kerberos5ReadWrite = kerberos5ReadWrite;
-            Kerberos5iReadOnly = kerberos5iReadOnly;
-            Kerberos5iReadWrite = kerberos5iReadWrite;
-            Kerberos5pReadOnly = kerberos5pReadOnly;
-            Kerberos5pReadWrite = kerberos5pReadWrite;
             Nfsv3 = nfsv3;
             Nfsv41 = nfsv41;
             RuleIndex = ruleIndex;

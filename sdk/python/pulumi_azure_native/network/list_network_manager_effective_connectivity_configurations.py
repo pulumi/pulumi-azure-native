@@ -45,7 +45,7 @@ class ListNetworkManagerEffectiveConnectivityConfigurationsResult:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.EffectiveConnectivityConfigurationResponse']]:
+    def value(self) -> Optional[Sequence['outputs.EffectiveConnectivityConfigurationResponseV1']]:
         """
         Gets a page of NetworkManagerEffectiveConnectivityConfiguration
         """

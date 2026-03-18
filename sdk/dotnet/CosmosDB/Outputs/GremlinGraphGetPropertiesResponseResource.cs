@@ -40,11 +40,11 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// <summary>
         /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         /// </summary>
-        public readonly Outputs.IndexingPolicyResponse? IndexingPolicy;
+        public readonly Outputs.IndexingPolicyResponseV1? IndexingPolicy;
         /// <summary>
         /// The configuration of the partition key to be used for partitioning data into multiple partitions
         /// </summary>
-        public readonly Outputs.ContainerPartitionKeyResponse? PartitionKey;
+        public readonly Outputs.ContainerPartitionKeyResponseV1? PartitionKey;
         /// <summary>
         /// Parameters to indicate the information about the restore
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
 
             string id,
 
-            Outputs.IndexingPolicyResponse? indexingPolicy,
+            Outputs.IndexingPolicyResponseV1? indexingPolicy,
 
-            Outputs.ContainerPartitionKeyResponse? partitionKey,
+            Outputs.ContainerPartitionKeyResponseV1? partitionKey,
 
             Outputs.ResourceRestoreParametersResponse? restoreParameters,
 

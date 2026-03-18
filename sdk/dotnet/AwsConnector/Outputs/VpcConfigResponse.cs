@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 {
 
     /// <summary>
-    /// Definition of VpcConfig
+    /// Definition of VpcConfigResponse
     /// </summary>
     [OutputType]
     public sealed class VpcConfigResponse
@@ -29,19 +29,15 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly bool? EndpointPublicAccess;
         /// <summary>
-        /// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-        /// </summary>
-        public readonly bool? Ipv6AllowedForDualStack;
-        /// <summary>
         /// &lt;p&gt;The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> PublicAccessCidrs;
         /// <summary>
-        /// A list of VPC security group IDs.
+        /// &lt;p&gt;The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// A list of VPC subnet IDs.
+        /// &lt;p&gt;The subnets associated with your cluster.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
@@ -61,8 +57,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             bool? endpointPublicAccess,
 
-            bool? ipv6AllowedForDualStack,
-
             ImmutableArray<string> publicAccessCidrs,
 
             ImmutableArray<string> securityGroupIds,
@@ -76,7 +70,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
             ClusterSecurityGroupId = clusterSecurityGroupId;
             EndpointPrivateAccess = endpointPrivateAccess;
             EndpointPublicAccess = endpointPublicAccess;
-            Ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             PublicAccessCidrs = publicAccessCidrs;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;

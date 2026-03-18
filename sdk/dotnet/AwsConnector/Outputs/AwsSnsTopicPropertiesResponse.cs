@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// Property deliveryStatusLogging
         /// </summary>
-        public readonly ImmutableArray<Outputs.LoggingConfigResponse> DeliveryStatusLogging;
+        public readonly ImmutableArray<Outputs.LoggingConfigResponseV1> DeliveryStatusLogging;
         /// <summary>
         /// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             object? dataProtectionPolicy,
 
-            ImmutableArray<Outputs.LoggingConfigResponse> deliveryStatusLogging,
+            ImmutableArray<Outputs.LoggingConfigResponseV1> deliveryStatusLogging,
 
             string? displayName,
 

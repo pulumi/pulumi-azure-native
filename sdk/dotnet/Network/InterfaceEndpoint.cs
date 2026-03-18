@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets an array of references to the network interfaces created for this interface endpoint.
         /// </summary>
         [Output("networkInterfaces")]
-        public Output<ImmutableArray<Outputs.NetworkInterfaceResponse>> NetworkInterfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseV1>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
         /// A read-only property that identifies who created this interface endpoint.

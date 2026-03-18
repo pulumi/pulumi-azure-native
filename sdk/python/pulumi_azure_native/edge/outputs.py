@@ -43,6 +43,7 @@ __all__ = [
     'SchemaVersionPropertiesResponse',
     'SiteAddressPropertiesResponse',
     'SitePropertiesResponse',
+    'SitePropertiesResponseV1',
     'SiteReferencePropertiesResponse',
     'SolutionDependencyResponse',
     'SolutionPropertiesResponse',
@@ -1664,8 +1665,6 @@ class SitePropertiesResponse(dict):
             suggest = "address_resource_id"
         elif key == "displayName":
             suggest = "display_name"
-        elif key == "siteAddress":
-            suggest = "site_address"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SitePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1682,9 +1681,7 @@ class SitePropertiesResponse(dict):
                  provisioning_state: _builtins.str,
                  address_resource_id: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
-                 display_name: Optional[_builtins.str] = None,
-                 labels: Optional[Mapping[str, _builtins.str]] = None,
-                 site_address: Optional['outputs.SiteAddressPropertiesResponse'] = None):
+                 display_name: Optional[_builtins.str] = None):
         """
         Site properties
 
@@ -1692,8 +1689,6 @@ class SitePropertiesResponse(dict):
         :param _builtins.str address_resource_id: AddressResource ArmId of Site resource
         :param _builtins.str description: Description of Site resource
         :param _builtins.str display_name: displayName of Site resource
-        :param Mapping[str, _builtins.str] labels: Key-value pairs for labeling the site resource.
-        :param 'SiteAddressPropertiesResponse' site_address: Physical address of the site
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if address_resource_id is not None:
@@ -1702,10 +1697,6 @@ class SitePropertiesResponse(dict):
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if site_address is not None:
-            pulumi.set(__self__, "site_address", site_address)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -1722,6 +1713,82 @@ class SitePropertiesResponse(dict):
         AddressResource ArmId of Site resource
         """
         return pulumi.get(self, "address_resource_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of Site resource
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        displayName of Site resource
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class SitePropertiesResponseV1(dict):
+    """
+    Site properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "siteAddress":
+            suggest = "site_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SitePropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SitePropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SitePropertiesResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None,
+                 labels: Optional[Mapping[str, _builtins.str]] = None,
+                 site_address: Optional['outputs.SiteAddressPropertiesResponse'] = None):
+        """
+        Site properties
+
+        :param _builtins.str provisioning_state: Provisioning state of last operation
+        :param _builtins.str description: Description of Site resource
+        :param _builtins.str display_name: displayName of Site resource
+        :param Mapping[str, _builtins.str] labels: Key-value pairs for labeling the site resource.
+        :param 'SiteAddressPropertiesResponse' site_address: Physical address of the site
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if site_address is not None:
+            pulumi.set(__self__, "site_address", site_address)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of last operation
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter

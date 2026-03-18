@@ -21,32 +21,18 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The object ID of the user assigned identity.
-        /// </summary>
-        public readonly string? ObjectId;
-        /// <summary>
         /// The principal ID of the assigned identity.
         /// </summary>
         public readonly string PrincipalId;
-        /// <summary>
-        /// The resource ID of the user assigned identity.
-        /// </summary>
-        public readonly string? ResourceId;
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
             string clientId,
 
-            string? objectId,
-
-            string principalId,
-
-            string? resourceId)
+            string principalId)
         {
             ClientId = clientId;
-            ObjectId = objectId;
             PrincipalId = principalId;
-            ResourceId = resourceId;
         }
     }
 }

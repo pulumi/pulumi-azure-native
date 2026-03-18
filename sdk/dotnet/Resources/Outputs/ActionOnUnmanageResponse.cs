@@ -28,10 +28,6 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// Specifies an action for a newly unmanaged resource.
         /// </summary>
         public readonly string Resources;
-        /// <summary>
-        /// Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
-        /// </summary>
-        public readonly string? ResourcesWithoutDeleteSupport;
 
         [OutputConstructor]
         private ActionOnUnmanageResponse(
@@ -39,14 +35,11 @@ namespace Pulumi.AzureNative.Resources.Outputs
 
             string? resourceGroups,
 
-            string resources,
-
-            string? resourcesWithoutDeleteSupport)
+            string resources)
         {
             ManagementGroups = managementGroups;
             ResourceGroups = resourceGroups;
             Resources = resources;
-            ResourcesWithoutDeleteSupport = resourcesWithoutDeleteSupport;
         }
     }
 }

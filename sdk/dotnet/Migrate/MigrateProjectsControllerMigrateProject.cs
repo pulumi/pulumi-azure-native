@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Migrate
         /// Properties of a migrate project.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.MigrateProjectPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.MigrateProjectPropertiesResponseV1> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.

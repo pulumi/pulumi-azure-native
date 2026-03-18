@@ -65,10 +65,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// A reference to the interface endpoint to which the network interface is linked.
-        /// </summary>
-        public readonly Outputs.InterfaceEndpointResponse? InterfaceEndpoint;
-        /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
@@ -167,8 +163,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? id,
 
-            Outputs.InterfaceEndpointResponse? interfaceEndpoint,
-
             ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
 
             string? location,
@@ -217,7 +211,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             ExtendedLocation = extendedLocation;
             HostedWorkloads = hostedWorkloads;
             Id = id;
-            InterfaceEndpoint = interfaceEndpoint;
             IpConfigurations = ipConfigurations;
             Location = location;
             MacAddress = macAddress;

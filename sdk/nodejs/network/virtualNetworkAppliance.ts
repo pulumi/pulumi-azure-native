@@ -74,7 +74,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
     /**
      * The reference to the subnet resource.
      */
-    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponse | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponseV3 | undefined>;
     /**
      * Resource tags.
      */

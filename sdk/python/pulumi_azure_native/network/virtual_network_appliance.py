@@ -331,7 +331,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> pulumi.Output[Optional['outputs.SubnetResponse']]:
+    def subnet(self) -> pulumi.Output[Optional['outputs.SubnetResponseV3']]:
         """
         The reference to the subnet resource.
         """

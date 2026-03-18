@@ -17,21 +17,13 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
     public sealed class EphemeralStorageResponse
     {
         /// <summary>
-        /// The size of the function's ``/tmp`` directory.
-        /// </summary>
-        public readonly int? Size;
-        /// <summary>
         /// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
         /// </summary>
         public readonly int? SizeInGiB;
 
         [OutputConstructor]
-        private EphemeralStorageResponse(
-            int? size,
-
-            int? sizeInGiB)
+        private EphemeralStorageResponse(int? sizeInGiB)
         {
-            Size = size;
             SizeInGiB = sizeInGiB;
         }
     }

@@ -60,7 +60,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     /**
      * List of private endpoint connections.
      */
-    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponseV1[]>;
     /**
      * Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it.
      */

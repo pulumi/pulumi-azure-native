@@ -136,6 +136,7 @@ __all__ = [
     'MetaV1LabelSelectorRequirementResponse',
     'MetaV1LabelSelectorResponse',
     'NamespacePropertiesResponse',
+    'NamespacePropertiesResponseV1',
     'NetworkPoliciesResponse',
     'NetworkPolicyResponse',
     'NetworkProfileForSnapshotResponse',
@@ -179,6 +180,7 @@ __all__ = [
     'UpdateStatusResponse',
     'UpgradeOverrideSettingsResponse',
     'UserAssignedIdentityResponse',
+    'UserAssignedIdentityResponseV1',
     'VirtualMachineNodesResponse',
     'VirtualMachinesProfileResponse',
     'WaitStatusResponse',
@@ -8130,7 +8132,9 @@ class NamespacePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "portalFqdn":
+            suggest = "portal_fqdn"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "adoptionPolicy":
             suggest = "adoption_policy"
@@ -8140,8 +8144,6 @@ class NamespacePropertiesResponse(dict):
             suggest = "default_resource_quota"
         elif key == "deletePolicy":
             suggest = "delete_policy"
-        elif key == "portalFqdn":
-            suggest = "portal_fqdn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8155,14 +8157,144 @@ class NamespacePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 portal_fqdn: _builtins.str,
                  provisioning_state: _builtins.str,
                  adoption_policy: Optional[_builtins.str] = None,
                  annotations: Optional[Mapping[str, _builtins.str]] = None,
                  default_network_policy: Optional['outputs.NetworkPoliciesResponse'] = None,
                  default_resource_quota: Optional['outputs.ResourceQuotaResponse'] = None,
                  delete_policy: Optional[_builtins.str] = None,
-                 labels: Optional[Mapping[str, _builtins.str]] = None,
-                 portal_fqdn: Optional[_builtins.str] = None):
+                 labels: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Properties of a namespace managed by ARM
+
+        :param _builtins.str portal_fqdn: The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+        :param _builtins.str provisioning_state: The current provisioning state of the namespace.
+        :param _builtins.str adoption_policy: Action if Kubernetes namespace with same name already exists.
+        :param Mapping[str, _builtins.str] annotations: The annotations of managed namespace.
+        :param 'NetworkPoliciesResponse' default_network_policy: The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. Network policies are additive; if a policy or policies apply to a given pod for a given direction, the connections allowed in that direction for the pod is the union of what all applicable policies allow.
+        :param 'ResourceQuotaResponse' default_resource_quota: The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. Resource quotas are additive; if multiple resource quotas are applied to a given namespace, then the effective limit will be one such that all quotas on the namespace can be satisfied.
+        :param _builtins.str delete_policy: Delete options of a namespace.
+        :param Mapping[str, _builtins.str] labels: The labels of managed namespace.
+        """
+        pulumi.set(__self__, "portal_fqdn", portal_fqdn)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if adoption_policy is not None:
+            pulumi.set(__self__, "adoption_policy", adoption_policy)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if default_network_policy is not None:
+            pulumi.set(__self__, "default_network_policy", default_network_policy)
+        if default_resource_quota is not None:
+            pulumi.set(__self__, "default_resource_quota", default_resource_quota)
+        if delete_policy is not None:
+            pulumi.set(__self__, "delete_policy", delete_policy)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter(name="portalFqdn")
+    def portal_fqdn(self) -> _builtins.str:
+        """
+        The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+        """
+        return pulumi.get(self, "portal_fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The current provisioning state of the namespace.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="adoptionPolicy")
+    def adoption_policy(self) -> Optional[_builtins.str]:
+        """
+        Action if Kubernetes namespace with same name already exists.
+        """
+        return pulumi.get(self, "adoption_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The annotations of managed namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNetworkPolicy")
+    def default_network_policy(self) -> Optional['outputs.NetworkPoliciesResponse']:
+        """
+        The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. Network policies are additive; if a policy or policies apply to a given pod for a given direction, the connections allowed in that direction for the pod is the union of what all applicable policies allow.
+        """
+        return pulumi.get(self, "default_network_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultResourceQuota")
+    def default_resource_quota(self) -> Optional['outputs.ResourceQuotaResponse']:
+        """
+        The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. Resource quotas are additive; if multiple resource quotas are applied to a given namespace, then the effective limit will be one such that all quotas on the namespace can be satisfied.
+        """
+        return pulumi.get(self, "default_resource_quota")
+
+    @_builtins.property
+    @pulumi.getter(name="deletePolicy")
+    def delete_policy(self) -> Optional[_builtins.str]:
+        """
+        Delete options of a namespace.
+        """
+        return pulumi.get(self, "delete_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The labels of managed namespace.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class NamespacePropertiesResponseV1(dict):
+    """
+    Properties of a namespace managed by ARM
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "adoptionPolicy":
+            suggest = "adoption_policy"
+        elif key == "defaultNetworkPolicy":
+            suggest = "default_network_policy"
+        elif key == "defaultResourceQuota":
+            suggest = "default_resource_quota"
+        elif key == "deletePolicy":
+            suggest = "delete_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespacePropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespacePropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespacePropertiesResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 adoption_policy: Optional[_builtins.str] = None,
+                 annotations: Optional[Mapping[str, _builtins.str]] = None,
+                 default_network_policy: Optional['outputs.NetworkPoliciesResponse'] = None,
+                 default_resource_quota: Optional['outputs.ResourceQuotaResponse'] = None,
+                 delete_policy: Optional[_builtins.str] = None,
+                 labels: Optional[Mapping[str, _builtins.str]] = None):
         """
         Properties of a namespace managed by ARM
 
@@ -8173,7 +8305,6 @@ class NamespacePropertiesResponse(dict):
         :param 'ResourceQuotaResponse' default_resource_quota: The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
         :param _builtins.str delete_policy: Delete options of a namespace.
         :param Mapping[str, _builtins.str] labels: The labels of managed namespace.
-        :param _builtins.str portal_fqdn: The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if adoption_policy is not None:
@@ -8188,8 +8319,6 @@ class NamespacePropertiesResponse(dict):
             pulumi.set(__self__, "delete_policy", delete_policy)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if portal_fqdn is not None:
-            pulumi.set(__self__, "portal_fqdn", portal_fqdn)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -8246,14 +8375,6 @@ class NamespacePropertiesResponse(dict):
         The labels of managed namespace.
         """
         return pulumi.get(self, "labels")
-
-    @_builtins.property
-    @pulumi.getter(name="portalFqdn")
-    def portal_fqdn(self) -> Optional[_builtins.str]:
-        """
-        The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
-        """
-        return pulumi.get(self, "portal_fqdn")
 
 
 @pulumi.output_type
@@ -10884,10 +11005,6 @@ class UserAssignedIdentityResponse(dict):
             suggest = "client_id"
         elif key == "principalId":
             suggest = "principal_id"
-        elif key == "objectId":
-            suggest = "object_id"
-        elif key == "resourceId":
-            suggest = "resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10902,23 +11019,15 @@ class UserAssignedIdentityResponse(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 principal_id: _builtins.str,
-                 object_id: Optional[_builtins.str] = None,
-                 resource_id: Optional[_builtins.str] = None):
+                 principal_id: _builtins.str):
         """
         User assigned identity properties
 
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
-        :param _builtins.str object_id: The object ID of the user assigned identity.
-        :param _builtins.str resource_id: The resource ID of the user assigned identity.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
-        if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -10935,6 +11044,59 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponseV1(dict):
+    """
+    Details about a user assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[_builtins.str] = None,
+                 object_id: Optional[_builtins.str] = None,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        Details about a user assigned identity.
+
+        :param _builtins.str client_id: The client ID of the user assigned identity.
+        :param _builtins.str object_id: The object ID of the user assigned identity.
+        :param _builtins.str resource_id: The resource ID of the user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        The client ID of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter(name="objectId")

@@ -22,6 +22,7 @@ __all__ = [
     'ExtendedLocationResponse',
     'GuestAgentProfileResponse',
     'GuestCredentialResponse',
+    'GuestCredentialResponseV1',
     'HardwareProfileResponse',
     'HttpProxyConfigurationResponse',
     'IdentityResponse',
@@ -324,6 +325,30 @@ class GuestCredentialResponse(dict):
     """
     Username / Password Credentials to connect to guest.
     """
+    def __init__(__self__, *,
+                 username: Optional[_builtins.str] = None):
+        """
+        Username / Password Credentials to connect to guest.
+
+        :param _builtins.str username: Gets or sets username to connect with the guest.
+        """
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        """
+        Gets or sets username to connect with the guest.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GuestCredentialResponseV1(dict):
+    """
+    Username / Password Credentials to connect to guest.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -331,14 +356,14 @@ class GuestCredentialResponse(dict):
             suggest = "private_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GuestCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GuestCredentialResponseV1. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GuestCredentialResponse.__key_warning(key)
+        GuestCredentialResponseV1.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GuestCredentialResponse.__key_warning(key)
+        GuestCredentialResponseV1.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
