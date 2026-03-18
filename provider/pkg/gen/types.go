@@ -16,6 +16,7 @@ package gen
 
 import (
 	"fmt"
+	"reflect"
 	"strconv"
 	"strings"
 
@@ -52,8 +53,33 @@ func extractNumericSuffix(s string) (int, string) {
 	return 0, s
 }
 
+// tokenModuleVersion extracts the version part of the module
+// from a type token of the form "azure-native:module/{version}:type".
+func tokenModuleVersion(token string) string {
+	parts := strings.Split(token, ":")
+	if len(parts) != 3 {
+		return ""
+	}
+
+	mod := parts[1]
+	verIndex := strings.LastIndex(mod, "/")
+	if verIndex == -1 {
+		return ""
+	}
+
+	return mod[verIndex+1:]
+}
+
 func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
-	// while the token is taken, keep trying to disambiguate by adding a numeric suffix
+	// first try to to disambiguate by using the version of the module
+	if version := tokenModuleVersion(token); version != "" {
+		newToken := fmt.Sprintf("%s_V%s", token, strings.TrimPrefix(version, "v"))
+		if _, seen := m.pkg.Types[newToken]; !seen {
+			return newToken, nil
+		}
+	}
+
+	// then try to disambiguate by adding a numeric suffix
 	numericSuffix, original := extractNumericSuffix(token)
 	for true {
 		newToken := fmt.Sprintf("%sV%d", original, numericSuffix+1)
@@ -168,12 +194,18 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				},
 			}
 
-			if _, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") {
-				// If we are generating an output type and a type with the same name already exists,
-				// then disambiguate the token by adding a numeric suffix.
-				tok, err = m.disambiguateTypeToken(tok)
-				if err != nil {
-					return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
+			// If we are generating an output type and a type with the same name already exists,
+			// Check to see if we need to disambiguate the token by comparing the existing type with the new one.
+			// if they are not the same, then try disambiguate the token by adding either
+			// - the module version (e.g. _V20210401) if the module version can be extracted from the token, or
+			// - a numeric suffix (e.g. V1, V2, etc.)
+			if existing, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") {
+				if !reflect.DeepEqual(existing, spec) {
+					// then disambiguate the token by adding a numeric suffix.
+					tok, err = m.disambiguateTypeToken(tok)
+					if err != nil {
+						return nil, fmt.Errorf("failed to disambiguate type token %q: %w", tok, err)
+					}
 				}
 			}
 
