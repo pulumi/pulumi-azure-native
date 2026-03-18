@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property. Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist. A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
         /// </summary>
-        public readonly Outputs.ReplicationConfigurationResponse? ReplicationConfiguration;
+        public readonly Outputs.ReplicationConfigurationResponseV1? ReplicationConfiguration;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this S3 bucket.
         /// </summary>
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             string? regionalDomainName,
 
-            Outputs.ReplicationConfigurationResponse? replicationConfiguration,
+            Outputs.ReplicationConfigurationResponseV1? replicationConfiguration,
 
             ImmutableArray<Outputs.TagResponse> tags,
 

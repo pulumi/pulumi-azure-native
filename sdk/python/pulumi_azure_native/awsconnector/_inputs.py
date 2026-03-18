@@ -92182,7 +92182,7 @@ class VolumeArgs:
 
 class VpcConfigResponseArgsDict(TypedDict):
     """
-    Definition of VpcConfig
+    Definition of VpcConfigResponse
     """
     cluster_security_group_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -92196,21 +92196,17 @@ class VpcConfigResponseArgsDict(TypedDict):
     """
     <p>Whether the public API server endpoint is enabled.</p>
     """
-    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-    """
     public_access_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint.</p>
     """
     security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    A list of VPC security group IDs.
+    <p>The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.</p>
     """
     subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    A list of VPC subnet IDs.
+    <p>The subnets associated with your cluster.</p>
     """
     subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
@@ -92227,22 +92223,20 @@ class VpcConfigResponseArgs:
                  cluster_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_private_access: Optional[pulumi.Input[_builtins.bool]] = None,
                  endpoint_public_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ipv6_allowed_for_dual_stack: Optional[pulumi.Input[_builtins.bool]] = None,
                  public_access_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Definition of VpcConfig
+        Definition of VpcConfigResponse
 
         :param pulumi.Input[_builtins.str] cluster_security_group_id: <p>The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.</p>
         :param pulumi.Input[_builtins.bool] endpoint_private_access: <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate from within your cluster's VPC use the private VPC endpoint instead of traversing the internet. If this value is disabled and you have nodes or Fargate pods in the cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for communication with the nodes or Fargate pods. For more information, see <a href='https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html'>Amazon EKS cluster endpoint access control</a> in the <i> <i>Amazon EKS User Guide</i> </i>.</p>
         :param pulumi.Input[_builtins.bool] endpoint_public_access: <p>Whether the public API server endpoint is enabled.</p>
-        :param pulumi.Input[_builtins.bool] ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] public_access_cidrs: <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of VPC security group IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: <p>The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: <p>The subnets associated with your cluster.</p>
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: <p>A list of one or more subnet IDs in your Amazon VPC.</p>
         :param pulumi.Input[_builtins.str] vpc_id: <p>The VPC associated with your cluster.</p>
         """
@@ -92252,8 +92246,6 @@ class VpcConfigResponseArgs:
             pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
         if endpoint_public_access is not None:
             pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
-        if ipv6_allowed_for_dual_stack is not None:
-            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if public_access_cidrs is not None:
             pulumi.set(__self__, "public_access_cidrs", public_access_cidrs)
         if security_group_ids is not None:
@@ -92302,18 +92294,6 @@ class VpcConfigResponseArgs:
         pulumi.set(self, "endpoint_public_access", value)
 
     @_builtins.property
-    @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-        """
-        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
-
-    @ipv6_allowed_for_dual_stack.setter
-    def ipv6_allowed_for_dual_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "ipv6_allowed_for_dual_stack", value)
-
-    @_builtins.property
     @pulumi.getter(name="publicAccessCidrs")
     def public_access_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -92329,7 +92309,7 @@ class VpcConfigResponseArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of VPC security group IDs.
+        <p>The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.</p>
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -92341,7 +92321,7 @@ class VpcConfigResponseArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of VPC subnet IDs.
+        <p>The subnets associated with your cluster.</p>
         """
         return pulumi.get(self, "subnet_ids")
 

@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Defines configuration specific to inference.
         /// </summary>
-        public readonly Outputs.InferenceContainerPropertiesResponse? InferenceConfig;
+        public readonly Outputs.InferenceContainerPropertiesResponseV1? InferenceConfig;
         /// <summary>
         /// If the name version are system generated (anonymous registration).
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? image,
 
-            Outputs.InferenceContainerPropertiesResponse? inferenceConfig,
+            Outputs.InferenceContainerPropertiesResponseV1? inferenceConfig,
 
             bool? isAnonymous,
 

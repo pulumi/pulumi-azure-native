@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
     public sealed class LaunchTemplateSpecificationResponse
     {
         /// <summary>
-        /// Property id
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// The ID of the launch template. You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
         /// </summary>
         public readonly string? LaunchTemplateId;
@@ -29,30 +25,20 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly string? LaunchTemplateName;
         /// <summary>
-        /// Property name
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
-        /// Property version
+        /// The version number of the launch template. Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).  For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private LaunchTemplateSpecificationResponse(
-            string? id,
-
             string? launchTemplateId,
 
             string? launchTemplateName,
 
-            string? name,
-
             string? version)
         {
-            Id = id;
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;
-            Name = name;
             Version = version;
         }
     }

@@ -21,11 +21,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly string? ParameterKey;
         /// <summary>
-        /// The name of the parameter.
-        /// </summary>
-        public readonly string? ParameterName;
-        /// <summary>
-        /// The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+        /// The input value associated with the parameter.
         /// </summary>
         public readonly string? ParameterValue;
 
@@ -33,12 +29,9 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         private ParameterResponse(
             string? parameterKey,
 
-            string? parameterName,
-
             string? parameterValue)
         {
             ParameterKey = parameterKey;
-            ParameterName = parameterName;
             ParameterValue = parameterValue;
         }
     }

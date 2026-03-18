@@ -46,6 +46,8 @@ __all__ = [
     'ConnectionStringResponse',
     'ConsistencyPolicyResponse',
     'ContainerPartitionKeyResponse',
+    'ContainerPartitionKeyResponseV1',
+    'ContainerPartitionKeyResponseV2',
     'ContinuousModeBackupPolicyResponse',
     'ContinuousModePropertiesResponse',
     'CorsPolicyResponse',
@@ -78,6 +80,8 @@ __all__ = [
     'IncludedPathResponse',
     'IndexesResponse',
     'IndexingPolicyResponse',
+    'IndexingPolicyResponseV1',
+    'IndexingPolicyResponseV2',
     'IpAddressOrRangeResponse',
     'LocationResponse',
     'ManagedCassandraManagedServiceIdentityResponse',
@@ -96,6 +100,7 @@ __all__ = [
     'PeriodicModeBackupPolicyResponse',
     'PeriodicModePropertiesResponse',
     'PermissionResponse',
+    'PermissionResponseV1',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
@@ -1844,6 +1849,44 @@ class ContainerPartitionKeyResponse(dict):
     """
     The configuration of the partition key to be used for partitioning data into multiple partitions
     """
+    def __init__(__self__, *,
+                 kind: Optional[_builtins.str] = None,
+                 paths: Optional[Sequence[_builtins.str]] = None):
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+
+        :param _builtins.str kind: Indicates the kind of algorithm used for partitioning
+        :param Sequence[_builtins.str] paths: List of paths using which data within the container can be partitioned
+        """
+        if kind is None:
+            kind = 'Hash'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        Indicates the kind of algorithm used for partitioning
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def paths(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of paths using which data within the container can be partitioned
+        """
+        return pulumi.get(self, "paths")
+
+
+@pulumi.output_type
+class ContainerPartitionKeyResponseV1(dict):
+    """
+    The configuration of the partition key to be used for partitioning data into multiple partitions
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1851,14 +1894,92 @@ class ContainerPartitionKeyResponse(dict):
             suggest = "system_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ContainerPartitionKeyResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ContainerPartitionKeyResponseV1. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ContainerPartitionKeyResponse.__key_warning(key)
+        ContainerPartitionKeyResponseV1.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ContainerPartitionKeyResponse.__key_warning(key)
+        ContainerPartitionKeyResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 system_key: _builtins.bool,
+                 kind: Optional[_builtins.str] = None,
+                 paths: Optional[Sequence[_builtins.str]] = None,
+                 version: Optional[_builtins.int] = None):
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+
+        :param _builtins.bool system_key: Indicates if the container is using a system generated partition key
+        :param _builtins.str kind: Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+        :param Sequence[_builtins.str] paths: List of paths using which data within the container can be partitioned
+        :param _builtins.int version: Indicates the version of the partition key definition
+        """
+        pulumi.set(__self__, "system_key", system_key)
+        if kind is None:
+            kind = 'Hash'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="systemKey")
+    def system_key(self) -> _builtins.bool:
+        """
+        Indicates if the container is using a system generated partition key
+        """
+        return pulumi.get(self, "system_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def paths(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of paths using which data within the container can be partitioned
+        """
+        return pulumi.get(self, "paths")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.int]:
+        """
+        Indicates the version of the partition key definition
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ContainerPartitionKeyResponseV2(dict):
+    """
+    The configuration of the partition key to be used for partitioning data into multiple partitions
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemKey":
+            suggest = "system_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerPartitionKeyResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerPartitionKeyResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerPartitionKeyResponseV2.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3887,8 +4008,8 @@ class GremlinGraphGetPropertiesResponseResource(dict):
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  create_mode: Optional[_builtins.str] = None,
                  default_ttl: Optional[_builtins.int] = None,
-                 indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
-                 partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
+                 indexing_policy: Optional['outputs.IndexingPolicyResponseV1'] = None,
+                 partition_key: Optional['outputs.ContainerPartitionKeyResponseV1'] = None,
                  restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
                  unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None):
         """
@@ -3900,8 +4021,8 @@ class GremlinGraphGetPropertiesResponseResource(dict):
         :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the graph.
         :param _builtins.str create_mode: Enum to indicate the mode of resource creation.
         :param _builtins.int default_ttl: Default time to live
-        :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-        :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'IndexingPolicyResponseV1' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+        :param 'ContainerPartitionKeyResponseV1' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         """
@@ -3992,7 +4113,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
 
     @_builtins.property
     @pulumi.getter(name="indexingPolicy")
-    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponse']:
+    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponseV1']:
         """
         The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
         """
@@ -4000,7 +4121,7 @@ class GremlinGraphGetPropertiesResponseResource(dict):
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponse']:
+    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponseV1']:
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """
@@ -4136,6 +4257,89 @@ class IndexingPolicyResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
+        if key == "excludedPaths":
+            suggest = "excluded_paths"
+        elif key == "includedPaths":
+            suggest = "included_paths"
+        elif key == "indexingMode":
+            suggest = "indexing_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexingPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexingPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automatic: Optional[_builtins.bool] = None,
+                 excluded_paths: Optional[Sequence['outputs.ExcludedPathResponse']] = None,
+                 included_paths: Optional[Sequence['outputs.IncludedPathResponse']] = None,
+                 indexing_mode: Optional[_builtins.str] = None):
+        """
+        Cosmos DB indexing policy
+
+        :param _builtins.bool automatic: Indicates if the indexing policy is automatic
+        :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
+        :param _builtins.str indexing_mode: Indicates the indexing mode.
+        """
+        if automatic is not None:
+            pulumi.set(__self__, "automatic", automatic)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is None:
+            indexing_mode = 'Consistent'
+        if indexing_mode is not None:
+            pulumi.set(__self__, "indexing_mode", indexing_mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if the indexing policy is automatic
+        """
+        return pulumi.get(self, "automatic")
+
+    @_builtins.property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[Sequence['outputs.ExcludedPathResponse']]:
+        """
+        List of paths to exclude from indexing
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[Sequence['outputs.IncludedPathResponse']]:
+        """
+        List of paths to include in the indexing
+        """
+        return pulumi.get(self, "included_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="indexingMode")
+    def indexing_mode(self) -> Optional[_builtins.str]:
+        """
+        Indicates the indexing mode.
+        """
+        return pulumi.get(self, "indexing_mode")
+
+
+@pulumi.output_type
+class IndexingPolicyResponseV1(dict):
+    """
+    Cosmos DB indexing policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
         if key == "compositeIndexes":
             suggest = "composite_indexes"
         elif key == "excludedPaths":
@@ -4152,14 +4356,153 @@ class IndexingPolicyResponse(dict):
             suggest = "vector_indexes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IndexingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IndexingPolicyResponseV1. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        IndexingPolicyResponse.__key_warning(key)
+        IndexingPolicyResponseV1.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        IndexingPolicyResponse.__key_warning(key)
+        IndexingPolicyResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automatic: Optional[_builtins.bool] = None,
+                 composite_indexes: Optional[Sequence[Sequence['outputs.CompositePathResponse']]] = None,
+                 excluded_paths: Optional[Sequence['outputs.ExcludedPathResponse']] = None,
+                 full_text_indexes: Optional[Sequence['outputs.FullTextIndexPathResponse']] = None,
+                 included_paths: Optional[Sequence['outputs.IncludedPathResponse']] = None,
+                 indexing_mode: Optional[_builtins.str] = None,
+                 spatial_indexes: Optional[Sequence['outputs.SpatialSpecResponse']] = None,
+                 vector_indexes: Optional[Sequence['outputs.VectorIndexResponse']] = None):
+        """
+        Cosmos DB indexing policy
+
+        :param _builtins.bool automatic: Indicates if the indexing policy is automatic
+        :param Sequence[Sequence['CompositePathResponse']] composite_indexes: List of composite path list
+        :param Sequence['ExcludedPathResponse'] excluded_paths: List of paths to exclude from indexing
+        :param Sequence['FullTextIndexPathResponse'] full_text_indexes: List of paths to include in the full text indexing
+        :param Sequence['IncludedPathResponse'] included_paths: List of paths to include in the indexing
+        :param _builtins.str indexing_mode: Indicates the indexing mode.
+        :param Sequence['SpatialSpecResponse'] spatial_indexes: List of spatial specifics
+        :param Sequence['VectorIndexResponse'] vector_indexes: List of paths to include in the vector indexing
+        """
+        if automatic is not None:
+            pulumi.set(__self__, "automatic", automatic)
+        if composite_indexes is not None:
+            pulumi.set(__self__, "composite_indexes", composite_indexes)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if full_text_indexes is not None:
+            pulumi.set(__self__, "full_text_indexes", full_text_indexes)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is None:
+            indexing_mode = 'consistent'
+        if indexing_mode is not None:
+            pulumi.set(__self__, "indexing_mode", indexing_mode)
+        if spatial_indexes is not None:
+            pulumi.set(__self__, "spatial_indexes", spatial_indexes)
+        if vector_indexes is not None:
+            pulumi.set(__self__, "vector_indexes", vector_indexes)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if the indexing policy is automatic
+        """
+        return pulumi.get(self, "automatic")
+
+    @_builtins.property
+    @pulumi.getter(name="compositeIndexes")
+    def composite_indexes(self) -> Optional[Sequence[Sequence['outputs.CompositePathResponse']]]:
+        """
+        List of composite path list
+        """
+        return pulumi.get(self, "composite_indexes")
+
+    @_builtins.property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[Sequence['outputs.ExcludedPathResponse']]:
+        """
+        List of paths to exclude from indexing
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextIndexes")
+    def full_text_indexes(self) -> Optional[Sequence['outputs.FullTextIndexPathResponse']]:
+        """
+        List of paths to include in the full text indexing
+        """
+        return pulumi.get(self, "full_text_indexes")
+
+    @_builtins.property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[Sequence['outputs.IncludedPathResponse']]:
+        """
+        List of paths to include in the indexing
+        """
+        return pulumi.get(self, "included_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="indexingMode")
+    def indexing_mode(self) -> Optional[_builtins.str]:
+        """
+        Indicates the indexing mode.
+        """
+        return pulumi.get(self, "indexing_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="spatialIndexes")
+    def spatial_indexes(self) -> Optional[Sequence['outputs.SpatialSpecResponse']]:
+        """
+        List of spatial specifics
+        """
+        return pulumi.get(self, "spatial_indexes")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> Optional[Sequence['outputs.VectorIndexResponse']]:
+        """
+        List of paths to include in the vector indexing
+        """
+        return pulumi.get(self, "vector_indexes")
+
+
+@pulumi.output_type
+class IndexingPolicyResponseV2(dict):
+    """
+    Cosmos DB indexing policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositeIndexes":
+            suggest = "composite_indexes"
+        elif key == "excludedPaths":
+            suggest = "excluded_paths"
+        elif key == "fullTextIndexes":
+            suggest = "full_text_indexes"
+        elif key == "includedPaths":
+            suggest = "included_paths"
+        elif key == "indexingMode":
+            suggest = "indexing_mode"
+        elif key == "spatialIndexes":
+            suggest = "spatial_indexes"
+        elif key == "vectorIndexes":
+            suggest = "vector_indexes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexingPolicyResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexingPolicyResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexingPolicyResponseV2.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -5491,6 +5834,61 @@ class PermissionResponse(dict):
 
 
 @pulumi.output_type
+class PermissionResponseV1(dict):
+    """
+    The set of data plane operations permitted through this Role Definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataActions":
+            suggest = "data_actions"
+        elif key == "notDataActions":
+            suggest = "not_data_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_actions: Optional[Sequence[_builtins.str]] = None,
+                 not_data_actions: Optional[Sequence[_builtins.str]] = None):
+        """
+        The set of data plane operations permitted through this Role Definition.
+
+        :param Sequence[_builtins.str] data_actions: An array of data actions that are allowed.
+        :param Sequence[_builtins.str] not_data_actions: An array of data actions that are denied.
+        """
+        if data_actions is not None:
+            pulumi.set(__self__, "data_actions", data_actions)
+        if not_data_actions is not None:
+            pulumi.set(__self__, "not_data_actions", not_data_actions)
+
+    @_builtins.property
+    @pulumi.getter(name="dataActions")
+    def data_actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of data actions that are allowed.
+        """
+        return pulumi.get(self, "data_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="notDataActions")
+    def not_data_actions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of data actions that are denied.
+        """
+        return pulumi.get(self, "not_data_actions")
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
     A private endpoint connection
@@ -6178,8 +6576,8 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  create_mode: Optional[_builtins.str] = None,
                  default_ttl: Optional[_builtins.int] = None,
                  full_text_policy: Optional['outputs.FullTextPolicyResponse'] = None,
-                 indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
-                 partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
+                 indexing_policy: Optional['outputs.IndexingPolicyResponseV2'] = None,
+                 partition_key: Optional['outputs.ContainerPartitionKeyResponseV2'] = None,
                  restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
                  unique_key_policy: Optional['outputs.UniqueKeyPolicyResponse'] = None,
                  vector_embedding_policy: Optional['outputs.VectorEmbeddingPolicyResponse'] = None):
@@ -6195,8 +6593,8 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param _builtins.str create_mode: Enum to indicate the mode of resource creation.
         :param _builtins.int default_ttl: Default time to live
         :param 'FullTextPolicyResponse' full_text_policy: The FullText policy for the container.
-        :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-        :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param 'IndexingPolicyResponseV2' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        :param 'ContainerPartitionKeyResponseV2' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
         :param 'UniqueKeyPolicyResponse' unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         :param 'VectorEmbeddingPolicyResponse' vector_embedding_policy: The vector embedding policy for the container.
@@ -6320,7 +6718,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
 
     @_builtins.property
     @pulumi.getter(name="indexingPolicy")
-    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponse']:
+    def indexing_policy(self) -> Optional['outputs.IndexingPolicyResponseV2']:
         """
         The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         """
@@ -6328,7 +6726,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
 
     @_builtins.property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponse']:
+    def partition_key(self) -> Optional['outputs.ContainerPartitionKeyResponseV2']:
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """

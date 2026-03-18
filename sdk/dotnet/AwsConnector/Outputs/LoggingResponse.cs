@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// &lt;p&gt;The cluster control plane logging configuration for your cluster.&lt;/p&gt;
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LogSetupResponse> ClusterLogging;
-        /// <summary>
         /// Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
         /// </summary>
         public readonly bool? IncludeCookies;
@@ -37,14 +33,11 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         private LoggingResponse(
             string? bucket,
 
-            ImmutableArray<Outputs.LogSetupResponse> clusterLogging,
-
             bool? includeCookies,
 
             string? prefix)
         {
             Bucket = bucket;
-            ClusterLogging = clusterLogging;
             IncludeCookies = includeCookies;
             Prefix = prefix;
         }

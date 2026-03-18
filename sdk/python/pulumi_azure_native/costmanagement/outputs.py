@@ -23,7 +23,9 @@ __all__ = [
     'BudgetTimePeriodResponse',
     'CommonExportPropertiesResponse',
     'ConnectorCollectionErrorInfoResponse',
+    'ConnectorCollectionErrorInfoResponseV1',
     'ConnectorCollectionInfoResponse',
+    'ConnectorCollectionInfoResponseV1',
     'CostAllocationProportionResponse',
     'CostAllocationRuleDetailsResponse',
     'CostAllocationRulePropertiesResponse',
@@ -457,12 +459,12 @@ class ConnectorCollectionErrorInfoResponse(dict):
         suggest = None
         if key == "errorCode":
             suggest = "error_code"
+        elif key == "errorInnerMessage":
+            suggest = "error_inner_message"
         elif key == "errorMessage":
             suggest = "error_message"
         elif key == "errorStartTime":
             suggest = "error_start_time"
-        elif key == "errorInnerMessage":
-            suggest = "error_inner_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionErrorInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -477,22 +479,95 @@ class ConnectorCollectionErrorInfoResponse(dict):
 
     def __init__(__self__, *,
                  error_code: _builtins.str,
+                 error_inner_message: _builtins.str,
                  error_message: _builtins.str,
-                 error_start_time: _builtins.str,
-                 error_inner_message: Optional[_builtins.str] = None):
+                 error_start_time: _builtins.str):
+        """
+        Details of any error encountered on last collection attempt
+
+        :param _builtins.str error_code: Short error code
+        :param _builtins.str error_inner_message: External Provider error message
+        :param _builtins.str error_message: Detailed error message
+        :param _builtins.str error_start_time: Time the error started occurring (Last time error occurred in lastChecked)
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_inner_message", error_inner_message)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "error_start_time", error_start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> _builtins.str:
+        """
+        Short error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorInnerMessage")
+    def error_inner_message(self) -> _builtins.str:
+        """
+        External Provider error message
+        """
+        return pulumi.get(self, "error_inner_message")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> _builtins.str:
+        """
+        Detailed error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="errorStartTime")
+    def error_start_time(self) -> _builtins.str:
+        """
+        Time the error started occurring (Last time error occurred in lastChecked)
+        """
+        return pulumi.get(self, "error_start_time")
+
+
+@pulumi.output_type
+class ConnectorCollectionErrorInfoResponseV1(dict):
+    """
+    Details of any error encountered on last collection attempt
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "errorStartTime":
+            suggest = "error_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionErrorInfoResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorCollectionErrorInfoResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorCollectionErrorInfoResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: _builtins.str,
+                 error_message: _builtins.str,
+                 error_start_time: _builtins.str):
         """
         Details of any error encountered on last collection attempt
 
         :param _builtins.str error_code: Short error message
         :param _builtins.str error_message: Detailed error message
         :param _builtins.str error_start_time: Time the error started occurring (Last time error occurred in lastRun)
-        :param _builtins.str error_inner_message: External Provider error message
         """
         pulumi.set(__self__, "error_code", error_code)
         pulumi.set(__self__, "error_message", error_message)
         pulumi.set(__self__, "error_start_time", error_start_time)
-        if error_inner_message is not None:
-            pulumi.set(__self__, "error_inner_message", error_inner_message)
 
     @_builtins.property
     @pulumi.getter(name="errorCode")
@@ -518,14 +593,6 @@ class ConnectorCollectionErrorInfoResponse(dict):
         """
         return pulumi.get(self, "error_start_time")
 
-    @_builtins.property
-    @pulumi.getter(name="errorInnerMessage")
-    def error_inner_message(self) -> Optional[_builtins.str]:
-        """
-        External Provider error message
-        """
-        return pulumi.get(self, "error_inner_message")
-
 
 @pulumi.output_type
 class ConnectorCollectionInfoResponse(dict):
@@ -535,14 +602,12 @@ class ConnectorCollectionInfoResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lastRun":
-            suggest = "last_run"
+        if key == "lastChecked":
+            suggest = "last_checked"
         elif key == "lastUpdated":
             suggest = "last_updated"
         elif key == "sourceLastUpdated":
             suggest = "source_last_updated"
-        elif key == "lastChecked":
-            suggest = "last_checked"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -556,27 +621,101 @@ class ConnectorCollectionInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 last_checked: _builtins.str,
+                 last_updated: _builtins.str,
+                 source_last_updated: _builtins.str,
+                 error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None):
+        """
+        Collection and ingestion information
+
+        :param _builtins.str last_checked: Last time the data acquisition process initiated connecting to the external provider
+        :param _builtins.str last_updated: Last time the external data was updated into Azure
+        :param _builtins.str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
+        """
+        pulumi.set(__self__, "last_checked", last_checked)
+        pulumi.set(__self__, "last_updated", last_updated)
+        pulumi.set(__self__, "source_last_updated", source_last_updated)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @_builtins.property
+    @pulumi.getter(name="lastChecked")
+    def last_checked(self) -> _builtins.str:
+        """
+        Last time the data acquisition process initiated connecting to the external provider
+        """
+        return pulumi.get(self, "last_checked")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> _builtins.str:
+        """
+        Last time the external data was updated into Azure
+        """
+        return pulumi.get(self, "last_updated")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceLastUpdated")
+    def source_last_updated(self) -> _builtins.str:
+        """
+        Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+        """
+        return pulumi.get(self, "source_last_updated")
+
+    @_builtins.property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ConnectorCollectionErrorInfoResponse']:
+        """
+        Error information of last collection
+        """
+        return pulumi.get(self, "error")
+
+
+@pulumi.output_type
+class ConnectorCollectionInfoResponseV1(dict):
+    """
+    Collection and ingestion information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastRun":
+            suggest = "last_run"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+        elif key == "sourceLastUpdated":
+            suggest = "source_last_updated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorCollectionInfoResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorCollectionInfoResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorCollectionInfoResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  last_run: _builtins.str,
                  last_updated: _builtins.str,
                  source_last_updated: _builtins.str,
-                 error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None,
-                 last_checked: Optional[_builtins.str] = None):
+                 error: Optional['outputs.ConnectorCollectionErrorInfoResponseV1'] = None):
         """
         Collection and ingestion information
 
         :param _builtins.str last_run: Last time the data acquisition process completed (even if no new data was found)
         :param _builtins.str last_updated: Last time the external data was updated into Azure
         :param _builtins.str source_last_updated: Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
-        :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
-        :param _builtins.str last_checked: Last time the data acquisition process initiated connecting to the external provider
+        :param 'ConnectorCollectionErrorInfoResponseV1' error: Error information of last collection
         """
         pulumi.set(__self__, "last_run", last_run)
         pulumi.set(__self__, "last_updated", last_updated)
         pulumi.set(__self__, "source_last_updated", source_last_updated)
         if error is not None:
             pulumi.set(__self__, "error", error)
-        if last_checked is not None:
-            pulumi.set(__self__, "last_checked", last_checked)
 
     @_builtins.property
     @pulumi.getter(name="lastRun")
@@ -604,19 +743,11 @@ class ConnectorCollectionInfoResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional['outputs.ConnectorCollectionErrorInfoResponse']:
+    def error(self) -> Optional['outputs.ConnectorCollectionErrorInfoResponseV1']:
         """
         Error information of last collection
         """
         return pulumi.get(self, "error")
-
-    @_builtins.property
-    @pulumi.getter(name="lastChecked")
-    def last_checked(self) -> Optional[_builtins.str]:
-        """
-        Last time the data acquisition process initiated connecting to the external provider
-        """
-        return pulumi.get(self, "last_checked")
 
 
 @pulumi.output_type

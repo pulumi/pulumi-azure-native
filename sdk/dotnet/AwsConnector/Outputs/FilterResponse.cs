@@ -17,14 +17,6 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
     public sealed class FilterResponse
     {
         /// <summary>
-        /// How to handle logs that satisfy the filter's conditions and requirement.
-        /// </summary>
-        public readonly string? Behavior;
-        /// <summary>
-        /// Match conditions for the filter.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ConditionResponse> Conditions;
-        /// <summary>
         /// Property contains
         /// </summary>
         public readonly ImmutableArray<string> Contains;
@@ -44,17 +36,9 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// Property property
         /// </summary>
         public readonly string? Property;
-        /// <summary>
-        /// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
-        /// </summary>
-        public readonly string? Requirement;
 
         [OutputConstructor]
         private FilterResponse(
-            string? behavior,
-
-            ImmutableArray<Outputs.ConditionResponse> conditions,
-
             ImmutableArray<string> contains,
 
             ImmutableArray<string> eq,
@@ -63,18 +47,13 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             ImmutableArray<string> neq,
 
-            string? property,
-
-            string? requirement)
+            string? property)
         {
-            Behavior = behavior;
-            Conditions = conditions;
             Contains = contains;
             Eq = eq;
             Exists = exists;
             Neq = neq;
             Property = property;
-            Requirement = requirement;
         }
     }
 }

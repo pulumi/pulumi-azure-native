@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// Property subnetMappings
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetMappingResponse> SubnetMappings;
+        public readonly ImmutableArray<Outputs.SubnetMappingResponseV1> SubnetMappings;
         /// <summary>
         /// Property tags
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             bool? subnetChangeProtection,
 
-            ImmutableArray<Outputs.SubnetMappingResponse> subnetMappings,
+            ImmutableArray<Outputs.SubnetMappingResponseV1> subnetMappings,
 
             ImmutableArray<Outputs.TagResponse> tags,
 

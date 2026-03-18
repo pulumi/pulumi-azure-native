@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Network
         /// The reference to the subnet resource.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubnetResponse?> Subnet { get; private set; } = null!;
+        public Output<Outputs.SubnetResponseV3?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

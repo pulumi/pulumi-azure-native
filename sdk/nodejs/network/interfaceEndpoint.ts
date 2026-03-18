@@ -68,7 +68,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponseV1[]>;
     /**
      * A read-only property that identifies who created this interface endpoint.
      */

@@ -17,21 +17,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
     public sealed class GuestCredentialResponse
     {
         /// <summary>
-        /// Private key used to authenticate to a virtual machine through ssh.
-        /// </summary>
-        public readonly string? PrivateKey;
-        /// <summary>
         /// Gets or sets username to connect with the guest.
         /// </summary>
         public readonly string? Username;
 
         [OutputConstructor]
-        private GuestCredentialResponse(
-            string? privateKey,
-
-            string? username)
+        private GuestCredentialResponse(string? username)
         {
-            PrivateKey = privateKey;
             Username = username;
         }
     }

@@ -204,7 +204,7 @@ class SubscriptionRaiPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.RaiPolicyPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.RaiPolicyPropertiesResponseV1']:
         """
         Properties of Cognitive Services RaiPolicy.
         """

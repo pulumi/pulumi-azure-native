@@ -103,6 +103,7 @@ __all__ = [
     'MigrateAgentModelPropertiesResponse',
     'MigrateAgentModelResponseSystemData',
     'MigrateProjectPropertiesResponse',
+    'MigrateProjectPropertiesResponseV1',
     'MigrateProjectResponseTags',
     'MigrationConfigurationResponse',
     'MigrationEntityGroupPropertiesResponse',
@@ -132,6 +133,8 @@ __all__ = [
     'PortMappingResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionResponse',
+    'PrivateEndpointConnectionResponseV1',
+    'PrivateEndpointConnectionResponseV2',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProjectPropertiesResponse',
@@ -179,6 +182,8 @@ __all__ = [
     'VirtualNetworkResourceSettingsResponse',
     'VirtualizationSoftwareSettingsResponse',
     'VmUptimeResponse',
+    'VmUptimeResponseV1',
+    'VmUptimeResponseV2',
     'WavePropertiesResponse',
     'WebAppAssessmentSettingsResponse',
     'WebAppAssessmentV3PropertiesResponse',
@@ -8154,7 +8159,7 @@ class MachineAssessmentSettingsResponse(dict):
                  savings_settings: Optional['outputs.SavingsSettingsResponse'] = None,
                  scaling_factor: Optional[_builtins.float] = None,
                  sizing_criterion: Optional[_builtins.str] = None,
-                 vm_uptime: Optional['outputs.VmUptimeResponse'] = None):
+                 vm_uptime: Optional['outputs.VmUptimeResponseV2'] = None):
         """
         Properties of an assessment.
 
@@ -8178,7 +8183,7 @@ class MachineAssessmentSettingsResponse(dict):
         :param _builtins.float scaling_factor: Percentage of buffer that user wants on performance metrics when recommending
                Azure sizes.
         :param _builtins.str sizing_criterion: Assessment sizing criterion.
-        :param 'VmUptimeResponse' vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
+        :param 'VmUptimeResponseV2' vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
                environment.
         """
         if azure_disk_types is not None:
@@ -8359,7 +8364,7 @@ class MachineAssessmentSettingsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="vmUptime")
-    def vm_uptime(self) -> Optional['outputs.VmUptimeResponse']:
+    def vm_uptime(self) -> Optional['outputs.VmUptimeResponseV2']:
         """
         Gets or sets the duration for which the VMs are up in the on-premises
         environment.
@@ -8904,27 +8909,19 @@ class MigrateAgentModelResponseSystemData(dict):
 @pulumi.output_type
 class MigrateProjectPropertiesResponse(dict):
     """
-    Properties of a migrate project.
+    Class for migrate project properties.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "lastSummaryRefreshedTime":
             suggest = "last_summary_refreshed_time"
-        elif key == "privateEndpointConnections":
-            suggest = "private_endpoint_connections"
         elif key == "refreshSummaryState":
             suggest = "refresh_summary_state"
-        elif key == "registeredTools":
-            suggest = "registered_tools"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "publicNetworkAccess":
-            suggest = "public_network_access"
-        elif key == "serviceEndpoint":
-            suggest = "service_endpoint"
-        elif key == "utilityStorageAccountId":
-            suggest = "utility_storage_account_id"
+        elif key == "registeredTools":
+            suggest = "registered_tools"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MigrateProjectPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8939,11 +8936,108 @@ class MigrateProjectPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  last_summary_refreshed_time: _builtins.str,
-                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  refresh_summary_state: _builtins.str,
-                 registered_tools: Sequence[_builtins.str],
                  summary: Mapping[str, Any],
                  provisioning_state: Optional[_builtins.str] = None,
+                 registered_tools: Optional[Sequence[_builtins.str]] = None):
+        """
+        Class for migrate project properties.
+
+        :param _builtins.str last_summary_refreshed_time: Gets the last time the project summary was refreshed.
+        :param _builtins.str refresh_summary_state: Gets the refresh summary state.
+        :param Mapping[str, Union['DatabaseProjectSummaryResponse', 'ServersProjectSummaryResponse']] summary: Gets the summary of the migrate project.
+        :param _builtins.str provisioning_state: Provisioning state of the migrate project.
+        :param Sequence[_builtins.str] registered_tools: Gets or sets the list of tools registered with the migrate project.
+        """
+        pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+        pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+        pulumi.set(__self__, "summary", summary)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if registered_tools is not None:
+            pulumi.set(__self__, "registered_tools", registered_tools)
+
+    @_builtins.property
+    @pulumi.getter(name="lastSummaryRefreshedTime")
+    def last_summary_refreshed_time(self) -> _builtins.str:
+        """
+        Gets the last time the project summary was refreshed.
+        """
+        return pulumi.get(self, "last_summary_refreshed_time")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshSummaryState")
+    def refresh_summary_state(self) -> _builtins.str:
+        """
+        Gets the refresh summary state.
+        """
+        return pulumi.get(self, "refresh_summary_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def summary(self) -> Mapping[str, Any]:
+        """
+        Gets the summary of the migrate project.
+        """
+        return pulumi.get(self, "summary")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[_builtins.str]:
+        """
+        Provisioning state of the migrate project.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="registeredTools")
+    def registered_tools(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Gets or sets the list of tools registered with the migrate project.
+        """
+        return pulumi.get(self, "registered_tools")
+
+
+@pulumi.output_type
+class MigrateProjectPropertiesResponseV1(dict):
+    """
+    Properties of a migrate project.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastSummaryRefreshedTime":
+            suggest = "last_summary_refreshed_time"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "refreshSummaryState":
+            suggest = "refresh_summary_state"
+        elif key == "registeredTools":
+            suggest = "registered_tools"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "serviceEndpoint":
+            suggest = "service_endpoint"
+        elif key == "utilityStorageAccountId":
+            suggest = "utility_storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrateProjectPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrateProjectPropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrateProjectPropertiesResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_summary_refreshed_time: _builtins.str,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponseV1'],
+                 refresh_summary_state: _builtins.str,
+                 registered_tools: Sequence[_builtins.str],
+                 summary: Mapping[str, 'outputs.ProjectSummaryResponse'],
                  public_network_access: Optional[_builtins.str] = None,
                  service_endpoint: Optional[_builtins.str] = None,
                  utility_storage_account_id: Optional[_builtins.str] = None):
@@ -8951,11 +9045,10 @@ class MigrateProjectPropertiesResponse(dict):
         Properties of a migrate project.
 
         :param _builtins.str last_summary_refreshed_time: Last summary refresh time.
-        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Gets the private endpoint connections.
+        :param Sequence['PrivateEndpointConnectionResponseV1'] private_endpoint_connections: Gets the private endpoint connections.
         :param _builtins.str refresh_summary_state: Refresh summary state.
         :param Sequence[_builtins.str] registered_tools: Register tools inside project.
-        :param Mapping[str, Union['DatabaseProjectSummaryResponse', 'ServersProjectSummaryResponse', 'ProjectSummaryResponse']] summary: Project summary.
-        :param _builtins.str provisioning_state: Provisioning state of the migrate project.
+        :param Mapping[str, 'ProjectSummaryResponse'] summary: Project summary.
         :param _builtins.str public_network_access: Gets or sets the state of public network access.
         :param _builtins.str service_endpoint: Service endpoint.
         :param _builtins.str utility_storage_account_id: Utility storage account id.
@@ -8965,8 +9058,6 @@ class MigrateProjectPropertiesResponse(dict):
         pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
         pulumi.set(__self__, "registered_tools", registered_tools)
         pulumi.set(__self__, "summary", summary)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if service_endpoint is not None:
@@ -8984,7 +9075,7 @@ class MigrateProjectPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponseV1']:
         """
         Gets the private endpoint connections.
         """
@@ -9008,19 +9099,11 @@ class MigrateProjectPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def summary(self) -> Mapping[str, Any]:
+    def summary(self) -> Mapping[str, 'outputs.ProjectSummaryResponse']:
         """
         Project summary.
         """
         return pulumi.get(self, "summary")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[_builtins.str]:
-        """
-        Provisioning state of the migrate project.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
@@ -11548,23 +11631,21 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    A private endpoint connection for a project.
+    Private endpoint connection resource.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eTag":
-            suggest = "e_tag"
-        elif key == "groupIds":
+        if key == "groupIds":
             suggest = "group_ids"
-        elif key == "privateEndpoint":
-            suggest = "private_endpoint"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "systemData":
             suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -11578,16 +11659,226 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[_builtins.str],
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: _builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        Private endpoint connection resource.
+
+        :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
+        :param _builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param _builtins.str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param _builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponseV1(dict):
+    """
+    REST model used to encapsulate the user visible state of a PrivateEndpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eTag":
+            suggest = "e_tag"
+        elif key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 e_tag: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
+                 system_data: 'outputs.SystemDataResponse',
+                 type: _builtins.str):
+        """
+        REST model used to encapsulate the user visible state of a PrivateEndpoint.
+
+        :param _builtins.str e_tag: Gets the tag for optimistic concurrency control.
+        :param _builtins.str id: Relative URL to get this Sites.
+        :param _builtins.str name: Gets the name of the resource.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Gets the properties of the object.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param _builtins.str type: Gets the resource type.
+        """
+        pulumi.set(__self__, "e_tag", e_tag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> _builtins.str:
+        """
+        Gets the tag for optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Relative URL to get this Sites.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Gets the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+        """
+        Gets the properties of the object.
+        """
+        return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Gets the resource type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponseV2(dict):
+    """
+    A private endpoint connection for a project.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eTag":
+            suggest = "e_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  id: _builtins.str,
                  name: _builtins.str,
                  properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
                  type: _builtins.str,
-                 e_tag: Optional[_builtins.str] = None,
-                 group_ids: Optional[Sequence[_builtins.str]] = None,
-                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
-                 provisioning_state: Optional[_builtins.str] = None,
-                 system_data: Optional['outputs.SystemDataResponse'] = None):
+                 e_tag: Optional[_builtins.str] = None):
         """
         A private endpoint connection for a project.
 
@@ -11596,11 +11887,6 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Properties of the private endpoint endpoint connection.
         :param _builtins.str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         :param _builtins.str e_tag: For optimistic concurrency control.
-        :param Sequence[_builtins.str] group_ids: The group ids for the private endpoint resource.
-        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param _builtins.str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -11608,16 +11894,6 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "type", type)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
 
     @_builtins.property
     @pulumi.getter
@@ -11658,46 +11934,6 @@ class PrivateEndpointConnectionResponse(dict):
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
-
-    @_builtins.property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The group ids for the private endpoint resource.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
-        """
-        The private endpoint resource.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @_builtins.property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[_builtins.str]:
-        """
-        The provisioning state of the private endpoint connection resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @_builtins.property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
 
 @pulumi.output_type
@@ -11844,7 +12080,7 @@ class ProjectPropertiesResponse(dict):
                  number_of_assessments: _builtins.int,
                  number_of_groups: _builtins.int,
                  number_of_machines: _builtins.int,
-                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponseV2'],
                  provisioning_state: _builtins.str,
                  service_endpoint: _builtins.str,
                  updated_timestamp: _builtins.str,
@@ -11862,7 +12098,7 @@ class ProjectPropertiesResponse(dict):
         :param _builtins.int number_of_assessments: Number of assessments created in the project.
         :param _builtins.int number_of_groups: Number of groups created in the project.
         :param _builtins.int number_of_machines: Number of machines in the project.
-        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections to the project.
+        :param Sequence['PrivateEndpointConnectionResponseV2'] private_endpoint_connections: The list of private endpoint connections to the project.
         :param _builtins.str provisioning_state: Provisioning state of the project.
         :param _builtins.str service_endpoint: Endpoint at which the collector agent can call agent REST API.
         :param _builtins.str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.
@@ -11937,7 +12173,7 @@ class ProjectPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponseV2']:
         """
         The list of private endpoint connections to the project.
         """
@@ -15556,9 +15792,6 @@ class VirtualizationSoftwareSettingsResponse(dict):
 
 @pulumi.output_type
 class VmUptimeResponse(dict):
-    """
-    Details on the total up-time for the VM.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15582,8 +15815,6 @@ class VmUptimeResponse(dict):
                  days_per_month: Optional[_builtins.float] = None,
                  hours_per_day: Optional[_builtins.float] = None):
         """
-        Details on the total up-time for the VM.
-
         :param _builtins.float days_per_month: Number of days in a month for VM uptime.
         :param _builtins.float hours_per_day: Number of hours per day for VM uptime.
         """
@@ -15603,6 +15834,116 @@ class VmUptimeResponse(dict):
     @_builtins.property
     @pulumi.getter(name="hoursPerDay")
     def hours_per_day(self) -> Optional[_builtins.float]:
+        """
+        Number of hours per day for VM uptime.
+        """
+        return pulumi.get(self, "hours_per_day")
+
+
+@pulumi.output_type
+class VmUptimeResponseV1(dict):
+    """
+    Details on the total up-time for the VM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysPerMonth":
+            suggest = "days_per_month"
+        elif key == "hoursPerDay":
+            suggest = "hours_per_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmUptimeResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmUptimeResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmUptimeResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_per_month: Optional[_builtins.int] = None,
+                 hours_per_day: Optional[_builtins.int] = None):
+        """
+        Details on the total up-time for the VM.
+
+        :param _builtins.int days_per_month: Number of days in a month for VM uptime.
+        :param _builtins.int hours_per_day: Number of hours per day for VM uptime.
+        """
+        if days_per_month is not None:
+            pulumi.set(__self__, "days_per_month", days_per_month)
+        if hours_per_day is not None:
+            pulumi.set(__self__, "hours_per_day", hours_per_day)
+
+    @_builtins.property
+    @pulumi.getter(name="daysPerMonth")
+    def days_per_month(self) -> Optional[_builtins.int]:
+        """
+        Number of days in a month for VM uptime.
+        """
+        return pulumi.get(self, "days_per_month")
+
+    @_builtins.property
+    @pulumi.getter(name="hoursPerDay")
+    def hours_per_day(self) -> Optional[_builtins.int]:
+        """
+        Number of hours per day for VM uptime.
+        """
+        return pulumi.get(self, "hours_per_day")
+
+
+@pulumi.output_type
+class VmUptimeResponseV2(dict):
+    """
+    Details on the total up-time for the VM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysPerMonth":
+            suggest = "days_per_month"
+        elif key == "hoursPerDay":
+            suggest = "hours_per_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmUptimeResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmUptimeResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmUptimeResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_per_month: Optional[_builtins.int] = None,
+                 hours_per_day: Optional[_builtins.int] = None):
+        """
+        Details on the total up-time for the VM.
+
+        :param _builtins.int days_per_month: Number of days in a month for VM uptime.
+        :param _builtins.int hours_per_day: Number of hours per day for VM uptime.
+        """
+        if days_per_month is not None:
+            pulumi.set(__self__, "days_per_month", days_per_month)
+        if hours_per_day is not None:
+            pulumi.set(__self__, "hours_per_day", hours_per_day)
+
+    @_builtins.property
+    @pulumi.getter(name="daysPerMonth")
+    def days_per_month(self) -> Optional[_builtins.int]:
+        """
+        Number of days in a month for VM uptime.
+        """
+        return pulumi.get(self, "days_per_month")
+
+    @_builtins.property
+    @pulumi.getter(name="hoursPerDay")
+    def hours_per_day(self) -> Optional[_builtins.int]:
         """
         Number of hours per day for VM uptime.
         """

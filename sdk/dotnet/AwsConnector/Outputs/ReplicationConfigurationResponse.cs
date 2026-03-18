@@ -20,26 +20,11 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// An array of destination objects. Only one destination object is supported.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationDestinationResponse> Destinations;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
-        /// </summary>
-        public readonly string? Role;
-        /// <summary>
-        /// A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ReplicationRuleResponse> Rules;
 
         [OutputConstructor]
-        private ReplicationConfigurationResponse(
-            ImmutableArray<Outputs.ReplicationDestinationResponse> destinations,
-
-            string? role,
-
-            ImmutableArray<Outputs.ReplicationRuleResponse> rules)
+        private ReplicationConfigurationResponse(ImmutableArray<Outputs.ReplicationDestinationResponse> destinations)
         {
             Destinations = destinations;
-            Role = role;
-            Rules = rules;
         }
     }
 }

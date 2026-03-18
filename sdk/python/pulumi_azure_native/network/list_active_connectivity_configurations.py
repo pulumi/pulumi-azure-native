@@ -45,7 +45,7 @@ class ListActiveConnectivityConfigurationsResult:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[Sequence['outputs.ActiveConnectivityConfigurationResponse']]:
+    def value(self) -> Optional[Sequence['outputs.ActiveConnectivityConfigurationResponseV1']]:
         """
         Gets a page of active connectivity configurations.
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// Groups for configuration
         /// </summary>
-        public readonly ImmutableArray<Outputs.ConnectivityGroupItemResponse> AppliesToGroups;
+        public readonly ImmutableArray<Outputs.ConnectivityGroupItemResponseV1> AppliesToGroups;
         /// <summary>
         /// Deployment time string.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.HubResponse> Hubs;
         /// <summary>
-        /// Connectivity configuration ID.
+        /// Resource ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -64,14 +64,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Deployment region.
         /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// Unique identifier for this resource.
-        /// </summary>
-        public readonly string ResourceGuid;
 
         [OutputConstructor]
         private ActiveConnectivityConfigurationResponse(
-            ImmutableArray<Outputs.ConnectivityGroupItemResponse> appliesToGroups,
+            ImmutableArray<Outputs.ConnectivityGroupItemResponseV1> appliesToGroups,
 
             string? commitTime,
 
@@ -93,9 +89,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            string? region,
-
-            string resourceGuid)
+            string? region)
         {
             AppliesToGroups = appliesToGroups;
             CommitTime = commitTime;
@@ -109,7 +103,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             IsGlobal = isGlobal;
             ProvisioningState = provisioningState;
             Region = region;
-            ResourceGuid = resourceGuid;
         }
     }
 }

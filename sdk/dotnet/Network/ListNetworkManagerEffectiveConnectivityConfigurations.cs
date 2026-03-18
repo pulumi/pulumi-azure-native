@@ -118,13 +118,13 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Gets a page of NetworkManagerEffectiveConnectivityConfiguration
         /// </summary>
-        public readonly ImmutableArray<Outputs.EffectiveConnectivityConfigurationResponse> Value;
+        public readonly ImmutableArray<Outputs.EffectiveConnectivityConfigurationResponseV1> Value;
 
         [OutputConstructor]
         private ListNetworkManagerEffectiveConnectivityConfigurationsResult(
             string? skipToken,
 
-            ImmutableArray<Outputs.EffectiveConnectivityConfigurationResponse> value)
+            ImmutableArray<Outputs.EffectiveConnectivityConfigurationResponseV1> value)
         {
             SkipToken = skipToken;
             Value = value;

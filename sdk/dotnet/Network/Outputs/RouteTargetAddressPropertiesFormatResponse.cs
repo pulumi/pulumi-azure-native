@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The reference to the subnet resource.
         /// </summary>
-        public readonly Outputs.SubnetResponse? Subnet;
+        public readonly Outputs.SubnetResponseV2? Subnet;
 
         [OutputConstructor]
         private RouteTargetAddressPropertiesFormatResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? privateIPAllocationMethod,
 
-            Outputs.SubnetResponse? subnet)
+            Outputs.SubnetResponseV2? subnet)
         {
             PrivateIPAddress = privateIPAddress;
             PrivateIPAllocationMethod = privateIPAllocationMethod;

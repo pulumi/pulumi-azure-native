@@ -183,6 +183,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointConnectionVaultPropertiesResponse',
     'PrivateEndpointResponse',
+    'PrivateEndpointResponseV1',
     'PrivateLinkServiceConnectionStateResponse',
     'ProcessServerDetailsResponse',
     'ProcessServerResponse',
@@ -27414,6 +27415,30 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
+    The Private Endpoint network resource that is linked to the Private Endpoint connection
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        The Private Endpoint network resource that is linked to the Private Endpoint connection
+
+        :param _builtins.str id: Gets or sets id
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Gets or sets id
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateEndpointResponseV1(dict):
+    """
     The Private Endpoint network resource that is linked to the Private Endpoint connection.
     """
     def __init__(__self__, *,
@@ -35714,14 +35739,14 @@ class VaultPrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 private_endpoint: 'outputs.PrivateEndpointResponseV1',
                  private_link_service_connection_state: 'outputs.VaultPrivateLinkServiceConnectionStateResponse',
                  provisioning_state: _builtins.str,
                  group_ids: Optional[Sequence[_builtins.str]] = None):
         """
         Private Endpoint Connection Response Properties.
 
-        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
+        :param 'PrivateEndpointResponseV1' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param _builtins.str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         :param Sequence[_builtins.str] group_ids: Group Ids for the Private Endpoint
@@ -35734,7 +35759,7 @@ class VaultPrivateEndpointConnectionResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponseV1':
         """
         The Private Endpoint network resource that is linked to the Private Endpoint connection.
         """

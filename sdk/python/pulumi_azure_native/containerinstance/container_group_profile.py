@@ -520,7 +520,7 @@ class ContainerGroupProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def containers(self) -> pulumi.Output[Sequence['outputs.ContainerResponse']]:
+    def containers(self) -> pulumi.Output[Sequence['outputs.ContainerResponseV2']]:
         """
         The containers within the container group.
         """
@@ -552,7 +552,7 @@ class ContainerGroupProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="imageRegistryCredentials")
-    def image_registry_credentials(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRegistryCredentialResponse']]]:
+    def image_registry_credentials(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRegistryCredentialResponseV2']]]:
         """
         The image registry credentials by which the container group is created from.
         """
@@ -651,7 +651,7 @@ class ContainerGroupProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.VolumeResponse']]]:
+    def volumes(self) -> pulumi.Output[Optional[Sequence['outputs.VolumeResponseV2']]]:
         """
         The list of volumes that can be mounted by containers in this container group.
         """

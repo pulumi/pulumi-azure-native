@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorDetailResponse> Details;
         /// <summary>
-        /// Exception details while installing extension.
-        /// </summary>
-        public readonly string? Exception;
-        /// <summary>
         /// The error message.
         /// </summary>
         public readonly string Message;
@@ -49,8 +45,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             ImmutableArray<Outputs.ErrorDetailResponse> details,
 
-            string? exception,
-
             string message,
 
             string target)
@@ -58,7 +52,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             AdditionalInfo = additionalInfo;
             Code = code;
             Details = details;
-            Exception = exception;
             Message = message;
             Target = target;
         }

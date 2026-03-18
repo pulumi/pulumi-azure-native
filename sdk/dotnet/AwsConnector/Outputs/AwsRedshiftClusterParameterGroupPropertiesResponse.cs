@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// <summary>
         /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ParameterResponse> Parameters;
+        public readonly ImmutableArray<Outputs.ParameterResponseV1> Parameters;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
 
             string? parameterGroupName,
 
-            ImmutableArray<Outputs.ParameterResponse> parameters,
+            ImmutableArray<Outputs.ParameterResponseV1> parameters,
 
             ImmutableArray<Outputs.TagResponse> tags)
         {

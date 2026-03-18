@@ -21,6 +21,8 @@ __all__ = [
     'ApplicationGatewayBackendAddressPoolResponse',
     'ApplicationGatewayResponse',
     'AzureFileVolumeResponse',
+    'AzureFileVolumeResponseV1',
+    'AzureFileVolumeResponseV2',
     'ConfidentialComputePropertiesResponse',
     'ConfigMapResponse',
     'ContainerExecResponse',
@@ -35,6 +37,8 @@ __all__ = [
     'ContainerProbeResponse',
     'ContainerPropertiesResponseInstanceView',
     'ContainerResponse',
+    'ContainerResponseV1',
+    'ContainerResponseV2',
     'ContainerStateResponse',
     'DeploymentExtensionSpecResponse',
     'DnsConfigurationResponse',
@@ -43,6 +47,8 @@ __all__ = [
     'ElasticProfileResponseGuidNamingPolicy',
     'EncryptionPropertiesResponse',
     'EnvironmentVariableResponse',
+    'EnvironmentVariableResponseV1',
+    'EnvironmentVariableResponseV2',
     'EventResponse',
     'FileShareResponse',
     'FileShareResponseProperties',
@@ -50,6 +56,8 @@ __all__ = [
     'GpuResourceResponse',
     'HttpHeaderResponse',
     'ImageRegistryCredentialResponse',
+    'ImageRegistryCredentialResponseV1',
+    'ImageRegistryCredentialResponseV2',
     'InitContainerDefinitionResponse',
     'InitContainerPropertiesDefinitionResponseInstanceView',
     'IpAddressResponse',
@@ -77,6 +85,8 @@ __all__ = [
     'UserAssignedIdentitiesResponse',
     'VolumeMountResponse',
     'VolumeResponse',
+    'VolumeResponseV1',
+    'VolumeResponseV2',
 ]
 
 @pulumi.output_type
@@ -273,6 +283,168 @@ class AzureFileVolumeResponse(dict):
         The reference to the storage account access key used to access the Azure File share.
         """
         return pulumi.get(self, "storage_account_key_reference")
+
+
+@pulumi.output_type
+class AzureFileVolumeResponseV1(dict):
+    """
+    The properties of the Azure File volume. Azure File shares are mounted as volumes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareName":
+            suggest = "share_name"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFileVolumeResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFileVolumeResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFileVolumeResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_name: _builtins.str,
+                 storage_account_name: _builtins.str,
+                 read_only: Optional[_builtins.bool] = None,
+                 storage_account_key: Optional[_builtins.str] = None):
+        """
+        The properties of the Azure File volume. Azure File shares are mounted as volumes.
+
+        :param _builtins.str share_name: The name of the Azure File share to be mounted as a volume.
+        :param _builtins.str storage_account_name: The name of the storage account that contains the Azure File share.
+        :param _builtins.bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        :param _builtins.str storage_account_key: The storage account access key used to access the Azure File share.
+        """
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+
+    @_builtins.property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> _builtins.str:
+        """
+        The name of the Azure File share to be mounted as a volume.
+        """
+        return pulumi.get(self, "share_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> _builtins.str:
+        """
+        The name of the storage account that contains the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[_builtins.bool]:
+        """
+        The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        """
+        return pulumi.get(self, "read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[_builtins.str]:
+        """
+        The storage account access key used to access the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_key")
+
+
+@pulumi.output_type
+class AzureFileVolumeResponseV2(dict):
+    """
+    The properties of the Azure File volume. Azure File shares are mounted as volumes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareName":
+            suggest = "share_name"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFileVolumeResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFileVolumeResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFileVolumeResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_name: _builtins.str,
+                 storage_account_name: _builtins.str,
+                 read_only: Optional[_builtins.bool] = None,
+                 storage_account_key: Optional[_builtins.str] = None):
+        """
+        The properties of the Azure File volume. Azure File shares are mounted as volumes.
+
+        :param _builtins.str share_name: The name of the Azure File share to be mounted as a volume.
+        :param _builtins.str storage_account_name: The name of the storage account that contains the Azure File share.
+        :param _builtins.bool read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        :param _builtins.str storage_account_key: The storage account access key used to access the Azure File share.
+        """
+        pulumi.set(__self__, "share_name", share_name)
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+
+    @_builtins.property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> _builtins.str:
+        """
+        The name of the Azure File share to be mounted as a volume.
+        """
+        return pulumi.get(self, "share_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> _builtins.str:
+        """
+        The name of the storage account that contains the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[_builtins.bool]:
+        """
+        The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        """
+        return pulumi.get(self, "read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[_builtins.str]:
+        """
+        The storage account access key used to access the Azure File share.
+        """
+        return pulumi.get(self, "storage_account_key")
 
 
 @pulumi.output_type
@@ -1196,6 +1368,372 @@ class ContainerResponse(dict):
 
 
 @pulumi.output_type
+class ContainerResponseV1(dict):
+    """
+    A container instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceView":
+            suggest = "instance_view"
+        elif key == "configMap":
+            suggest = "config_map"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "livenessProbe":
+            suggest = "liveness_probe"
+        elif key == "readinessProbe":
+            suggest = "readiness_probe"
+        elif key == "securityContext":
+            suggest = "security_context"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
+                 name: _builtins.str,
+                 command: Optional[Sequence[_builtins.str]] = None,
+                 config_map: Optional['outputs.ConfigMapResponse'] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponseV1']] = None,
+                 image: Optional[_builtins.str] = None,
+                 liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
+                 readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 resources: Optional['outputs.ResourceRequirementsResponse'] = None,
+                 security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
+        """
+        A container instance.
+
+        :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
+        :param _builtins.str name: The user-provided name of the container instance.
+        :param Sequence[_builtins.str] command: The commands to execute within the container instance in exec form.
+        :param 'ConfigMapResponse' config_map: The config map.
+        :param Sequence['EnvironmentVariableResponseV1'] environment_variables: The environment variables to set in the container instance.
+        :param _builtins.str image: The name of the image used to create the container instance.
+        :param 'ContainerProbeResponse' liveness_probe: The liveness probe.
+        :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
+        :param 'ContainerProbeResponse' readiness_probe: The readiness probe.
+        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
+        :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
+        :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
+        """
+        pulumi.set(__self__, "instance_view", instance_view)
+        pulumi.set(__self__, "name", name)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if config_map is not None:
+            pulumi.set(__self__, "config_map", config_map)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.ContainerPropertiesResponseInstanceView':
+        """
+        The instance view of the container instance. Only valid in response.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The user-provided name of the container instance.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The commands to execute within the container instance in exec form.
+        """
+        return pulumi.get(self, "command")
+
+    @_builtins.property
+    @pulumi.getter(name="configMap")
+    def config_map(self) -> Optional['outputs.ConfigMapResponse']:
+        """
+        The config map.
+        """
+        return pulumi.get(self, "config_map")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponseV1']]:
+        """
+        The environment variables to set in the container instance.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> Optional[_builtins.str]:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
+        """
+        The liveness probe.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @_builtins.property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence['outputs.ContainerPortResponse']]:
+        """
+        The exposed ports on the container instance.
+        """
+        return pulumi.get(self, "ports")
+
+    @_builtins.property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
+        """
+        The readiness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.ResourceRequirementsResponse']:
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional['outputs.SecurityContextDefinitionResponse']:
+        """
+        The container security properties.
+        """
+        return pulumi.get(self, "security_context")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
+        """
+        The volume mounts available to the container instance.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class ContainerResponseV2(dict):
+    """
+    A container instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceView":
+            suggest = "instance_view"
+        elif key == "configMap":
+            suggest = "config_map"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "livenessProbe":
+            suggest = "liveness_probe"
+        elif key == "readinessProbe":
+            suggest = "readiness_probe"
+        elif key == "securityContext":
+            suggest = "security_context"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_view: 'outputs.ContainerPropertiesResponseInstanceView',
+                 name: _builtins.str,
+                 command: Optional[Sequence[_builtins.str]] = None,
+                 config_map: Optional['outputs.ConfigMapResponse'] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponseV2']] = None,
+                 image: Optional[_builtins.str] = None,
+                 liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
+                 readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 resources: Optional['outputs.ResourceRequirementsResponse'] = None,
+                 security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
+        """
+        A container instance.
+
+        :param 'ContainerPropertiesResponseInstanceView' instance_view: The instance view of the container instance. Only valid in response.
+        :param _builtins.str name: The user-provided name of the container instance.
+        :param Sequence[_builtins.str] command: The commands to execute within the container instance in exec form.
+        :param 'ConfigMapResponse' config_map: The config map.
+        :param Sequence['EnvironmentVariableResponseV2'] environment_variables: The environment variables to set in the container instance.
+        :param _builtins.str image: The name of the image used to create the container instance.
+        :param 'ContainerProbeResponse' liveness_probe: The liveness probe.
+        :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
+        :param 'ContainerProbeResponse' readiness_probe: The readiness probe.
+        :param 'ResourceRequirementsResponse' resources: The resource requirements of the container instance.
+        :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
+        :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
+        """
+        pulumi.set(__self__, "instance_view", instance_view)
+        pulumi.set(__self__, "name", name)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if config_map is not None:
+            pulumi.set(__self__, "config_map", config_map)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> 'outputs.ContainerPropertiesResponseInstanceView':
+        """
+        The instance view of the container instance. Only valid in response.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The user-provided name of the container instance.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The commands to execute within the container instance in exec form.
+        """
+        return pulumi.get(self, "command")
+
+    @_builtins.property
+    @pulumi.getter(name="configMap")
+    def config_map(self) -> Optional['outputs.ConfigMapResponse']:
+        """
+        The config map.
+        """
+        return pulumi.get(self, "config_map")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponseV2']]:
+        """
+        The environment variables to set in the container instance.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> Optional[_builtins.str]:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
+        """
+        The liveness probe.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @_builtins.property
+    @pulumi.getter
+    def ports(self) -> Optional[Sequence['outputs.ContainerPortResponse']]:
+        """
+        The exposed ports on the container instance.
+        """
+        return pulumi.get(self, "ports")
+
+    @_builtins.property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional['outputs.ContainerProbeResponse']:
+        """
+        The readiness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.ResourceRequirementsResponse']:
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional['outputs.SecurityContextDefinitionResponse']:
+        """
+        The container security properties.
+        """
+        return pulumi.get(self, "security_context")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
+        """
+        The volume mounts available to the container instance.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
 class ContainerStateResponse(dict):
     """
     The container instance state.
@@ -1716,6 +2254,134 @@ class EnvironmentVariableResponse(dict):
 
 
 @pulumi.output_type
+class EnvironmentVariableResponseV1(dict):
+    """
+    The environment variable to set within the container instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureValue":
+            suggest = "secure_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentVariableResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentVariableResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 secure_value: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        The environment variable to set within the container instance.
+
+        :param _builtins.str name: The name of the environment variable.
+        :param _builtins.str secure_value: The value of the secure environment variable.
+        :param _builtins.str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secure_value is not None:
+            pulumi.set(__self__, "secure_value", secure_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="secureValue")
+    def secure_value(self) -> Optional[_builtins.str]:
+        """
+        The value of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentVariableResponseV2(dict):
+    """
+    The environment variable to set within the container instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureValue":
+            suggest = "secure_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVariableResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentVariableResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentVariableResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 secure_value: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        The environment variable to set within the container instance.
+
+        :param _builtins.str name: The name of the environment variable.
+        :param _builtins.str secure_value: The value of the secure environment variable.
+        :param _builtins.str value: The value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        if secure_value is not None:
+            pulumi.set(__self__, "secure_value", secure_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="secureValue")
+    def secure_value(self) -> Optional[_builtins.str]:
+        """
+        The value of the secure environment variable.
+        """
+        return pulumi.get(self, "secure_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EventResponse(dict):
     """
     A container group or container instance event.
@@ -2135,6 +2801,182 @@ class ImageRegistryCredentialResponse(dict):
         The reference for the private registry password.
         """
         return pulumi.get(self, "password_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ImageRegistryCredentialResponseV1(dict):
+    """
+    Image registry credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityUrl":
+            suggest = "identity_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRegistryCredentialResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRegistryCredentialResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRegistryCredentialResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server: _builtins.str,
+                 identity: Optional[_builtins.str] = None,
+                 identity_url: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
+        """
+        Image registry credential.
+
+        :param _builtins.str server: The Docker image registry server without a protocol such as "http" and "https".
+        :param _builtins.str identity: The identity for the private registry.
+        :param _builtins.str identity_url: The identity URL for the private registry.
+        :param _builtins.str password: The password for the private registry.
+        :param _builtins.str username: The username for the private registry.
+        """
+        pulumi.set(__self__, "server", server)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if identity_url is not None:
+            pulumi.set(__self__, "identity_url", identity_url)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> _builtins.str:
+        """
+        The Docker image registry server without a protocol such as "http" and "https".
+        """
+        return pulumi.get(self, "server")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The identity for the private registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="identityUrl")
+    def identity_url(self) -> Optional[_builtins.str]:
+        """
+        The identity URL for the private registry.
+        """
+        return pulumi.get(self, "identity_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        The password for the private registry.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ImageRegistryCredentialResponseV2(dict):
+    """
+    Image registry credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityUrl":
+            suggest = "identity_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRegistryCredentialResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRegistryCredentialResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRegistryCredentialResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server: _builtins.str,
+                 identity: Optional[_builtins.str] = None,
+                 identity_url: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
+        """
+        Image registry credential.
+
+        :param _builtins.str server: The Docker image registry server without a protocol such as "http" and "https".
+        :param _builtins.str identity: The identity for the private registry.
+        :param _builtins.str identity_url: The identity URL for the private registry.
+        :param _builtins.str password: The password for the private registry.
+        :param _builtins.str username: The username for the private registry.
+        """
+        pulumi.set(__self__, "server", server)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if identity_url is not None:
+            pulumi.set(__self__, "identity_url", identity_url)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> _builtins.str:
+        """
+        The Docker image registry server without a protocol such as "http" and "https".
+        """
+        return pulumi.get(self, "server")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        The identity for the private registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="identityUrl")
+    def identity_url(self) -> Optional[_builtins.str]:
+        """
+        The identity URL for the private registry.
+        """
+        return pulumi.get(self, "identity_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        The password for the private registry.
+        """
+        return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
@@ -3860,5 +4702,189 @@ class VolumeResponse(dict):
         The secret reference volume.
         """
         return pulumi.get(self, "secret_reference")
+
+
+@pulumi.output_type
+class VolumeResponseV1(dict):
+    """
+    The properties of the volume.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureFile":
+            suggest = "azure_file"
+        elif key == "emptyDir":
+            suggest = "empty_dir"
+        elif key == "gitRepo":
+            suggest = "git_repo"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 azure_file: Optional['outputs.AzureFileVolumeResponseV1'] = None,
+                 empty_dir: Optional[Any] = None,
+                 git_repo: Optional['outputs.GitRepoVolumeResponse'] = None,
+                 secret: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        The properties of the volume.
+
+        :param _builtins.str name: The name of the volume.
+        :param 'AzureFileVolumeResponseV1' azure_file: The Azure File volume.
+        :param Any empty_dir: The empty directory volume.
+        :param 'GitRepoVolumeResponse' git_repo: The git repo volume.
+        :param Mapping[str, _builtins.str] secret: The secret volume.
+        """
+        pulumi.set(__self__, "name", name)
+        if azure_file is not None:
+            pulumi.set(__self__, "azure_file", azure_file)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if git_repo is not None:
+            pulumi.set(__self__, "git_repo", git_repo)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> Optional['outputs.AzureFileVolumeResponseV1']:
+        """
+        The Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional[Any]:
+        """
+        The empty directory volume.
+        """
+        return pulumi.get(self, "empty_dir")
+
+    @_builtins.property
+    @pulumi.getter(name="gitRepo")
+    def git_repo(self) -> Optional['outputs.GitRepoVolumeResponse']:
+        """
+        The git repo volume.
+        """
+        return pulumi.get(self, "git_repo")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The secret volume.
+        """
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class VolumeResponseV2(dict):
+    """
+    The properties of the volume.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureFile":
+            suggest = "azure_file"
+        elif key == "emptyDir":
+            suggest = "empty_dir"
+        elif key == "gitRepo":
+            suggest = "git_repo"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 azure_file: Optional['outputs.AzureFileVolumeResponseV2'] = None,
+                 empty_dir: Optional[Any] = None,
+                 git_repo: Optional['outputs.GitRepoVolumeResponse'] = None,
+                 secret: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        The properties of the volume.
+
+        :param _builtins.str name: The name of the volume.
+        :param 'AzureFileVolumeResponseV2' azure_file: The Azure File volume.
+        :param Any empty_dir: The empty directory volume.
+        :param 'GitRepoVolumeResponse' git_repo: The git repo volume.
+        :param Mapping[str, _builtins.str] secret: The secret volume.
+        """
+        pulumi.set(__self__, "name", name)
+        if azure_file is not None:
+            pulumi.set(__self__, "azure_file", azure_file)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if git_repo is not None:
+            pulumi.set(__self__, "git_repo", git_repo)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> Optional['outputs.AzureFileVolumeResponseV2']:
+        """
+        The Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional[Any]:
+        """
+        The empty directory volume.
+        """
+        return pulumi.get(self, "empty_dir")
+
+    @_builtins.property
+    @pulumi.getter(name="gitRepo")
+    def git_repo(self) -> Optional['outputs.GitRepoVolumeResponse']:
+        """
+        The git repo volume.
+        """
+        return pulumi.get(self, "git_repo")
+
+    @_builtins.property
+    @pulumi.getter
+    def secret(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The secret volume.
+        """
+        return pulumi.get(self, "secret")
 
 

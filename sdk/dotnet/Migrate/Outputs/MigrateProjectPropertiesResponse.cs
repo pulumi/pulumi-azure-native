@@ -11,77 +11,49 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
     /// <summary>
-    /// Properties of a migrate project.
+    /// Class for migrate project properties.
     /// </summary>
     [OutputType]
     public sealed class MigrateProjectPropertiesResponse
     {
         /// <summary>
-        /// Last summary refresh time.
+        /// Gets the last time the project summary was refreshed.
         /// </summary>
         public readonly string LastSummaryRefreshedTime;
-        /// <summary>
-        /// Gets the private endpoint connections.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the migrate project.
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Gets or sets the state of public network access.
-        /// </summary>
-        public readonly string? PublicNetworkAccess;
-        /// <summary>
-        /// Refresh summary state.
+        /// Gets the refresh summary state.
         /// </summary>
         public readonly string RefreshSummaryState;
         /// <summary>
-        /// Register tools inside project.
+        /// Gets or sets the list of tools registered with the migrate project.
         /// </summary>
         public readonly ImmutableArray<string> RegisteredTools;
         /// <summary>
-        /// Service endpoint.
+        /// Gets the summary of the migrate project.
         /// </summary>
-        public readonly string? ServiceEndpoint;
-        /// <summary>
-        /// Project summary.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> Summary;
-        /// <summary>
-        /// Utility storage account id.
-        /// </summary>
-        public readonly string? UtilityStorageAccountId;
+        public readonly ImmutableDictionary<string, Union<Outputs.DatabaseProjectSummaryResponse, Outputs.ServersProjectSummaryResponse>> Summary;
 
         [OutputConstructor]
         private MigrateProjectPropertiesResponse(
             string lastSummaryRefreshedTime,
 
-            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
-
             string? provisioningState,
-
-            string? publicNetworkAccess,
 
             string refreshSummaryState,
 
             ImmutableArray<string> registeredTools,
 
-            string? serviceEndpoint,
-
-            ImmutableDictionary<string, object> summary,
-
-            string? utilityStorageAccountId)
+            ImmutableDictionary<string, Union<Outputs.DatabaseProjectSummaryResponse, Outputs.ServersProjectSummaryResponse>> summary)
         {
             LastSummaryRefreshedTime = lastSummaryRefreshedTime;
-            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
-            PublicNetworkAccess = publicNetworkAccess;
             RefreshSummaryState = refreshSummaryState;
             RegisteredTools = registeredTools;
-            ServiceEndpoint = serviceEndpoint;
             Summary = summary;
-            UtilityStorageAccountId = utilityStorageAccountId;
         }
     }
 }

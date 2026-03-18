@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
     public sealed class InstanceIpv6AddressResponse
     {
         /// <summary>
-        /// Property ipv6Address
+        /// &lt;p&gt;The IPv6 address.&lt;/p&gt;
         /// </summary>
         public readonly string? Ipv6Address;
         /// <summary>

@@ -11,27 +11,23 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// User assigned identity properties
+    /// Identities associated with a server.
     /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// The client ID of the assigned identity.
+        /// Identifier of the object of the service principal associated to the user assigned managed identity.
         /// </summary>
-        public readonly string ClientId;
-        /// <summary>
-        /// The principal ID of the assigned identity.
-        /// </summary>
-        public readonly string PrincipalId;
+        public readonly string? PrincipalId;
         /// <summary>
         /// Identifier of the tenant of a server.
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
         /// Types of identities associated with a server.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         /// <summary>
         /// Map of user assigned managed identities.
         /// </summary>
@@ -39,17 +35,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
-            string clientId,
+            string? principalId,
 
-            string principalId,
+            string tenantId,
 
-            string? tenantId,
-
-            string? type,
+            string type,
 
             ImmutableDictionary<string, Outputs.UserIdentityResponse>? userAssignedIdentities)
         {
-            ClientId = clientId;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

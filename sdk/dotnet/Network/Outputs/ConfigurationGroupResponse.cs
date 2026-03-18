@@ -33,21 +33,17 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupMembersItemResponse> GroupMembers;
         /// <summary>
-        /// Network group ID.
+        /// Resource ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The type of the group member.
+        /// Group member type.
         /// </summary>
         public readonly string? MemberType;
         /// <summary>
         /// The provisioning state of the scope assignment resource.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// Unique identifier for this resource.
-        /// </summary>
-        public readonly string ResourceGuid;
 
         [OutputConstructor]
         private ConfigurationGroupResponse(
@@ -63,9 +59,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? memberType,
 
-            string provisioningState,
-
-            string resourceGuid)
+            string provisioningState)
         {
             ConditionalMembership = conditionalMembership;
             Description = description;
@@ -74,7 +68,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             Id = id;
             MemberType = memberType;
             ProvisioningState = provisioningState;
-            ResourceGuid = resourceGuid;
         }
     }
 }

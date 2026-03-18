@@ -22,6 +22,7 @@ __all__ = [
     'AddActionGroupsResponse',
     'AlertProcessingRulePropertiesResponse',
     'ConditionResponse',
+    'ConditionResponseV1',
     'ConditionsResponse',
     'DailyRecurrenceResponse',
     'DetectorParameterDefinitionResponse',
@@ -334,7 +335,7 @@ class AlertProcessingRulePropertiesResponse(dict):
     def __init__(__self__, *,
                  actions: Sequence[Any],
                  scopes: Sequence[_builtins.str],
-                 conditions: Optional[Sequence['outputs.ConditionResponse']] = None,
+                 conditions: Optional[Sequence['outputs.ConditionResponseV1']] = None,
                  description: Optional[_builtins.str] = None,
                  enabled: Optional[_builtins.bool] = None,
                  schedule: Optional['outputs.ScheduleResponse'] = None):
@@ -343,7 +344,7 @@ class AlertProcessingRulePropertiesResponse(dict):
 
         :param Sequence[Union['AddActionGroupsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied.
         :param Sequence[_builtins.str] scopes: Scopes on which alert processing rule will apply.
-        :param Sequence['ConditionResponse'] conditions: Conditions on which alerts will be filtered.
+        :param Sequence['ConditionResponseV1'] conditions: Conditions on which alerts will be filtered.
         :param _builtins.str description: Actions to be applied.Description of alert processing rule.
         :param _builtins.bool enabled: Indicates if the given alert processing rule is enabled or disabled.
         :param 'ScheduleResponse' schedule: Scheduling for alert processing rule.
@@ -379,7 +380,7 @@ class AlertProcessingRulePropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[Sequence['outputs.ConditionResponse']]:
+    def conditions(self) -> Optional[Sequence['outputs.ConditionResponseV1']]:
         """
         Conditions on which alerts will be filtered.
         """
@@ -412,6 +413,42 @@ class AlertProcessingRulePropertiesResponse(dict):
 
 @pulumi.output_type
 class ConditionResponse(dict):
+    """
+    condition to trigger an action rule
+    """
+    def __init__(__self__, *,
+                 operator: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        condition to trigger an action rule
+
+        :param _builtins.str operator: operator for a given condition
+        :param Sequence[_builtins.str] values: list of values to match for a given condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional[_builtins.str]:
+        """
+        operator for a given condition
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ConditionResponseV1(dict):
     """
     Condition to trigger an alert processing rule.
     """

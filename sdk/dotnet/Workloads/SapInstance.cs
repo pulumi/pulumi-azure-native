@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Defines the errors related to SAP Instance resource.
         /// </summary>
         [Output("errors")]
-        public Output<Outputs.SAPMigrateErrorResponse> Errors { get; private set; } = null!;
+        public Output<Outputs.SAPMigrateErrorResponseV1> Errors { get; private set; } = null!;
 
         /// <summary>
         /// This is the SID of the production system in a landscape.  An SAP system could itself be a production SID or a part of a landscape with a different Production SID. This field can be used to relate non-prod SIDs, other components, SID (WEBDISP) to the prod SID. Enter the value of Production SID.

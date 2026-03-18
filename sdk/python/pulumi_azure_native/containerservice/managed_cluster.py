@@ -1243,7 +1243,7 @@ class ManagedCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="identityProfile")
-    def identity_profile(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]]:
+    def identity_profile(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']]]:
         """
         The user identity associated with the managed cluster. This identity will be used by the kubelet. Only one user assigned identity is allowed. The only accepted key is "kubeletidentity", with value of "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}".
         """

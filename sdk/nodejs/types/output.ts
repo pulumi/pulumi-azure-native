@@ -1180,7 +1180,7 @@ export namespace alertsmanagement {
         /**
          * Conditions on which alerts will be filtered.
          */
-        conditions?: outputs.alertsmanagement.ConditionResponse[];
+        conditions?: outputs.alertsmanagement.ConditionResponseV1[];
         /**
          * Actions to be applied.Description of alert processing rule.
          */
@@ -1209,9 +1209,23 @@ export namespace alertsmanagement {
     }
 
     /**
-     * Condition to trigger an alert processing rule.
+     * condition to trigger an action rule
      */
     export interface ConditionResponse {
+        /**
+         * operator for a given condition
+         */
+        operator?: string;
+        /**
+         * list of values to match for a given condition.
+         */
+        values?: string[];
+    }
+
+    /**
+     * Condition to trigger an alert processing rule.
+     */
+    export interface ConditionResponseV1 {
         /**
          * Field for a given condition.
          */
@@ -14294,6 +14308,16 @@ export namespace awsconnector {
     }
 
     /**
+     * Definition of ActionDefinition
+     */
+    export interface ActionDefinitionResponseV1 {
+        /**
+         * Property publishMetricAction
+         */
+        publishMetricAction?: outputs.awsconnector.PublishMetricActionResponseV1;
+    }
+
+    /**
      * Definition of Action
      */
     export interface ActionResponse {
@@ -17137,7 +17161,7 @@ export namespace awsconnector {
         /**
          * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet to associate with the network interface. If you're specifying a number of IPv6 addresses, use the Ipv6AddressCount property and don't specify this property.
          */
-        ipv6Addresses?: outputs.awsconnector.InstanceIpv6AddressResponse[];
+        ipv6Addresses?: outputs.awsconnector.InstanceIpv6AddressResponseV1[];
         /**
          * The number of IPv6 prefixes to assign to a network interface. When you specify a number of IPv6 prefixes, Amazon EC2 selects these prefixes from your existing subnet CIDR reservations, if available, or from free spaces in the subnet. By default, these will be /80 prefixes. You can't specify a count of IPv6 prefixes if you've specified one of the following: specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
          */
@@ -17982,7 +18006,7 @@ export namespace awsconnector {
         /**
          * An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:  +  When to move files in the file system from primary storage to IA storage.  + When to move files in the file system from primary storage or IA storage to Archive storage. +  When to move files that are in IA or Archive storage to primary storage.    EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
          */
-        lifecyclePolicies?: outputs.awsconnector.LifecyclePolicyResponse[];
+        lifecyclePolicies?: outputs.awsconnector.LifecyclePolicyResponseV1[];
         /**
          * The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.  Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.  Default is ``generalPurpose``.
          */
@@ -18082,7 +18106,7 @@ export namespace awsconnector {
         /**
          * <p>The logging configuration for your cluster.</p>
          */
-        logging?: outputs.awsconnector.LoggingResponse;
+        logging?: outputs.awsconnector.LoggingResponseV1;
         /**
          * <p>The name of your cluster.</p>
          */
@@ -18160,7 +18184,7 @@ export namespace awsconnector {
         /**
          * An object representing a node group's launch template specification. An object representing a launch template specification for AWS EKS Nodegroup.
          */
-        launchTemplate?: outputs.awsconnector.LaunchTemplateSpecificationResponse;
+        launchTemplate?: outputs.awsconnector.LaunchTemplateSpecificationResponseV1;
         /**
          * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
          */
@@ -18328,7 +18352,7 @@ export namespace awsconnector {
         /**
          * The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS. To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
          */
-        certificates?: outputs.awsconnector.CertificateResponse[];
+        certificates?: outputs.awsconnector.CertificateResponseV1[];
         /**
          * The actions for the default rule. You cannot define a condition for a default rule. To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
          */
@@ -19155,7 +19179,7 @@ export namespace awsconnector {
         /**
          * The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB. The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
          */
-        ephemeralStorage?: outputs.awsconnector.EphemeralStorageResponse;
+        ephemeralStorage?: outputs.awsconnector.EphemeralStorageResponseV1;
         /**
          * Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function. For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
          */
@@ -19231,7 +19255,7 @@ export namespace awsconnector {
         /**
          * For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html). The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).  When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources. To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
          */
-        vpcConfig?: outputs.awsconnector.VpcConfigResponse;
+        vpcConfig?: outputs.awsconnector.VpcConfigResponseV1;
     }
 
     /**
@@ -19624,7 +19648,7 @@ export namespace awsconnector {
         /**
          * Property subnetMappings
          */
-        subnetMappings?: outputs.awsconnector.SubnetMappingResponse[];
+        subnetMappings?: outputs.awsconnector.SubnetMappingResponseV1[];
         /**
          * Property tags
          */
@@ -20786,7 +20810,7 @@ export namespace awsconnector {
         /**
          * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
          */
-        parameters?: outputs.awsconnector.ParameterResponse[];
+        parameters?: outputs.awsconnector.ParameterResponseV1[];
         /**
          * An array of key-value pairs to apply to this resource.
          */
@@ -21294,7 +21318,7 @@ export namespace awsconnector {
         /**
          * Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the ``VersioningConfiguration`` property. Amazon S3 can store replicated objects in a single destination bucket or multiple destination buckets. The destination bucket or buckets must already exist. A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB. The latest version of the replication configuration XML is V2. For more information about XML V2 replication configurations, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html) in the *Amazon S3 User Guide*.
          */
-        replicationConfiguration?: outputs.awsconnector.ReplicationConfigurationResponse;
+        replicationConfiguration?: outputs.awsconnector.ReplicationConfigurationResponseV1;
         /**
          * An arbitrary set of tags (key-value pairs) for this S3 bucket.
          */
@@ -21522,7 +21546,7 @@ export namespace awsconnector {
         /**
          * Property deliveryStatusLogging
          */
-        deliveryStatusLogging?: outputs.awsconnector.LoggingConfigResponse[];
+        deliveryStatusLogging?: outputs.awsconnector.LoggingConfigResponseV1[];
         /**
          * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
          */
@@ -22284,13 +22308,19 @@ export namespace awsconnector {
      */
     export interface CertificateResponse {
         /**
-         * The Amazon Resource Name (ARN) of the certificate.
-         */
-        certificateArn?: string;
-        /**
          * <p>The Base64-encoded certificate data required to communicate with your cluster. Add this to the <code>certificate-authority-data</code> section of the <code>kubeconfig</code> file for your cluster.</p>
          */
         data?: string;
+    }
+
+    /**
+     * Definition of Certificate
+     */
+    export interface CertificateResponseV1 {
+        /**
+         * The Amazon Resource Name (ARN) of the certificate.
+         */
+        certificateArn?: string;
     }
 
     /**
@@ -23659,6 +23689,20 @@ export namespace awsconnector {
     }
 
     /**
+     * Definition of CustomAction
+     */
+    export interface CustomActionResponseV1 {
+        /**
+         * Property actionDefinition
+         */
+        actionDefinition?: outputs.awsconnector.ActionDefinitionResponseV1;
+        /**
+         * Property actionName
+         */
+        actionName?: string;
+    }
+
+    /**
      * Definition of CustomErrorResponse
      */
     export interface CustomErrorResponseResponse {
@@ -24236,13 +24280,43 @@ export namespace awsconnector {
      */
     export interface DimensionResponse {
         /**
+         * The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
+         */
+        name?: string;
+        /**
+         * The value for the dimension, from 1–255 characters in length.
+         */
+        value?: string;
+    }
+
+    /**
+     * Definition of Dimension
+     */
+    export interface DimensionResponseV1 {
+        /**
          * The name for the CW metric dimension that the metric filter creates. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
          */
         key?: string;
         /**
-         * The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
+         * The log event field that will contain the value for this dimension. This dimension will only be published for a metric if the value is found in the log event. For example, ``$.eventType`` for JSON log events, or ``$server`` for space-delimited log events.
          */
-        name?: string;
+        value?: string;
+    }
+
+    /**
+     * Definition of Dimension
+     */
+    export interface DimensionResponseV2 {
+        /**
+         * Property value
+         */
+        value?: string;
+    }
+
+    /**
+     * Definition of Dimension
+     */
+    export interface DimensionResponseV3 {
         /**
          * Property value
          */
@@ -26360,6 +26434,12 @@ export namespace awsconnector {
          * If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used. If you use the KMS encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
          */
         kmsKey?: string;
+    }
+
+    /**
+     * Definition of EncryptionConfiguration
+     */
+    export interface EncryptionConfigurationResponseV1 {
         /**
          * Specifies the ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
          */
@@ -26465,13 +26545,19 @@ export namespace awsconnector {
      */
     export interface EphemeralStorageResponse {
         /**
-         * The size of the function's ``/tmp`` directory.
-         */
-        size?: number;
-        /**
          * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
          */
         sizeInGiB?: number;
+    }
+
+    /**
+     * Definition of EphemeralStorage
+     */
+    export interface EphemeralStorageResponseV1 {
+        /**
+         * The size of the function's ``/tmp`` directory.
+         */
+        size?: number;
     }
 
     /**
@@ -26730,14 +26816,6 @@ export namespace awsconnector {
      */
     export interface FilterResponse {
         /**
-         * How to handle logs that satisfy the filter's conditions and requirement.
-         */
-        behavior?: string;
-        /**
-         * Match conditions for the filter.
-         */
-        conditions?: outputs.awsconnector.ConditionResponse[];
-        /**
          * Property contains
          */
         contains?: string[];
@@ -26757,6 +26835,20 @@ export namespace awsconnector {
          * Property property
          */
         property?: string;
+    }
+
+    /**
+     * Definition of Filter
+     */
+    export interface FilterResponseV1 {
+        /**
+         * How to handle logs that satisfy the filter's conditions and requirement.
+         */
+        behavior?: string;
+        /**
+         * Match conditions for the filter.
+         */
+        conditions?: outputs.awsconnector.ConditionResponse[];
         /**
          * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
          */
@@ -28071,13 +28163,23 @@ export namespace awsconnector {
      */
     export interface InstanceIpv6AddressResponse {
         /**
-         * Property ipv6Address
+         * <p>The IPv6 address.</p>
          */
         ipv6Address?: string;
         /**
          * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href='https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html'>RunInstances</a>.</p>
          */
         isPrimaryIpv6?: boolean;
+    }
+
+    /**
+     * Definition of InstanceIpv6Address
+     */
+    export interface InstanceIpv6AddressResponseV1 {
+        /**
+         * Property ipv6Address
+         */
+        ipv6Address?: string;
     }
 
     /**
@@ -29247,10 +29349,6 @@ export namespace awsconnector {
      */
     export interface LaunchTemplateSpecificationResponse {
         /**
-         * Property id
-         */
-        id?: string;
-        /**
          * The ID of the launch template. You must specify the ``LaunchTemplateID`` or the ``LaunchTemplateName``, but not both.
          */
         launchTemplateId?: string;
@@ -29258,6 +29356,20 @@ export namespace awsconnector {
          * The name of the launch template. You must specify the ``LaunchTemplateName`` or the ``LaunchTemplateID``, but not both.
          */
         launchTemplateName?: string;
+        /**
+         * The version number of the launch template. Specifying ``$Latest`` or ``$Default`` for the template version number is not supported. However, you can specify ``LatestVersionNumber`` or ``DefaultVersionNumber`` using the ``Fn::GetAtt`` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html).  For an example of using the ``Fn::GetAtt`` function, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.
+         */
+        version?: string;
+    }
+
+    /**
+     * Definition of LaunchTemplateSpecification
+     */
+    export interface LaunchTemplateSpecificationResponseV1 {
+        /**
+         * Property id
+         */
+        id?: string;
         /**
          * Property name
          */
@@ -29384,6 +29496,12 @@ export namespace awsconnector {
          * The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
          */
         registryId?: string;
+    }
+
+    /**
+     * Definition of LifecyclePolicy
+     */
+    export interface LifecyclePolicyResponseV1 {
         /**
          * The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
          */
@@ -29657,10 +29775,6 @@ export namespace awsconnector {
          */
         applicationLogLevel?: string;
         /**
-         * Property failureFeedbackRoleArn
-         */
-        failureFeedbackRoleArn?: string;
-        /**
          * The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
          */
         logFormat?: string;
@@ -29668,6 +29782,20 @@ export namespace awsconnector {
          * The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
          */
         logGroup?: string;
+        /**
+         * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+         */
+        systemLogLevel?: string;
+    }
+
+    /**
+     * Definition of LoggingConfig
+     */
+    export interface LoggingConfigResponseV1 {
+        /**
+         * Property failureFeedbackRoleArn
+         */
+        failureFeedbackRoleArn?: string;
         /**
          * Property protocol
          */
@@ -29680,10 +29808,6 @@ export namespace awsconnector {
          * Property successFeedbackSampleRate
          */
         successFeedbackSampleRate?: string;
-        /**
-         * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
-         */
-        systemLogLevel?: string;
     }
 
     /**
@@ -29715,7 +29839,7 @@ export namespace awsconnector {
         /**
          * The filters that you want to apply to the logs.
          */
-        filters?: outputs.awsconnector.FilterResponse[];
+        filters?: outputs.awsconnector.FilterResponseV1[];
     }
 
     /**
@@ -29741,10 +29865,6 @@ export namespace awsconnector {
          */
         bucket?: string;
         /**
-         * <p>The cluster control plane logging configuration for your cluster.</p>
-         */
-        clusterLogging?: outputs.awsconnector.LogSetupResponse[];
-        /**
          * Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
          */
         includeCookies?: boolean;
@@ -29752,6 +29872,16 @@ export namespace awsconnector {
          * An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
          */
         prefix?: string;
+    }
+
+    /**
+     * Definition of Logging
+     */
+    export interface LoggingResponseV1 {
+        /**
+         * <p>The cluster control plane logging configuration for your cluster.</p>
+         */
+        clusterLogging?: outputs.awsconnector.LogSetupResponse[];
     }
 
     /**
@@ -30302,7 +30432,7 @@ export namespace awsconnector {
         /**
          * The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.  Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as ``IPAddress`` or ``requestID`` as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric.  CloudWatch Logs disables a metric filter if it generates 1000 different name/value pairs for your specified dimensions within a certain amount of time. This helps to prevent accidental high charges. You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see [Creating a Billing Alarm to Monitor Your Estimated Charges](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html).
          */
-        dimensions?: outputs.awsconnector.DimensionResponse[];
+        dimensions?: outputs.awsconnector.DimensionResponseV1[];
         /**
          * The name of the CloudWatch metric.
          */
@@ -31364,6 +31494,16 @@ export namespace awsconnector {
          */
         parameterKey?: string;
         /**
+         * The input value associated with the parameter.
+         */
+        parameterValue?: string;
+    }
+
+    /**
+     * Definition of Parameter
+     */
+    export interface ParameterResponseV1 {
+        /**
          * The name of the parameter.
          */
         parameterName?: string;
@@ -32128,7 +32268,17 @@ export namespace awsconnector {
         /**
          * Property dimensions
          */
-        dimensions?: outputs.awsconnector.DimensionResponse[];
+        dimensions?: outputs.awsconnector.DimensionResponseV2[];
+    }
+
+    /**
+     * Definition of PublishMetricAction
+     */
+    export interface PublishMetricActionResponseV1 {
+        /**
+         * Property dimensions
+         */
+        dimensions?: outputs.awsconnector.DimensionResponseV3[];
     }
 
     /**
@@ -32836,6 +32986,12 @@ export namespace awsconnector {
          * An array of destination objects. Only one destination object is supported.
          */
         destinations?: outputs.awsconnector.ReplicationDestinationResponse[];
+    }
+
+    /**
+     * Definition of ReplicationConfiguration
+     */
+    export interface ReplicationConfigurationResponseV1 {
         /**
          * The Amazon Resource Name (ARN) of the IAMlong (IAM) role that Amazon S3 assumes when replicating objects. For more information, see [How to Set Up Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html) in the *Amazon S3 User Guide*.
          */
@@ -32851,25 +33007,9 @@ export namespace awsconnector {
      */
     export interface ReplicationDestinationResponse {
         /**
-         * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
-         */
-        accessControlTranslation?: outputs.awsconnector.AccessControlTranslationResponse;
-        /**
-         * Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*. If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
-         */
-        account?: string;
-        /**
          * The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.  Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.  One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
          */
         availabilityZoneName?: string;
-        /**
-         * The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
-         */
-        bucket?: string;
-        /**
-         * Specifies encryption-related information. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
-         */
-        encryptionConfiguration?: outputs.awsconnector.EncryptionConfigurationResponse;
         /**
          * The ID of the destination Amazon EFS file system.
          */
@@ -32879,13 +33019,35 @@ export namespace awsconnector {
          */
         kmsKeyId?: string;
         /**
-         * A container specifying replication metrics-related settings enabling replication metrics and events. A container specifying replication metrics-related settings enabling replication metrics and events.
-         */
-        metrics?: outputs.awsconnector.MetricsResponse;
-        /**
          * The AWS-Region in which the destination file system is located.  For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
          */
         region?: string;
+    }
+
+    /**
+     * Definition of ReplicationDestination
+     */
+    export interface ReplicationDestinationResponseV1 {
+        /**
+         * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS-account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS-account that owns the source object.
+         */
+        accessControlTranslation?: outputs.awsconnector.AccessControlTranslationResponse;
+        /**
+         * Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS-account that owns the destination bucket by specifying the ``AccessControlTranslation`` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*. If you specify the ``AccessControlTranslation`` property, the ``Account`` property is required.
+         */
+        account?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+         */
+        bucket?: string;
+        /**
+         * Specifies encryption-related information. Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+         */
+        encryptionConfiguration?: outputs.awsconnector.EncryptionConfigurationResponseV1;
+        /**
+         * A container specifying replication metrics-related settings enabling replication metrics and events. A container specifying replication metrics-related settings enabling replication metrics and events.
+         */
+        metrics?: outputs.awsconnector.MetricsResponse;
         /**
          * A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block. A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
          */
@@ -32965,7 +33127,7 @@ export namespace awsconnector {
         /**
          * A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC). A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
          */
-        destination?: outputs.awsconnector.ReplicationDestinationResponse;
+        destination?: outputs.awsconnector.ReplicationDestinationResponseV1;
         /**
          * A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.  V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element. A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
          */
@@ -35102,7 +35264,7 @@ export namespace awsconnector {
         /**
          * Property customActions
          */
-        customActions?: outputs.awsconnector.CustomActionResponse[];
+        customActions?: outputs.awsconnector.CustomActionResponseV1[];
         /**
          * Property statelessRules
          */
@@ -35190,13 +35352,23 @@ export namespace awsconnector {
          */
         iPv6Address?: string;
         /**
-         * A IPAddressType
-         */
-        ipAddressType?: string;
-        /**
          * [Network Load Balancers] The private IPv4 address for an internal load balancer.
          */
         privateIPv4Address?: string;
+        /**
+         * The ID of the subnet.
+         */
+        subnetId?: string;
+    }
+
+    /**
+     * Definition of SubnetMapping
+     */
+    export interface SubnetMappingResponseV1 {
+        /**
+         * A IPAddressType
+         */
+        ipAddressType?: string;
         /**
          * A SubnetId.
          */
@@ -35989,7 +36161,7 @@ export namespace awsconnector {
     }
 
     /**
-     * Definition of VpcConfig
+     * Definition of VpcConfigResponse
      */
     export interface VpcConfigResponse {
         /**
@@ -36005,19 +36177,15 @@ export namespace awsconnector {
          */
         endpointPublicAccess?: boolean;
         /**
-         * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-         */
-        ipv6AllowedForDualStack?: boolean;
-        /**
          * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint.</p>
          */
         publicAccessCidrs?: string[];
         /**
-         * A list of VPC security group IDs.
+         * <p>The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.</p>
          */
         securityGroupIds?: string[];
         /**
-         * A list of VPC subnet IDs.
+         * <p>The subnets associated with your cluster.</p>
          */
         subnetIds?: string[];
         /**
@@ -36062,6 +36230,24 @@ export namespace awsconnector {
          * <p>The VPC associated with your cluster.</p>
          */
         vpcId?: string;
+    }
+
+    /**
+     * Definition of VpcConfig
+     */
+    export interface VpcConfigResponseV1 {
+        /**
+         * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+         */
+        ipv6AllowedForDualStack?: boolean;
+        /**
+         * A list of VPC security group IDs.
+         */
+        securityGroupIds?: string[];
+        /**
+         * A list of VPC subnet IDs.
+         */
+        subnetIds?: string[];
     }
 
     /**
@@ -38704,6 +38890,108 @@ export namespace azuredatatransfer {
      */
     export interface FlowPropertiesResponse {
         /**
+         * The connection associated with this flow
+         */
+        connection?: outputs.azuredatatransfer.SelectedResourceResponse;
+        /**
+         * The URI to the customer managed key for this flow
+         */
+        customerManagedKeyVaultUri?: string;
+        /**
+         * Transfer Storage Blobs or Tables
+         */
+        dataType?: string;
+        /**
+         * The destination endpoint ports of the stream
+         */
+        destinationEndpointPorts?: number[];
+        /**
+         * The destination endpoints of the stream
+         */
+        destinationEndpoints?: string[];
+        /**
+         * Dataflow GUID associated with this flow
+         */
+        flowId: string;
+        /**
+         * The flow type for this flow
+         */
+        flowType?: string;
+        /**
+         * AME, PME, or TORUS only! AKV Chain Containing SAS Token
+         */
+        keyVaultUri?: string;
+        /**
+         * Link status of the current flow
+         */
+        linkStatus: string;
+        /**
+         * Resource ID of the linked flow
+         */
+        linkedFlowId: string;
+        /**
+         * The messaging options for this flow
+         */
+        messagingOptions?: outputs.azuredatatransfer.MessagingOptionsResponse;
+        /**
+         * The passphrase used for SRT streams
+         */
+        passphrase?: string;
+        /**
+         * The policies for this flow
+         */
+        policies?: string[];
+        /**
+         * Provisioning state of the flow
+         */
+        provisioningState: string;
+        /**
+         * The selected schema for this flow
+         */
+        schema?: outputs.azuredatatransfer.SchemaResponse;
+        /**
+         * Service Bus Queue ID
+         */
+        serviceBusQueueId?: string;
+        /**
+         * The source IP address and CIDR ranges of the stream
+         */
+        sourceAddresses?: outputs.azuredatatransfer.StreamSourceAddressesResponse;
+        /**
+         * Status of the current flow
+         */
+        status?: string;
+        /**
+         * Storage Account ID
+         */
+        storageAccountId?: string;
+        /**
+         * Storage Account
+         */
+        storageAccountName?: string;
+        /**
+         * Storage Container Name
+         */
+        storageContainerName?: string;
+        /**
+         * The flow stream identifier
+         */
+        streamId?: string;
+        /**
+         * The latency of the stream in milliseconds
+         */
+        streamLatency?: number;
+        /**
+         * The protocol of the stream
+         */
+        streamProtocol?: string;
+    }
+
+    /**
+     * Properties of flow
+     */
+    export interface FlowPropertiesResponseV1 {
+        /**
          * The API Flow configuration options for Azure Data Transfer API Flow type.
          */
         apiFlowOptions?: outputs.azuredatatransfer.ApiFlowOptionsResponse;
@@ -38848,7 +39136,7 @@ export namespace azuredatatransfer {
         /**
          * Properties of flow
          */
-        properties?: outputs.azuredatatransfer.FlowPropertiesResponse;
+        properties?: outputs.azuredatatransfer.FlowPropertiesResponseV1;
         /**
          * Azure Resource Manager metadata containing createdBy and modifiedBy information.
          */
@@ -42058,6 +42346,24 @@ export namespace azurestackhci {
         /**
          * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
          */
+        jumboPacket?: string;
+        /**
+         * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+         */
+        networkDirect?: string;
+        /**
+         * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+         */
+        networkDirectTechnology?: string;
+    }
+
+    /**
+     * The AdapterPropertyOverrides of a cluster.
+     */
+    export interface AdapterPropertyOverridesResponseV1 {
+        /**
+         * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+         */
         jumboPacket: string;
         /**
          * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
@@ -42384,6 +42690,7 @@ export namespace azurestackhci {
     export function deploymentDataResponseProvideDefaults(val: DeploymentDataResponse): DeploymentDataResponse {
         return {
             ...val,
+            hostNetwork: (val.hostNetwork ? outputs.azurestackhci.hostNetworkResponseProvideDefaults(val.hostNetwork) : undefined),
             observability: (val.observability ? outputs.azurestackhci.observabilityResponseProvideDefaults(val.observability) : undefined),
             securitySettings: (val.securitySettings ? outputs.azurestackhci.deploymentSecuritySettingsResponseProvideDefaults(val.securitySettings) : undefined),
             storage: (val.storage ? outputs.azurestackhci.storageResponseProvideDefaults(val.storage) : undefined),
@@ -43116,10 +43423,6 @@ export namespace azurestackhci {
          */
         details: outputs.azurestackhci.ErrorDetailResponse[];
         /**
-         * Exception details while installing extension.
-         */
-        exception?: string;
-        /**
          * The error message.
          */
         message: string;
@@ -43127,6 +43430,16 @@ export namespace azurestackhci {
          * The error target.
          */
         target: string;
+    }
+
+    /**
+     * details of validation failure
+     */
+    export interface ErrorDetailResponseV1 {
+        /**
+         * Exception details while installing extension.
+         */
+        exception: string;
     }
 
     /**
@@ -43218,7 +43531,7 @@ export namespace azurestackhci {
         /**
          * Error details while installing Arc extension.
          */
-        errorDetails: outputs.azurestackhci.ErrorDetailResponse[];
+        errorDetails: outputs.azurestackhci.ErrorDetailResponseV1[];
         /**
          * Arc extension name installed on edge device.
          */
@@ -43698,7 +44011,7 @@ export namespace azurestackhci {
         /**
          * HostNetwork config to deploy AzureStackHCI Cluster.
          */
-        hostNetwork: outputs.azurestackhci.HostNetworkResponse;
+        hostNetwork: outputs.azurestackhci.HostNetworkResponseV1;
         /**
          * List of NIC Details of device.
          */
@@ -43883,11 +44196,43 @@ export namespace azurestackhci {
         /**
          * Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
          */
+        enableStorageAutoIp?: boolean;
+        /**
+         * The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+         */
+        intents?: outputs.azurestackhci.IntentsResponse[];
+        /**
+         * Defines how the storage adapters between nodes are connected either switch or switch less..
+         */
+        storageConnectivitySwitchless?: boolean;
+        /**
+         * List of StorageNetworks config to deploy AzureStackHCI Cluster.
+         */
+        storageNetworks?: outputs.azurestackhci.StorageNetworksResponse[];
+    }
+    /**
+     * hostNetworkResponseProvideDefaults sets the appropriate defaults for HostNetworkResponse
+     */
+    export function hostNetworkResponseProvideDefaults(val: HostNetworkResponse): HostNetworkResponse {
+        return {
+            ...val,
+            enableStorageAutoIp: (val.enableStorageAutoIp) ?? false,
+            storageConnectivitySwitchless: (val.storageConnectivitySwitchless) ?? false,
+        };
+    }
+
+    /**
+     * The HostNetwork of a cluster.
+     */
+    export interface HostNetworkResponseV1 {
+        /**
+         * Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+         */
         enableStorageAutoIp: boolean;
         /**
          * The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
          */
-        intents: outputs.azurestackhci.IntentsResponse[];
+        intents: outputs.azurestackhci.IntentsResponseV1[];
         /**
          * Defines how the storage adapters between nodes are connected either switch or switch less.
          */
@@ -43895,7 +44240,7 @@ export namespace azurestackhci {
         /**
          * List of StorageNetworks config to deploy AzureStackHCI Cluster.
          */
-        storageNetworks: outputs.azurestackhci.StorageNetworksResponse[];
+        storageNetworks: outputs.azurestackhci.StorageNetworksResponseV1[];
     }
 
     /**
@@ -44137,7 +44482,56 @@ export namespace azurestackhci {
         /**
          * Set Adapter PropertyOverrides for cluster.
          */
-        adapterPropertyOverrides: outputs.azurestackhci.AdapterPropertyOverridesResponse;
+        adapterPropertyOverrides?: outputs.azurestackhci.AdapterPropertyOverridesResponse;
+        /**
+         * Name of the network intent you wish to create.
+         */
+        name?: string;
+        /**
+         * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+         */
+        overrideAdapterProperty?: boolean;
+        /**
+         * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+         */
+        overrideQosPolicy?: boolean;
+        /**
+         * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+         */
+        overrideVirtualSwitchConfiguration?: boolean;
+        /**
+         * Set QoS PolicyOverrides for cluster.
+         */
+        qosPolicyOverrides?: outputs.azurestackhci.QosPolicyOverridesResponse;
+        /**
+         * List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
+         */
+        trafficType?: string[];
+        /**
+         * Set virtualSwitch ConfigurationOverrides for cluster.
+         */
+        virtualSwitchConfigurationOverrides?: outputs.azurestackhci.VirtualSwitchConfigurationOverridesResponse;
+    }
+    /**
+     * intentsResponseProvideDefaults sets the appropriate defaults for IntentsResponse
+     */
+    export function intentsResponseProvideDefaults(val: IntentsResponse): IntentsResponse {
+        return {
+            ...val,
+            overrideAdapterProperty: (val.overrideAdapterProperty) ?? false,
+            overrideQosPolicy: (val.overrideQosPolicy) ?? false,
+            overrideVirtualSwitchConfiguration: (val.overrideVirtualSwitchConfiguration) ?? false,
+        };
+    }
+
+    /**
+     * The Intents of a cluster.
+     */
+    export interface IntentsResponseV1 {
+        /**
+         * Set Adapter PropertyOverrides for cluster.
+         */
+        adapterPropertyOverrides: outputs.azurestackhci.AdapterPropertyOverridesResponseV1;
         /**
          * Array of adapters used for the network intent.
          */
@@ -44179,10 +44573,6 @@ export namespace azurestackhci {
          */
         isStretchIntentSet: boolean;
         /**
-         * Name of the network intent you wish to create.
-         */
-        name?: string;
-        /**
          * This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
          */
         overrideAdapterProperty: boolean;
@@ -44203,13 +44593,9 @@ export namespace azurestackhci {
          */
         scope: number;
         /**
-         * List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
-         */
-        trafficType?: string[];
-        /**
          * Set virtualSwitch ConfigurationOverrides for cluster.
          */
-        virtualSwitchConfigurationOverrides: outputs.azurestackhci.VirtualSwitchConfigurationOverridesResponse;
+        virtualSwitchConfigurationOverrides: outputs.azurestackhci.VirtualSwitchConfigurationOverridesResponseV1;
     }
 
     /**
@@ -46100,6 +46486,24 @@ export namespace azurestackhci {
         /**
          * The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
          */
+        ipv4Address?: string;
+        /**
+         * storage adapter physical node name.
+         */
+        physicalNode?: string;
+        /**
+         * The SubnetMask address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+         */
+        subnetMask?: string;
+    }
+
+    /**
+     * The StorageAdapter physical nodes of a cluster.
+     */
+    export interface StorageAdapterIPInfoResponseV1 {
+        /**
+         * The IPv4 address assigned to each storage adapter physical node on your Azure Stack HCI cluster.
+         */
         ipv4Address: string;
         /**
          * storage adapter physical node name.
@@ -46168,6 +46572,28 @@ export namespace azurestackhci {
         /**
          * Name of the storage network.
          */
+        name?: string;
+        /**
+         * Name of the storage network adapter.
+         */
+        networkAdapterName?: string;
+        /**
+         * List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
+         */
+        storageAdapterIPInfo?: outputs.azurestackhci.StorageAdapterIPInfoResponse[];
+        /**
+         * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+         */
+        vlanId?: string;
+    }
+
+    /**
+     * The StorageNetworks of a cluster.
+     */
+    export interface StorageNetworksResponseV1 {
+        /**
+         * Name of the storage network.
+         */
         name: string;
         /**
          * Name of the storage network adapter.
@@ -46176,15 +46602,11 @@ export namespace azurestackhci {
         /**
          * List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
          */
-        storageAdapterIPInfo: outputs.azurestackhci.StorageAdapterIPInfoResponse[];
+        storageAdapterIPInfo: outputs.azurestackhci.StorageAdapterIPInfoResponseV1[];
         /**
          * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
          */
         storageVlanId: string;
-        /**
-         * ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
-         */
-        vlanId?: string;
     }
 
     /**
@@ -47366,6 +47788,20 @@ export namespace azurestackhci {
      * The VirtualSwitchConfigurationOverrides of a cluster.
      */
     export interface VirtualSwitchConfigurationOverridesResponse {
+        /**
+         * Enable IoV for Virtual Switch
+         */
+        enableIov?: string;
+        /**
+         * Load Balancing Algorithm for Virtual Switch
+         */
+        loadBalancingAlgorithm?: string;
+    }
+
+    /**
+     * The VirtualSwitchConfigurationOverrides of a cluster.
+     */
+    export interface VirtualSwitchConfigurationOverridesResponseV1 {
         /**
          * Enable IoV for Virtual Switch
          */
@@ -59251,6 +59687,32 @@ export namespace cognitiveservices {
      */
     export interface RaiPolicyContentFilterResponse {
         /**
+         * If blocking would occur.
+         */
+        blocking?: boolean;
+        /**
+         * If the ContentFilter is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * Name of ContentFilter.
+         */
+        name?: string;
+        /**
+         * Level at which content is filtered.
+         */
+        severityThreshold?: string;
+        /**
+         * Content source to apply the Content Filters.
+         */
+        source?: string;
+    }
+
+    /**
+     * Azure OpenAI Content Filter.
+     */
+    export interface RaiPolicyContentFilterResponseV1 {
+        /**
          * The action types to apply to the content filters
          */
         action?: string;
@@ -59288,6 +59750,32 @@ export namespace cognitiveservices {
          * The list of Content Filters.
          */
         contentFilters?: outputs.cognitiveservices.RaiPolicyContentFilterResponse[];
+        /**
+         * The list of custom Blocklist.
+         */
+        customBlocklists?: outputs.cognitiveservices.CustomBlocklistConfigResponse[];
+        /**
+         * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
+         */
+        mode?: string;
+        /**
+         * Content Filters policy type.
+         */
+        type: string;
+    }
+
+    /**
+     * Azure OpenAI Content Filters properties.
+     */
+    export interface RaiPolicyPropertiesResponseV1 {
+        /**
+         * Name of Rai policy.
+         */
+        basePolicyName?: string;
+        /**
+         * The list of Content Filters.
+         */
+        contentFilters?: outputs.cognitiveservices.RaiPolicyContentFilterResponseV1[];
         /**
          * The list of custom Blocklist.
          */
@@ -63602,6 +64090,20 @@ export namespace compute {
          * The type of identity that last modified the resource.
          */
         lastModifiedByType?: string;
+    }
+
+    /**
+     * The system meta data relating to this resource.
+     */
+    export interface SystemDataResponseV1 {
+        /**
+         * Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
+         */
+        createdAt: string;
+        /**
+         * Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
+         */
+        lastModifiedAt: string;
     }
 
     /**
@@ -69375,6 +69877,16 @@ export namespace connectedvmwarevsphere {
      */
     export interface GuestCredentialResponse {
         /**
+         * Gets or sets username to connect with the guest.
+         */
+        username?: string;
+    }
+
+    /**
+     * Username / Password Credentials to connect to guest.
+     */
+    export interface GuestCredentialResponseV1 {
+        /**
          * Private key used to authenticate to a virtual machine through ssh.
          */
         privateKey?: string;
@@ -70253,6 +70765,50 @@ export namespace containerinstance {
     }
 
     /**
+     * The properties of the Azure File volume. Azure File shares are mounted as volumes.
+     */
+    export interface AzureFileVolumeResponseV1 {
+        /**
+         * The flag indicating whether the Azure File shared mounted as a volume is read-only.
+         */
+        readOnly?: boolean;
+        /**
+         * The name of the Azure File share to be mounted as a volume.
+         */
+        shareName: string;
+        /**
+         * The storage account access key used to access the Azure File share.
+         */
+        storageAccountKey?: string;
+        /**
+         * The name of the storage account that contains the Azure File share.
+         */
+        storageAccountName: string;
+    }
+
+    /**
+     * The properties of the Azure File volume. Azure File shares are mounted as volumes.
+     */
+    export interface AzureFileVolumeResponseV2 {
+        /**
+         * The flag indicating whether the Azure File shared mounted as a volume is read-only.
+         */
+        readOnly?: boolean;
+        /**
+         * The name of the Azure File share to be mounted as a volume.
+         */
+        shareName: string;
+        /**
+         * The storage account access key used to access the Azure File share.
+         */
+        storageAccountKey?: string;
+        /**
+         * The name of the storage account that contains the Azure File share.
+         */
+        storageAccountName: string;
+    }
+
+    /**
      * The properties for confidential container group
      */
     export interface ConfidentialComputePropertiesResponse {
@@ -70529,6 +71085,114 @@ export namespace containerinstance {
     }
 
     /**
+     * A container instance.
+     */
+    export interface ContainerResponseV1 {
+        /**
+         * The commands to execute within the container instance in exec form.
+         */
+        command?: string[];
+        /**
+         * The config map.
+         */
+        configMap?: outputs.containerinstance.ConfigMapResponse;
+        /**
+         * The environment variables to set in the container instance.
+         */
+        environmentVariables?: outputs.containerinstance.EnvironmentVariableResponseV1[];
+        /**
+         * The name of the image used to create the container instance.
+         */
+        image?: string;
+        /**
+         * The instance view of the container instance. Only valid in response.
+         */
+        instanceView: outputs.containerinstance.ContainerPropertiesResponseInstanceView;
+        /**
+         * The liveness probe.
+         */
+        livenessProbe?: outputs.containerinstance.ContainerProbeResponse;
+        /**
+         * The user-provided name of the container instance.
+         */
+        name: string;
+        /**
+         * The exposed ports on the container instance.
+         */
+        ports?: outputs.containerinstance.ContainerPortResponse[];
+        /**
+         * The readiness probe.
+         */
+        readinessProbe?: outputs.containerinstance.ContainerProbeResponse;
+        /**
+         * The resource requirements of the container instance.
+         */
+        resources?: outputs.containerinstance.ResourceRequirementsResponse;
+        /**
+         * The container security properties.
+         */
+        securityContext?: outputs.containerinstance.SecurityContextDefinitionResponse;
+        /**
+         * The volume mounts available to the container instance.
+         */
+        volumeMounts?: outputs.containerinstance.VolumeMountResponse[];
+    }
+
+    /**
+     * A container instance.
+     */
+    export interface ContainerResponseV2 {
+        /**
+         * The commands to execute within the container instance in exec form.
+         */
+        command?: string[];
+        /**
+         * The config map.
+         */
+        configMap?: outputs.containerinstance.ConfigMapResponse;
+        /**
+         * The environment variables to set in the container instance.
+         */
+        environmentVariables?: outputs.containerinstance.EnvironmentVariableResponseV2[];
+        /**
+         * The name of the image used to create the container instance.
+         */
+        image?: string;
+        /**
+         * The instance view of the container instance. Only valid in response.
+         */
+        instanceView: outputs.containerinstance.ContainerPropertiesResponseInstanceView;
+        /**
+         * The liveness probe.
+         */
+        livenessProbe?: outputs.containerinstance.ContainerProbeResponse;
+        /**
+         * The user-provided name of the container instance.
+         */
+        name: string;
+        /**
+         * The exposed ports on the container instance.
+         */
+        ports?: outputs.containerinstance.ContainerPortResponse[];
+        /**
+         * The readiness probe.
+         */
+        readinessProbe?: outputs.containerinstance.ContainerProbeResponse;
+        /**
+         * The resource requirements of the container instance.
+         */
+        resources?: outputs.containerinstance.ResourceRequirementsResponse;
+        /**
+         * The container security properties.
+         */
+        securityContext?: outputs.containerinstance.SecurityContextDefinitionResponse;
+        /**
+         * The volume mounts available to the container instance.
+         */
+        volumeMounts?: outputs.containerinstance.VolumeMountResponse[];
+    }
+
+    /**
      * The container instance state.
      */
     export interface ContainerStateResponse {
@@ -70672,6 +71336,42 @@ export namespace containerinstance {
     }
 
     /**
+     * The environment variable to set within the container instance.
+     */
+    export interface EnvironmentVariableResponseV1 {
+        /**
+         * The name of the environment variable.
+         */
+        name: string;
+        /**
+         * The value of the secure environment variable.
+         */
+        secureValue?: string;
+        /**
+         * The value of the environment variable.
+         */
+        value?: string;
+    }
+
+    /**
+     * The environment variable to set within the container instance.
+     */
+    export interface EnvironmentVariableResponseV2 {
+        /**
+         * The name of the environment variable.
+         */
+        name: string;
+        /**
+         * The value of the secure environment variable.
+         */
+        secureValue?: string;
+        /**
+         * The value of the environment variable.
+         */
+        value?: string;
+    }
+
+    /**
      * A container group or container instance event.
      */
     export interface EventResponse {
@@ -70806,6 +71506,58 @@ export namespace containerinstance {
          * The reference for the private registry password.
          */
         passwordReference?: string;
+        /**
+         * The Docker image registry server without a protocol such as "http" and "https".
+         */
+        server: string;
+        /**
+         * The username for the private registry.
+         */
+        username?: string;
+    }
+
+    /**
+     * Image registry credential.
+     */
+    export interface ImageRegistryCredentialResponseV1 {
+        /**
+         * The identity for the private registry.
+         */
+        identity?: string;
+        /**
+         * The identity URL for the private registry.
+         */
+        identityUrl?: string;
+        /**
+         * The password for the private registry.
+         */
+        password?: string;
+        /**
+         * The Docker image registry server without a protocol such as "http" and "https".
+         */
+        server: string;
+        /**
+         * The username for the private registry.
+         */
+        username?: string;
+    }
+
+    /**
+     * Image registry credential.
+     */
+    export interface ImageRegistryCredentialResponseV2 {
+        /**
+         * The identity for the private registry.
+         */
+        identity?: string;
+        /**
+         * The identity URL for the private registry.
+         */
+        identityUrl?: string;
+        /**
+         * The password for the private registry.
+         */
+        password?: string;
         /**
          * The Docker image registry server without a protocol such as "http" and "https".
          */
@@ -71308,6 +72060,58 @@ export namespace containerinstance {
          * The secret reference volume.
          */
         secretReference?: {[key: string]: string};
+    }
+
+    /**
+     * The properties of the volume.
+     */
+    export interface VolumeResponseV1 {
+        /**
+         * The Azure File volume.
+         */
+        azureFile?: outputs.containerinstance.AzureFileVolumeResponseV1;
+        /**
+         * The empty directory volume.
+         */
+        emptyDir?: any;
+        /**
+         * The git repo volume.
+         */
+        gitRepo?: outputs.containerinstance.GitRepoVolumeResponse;
+        /**
+         * The name of the volume.
+         */
+        name: string;
+        /**
+         * The secret volume.
+         */
+        secret?: {[key: string]: string};
+    }
+
+    /**
+     * The properties of the volume.
+     */
+    export interface VolumeResponseV2 {
+        /**
+         * The Azure File volume.
+         */
+        azureFile?: outputs.containerinstance.AzureFileVolumeResponseV2;
+        /**
+         * The empty directory volume.
+         */
+        emptyDir?: any;
+        /**
+         * The git repo volume.
+         */
+        gitRepo?: outputs.containerinstance.GitRepoVolumeResponse;
+        /**
+         * The name of the volume.
+         */
+        name: string;
+        /**
+         * The secret volume.
+         */
+        secret?: {[key: string]: string};
     }
 
 }
@@ -75870,6 +76674,53 @@ export namespace containerservice {
          */
         annotations?: {[key: string]: string};
         /**
+         * The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. Network policies are additive; if a policy or policies apply to a given pod for a given direction, the connections allowed in that direction for the pod is the union of what all applicable policies allow.
+         */
+        defaultNetworkPolicy?: outputs.containerservice.NetworkPoliciesResponse;
+        /**
+         * The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. Resource quotas are additive; if multiple resource quotas are applied to a given namespace, then the effective limit will be one such that all quotas on the namespace can be satisfied.
+         */
+        defaultResourceQuota?: outputs.containerservice.ResourceQuotaResponse;
+        /**
+         * Delete options of a namespace.
+         */
+        deletePolicy?: string;
+        /**
+         * The labels of managed namespace.
+         */
+        labels?: {[key: string]: string};
+        /**
+         * The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+         */
+        portalFqdn: string;
+        /**
+         * The current provisioning state of the namespace.
+         */
+        provisioningState: string;
+    }
+    /**
+     * namespacePropertiesResponseProvideDefaults sets the appropriate defaults for NamespacePropertiesResponse
+     */
+    export function namespacePropertiesResponseProvideDefaults(val: NamespacePropertiesResponse): NamespacePropertiesResponse {
+        return {
+            ...val,
+            defaultNetworkPolicy: (val.defaultNetworkPolicy ? outputs.containerservice.networkPoliciesResponseProvideDefaults(val.defaultNetworkPolicy) : undefined),
+        };
+    }
+
+    /**
+     * Properties of a namespace managed by ARM
+     */
+    export interface NamespacePropertiesResponseV1 {
+        /**
+         * Action if Kubernetes namespace with same name already exists.
+         */
+        adoptionPolicy?: string;
+        /**
+         * The annotations of managed namespace.
+         */
+        annotations?: {[key: string]: string};
+        /**
          * The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
          */
         defaultNetworkPolicy?: outputs.containerservice.NetworkPoliciesResponse;
@@ -75886,18 +76737,14 @@ export namespace containerservice {
          */
         labels?: {[key: string]: string};
         /**
-         * The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
-         */
-        portalFqdn?: string;
-        /**
          * The current provisioning state of the namespace.
          */
         provisioningState: string;
     }
     /**
-     * namespacePropertiesResponseProvideDefaults sets the appropriate defaults for NamespacePropertiesResponse
+     * namespacePropertiesResponseV1ProvideDefaults sets the appropriate defaults for NamespacePropertiesResponseV1
      */
-    export function namespacePropertiesResponseProvideDefaults(val: NamespacePropertiesResponse): NamespacePropertiesResponse {
+    export function namespacePropertiesResponseV1ProvideDefaults(val: NamespacePropertiesResponseV1): NamespacePropertiesResponseV1 {
         return {
             ...val,
             defaultNetworkPolicy: (val.defaultNetworkPolicy ? outputs.containerservice.networkPoliciesResponseProvideDefaults(val.defaultNetworkPolicy) : undefined),
@@ -76711,13 +77558,23 @@ export namespace containerservice {
          */
         clientId: string;
         /**
-         * The object ID of the user assigned identity.
-         */
-        objectId?: string;
-        /**
          * The principal ID of the assigned identity.
          */
         principalId: string;
+    }
+
+    /**
+     * Details about a user assigned identity.
+     */
+    export interface UserAssignedIdentityResponseV1 {
+        /**
+         * The client ID of the user assigned identity.
+         */
+        clientId?: string;
+        /**
+         * The object ID of the user assigned identity.
+         */
+        objectId?: string;
         /**
          * The resource ID of the user assigned identity.
          */
@@ -77649,6 +78506,29 @@ export namespace cosmosdb {
      */
     export interface ContainerPartitionKeyResponse {
         /**
+         * Indicates the kind of algorithm used for partitioning
+         */
+        kind?: string;
+        /**
+         * List of paths using which data within the container can be partitioned
+         */
+        paths?: string[];
+    }
+    /**
+     * containerPartitionKeyResponseProvideDefaults sets the appropriate defaults for ContainerPartitionKeyResponse
+     */
+    export function containerPartitionKeyResponseProvideDefaults(val: ContainerPartitionKeyResponse): ContainerPartitionKeyResponse {
+        return {
+            ...val,
+            kind: (val.kind) ?? "Hash",
+        };
+    }
+
+    /**
+     * The configuration of the partition key to be used for partitioning data into multiple partitions
+     */
+    export interface ContainerPartitionKeyResponseV1 {
+        /**
          * Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
          */
         kind?: string;
@@ -77666,9 +78546,40 @@ export namespace cosmosdb {
         version?: number;
     }
     /**
-     * containerPartitionKeyResponseProvideDefaults sets the appropriate defaults for ContainerPartitionKeyResponse
+     * containerPartitionKeyResponseV1ProvideDefaults sets the appropriate defaults for ContainerPartitionKeyResponseV1
      */
-    export function containerPartitionKeyResponseProvideDefaults(val: ContainerPartitionKeyResponse): ContainerPartitionKeyResponse {
+    export function containerPartitionKeyResponseV1ProvideDefaults(val: ContainerPartitionKeyResponseV1): ContainerPartitionKeyResponseV1 {
+        return {
+            ...val,
+            kind: (val.kind) ?? "Hash",
+        };
+    }
+
+    /**
+     * The configuration of the partition key to be used for partitioning data into multiple partitions
+     */
+    export interface ContainerPartitionKeyResponseV2 {
+        /**
+         * Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+         */
+        kind?: string;
+        /**
+         * List of paths using which data within the container can be partitioned
+         */
+        paths?: string[];
+        /**
+         * Indicates if the container is using a system generated partition key
+         */
+        systemKey: boolean;
+        /**
+         * Indicates the version of the partition key definition
+         */
+        version?: number;
+    }
+    /**
+     * containerPartitionKeyResponseV2ProvideDefaults sets the appropriate defaults for ContainerPartitionKeyResponseV2
+     */
+    export function containerPartitionKeyResponseV2ProvideDefaults(val: ContainerPartitionKeyResponseV2): ContainerPartitionKeyResponseV2 {
         return {
             ...val,
             kind: (val.kind) ?? "Hash",
@@ -78265,11 +79176,11 @@ export namespace cosmosdb {
         /**
          * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
          */
-        indexingPolicy?: outputs.cosmosdb.IndexingPolicyResponse;
+        indexingPolicy?: outputs.cosmosdb.IndexingPolicyResponseV1;
         /**
          * The configuration of the partition key to be used for partitioning data into multiple partitions
          */
-        partitionKey?: outputs.cosmosdb.ContainerPartitionKeyResponse;
+        partitionKey?: outputs.cosmosdb.ContainerPartitionKeyResponseV1;
         /**
          * Parameters to indicate the information about the restore
          */
@@ -78294,8 +79205,8 @@ export namespace cosmosdb {
         return {
             ...val,
             conflictResolutionPolicy: (val.conflictResolutionPolicy ? outputs.cosmosdb.conflictResolutionPolicyResponseProvideDefaults(val.conflictResolutionPolicy) : undefined),
-            indexingPolicy: (val.indexingPolicy ? outputs.cosmosdb.indexingPolicyResponseProvideDefaults(val.indexingPolicy) : undefined),
-            partitionKey: (val.partitionKey ? outputs.cosmosdb.containerPartitionKeyResponseProvideDefaults(val.partitionKey) : undefined),
+            indexingPolicy: (val.indexingPolicy ? outputs.cosmosdb.indexingPolicyResponseV1ProvideDefaults(val.indexingPolicy) : undefined),
+            partitionKey: (val.partitionKey ? outputs.cosmosdb.containerPartitionKeyResponseV1ProvideDefaults(val.partitionKey) : undefined),
         };
     }
 
@@ -78350,6 +79261,37 @@ export namespace cosmosdb {
          */
         automatic?: boolean;
         /**
+         * List of paths to exclude from indexing
+         */
+        excludedPaths?: outputs.cosmosdb.ExcludedPathResponse[];
+        /**
+         * List of paths to include in the indexing
+         */
+        includedPaths?: outputs.cosmosdb.IncludedPathResponse[];
+        /**
+         * Indicates the indexing mode.
+         */
+        indexingMode?: string;
+    }
+    /**
+     * indexingPolicyResponseProvideDefaults sets the appropriate defaults for IndexingPolicyResponse
+     */
+    export function indexingPolicyResponseProvideDefaults(val: IndexingPolicyResponse): IndexingPolicyResponse {
+        return {
+            ...val,
+            indexingMode: (val.indexingMode) ?? "Consistent",
+        };
+    }
+
+    /**
+     * Cosmos DB indexing policy
+     */
+    export interface IndexingPolicyResponseV1 {
+        /**
+         * Indicates if the indexing policy is automatic
+         */
+        automatic?: boolean;
+        /**
          * List of composite path list
          */
         compositeIndexes?: outputs.cosmosdb.CompositePathResponse[][];
@@ -78379,9 +79321,56 @@ export namespace cosmosdb {
         vectorIndexes?: outputs.cosmosdb.VectorIndexResponse[];
     }
     /**
-     * indexingPolicyResponseProvideDefaults sets the appropriate defaults for IndexingPolicyResponse
+     * indexingPolicyResponseV1ProvideDefaults sets the appropriate defaults for IndexingPolicyResponseV1
      */
-    export function indexingPolicyResponseProvideDefaults(val: IndexingPolicyResponse): IndexingPolicyResponse {
+    export function indexingPolicyResponseV1ProvideDefaults(val: IndexingPolicyResponseV1): IndexingPolicyResponseV1 {
+        return {
+            ...val,
+            indexingMode: (val.indexingMode) ?? "consistent",
+        };
+    }
+
+    /**
+     * Cosmos DB indexing policy
+     */
+    export interface IndexingPolicyResponseV2 {
+        /**
+         * Indicates if the indexing policy is automatic
+         */
+        automatic?: boolean;
+        /**
+         * List of composite path list
+         */
+        compositeIndexes?: outputs.cosmosdb.CompositePathResponse[][];
+        /**
+         * List of paths to exclude from indexing
+         */
+        excludedPaths?: outputs.cosmosdb.ExcludedPathResponse[];
+        /**
+         * List of paths to include in the full text indexing
+         */
+        fullTextIndexes?: outputs.cosmosdb.FullTextIndexPathResponse[];
+        /**
+         * List of paths to include in the indexing
+         */
+        includedPaths?: outputs.cosmosdb.IncludedPathResponse[];
+        /**
+         * Indicates the indexing mode.
+         */
+        indexingMode?: string;
+        /**
+         * List of spatial specifics
+         */
+        spatialIndexes?: outputs.cosmosdb.SpatialSpecResponse[];
+        /**
+         * List of paths to include in the vector indexing
+         */
+        vectorIndexes?: outputs.cosmosdb.VectorIndexResponse[];
+    }
+    /**
+     * indexingPolicyResponseV2ProvideDefaults sets the appropriate defaults for IndexingPolicyResponseV2
+     */
+    export function indexingPolicyResponseV2ProvideDefaults(val: IndexingPolicyResponseV2): IndexingPolicyResponseV2 {
         return {
             ...val,
             indexingMode: (val.indexingMode) ?? "consistent",
@@ -78736,6 +79725,20 @@ export namespace cosmosdb {
     }
 
     /**
+     * The set of data plane operations permitted through this Role Definition.
+     */
+    export interface PermissionResponseV1 {
+        /**
+         * An array of data actions that are allowed.
+         */
+        dataActions?: string[];
+        /**
+         * An array of data actions that are denied.
+         */
+        notDataActions?: string[];
+    }
+
+    /**
      * A private endpoint connection
      */
     export interface PrivateEndpointConnectionResponse {
@@ -78964,11 +79967,11 @@ export namespace cosmosdb {
         /**
          * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
          */
-        indexingPolicy?: outputs.cosmosdb.IndexingPolicyResponse;
+        indexingPolicy?: outputs.cosmosdb.IndexingPolicyResponseV2;
         /**
          * The configuration of the partition key to be used for partitioning data into multiple partitions
          */
-        partitionKey?: outputs.cosmosdb.ContainerPartitionKeyResponse;
+        partitionKey?: outputs.cosmosdb.ContainerPartitionKeyResponseV2;
         /**
          * Parameters to indicate the information about the restore
          */
@@ -78997,8 +80000,8 @@ export namespace cosmosdb {
         return {
             ...val,
             conflictResolutionPolicy: (val.conflictResolutionPolicy ? outputs.cosmosdb.conflictResolutionPolicyResponseProvideDefaults(val.conflictResolutionPolicy) : undefined),
-            indexingPolicy: (val.indexingPolicy ? outputs.cosmosdb.indexingPolicyResponseProvideDefaults(val.indexingPolicy) : undefined),
-            partitionKey: (val.partitionKey ? outputs.cosmosdb.containerPartitionKeyResponseProvideDefaults(val.partitionKey) : undefined),
+            indexingPolicy: (val.indexingPolicy ? outputs.cosmosdb.indexingPolicyResponseV2ProvideDefaults(val.indexingPolicy) : undefined),
+            partitionKey: (val.partitionKey ? outputs.cosmosdb.containerPartitionKeyResponseV2ProvideDefaults(val.partitionKey) : undefined),
         };
     }
 
@@ -79488,13 +80491,31 @@ export namespace costmanagement {
      */
     export interface ConnectorCollectionErrorInfoResponse {
         /**
-         * Short error message
+         * Short error code
          */
         errorCode: string;
         /**
          * External Provider error message
          */
-        errorInnerMessage?: string;
+        errorInnerMessage: string;
+        /**
+         * Detailed error message
+         */
+        errorMessage: string;
+        /**
+         * Time the error started occurring (Last time error occurred in lastChecked)
+         */
+        errorStartTime: string;
+    }
+
+    /**
+     * Details of any error encountered on last collection attempt
+     */
+    export interface ConnectorCollectionErrorInfoResponseV1 {
+        /**
+         * Short error message
+         */
+        errorCode: string;
         /**
          * Detailed error message
          */
@@ -79516,7 +80537,25 @@ export namespace costmanagement {
         /**
          * Last time the data acquisition process initiated connecting to the external provider
          */
-        lastChecked?: string;
+        lastChecked: string;
+        /**
+         * Last time the external data was updated into Azure
+         */
+        lastUpdated: string;
+        /**
+         * Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+         */
+        sourceLastUpdated: string;
+    }
+
+    /**
+     * Collection and ingestion information
+     */
+    export interface ConnectorCollectionInfoResponseV1 {
+        /**
+         * Error information of last collection
+         */
+        error?: outputs.costmanagement.ConnectorCollectionErrorInfoResponseV1;
         /**
          * Last time the data acquisition process completed (even if no new data was found)
          */
@@ -125673,7 +126712,7 @@ export namespace dbforpostgresql {
         /**
          * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
          */
-        userAssignedIdentities?: {[key: string]: outputs.dbforpostgresql.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.dbforpostgresql.UserAssignedIdentityResponseV1};
     }
 
     /**
@@ -126147,9 +127186,31 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * User assigned identity properties
+     * Identities associated with a server.
      */
     export interface UserAssignedIdentityResponse {
+        /**
+         * Identifier of the object of the service principal associated to the user assigned managed identity.
+         */
+        principalId?: string;
+        /**
+         * Identifier of the tenant of a server.
+         */
+        tenantId: string;
+        /**
+         * Types of identities associated with a server.
+         */
+        type: string;
+        /**
+         * Map of user assigned managed identities.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.dbforpostgresql.UserIdentityResponse};
+    }
+
+    /**
+     * User assigned identity properties
+     */
+    export interface UserAssignedIdentityResponseV1 {
         /**
          * The client ID of the assigned identity.
          */
@@ -126158,18 +127219,6 @@ export namespace dbforpostgresql {
          * The principal ID of the assigned identity.
          */
         principalId: string;
-        /**
-         * Identifier of the tenant of a server.
-         */
-        tenantId?: string;
-        /**
-         * Types of identities associated with a server.
-         */
-        type?: string;
-        /**
-         * Map of user assigned managed identities.
-         */
-        userAssignedIdentities?: {[key: string]: outputs.dbforpostgresql.UserIdentityResponse};
     }
 
     /**
@@ -133579,6 +134628,24 @@ export namespace edge {
          */
         displayName?: string;
         /**
+         * Provisioning state of last operation
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Site properties
+     */
+    export interface SitePropertiesResponseV1 {
+        /**
+         * Description of Site resource
+         */
+        description?: string;
+        /**
+         * displayName of Site resource
+         */
+        displayName?: string;
+        /**
          * Key-value pairs for labeling the site resource.
          */
         labels?: {[key: string]: string};
@@ -135750,6 +136817,20 @@ export namespace elastic {
      * Definition of the properties for a TagRules resource.
      */
     export interface MonitoringTagRulesPropertiesResponse {
+        /**
+         * Rules for sending logs.
+         */
+        logRules?: outputs.elastic.LogRulesResponse;
+        /**
+         * Provisioning state of the monitoring tag rules.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * Definition of the properties for a TagRules resource.
+     */
+    export interface MonitoringTagRulesPropertiesResponseV1 {
         /**
          * Rules for sending logs.
          */
@@ -163331,7 +164412,7 @@ export namespace machinelearningservices {
         /**
          * Defines configuration specific to inference.
          */
-        inferenceConfig?: outputs.machinelearningservices.InferenceContainerPropertiesResponse;
+        inferenceConfig?: outputs.machinelearningservices.InferenceContainerPropertiesResponseV1;
         /**
          * If the name version are system generated (anonymous registration).
          */
@@ -163365,6 +164446,84 @@ export namespace machinelearningservices {
      * environmentVersionPropertiesResponseProvideDefaults sets the appropriate defaults for EnvironmentVersionPropertiesResponse
      */
     export function environmentVersionPropertiesResponseProvideDefaults(val: EnvironmentVersionPropertiesResponse): EnvironmentVersionPropertiesResponse {
+        return {
+            ...val,
+            autoRebuild: (val.autoRebuild) ?? "Disabled",
+            build: (val.build ? outputs.machinelearningservices.buildContextResponseProvideDefaults(val.build) : undefined),
+            isAnonymous: (val.isAnonymous) ?? false,
+            isArchived: (val.isArchived) ?? false,
+            osType: (val.osType) ?? "Linux",
+        };
+    }
+
+    /**
+     * Environment version details.
+     */
+    export interface EnvironmentVersionPropertiesResponseV1 {
+        /**
+         * AutoRebuild setting for the derived image
+         */
+        autoRebuild?: string;
+        /**
+         * Configuration settings for Docker build context.
+         */
+        build?: outputs.machinelearningservices.BuildContextResponse;
+        /**
+         * Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+         * <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+         */
+        condaFile?: string;
+        /**
+         * The asset description text.
+         */
+        description?: string;
+        /**
+         * Environment type is either user managed or curated by the Azure ML service
+         * <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
+         */
+        environmentType: string;
+        /**
+         * Name of the image that will be used for the environment.
+         * <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+         */
+        image?: string;
+        /**
+         * Defines configuration specific to inference.
+         */
+        inferenceConfig?: outputs.machinelearningservices.InferenceContainerPropertiesResponseV2;
+        /**
+         * If the name version are system generated (anonymous registration).
+         */
+        isAnonymous?: boolean;
+        /**
+         * Is the asset archived?
+         */
+        isArchived?: boolean;
+        /**
+         * The type of operating system.
+         */
+        osType?: string;
+        /**
+         * The asset property dictionary.
+         */
+        properties?: {[key: string]: string};
+        /**
+         * Provisioning state for the environment version.
+         */
+        provisioningState: string;
+        /**
+         * Stage in the environment lifecycle assigned to this environment
+         */
+        stage?: string;
+        /**
+         * Tag dictionary. Tags can be added, removed, and updated.
+         */
+        tags?: {[key: string]: string};
+    }
+    /**
+     * environmentVersionPropertiesResponseV1ProvideDefaults sets the appropriate defaults for EnvironmentVersionPropertiesResponseV1
+     */
+    export function environmentVersionPropertiesResponseV1ProvideDefaults(val: EnvironmentVersionPropertiesResponseV1): EnvironmentVersionPropertiesResponseV1 {
         return {
             ...val,
             autoRebuild: (val.autoRebuild) ?? "Disabled",
@@ -164324,7 +165483,51 @@ export namespace machinelearningservices {
         /**
          * The user assigned identities associated with the resource.
          */
-        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponse};
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV1};
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponseV1 {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+        /**
+         * The user assigned identities associated with the resource.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV2};
+    }
+
+    /**
+     * Identity for the resource.
+     */
+    export interface IdentityResponseV2 {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type?: string;
+        /**
+         * The user assigned identities associated with the resource.
+         */
+        userAssignedIdentities?: {[key: string]: outputs.machinelearningservices.UserAssignedIdentityResponseV3};
     }
 
     /**
@@ -165477,6 +166680,40 @@ export namespace machinelearningservices {
     }
 
     export interface InferenceContainerPropertiesResponse {
+        /**
+         * The route to check the liveness of the inference server container.
+         */
+        livenessRoute?: outputs.machinelearningservices.RouteResponse;
+        /**
+         * The route to check the readiness of the inference server container.
+         */
+        readinessRoute?: outputs.machinelearningservices.RouteResponse;
+        /**
+         * The port to send the scoring requests to, within the inference server container.
+         */
+        scoringRoute?: outputs.machinelearningservices.RouteResponse;
+    }
+
+    export interface InferenceContainerPropertiesResponseV1 {
+        /**
+         * The route to check the liveness of the inference server container.
+         */
+        livenessRoute?: outputs.machinelearningservices.RouteResponse;
+        /**
+         * The route to check the readiness of the inference server container.
+         */
+        readinessRoute?: outputs.machinelearningservices.RouteResponse;
+        /**
+         * The port to send the scoring requests to, within the inference server container.
+         */
+        scoringRoute?: outputs.machinelearningservices.RouteResponse;
+        /**
+         * The route to check the startup of the application in the container.
+         */
+        startupRoute?: outputs.machinelearningservices.RouteResponse;
+    }
+
+    export interface InferenceContainerPropertiesResponseV2 {
         /**
          * The route to check the liveness of the inference server container.
          */
@@ -168921,6 +170158,34 @@ export namespace machinelearningservices {
         tier?: string;
     }
 
+    /**
+     * Sku of the resource
+     */
+    export interface SkuResponseV1 {
+        /**
+         * Name of the sku
+         */
+        name?: string;
+        /**
+         * Tier of the sku like Basic or Enterprise
+         */
+        tier?: string;
+    }
+
+    /**
+     * Sku of the resource
+     */
+    export interface SkuResponseV2 {
+        /**
+         * Name of the sku
+         */
+        name?: string;
+        /**
+         * Tier of the sku like Basic or Enterprise
+         */
+        tier?: string;
+    }
+
     export interface SparkJobPythonEntryResponse {
         /**
          * [Required] Relative python file path for job entry point.
@@ -170302,10 +171567,60 @@ export namespace machinelearningservices {
          * The principal ID of the assigned identity.
          */
         principalId: string;
+    }
+
+    /**
+     * User Assigned Identity
+     */
+    export interface UserAssignedIdentityResponseV1 {
+        /**
+         * The clientId(aka appId) of the user assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the user assigned identity.
+         */
+        principalId: string;
         /**
          * The tenant ID of the user assigned identity.
          */
-        tenantId?: string;
+        tenantId: string;
+    }
+
+    /**
+     * User Assigned Identity
+     */
+    export interface UserAssignedIdentityResponseV2 {
+        /**
+         * The clientId(aka appId) of the user assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the user assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the user assigned identity.
+         */
+        tenantId: string;
+    }
+
+    /**
+     * User Assigned Identity
+     */
+    export interface UserAssignedIdentityResponseV3 {
+        /**
+         * The clientId(aka appId) of the user assigned identity.
+         */
+        clientId: string;
+        /**
+         * The principal ID of the user assigned identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of the user assigned identity.
+         */
+        tenantId: string;
     }
 
     /**
@@ -176481,7 +177796,7 @@ export namespace migrate {
          * Gets or sets the duration for which the VMs are up in the on-premises
          * environment.
          */
-        vmUptime?: outputs.migrate.VmUptimeResponse;
+        vmUptime?: outputs.migrate.VmUptimeResponseV2;
     }
 
     /**
@@ -176619,9 +177934,35 @@ export namespace migrate {
     }
 
     /**
-     * Properties of a migrate project.
+     * Class for migrate project properties.
      */
     export interface MigrateProjectPropertiesResponse {
+        /**
+         * Gets the last time the project summary was refreshed.
+         */
+        lastSummaryRefreshedTime: string;
+        /**
+         * Provisioning state of the migrate project.
+         */
+        provisioningState?: string;
+        /**
+         * Gets the refresh summary state.
+         */
+        refreshSummaryState: string;
+        /**
+         * Gets or sets the list of tools registered with the migrate project.
+         */
+        registeredTools?: string[];
+        /**
+         * Gets the summary of the migrate project.
+         */
+        summary: {[key: string]: outputs.migrate.DatabaseProjectSummaryResponse | outputs.migrate.ServersProjectSummaryResponse};
+    }
+
+    /**
+     * Properties of a migrate project.
+     */
+    export interface MigrateProjectPropertiesResponseV1 {
         /**
          * Last summary refresh time.
          */
@@ -176629,11 +177970,7 @@ export namespace migrate {
         /**
          * Gets the private endpoint connections.
          */
-        privateEndpointConnections: outputs.migrate.PrivateEndpointConnectionResponse[];
-        /**
-         * Provisioning state of the migrate project.
-         */
-        provisioningState?: string;
+        privateEndpointConnections: outputs.migrate.PrivateEndpointConnectionResponseV1[];
         /**
          * Gets or sets the state of public network access.
          */
@@ -176653,7 +177990,7 @@ export namespace migrate {
         /**
          * Project summary.
          */
-        summary: {[key: string]: outputs.migrate.DatabaseProjectSummaryResponse | outputs.migrate.ServersProjectSummaryResponse | outputs.migrate.ProjectSummaryResponse};
+        summary: {[key: string]: outputs.migrate.ProjectSummaryResponse};
         /**
          * Utility storage account id.
          */
@@ -177370,23 +178707,19 @@ export namespace migrate {
     }
 
     /**
-     * A private endpoint connection for a project.
+     * Private endpoint connection resource.
      */
     export interface PrivateEndpointConnectionResponse {
         /**
-         * For optimistic concurrency control.
-         */
-        eTag?: string;
-        /**
          * The group ids for the private endpoint resource.
          */
-        groupIds?: string[];
+        groupIds: string[];
         /**
-         * Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
          */
         id: string;
         /**
-         * Name of the private endpoint endpoint connection.
+         * The name of the resource
          */
         name: string;
         /**
@@ -177396,19 +178729,71 @@ export namespace migrate {
         /**
          * A collection of information about the state of the connection between service consumer and provider.
          */
-        privateLinkServiceConnectionState?: outputs.migrate.PrivateLinkServiceConnectionStateResponse;
+        privateLinkServiceConnectionState: outputs.migrate.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.migrate.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * REST model used to encapsulate the user visible state of a PrivateEndpoint.
+     */
+    export interface PrivateEndpointConnectionResponseV1 {
+        /**
+         * Gets the tag for optimistic concurrency control.
+         */
+        eTag: string;
+        /**
+         * Relative URL to get this Sites.
+         */
+        id: string;
+        /**
+         * Gets the name of the resource.
+         */
+        name: string;
+        /**
+         * Gets the properties of the object.
+         */
+        properties: outputs.migrate.PrivateEndpointConnectionPropertiesResponse;
+        /**
+         * Metadata pertaining to creation and last modification of the resource.
+         */
+        systemData: outputs.migrate.SystemDataResponse;
+        /**
+         * Gets the resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * A private endpoint connection for a project.
+     */
+    export interface PrivateEndpointConnectionResponseV2 {
+        /**
+         * For optimistic concurrency control.
+         */
+        eTag?: string;
+        /**
+         * Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+         */
+        id: string;
+        /**
+         * Name of the private endpoint endpoint connection.
+         */
+        name: string;
         /**
          * Properties of the private endpoint endpoint connection.
          */
         properties: outputs.migrate.PrivateEndpointConnectionPropertiesResponse;
-        /**
-         * The provisioning state of the private endpoint connection resource.
-         */
-        provisioningState?: string;
-        /**
-         * Metadata pertaining to creation and last modification of the resource.
-         */
-        systemData?: outputs.migrate.SystemDataResponse;
         /**
          * Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
          */
@@ -177486,7 +178871,7 @@ export namespace migrate {
         /**
          * The list of private endpoint connections to the project.
          */
-        privateEndpointConnections: outputs.migrate.PrivateEndpointConnectionResponse[];
+        privateEndpointConnections: outputs.migrate.PrivateEndpointConnectionResponseV2[];
         /**
          * Assessment project status.
          */
@@ -178478,10 +179863,35 @@ export namespace migrate {
         vMwareCloudFoundationLicenseCost: number;
     }
 
+    export interface VmUptimeResponse {
+        /**
+         * Number of days in a month for VM uptime.
+         */
+        daysPerMonth?: number;
+        /**
+         * Number of hours per day for VM uptime.
+         */
+        hoursPerDay?: number;
+    }
+
     /**
      * Details on the total up-time for the VM.
      */
-    export interface VmUptimeResponse {
+    export interface VmUptimeResponseV1 {
+        /**
+         * Number of days in a month for VM uptime.
+         */
+        daysPerMonth?: number;
+        /**
+         * Number of hours per day for VM uptime.
+         */
+        hoursPerDay?: number;
+    }
+
+    /**
+     * Details on the total up-time for the VM.
+     */
+    export interface VmUptimeResponseV2 {
         /**
          * Number of days in a month for VM uptime.
          */
@@ -182376,13 +183786,47 @@ export namespace monitor {
     }
 
     /**
-     * The Private Endpoint Connection resource.
+     * The private endpoint connection resource.
      */
     export interface PrivateEndpointConnectionResponse {
         /**
          * The group ids for the private endpoint resource.
          */
-        groupIds?: string[];
+        groupIds: string[];
+        /**
+         * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+         */
+        id: string;
+        /**
+         * The name of the resource
+         */
+        name: string;
+        /**
+         * The private endpoint resource.
+         */
+        privateEndpoint?: outputs.monitor.PrivateEndpointResponse;
+        /**
+         * A collection of information about the state of the connection between service consumer and provider.
+         */
+        privateLinkServiceConnectionState: outputs.monitor.PrivateLinkServiceConnectionStateResponse;
+        /**
+         * The provisioning state of the private endpoint connection resource.
+         */
+        provisioningState: string;
+        /**
+         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+         */
+        systemData: outputs.monitor.SystemDataResponse;
+        /**
+         * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+         */
+        type: string;
+    }
+
+    /**
+     * The Private Endpoint Connection resource.
+     */
+    export interface PrivateEndpointConnectionResponseV1 {
         /**
          * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
          */
@@ -182403,10 +183847,6 @@ export namespace monitor {
          * The provisioning state of the private endpoint connection resource.
          */
         provisioningState: string;
-        /**
-         * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-         */
-        systemData?: outputs.monitor.SystemDataResponse;
         /**
          * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
          */
@@ -183402,7 +184842,7 @@ export namespace monitor {
          */
         managedIdentity?: string;
         /**
-         * The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+         * The name of the webhook receiver. Names must be unique across all receivers within an action group.
          */
         name: string;
         /**
@@ -183430,6 +184870,50 @@ export namespace monitor {
      * webhookReceiverResponseProvideDefaults sets the appropriate defaults for WebhookReceiverResponse
      */
     export function webhookReceiverResponseProvideDefaults(val: WebhookReceiverResponse): WebhookReceiverResponse {
+        return {
+            ...val,
+            useAadAuth: (val.useAadAuth) ?? false,
+            useCommonAlertSchema: (val.useCommonAlertSchema) ?? false,
+        };
+    }
+
+    /**
+     * A webhook receiver.
+     */
+    export interface WebhookReceiverResponseV1 {
+        /**
+         * Indicates the identifier uri for aad auth.
+         */
+        identifierUri?: string;
+        /**
+         * The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+         */
+        name: string;
+        /**
+         * Indicates the webhook app object Id for aad auth.
+         */
+        objectId?: string;
+        /**
+         * The URI where webhooks should be sent.
+         */
+        serviceUri: string;
+        /**
+         * Indicates the tenant id for aad auth.
+         */
+        tenantId?: string;
+        /**
+         * Indicates whether or not use AAD authentication.
+         */
+        useAadAuth?: boolean;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
+    }
+    /**
+     * webhookReceiverResponseV1ProvideDefaults sets the appropriate defaults for WebhookReceiverResponseV1
+     */
+    export function webhookReceiverResponseV1ProvideDefaults(val: WebhookReceiverResponseV1): WebhookReceiverResponseV1 {
         return {
             ...val,
             useAadAuth: (val.useAadAuth) ?? false,
@@ -184560,6 +186044,72 @@ export namespace netapp {
          */
         kerberos5ReadWrite?: boolean;
         /**
+         * Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+         */
+        nfsv3?: boolean;
+        /**
+         * Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+         */
+        nfsv41?: boolean;
+        /**
+         * Order index
+         */
+        ruleIndex?: number;
+        /**
+         * Read only access
+         */
+        unixReadOnly?: boolean;
+        /**
+         * Read and write access
+         */
+        unixReadWrite?: boolean;
+    }
+    /**
+     * exportPolicyRuleResponseProvideDefaults sets the appropriate defaults for ExportPolicyRuleResponse
+     */
+    export function exportPolicyRuleResponseProvideDefaults(val: ExportPolicyRuleResponse): ExportPolicyRuleResponse {
+        return {
+            ...val,
+            chownMode: (val.chownMode) ?? "Restricted",
+            hasRootAccess: (val.hasRootAccess) ?? true,
+            kerberos5IReadOnly: (val.kerberos5IReadOnly) ?? false,
+            kerberos5IReadWrite: (val.kerberos5IReadWrite) ?? false,
+            kerberos5PReadOnly: (val.kerberos5PReadOnly) ?? false,
+            kerberos5PReadWrite: (val.kerberos5PReadWrite) ?? false,
+            kerberos5ReadOnly: (val.kerberos5ReadOnly) ?? false,
+            kerberos5ReadWrite: (val.kerberos5ReadWrite) ?? false,
+        };
+    }
+
+    /**
+     * Volume Export Policy Rule
+     */
+    export interface ExportPolicyRuleResponseV1 {
+        /**
+         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+         */
+        allowedClients?: string;
+        /**
+         * This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+         */
+        chownMode?: string;
+        /**
+         * Allows CIFS protocol
+         */
+        cifs?: boolean;
+        /**
+         * Has root access to volume
+         */
+        hasRootAccess?: boolean;
+        /**
+         * Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5ReadOnly?: boolean;
+        /**
+         * Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5ReadWrite?: boolean;
+        /**
          * Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
          */
         kerberos5iReadOnly?: boolean;
@@ -184597,17 +186147,95 @@ export namespace netapp {
         unixReadWrite?: boolean;
     }
     /**
-     * exportPolicyRuleResponseProvideDefaults sets the appropriate defaults for ExportPolicyRuleResponse
+     * exportPolicyRuleResponseV1ProvideDefaults sets the appropriate defaults for ExportPolicyRuleResponseV1
      */
-    export function exportPolicyRuleResponseProvideDefaults(val: ExportPolicyRuleResponse): ExportPolicyRuleResponse {
+    export function exportPolicyRuleResponseV1ProvideDefaults(val: ExportPolicyRuleResponseV1): ExportPolicyRuleResponseV1 {
         return {
             ...val,
             chownMode: (val.chownMode) ?? "Restricted",
             hasRootAccess: (val.hasRootAccess) ?? true,
-            kerberos5IReadOnly: (val.kerberos5IReadOnly) ?? false,
-            kerberos5IReadWrite: (val.kerberos5IReadWrite) ?? false,
-            kerberos5PReadOnly: (val.kerberos5PReadOnly) ?? false,
-            kerberos5PReadWrite: (val.kerberos5PReadWrite) ?? false,
+            kerberos5ReadOnly: (val.kerberos5ReadOnly) ?? false,
+            kerberos5ReadWrite: (val.kerberos5ReadWrite) ?? false,
+            kerberos5iReadOnly: (val.kerberos5iReadOnly) ?? false,
+            kerberos5iReadWrite: (val.kerberos5iReadWrite) ?? false,
+            kerberos5pReadOnly: (val.kerberos5pReadOnly) ?? false,
+            kerberos5pReadWrite: (val.kerberos5pReadWrite) ?? false,
+        };
+    }
+
+    /**
+     * Volume Export Policy Rule
+     */
+    export interface ExportPolicyRuleResponseV2 {
+        /**
+         * Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+         */
+        allowedClients?: string;
+        /**
+         * This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+         */
+        chownMode?: string;
+        /**
+         * Allows CIFS protocol
+         */
+        cifs?: boolean;
+        /**
+         * Has root access to volume
+         */
+        hasRootAccess?: boolean;
+        /**
+         * Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5ReadOnly?: boolean;
+        /**
+         * Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5ReadWrite?: boolean;
+        /**
+         * Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5iReadOnly?: boolean;
+        /**
+         * Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5iReadWrite?: boolean;
+        /**
+         * Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5pReadOnly?: boolean;
+        /**
+         * Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later
+         */
+        kerberos5pReadWrite?: boolean;
+        /**
+         * Allows NFSv3 protocol. Enable only for NFSv3 type volumes
+         */
+        nfsv3?: boolean;
+        /**
+         * Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
+         */
+        nfsv41?: boolean;
+        /**
+         * Order index
+         */
+        ruleIndex?: number;
+        /**
+         * Read only access
+         */
+        unixReadOnly?: boolean;
+        /**
+         * Read and write access
+         */
+        unixReadWrite?: boolean;
+    }
+    /**
+     * exportPolicyRuleResponseV2ProvideDefaults sets the appropriate defaults for ExportPolicyRuleResponseV2
+     */
+    export function exportPolicyRuleResponseV2ProvideDefaults(val: ExportPolicyRuleResponseV2): ExportPolicyRuleResponseV2 {
+        return {
+            ...val,
+            chownMode: (val.chownMode) ?? "Restricted",
+            hasRootAccess: (val.hasRootAccess) ?? true,
             kerberos5ReadOnly: (val.kerberos5ReadOnly) ?? false,
             kerberos5ReadWrite: (val.kerberos5ReadWrite) ?? false,
             kerberos5iReadOnly: (val.kerberos5iReadOnly) ?? false,
@@ -185191,7 +186819,7 @@ export namespace netapp {
         /**
          * Set of export policy rules
          */
-        exportPolicy?: outputs.netapp.VolumePropertiesResponseExportPolicy;
+        exportPolicy?: outputs.netapp.VolumePropertiesResponseExportPolicyV1;
         /**
          * Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
          */
@@ -185404,7 +187032,17 @@ export namespace netapp {
         /**
          * Export policy rule
          */
-        rules?: outputs.netapp.ExportPolicyRuleResponse[];
+        rules?: outputs.netapp.ExportPolicyRuleResponseV1[];
+    }
+
+    /**
+     * Set of export policy rules
+     */
+    export interface VolumePropertiesResponseExportPolicyV1 {
+        /**
+         * Export policy rule
+         */
+        rules?: outputs.netapp.ExportPolicyRuleResponseV2[];
     }
 
     /**
@@ -185499,7 +187137,7 @@ export namespace network {
         /**
          * Groups for configuration
          */
-        appliesToGroups: outputs.network.ConnectivityGroupItemResponse[];
+        appliesToGroups?: outputs.network.ConnectivityGroupItemResponseV1[];
         /**
          * Deployment time string.
          */
@@ -185524,6 +187162,56 @@ export namespace network {
          * A friendly name for the resource.
          */
         displayName?: string;
+        /**
+         * List of hubItems
+         */
+        hubs?: outputs.network.HubResponse[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Flag if global mesh is supported.
+         */
+        isGlobal?: string;
+        /**
+         * The provisioning state of the connectivity configuration resource.
+         */
+        provisioningState: string;
+        /**
+         * Deployment region.
+         */
+        region?: string;
+    }
+
+    /**
+     * Active connectivity configuration.
+     */
+    export interface ActiveConnectivityConfigurationResponseV1 {
+        /**
+         * Groups for configuration
+         */
+        appliesToGroups: outputs.network.ConnectivityGroupItemResponse[];
+        /**
+         * Deployment time string.
+         */
+        commitTime?: string;
+        /**
+         * Effective configuration groups.
+         */
+        configurationGroups?: outputs.network.ConfigurationGroupResponseV1[];
+        /**
+         * Connectivity topology type.
+         */
+        connectivityTopology: string;
+        /**
+         * Flag if need to remove current existing peerings.
+         */
+        deleteExistingPeering?: string;
+        /**
+         * A description of the connectivity configuration.
+         */
+        description?: string;
         /**
          * List of hubItems
          */
@@ -185589,7 +187277,94 @@ export namespace network {
         /**
          * A friendly name for the rule.
          */
-        displayName?: string;
+        displayName: string;
+        /**
+         * Default rule flag.
+         */
+        flag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Whether the rule is custom or default.
+         * Expected value is 'Default'.
+         */
+        kind: "Default";
+        /**
+         * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+         */
+        priority: number;
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Deployment region.
+         */
+        region?: string;
+        /**
+         * Groups for rule collection
+         */
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV1[];
+        /**
+         * A description of the rule collection.
+         */
+        ruleCollectionDescription?: string;
+        /**
+         * A display name of the rule collection.
+         */
+        ruleCollectionDisplayName?: string;
+        /**
+         * Effective configuration groups.
+         */
+        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges: string[];
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sources: outputs.network.AddressPrefixItemResponse[];
+    }
+
+    /**
+     * Network default admin rule.
+     */
+    export interface ActiveDefaultSecurityAdminRuleResponseV1 {
+        /**
+         * Indicates the access allowed for this particular rule
+         */
+        access: string;
+        /**
+         * Deployment time string.
+         */
+        commitTime?: string;
+        /**
+         * A description of the security admin configuration.
+         */
+        configurationDescription?: string;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges: string[];
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinations: outputs.network.AddressPrefixItemResponse[];
+        /**
+         * Indicates if the traffic matched against the rule in inbound or outbound.
+         */
+        direction: string;
         /**
          * Default rule flag.
          */
@@ -185632,13 +187407,9 @@ export namespace network {
          */
         ruleCollectionDescription?: string;
         /**
-         * A display name of the rule collection.
-         */
-        ruleCollectionDisplayName?: string;
-        /**
          * Effective configuration groups.
          */
-        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        ruleGroups?: outputs.network.ConfigurationGroupResponseV2[];
         /**
          * The source port ranges.
          */
@@ -185684,7 +187455,86 @@ export namespace network {
         /**
          * A friendly name for the rule.
          */
-        displayName?: string;
+        displayName: string;
+        /**
+         * Default rule flag.
+         */
+        flag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Whether the rule is custom or default.
+         * Expected value is 'Default'.
+         */
+        kind: "Default";
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the security configuration user rule resource.
+         */
+        provisioningState: string;
+        /**
+         * Deployment region.
+         */
+        region?: string;
+        /**
+         * Groups for rule collection
+         */
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV2[];
+        /**
+         * A description of the rule collection.
+         */
+        ruleCollectionDescription?: string;
+        /**
+         * A display name of the rule collection.
+         */
+        ruleCollectionDisplayName?: string;
+        /**
+         * Effective configuration groups.
+         */
+        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges: string[];
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sources: outputs.network.AddressPrefixItemResponse[];
+    }
+
+    /**
+     * Network security default user rule.
+     */
+    export interface ActiveDefaultSecurityUserRuleResponseV1 {
+        /**
+         * Deployment time string.
+         */
+        commitTime?: string;
+        /**
+         * A description of the security user configuration.
+         */
+        configurationDescription?: string;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges: string[];
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinations: outputs.network.AddressPrefixItemResponse[];
+        /**
+         * Indicates if the traffic matched against the rule in inbound or outbound.
+         */
+        direction: string;
         /**
          * Default rule flag.
          */
@@ -185719,13 +187569,9 @@ export namespace network {
          */
         ruleCollectionDescription?: string;
         /**
-         * A display name of the rule collection.
-         */
-        ruleCollectionDisplayName?: string;
-        /**
          * Effective configuration groups.
          */
-        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        ruleGroups?: outputs.network.ConfigurationGroupResponseV3[];
         /**
          * The source port ranges.
          */
@@ -185788,6 +187634,89 @@ export namespace network {
         /**
          * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
          */
+        priority?: number;
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Deployment region.
+         */
+        region?: string;
+        /**
+         * Groups for rule collection
+         */
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponse[];
+        /**
+         * A description of the rule collection.
+         */
+        ruleCollectionDescription?: string;
+        /**
+         * A display name of the rule collection.
+         */
+        ruleCollectionDisplayName?: string;
+        /**
+         * Effective configuration groups.
+         */
+        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges?: string[];
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sources?: outputs.network.AddressPrefixItemResponse[];
+    }
+
+    /**
+     * Network admin rule.
+     */
+    export interface ActiveSecurityAdminRuleResponseV1 {
+        /**
+         * Indicates the access allowed for this particular rule
+         */
+        access: string;
+        /**
+         * Deployment time string.
+         */
+        commitTime?: string;
+        /**
+         * A description of the security admin configuration.
+         */
+        configurationDescription?: string;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description?: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges?: string[];
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinations?: outputs.network.AddressPrefixItemResponse[];
+        /**
+         * Indicates if the traffic matched against the rule in inbound or outbound.
+         */
+        direction: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Whether the rule is custom or default.
+         * Expected value is 'Custom'.
+         */
+        kind: "Custom";
+        /**
+         * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+         */
         priority: number;
         /**
          * Network protocol this rule applies to.
@@ -185813,10 +187742,6 @@ export namespace network {
          * A description of the rule collection.
          */
         ruleCollectionDescription?: string;
-        /**
-         * A display name of the rule collection.
-         */
-        ruleCollectionDisplayName?: string;
         /**
          * Effective configuration groups.
          */
@@ -185900,6 +187825,77 @@ export namespace network {
          * A display name of the rule collection.
          */
         ruleCollectionDisplayName?: string;
+        /**
+         * Effective configuration groups.
+         */
+        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges?: string[];
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sources?: outputs.network.AddressPrefixItemResponse[];
+    }
+
+    /**
+     * Network security user rule.
+     */
+    export interface ActiveSecurityUserRuleResponseV1 {
+        /**
+         * Deployment time string.
+         */
+        commitTime?: string;
+        /**
+         * A description of the security user configuration.
+         */
+        configurationDescription?: string;
+        /**
+         * A description for this rule.
+         */
+        description?: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges?: string[];
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinations?: outputs.network.AddressPrefixItemResponse[];
+        /**
+         * Indicates if the traffic matched against the rule in inbound or outbound.
+         */
+        direction: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Whether the rule is custom or default.
+         * Expected value is 'Custom'.
+         */
+        kind: "Custom";
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the security configuration user rule resource.
+         */
+        provisioningState: string;
+        /**
+         * Deployment region.
+         */
+        region?: string;
+        /**
+         * Groups for rule collection
+         */
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponse[];
+        /**
+         * A description of the rule collection.
+         */
+        ruleCollectionDescription?: string;
         /**
          * Effective configuration groups.
          */
@@ -186018,6 +188014,40 @@ export namespace network {
          * Type of the resource.
          */
         type: string;
+    }
+
+    /**
+     * Backend Address Pool of an application gateway.
+     */
+    export interface ApplicationGatewayBackendAddressPoolResponseV1 {
+        /**
+         * Backend addresses
+         */
+        backendAddresses?: outputs.network.ApplicationGatewayBackendAddressResponse[];
+        /**
+         * Collection of references to IPs defined in network interfaces.
+         */
+        backendIPConfigurations?: outputs.network.NetworkInterfaceIPConfigurationResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Name of the backend address pool that is unique within an Application Gateway.
+         */
+        name?: string;
+        /**
+         * Provisioning state of the backend address pool resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * Type of the resource.
+         */
+        type?: string;
     }
 
     /**
@@ -188175,6 +190205,44 @@ export namespace network {
     }
 
     /**
+     * Pool of backend IP addresses.
+     */
+    export interface BackendAddressPoolResponseV1 {
+        /**
+         * Gets collection of references to IP addresses defined in network interfaces.
+         */
+        backendIPConfigurations: outputs.network.NetworkInterfaceIPConfigurationResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Gets load balancing rules that use this backend address pool.
+         */
+        loadBalancingRules: outputs.network.SubResourceResponse[];
+        /**
+         * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Gets outbound rules that use this backend address pool.
+         */
+        outboundRule: outputs.network.SubResourceResponse;
+        /**
+         * Gets outbound rules that use this backend address pool.
+         */
+        outboundRules: outputs.network.SubResourceResponse[];
+        /**
+         * Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+    }
+
+    /**
      * The session detail for a target.
      */
     export interface BastionActiveSessionResponse {
@@ -188404,6 +190472,128 @@ export namespace network {
          * Group members of network group.
          */
         groupMembers?: outputs.network.GroupMembersItemResponse[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Group member type.
+         */
+        memberType?: string;
+        /**
+         * The provisioning state of the scope assignment resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The network configuration group resource
+     */
+    export interface ConfigurationGroupResponseV1 {
+        /**
+         * A description of the network group.
+         */
+        description?: string;
+        /**
+         * Network group ID.
+         */
+        id?: string;
+        /**
+         * The type of the group member.
+         */
+        memberType?: string;
+        /**
+         * The provisioning state of the scope assignment resource.
+         */
+        provisioningState: string;
+        /**
+         * Unique identifier for this resource.
+         */
+        resourceGuid: string;
+    }
+
+    /**
+     * The network configuration group resource
+     */
+    export interface ConfigurationGroupResponseV2 {
+        /**
+         * A description of the network group.
+         */
+        description?: string;
+        /**
+         * Network group ID.
+         */
+        id?: string;
+        /**
+         * The type of the group member.
+         */
+        memberType?: string;
+        /**
+         * The provisioning state of the scope assignment resource.
+         */
+        provisioningState: string;
+        /**
+         * Unique identifier for this resource.
+         */
+        resourceGuid: string;
+    }
+
+    /**
+     * The network configuration group resource
+     */
+    export interface ConfigurationGroupResponseV3 {
+        /**
+         * A description of the network group.
+         */
+        description?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Group member type.
+         */
+        memberType: string;
+        /**
+         * The provisioning state of the scope assignment resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The network configuration group resource
+     */
+    export interface ConfigurationGroupResponseV4 {
+        /**
+         * A description of the network group.
+         */
+        description?: string;
+        /**
+         * Network group ID.
+         */
+        id?: string;
+        /**
+         * The type of the group member.
+         */
+        memberType?: string;
+        /**
+         * The provisioning state of the scope assignment resource.
+         */
+        provisioningState: string;
+        /**
+         * Unique identifier for this resource.
+         */
+        resourceGuid: string;
+    }
+
+    /**
+     * The network configuration group resource
+     */
+    export interface ConfigurationGroupResponseV5 {
+        /**
+         * A description of the network group.
+         */
+        description?: string;
         /**
          * Network group ID.
          */
@@ -188740,6 +190930,44 @@ export namespace network {
         useHubGateway?: string;
     }
 
+    export interface ConnectivityGroupItemResponseV1 {
+        /**
+         * Group connectivity type.
+         */
+        groupConnectivity?: string;
+        /**
+         * Flag if global is supported.
+         */
+        isGlobal?: string;
+        /**
+         * Network group Id.
+         */
+        networkGroupId?: string;
+        /**
+         * Flag if need to use hub gateway.
+         */
+        useHubGateway?: string;
+    }
+
+    export interface ConnectivityGroupItemResponseV2 {
+        /**
+         * Group connectivity type.
+         */
+        groupConnectivity?: string;
+        /**
+         * Flag if global is supported.
+         */
+        isGlobal?: string;
+        /**
+         * Network group Id.
+         */
+        networkGroupId?: string;
+        /**
+         * Flag if need to use hub gateway.
+         */
+        useHubGateway?: string;
+    }
+
     /**
      * Container network interface configuration child resource.
      */
@@ -188903,21 +191131,27 @@ export namespace network {
      */
     export interface DdosSettingsResponse {
         /**
-         * The DDoS custom policy associated with the public IP.
-         */
-        ddosCustomPolicy?: outputs.network.SubResourceResponse;
-        /**
          * The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
          */
         ddosProtectionPlan?: outputs.network.SubResourceResponse;
         /**
-         * The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
-         */
-        protectionCoverage?: string;
-        /**
          * The DDoS protection mode of the public IP
          */
         protectionMode?: string;
+    }
+
+    /**
+     * Contains the DDoS protection settings of the public IP.
+     */
+    export interface DdosSettingsResponseV1 {
+        /**
+         * The DDoS custom policy associated with the public IP.
+         */
+        ddosCustomPolicy?: outputs.network.SubResourceResponse;
+        /**
+         * The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
+         */
+        protectionCoverage?: string;
     }
 
     /**
@@ -188966,6 +191200,36 @@ export namespace network {
          * Resource type.
          */
         type?: string;
+    }
+
+    /**
+     * Details the service to which the subnet is delegated.
+     */
+    export interface DelegationResponseV1 {
+        /**
+         * Describes the actions permitted to the service upon delegation
+         */
+        actions?: string[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a subnet. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)
+         */
+        serviceName?: string;
     }
 
     /**
@@ -189021,7 +191285,7 @@ export namespace network {
         /**
          * Groups for configuration
          */
-        appliesToGroups: outputs.network.ConnectivityGroupItemResponse[];
+        appliesToGroups?: outputs.network.ConnectivityGroupItemResponseV2[];
         /**
          * Effective configuration groups.
          */
@@ -189042,6 +191306,48 @@ export namespace network {
          * A friendly name for the resource.
          */
         displayName?: string;
+        /**
+         * List of hubItems
+         */
+        hubs?: outputs.network.HubResponse[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Flag if global mesh is supported.
+         */
+        isGlobal?: string;
+        /**
+         * The provisioning state of the connectivity configuration resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
+     * The network manager effective connectivity configuration
+     */
+    export interface EffectiveConnectivityConfigurationResponseV1 {
+        /**
+         * Groups for configuration
+         */
+        appliesToGroups: outputs.network.ConnectivityGroupItemResponse[];
+        /**
+         * Effective configuration groups.
+         */
+        configurationGroups?: outputs.network.ConfigurationGroupResponseV4[];
+        /**
+         * Connectivity topology type.
+         */
+        connectivityTopology: string;
+        /**
+         * Flag if need to remove current existing peerings.
+         */
+        deleteExistingPeering?: string;
+        /**
+         * A description of the connectivity configuration.
+         */
+        description?: string;
         /**
          * List of hubItems
          */
@@ -189099,7 +191405,86 @@ export namespace network {
         /**
          * A friendly name for the rule.
          */
-        displayName?: string;
+        displayName: string;
+        /**
+         * Default rule flag.
+         */
+        flag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Whether the rule is custom or default.
+         * Expected value is 'Default'.
+         */
+        kind: "Default";
+        /**
+         * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+         */
+        priority: number;
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Groups for rule collection
+         */
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponseV3[];
+        /**
+         * A description of the rule collection.
+         */
+        ruleCollectionDescription?: string;
+        /**
+         * A display name of the rule collection.
+         */
+        ruleCollectionDisplayName?: string;
+        /**
+         * Effective configuration groups.
+         */
+        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges: string[];
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sources: outputs.network.AddressPrefixItemResponse[];
+    }
+
+    /**
+     * Network default admin rule.
+     */
+    export interface EffectiveDefaultSecurityAdminRuleResponseV1 {
+        /**
+         * Indicates the access allowed for this particular rule
+         */
+        access: string;
+        /**
+         * A description of the security admin configuration.
+         */
+        configurationDescription?: string;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges: string[];
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinations: outputs.network.AddressPrefixItemResponse[];
+        /**
+         * Indicates if the traffic matched against the rule in inbound or outbound.
+         */
+        direction: string;
         /**
          * Default rule flag.
          */
@@ -189138,13 +191523,9 @@ export namespace network {
          */
         ruleCollectionDescription?: string;
         /**
-         * A display name of the rule collection.
-         */
-        ruleCollectionDisplayName?: string;
-        /**
          * Effective configuration groups.
          */
-        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        ruleGroups?: outputs.network.ConfigurationGroupResponseV5[];
         /**
          * The source port ranges.
          */
@@ -189203,6 +191584,81 @@ export namespace network {
         /**
          * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
          */
+        priority?: number;
+        /**
+         * Network protocol this rule applies to.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * Groups for rule collection
+         */
+        ruleCollectionAppliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponse[];
+        /**
+         * A description of the rule collection.
+         */
+        ruleCollectionDescription?: string;
+        /**
+         * A display name of the rule collection.
+         */
+        ruleCollectionDisplayName?: string;
+        /**
+         * Effective configuration groups.
+         */
+        ruleGroups?: outputs.network.ConfigurationGroupResponse[];
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges?: string[];
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sources?: outputs.network.AddressPrefixItemResponse[];
+    }
+
+    /**
+     * Network admin rule.
+     */
+    export interface EffectiveSecurityAdminRuleResponseV1 {
+        /**
+         * Indicates the access allowed for this particular rule
+         */
+        access: string;
+        /**
+         * A description of the security admin configuration.
+         */
+        configurationDescription?: string;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description?: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges?: string[];
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinations?: outputs.network.AddressPrefixItemResponse[];
+        /**
+         * Indicates if the traffic matched against the rule in inbound or outbound.
+         */
+        direction: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Whether the rule is custom or default.
+         * Expected value is 'Custom'.
+         */
+        kind: "Custom";
+        /**
+         * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+         */
         priority: number;
         /**
          * Network protocol this rule applies to.
@@ -189224,10 +191680,6 @@ export namespace network {
          * A description of the rule collection.
          */
         ruleCollectionDescription?: string;
-        /**
-         * A display name of the rule collection.
-         */
-        ruleCollectionDisplayName?: string;
         /**
          * Effective configuration groups.
          */
@@ -190302,6 +192754,86 @@ export namespace network {
          */
         provisioningState: string;
         /**
+         * Parameters that define the retention policy for flow log.
+         */
+        retentionPolicy?: outputs.network.RetentionPolicyParametersResponse;
+        /**
+         * ID of the storage account which is used to store the flow log.
+         */
+        storageId: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Guid of network security group to which flow log will be applied.
+         */
+        targetResourceGuid: string;
+        /**
+         * ID of network security group to which flow log will be applied.
+         */
+        targetResourceId: string;
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+    /**
+     * flowLogResponseProvideDefaults sets the appropriate defaults for FlowLogResponse
+     */
+    export function flowLogResponseProvideDefaults(val: FlowLogResponse): FlowLogResponse {
+        return {
+            ...val,
+            format: (val.format ? outputs.network.flowLogFormatParametersResponseProvideDefaults(val.format) : undefined),
+            retentionPolicy: (val.retentionPolicy ? outputs.network.retentionPolicyParametersResponseProvideDefaults(val.retentionPolicy) : undefined),
+        };
+    }
+
+    /**
+     * A flow log resource.
+     */
+    export interface FlowLogResponseV1 {
+        /**
+         * Flag to enable/disable flow logging.
+         */
+        enabled?: boolean;
+        /**
+         * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+         */
+        enabledFilteringCriteria?: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Parameters that define the configuration of traffic analytics.
+         */
+        flowAnalyticsConfiguration?: outputs.network.TrafficAnalyticsPropertiesResponse;
+        /**
+         * Parameters that define the flow log format.
+         */
+        format?: outputs.network.FlowLogFormatParametersResponse;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * FlowLog resource Managed Identity
+         */
+        identity?: outputs.network.ManagedServiceIdentityResponse;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the flow log.
+         */
+        provisioningState: string;
+        /**
          * Optional field to filter network traffic logs based on flow states. Value of this field could be any comma separated combination string of letters B,C,E or D. B represents Begin, when a flow is created. C represents Continue for an ongoing flow generated at every five-minute interval. E represents End, when a flow is terminated. D represents Deny, when a flow is denied. If not specified, all network traffic will be logged.
          */
         recordTypes?: string;
@@ -190331,9 +192863,93 @@ export namespace network {
         type: string;
     }
     /**
-     * flowLogResponseProvideDefaults sets the appropriate defaults for FlowLogResponse
+     * flowLogResponseV1ProvideDefaults sets the appropriate defaults for FlowLogResponseV1
      */
-    export function flowLogResponseProvideDefaults(val: FlowLogResponse): FlowLogResponse {
+    export function flowLogResponseV1ProvideDefaults(val: FlowLogResponseV1): FlowLogResponseV1 {
+        return {
+            ...val,
+            format: (val.format ? outputs.network.flowLogFormatParametersResponseProvideDefaults(val.format) : undefined),
+            retentionPolicy: (val.retentionPolicy ? outputs.network.retentionPolicyParametersResponseProvideDefaults(val.retentionPolicy) : undefined),
+        };
+    }
+
+    /**
+     * A flow log resource.
+     */
+    export interface FlowLogResponseV2 {
+        /**
+         * Flag to enable/disable flow logging.
+         */
+        enabled?: boolean;
+        /**
+         * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
+         */
+        enabledFilteringCriteria?: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Parameters that define the configuration of traffic analytics.
+         */
+        flowAnalyticsConfiguration?: outputs.network.TrafficAnalyticsPropertiesResponse;
+        /**
+         * Parameters that define the flow log format.
+         */
+        format?: outputs.network.FlowLogFormatParametersResponse;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * FlowLog resource Managed Identity
+         */
+        identity?: outputs.network.ManagedServiceIdentityResponse;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the flow log.
+         */
+        provisioningState: string;
+        /**
+         * Optional field to filter network traffic logs based on flow states. Value of this field could be any comma separated combination string of letters B,C,E or D. B represents Begin, when a flow is created. C represents Continue for an ongoing flow generated at every five-minute interval. E represents End, when a flow is terminated. D represents Deny, when a flow is denied. If not specified, all network traffic will be logged.
+         */
+        recordTypes?: string;
+        /**
+         * Parameters that define the retention policy for flow log.
+         */
+        retentionPolicy?: outputs.network.RetentionPolicyParametersResponse;
+        /**
+         * ID of the storage account which is used to store the flow log.
+         */
+        storageId: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Guid of network security group to which flow log will be applied.
+         */
+        targetResourceGuid: string;
+        /**
+         * ID of network security group to which flow log will be applied.
+         */
+        targetResourceId: string;
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+    /**
+     * flowLogResponseV2ProvideDefaults sets the appropriate defaults for FlowLogResponseV2
+     */
+    export function flowLogResponseV2ProvideDefaults(val: FlowLogResponseV2): FlowLogResponseV2 {
         return {
             ...val,
             format: (val.format ? outputs.network.flowLogFormatParametersResponseProvideDefaults(val.format) : undefined),
@@ -190418,6 +193034,78 @@ export namespace network {
      * frontendIPConfigurationResponseProvideDefaults sets the appropriate defaults for FrontendIPConfigurationResponse
      */
     export function frontendIPConfigurationResponseProvideDefaults(val: FrontendIPConfigurationResponse): FrontendIPConfigurationResponse {
+        return {
+            ...val,
+            publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.publicIPAddress) : undefined),
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
+     * Frontend IP address of the load balancer.
+     */
+    export interface FrontendIPConfigurationResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Read only. Inbound pools URIs that use this frontend IP.
+         */
+        inboundNatPools: outputs.network.SubResourceResponse[];
+        /**
+         * Read only. Inbound rules URIs that use this frontend IP.
+         */
+        inboundNatRules: outputs.network.SubResourceResponse[];
+        /**
+         * Gets load balancing rules URIs that use this frontend IP.
+         */
+        loadBalancingRules: outputs.network.SubResourceResponse[];
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Read only. Outbound rules URIs that use this frontend IP.
+         */
+        outboundRules: outputs.network.SubResourceResponse[];
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIPAddress?: string;
+        /**
+         * The Private IP allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * The reference of the Public IP resource.
+         */
+        publicIPAddress?: outputs.network.PublicIPAddressResponse;
+        /**
+         * The reference of the Public IP Prefix resource.
+         */
+        publicIPPrefix?: outputs.network.SubResourceResponse;
+        /**
+         * The reference of the subnet resource.
+         */
+        subnet?: outputs.network.SubnetResponse;
+        /**
+         * A list of availability zones denoting the IP allocated for the resource needs to come from.
+         */
+        zones?: string[];
+    }
+    /**
+     * frontendIPConfigurationResponseV1ProvideDefaults sets the appropriate defaults for FrontendIPConfigurationResponseV1
+     */
+    export function frontendIPConfigurationResponseV1ProvideDefaults(val: FrontendIPConfigurationResponseV1): FrontendIPConfigurationResponseV1 {
         return {
             ...val,
             publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.publicIPAddress) : undefined),
@@ -190732,6 +193420,45 @@ export namespace network {
     }
 
     /**
+     * IP configuration profile child resource.
+     */
+    export interface IPConfigurationProfileResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState: string;
+        /**
+         * The reference of the subnet resource to create a container network interface ip configuration.
+         */
+        subnet?: outputs.network.SubnetResponse;
+        /**
+         * Sub Resource type.
+         */
+        type: string;
+    }
+    /**
+     * ipconfigurationProfileResponseV1ProvideDefaults sets the appropriate defaults for IPConfigurationProfileResponseV1
+     */
+    export function ipconfigurationProfileResponseV1ProvideDefaults(val: IPConfigurationProfileResponseV1): IPConfigurationProfileResponseV1 {
+        return {
+            ...val,
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
      * IP configuration.
      */
     export interface IPConfigurationResponse {
@@ -190776,6 +193503,152 @@ export namespace network {
             ...val,
             privateIPAllocationMethod: (val.privateIPAllocationMethod) ?? "Dynamic",
             publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.publicIPAddress) : undefined),
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
+     * IP configuration
+     */
+    export interface IPConfigurationResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIPAddress?: string;
+        /**
+         * The private IP address allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * The reference of the public IP resource.
+         */
+        publicIPAddress?: outputs.network.PublicIPAddressResponseV1;
+        /**
+         * The reference of the subnet resource.
+         */
+        subnet?: outputs.network.SubnetResponse;
+    }
+    /**
+     * ipconfigurationResponseV1ProvideDefaults sets the appropriate defaults for IPConfigurationResponseV1
+     */
+    export function ipconfigurationResponseV1ProvideDefaults(val: IPConfigurationResponseV1): IPConfigurationResponseV1 {
+        return {
+            ...val,
+            publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseV1ProvideDefaults(val.publicIPAddress) : undefined),
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
+     * IP configuration.
+     */
+    export interface IPConfigurationResponseV2 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIPAddress?: string;
+        /**
+         * The private IP address allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * The provisioning state of the IP configuration resource.
+         */
+        provisioningState: string;
+        /**
+         * The reference to the public IP resource.
+         */
+        publicIPAddress?: outputs.network.PublicIPAddressResponseV2;
+        /**
+         * The reference to the subnet resource.
+         */
+        subnet?: outputs.network.SubnetResponse;
+    }
+    /**
+     * ipconfigurationResponseV2ProvideDefaults sets the appropriate defaults for IPConfigurationResponseV2
+     */
+    export function ipconfigurationResponseV2ProvideDefaults(val: IPConfigurationResponseV2): IPConfigurationResponseV2 {
+        return {
+            ...val,
+            privateIPAllocationMethod: (val.privateIPAllocationMethod) ?? "Dynamic",
+            publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseV2ProvideDefaults(val.publicIPAddress) : undefined),
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
+     * IP configuration.
+     */
+    export interface IPConfigurationResponseV3 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The private IP address of the IP configuration.
+         */
+        privateIPAddress?: string;
+        /**
+         * The private IP address allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * The provisioning state of the IP configuration resource.
+         */
+        provisioningState: string;
+        /**
+         * The reference to the public IP resource.
+         */
+        publicIPAddress?: outputs.network.PublicIPAddressResponseV3;
+        /**
+         * The reference to the subnet resource.
+         */
+        subnet?: outputs.network.SubnetResponse;
+    }
+    /**
+     * ipconfigurationResponseV3ProvideDefaults sets the appropriate defaults for IPConfigurationResponseV3
+     */
+    export function ipconfigurationResponseV3ProvideDefaults(val: IPConfigurationResponseV3): IPConfigurationResponseV3 {
+        return {
+            ...val,
+            privateIPAllocationMethod: (val.privateIPAllocationMethod) ?? "Dynamic",
+            publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseV3ProvideDefaults(val.publicIPAddress) : undefined),
             subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
         };
     }
@@ -190948,6 +193821,69 @@ export namespace network {
     }
 
     /**
+     * Inbound NAT rule of the load balancer.
+     */
+    export interface InboundNatRuleResponseV1 {
+        /**
+         * A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+         */
+        backendIPConfiguration: outputs.network.NetworkInterfaceIPConfigurationResponse;
+        /**
+         * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+         */
+        backendPort?: number;
+        /**
+         * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+         */
+        enableFloatingIP?: boolean;
+        /**
+         * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+         */
+        enableTcpReset?: boolean;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * A reference to frontend IP addresses.
+         */
+        frontendIPConfiguration?: outputs.network.SubResourceResponse;
+        /**
+         * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+         */
+        frontendPort?: number;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The reference to the transport protocol used by the load balancing rule.
+         */
+        protocol?: string;
+        /**
+         * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+    }
+    /**
+     * inboundNatRuleResponseV1ProvideDefaults sets the appropriate defaults for InboundNatRuleResponseV1
+     */
+    export function inboundNatRuleResponseV1ProvideDefaults(val: InboundNatRuleResponseV1): InboundNatRuleResponseV1 {
+        return {
+            ...val,
+            backendIPConfiguration: outputs.network.networkInterfaceIPConfigurationResponseProvideDefaults(val.backendIPConfiguration),
+        };
+    }
+
+    /**
      * Intent information.
      */
     export interface IntentContentResponse {
@@ -191009,7 +193945,7 @@ export namespace network {
         /**
          * The ID of the subnet from which the private IP will be allocated.
          */
-        subnet?: outputs.network.SubnetResponse;
+        subnet?: outputs.network.SubnetResponseV1;
         /**
          * Resource tags.
          */
@@ -191018,15 +193954,6 @@ export namespace network {
          * Resource type.
          */
         type: string;
-    }
-    /**
-     * interfaceEndpointResponseProvideDefaults sets the appropriate defaults for InterfaceEndpointResponse
-     */
-    export function interfaceEndpointResponseProvideDefaults(val: InterfaceEndpointResponse): InterfaceEndpointResponse {
-        return {
-            ...val,
-            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
-        };
     }
 
     /**
@@ -191534,11 +194461,151 @@ export namespace network {
          */
         publicIpAddresses?: outputs.network.SubResourceResponse[];
         /**
+         * An array of public ip prefixes associated with the nat gateway resource.
+         */
+        publicIpPrefixes?: outputs.network.SubResourceResponse[];
+        /**
+         * The resource GUID property of the NAT gateway resource.
+         */
+        resourceGuid: string;
+        /**
+         * The nat gateway SKU.
+         */
+        sku?: outputs.network.NatGatewaySkuResponse;
+        /**
+         * An array of references to the subnets using this nat gateway resource.
+         */
+        subnets: outputs.network.SubResourceResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+         */
+        zones?: string[];
+    }
+
+    /**
+     * Nat Gateway resource.
+     */
+    export interface NatGatewayResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The idle timeout of the nat gateway.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the NAT gateway resource.
+         */
+        provisioningState: string;
+        /**
+         * An array of public ip addresses V4 associated with the nat gateway resource.
+         */
+        publicIpAddresses?: outputs.network.SubResourceResponse[];
+        /**
          * An array of public ip addresses V6 associated with the nat gateway resource.
          */
         publicIpAddressesV6?: outputs.network.SubResourceResponse[];
         /**
-         * An array of public ip prefixes associated with the nat gateway resource.
+         * An array of public ip prefixes V4 associated with the nat gateway resource.
+         */
+        publicIpPrefixes?: outputs.network.SubResourceResponse[];
+        /**
+         * An array of public ip prefixes V6 associated with the nat gateway resource.
+         */
+        publicIpPrefixesV6?: outputs.network.SubResourceResponse[];
+        /**
+         * The resource GUID property of the NAT gateway resource.
+         */
+        resourceGuid: string;
+        /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: outputs.network.SubResourceResponse;
+        /**
+         * The nat gateway SKU.
+         */
+        sku?: outputs.network.NatGatewaySkuResponse;
+        /**
+         * A reference to the source virtual network using this nat gateway resource.
+         */
+        sourceVirtualNetwork?: outputs.network.SubResourceResponse;
+        /**
+         * An array of references to the subnets using this nat gateway resource.
+         */
+        subnets: outputs.network.SubResourceResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+         */
+        zones?: string[];
+    }
+
+    /**
+     * Nat Gateway resource.
+     */
+    export interface NatGatewayResponseV2 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The idle timeout of the nat gateway.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the NAT gateway resource.
+         */
+        provisioningState: string;
+        /**
+         * An array of public ip addresses V4 associated with the nat gateway resource.
+         */
+        publicIpAddresses?: outputs.network.SubResourceResponse[];
+        /**
+         * An array of public ip addresses V6 associated with the nat gateway resource.
+         */
+        publicIpAddressesV6?: outputs.network.SubResourceResponse[];
+        /**
+         * An array of public ip prefixes V4 associated with the nat gateway resource.
          */
         publicIpPrefixes?: outputs.network.SubResourceResponse[];
         /**
@@ -191724,6 +194791,32 @@ export namespace network {
     }
 
     /**
+     * DNS settings of a network interface.
+     */
+    export interface NetworkInterfaceDnsSettingsResponseV1 {
+        /**
+         * If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
+         */
+        appliedDnsServers?: string[];
+        /**
+         * List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
+         */
+        dnsServers?: string[];
+        /**
+         * Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
+         */
+        internalDnsNameLabel?: string;
+        /**
+         * Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
+         */
+        internalDomainNameSuffix?: string;
+        /**
+         * Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
+         */
+        internalFqdn?: string;
+    }
+
+    /**
      * PrivateLinkConnection properties for the network interface.
      */
     export interface NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse {
@@ -191834,6 +194927,82 @@ export namespace network {
     }
 
     /**
+     * IPConfiguration in a network interface.
+     */
+    export interface NetworkInterfaceIPConfigurationResponseV1 {
+        /**
+         * The reference of ApplicationGatewayBackendAddressPool resource.
+         */
+        applicationGatewayBackendAddressPools?: outputs.network.ApplicationGatewayBackendAddressPoolResponseV1[];
+        /**
+         * Application security groups in which the IP configuration is included.
+         */
+        applicationSecurityGroups?: outputs.network.ApplicationSecurityGroupResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The reference of LoadBalancerBackendAddressPool resource.
+         */
+        loadBalancerBackendAddressPools?: outputs.network.BackendAddressPoolResponseV1[];
+        /**
+         * A list of references of LoadBalancerInboundNatRules.
+         */
+        loadBalancerInboundNatRules?: outputs.network.InboundNatRuleResponseV1[];
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Gets whether this is a primary customer address on the network interface.
+         */
+        primary?: boolean;
+        /**
+         * Private IP address of the IP configuration.
+         */
+        privateIPAddress?: string;
+        /**
+         * Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+         */
+        privateIPAddressVersion?: string;
+        /**
+         * The private IP address allocation method.
+         */
+        privateIPAllocationMethod?: string;
+        /**
+         * The provisioning state of the network interface IP configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * Public IP address bound to the IP configuration.
+         */
+        publicIPAddress?: outputs.network.PublicIPAddressResponse;
+        /**
+         * Subnet bound to the IP configuration.
+         */
+        subnet?: outputs.network.SubnetResponse;
+        /**
+         * The reference to Virtual Network Taps.
+         */
+        virtualNetworkTaps?: outputs.network.VirtualNetworkTapResponseV1[];
+    }
+    /**
+     * networkInterfaceIPConfigurationResponseV1ProvideDefaults sets the appropriate defaults for NetworkInterfaceIPConfigurationResponseV1
+     */
+    export function networkInterfaceIPConfigurationResponseV1ProvideDefaults(val: NetworkInterfaceIPConfigurationResponseV1): NetworkInterfaceIPConfigurationResponseV1 {
+        return {
+            ...val,
+            publicIPAddress: (val.publicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.publicIPAddress) : undefined),
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
      * A network interface in a resource group.
      */
     export interface NetworkInterfaceResponse {
@@ -191885,10 +195054,6 @@ export namespace network {
          * Resource ID.
          */
         id?: string;
-        /**
-         * A reference to the interface endpoint to which the network interface is linked.
-         */
-        interfaceEndpoint?: outputs.network.InterfaceEndpointResponse;
         /**
          * A list of IPConfigurations of the network interface.
          */
@@ -191968,8 +195133,359 @@ export namespace network {
     export function networkInterfaceResponseProvideDefaults(val: NetworkInterfaceResponse): NetworkInterfaceResponse {
         return {
             ...val,
-            interfaceEndpoint: (val.interfaceEndpoint ? outputs.network.interfaceEndpointResponseProvideDefaults(val.interfaceEndpoint) : undefined),
             privateEndpoint: outputs.network.privateEndpointResponseProvideDefaults(val.privateEndpoint),
+        };
+    }
+
+    /**
+     * A network interface in a resource group.
+     */
+    export interface NetworkInterfaceResponseV1 {
+        /**
+         * The DNS settings in network interface.
+         */
+        dnsSettings?: outputs.network.NetworkInterfaceDnsSettingsResponseV1;
+        /**
+         * If the network interface is accelerated networking enabled.
+         */
+        enableAcceleratedNetworking?: boolean;
+        /**
+         * Indicates whether IP forwarding is enabled on this network interface.
+         */
+        enableIPForwarding?: boolean;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * A list of references to linked BareMetal resources
+         */
+        hostedWorkloads: string[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * A reference to the interface endpoint to which the network interface is linked.
+         */
+        interfaceEndpoint: outputs.network.InterfaceEndpointResponse;
+        /**
+         * A list of IPConfigurations of the network interface.
+         */
+        ipConfigurations?: outputs.network.NetworkInterfaceIPConfigurationResponseV1[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * The MAC address of the network interface.
+         */
+        macAddress?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The reference of the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponse;
+        /**
+         * Gets whether this is a primary network interface on a virtual machine.
+         */
+        primary?: boolean;
+        /**
+         * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * The resource GUID property of the network interface resource.
+         */
+        resourceGuid?: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * A list of TapConfigurations of the network interface.
+         */
+        tapConfigurations?: outputs.network.NetworkInterfaceTapConfigurationResponse[];
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * The reference of a virtual machine.
+         */
+        virtualMachine: outputs.network.SubResourceResponse;
+    }
+
+    /**
+     * A network interface in a resource group.
+     */
+    export interface NetworkInterfaceResponseV2 {
+        /**
+         * Auxiliary mode of Network Interface resource.
+         */
+        auxiliaryMode?: string;
+        /**
+         * Auxiliary sku of Network Interface resource.
+         */
+        auxiliarySku?: string;
+        /**
+         * Whether default outbound connectivity for nic was configured or not.
+         */
+        defaultOutboundConnectivityEnabled: boolean;
+        /**
+         * Indicates whether to disable tcp state tracking.
+         */
+        disableTcpStateTracking?: boolean;
+        /**
+         * The DNS settings in network interface.
+         */
+        dnsSettings?: outputs.network.NetworkInterfaceDnsSettingsResponse;
+        /**
+         * A reference to the dscp configuration to which the network interface is linked.
+         */
+        dscpConfiguration: outputs.network.SubResourceResponse;
+        /**
+         * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
+         */
+        enableAcceleratedNetworking?: boolean;
+        /**
+         * Indicates whether IP forwarding is enabled on this network interface.
+         */
+        enableIPForwarding?: boolean;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the network interface.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * A list of references to linked BareMetal resources.
+         */
+        hostedWorkloads: string[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * A list of IPConfigurations of the network interface.
+         */
+        ipConfigurations?: outputs.network.NetworkInterfaceIPConfigurationResponse[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * The MAC address of the network interface.
+         */
+        macAddress: string;
+        /**
+         * Migration phase of Network Interface resource.
+         */
+        migrationPhase?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The reference to the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponse;
+        /**
+         * Type of Network Interface resource.
+         */
+        nicType?: string;
+        /**
+         * Whether this is a primary network interface on a virtual machine.
+         */
+        primary: boolean;
+        /**
+         * A reference to the private endpoint to which the network interface is linked.
+         */
+        privateEndpoint: outputs.network.PrivateEndpointResponseV1;
+        /**
+         * Privatelinkservice of the network interface resource.
+         */
+        privateLinkService?: outputs.network.PrivateLinkServiceResponseV1;
+        /**
+         * The provisioning state of the network interface resource.
+         */
+        provisioningState: string;
+        /**
+         * The resource GUID property of the network interface resource.
+         */
+        resourceGuid: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * A list of TapConfigurations of the network interface.
+         */
+        tapConfigurations: outputs.network.NetworkInterfaceTapConfigurationResponse[];
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * The reference to a virtual machine.
+         */
+        virtualMachine: outputs.network.SubResourceResponse;
+        /**
+         * Whether the virtual machine this nic is attached to supports encryption.
+         */
+        vnetEncryptionSupported: boolean;
+        /**
+         * WorkloadType of the NetworkInterface for BareMetal resources
+         */
+        workloadType?: string;
+    }
+    /**
+     * networkInterfaceResponseV2ProvideDefaults sets the appropriate defaults for NetworkInterfaceResponseV2
+     */
+    export function networkInterfaceResponseV2ProvideDefaults(val: NetworkInterfaceResponseV2): NetworkInterfaceResponseV2 {
+        return {
+            ...val,
+            privateEndpoint: outputs.network.privateEndpointResponseV1ProvideDefaults(val.privateEndpoint),
+        };
+    }
+
+    /**
+     * A network interface in a resource group.
+     */
+    export interface NetworkInterfaceResponseV3 {
+        /**
+         * Auxiliary mode of Network Interface resource.
+         */
+        auxiliaryMode?: string;
+        /**
+         * Auxiliary sku of Network Interface resource.
+         */
+        auxiliarySku?: string;
+        /**
+         * Whether default outbound connectivity for nic was configured or not.
+         */
+        defaultOutboundConnectivityEnabled: boolean;
+        /**
+         * Indicates whether to disable tcp state tracking.
+         */
+        disableTcpStateTracking?: boolean;
+        /**
+         * The DNS settings in network interface.
+         */
+        dnsSettings?: outputs.network.NetworkInterfaceDnsSettingsResponse;
+        /**
+         * A reference to the dscp configuration to which the network interface is linked.
+         */
+        dscpConfiguration: outputs.network.SubResourceResponse;
+        /**
+         * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
+         */
+        enableAcceleratedNetworking?: boolean;
+        /**
+         * Indicates whether IP forwarding is enabled on this network interface.
+         */
+        enableIPForwarding?: boolean;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the network interface.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * A list of references to linked BareMetal resources.
+         */
+        hostedWorkloads: string[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * A list of IPConfigurations of the network interface.
+         */
+        ipConfigurations?: outputs.network.NetworkInterfaceIPConfigurationResponse[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * The MAC address of the network interface.
+         */
+        macAddress: string;
+        /**
+         * Migration phase of Network Interface resource.
+         */
+        migrationPhase?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The reference to the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponse;
+        /**
+         * Type of Network Interface resource.
+         */
+        nicType?: string;
+        /**
+         * Whether this is a primary network interface on a virtual machine.
+         */
+        primary: boolean;
+        /**
+         * A reference to the private endpoint to which the network interface is linked.
+         */
+        privateEndpoint: outputs.network.PrivateEndpointResponseV2;
+        /**
+         * Privatelinkservice of the network interface resource.
+         */
+        privateLinkService?: outputs.network.PrivateLinkServiceResponseV2;
+        /**
+         * The provisioning state of the network interface resource.
+         */
+        provisioningState: string;
+        /**
+         * The resource GUID property of the network interface resource.
+         */
+        resourceGuid: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * A list of TapConfigurations of the network interface.
+         */
+        tapConfigurations: outputs.network.NetworkInterfaceTapConfigurationResponse[];
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * The reference to a virtual machine.
+         */
+        virtualMachine: outputs.network.SubResourceResponse;
+        /**
+         * Whether the virtual machine this nic is attached to supports encryption.
+         */
+        vnetEncryptionSupported: boolean;
+        /**
+         * WorkloadType of the NetworkInterface for BareMetal resources
+         */
+        workloadType?: string;
+    }
+    /**
+     * networkInterfaceResponseV3ProvideDefaults sets the appropriate defaults for NetworkInterfaceResponseV3
+     */
+    export function networkInterfaceResponseV3ProvideDefaults(val: NetworkInterfaceResponseV3): NetworkInterfaceResponseV3 {
+        return {
+            ...val,
+            privateEndpoint: outputs.network.privateEndpointResponseV2ProvideDefaults(val.privateEndpoint),
         };
     }
 
@@ -192006,6 +195522,45 @@ export namespace network {
      * networkInterfaceTapConfigurationResponseProvideDefaults sets the appropriate defaults for NetworkInterfaceTapConfigurationResponse
      */
     export function networkInterfaceTapConfigurationResponseProvideDefaults(val: NetworkInterfaceTapConfigurationResponse): NetworkInterfaceTapConfigurationResponse {
+        return {
+            ...val,
+            virtualNetworkTap: (val.virtualNetworkTap ? outputs.network.virtualNetworkTapResponseProvideDefaults(val.virtualNetworkTap) : undefined),
+        };
+    }
+
+    /**
+     * Tap configuration in a Network Interface
+     */
+    export interface NetworkInterfaceTapConfigurationResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The provisioning state of the network interface tap configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState: string;
+        /**
+         * Sub Resource type.
+         */
+        type: string;
+        /**
+         * The reference of the Virtual Network Tap resource.
+         */
+        virtualNetworkTap?: outputs.network.VirtualNetworkTapResponse;
+    }
+    /**
+     * networkInterfaceTapConfigurationResponseV1ProvideDefaults sets the appropriate defaults for NetworkInterfaceTapConfigurationResponseV1
+     */
+    export function networkInterfaceTapConfigurationResponseV1ProvideDefaults(val: NetworkInterfaceTapConfigurationResponseV1): NetworkInterfaceTapConfigurationResponseV1 {
         return {
             ...val,
             virtualNetworkTap: (val.virtualNetworkTap ? outputs.network.virtualNetworkTapResponseProvideDefaults(val.virtualNetworkTap) : undefined),
@@ -192078,6 +195633,36 @@ export namespace network {
          * Network manager group Id.
          */
         networkGroupId: string;
+    }
+
+    /**
+     * Network manager security group item.
+     */
+    export interface NetworkManagerSecurityGroupItemResponseV1 {
+        /**
+         * Network manager group Id.
+         */
+        networkGroupId?: string;
+    }
+
+    /**
+     * Network manager security group item.
+     */
+    export interface NetworkManagerSecurityGroupItemResponseV2 {
+        /**
+         * Network manager group Id.
+         */
+        networkGroupId?: string;
+    }
+
+    /**
+     * Network manager security group item.
+     */
+    export interface NetworkManagerSecurityGroupItemResponseV3 {
+        /**
+         * Network manager group Id.
+         */
+        networkGroupId?: string;
     }
 
     /**
@@ -192206,6 +195791,184 @@ export namespace network {
          * A collection of references to network interfaces.
          */
         networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+        /**
+         * The provisioning state of the network security group resource.
+         */
+        provisioningState: string;
+        /**
+         * The resource GUID property of the network security group resource.
+         */
+        resourceGuid: string;
+        /**
+         * A collection of security rules of the network security group.
+         */
+        securityRules?: outputs.network.SecurityRuleResponse[];
+        /**
+         * A collection of references to subnets.
+         */
+        subnets: outputs.network.SubnetResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * NetworkSecurityGroup resource.
+     */
+    export interface NetworkSecurityGroupResponseV1 {
+        /**
+         * The default security rules of network security group.
+         */
+        defaultSecurityRules?: outputs.network.SecurityRuleResponseV1[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * A collection of references to network interfaces.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+        /**
+         * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * The resource GUID property of the network security group resource.
+         */
+        resourceGuid?: string;
+        /**
+         * A collection of security rules of the network security group.
+         */
+        securityRules?: outputs.network.SecurityRuleResponse[];
+        /**
+         * A collection of references to subnets.
+         */
+        subnets: outputs.network.SubnetResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * NetworkSecurityGroup resource.
+     */
+    export interface NetworkSecurityGroupResponseV2 {
+        /**
+         * The default security rules of network security group.
+         */
+        defaultSecurityRules: outputs.network.SecurityRuleResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * A collection of references to flow log resources.
+         */
+        flowLogs: outputs.network.FlowLogResponseV1[];
+        /**
+         * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+         */
+        flushConnection?: boolean;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * A collection of references to network interfaces.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponseV2[];
+        /**
+         * The provisioning state of the network security group resource.
+         */
+        provisioningState: string;
+        /**
+         * The resource GUID property of the network security group resource.
+         */
+        resourceGuid: string;
+        /**
+         * A collection of security rules of the network security group.
+         */
+        securityRules?: outputs.network.SecurityRuleResponse[];
+        /**
+         * A collection of references to subnets.
+         */
+        subnets: outputs.network.SubnetResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
+     * NetworkSecurityGroup resource.
+     */
+    export interface NetworkSecurityGroupResponseV3 {
+        /**
+         * The default security rules of network security group.
+         */
+        defaultSecurityRules: outputs.network.SecurityRuleResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * A collection of references to flow log resources.
+         */
+        flowLogs: outputs.network.FlowLogResponseV2[];
+        /**
+         * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+         */
+        flushConnection?: boolean;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * A collection of references to network interfaces.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponseV3[];
         /**
          * The provisioning state of the network security group resource.
          */
@@ -193109,6 +196872,85 @@ export namespace network {
          */
         ipConfigurations?: outputs.network.PrivateEndpointIPConfigurationResponse[];
         /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+         */
+        manualPrivateLinkServiceConnections?: outputs.network.PrivateLinkServiceConnectionResponse[];
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * An array of references to the network interfaces created for this private endpoint.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+        /**
+         * A grouping of information about the connection to the remote resource.
+         */
+        privateLinkServiceConnections?: outputs.network.PrivateLinkServiceConnectionResponse[];
+        /**
+         * The provisioning state of the private endpoint resource.
+         */
+        provisioningState: string;
+        /**
+         * The ID of the subnet from which the private IP will be allocated.
+         */
+        subnet?: outputs.network.SubnetResponse;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+    /**
+     * privateEndpointResponseProvideDefaults sets the appropriate defaults for PrivateEndpointResponse
+     */
+    export function privateEndpointResponseProvideDefaults(val: PrivateEndpointResponse): PrivateEndpointResponse {
+        return {
+            ...val,
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
+     * Private endpoint resource.
+     */
+    export interface PrivateEndpointResponseV1 {
+        /**
+         * Application security groups in which the private endpoint IP configuration is included.
+         */
+        applicationSecurityGroups?: outputs.network.ApplicationSecurityGroupResponse[];
+        /**
+         * An array of custom dns configurations.
+         */
+        customDnsConfigs?: outputs.network.CustomDnsConfigPropertiesFormatResponse[];
+        /**
+         * The custom name of the network interface attached to the private endpoint.
+         */
+        customNetworkInterfaceName?: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the load balancer.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+         */
+        ipConfigurations?: outputs.network.PrivateEndpointIPConfigurationResponse[];
+        /**
          * Specifies the IP version type for the private IPs of the private endpoint. If not defined, this defaults to IPv4.
          */
         ipVersionType?: string;
@@ -193150,9 +196992,93 @@ export namespace network {
         type: string;
     }
     /**
-     * privateEndpointResponseProvideDefaults sets the appropriate defaults for PrivateEndpointResponse
+     * privateEndpointResponseV1ProvideDefaults sets the appropriate defaults for PrivateEndpointResponseV1
      */
-    export function privateEndpointResponseProvideDefaults(val: PrivateEndpointResponse): PrivateEndpointResponse {
+    export function privateEndpointResponseV1ProvideDefaults(val: PrivateEndpointResponseV1): PrivateEndpointResponseV1 {
+        return {
+            ...val,
+            ipVersionType: (val.ipVersionType) ?? "IPv4",
+            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+        };
+    }
+
+    /**
+     * Private endpoint resource.
+     */
+    export interface PrivateEndpointResponseV2 {
+        /**
+         * Application security groups in which the private endpoint IP configuration is included.
+         */
+        applicationSecurityGroups?: outputs.network.ApplicationSecurityGroupResponse[];
+        /**
+         * An array of custom dns configurations.
+         */
+        customDnsConfigs?: outputs.network.CustomDnsConfigPropertiesFormatResponse[];
+        /**
+         * The custom name of the network interface attached to the private endpoint.
+         */
+        customNetworkInterfaceName?: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the load balancer.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+         */
+        ipConfigurations?: outputs.network.PrivateEndpointIPConfigurationResponse[];
+        /**
+         * Specifies the IP version type for the private IPs of the private endpoint. If not defined, this defaults to IPv4.
+         */
+        ipVersionType?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+         */
+        manualPrivateLinkServiceConnections?: outputs.network.PrivateLinkServiceConnectionResponse[];
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * An array of references to the network interfaces created for this private endpoint.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+        /**
+         * A grouping of information about the connection to the remote resource.
+         */
+        privateLinkServiceConnections?: outputs.network.PrivateLinkServiceConnectionResponse[];
+        /**
+         * The provisioning state of the private endpoint resource.
+         */
+        provisioningState: string;
+        /**
+         * The ID of the subnet from which the private IP will be allocated.
+         */
+        subnet?: outputs.network.SubnetResponse;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+    /**
+     * privateEndpointResponseV2ProvideDefaults sets the appropriate defaults for PrivateEndpointResponseV2
+     */
+    export function privateEndpointResponseV2ProvideDefaults(val: PrivateEndpointResponseV2): PrivateEndpointResponseV2 {
         return {
             ...val,
             ipVersionType: (val.ipVersionType) ?? "IPv4",
@@ -193299,6 +197225,166 @@ export namespace network {
      * Private link service resource.
      */
     export interface PrivateLinkServiceResponse {
+        /**
+         * The alias of the private link service.
+         */
+        alias: string;
+        /**
+         * The auto-approval list of the private link service.
+         */
+        autoApproval?: outputs.network.PrivateLinkServicePropertiesResponseAutoApproval;
+        /**
+         * The destination IP address of the private link service.
+         */
+        destinationIPAddress?: string;
+        /**
+         * Whether the private link service is enabled for proxy protocol or not.
+         */
+        enableProxyProtocol?: boolean;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the load balancer.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * The list of Fqdn.
+         */
+        fqdns?: string[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * An array of private link service IP configurations.
+         */
+        ipConfigurations?: outputs.network.PrivateLinkServiceIpConfigurationResponse[];
+        /**
+         * An array of references to the load balancer IP configurations.
+         */
+        loadBalancerFrontendIpConfigurations?: outputs.network.FrontendIPConfigurationResponse[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * An array of references to the network interfaces created for this private link service.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+        /**
+         * An array of list about connections to the private endpoint.
+         */
+        privateEndpointConnections: outputs.network.PrivateEndpointConnectionResponse[];
+        /**
+         * The provisioning state of the private link service resource.
+         */
+        provisioningState: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * The visibility list of the private link service.
+         */
+        visibility?: outputs.network.PrivateLinkServicePropertiesResponseVisibility;
+    }
+
+    /**
+     * Private link service resource.
+     */
+    export interface PrivateLinkServiceResponseV1 {
+        /**
+         * The access mode of the private link service.
+         */
+        accessMode?: string;
+        /**
+         * The alias of the private link service.
+         */
+        alias: string;
+        /**
+         * The auto-approval list of the private link service.
+         */
+        autoApproval?: outputs.network.PrivateLinkServicePropertiesResponseAutoApproval;
+        /**
+         * The destination IP address of the private link service.
+         */
+        destinationIPAddress?: string;
+        /**
+         * Whether the private link service is enabled for proxy protocol or not.
+         */
+        enableProxyProtocol?: boolean;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the load balancer.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * The list of Fqdn.
+         */
+        fqdns?: string[];
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * An array of private link service IP configurations.
+         */
+        ipConfigurations?: outputs.network.PrivateLinkServiceIpConfigurationResponse[];
+        /**
+         * An array of references to the load balancer IP configurations.
+         */
+        loadBalancerFrontendIpConfigurations?: outputs.network.FrontendIPConfigurationResponse[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * An array of references to the network interfaces created for this private link service.
+         */
+        networkInterfaces: outputs.network.NetworkInterfaceResponse[];
+        /**
+         * An array of list about connections to the private endpoint.
+         */
+        privateEndpointConnections: outputs.network.PrivateEndpointConnectionResponse[];
+        /**
+         * The provisioning state of the private link service resource.
+         */
+        provisioningState: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * The visibility list of the private link service.
+         */
+        visibility?: outputs.network.PrivateLinkServicePropertiesResponseVisibility;
+    }
+
+    /**
+     * Private link service resource.
+     */
+    export interface PrivateLinkServiceResponseV2 {
         /**
          * The access mode of the private link service.
          */
@@ -193472,6 +197558,24 @@ export namespace network {
     }
 
     /**
+     * Contains FQDN of the DNS record associated with the public IP address
+     */
+    export interface PublicIPAddressDnsSettingsResponseV1 {
+        /**
+         * Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+         */
+        domainNameLabel?: string;
+        /**
+         * Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+         */
+        fqdn?: string;
+        /**
+         * Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+         */
+        reverseFqdn?: string;
+    }
+
+    /**
      * Public IP address resource.
      */
     export interface PublicIPAddressResponse {
@@ -193589,6 +197693,331 @@ export namespace network {
     }
 
     /**
+     * Public IP address resource.
+     */
+    export interface PublicIPAddressResponseV1 {
+        /**
+         * The DDoS protection custom policy associated with the public IP address.
+         */
+        ddosSettings?: outputs.network.DdosSettingsResponseV1;
+        /**
+         * The FQDN of the DNS record associated with the public IP address.
+         */
+        dnsSettings?: outputs.network.PublicIPAddressDnsSettingsResponseV1;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The idle timeout of the public IP address.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * The IP address associated with the public IP address resource.
+         */
+        ipAddress?: string;
+        /**
+         * The IP configuration associated with the public IP address.
+         */
+        ipConfiguration: outputs.network.IPConfigurationResponse;
+        /**
+         * The list of tags associated with the public IP address.
+         */
+        ipTags?: outputs.network.IpTagResponse[];
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * The public IP address version.
+         */
+        publicIPAddressVersion?: string;
+        /**
+         * The public IP address allocation method.
+         */
+        publicIPAllocationMethod?: string;
+        /**
+         * The Public IP Prefix this Public IP Address should be allocated from.
+         */
+        publicIPPrefix?: outputs.network.SubResourceResponse;
+        /**
+         * The resource GUID property of the public IP resource.
+         */
+        resourceGuid?: string;
+        /**
+         * The public IP address SKU.
+         */
+        sku?: outputs.network.PublicIPAddressSkuResponseV1;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * A list of availability zones denoting the IP allocated for the resource needs to come from.
+         */
+        zones?: string[];
+    }
+    /**
+     * publicIPAddressResponseV1ProvideDefaults sets the appropriate defaults for PublicIPAddressResponseV1
+     */
+    export function publicIPAddressResponseV1ProvideDefaults(val: PublicIPAddressResponseV1): PublicIPAddressResponseV1 {
+        return {
+            ...val,
+            ipConfiguration: outputs.network.ipconfigurationResponseProvideDefaults(val.ipConfiguration),
+        };
+    }
+
+    /**
+     * Public IP address resource.
+     */
+    export interface PublicIPAddressResponseV2 {
+        /**
+         * The DDoS protection custom policy associated with the public IP address.
+         */
+        ddosSettings?: outputs.network.DdosSettingsResponse;
+        /**
+         * Specify what happens to the public IP address when the VM using it is deleted
+         */
+        deleteOption?: string;
+        /**
+         * The FQDN of the DNS record associated with the public IP address.
+         */
+        dnsSettings?: outputs.network.PublicIPAddressDnsSettingsResponse;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the public ip address.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The idle timeout of the public IP address.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * The IP address associated with the public IP address resource.
+         */
+        ipAddress?: string;
+        /**
+         * The IP configuration associated with the public IP address.
+         */
+        ipConfiguration: outputs.network.IPConfigurationResponse;
+        /**
+         * The list of tags associated with the public IP address.
+         */
+        ipTags?: outputs.network.IpTagResponse[];
+        /**
+         * The linked public IP address of the public IP address resource.
+         */
+        linkedPublicIPAddress?: outputs.network.PublicIPAddressResponse;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Migration phase of Public IP Address.
+         */
+        migrationPhase?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The NatGateway for the Public IP address.
+         */
+        natGateway?: outputs.network.NatGatewayResponseV1;
+        /**
+         * The provisioning state of the public IP address resource.
+         */
+        provisioningState: string;
+        /**
+         * The public IP address version.
+         */
+        publicIPAddressVersion?: string;
+        /**
+         * The public IP address allocation method.
+         */
+        publicIPAllocationMethod?: string;
+        /**
+         * The Public IP Prefix this Public IP Address should be allocated from.
+         */
+        publicIPPrefix?: outputs.network.SubResourceResponse;
+        /**
+         * The resource GUID property of the public IP address resource.
+         */
+        resourceGuid: string;
+        /**
+         * The service public IP address of the public IP address resource.
+         */
+        servicePublicIPAddress?: outputs.network.PublicIPAddressResponse;
+        /**
+         * The public IP address SKU.
+         */
+        sku?: outputs.network.PublicIPAddressSkuResponse;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * A list of availability zones denoting the IP allocated for the resource needs to come from.
+         */
+        zones?: string[];
+    }
+    /**
+     * publicIPAddressResponseV2ProvideDefaults sets the appropriate defaults for PublicIPAddressResponseV2
+     */
+    export function publicIPAddressResponseV2ProvideDefaults(val: PublicIPAddressResponseV2): PublicIPAddressResponseV2 {
+        return {
+            ...val,
+            ipConfiguration: outputs.network.ipconfigurationResponseProvideDefaults(val.ipConfiguration),
+            linkedPublicIPAddress: (val.linkedPublicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.linkedPublicIPAddress) : undefined),
+            servicePublicIPAddress: (val.servicePublicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.servicePublicIPAddress) : undefined),
+        };
+    }
+
+    /**
+     * Public IP address resource.
+     */
+    export interface PublicIPAddressResponseV3 {
+        /**
+         * The DDoS protection custom policy associated with the public IP address.
+         */
+        ddosSettings?: outputs.network.DdosSettingsResponse;
+        /**
+         * Specify what happens to the public IP address when the VM using it is deleted
+         */
+        deleteOption?: string;
+        /**
+         * The FQDN of the DNS record associated with the public IP address.
+         */
+        dnsSettings?: outputs.network.PublicIPAddressDnsSettingsResponse;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * The extended location of the public ip address.
+         */
+        extendedLocation?: outputs.network.ExtendedLocationResponse;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The idle timeout of the public IP address.
+         */
+        idleTimeoutInMinutes?: number;
+        /**
+         * The IP address associated with the public IP address resource.
+         */
+        ipAddress?: string;
+        /**
+         * The IP configuration associated with the public IP address.
+         */
+        ipConfiguration: outputs.network.IPConfigurationResponse;
+        /**
+         * The list of tags associated with the public IP address.
+         */
+        ipTags?: outputs.network.IpTagResponse[];
+        /**
+         * The linked public IP address of the public IP address resource.
+         */
+        linkedPublicIPAddress?: outputs.network.PublicIPAddressResponse;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Migration phase of Public IP Address.
+         */
+        migrationPhase?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The NatGateway for the Public IP address.
+         */
+        natGateway?: outputs.network.NatGatewayResponseV2;
+        /**
+         * The provisioning state of the public IP address resource.
+         */
+        provisioningState: string;
+        /**
+         * The public IP address version.
+         */
+        publicIPAddressVersion?: string;
+        /**
+         * The public IP address allocation method.
+         */
+        publicIPAllocationMethod?: string;
+        /**
+         * The Public IP Prefix this Public IP Address should be allocated from.
+         */
+        publicIPPrefix?: outputs.network.SubResourceResponse;
+        /**
+         * The resource GUID property of the public IP address resource.
+         */
+        resourceGuid: string;
+        /**
+         * The service public IP address of the public IP address resource.
+         */
+        servicePublicIPAddress?: outputs.network.PublicIPAddressResponse;
+        /**
+         * The public IP address SKU.
+         */
+        sku?: outputs.network.PublicIPAddressSkuResponse;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+        /**
+         * A list of availability zones denoting the IP allocated for the resource needs to come from.
+         */
+        zones?: string[];
+    }
+    /**
+     * publicIPAddressResponseV3ProvideDefaults sets the appropriate defaults for PublicIPAddressResponseV3
+     */
+    export function publicIPAddressResponseV3ProvideDefaults(val: PublicIPAddressResponseV3): PublicIPAddressResponseV3 {
+        return {
+            ...val,
+            ipConfiguration: outputs.network.ipconfigurationResponseProvideDefaults(val.ipConfiguration),
+            linkedPublicIPAddress: (val.linkedPublicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.linkedPublicIPAddress) : undefined),
+            servicePublicIPAddress: (val.servicePublicIPAddress ? outputs.network.publicIPAddressResponseProvideDefaults(val.servicePublicIPAddress) : undefined),
+        };
+    }
+
+    /**
      * SKU of a public IP address.
      */
     export interface PublicIPAddressSkuResponse {
@@ -193600,6 +198029,16 @@ export namespace network {
          * Tier of a public IP address SKU.
          */
         tier?: string;
+    }
+
+    /**
+     * SKU of a public IP address
+     */
+    export interface PublicIPAddressSkuResponseV1 {
+        /**
+         * Name of a public IP address SKU.
+         */
+        name?: string;
     }
 
     /**
@@ -193861,6 +198300,36 @@ export namespace network {
     }
 
     /**
+     * ResourceNavigationLink resource.
+     */
+    export interface ResourceNavigationLinkResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Link to the external resource
+         */
+        link?: string;
+        /**
+         * Resource type of the linked resource.
+         */
+        linkedResourceType?: string;
+        /**
+         * Name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Provisioning state of the ResourceNavigationLink resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
      * Parameters that define the retention policy for flow log.
      */
     export interface RetentionPolicyParametersResponse {
@@ -193986,6 +198455,40 @@ export namespace network {
         type?: string;
     }
 
+    /**
+     * Route resource
+     */
+    export interface RouteResponseV1 {
+        /**
+         * The destination CIDR to which the route applies.
+         */
+        addressPrefix?: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+         */
+        nextHopIpAddress?: string;
+        /**
+         * The type of Azure hop the packet should be sent to.
+         */
+        nextHopType: string;
+        /**
+         * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+    }
+
     export interface RouteSourceDetailsResponse {
         /**
          * Express Route Circuit identifier
@@ -194052,6 +198555,52 @@ export namespace network {
     }
 
     /**
+     * Route table resource.
+     */
+    export interface RouteTableResponseV1 {
+        /**
+         * Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+         */
+        disableBgpRoutePropagation?: boolean;
+        /**
+         * Gets a unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * Collection of routes contained within a route table.
+         */
+        routes?: outputs.network.RouteResponseV1[];
+        /**
+         * A collection of references to subnets.
+         */
+        subnets: outputs.network.SubnetResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
      * Properties of route target address
      */
     export interface RouteTargetAddressPropertiesFormatResponse {
@@ -194066,7 +198615,7 @@ export namespace network {
         /**
          * The reference to the subnet resource.
          */
-        subnet?: outputs.network.SubnetResponse;
+        subnet?: outputs.network.SubnetResponseV2;
     }
     /**
      * routeTargetAddressPropertiesFormatResponseProvideDefaults sets the appropriate defaults for RouteTargetAddressPropertiesFormatResponse
@@ -194074,7 +198623,7 @@ export namespace network {
     export function routeTargetAddressPropertiesFormatResponseProvideDefaults(val: RouteTargetAddressPropertiesFormatResponse): RouteTargetAddressPropertiesFormatResponse {
         return {
             ...val,
-            subnet: (val.subnet ? outputs.network.subnetResponseProvideDefaults(val.subnet) : undefined),
+            subnet: (val.subnet ? outputs.network.subnetResponseV2ProvideDefaults(val.subnet) : undefined),
         };
     }
 
@@ -194237,6 +198786,88 @@ export namespace network {
     }
 
     /**
+     * Network security rule.
+     */
+    export interface SecurityRuleResponseV1 {
+        /**
+         * The network traffic is allowed or denied.
+         */
+        access: string;
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description?: string;
+        /**
+         * The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+         */
+        destinationAddressPrefix?: string;
+        /**
+         * The destination address prefixes. CIDR or destination IP ranges.
+         */
+        destinationAddressPrefixes?: string[];
+        /**
+         * The application security group specified as destination.
+         */
+        destinationApplicationSecurityGroups?: outputs.network.ApplicationSecurityGroupResponse[];
+        /**
+         * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+         */
+        destinationPortRange?: string;
+        /**
+         * The destination port ranges.
+         */
+        destinationPortRanges?: string[];
+        /**
+         * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+         */
+        direction: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+         */
+        priority?: number;
+        /**
+         * Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', 'Icmp', 'Esp', and '*'.
+         */
+        protocol: string;
+        /**
+         * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState?: string;
+        /**
+         * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+         */
+        sourceAddressPrefix?: string;
+        /**
+         * The CIDR or source IP ranges.
+         */
+        sourceAddressPrefixes?: string[];
+        /**
+         * The application security group specified as source.
+         */
+        sourceApplicationSecurityGroups?: outputs.network.ApplicationSecurityGroupResponse[];
+        /**
+         * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+         */
+        sourcePortRange?: string;
+        /**
+         * The source port ranges.
+         */
+        sourcePortRanges?: string[];
+    }
+
+    /**
      * Network manager security user group item.
      */
     export interface SecurityUserGroupItemResponse {
@@ -194289,6 +198920,36 @@ export namespace network {
     }
 
     /**
+     * ServiceAssociationLink resource.
+     */
+    export interface ServiceAssociationLinkResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Link to the external resource.
+         */
+        link?: string;
+        /**
+         * Resource type of the linked resource.
+         */
+        linkedResourceType?: string;
+        /**
+         * Name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Provisioning state of the ServiceAssociationLink resource.
+         */
+        provisioningState: string;
+    }
+
+    /**
      * Service Endpoint policy definitions.
      */
     export interface ServiceEndpointPolicyDefinitionResponse {
@@ -194324,6 +198985,40 @@ export namespace network {
          * The type of the resource.
          */
         type?: string;
+    }
+
+    /**
+     * Service Endpoint policy definitions.
+     */
+    export interface ServiceEndpointPolicyDefinitionResponseV1 {
+        /**
+         * A description for this rule. Restricted to 140 chars.
+         */
+        description?: string;
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState: string;
+        /**
+         * Service endpoint name.
+         */
+        service?: string;
+        /**
+         * A list of service resources.
+         */
+        serviceResources?: string[];
     }
 
     /**
@@ -194385,6 +199080,52 @@ export namespace network {
     }
 
     /**
+     * Service End point policy resource.
+     */
+    export interface ServiceEndpointPolicyResponseV1 {
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState: string;
+        /**
+         * The resource GUID property of the service endpoint policy resource.
+         */
+        resourceGuid: string;
+        /**
+         * A collection of service endpoint policy definitions of the service endpoint policy.
+         */
+        serviceEndpointPolicyDefinitions?: outputs.network.ServiceEndpointPolicyDefinitionResponseV1[];
+        /**
+         * A collection of references to subnets.
+         */
+        subnets: outputs.network.SubnetResponse[];
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+
+    /**
      * The service endpoint properties.
      */
     export interface ServiceEndpointPropertiesFormatResponse {
@@ -194400,6 +199141,24 @@ export namespace network {
          * The provisioning state of the service endpoint resource.
          */
         provisioningState: string;
+        /**
+         * The type of the endpoint service.
+         */
+        service?: string;
+    }
+
+    /**
+     * The service endpoint properties.
+     */
+    export interface ServiceEndpointPropertiesFormatResponseV1 {
+        /**
+         * A list of locations.
+         */
+        locations?: string[];
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState?: string;
         /**
          * The type of the endpoint service.
          */
@@ -194602,10 +199361,6 @@ export namespace network {
          */
         id?: string;
         /**
-         * An array of references to interface endpoints 
-         */
-        interfaceEndpoints?: outputs.network.InterfaceEndpointResponse[];
-        /**
          * Array of IpAllocation which reference this subnet.
          */
         ipAllocations?: outputs.network.SubResourceResponse[];
@@ -194674,6 +199429,204 @@ export namespace network {
          */
         serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponse[];
         /**
+         * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+         */
+        sharingScope?: string;
+        /**
+         * Resource type.
+         */
+        type?: string;
+    }
+    /**
+     * subnetResponseProvideDefaults sets the appropriate defaults for SubnetResponse
+     */
+    export function subnetResponseProvideDefaults(val: SubnetResponse): SubnetResponse {
+        return {
+            ...val,
+            privateEndpointNetworkPolicies: (val.privateEndpointNetworkPolicies) ?? "Disabled",
+            privateLinkServiceNetworkPolicies: (val.privateLinkServiceNetworkPolicies) ?? "Enabled",
+        };
+    }
+
+    /**
+     * Subnet in a virtual network resource.
+     */
+    export interface SubnetResponseV1 {
+        /**
+         * The address prefix for the subnet.
+         */
+        addressPrefix?: string;
+        /**
+         * List of  address prefixes for the subnet.
+         */
+        addressPrefixes?: string[];
+        /**
+         * Gets an array of references to the delegations on the subnet.
+         */
+        delegations?: outputs.network.DelegationResponseV1[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * An array of references to interface endpoints 
+         */
+        interfaceEndpoints: outputs.network.InterfaceEndpointResponse[];
+        /**
+         * Array of IP configuration profiles which reference this subnet.
+         */
+        ipConfigurationProfiles: outputs.network.IPConfigurationProfileResponseV1[];
+        /**
+         * Gets an array of references to the network interface IP configurations using subnet.
+         */
+        ipConfigurations: outputs.network.IPConfigurationResponseV1[];
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Nat gateway associated with this subnet.
+         */
+        natGateway?: outputs.network.SubResourceResponse;
+        /**
+         * The reference of the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponseV1;
+        /**
+         * The provisioning state of the resource.
+         */
+        provisioningState?: string;
+        /**
+         * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+         */
+        purpose: string;
+        /**
+         * Gets an array of references to the external resources using subnet.
+         */
+        resourceNavigationLinks?: outputs.network.ResourceNavigationLinkResponseV1[];
+        /**
+         * The reference of the RouteTable resource.
+         */
+        routeTable?: outputs.network.RouteTableResponseV1;
+        /**
+         * Gets an array of references to services injecting into this subnet.
+         */
+        serviceAssociationLinks?: outputs.network.ServiceAssociationLinkResponseV1[];
+        /**
+         * An array of service endpoint policies.
+         */
+        serviceEndpointPolicies?: outputs.network.ServiceEndpointPolicyResponseV1[];
+        /**
+         * An array of service endpoints.
+         */
+        serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponseV1[];
+    }
+
+    /**
+     * Subnet in a virtual network resource.
+     */
+    export interface SubnetResponseV2 {
+        /**
+         * The address prefix for the subnet.
+         */
+        addressPrefix?: string;
+        /**
+         * List of address prefixes for the subnet.
+         */
+        addressPrefixes?: string[];
+        /**
+         * Application gateway IP configurations of virtual network resource.
+         */
+        applicationGatewayIPConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
+        /**
+         * Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+         */
+        defaultOutboundAccess?: boolean;
+        /**
+         * An array of references to the delegations on the subnet.
+         */
+        delegations?: outputs.network.DelegationResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Array of IpAllocation which reference this subnet.
+         */
+        ipAllocations?: outputs.network.SubResourceResponse[];
+        /**
+         * Array of IP configuration profiles which reference this subnet.
+         */
+        ipConfigurationProfiles: outputs.network.IPConfigurationProfileResponse[];
+        /**
+         * An array of references to the network interface IP configurations using subnet.
+         */
+        ipConfigurations: outputs.network.IPConfigurationResponseV2[];
+        /**
+         * A list of IPAM Pools for allocating IP address prefixes.
+         */
+        ipamPoolPrefixAllocations?: outputs.network.IpamPoolPrefixAllocationResponse[];
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Nat gateway associated with this subnet.
+         */
+        natGateway?: outputs.network.SubResourceResponse;
+        /**
+         * The reference to the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponseV2;
+        /**
+         * Enable or Disable apply network policies on private end point in the subnet.
+         */
+        privateEndpointNetworkPolicies?: string;
+        /**
+         * An array of references to private endpoints.
+         */
+        privateEndpoints: outputs.network.PrivateEndpointResponse[];
+        /**
+         * Enable or Disable apply network policies on private link service in the subnet.
+         */
+        privateLinkServiceNetworkPolicies?: string;
+        /**
+         * The provisioning state of the subnet resource.
+         */
+        provisioningState: string;
+        /**
+         * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+         */
+        purpose: string;
+        /**
+         * An array of references to the external resources using subnet.
+         */
+        resourceNavigationLinks: outputs.network.ResourceNavigationLinkResponse[];
+        /**
+         * The reference to the RouteTable resource.
+         */
+        routeTable?: outputs.network.RouteTableResponse;
+        /**
+         * An array of references to services injecting into this subnet.
+         */
+        serviceAssociationLinks: outputs.network.ServiceAssociationLinkResponse[];
+        /**
+         * An array of service endpoint policies.
+         */
+        serviceEndpointPolicies?: outputs.network.ServiceEndpointPolicyResponse[];
+        /**
+         * An array of service endpoints.
+         */
+        serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponse[];
+        /**
          * Reference to an existing service gateway.
          */
         serviceGateway?: outputs.network.SubResourceResponse;
@@ -194687,9 +199640,133 @@ export namespace network {
         type?: string;
     }
     /**
-     * subnetResponseProvideDefaults sets the appropriate defaults for SubnetResponse
+     * subnetResponseV2ProvideDefaults sets the appropriate defaults for SubnetResponseV2
      */
-    export function subnetResponseProvideDefaults(val: SubnetResponse): SubnetResponse {
+    export function subnetResponseV2ProvideDefaults(val: SubnetResponseV2): SubnetResponseV2 {
+        return {
+            ...val,
+            privateEndpointNetworkPolicies: (val.privateEndpointNetworkPolicies) ?? "Disabled",
+            privateLinkServiceNetworkPolicies: (val.privateLinkServiceNetworkPolicies) ?? "Enabled",
+        };
+    }
+
+    /**
+     * Subnet in a virtual network resource.
+     */
+    export interface SubnetResponseV3 {
+        /**
+         * The address prefix for the subnet.
+         */
+        addressPrefix?: string;
+        /**
+         * List of address prefixes for the subnet.
+         */
+        addressPrefixes?: string[];
+        /**
+         * Application gateway IP configurations of virtual network resource.
+         */
+        applicationGatewayIPConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
+        /**
+         * Set this property to false to disable default outbound connectivity for all VMs in the subnet.
+         */
+        defaultOutboundAccess?: boolean;
+        /**
+         * An array of references to the delegations on the subnet.
+         */
+        delegations?: outputs.network.DelegationResponse[];
+        /**
+         * A unique read-only string that changes whenever the resource is updated.
+         */
+        etag: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Array of IpAllocation which reference this subnet.
+         */
+        ipAllocations?: outputs.network.SubResourceResponse[];
+        /**
+         * Array of IP configuration profiles which reference this subnet.
+         */
+        ipConfigurationProfiles: outputs.network.IPConfigurationProfileResponse[];
+        /**
+         * An array of references to the network interface IP configurations using subnet.
+         */
+        ipConfigurations: outputs.network.IPConfigurationResponseV3[];
+        /**
+         * A list of IPAM Pools for allocating IP address prefixes.
+         */
+        ipamPoolPrefixAllocations?: outputs.network.IpamPoolPrefixAllocationResponse[];
+        /**
+         * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+         */
+        name?: string;
+        /**
+         * Nat gateway associated with this subnet.
+         */
+        natGateway?: outputs.network.SubResourceResponse;
+        /**
+         * The reference to the NetworkSecurityGroup resource.
+         */
+        networkSecurityGroup?: outputs.network.NetworkSecurityGroupResponseV3;
+        /**
+         * Enable or Disable apply network policies on private end point in the subnet.
+         */
+        privateEndpointNetworkPolicies?: string;
+        /**
+         * An array of references to private endpoints.
+         */
+        privateEndpoints: outputs.network.PrivateEndpointResponse[];
+        /**
+         * Enable or Disable apply network policies on private link service in the subnet.
+         */
+        privateLinkServiceNetworkPolicies?: string;
+        /**
+         * The provisioning state of the subnet resource.
+         */
+        provisioningState: string;
+        /**
+         * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+         */
+        purpose: string;
+        /**
+         * An array of references to the external resources using subnet.
+         */
+        resourceNavigationLinks: outputs.network.ResourceNavigationLinkResponse[];
+        /**
+         * The reference to the RouteTable resource.
+         */
+        routeTable?: outputs.network.RouteTableResponse;
+        /**
+         * An array of references to services injecting into this subnet.
+         */
+        serviceAssociationLinks: outputs.network.ServiceAssociationLinkResponse[];
+        /**
+         * An array of service endpoint policies.
+         */
+        serviceEndpointPolicies?: outputs.network.ServiceEndpointPolicyResponse[];
+        /**
+         * An array of service endpoints.
+         */
+        serviceEndpoints?: outputs.network.ServiceEndpointPropertiesFormatResponse[];
+        /**
+         * Reference to an existing service gateway.
+         */
+        serviceGateway?: outputs.network.SubResourceResponse;
+        /**
+         * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+         */
+        sharingScope?: string;
+        /**
+         * Resource type.
+         */
+        type?: string;
+    }
+    /**
+     * subnetResponseV3ProvideDefaults sets the appropriate defaults for SubnetResponseV3
+     */
+    export function subnetResponseV3ProvideDefaults(val: SubnetResponseV3): SubnetResponseV3 {
         return {
             ...val,
             privateEndpointNetworkPolicies: (val.privateEndpointNetworkPolicies) ?? "Disabled",
@@ -195693,6 +200770,70 @@ export namespace network {
         return {
             ...val,
             destinationLoadBalancerFrontEndIPConfiguration: (val.destinationLoadBalancerFrontEndIPConfiguration ? outputs.network.frontendIPConfigurationResponseProvideDefaults(val.destinationLoadBalancerFrontEndIPConfiguration) : undefined),
+            destinationNetworkInterfaceIPConfiguration: (val.destinationNetworkInterfaceIPConfiguration ? outputs.network.networkInterfaceIPConfigurationResponseProvideDefaults(val.destinationNetworkInterfaceIPConfiguration) : undefined),
+        };
+    }
+
+    /**
+     * Virtual Network Tap resource
+     */
+    export interface VirtualNetworkTapResponseV1 {
+        /**
+         * The reference to the private IP address on the internal Load Balancer that will receive the tap
+         */
+        destinationLoadBalancerFrontEndIPConfiguration?: outputs.network.FrontendIPConfigurationResponseV1;
+        /**
+         * The reference to the private IP Address of the collector nic that will receive the tap
+         */
+        destinationNetworkInterfaceIPConfiguration?: outputs.network.NetworkInterfaceIPConfigurationResponse;
+        /**
+         * The VXLAN destination port that will receive the tapped traffic.
+         */
+        destinationPort?: number;
+        /**
+         * Gets a unique read-only string that changes whenever the resource is updated.
+         */
+        etag?: string;
+        /**
+         * Resource ID.
+         */
+        id?: string;
+        /**
+         * Resource location.
+         */
+        location?: string;
+        /**
+         * Resource name.
+         */
+        name: string;
+        /**
+         * Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+         */
+        networkInterfaceTapConfigurations: outputs.network.NetworkInterfaceTapConfigurationResponseV1[];
+        /**
+         * The provisioning state of the virtual network tap. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+         */
+        provisioningState: string;
+        /**
+         * The resourceGuid property of the virtual network tap.
+         */
+        resourceGuid: string;
+        /**
+         * Resource tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Resource type.
+         */
+        type: string;
+    }
+    /**
+     * virtualNetworkTapResponseV1ProvideDefaults sets the appropriate defaults for VirtualNetworkTapResponseV1
+     */
+    export function virtualNetworkTapResponseV1ProvideDefaults(val: VirtualNetworkTapResponseV1): VirtualNetworkTapResponseV1 {
+        return {
+            ...val,
+            destinationLoadBalancerFrontEndIPConfiguration: (val.destinationLoadBalancerFrontEndIPConfiguration ? outputs.network.frontendIPConfigurationResponseV1ProvideDefaults(val.destinationLoadBalancerFrontEndIPConfiguration) : undefined),
             destinationNetworkInterfaceIPConfiguration: (val.destinationNetworkInterfaceIPConfiguration ? outputs.network.networkInterfaceIPConfigurationResponseProvideDefaults(val.destinationNetworkInterfaceIPConfiguration) : undefined),
         };
     }
@@ -212643,9 +217784,19 @@ export namespace recoveryservices {
     }
 
     /**
-     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection
      */
     export interface PrivateEndpointResponse {
+        /**
+         * Gets or sets id
+         */
+        id?: string;
+    }
+
+    /**
+     * The Private Endpoint network resource that is linked to the Private Endpoint connection.
+     */
+    export interface PrivateEndpointResponseV1 {
         /**
          * Gets or sets id.
          */
@@ -215012,7 +220163,7 @@ export namespace recoveryservices {
         /**
          * The Private Endpoint network resource that is linked to the Private Endpoint connection.
          */
-        privateEndpoint: outputs.recoveryservices.PrivateEndpointResponse;
+        privateEndpoint: outputs.recoveryservices.PrivateEndpointResponseV1;
         /**
          * Gets or sets private link service connection state.
          */
@@ -216597,6 +221748,20 @@ export namespace resourceconnector {
      */
     export interface SSHKeyResponse {
         /**
+         * User Private Key.
+         */
+        privateKey?: string;
+        /**
+         * User Public Key.
+         */
+        publicKey?: string;
+    }
+
+    /**
+     * Appliance SSHKey definition.
+     */
+    export interface SSHKeyResponseV1 {
+        /**
          * Certificate associated with the public key if the key is signed.
          */
         certificate: string;
@@ -216773,6 +221938,68 @@ export namespace resources {
      * Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
      */
     export interface ActionOnUnmanageResponse {
+        /**
+         * Specifies an action for a newly unmanaged resource management group.
+         */
+        managementGroups?: string;
+        /**
+         * Specifies an action for a newly unmanaged resource group.
+         */
+        resourceGroups?: string;
+        /**
+         * Specifies an action for a newly unmanaged resource.
+         */
+        resources: string;
+    }
+
+    /**
+     * Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+     */
+    export interface ActionOnUnmanageResponseV1 {
+        /**
+         * Specifies an action for a newly unmanaged resource management group.
+         */
+        managementGroups?: string;
+        /**
+         * Specifies an action for a newly unmanaged resource group.
+         */
+        resourceGroups?: string;
+        /**
+         * Specifies an action for a newly unmanaged resource.
+         */
+        resources: string;
+        /**
+         * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+         */
+        resourcesWithoutDeleteSupport?: string;
+    }
+
+    /**
+     * Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+     */
+    export interface ActionOnUnmanageResponseV2 {
+        /**
+         * Specifies an action for a newly unmanaged resource management group.
+         */
+        managementGroups?: string;
+        /**
+         * Specifies an action for a newly unmanaged resource group.
+         */
+        resourceGroups?: string;
+        /**
+         * Specifies an action for a newly unmanaged resource.
+         */
+        resources: string;
+        /**
+         * Some resources do not support deletion.  This flag will denote how the stack should handle those resources.
+         */
+        resourcesWithoutDeleteSupport?: string;
+    }
+
+    /**
+     * Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+     */
+    export interface ActionOnUnmanageResponseV3 {
         /**
          * Specifies an action for a newly unmanaged resource management group.
          */
@@ -217352,7 +222579,147 @@ export namespace resources {
         /**
          * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
          */
-        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponse;
+        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponseV1;
+        /**
+         * All of the changes predicted by the deployment stack what-if operation.
+         */
+        changes: outputs.resources.DeploymentStacksWhatIfChangeResponse;
+        /**
+         * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+         */
+        correlationId: string;
+        /**
+         * The debug setting of the deployment.
+         */
+        debugSetting?: outputs.resources.DeploymentStacksDebugSettingResponse;
+        /**
+         * Defines how resources deployed by the stack are locked.
+         */
+        denySettings: outputs.resources.DenySettingsResponse;
+        /**
+         * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+         */
+        deploymentScope?: string;
+        /**
+         * The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+         */
+        deploymentStackLastModified: string;
+        /**
+         * The deployment stack id to use as the basis for comparison.
+         */
+        deploymentStackResourceId: string;
+        /**
+         * Deployment stack description. Max length of 4096 characters.
+         */
+        description?: string;
+        /**
+         * List of resource diagnostics detected by What-If operation.
+         */
+        diagnostics: outputs.resources.DeploymentStacksDiagnosticResponse[];
+        /**
+         * The error detail.
+         */
+        error: outputs.resources.ErrorDetailResponse;
+        /**
+         * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parameters?: {[key: string]: outputs.resources.DeploymentParameterResponse};
+        /**
+         * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parametersLink?: outputs.resources.DeploymentStacksParametersLinkResponse;
+        /**
+         * State of the deployment stack.
+         */
+        provisioningState: string;
+        /**
+         * The interval to persist the deployment stack what-if result in ISO 8601 format.
+         */
+        retentionInterval: string;
+        /**
+         * The validation level of the deployment stack
+         */
+        validationLevel?: string;
+    }
+
+    /**
+     * DeploymentStack WhatIfResult Properties
+     */
+    export interface DeploymentStacksWhatIfResultPropertiesResponseV1 {
+        /**
+         * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+         */
+        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponseV2;
+        /**
+         * All of the changes predicted by the deployment stack what-if operation.
+         */
+        changes: outputs.resources.DeploymentStacksWhatIfChangeResponse;
+        /**
+         * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+         */
+        correlationId: string;
+        /**
+         * The debug setting of the deployment.
+         */
+        debugSetting?: outputs.resources.DeploymentStacksDebugSettingResponse;
+        /**
+         * Defines how resources deployed by the stack are locked.
+         */
+        denySettings: outputs.resources.DenySettingsResponse;
+        /**
+         * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
+         */
+        deploymentScope?: string;
+        /**
+         * The timestamp for when the deployment stack was last modified. This can be used to determine if the what-if data is still current.
+         */
+        deploymentStackLastModified: string;
+        /**
+         * The deployment stack id to use as the basis for comparison.
+         */
+        deploymentStackResourceId: string;
+        /**
+         * Deployment stack description. Max length of 4096 characters.
+         */
+        description?: string;
+        /**
+         * List of resource diagnostics detected by What-If operation.
+         */
+        diagnostics: outputs.resources.DeploymentStacksDiagnosticResponse[];
+        /**
+         * The error detail.
+         */
+        error: outputs.resources.ErrorDetailResponse;
+        /**
+         * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parameters?: {[key: string]: outputs.resources.DeploymentParameterResponse};
+        /**
+         * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
+         */
+        parametersLink?: outputs.resources.DeploymentStacksParametersLinkResponse;
+        /**
+         * State of the deployment stack.
+         */
+        provisioningState: string;
+        /**
+         * The interval to persist the deployment stack what-if result in ISO 8601 format.
+         */
+        retentionInterval: string;
+        /**
+         * The validation level of the deployment stack
+         */
+        validationLevel?: string;
+    }
+
+    /**
+     * DeploymentStack WhatIfResult Properties
+     */
+    export interface DeploymentStacksWhatIfResultPropertiesResponseV2 {
+        /**
+         * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+         */
+        actionOnUnmanage: outputs.resources.ActionOnUnmanageResponseV3;
         /**
          * All of the changes predicted by the deployment stack what-if operation.
          */
@@ -245701,6 +251068,68 @@ export namespace workloads {
          * Description of the error.
          */
         message: string;
+    }
+
+    /**
+     * Error definition.
+     */
+    export interface ErrorDefinitionResponseV1 {
+        /**
+         * Service specific error code which serves as the substatus for the HTTP error code.
+         */
+        code: string;
+        /**
+         * Internal error details.
+         */
+        details: outputs.workloads.ErrorDefinitionResponse[];
+        /**
+         * Description of the error.
+         */
+        message: string;
+        /**
+         * Description of the recommendation.
+         */
+        recommendation: string;
+    }
+
+    /**
+     * Error definition.
+     */
+    export interface ErrorDefinitionResponseV2 {
+        /**
+         * Service specific error code which serves as the substatus for the HTTP error code.
+         */
+        code: string;
+        /**
+         * Internal error details.
+         */
+        details: outputs.workloads.ErrorDefinitionResponse[];
+        /**
+         * Description of the error.
+         */
+        message: string;
+        /**
+         * Description of the recommendation.
+         */
+        recommendation: string;
+    }
+
+    /**
+     * Error definition.
+     */
+    export interface ErrorDefinitionResponseV3 {
+        /**
+         * Service specific error code which serves as the substatus for the HTTP error code.
+         */
+        code: string;
+        /**
+         * Internal error details.
+         */
+        details: outputs.workloads.ErrorDefinitionResponse[];
+        /**
+         * Description of the error.
+         */
+        message: string;
         /**
          * Description of the recommendation.
          */
@@ -246550,7 +251979,51 @@ export namespace workloads {
         /**
          * Internal error details.
          */
-        details: outputs.workloads.ErrorDefinitionResponse[];
+        details: outputs.workloads.ErrorDefinitionResponseV1[];
+        /**
+         * Description of the error.
+         */
+        message: string;
+        /**
+         * Description of the recommendation.
+         */
+        recommendation: string;
+    }
+
+    /**
+     * An error response from the SAP migrate resources.
+     */
+    export interface SAPMigrateErrorResponseV1 {
+        /**
+         * Service specific error code which serves as the substatus for the HTTP error code.
+         */
+        code: string;
+        /**
+         * Internal error details.
+         */
+        details: outputs.workloads.ErrorDefinitionResponseV2[];
+        /**
+         * Description of the error.
+         */
+        message: string;
+        /**
+         * Description of the recommendation.
+         */
+        recommendation: string;
+    }
+
+    /**
+     * An error response from the SAP migrate resources.
+     */
+    export interface SAPMigrateErrorResponseV2 {
+        /**
+         * Service specific error code which serves as the substatus for the HTTP error code.
+         */
+        code: string;
+        /**
+         * Internal error details.
+         */
+        details: outputs.workloads.ErrorDefinitionResponseV3[];
         /**
          * Description of the error.
          */

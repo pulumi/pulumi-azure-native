@@ -159,6 +159,7 @@ __all__ = [
     'EnvironmentSpecificationVersionResponse',
     'EnvironmentVariableResponse',
     'EnvironmentVersionPropertiesResponse',
+    'EnvironmentVersionPropertiesResponseV1',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ErrorResponseResponse',
@@ -192,6 +193,8 @@ __all__ = [
     'IdAssetReferenceResponse',
     'IdentityForCmkResponse',
     'IdentityResponse',
+    'IdentityResponseV1',
+    'IdentityResponseV2',
     'ImageClassificationMultilabelResponse',
     'ImageClassificationResponse',
     'ImageInstanceSegmentationResponse',
@@ -206,6 +209,8 @@ __all__ = [
     'ImageSweepSettingsResponse',
     'IndexColumnResponse',
     'InferenceContainerPropertiesResponse',
+    'InferenceContainerPropertiesResponseV1',
+    'InferenceContainerPropertiesResponseV2',
     'InferenceEndpointResponse',
     'InferenceGroupResponse',
     'InferencePoolResponse',
@@ -338,6 +343,8 @@ __all__ = [
     'SetupScriptsResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
+    'SkuResponseV1',
+    'SkuResponseV2',
     'SparkJobPythonEntryResponse',
     'SparkJobResponse',
     'SparkJobScalaEntryResponse',
@@ -378,6 +385,9 @@ __all__ = [
     'UriFolderJobOutputResponse',
     'UserAccountCredentialsResponse',
     'UserAssignedIdentityResponse',
+    'UserAssignedIdentityResponseV1',
+    'UserAssignedIdentityResponseV2',
+    'UserAssignedIdentityResponseV3',
     'UserIdentityResponse',
     'UserInfoResponse',
     'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse',
@@ -14457,7 +14467,7 @@ class EnvironmentVersionPropertiesResponse(dict):
                  conda_file: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
                  image: Optional[_builtins.str] = None,
-                 inference_config: Optional['outputs.InferenceContainerPropertiesResponse'] = None,
+                 inference_config: Optional['outputs.InferenceContainerPropertiesResponseV1'] = None,
                  is_anonymous: Optional[_builtins.bool] = None,
                  is_archived: Optional[_builtins.bool] = None,
                  os_type: Optional[_builtins.str] = None,
@@ -14477,7 +14487,7 @@ class EnvironmentVersionPropertiesResponse(dict):
         :param _builtins.str description: The asset description text.
         :param _builtins.str image: Name of the image that will be used for the environment.
                <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
-        :param 'InferenceContainerPropertiesResponse' inference_config: Defines configuration specific to inference.
+        :param 'InferenceContainerPropertiesResponseV1' inference_config: Defines configuration specific to inference.
         :param _builtins.bool is_anonymous: If the name version are system generated (anonymous registration).
         :param _builtins.bool is_archived: Is the asset archived?
         :param _builtins.str os_type: The type of operating system.
@@ -14581,7 +14591,230 @@ class EnvironmentVersionPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfig")
-    def inference_config(self) -> Optional['outputs.InferenceContainerPropertiesResponse']:
+    def inference_config(self) -> Optional['outputs.InferenceContainerPropertiesResponseV1']:
+        """
+        Defines configuration specific to inference.
+        """
+        return pulumi.get(self, "inference_config")
+
+    @_builtins.property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[_builtins.bool]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @_builtins.property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[_builtins.bool]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[_builtins.str]:
+        """
+        The type of operating system.
+        """
+        return pulumi.get(self, "os_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> Optional[_builtins.str]:
+        """
+        Stage in the environment lifecycle assigned to this environment
+        """
+        return pulumi.get(self, "stage")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class EnvironmentVersionPropertiesResponseV1(dict):
+    """
+    Environment version details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentType":
+            suggest = "environment_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoRebuild":
+            suggest = "auto_rebuild"
+        elif key == "condaFile":
+            suggest = "conda_file"
+        elif key == "inferenceConfig":
+            suggest = "inference_config"
+        elif key == "isAnonymous":
+            suggest = "is_anonymous"
+        elif key == "isArchived":
+            suggest = "is_archived"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVersionPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentVersionPropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentVersionPropertiesResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_type: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 auto_rebuild: Optional[_builtins.str] = None,
+                 build: Optional['outputs.BuildContextResponse'] = None,
+                 conda_file: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 image: Optional[_builtins.str] = None,
+                 inference_config: Optional['outputs.InferenceContainerPropertiesResponseV2'] = None,
+                 is_anonymous: Optional[_builtins.bool] = None,
+                 is_archived: Optional[_builtins.bool] = None,
+                 os_type: Optional[_builtins.str] = None,
+                 properties: Optional[Mapping[str, _builtins.str]] = None,
+                 stage: Optional[_builtins.str] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Environment version details.
+
+        :param _builtins.str environment_type: Environment type is either user managed or curated by the Azure ML service
+               <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
+        :param _builtins.str provisioning_state: Provisioning state for the environment version.
+        :param _builtins.str auto_rebuild: AutoRebuild setting for the derived image
+        :param 'BuildContextResponse' build: Configuration settings for Docker build context.
+        :param _builtins.str conda_file: Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+               <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        :param _builtins.str description: The asset description text.
+        :param _builtins.str image: Name of the image that will be used for the environment.
+               <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        :param 'InferenceContainerPropertiesResponseV2' inference_config: Defines configuration specific to inference.
+        :param _builtins.bool is_anonymous: If the name version are system generated (anonymous registration).
+        :param _builtins.bool is_archived: Is the asset archived?
+        :param _builtins.str os_type: The type of operating system.
+        :param Mapping[str, _builtins.str] properties: The asset property dictionary.
+        :param _builtins.str stage: Stage in the environment lifecycle assigned to this environment
+        :param Mapping[str, _builtins.str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "environment_type", environment_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if auto_rebuild is None:
+            auto_rebuild = 'Disabled'
+        if auto_rebuild is not None:
+            pulumi.set(__self__, "auto_rebuild", auto_rebuild)
+        if build is not None:
+            pulumi.set(__self__, "build", build)
+        if conda_file is not None:
+            pulumi.set(__self__, "conda_file", conda_file)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+        if is_anonymous is None:
+            is_anonymous = False
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if os_type is None:
+            os_type = 'Linux'
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> _builtins.str:
+        """
+        Environment type is either user managed or curated by the Azure ML service
+        <see href="https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments" />
+        """
+        return pulumi.get(self, "environment_type")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state for the environment version.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRebuild")
+    def auto_rebuild(self) -> Optional[_builtins.str]:
+        """
+        AutoRebuild setting for the derived image
+        """
+        return pulumi.get(self, "auto_rebuild")
+
+    @_builtins.property
+    @pulumi.getter
+    def build(self) -> Optional['outputs.BuildContextResponse']:
+        """
+        Configuration settings for Docker build context.
+        """
+        return pulumi.get(self, "build")
+
+    @_builtins.property
+    @pulumi.getter(name="condaFile")
+    def conda_file(self) -> Optional[_builtins.str]:
+        """
+        Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.
+        <see href="https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment" />
+        """
+        return pulumi.get(self, "conda_file")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> Optional[_builtins.str]:
+        """
+        Name of the image that will be used for the environment.
+        <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional['outputs.InferenceContainerPropertiesResponseV2']:
         """
         Defines configuration specific to inference.
         """
@@ -17410,14 +17643,14 @@ class IdentityResponse(dict):
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']] = None):
         """
         Identity for the resource.
 
         :param _builtins.str principal_id: The principal ID of resource identity.
         :param _builtins.str tenant_id: The tenant ID of resource.
         :param _builtins.str type: The identity type.
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
+        :param Mapping[str, 'UserAssignedIdentityResponseV1'] user_assigned_identities: The user assigned identities associated with the resource.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -17452,7 +17685,165 @@ class IdentityResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']]:
+        """
+        The user assigned identities associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class IdentityResponseV1(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: Optional[_builtins.str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV2']] = None):
+        """
+        Identity for the resource.
+
+        :param _builtins.str principal_id: The principal ID of resource identity.
+        :param _builtins.str tenant_id: The tenant ID of resource.
+        :param _builtins.str type: The identity type.
+        :param Mapping[str, 'UserAssignedIdentityResponseV2'] user_assigned_identities: The user assigned identities associated with the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV2']]:
+        """
+        The user assigned identities associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class IdentityResponseV2(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str,
+                 type: Optional[_builtins.str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV3']] = None):
+        """
+        Identity for the resource.
+
+        :param _builtins.str principal_id: The principal ID of resource identity.
+        :param _builtins.str tenant_id: The tenant ID of resource.
+        :param _builtins.str type: The identity type.
+        :param Mapping[str, 'UserAssignedIdentityResponseV3'] user_assigned_identities: The user assigned identities associated with the resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV3']]:
         """
         The user assigned identities associated with the resource.
         """
@@ -20963,8 +21354,6 @@ class InferenceContainerPropertiesResponse(dict):
             suggest = "readiness_route"
         elif key == "scoringRoute":
             suggest = "scoring_route"
-        elif key == "startupRoute":
-            suggest = "startup_route"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InferenceContainerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -20975,6 +21364,150 @@ class InferenceContainerPropertiesResponse(dict):
 
     def get(self, key: str, default = None) -> Any:
         InferenceContainerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 liveness_route: Optional['outputs.RouteResponse'] = None,
+                 readiness_route: Optional['outputs.RouteResponse'] = None,
+                 scoring_route: Optional['outputs.RouteResponse'] = None):
+        """
+        :param 'RouteResponse' liveness_route: The route to check the liveness of the inference server container.
+        :param 'RouteResponse' readiness_route: The route to check the readiness of the inference server container.
+        :param 'RouteResponse' scoring_route: The port to send the scoring requests to, within the inference server container.
+        """
+        if liveness_route is not None:
+            pulumi.set(__self__, "liveness_route", liveness_route)
+        if readiness_route is not None:
+            pulumi.set(__self__, "readiness_route", readiness_route)
+        if scoring_route is not None:
+            pulumi.set(__self__, "scoring_route", scoring_route)
+
+    @_builtins.property
+    @pulumi.getter(name="livenessRoute")
+    def liveness_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The route to check the liveness of the inference server container.
+        """
+        return pulumi.get(self, "liveness_route")
+
+    @_builtins.property
+    @pulumi.getter(name="readinessRoute")
+    def readiness_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The route to check the readiness of the inference server container.
+        """
+        return pulumi.get(self, "readiness_route")
+
+    @_builtins.property
+    @pulumi.getter(name="scoringRoute")
+    def scoring_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The port to send the scoring requests to, within the inference server container.
+        """
+        return pulumi.get(self, "scoring_route")
+
+
+@pulumi.output_type
+class InferenceContainerPropertiesResponseV1(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "livenessRoute":
+            suggest = "liveness_route"
+        elif key == "readinessRoute":
+            suggest = "readiness_route"
+        elif key == "scoringRoute":
+            suggest = "scoring_route"
+        elif key == "startupRoute":
+            suggest = "startup_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceContainerPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceContainerPropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceContainerPropertiesResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 liveness_route: Optional['outputs.RouteResponse'] = None,
+                 readiness_route: Optional['outputs.RouteResponse'] = None,
+                 scoring_route: Optional['outputs.RouteResponse'] = None,
+                 startup_route: Optional['outputs.RouteResponse'] = None):
+        """
+        :param 'RouteResponse' liveness_route: The route to check the liveness of the inference server container.
+        :param 'RouteResponse' readiness_route: The route to check the readiness of the inference server container.
+        :param 'RouteResponse' scoring_route: The port to send the scoring requests to, within the inference server container.
+        :param 'RouteResponse' startup_route: The route to check the startup of the application in the container.
+        """
+        if liveness_route is not None:
+            pulumi.set(__self__, "liveness_route", liveness_route)
+        if readiness_route is not None:
+            pulumi.set(__self__, "readiness_route", readiness_route)
+        if scoring_route is not None:
+            pulumi.set(__self__, "scoring_route", scoring_route)
+        if startup_route is not None:
+            pulumi.set(__self__, "startup_route", startup_route)
+
+    @_builtins.property
+    @pulumi.getter(name="livenessRoute")
+    def liveness_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The route to check the liveness of the inference server container.
+        """
+        return pulumi.get(self, "liveness_route")
+
+    @_builtins.property
+    @pulumi.getter(name="readinessRoute")
+    def readiness_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The route to check the readiness of the inference server container.
+        """
+        return pulumi.get(self, "readiness_route")
+
+    @_builtins.property
+    @pulumi.getter(name="scoringRoute")
+    def scoring_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The port to send the scoring requests to, within the inference server container.
+        """
+        return pulumi.get(self, "scoring_route")
+
+    @_builtins.property
+    @pulumi.getter(name="startupRoute")
+    def startup_route(self) -> Optional['outputs.RouteResponse']:
+        """
+        The route to check the startup of the application in the container.
+        """
+        return pulumi.get(self, "startup_route")
+
+
+@pulumi.output_type
+class InferenceContainerPropertiesResponseV2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "livenessRoute":
+            suggest = "liveness_route"
+        elif key == "readinessRoute":
+            suggest = "readiness_route"
+        elif key == "scoringRoute":
+            suggest = "scoring_route"
+        elif key == "startupRoute":
+            suggest = "startup_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceContainerPropertiesResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceContainerPropertiesResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceContainerPropertiesResponseV2.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -32354,6 +32887,78 @@ class SkuResponse(dict):
 
 
 @pulumi.output_type
+class SkuResponseV1(dict):
+    """
+    Sku of the resource
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 tier: Optional[_builtins.str] = None):
+        """
+        Sku of the resource
+
+        :param _builtins.str name: Name of the sku
+        :param _builtins.str tier: Tier of the sku like Basic or Enterprise
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the sku
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[_builtins.str]:
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SkuResponseV2(dict):
+    """
+    Sku of the resource
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 tier: Optional[_builtins.str] = None):
+        """
+        Sku of the resource
+
+        :param _builtins.str name: Name of the sku
+        :param _builtins.str tier: Tier of the sku like Basic or Enterprise
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the sku
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[_builtins.str]:
+        """
+        Tier of the sku like Basic or Enterprise
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class SparkJobPythonEntryResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -36471,8 +37076,6 @@ class UserAssignedIdentityResponse(dict):
             suggest = "client_id"
         elif key == "principalId":
             suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -36487,19 +37090,15 @@ class UserAssignedIdentityResponse(dict):
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 principal_id: _builtins.str,
-                 tenant_id: Optional[_builtins.str] = None):
+                 principal_id: _builtins.str):
         """
         User assigned identity properties
 
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
-        :param _builtins.str tenant_id: The tenant ID of the user assigned identity.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -36517,9 +37116,199 @@ class UserAssignedIdentityResponse(dict):
         """
         return pulumi.get(self, "principal_id")
 
+
+@pulumi.output_type
+class UserAssignedIdentityResponseV1(dict):
+    """
+    User Assigned Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str):
+        """
+        User Assigned Identity
+
+        :param _builtins.str client_id: The clientId(aka appId) of the user assigned identity.
+        :param _builtins.str principal_id: The principal ID of the user assigned identity.
+        :param _builtins.str tenant_id: The tenant ID of the user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The clientId(aka appId) of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of the user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[_builtins.str]:
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of the user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponseV2(dict):
+    """
+    User Assigned Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponseV2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponseV2.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str):
+        """
+        User Assigned Identity
+
+        :param _builtins.str client_id: The clientId(aka appId) of the user assigned identity.
+        :param _builtins.str principal_id: The principal ID of the user assigned identity.
+        :param _builtins.str tenant_id: The tenant ID of the user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The clientId(aka appId) of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of the user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of the user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponseV3(dict):
+    """
+    User Assigned Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponseV3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponseV3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str,
+                 tenant_id: _builtins.str):
+        """
+        User Assigned Identity
+
+        :param _builtins.str client_id: The clientId(aka appId) of the user assigned identity.
+        :param _builtins.str principal_id: The principal ID of the user assigned identity.
+        :param _builtins.str tenant_id: The tenant ID of the user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        The clientId(aka appId) of the user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> _builtins.str:
+        """
+        The principal ID of the user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
         """
         The tenant ID of the user assigned identity.
         """

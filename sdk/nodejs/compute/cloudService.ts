@@ -60,7 +60,7 @@ export class CloudService extends pulumi.CustomResource {
     /**
      * The system meta data relating to this resource.
      */
-    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse | undefined>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponseV1 | undefined>;
     /**
      * Resource tags.
      */

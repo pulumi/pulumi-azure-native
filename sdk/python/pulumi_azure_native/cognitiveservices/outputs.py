@@ -82,7 +82,9 @@ __all__ = [
     'RaiExternalSafetyProviderSchemaPropertiesResponse',
     'RaiMonitorConfigResponse',
     'RaiPolicyContentFilterResponse',
+    'RaiPolicyContentFilterResponseV1',
     'RaiPolicyPropertiesResponse',
+    'RaiPolicyPropertiesResponseV1',
     'RaiToolLabelPropertiesResponse',
     'RaiToolLabelPropertiesResponseAccountScope',
     'RaiToolLabelPropertiesResponseProjectScopes',
@@ -6221,6 +6223,95 @@ class RaiPolicyContentFilterResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 blocking: Optional[_builtins.bool] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 severity_threshold: Optional[_builtins.str] = None,
+                 source: Optional[_builtins.str] = None):
+        """
+        Azure OpenAI Content Filter.
+
+        :param _builtins.bool blocking: If blocking would occur.
+        :param _builtins.bool enabled: If the ContentFilter is enabled.
+        :param _builtins.str name: Name of ContentFilter.
+        :param _builtins.str severity_threshold: Level at which content is filtered.
+        :param _builtins.str source: Content source to apply the Content Filters.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if severity_threshold is not None:
+            pulumi.set(__self__, "severity_threshold", severity_threshold)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def blocking(self) -> Optional[_builtins.bool]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        If the ContentFilter is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="severityThreshold")
+    def severity_threshold(self) -> Optional[_builtins.str]:
+        """
+        Level at which content is filtered.
+        """
+        return pulumi.get(self, "severity_threshold")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[_builtins.str]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class RaiPolicyContentFilterResponseV1(dict):
+    """
+    Azure OpenAI Content Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "severityThreshold":
+            suggest = "severity_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiPolicyContentFilterResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiPolicyContentFilterResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  action: Optional[_builtins.str] = None,
                  blocking: Optional[_builtins.bool] = None,
                  enabled: Optional[_builtins.bool] = None,
@@ -6313,10 +6404,6 @@ class RaiPolicyPropertiesResponse(dict):
             suggest = "content_filters"
         elif key == "customBlocklists":
             suggest = "custom_blocklists"
-        elif key == "customTopics":
-            suggest = "custom_topics"
-        elif key == "safetyProviders":
-            suggest = "safety_providers"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6334,6 +6421,102 @@ class RaiPolicyPropertiesResponse(dict):
                  base_policy_name: Optional[_builtins.str] = None,
                  content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponse']] = None,
                  custom_blocklists: Optional[Sequence['outputs.CustomBlocklistConfigResponse']] = None,
+                 mode: Optional[_builtins.str] = None):
+        """
+        Azure OpenAI Content Filters properties.
+
+        :param _builtins.str type: Content Filters policy type.
+        :param _builtins.str base_policy_name: Name of Rai policy.
+        :param Sequence['RaiPolicyContentFilterResponse'] content_filters: The list of Content Filters.
+        :param Sequence['CustomBlocklistConfigResponse'] custom_blocklists: The list of custom Blocklist.
+        :param _builtins.str mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
+        """
+        pulumi.set(__self__, "type", type)
+        if base_policy_name is not None:
+            pulumi.set(__self__, "base_policy_name", base_policy_name)
+        if content_filters is not None:
+            pulumi.set(__self__, "content_filters", content_filters)
+        if custom_blocklists is not None:
+            pulumi.set(__self__, "custom_blocklists", custom_blocklists)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Content Filters policy type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="basePolicyName")
+    def base_policy_name(self) -> Optional[_builtins.str]:
+        """
+        Name of Rai policy.
+        """
+        return pulumi.get(self, "base_policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="contentFilters")
+    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterResponse']]:
+        """
+        The list of Content Filters.
+        """
+        return pulumi.get(self, "content_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="customBlocklists")
+    def custom_blocklists(self) -> Optional[Sequence['outputs.CustomBlocklistConfigResponse']]:
+        """
+        The list of custom Blocklist.
+        """
+        return pulumi.get(self, "custom_blocklists")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class RaiPolicyPropertiesResponseV1(dict):
+    """
+    Azure OpenAI Content Filters properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basePolicyName":
+            suggest = "base_policy_name"
+        elif key == "contentFilters":
+            suggest = "content_filters"
+        elif key == "customBlocklists":
+            suggest = "custom_blocklists"
+        elif key == "customTopics":
+            suggest = "custom_topics"
+        elif key == "safetyProviders":
+            suggest = "safety_providers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiPolicyPropertiesResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiPolicyPropertiesResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 base_policy_name: Optional[_builtins.str] = None,
+                 content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponseV1']] = None,
+                 custom_blocklists: Optional[Sequence['outputs.CustomBlocklistConfigResponse']] = None,
                  custom_topics: Optional[Sequence['outputs.CustomTopicConfigResponse']] = None,
                  mode: Optional[_builtins.str] = None,
                  safety_providers: Optional[Sequence['outputs.SafetyProviderConfigResponse']] = None):
@@ -6342,7 +6525,7 @@ class RaiPolicyPropertiesResponse(dict):
 
         :param _builtins.str type: Content Filters policy type.
         :param _builtins.str base_policy_name: Name of Rai policy.
-        :param Sequence['RaiPolicyContentFilterResponse'] content_filters: The list of Content Filters.
+        :param Sequence['RaiPolicyContentFilterResponseV1'] content_filters: The list of Content Filters.
         :param Sequence['CustomBlocklistConfigResponse'] custom_blocklists: The list of custom Blocklist.
         :param Sequence['CustomTopicConfigResponse'] custom_topics: The list of custom rai topics.
         :param _builtins.str mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
@@ -6380,7 +6563,7 @@ class RaiPolicyPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="contentFilters")
-    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterResponse']]:
+    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterResponseV1']]:
         """
         The list of Content Filters.
         """

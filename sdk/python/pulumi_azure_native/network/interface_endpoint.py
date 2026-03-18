@@ -340,7 +340,7 @@ class InterfaceEndpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceResponse']]:
+    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.NetworkInterfaceResponseV1']]:
         """
         Gets an array of references to the network interfaces created for this interface endpoint.
         """

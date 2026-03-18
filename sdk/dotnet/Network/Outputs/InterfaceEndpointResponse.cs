@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The ID of the subnet from which the private IP will be allocated.
         /// </summary>
-        public readonly Outputs.SubnetResponse? Subnet;
+        public readonly Outputs.SubnetResponseV1? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
-            Outputs.SubnetResponse? subnet,
+            Outputs.SubnetResponseV1? subnet,
 
             ImmutableDictionary<string, string>? tags,
 

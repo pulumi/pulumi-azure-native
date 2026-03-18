@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
 {
 
     /// <summary>
-    /// Definition of VpcConfig
+    /// Definition of VpcConfigResponse
     /// </summary>
     public sealed class VpcConfigResponseArgs : global::Pulumi.ResourceArgs
     {
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
         [Input("endpointPublicAccess")]
         public Input<bool>? EndpointPublicAccess { get; set; }
 
-        /// <summary>
-        /// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-        /// </summary>
-        [Input("ipv6AllowedForDualStack")]
-        public Input<bool>? Ipv6AllowedForDualStack { get; set; }
-
         [Input("publicAccessCidrs")]
         private InputList<string>? _publicAccessCidrs;
 
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of VPC security group IDs.
+        /// &lt;p&gt;The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.&lt;/p&gt;
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -67,7 +61,7 @@ namespace Pulumi.AzureNative.AwsConnector.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of VPC subnet IDs.
+        /// &lt;p&gt;The subnets associated with your cluster.&lt;/p&gt;
         /// </summary>
         public InputList<string> SubnetIds
         {

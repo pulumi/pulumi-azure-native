@@ -31740,7 +31740,7 @@ export namespace awsconnector {
     }
 
     /**
-     * Definition of VpcConfig
+     * Definition of VpcConfigResponse
      */
     export interface VpcConfigResponseArgs {
         /**
@@ -31756,19 +31756,15 @@ export namespace awsconnector {
          */
         endpointPublicAccess?: pulumi.Input<boolean>;
         /**
-         * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
-         */
-        ipv6AllowedForDualStack?: pulumi.Input<boolean>;
-        /**
          * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint.</p>
          */
         publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of VPC security group IDs.
+         * <p>The security groups associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Kubernetes control plane.</p>
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of VPC subnet IDs.
+         * <p>The subnets associated with your cluster.</p>
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**

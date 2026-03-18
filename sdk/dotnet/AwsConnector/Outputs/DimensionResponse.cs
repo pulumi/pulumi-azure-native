@@ -17,27 +17,20 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
     public sealed class DimensionResponse
     {
         /// <summary>
-        /// The name for the CW metric dimension that the metric filter creates. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (:).
-        /// </summary>
-        public readonly string? Key;
-        /// <summary>
         /// The name of the dimension, from 1–255 characters in length. This dimension name must have been included when the metric was published.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Property value
+        /// The value for the dimension, from 1–255 characters in length.
         /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]
         private DimensionResponse(
-            string? key,
-
             string? name,
 
             string? value)
         {
-            Key = key;
             Name = name;
             Value = value;
         }

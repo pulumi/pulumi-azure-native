@@ -17,21 +17,13 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
     public sealed class CertificateResponse
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the certificate.
-        /// </summary>
-        public readonly string? CertificateArn;
-        /// <summary>
         /// &lt;p&gt;The Base64-encoded certificate data required to communicate with your cluster. Add this to the &lt;code&gt;certificate-authority-data&lt;/code&gt; section of the &lt;code&gt;kubeconfig&lt;/code&gt; file for your cluster.&lt;/p&gt;
         /// </summary>
         public readonly string? Data;
 
         [OutputConstructor]
-        private CertificateResponse(
-            string? certificateArn,
-
-            string? data)
+        private CertificateResponse(string? data)
         {
-            CertificateArn = certificateArn;
             Data = data;
         }
     }

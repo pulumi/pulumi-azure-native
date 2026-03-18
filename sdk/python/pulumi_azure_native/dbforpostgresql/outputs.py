@@ -51,6 +51,7 @@ __all__ = [
     'StorageResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
+    'UserAssignedIdentityResponseV1',
     'UserIdentityResponse',
     'ValidationDetailsResponse',
     'ValidationMessageResponse',
@@ -876,11 +877,11 @@ class IdentityPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  type: Optional[_builtins.str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']] = None):
         """
         Describes the identity of the cluster.
 
-        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param Mapping[str, 'UserAssignedIdentityResponseV1'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -894,7 +895,7 @@ class IdentityPropertiesResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponseV1']]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
@@ -2507,17 +2508,15 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
-    User assigned identity properties
+    Identities associated with a server.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientId":
-            suggest = "client_id"
+        if key == "tenantId":
+            suggest = "tenant_id"
         elif key == "principalId":
             suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
         elif key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
@@ -2533,28 +2532,93 @@ class UserAssignedIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: _builtins.str,
-                 principal_id: _builtins.str,
-                 tenant_id: Optional[_builtins.str] = None,
-                 type: Optional[_builtins.str] = None,
+                 tenant_id: _builtins.str,
+                 type: _builtins.str,
+                 principal_id: Optional[_builtins.str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None):
+        """
+        Identities associated with a server.
+
+        :param _builtins.str tenant_id: Identifier of the tenant of a server.
+        :param _builtins.str type: Types of identities associated with a server.
+        :param _builtins.str principal_id: Identifier of the object of the service principal associated to the user assigned managed identity.
+        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: Map of user assigned managed identities.
+        """
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Identifier of the tenant of a server.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Types of identities associated with a server.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the object of the service principal associated to the user assigned managed identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
+        """
+        Map of user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponseV1(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponseV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponseV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponseV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 principal_id: _builtins.str):
         """
         User assigned identity properties
 
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
-        :param _builtins.str tenant_id: Identifier of the tenant of a server.
-        :param _builtins.str type: Types of identities associated with a server.
-        :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: Map of user assigned managed identities.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -2571,30 +2635,6 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[_builtins.str]:
-        """
-        Identifier of the tenant of a server.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> Optional[_builtins.str]:
-        """
-        Types of identities associated with a server.
-        """
-        return pulumi.get(self, "type")
-
-    @_builtins.property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityResponse']]:
-        """
-        Map of user assigned managed identities.
-        """
-        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type

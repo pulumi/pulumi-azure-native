@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// <summary>
         /// Export policy rule
         /// </summary>
-        public readonly ImmutableArray<Outputs.ExportPolicyRuleResponse> Rules;
+        public readonly ImmutableArray<Outputs.ExportPolicyRuleResponseV1> Rules;
 
         [OutputConstructor]
-        private VolumePropertiesResponseExportPolicy(ImmutableArray<Outputs.ExportPolicyRuleResponse> rules)
+        private VolumePropertiesResponseExportPolicy(ImmutableArray<Outputs.ExportPolicyRuleResponseV1> rules)
         {
             Rules = rules;
         }

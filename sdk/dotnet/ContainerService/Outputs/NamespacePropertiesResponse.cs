@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Annotations;
         /// <summary>
-        /// The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. All the network policies will be enforced.
+        /// The default network policy enforced upon the namespace. Customers can have other Kubernetes network policy objects under the namespace. Network policies are additive; if a policy or policies apply to a given pod for a given direction, the connections allowed in that direction for the pod is the union of what all applicable policies allow.
         /// </summary>
         public readonly Outputs.NetworkPoliciesResponse? DefaultNetworkPolicy;
         /// <summary>
-        /// The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. All the resource quotas will be enforced.
+        /// The default resource quota enforced upon the namespace. Customers can have other Kubernetes resource quota objects under the namespace. Resource quotas are additive; if multiple resource quotas are applied to a given namespace, then the effective limit will be one such that all quotas on the namespace can be satisfied.
         /// </summary>
         public readonly Outputs.ResourceQuotaResponse? DefaultResourceQuota;
         /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// <summary>
         /// The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         /// </summary>
-        public readonly string? PortalFqdn;
+        public readonly string PortalFqdn;
         /// <summary>
         /// The current provisioning state of the namespace.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? labels,
 
-            string? portalFqdn,
+            string portalFqdn,
 
             string provisioningState)
         {

@@ -17,17 +17,9 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class DdosSettingsResponse
     {
         /// <summary>
-        /// The DDoS custom policy associated with the public IP.
-        /// </summary>
-        public readonly Outputs.SubResourceResponse? DdosCustomPolicy;
-        /// <summary>
         /// The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
         /// </summary>
         public readonly Outputs.SubResourceResponse? DdosProtectionPlan;
-        /// <summary>
-        /// The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
-        /// </summary>
-        public readonly string? ProtectionCoverage;
         /// <summary>
         /// The DDoS protection mode of the public IP
         /// </summary>
@@ -35,17 +27,11 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private DdosSettingsResponse(
-            Outputs.SubResourceResponse? ddosCustomPolicy,
-
             Outputs.SubResourceResponse? ddosProtectionPlan,
-
-            string? protectionCoverage,
 
             string? protectionMode)
         {
-            DdosCustomPolicy = ddosCustomPolicy;
             DdosProtectionPlan = ddosProtectionPlan;
-            ProtectionCoverage = protectionCoverage;
             ProtectionMode = protectionMode;
         }
     }

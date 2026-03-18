@@ -24,36 +24,15 @@ namespace Pulumi.AzureNative.AwsConnector.Outputs
         /// The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed. The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
         /// </summary>
         public readonly string? RegistryId;
-        /// <summary>
-        /// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        /// </summary>
-        public readonly string? TransitionToArchive;
-        /// <summary>
-        /// The number of days after files were last accessed in primary storage (the Standard storage class) at which to move them to Infrequent Access (IA) storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        /// </summary>
-        public readonly string? TransitionToIA;
-        /// <summary>
-        /// Whether to move files back to primary (Standard) storage after they are accessed in IA or Archive storage. Metadata operations such as listing the contents of a directory don't count as file access events.
-        /// </summary>
-        public readonly string? TransitionToPrimaryStorageClass;
 
         [OutputConstructor]
         private LifecyclePolicyResponse(
             string? lifecyclePolicyText,
 
-            string? registryId,
-
-            string? transitionToArchive,
-
-            string? transitionToIA,
-
-            string? transitionToPrimaryStorageClass)
+            string? registryId)
         {
             LifecyclePolicyText = lifecyclePolicyText;
             RegistryId = registryId;
-            TransitionToArchive = transitionToArchive;
-            TransitionToIA = transitionToIA;
-            TransitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
         }
     }
 }

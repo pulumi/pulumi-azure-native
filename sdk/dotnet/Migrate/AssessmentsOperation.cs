@@ -305,7 +305,7 @@ namespace Pulumi.AzureNative.Migrate
         /// environment.
         /// </summary>
         [Output("vmUptime")]
-        public Output<Outputs.VmUptimeResponse?> VmUptime { get; private set; } = null!;
+        public Output<Outputs.VmUptimeResponseV1?> VmUptime { get; private set; } = null!;
 
 
         /// <summary>
