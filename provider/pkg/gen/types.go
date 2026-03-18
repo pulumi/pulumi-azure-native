@@ -261,7 +261,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			// if they are not the same, then try disambiguate the token by adding either
 			// - the module version (e.g. _V20210401) if the module version can be extracted from the token, or
 			// - a numeric suffix (e.g. V1, V2, etc.)
-			if existing, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") {
+			if existing, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") && isOutput {
 				if !propertiesEqual(existing, spec) {
 					// then disambiguate the token by adding a numeric suffix.
 					tok, err = m.disambiguateTypeToken(tok)
