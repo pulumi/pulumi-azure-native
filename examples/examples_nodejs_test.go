@@ -59,6 +59,7 @@ func TestAccCosmosDBTs(t *testing.T) {
 }
 
 func TestAccSimpleTs(t *testing.T) {
+	t.Skip("Skipping due to unreliability, see https://github.com/pulumi/pulumi-azure-native/issues/4604")
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
