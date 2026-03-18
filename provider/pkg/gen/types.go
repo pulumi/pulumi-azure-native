@@ -16,7 +16,6 @@ package gen
 
 import (
 	"fmt"
-	"reflect"
 	"strconv"
 	"strings"
 
@@ -91,6 +90,69 @@ func (m *moduleGenerator) disambiguateTypeToken(token string) (string, error) {
 	}
 
 	return token, nil
+}
+
+// propertiesEqual checks if the properties of two ComplexTypeSpecs are equal.
+// Descriptions don't have to match, but types, refs, items, additionalProperties, and required properties do.
+func propertiesEqual(specA, specB pschema.ComplexTypeSpec) bool {
+	if len(specA.Properties) != len(specB.Properties) {
+		return false
+	}
+
+	if len(specA.Required) != len(specB.Required) {
+		return false
+	}
+
+	for _, req := range specA.Required {
+		found := false
+		for _, reqB := range specB.Required {
+			if req == reqB {
+				found = true
+				break
+			}
+		}
+
+		if !found {
+			return false
+		}
+	}
+
+	for propName, propSpecA := range specA.Properties {
+		propSpecB, ok := specB.Properties[propName]
+		if !ok {
+			return false
+		}
+
+		if propSpecA.Type != propSpecB.Type || propSpecA.Ref != propSpecB.Ref {
+			return false
+		}
+
+		// if either of the two properties has an Items field,
+		// then both should have it and they should be the same
+		if (propSpecA.Items == nil) != (propSpecB.Items == nil) {
+			return false
+		}
+
+		if propSpecA.Items != nil && propSpecB.Items != nil {
+			if propSpecA.Items.Type != propSpecB.Items.Type || propSpecA.Items.Ref != propSpecB.Items.Ref {
+				return false
+			}
+		}
+
+		// same for AdditionalProperties
+		if (propSpecA.AdditionalProperties == nil) != (propSpecB.AdditionalProperties == nil) {
+			return false
+		}
+
+		if propSpecA.AdditionalProperties != nil && propSpecB.AdditionalProperties != nil {
+			if propSpecA.AdditionalProperties.Type != propSpecB.AdditionalProperties.Type ||
+				propSpecA.AdditionalProperties.Ref != propSpecB.AdditionalProperties.Ref {
+				return false
+			}
+		}
+	}
+
+	return true
 }
 
 func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
@@ -200,7 +262,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			// - the module version (e.g. _V20210401) if the module version can be extracted from the token, or
 			// - a numeric suffix (e.g. V1, V2, etc.)
 			if existing, has := m.pkg.Types[tok]; has && strings.HasSuffix(tok, "Response") {
-				if !reflect.DeepEqual(existing, spec) {
+				if !propertiesEqual(existing, spec) {
 					// then disambiguate the token by adding a numeric suffix.
 					tok, err = m.disambiguateTypeToken(tok)
 					if err != nil {
