@@ -31,9 +31,9 @@ require (
 	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.6.0
-	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.101.2
-	github.com/pulumi/pulumi-java/pkg v1.21.2
-	github.com/pulumi/pulumi-yaml v1.30.0
+	github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3 v3.102.0
+	github.com/pulumi/pulumi-java/pkg v1.21.3
+	github.com/pulumi/pulumi-yaml v1.30.1
 	github.com/pulumi/pulumi/pkg/v3 v3.226.0
 	github.com/pulumi/pulumi/sdk/v3 v3.226.0
 	github.com/schollz/progressbar/v3 v3.5.0
@@ -104,7 +104,7 @@ require (
 	github.com/pjbgf/sha1cd v0.3.2 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.22.0 // indirect
+	github.com/pulumi/esc v0.23.0 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
