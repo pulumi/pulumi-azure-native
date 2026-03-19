@@ -57,6 +57,13 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
+      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+        id: app-auth
+        with:
+          app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
+          private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
@@ -94,7 +101,7 @@ jobs:
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
         env:
-          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
 
       - name: Configure AWS Credentials
         # https://github.com/aws-actions/configure-aws-credentials#notice-node12-deprecation-warning
@@ -123,7 +130,7 @@ jobs:
           generate_release_notes: true
           files: dist/*
         env:
-          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
