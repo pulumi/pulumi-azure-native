@@ -7,8 +7,10 @@ toolchain go1.24.13
 require (
 	github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3 v3.15.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.15.0
+	github.com/pulumi/pulumi-azuread/sdk/v5 v5.53.7
 	github.com/pulumi/pulumi-azuread/sdk/v6 v6.8.1
 	github.com/pulumi/pulumi-random/sdk/v4 v4.19.1
+	github.com/pulumi/pulumi-tls/sdk/v4 v4.11.1
 	github.com/pulumi/pulumi-tls/sdk/v5 v5.3.0
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 )
@@ -119,7 +121,7 @@ require (
 	golang.org/x/tools v0.40.0 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260128011058-8636f8732409 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260128011058-8636f8732409 // indirect
-	google.golang.org/grpc v1.78.0 // indirect
+	google.golang.org/grpc v1.79.3 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
