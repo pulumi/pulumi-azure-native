@@ -34,6 +34,7 @@ jobs:
     name: publish-provider
     permissions:
       id-token: write # For ESC secrets.
+      contents: write # For creating GitHub releases.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -129,8 +130,6 @@ jobs:
           body: ${{ steps.schema-summary.outputs.summary }}
           generate_release_notes: true
           files: dist/*
-        env:
-          GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
