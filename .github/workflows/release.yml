@@ -25,6 +25,9 @@ jobs:
       upload_codecov: false
 
   publish:
+    permissions:
+      id-token: write # For ESC secrets.
+      contents: write # For creating GitHub releases (passed to publish.yml).
     uses: ./.github/workflows/publish.yml
     secrets: inherit
     needs:
