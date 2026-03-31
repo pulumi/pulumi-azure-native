@@ -11,7 +11,7 @@ require (
 	github.com/pulumi/pulumi-azure-native-sdk/network/v3 v3.16.0
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.16.0
 	github.com/pulumi/pulumi-command/sdk v1.2.1
-	github.com/pulumi/pulumi-tls/sdk/v5 v5.3.0
+	github.com/pulumi/pulumi-tls/sdk/v5 v5.3.1
 	github.com/pulumi/pulumi/sdk/v3 v3.224.0
 )
 
