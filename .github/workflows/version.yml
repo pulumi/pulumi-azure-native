@@ -14,9 +14,10 @@ jobs:
     name: Calculate Dev Version
     steps:
       - id: version
-        name: Calculate build version
-        uses: pulumi/provider-version-action@f96d032a2758fdda7939e5728eff6c0d980ae894 # v1.6.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: Set hardcoded v2 dev version
+        # The provider-version-action reads git tags and returns v3.x since v3 is the
+        # latest major. On the v2 maintenance branch we hardcode a v2 dev version so
+        # that MAJOR_VERSION stays 2 and codegen selects the correct v2 configuration.
+        run: echo "VERSION=2.91.0-alpha.0+dev" >> "$GITHUB_OUTPUT"
     outputs:
       version: ${{ steps.version.outputs.VERSION }}
