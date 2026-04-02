@@ -53,7 +53,7 @@ func TestAllDefaultStatesConvertable(t *testing.T) {
 				}
 				resource, found := metadata.Resources[resourceToken]
 				require.Truef(t, found, "Resource not found in metadata: %s", resourceToken)
-				converted, err := crud.PrepareAzureRESTBody("", resource.PutParameters, [][]string{}, defaultState.State, &convert.SdkShapeConverter{})
+				converted, err := crud.PrepareAzureRESTBody("", resource.PutParameters, [][]string{}, defaultState.State, nil, &convert.SdkShapeConverter{})
 				assert.Nil(t, err, "Failed to prepare body for %s", resourceToken)
 				assert.NotNil(t, converted, "No body returned for %s", resourceToken)
 			}
